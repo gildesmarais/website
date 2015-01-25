@@ -1,0 +1,12 @@
+@import 'base';
+
+.navigation {
+  margin-top: 10%;
+  border-top: 1px solid $base06;
+  &__items {
+    list-style: none;
+  }
+  &__item {
+    display: inline-block;
+  }
+}

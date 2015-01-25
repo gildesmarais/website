@@ -2,6 +2,7 @@
   "name": "website",
   "private": true,
   "dependencies": {
-    "skeleton": "~2.0.4"
+    "skeleton": "~2.0.4",
+    "simple-icons": "https://github.com/danleech/simple-icons.git#master"
   }
 }

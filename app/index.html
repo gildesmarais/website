@@ -1,55 +1,263 @@
 <!doctype html>
-<html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title>website3</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gil Desmarais - About me</title>
 
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-      <li>HTML5 Boilerplate</li>
-      <li>Sass</li>
+  <link href='http://fonts.googleapis.com/css?family=Jura:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Enriqueta' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/navigation.css">
+  <link rel="stylesheet" href="styles/work-experience.css">
+  <!-- endbuild -->
+</head>
+<body>
 
-      </ul>
+  <div class="container">
+
+    <div class="row">
+      <div class="seven columns">
+        <h1>Gil Desmarais</h1>
+        <p>
+          software developer, writing JavaScript and HTML5,<br>
+          looking for new opportunities and new stuff to learn, mentoring<br>
+          speaking English and German<br>
+          <br>
+          likes sysadmin,<br>
+          how i work: macosx, sublime text 3, zsh, spectacle app<br>
+          non-smoker<br>
+
+        </p>
+        <p>
+          For improving my work I always strive to keep a pragmatic approach, use Design Patterns when useful and keep Best Practices in mind.
+        </p>
+      </div>
+      <div class="three columns">
+        <img src="images/gil.jpg" alt="Portait photo of Gil">
+      </div>
     </div>
 
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- endbuild -->
+    <nav class="navigation">
+      <ul class="navigation__items">
+        <li class="navigation__item">
+          <a href="#work-experience">Work Experience</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#education">Education</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    <section id="work-experience" class="section">
+      <h2 class="work-experience__headline">Work Experience</h2>
+      <p class="work-experience__intro">After school I served the miltary service, started studying Business Informatics and worked at a software agency since then.</p>
+
+      <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">04/2013 &ndash; 01/2014</span>
+        </div>
+        <div class="nine columns">
+
+          <h4 class="work-experience__position">Developer</h4>
+          <div class="work-experience__company">the peak lab. GmbH &amp; Co. KG</div>
+
+          <div class="work-experience__description">
+            <p>
+              I developed the frontend and the backend for several projects of different customers in the (renewable) energy sector. I also chose the frontend technology to use, identified use cases and formed concepts.
+            </p>
+            <p>
+              I like JavaScript and write CSS with SASS (preferably in BEM-notation). As MV* framework I currently use AngularJS 1.x. I still like jQuery for getting things done in the DOM-tree.
+            </p>
+            <p>
+              On the backend I used the Spring Framework and Hibernate ORM with relational databases.
+            </p>
+            <p>
+              To allow state of the art webdevelopment and automatize repetitive tasks I use Grunt. I encouraged the company to migrate from Subversion to Git.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">04/2012 &ndash; 03/2013</span>
+        </div>
+        <div class="nine columns">
+
+          <h4 class="work-experience__position">Junior Developer</h4>
+          <div class="work-experience__company">the peak lab. GmbH &amp; Co. KG</div>
+
+          <div class="work-experience__description">
+            I worked on the frontend and on the backend for several projects of different customers.
+            Mainly using Spring, Hibernate ORM, Java Server Pages for developing web portals.
+
+            I also learned Objective-C and the iOS6 foundation and helped creating an iOS game.
+          </div>
+        </div>
+      </div>
+
+      <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">09/2011 &ndash; 03/2012</span>
+        </div>
+        <div class="nine columns">
+          <h4 class="work-experience__position">Developer Trainee</h4>
+          <div class="work-experience__company">Granny &amp; Smith Technikagentur GmbH &amp; Co. KG</div>
+
+          <div class="work-experience__description">
+            <p>
+              Internship as software developer and writing my Bachelor thesis.
+            </p>
+
+            <p>
+              With ProSyst's mBS Smart Home OSGi Framework I dived into modular programming.
+            </p>
+
+            <p>
+              The frontend was created with HTML, CSS and JavaScript/jQuery. Communication was JSON encoded and send via WebSockets or AJAX requests.
+            </p>
+
+            <p>
+              I also learned foundamental basics of UX and UI design.
+            </p>
+
+            <p>
+              “Granny &amp; Smith Technikagentur” renamed themselves to “the peak lab.” in 2012.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">2009 &ndash; 2011</span>
+        </div>
+        <div class="nine columns">
+
+          <h4 class="work-experience__position">Student Assistant</h4>
+          <div class="work-experience__company">Jade University of Applied Science, Wilhelmshaven</div>
+          <div class="work-experience__description">
+            <p>
+              I taught students how to think object-oriented and write Java in “Programmieren 1” module.
+            </p>
+
+            <p>
+              During summer 2011 I researched digitalSTROM for the <a href="http://www.jade-hs.de/nc/de/aktuelles-termine/pressemeldungen/pressearchiv/einzelansicht-pressearchiv/article/wirtschaftsinformatik-macht-strom-intelligent/">“Smart Living” project</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">07/2007 &ndash; 02/2009</span>
+        </div>
+        <div class="nine columns">
+
+          <h4 class="work-experience__position">Draftee</h4>
+          <div class="work-experience__company">Deutsche Luftwaffe</div>
+          <div class="work-experience__description">
+            First-Level IT-Support, Project Hercules, Windows-Domainadministrator
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <section id="education" class="section education">
+      <h2>Education</h2>
+
+      <div class="row work-experience">
+        <div class="three columns">
+          <span class="work-experience__timerange">03/2009 &ndash; 03/2012</span>
+        </div>
+        <div class="nine columns">
+
+          <h4 class="work-experience__company">Jade University of Applied Science</h4>
+          <div class="work-experience__description">
+
+            network administration
+            online-marketing
+
+            <p>
+              <strong>Bachelor thesis topic:</strong>
+              “Softwaremodularität in Smart Homes &ndash; OSGi als Basis für zukünftige Produkte und Services in Smart Homes”<br>
+              <strong>B. Sc. Grade:</strong> 1.53
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact me!</h2>
+
+      <div class="row">
+        <div class="three columns">
+          Gil Desmarais<br>
+          Auguststr. 84<br>
+          26121 Oldenburg
+        </div>
+        <div class="three columns">
+          tel: 0170 27 93 768<br>
+          mail: gil[at]desmarais.de<br>
+          PGP key:
+        </div>
+        <div class="three columns">
+          <a href="https://github.com/gill0r">
+            <img src="../bower_components/simple-icons/icons/github/github-32-black.png">
+          </a>
+          <a href="https://twitter.com/gill0r">
+            <img src="../bower_components/simple-icons/icons/twitter/twitter-32-black.png">
+          </a>
+          <a href="https://linkedin.com">
+            <img src="../bower_components/simple-icons/icons/linkedin/linkedin-32-black.png">
+          </a>
+          <a href="https://xing.de">
+            <img src="../bower_components/simple-icons/icons/xing/xing-32-black.png">
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--
+  <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script>
+-->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+<!-- build:js({app,.tmp}) scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
 </body>
 </html>

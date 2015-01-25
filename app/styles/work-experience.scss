@@ -1,0 +1,17 @@
+@import 'base';
+
+.work-experience {
+  margin-bottom: 4rem;
+  &__company {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 3rem;
+  }
+  &__timerange {
+    font-family: Jura;
+    font-size: 1.8rem;
+    letter-spacing: -.05rem;
+    line-height: 1.9;
+  }
+}
