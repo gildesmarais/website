@@ -1,0 +1,11 @@
+@import 'base';
+
+.header {
+  &__headline {
+    letter-spacing: -.2rem;
+  }
+  &__portrait {
+    vertical-align: bottom;
+    width: 30rem;
+  }
+}
