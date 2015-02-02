@@ -9,10 +9,6 @@
   <meta name="format-detection" content="telephone=no">
 
   <link href='http://fonts.googleapis.com/css?family=Jura:300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Enriqueta' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,500,600' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="/favicon.ico">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
@@ -22,6 +18,7 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/contact.css">
   <link rel="stylesheet" href="styles/section.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/navigation.css">
@@ -32,44 +29,29 @@
 
   <div class="container">
 
-    <div class="row">
-      <div class="seven columns">
-        <h1>Gil Desmarais</h1>
-        <p>
-          software developer, writing JavaScript and HTML5,<br>
-          looking for new opportunities and new stuff to learn, mentoring<br>
-          speaking English and German<br>
-          <br>
-          likes sysadmin,<br>
-          how i work: macosx, sublime text 3, zsh, spectacle app<br>
-          non-smoker<br>
-
+    <div class="header">
+      <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
+      <div class="header__column--left" >
+        <p class="header__subheadline">
+          I am looking for a new job in Berlin.
         </p>
+
         <p>
-          For improving my work I always strive to keep a pragmatic approach, use Design Patterns when useful and keep Best Practices in mind.
+          I am a software developer and love writing JavaScript and HTML5 with CSS. I am an openminded person and always looking for new stuff to learn. In my next job I'd like to develop more on the backend side. It would be great to have a mentor to accelerate the learning process.<br>
+
+          I speak German and English.
+        </p>
+
+        <p>
+          For improving my work I always strive to keep a pragmatic approach, use Design&nbsp;Patterns when useful and keep Best&nbsp;Practices in mind.
         </p>
       </div>
-      <div class="five columns">
+      <div class="header__column--right">
         <img class="header__portrait" src="images/gil2.jpg" alt="Portait photo of Gil">
       </div>
     </div>
 
-
-    <nav class="navigation">
-      <ul class="navigation__items">
-        <li class="navigation__item">
-          <a href="#work-experience">Work Experience</a>
-        </li>
-        <li class="navigation__item">
-          <a href="#education">Education</a>
-        </li>
-        <li class="navigation__item">
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
-    <section id="work-experience" class="section">
+    <section id="work-experience" class="section--first">
       <h2 class="work-experience__headline">Work Experience</h2>
       <p class="work-experience__intro">After school I served the miltary service, started studying Business Informatics and worked at a software agency since then.</p>
 
@@ -87,13 +69,13 @@
               I developed the frontend and the backend for several projects of different customers in the (renewable) energy sector. I also chose the frontend technology to use, identified use cases and formed concepts.
             </p>
             <p>
-              I like JavaScript and write CSS with SASS (preferably in BEM-notation). As MV* framework I currently use AngularJS 1.x. I still like jQuery for getting things done in the DOM-tree.
+              I like JavaScript and write CSS with SASS (preferably in BEM-notation). As MV* framework I currently use AngularJS 1.x. I still like jQuery for getting things done in the DOM-tree. To allow state of the art webdevelopment and automatize repetitive tasks I use Grunt.
             </p>
             <p>
               On the backend I used the Spring Framework and Hibernate ORM with relational databases.
             </p>
             <p>
-              To allow state of the art webdevelopment and automatize repetitive tasks I use Grunt. I encouraged the company to migrate from Subversion to Git.
+              I encouraged the company to migrate from Subversion to Git.
             </p>
           </div>
         </div>
@@ -112,7 +94,7 @@
             I worked on the frontend and on the backend for several projects of different customers.
             Mainly using Spring, Hibernate ORM, Java Server Pages for developing web portals.
 
-            I also learned Objective-C and the iOS6 foundation and helped creating an iOS game.
+            I also learned a bit Objective-C and iOS6 Foundation and contributed to an iOS game.
           </div>
         </div>
       </div>
@@ -163,25 +145,11 @@
             </p>
 
             <p>
-              During summer 2011 I researched digitalSTROM for the <a href="http://www.jade-hs.de/nc/de/aktuelles-termine/pressemeldungen/pressearchiv/einzelansicht-pressearchiv/article/wirtschaftsinformatik-macht-strom-intelligent/">“Smart Living” project</a>.
+              During summer 2011 I researched the technology “digitalSTROM” for the <a href="http://www.jade-hs.de/nc/de/aktuelles-termine/pressemeldungen/pressearchiv/einzelansicht-pressearchiv/article/wirtschaftsinformatik-macht-strom-intelligent/" nofollow>“Smart Living” project</a>.
             </p>
           </div>
         </div>
       </div>
-
-      <!-- <div class="row work-experience">
-        <div class="three columns">
-          <span class="work-experience__timerange">07/2007 &ndash; 02/2009</span>
-        </div>
-        <div class="nine columns">
-
-          <h4 class="work-experience__position">Draftee</h4>
-          <div class="work-experience__company">Deutsche Luftwaffe</div>
-          <div class="work-experience__description">
-            First-Level IT-Support, Project Hercules, Windows-Domainadministrator
-          </div>
-        </div>
-      </div> -->
     </section>
 
     <section id="education" class="section education">
@@ -202,7 +170,7 @@
             <p>
               <strong>Bachelor thesis topic:</strong>
               “Softwaremodularität in Smart Homes &ndash; OSGi als Basis für zukünftige Produkte und Services in Smart Homes”<br>
-              <strong>B. Sc. Grade:</strong> 1.53
+              <strong>B. Sc. Grade:</strong> 1.56
             </p>
 
           </div>
@@ -210,43 +178,49 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <h2>Contact me!</h2>
 
-      <div class="row">
-        <div class="three columns">
-          Gil Desmarais<br>
-          Auguststr. 84<br>
-          26121 Oldenburg
-        </div>
-        <div class="three columns">
-          tel: 0170 27 93 768<br>
-          mail: gil[at]desmarais.de<br>
-          PGP key:
-        </div>
-        <div class="three columns">
-          <a href="https://github.com/gill0r">
-            <img src="../bower_components/simple-icons/icons/github/github-32-black.png">
-          </a>
-          <a href="https://twitter.com/gill0r">
-            <img src="../bower_components/simple-icons/icons/twitter/twitter-32-black.png">
-          </a>
-          <a href="https://linkedin.com">
-            <img src="../bower_components/simple-icons/icons/linkedin/linkedin-32-black.png">
-          </a>
-          <a href="https://xing.de">
-            <img src="../bower_components/simple-icons/icons/xing/xing-32-black.png">
-          </a>
+  <!-- <br>
+  likes sysadmin,<br>
+  how i work: macosx, sublime text 3, zsh, spectacle app<br>
+  non-smoker<br>
+  travelling, bicycling, cooking -->
+
+
+  <section id="contact" class="section contact">
+    <h2>Contact me!</h2>
+
+    <div class="row">
+      <div class="six columns">
+
+        <div class="contact__methods">
+          Tel.: <a href="tel:+491702793768">0170 27 93 768</a><br>
+          eMail: <a href="mailto:gil@desmarais.de">gil@desmarais.de</a><br>
+          PGP key: <a href="0xE0C21D8D.asc">0xE0C21D8D</a>
         </div>
       </div>
-    </section>
-  </div>
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <!-- endbower -->
-  <!-- endbuild -->
+      <div class="six columns ">
+        <div class="contact__social-links">
+          <a class="contact__social-link" href="https://github.com/gill0r"><img src="../bower_components/simple-icons/icons/github/github-32-black.png"></a>
+          <a class="contact__social-link" href="https://twitter.com/gill0r"><img src="../bower_components/simple-icons/icons/twitter/twitter-32-black.png"></a>
+          <a class="contact__social-link" href="https://linkedin.com/in/gildes"><img src="../bower_components/simple-icons/icons/linkedin/linkedin-32-black.png"></a>
+          <a class="contact__social-link" href="https://www.xing.com/profile/Gil_Desmarais"><img src="../bower_components/simple-icons/icons/xing/xing-32-black.png"></a>
+        </div>
+      </div>
+      <div class="twelve columns">
+        <div class="contact__address">
+          Home address: Gil Desmarais&nbsp;|&nbsp;Auguststr.&nbsp;84&nbsp;|&nbsp;26121 Oldenburg
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!--
   <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

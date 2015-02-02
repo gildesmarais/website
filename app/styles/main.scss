@@ -2,24 +2,15 @@
 
 body {
   color: $base00;
-  // font-family: Jura;
-  // font-family: Oswald;
-  // font-family: 'Droid Sans';
-  // font-family: 'Enriqueta';
-  // font-family: 'Helvetica';
-  font-family: Arial, Verdana, sans-serif;
+  font-family: $base-font;
   font-weight: 400;
-  // letter-spacing: -.5px;
 }
 
 a {
   color: $base0d;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: Jura;
-  // font-family: Oswald;
-  // font-family: 'Droid Sans';
-  // font-family: 'Enriqueta';
+  font-family: $alternative-font;
   margin-bottom: 1rem;
 }
 

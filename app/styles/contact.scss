@@ -1,0 +1,20 @@
+@import 'base';
+
+.contact {
+  &__address {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  &__methods {
+  }
+  &__social-links {
+    text-align: right;
+  }
+  @media (max-width: 767px) {
+    &__social-links {
+      text-align: left;
+    }
+  }
+  &__social-link {
+  }
+}

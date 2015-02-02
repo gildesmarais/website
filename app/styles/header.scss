@@ -2,10 +2,54 @@
 
 .header {
   &__headline {
+    display: block;
     letter-spacing: -.2rem;
+    line-height: 1;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  &__subheadline {
+    font-size: 1.75rem;
   }
   &__portrait {
+    display: none;
+    height: auto;
     vertical-align: bottom;
-    width: 30rem;
+  }
+  @media (max-width: 767px) {
+    &__column--left {
+      vertical-align: bottom;
+      width: 100%;
+    }
+    &__column--right {
+      display: block;
+      height: 20rem;
+      overflow: hidden;
+      text-align: center;
+    }
+    &__portrait {
+      display: inline-block;
+      height: auto;
+      width: 240px;
+    }
+  }
+  @media (min-width: 767px) {
+    %header__column {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+    &__column--left {
+      @extend %header__column;
+      width: 60%;
+    }
+    &__column--right {
+      @extend %header__column;
+      text-align: right;
+      width: 40%;
+    }
+    &__portrait {
+      display: inline-block;
+      max-width: 24rem;
+    }
   }
 }

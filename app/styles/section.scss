@@ -8,9 +8,8 @@
 
 .section {
   @extend %section;
-}
-
-.section--first {
-  @extend %section;
-  margin-top: 0;
+  &--first {
+    @extend %section;
+    margin-top: 0;
+  }
 }
