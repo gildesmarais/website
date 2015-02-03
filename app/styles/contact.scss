@@ -13,10 +13,17 @@
   }
   @media (max-width: 767px) {
     &__social-links {
-      text-align: left;
     }
   }
   &__social-link {
+    display: block;
+    float: right;
+    font-size: 0;
     margin: 1rem;
+    padding: 0;
+    transition: .4s all ease;
+    &:hover {
+      background-color: rgba($base0d, .5);
+    }
   }
 }

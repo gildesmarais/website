@@ -189,6 +189,15 @@ module.exports = function(grunt) {
       }
     },
 
+
+    sprite: {
+      all: {
+        src: '<%= config.app %>/images/sprites/*.png',
+        dest: '<%= config.app %>/images/sprites.png',
+        destCss: '<%= config.app %>/styles/sprites.css'
+      }
+    },
+
     // Automatically inject Bower components into the HTML file
     wiredep: {
       app: {
@@ -387,7 +396,8 @@ module.exports = function(grunt) {
       grunt.task.run([
         'clean:server',
         'concurrent:test',
-        'autoprefixer'
+        'autoprefixer',
+        'sprite'
       ]);
     }
 
@@ -400,6 +410,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'sprite',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

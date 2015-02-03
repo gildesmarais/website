@@ -12,8 +12,6 @@
     font-size: 1.75rem;
   }
   &__portrait {
-    display: none;
-    height: auto;
     vertical-align: bottom;
   }
   @media (max-width: 767px) {
@@ -30,6 +28,7 @@
     &__portrait {
       display: inline-block;
       height: auto;
+      opacity: 1;
       width: 240px;
     }
   }
@@ -50,6 +49,7 @@
     &__portrait {
       display: inline-block;
       max-width: 24rem;
+      opacity: 1;
     }
   }
 }
