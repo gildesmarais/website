@@ -320,15 +320,17 @@ module.exports = function(grunt) {
           cwd: '<%= config.app %>',
           dest: '<%= config.dist %>',
           src: [
-            '*.{ico,png,txt,asc}',
+            '*.{ico,png,txt,asc,htaccess}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*'
           ]
-        }, {
-          src: 'node_modules/apache-server-configs/dist/.htaccess',
-          dest: '<%= config.dist %>/.htaccess'
-        }]
+        },
+        // {
+        //   src: 'node_modules/apache-server-configs/dist/.htaccess',
+        //   dest: '<%= config.dist %>/.htaccess'
+        // }
+        ]
       },
       styles: {
         expand: true,
