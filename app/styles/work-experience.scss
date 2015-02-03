@@ -13,6 +13,10 @@
     line-height: 1;
     margin-bottom: 3rem;
   }
+  &__type {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
   &__timerange {
     @extend %timerange-font;
     line-height: 2.7;
@@ -20,6 +24,13 @@
   &__timerange-seperator {
     @extend %timerange-font;
     line-height: 2.7;
+  }
+  &__list {
+    list-style-type: square;
+    margin: 1rem 0 2.5rem .5rem;
+    > li {
+      line-height: 1.5rem;
+    }
   }
   @media (max-width: 870px) {
     &__timerange {
