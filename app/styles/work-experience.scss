@@ -2,16 +2,16 @@
 
 .work-experience {
   margin-bottom: 4rem;
+  %timerange-font {
+    font-family: $alternative-font;
+    font-size: 1.8rem;
+    letter-spacing: -.05rem;
+  }
   &__company {
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1;
     margin-bottom: 3rem;
-  }
-  %timerange-font {
-    font-family: $alternative-font;
-    font-size: 1.8rem;
-    letter-spacing: -.05rem;
   }
   &__timerange {
     @extend %timerange-font;

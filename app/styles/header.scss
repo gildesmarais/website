@@ -33,16 +33,14 @@
     }
   }
   @media (min-width: 767px) {
-    %header__column {
+    &__column--left, &__column--right {
       display: table-cell;
       vertical-align: bottom;
     }
     &__column--left {
-      @extend %header__column;
       width: 60%;
     }
     &__column--right {
-      @extend %header__column;
       text-align: right;
       width: 40%;
     }
