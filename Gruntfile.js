@@ -347,12 +347,7 @@ module.exports = function(grunt) {
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*'
           ]
-        },
-        // {
-        //   src: 'node_modules/apache-server-configs/dist/.htaccess',
-        //   dest: '<%= config.dist %>/.htaccess'
-        // }
-        ]
+        }]
       },
       styles: {
         expand: true,
@@ -443,8 +438,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
+    // no tests, yet.
+    // 'test',
     'build'
   ]);
 };
