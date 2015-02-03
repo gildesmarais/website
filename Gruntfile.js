@@ -139,6 +139,19 @@ module.exports = function(grunt) {
       ]
     },
 
+    scsslint: {
+      all: [
+        '<%= config.app %>/styles/**.scss',
+        '!<%= config.app %>/styles/sprites.css',
+      ],
+      options: {
+        config: '.scss-lint.yml',
+        reporterOutput: null,
+        colorizeOutput: true,
+        force: true
+      },
+    },
+
     // Mocha testing framework configuration options
     mocha: {
       all: {
@@ -380,6 +393,8 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
+      'newer:jshint',
+      'newer:scsslint',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -412,6 +427,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'jshint',
+    'scsslint',
     'sprite',
     'useminPrepare',
     'concurrent:dist',

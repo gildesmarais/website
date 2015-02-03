@@ -1,0 +1,11 @@
+linters:
+  EmptyLineBetweenBlocks:
+    enabled: false
+  NameFormat:
+    convention: 'BEM'
+  SelectorFormat:
+    convention: 'BEM'
+  SingleLinePerSelector:
+    enabled: false
+  PlaceholderInExtend:
+    enabled: false
