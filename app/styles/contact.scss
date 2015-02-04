@@ -26,4 +26,9 @@
       background-color: rgba($base0d, .5);
     }
   }
+  @media (max-width: 767px) {
+    &__address {
+      text-align: center;
+    }
+  }
 }

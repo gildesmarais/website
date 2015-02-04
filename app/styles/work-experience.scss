@@ -11,11 +11,15 @@
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1;
-    margin-bottom: 3rem;
+  }
+  &__description {
+    margin-top: 3rem;
   }
   &__type {
-    font-size: 1.3rem;
-    font-weight: bold;
+    font-family: $alternative-font;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
   }
   &__timerange {
     @extend %timerange-font;
@@ -31,6 +35,9 @@
     > li {
       line-height: 1.5rem;
     }
+  }
+  &__highlight:target {
+    animation: highlight 2s ease-out;
   }
   @media (max-width: 870px) {
     &__timerange {
