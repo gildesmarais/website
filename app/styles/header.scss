@@ -30,6 +30,7 @@
     &__portrait {
       display: inline-block;
       height: auto;
+      margin-left: -2.5rem; // pic seems offset (not centered horizontally)
       opacity: 1;
       width: 240px;
     }
