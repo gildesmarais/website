@@ -16,6 +16,16 @@
   &__portrait {
     vertical-align: bottom;
   }
+  @media (max-width: 640px) {
+    &__headline {
+      // prevent ugly linebreak on the headline :/
+      font-size: 3.5rem;
+    }
+    &__subheadline {
+      // prevent ugly linebreak on the subheadline, too
+      font-size: 1.5rem;
+    }
+  }
   @media (max-width: 767px) {
     &__column--left {
       vertical-align: bottom;
@@ -75,7 +85,6 @@
       display: inline-block;
       height: 18rem;
       width: auto;
-
     }
   }
 }

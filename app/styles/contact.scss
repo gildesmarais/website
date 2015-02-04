@@ -2,7 +2,7 @@
 
 .contact {
   &__address {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-top: 2rem;
   }
   &__methods {
@@ -12,10 +12,6 @@
     margin-top: 1.3rem;
     text-align: right;
   }
-  // @media (max-width: 767px) {
-  //   &__social-links {
-  //   }
-  // }
   &__social-link {
     display: inline-block;
     font-size: 0;
