@@ -60,4 +60,7 @@
       display: inline;
     }
   }
+  @media print {
+    margin-bottom: 1rem;
+  }
 }

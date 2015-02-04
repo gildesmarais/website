@@ -143,13 +143,14 @@ module.exports = function(grunt) {
       all: [
         '<%= config.app %>/styles/**.scss',
         '!<%= config.app %>/styles/sprites.css',
+        '!<%= config.app %>/styles/print.scss',
       ],
       options: {
         config: '.scss-lint.yml',
         reporterOutput: null,
         colorizeOutput: true,
-        force: true
-      },
+        force: true,
+      }
     },
 
     // Mocha testing framework configuration options
