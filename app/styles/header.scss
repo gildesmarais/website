@@ -28,7 +28,7 @@
   }
   @media (max-width: 767px) {
     &__column--left {
-      vertical-align: bottom;
+      vertical-align: top;
       width: 100%;
     }
     &__column--right {
@@ -48,7 +48,7 @@
   @media (min-width: 767px) {
     &__column--left, &__column--right {
       display: table-cell;
-      vertical-align: bottom;
+      vertical-align: top;
     }
     &__column--left {
       width: 60%;
