@@ -7,6 +7,30 @@
     font-size: 1.8rem;
     letter-spacing: -.05rem;
   }
+  &__textbox {
+    height: 2.5em;
+    overflow: hidden;
+    &--open {
+      height: 100%;
+    }
+  }
+  &__position {
+    cursor: pointer;
+    letter-spacing: -.12rem;
+    &::after {
+      border: 5px solid transparent;
+      border-top-color: rgba($base02, .8);
+      content: '';
+      float: right;
+      margin-top: 1.9rem;
+      &::hover {
+        border-top-color: rgba($base02, .9);
+      }
+    }
+  }
+  &__textbox--open &__position::after {
+    border-top-color: rgba($base02, 1);
+  }
   &__company {
     font-size: 1.3rem;
     font-weight: bold;
@@ -17,7 +41,7 @@
   }
   &__type {
     font-family: $alternative-font;
-    font-size: 1.6rem;
+    font-size: 1.54rem;
     margin-bottom: 1rem;
     margin-top: -1rem;
   }
@@ -43,7 +67,7 @@
       line-height: 1.5rem;
     }
   }
-  &__highlight:target {
+  &__highlight::target {
     animation: highlight 2s ease-out;
   }
   @media (max-width: 870px) {
@@ -69,5 +93,9 @@
   }
   @media print {
     margin-bottom: 1rem;
+
+    &__textbox {
+      height: auto;
+    }
   }
 }
