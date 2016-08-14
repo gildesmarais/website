@@ -17,12 +17,12 @@ $base0c: #8abeb7;
 $base0d: #81a2be;
 $base0e: #b294bb;
 $base0f: #a3685a;
-$alternative-font: Jura, "Bangla Sangam MN", sans-serif;
+$alternative-font: Jura, 'Bangla Sangam MN', sans-serif;
 $base-font: Arial, Verdana, sans-serif;
 
 @keyframes highlight {
   0% {
-    background-color: rgba($base0a, .5);
+    background-color: rgba($base0a, 0.5);
   }
 
   100% {

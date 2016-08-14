@@ -9,10 +9,15 @@ body {
 
 a {
   color: $base0d;
-  transition: .4s all ease;
+  transition: 0.4s all ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $alternative-font;
   margin-bottom: 1rem;
 }

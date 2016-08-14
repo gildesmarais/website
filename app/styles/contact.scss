@@ -18,9 +18,9 @@
     font-size: 0;
     margin: 1rem;
     padding: 0;
-    transition: .4s all ease;
+    transition: 0.4s all ease;
     &:hover {
-      background-color: rgba($base0d, .5);
+      background-color: rgba($base0d, 0.5);
     }
   }
   @media (max-width: 767px) {

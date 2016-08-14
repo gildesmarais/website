@@ -3,10 +3,10 @@
 .header {
   &__headline {
     display: block;
-    letter-spacing: -.2rem;
+    letter-spacing: -0.2rem;
     line-height: 1;
     margin-bottom: 0;
-    margin-left: -.2rem; // the capital h looks offset
+    margin-left: -0.2rem; // the capital h looks offset
     width: 100%;
   }
   &__subheadline {
@@ -46,7 +46,8 @@
     }
   }
   @media (min-width: 767px) {
-    &__column--left, &__column--right {
+    &__column--left,
+    &__column--right {
       display: table-cell;
       vertical-align: top;
     }
@@ -64,7 +65,8 @@
     }
   }
   @media print {
-    &__column--left, &__column--right {
+    &__column--left,
+    &__column--right {
       display: inline-block;
       vertical-align: bottom;
     }
