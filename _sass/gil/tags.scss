@@ -1,0 +1,35 @@
+$tag-color: darken($base03, 20);
+$tag-settings: (
+  1: 55%,
+  2: 65%,
+  3: 75%,
+  4: 90%,
+  5: 100%,
+);
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 1.5rem;
+  padding: 0 2rem;
+  margin: 1em 0;
+}
+
+%tags__tag {
+  display: inline-block;
+  padding: 0 .5rem;
+  line-height: 1.1;
+  font-family: $alternative-font;
+}
+
+@each $level, $visibility in $tag-settings {
+  .tags__tag--#{$level} {
+    @extend %tags__tag;
+    font-size: $visibility;
+    color: rgba($tag-color, ($visibility / 100%));
+  }
+}
+

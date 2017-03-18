@@ -1,7 +1,5 @@
-node_modules
-dist
-.tmp
+_site
 .sass-cache
-bower_components
-app/images/sprites.png
-app/styles/sprites.css
+.jekyll-metadata
+node_modules/
+npm-debug.log

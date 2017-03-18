@@ -1,0 +1,39 @@
+@import 'gil/_base';
+@import 'gil/header';
+@import 'gil/navigation';
+@import 'gil/post';
+@import 'gil/syntax-highlighting';
+@import 'gil/work-experience';
+@import 'gil/tags';
+@import 'gil/print';
+
+.container {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.section {
+  padding: 0 0.5rem;
+  border-top: 1px solid $base06;
+}
+
+.footer {
+  float: right;
+}
+
+.footer__social-link {
+  display: inline-block;
+  padding: 1rem;
+  font-family: $alternative-font;
+  color: $base03;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    background: linear-gradient(180deg, rgba($base06, 0.75), rgba($base06, 0));
+  }
+}
+
+.contact__address {
+  font-style: normal;
+}

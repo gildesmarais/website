@@ -1,0 +1,27 @@
+.header__headline {
+  display: block;
+  letter-spacing: -0.2rem;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-left: -0.1rem; // the capital h looks offset
+  width: 100%;
+}
+
+.header__subheadline {
+  font-size: 1.5rem;
+}
+
+.header__portrait {
+  width: auto;
+  height: 20rem;
+  vertical-align: bottom;
+}
+
+.header__column--right {
+  align-self: flex-end;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}

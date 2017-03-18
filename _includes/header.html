@@ -1,0 +1,19 @@
+<nav class="navigation">
+  <header class="container navigation__container" role="banner">
+    {% assign current = page.url | downcase | split: '/' %}
+
+    <a href="{{ "/" | relative_url }}" class="navigation__item {% if current[1] == null %}navigation__item--active{% endif %} ">Home
+    </a>
+    <a href="{{ "/about" | relative_url }}" class="navigation__item {% if current[1] == 'about' %}navigation__item--active{% endif %} ">About me</a>
+    <a href="{{ "/contact" | relative_url }}" class="navigation__item {% if current[1] == 'contact' %}navigation__item--active{% endif %} ">Contact</a>
+
+    {% comment %}
+    {% for my_page in site.pages %}
+      {% if my_page.title %}
+      <a href="{{ my_page.url | relative_url }}" class="navigation__item">{{ my_page.title | escape }}</a>
+      {% endif %}
+    {% endfor %}
+    {% endcomment %}
+  </header>
+</nav>
+

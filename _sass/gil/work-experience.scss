@@ -1,0 +1,55 @@
+.work-experience {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+%timerange-font {
+  font-family: $alternative-font;
+  font-size: 1rem;
+  letter-spacing: -0.05rem;
+  line-height: 1.6;
+}
+
+.work-experience__timerange {
+  width: 25%;
+  @extend %timerange-font;
+}
+
+.work-experience__timerange-seperator {
+  @extend %timerange-font;
+}
+
+.work-experience__textbox {
+  width: 75%;
+  color: $base02;
+}
+
+.work-experience__position {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.work-experience__company {
+  font-size: .8rem;
+}
+
+.work-experience__thesis--originaltitle {
+  font-size: 80%;
+  margin-top: 1rem;
+}
+
+.work-experience__list {
+  list-style-type: square;
+}
+
+@media (max-width: 600px) {
+  .work-experience {
+    flex-direction: column;
+  }
+
+  .work-experience__timerange,
+  .work-experience__textbox {
+    width: 100%;
+  }
+}

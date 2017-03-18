@@ -1,0 +1,35 @@
+.navigation {
+  background-color: $base02;
+  font-size: 0;
+}
+
+.navigation__container {
+  overflow: hidden;
+  display: flex;
+}
+
+.navigation__item {
+  flex-grow: 1;
+  display: inline-block;
+  margin-top: -1px;
+  color: $base0d;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  &:focus {
+    outline: 0;
+    color: $base06;
+    background-color: $base09;
+  }
+
+  &:hover {
+    background-color: lighten($base02, 20);
+  }
+}
+
+.navigation__item--active {
+  background-color: lighten($base02, 10);
+}
