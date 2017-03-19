@@ -2,7 +2,7 @@
 layout: page
 show_teaser: true
 ---
-<header class="container header">
+<main class="container header">
   <div class="header__column">
     <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
     <p class="header__subheadline">
@@ -15,6 +15,8 @@ show_teaser: true
   </div>
 
   <div class="header__column--right">
-    <img class="header__portrait" src="{{ "/assets/images/gil.jpg" | relative_url }}" alt="Portait photo of Gil">
+    <a href="{{ '/about' | relative_url }}">
+      <img class="header__portrait" src="{{ "/assets/images/gil.jpg" | relative_url }}" alt="Portrait photo of Gil">
+    </a>
   </div>
-</header>
+</main>

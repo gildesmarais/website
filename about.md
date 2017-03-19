@@ -3,7 +3,7 @@ layout: page
 title: About me
 permalink: /about/
 ---
-<main class="about">
+<main class="container">
   <h1 class="header__headline">About me</h1>
   <p>
     Writing clean and easily readable code is what I'm aiming for.
