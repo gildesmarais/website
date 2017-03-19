@@ -2,19 +2,17 @@
 layout: page
 show_teaser: true
 ---
-<main class="container header">
+<main class="container header" role="main">
   <div class="header__column">
     <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
-    <p class="header__subheadline">
-      I'm a software developer from Berlin.
-    </p>
+    <h2 class="header__subheadline">I'm a software developer from Berlin.</h2>
 
     <p>
       <a href="{{ '/about' | relative_url }}">Find out more about me.</a>
     </p>
   </div>
 
-  <div class="header__column--right">
+  <div class="header__column--right" role="complementary">
     <a href="{{ '/about' | relative_url }}">
       <img class="header__portrait" src="{{ "/assets/images/gil.jpg" | relative_url }}" alt="Portrait photo of Gil">
     </a>

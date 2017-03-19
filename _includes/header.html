@@ -1,5 +1,5 @@
 <nav class="navigation">
-  <header class="container navigation__container" role="banner">
+  <header class="container navigation__container" role="navigation">
     {% assign current = page.url | downcase | split: '/' %}
 
     <a href="{{ "/" | relative_url }}" class="navigation__item {% if current[1] == null %}navigation__item--active{% endif %} ">Home

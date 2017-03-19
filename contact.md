@@ -4,7 +4,7 @@ layout: page
 permalink: /contact/
 noindex: true
 ---
-<main class="container">
+<main class="container" role="main">
   <h1 class="header__headline">Contact me!</h1>
   <p>
     Would you like to talk to me? Here are my preferred ways.
