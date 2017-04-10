@@ -43,7 +43,7 @@
   list-style-type: square;
 }
 
-@media (max-width: 600px) {
+@media (max-width: $breakpoint-medium) {
   .work-experience {
     flex-direction: column;
   }

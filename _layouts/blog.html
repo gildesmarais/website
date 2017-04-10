@@ -11,7 +11,7 @@ layout: default
     <ul class="post__list">
       {% for post in site.posts %}
       <li>
-        <time class="post__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <time class="post__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
         <a class="post__link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       </li>
       {% endfor %}
