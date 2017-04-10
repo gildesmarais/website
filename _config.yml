@@ -31,6 +31,8 @@ theme:
 gems:
   - jekyll-feed
   - jekyll-autoprefixer
+  - jekyll-sitemap
+
 exclude:
   - .gitignore
   - .ruby-version
