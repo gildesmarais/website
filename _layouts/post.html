@@ -6,11 +6,22 @@ layout: default
 
     <header class="post__header">
       <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
-      <p class="post__meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+      <p class="post__meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date_to_long_string }}
+        </time>
+      </p>
     </header>
 
     <div class="post__content" itemprop="articleBody">
       {{ content }}
+    </div>
+
+    <div class="post__footer-note" role="complementary">
+      If you don’t want to miss any of my rare posts, I suggest
+      <a href="{{ /feed.xml | relative_url }}">subscribing to the RSS feed</a>
+      or
+      <a href="https://twitter.com/{{ site.twitter_username }}">to follow me on Twitter</a>.
     </div>
 
     {% if site.disqus.shortname %}

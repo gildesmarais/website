@@ -21,6 +21,8 @@ $base0f: #a3685a;
 $alternative-font: Jura, 'Bangla Sangam MN', sans-serif;
 $base-font: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
 
+$breakpoint-medium: 600px;
+
 @keyframes highlight {
   0% {
     background-color: rgba($base0a, 0.5);

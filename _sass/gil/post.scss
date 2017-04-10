@@ -1,28 +1,47 @@
 .post {
-
+  padding: 0 4rem;
 }
-.post__header {
 
+@media (max-width: $breakpoint-medium) {
+  .post {
+    padding: 0 1.5rem;
+  }
+}
+
+.post__header {
 }
 .post__title {
-
 }
-.post__meta {
 
+.post__meta {
+  text-align: right;
+  color: $base03;
 }
 .post__content {
   text-align: justify;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   word-wrap: break-word;
+  line-height: 1.5;
 }
 
 .post__list {
-
+  list-style-type: none;
+  padding-left: 1rem;
 }
 
 .post__meta {
-
 }
 
 .post__link {
+}
+
+.post__footer-note {
+  font-size: .9rem;
+  padding: 1rem 0.5rem;
+  margin-bottom: 1rem;
+  background-color: $base06;
+
+  a:hover {
+    background-color: $base05;
+  }
 }

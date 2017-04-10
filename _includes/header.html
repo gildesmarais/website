@@ -4,6 +4,7 @@
 
     <a href="{{ "/" | relative_url }}" class="navigation__item {% if current[1] == null %}navigation__item--active{% endif %} ">Home
     </a>
+    <a href="{{ "/blog" | relative_url }}" class="navigation__item {% if current[1] == 'blog' %}navigation__item--active{% endif %} {% if current[1] == 'posts' %}navigation__item--active{% endif %}">Blog</a>
     <a href="{{ "/about" | relative_url }}" class="navigation__item {% if current[1] == 'about' %}navigation__item--active{% endif %} ">About me</a>
     <a href="{{ "/contact" | relative_url }}" class="navigation__item {% if current[1] == 'contact' %}navigation__item--active{% endif %} ">Contact</a>
 
