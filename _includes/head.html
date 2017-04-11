@@ -34,8 +34,8 @@
   {% if site.twitter_username %}
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@{{ site.twitter_username }}">
-    <meta name="twitter:title" content="Gil's website">
-    <meta name="twitter:description" content="I'm a Ruby on Rails Developer from Berlin. Want to talk? Ping me!">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% endif %}">
+    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <meta name="twitter:image" content="{{ "assets/images/gil.jpg" || absolute_url }}">
   {% endif %}
 
