@@ -15,12 +15,13 @@
 
 .header__portrait {
   width: auto;
-  height: 20rem;
+  height: 15rem;
   vertical-align: bottom;
 }
 
 .header__column--right {
   align-self: flex-end;
+  padding-top: 3rem;
 }
 
 .header {

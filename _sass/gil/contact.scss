@@ -1,0 +1,33 @@
+.contact__method {
+  font-size: 0.9rem;
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.contact__email {
+  margin-right: 1rem;
+}
+
+.contact__phone {
+  font-family: $alternative-font;
+}
+
+.contact__address {
+  font-style: normal;
+  display: inline;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .contact__address {
+    display: inline-block;
+    line-height: 1.5;
+  }
+}
+
+.contact__mailing-address {
+  color: $base02;
+  // let's use the px unit here, for legal reasons
+  font-size: 14px;
+  margin: 2rem 0 1rem;
+  display: inline-block;
+}

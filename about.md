@@ -5,6 +5,8 @@ permalink: /about/
 ---
 <main class="container" role="main">
   <h1 class="header__headline">About me</h1>
+  <h2 class="header__subheadline">I'm Gil, a software developer from Berlin.</h2>
+
   <p>
     Writing clean and easily readable code is what I'm aiming for.
     I integrate linting tools in my workflow to adhere to a coding standard.
