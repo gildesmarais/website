@@ -1,5 +1,4 @@
 {% if page.comments != false and jekyll.environment == "production" %}
-
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
@@ -13,6 +12,7 @@
       s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
 
       s.setAttribute('data-timestamp', +new Date());
+      s.async = true;
       (d.head || d.body).appendChild(s);
     })();
   </script>

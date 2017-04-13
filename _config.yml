@@ -25,6 +25,9 @@ google_analytics: UA-59253807-1
 
 permalink: /posts/:title_:year-:month-:day.html
 
+disqus:
+  shortname: 'gil-1'
+
 # Build settings
 markdown: kramdown
 theme:
