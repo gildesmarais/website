@@ -2,12 +2,6 @@
   padding: 0 4rem;
 }
 
-@media (max-width: $breakpoint-medium) {
-  .post {
-    padding: 0 1.5rem;
-  }
-}
-
 .post__header,
 .post__title {
   line-height: 1;
@@ -25,6 +19,19 @@
   font-size: 1.15rem;
   word-wrap: break-word;
   line-height: 1.5;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: left;
+  }
+
+  .highlighter-rouge {
+    word-break: break-all;
+  }
 }
 
 .post__footer-note {
@@ -49,4 +56,20 @@
   color: $base03;
   font-family: $alternative-font;
   padding-right: 1rem;
+  display: table-cell;
+  white-space: nowrap;
+}
+
+.post-preview__link {
+  display: table-cell;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .post {
+    padding: 0 1.5rem;
+  }
+
+  .post__content {
+    font-size: 0.9rem;
+  }
 }
