@@ -39,3 +39,21 @@
     background: linear-gradient(180deg, rgba($base06, 0.75), rgba($base06, 0));
   }
 }
+
+.index__post {
+  line-height: 1.5;
+  color: $base02;
+  margin-top: 2rem;
+  padding-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.index__post--hidden {
+  display: none;
+}
+
+.index__post-link {
+  font-weight: 100;
+  display: inline-block;
+  margin-left: 1rem;
+}
