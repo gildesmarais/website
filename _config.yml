@@ -37,6 +37,7 @@ gems:
   - jekyll-feed
   - jekyll-autoprefixer
   - jekyll-sitemap
+  - jekyll-assets
 
 exclude:
   - .gitignore
@@ -48,8 +49,9 @@ exclude:
   - package.json
   - yarn.lock
 
-autoprefixer:
-  only_production: true
 sass:
   style: compressed
 
+assets:
+  autoprefixer:
+    only_production: true
