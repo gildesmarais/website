@@ -7,28 +7,30 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}" />
 
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <style type="text/css">
+    {% asset "main.css" %}
+  </style>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
   <link href="//fonts.googleapis.com/css?family=Jura:300" rel="stylesheet" type="text/css">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="{{ "/assets/images/apple-touch-icon-57x57.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="60x60" href="{{ "/assets/images/apple-touch-icon-60x60.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ "/assets/images/apple-touch-icon-72x72.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ "/assets/images/apple-touch-icon-76x76.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ "/assets/images/apple-touch-icon-114x114.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ "/assets/images/apple-touch-icon-120x120.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="144x144" href="{{ "/assets/images/apple-touch-icon-144x144.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ "/assets/images/apple-touch-icon-152x152.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon-180x180.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="57x57"   href="{% asset_path "apple-touch-icon-57x57.png" %}">
+  <link rel="apple-touch-icon" sizes="60x60"   href="{% asset_path "apple-touch-icon-60x60.png" %}">
+  <link rel="apple-touch-icon" sizes="72x72"   href="{% asset_path "apple-touch-icon-72x72.png" %}">
+  <link rel="apple-touch-icon" sizes="76x76"   href="{% asset_path "apple-touch-icon-76x76.png" %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% asset_path "apple-touch-icon-114x114.png" %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% asset_path "apple-touch-icon-120x120.png" %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% asset_path "apple-touch-icon-144x144.png" %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% asset_path "apple-touch-icon-152x152.png" %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% asset_path "apple-touch-icon-180x180.png" %}">
 
-  <link rel="icon" type="image/png" href="{{ "/assets/images/favicon-32x32.png" | relative_url }}" sizes="32x32">
-  <link rel="icon" type="image/png" href="{{ "/assets/images/android-chrome-192x192.png" | relative_url }}" sizes="192x192">
-  <link rel="icon" type="image/png" href="{{ "/assets/images/favicon-96x96.png" | relative_url }}" sizes="96x96">
-  <link rel="icon" type="image/png" href="{{ "/assets/images/favicon-16x16.png" | relative_url }}" sizes="16x16">
+  <link rel="icon" type="image/png" sizes="32x32"   href="{% asset_path "favicon-32x32.png" %}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{% asset_path "android-chrome-192x192.png" %}">
+  <link rel="icon" type="image/png" sizes="96x96"   href="{% asset_path "favicon-96x96.png" %}">
+  <link rel="icon" type="image/png" sizes="16x16"   href="{% asset_path "favicon-16x16.png" %}">
   <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="{{ "/assets/images/mstile-144x144.png" | relative_url }}">
+  <meta name="msapplication-TileImage" content="{% asset_path "mstile-144x144.png" %}">
   <meta name="theme-color" content="#ffffff">
 
   {% if site.twitter_username %}
@@ -36,7 +38,7 @@
     <meta name="twitter:site" content="@{{ site.twitter_username }}">
     <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% endif %}">
     <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta name="twitter:image" content="{{ "assets/images/gil.jpg" || absolute_url }}">
+    <meta name="twitter:image" content="{{ asset_path "gil.jpg" }}">
   {% endif %}
 
   <link rel="prefetch" href="/about">
