@@ -19,7 +19,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Gil Desmarais is a software developer from Berlin.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gil.desmarais.de" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: giLL0r
+twitter_username: gildesmarais
 github_username:  gdesmarais
 google_analytics: UA-59253807-1
 
