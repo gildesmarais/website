@@ -39,4 +39,4 @@ The colors didn’t change *much*. They’re still based on [`base16-tomorrow`](
 However, the contrasts seemed very low sometimes (as pointed out by
 [tota11y](http://khan.github.io/tota11y/)), so I darkened some colors.
 
-I’m quite happy with the result. [Find the code on github](https://github.com/gdesmarais/website).
+I’m quite happy with the result. [Find the code on github](https://github.com/{{ site.github_username }}/website).
