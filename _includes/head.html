@@ -10,7 +10,7 @@
   <style type="text/css">
     {% asset "main.css" %}
   </style>
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
   <link rel="apple-touch-icon" sizes="57x57"   href="{% asset_path "apple-touch-icon-57x57.png" %}">
@@ -41,4 +41,5 @@
 
   <link rel="prefetch" href="/about">
   <link rel="prefetch" href="/about/experiences/">
+  <link rel="prefetch" href="/contact/">
 </head>
