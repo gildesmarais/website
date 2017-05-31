@@ -19,12 +19,13 @@
   vertical-align: bottom;
 }
 
-.header__column--right {
-  align-self: flex-end;
-  padding-top: 3rem;
+@media (min-width: $breakpoint-medium) {
+  .header__column {
+    padding-right: 12rem;
+  }
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
+.header__column--right {
+  padding-top: 3rem;
+  text-align: right;
 }

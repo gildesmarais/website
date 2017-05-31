@@ -16,7 +16,7 @@
 title: Gil Desmarais
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Gil Desmarais is a software developer from Berlin.
+  Gil Desmarais is a freelance web developer from Berlin.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gil.desmarais.de" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gildesmarais
@@ -24,6 +24,7 @@ github_username:  gildesmarais
 linkedin_username: gildesmarais
 
 google_analytics: UA-59253807-1
+subheadline: I'm a freelance Ruby developer from Berlin.
 
 permalink: /posts/:title_:year-:month-:day.html
 

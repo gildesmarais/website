@@ -18,6 +18,12 @@
 
 @import 'gil/print';
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 .container {
   margin: 0 auto;
   max-width: 700px;
@@ -49,6 +55,24 @@
   }
 }
 
+.index__teaser {
+  font-size: 1.125rem;
+  font-family: $base-font;
+  font-weight: 100;
+}
+
+.index__link--silent {
+  color: $base00;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.index__link {
+  display: inline-block;
+  margin: 1rem 0;
+  text-decoration: none;
+}
+
 .index__post {
   line-height: 1.5;
   color: $base02;
@@ -65,4 +89,17 @@
   font-weight: 100;
   display: inline-block;
   margin-left: 1rem;
+}
+
+.about__hobbies {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about__hobbies > li {
+  display: inline-block;
+  padding: 0.5rem 0;
+  width: 30%;
+  vertical-align: top;
+  font-size: 90%;
 }
