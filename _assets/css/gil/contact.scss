@@ -2,34 +2,35 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
 
 .contact__method {
   font-size: 0.9rem;
-  display: inline-block;
-  padding-right: 1rem;
 }
 
 .contact__email {
   margin-right: 1rem;
 }
 
+.contact__pgp {
+  font-size: $small-font-size;
+  display: block;
+}
+
 .contact__phone {
+  color: $base02;
   font-size: $small-font-size;
   display: inline-block;
-  margin-bottom:1rem;
-  letter-spacing: -4px;
+  margin-bottom: 1rem;
+  letter-spacing: -3px;
 }
 
 .contact__address {
   font-style: normal;
+  display: block;
+  padding-left: 0.5rem;
+  font-size: $small-font-size;
+  line-height: 1.5;
 }
 
-@media (max-width: $breakpoint-medium) {
-  .contact__address {
-    display: inline-block;
-    line-height: 1.5;
-    padding-left: 0.5rem;
-  }
-}
-
-.contact__mailing-address {
+.contact__mailing-address,
+.contact_phone-number {
   color: $base02;
   font-size: $small-font-size;
   margin: 2rem 0 0;
