@@ -1,0 +1,52 @@
+@import '_base';
+.index__teaser {
+  font-size: 1.125rem;
+  font-family: $base-font;
+  font-weight: 100;
+}
+
+.index__link--silent {
+  color: $base00;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.index__link--prominent {
+  display: block;
+  padding: 1rem;
+  background-color: $base06;
+  border: 1px solid $base05;
+  border-radius: 3px;
+  margin: 0 auto;
+  text-align: center;
+  margin: 1rem 3.3rem;
+
+  &:hover {
+    background-color: $base05;
+    border: 1px solid $base06;
+  }
+}
+
+.index__link {
+  display: inline-block;
+  margin: 1rem 0;
+  text-decoration: none;
+}
+
+.index__post {
+  line-height: 1.5;
+  color: $base02;
+  margin-top: 2rem;
+  padding-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.index__post--hidden {
+  display: none;
+}
+
+.index__post-link {
+  font-weight: 100;
+  display: inline-block;
+  margin-left: 1rem;
+}
