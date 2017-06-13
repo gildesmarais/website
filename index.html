@@ -8,14 +8,14 @@ show_teaser: true
     <h2 class="header__subheadline">{{ site.subheadline }}</h2>
 
     <h3 class="index__teaser">
-      Do you need new features or want to build your MVP from the ground?
+      Do you want to build your MVP or need new features?
     </h3>
 
     <p>
-      With my practical experience in
+      With my experience in
       <a href="{{ '/about' | relative_url }}" class="index__link--silent">backend and frontend development</a>
       I'll be of great help.<br>
-      <a href="{{ '/contact' | relative_url }}" class="index__link">Let's get in contact.</a>
+      <a href="{{ '/about' | relative_url }}" class="index__link">Let me tell you more about me.</a>
     </p>
 
     {% assign post = site.posts.first %}
@@ -25,12 +25,11 @@ show_teaser: true
         <a href="{{ root_url }}{{ post.url }}" class="index__post-link">{{ post.title }}</a>
       </p>
     </div>
-
   </div>
 
   <div class="header__column--right" role="complementary">
     <a href="{{ '/about' | relative_url }}">
-      {% img gil class:"header__portrait" alt:"Portrait photo of Gil" %}
+      {% img gil@2x class:"header__portrait" alt:"Portrait photo of Gil" %}
     </a>
   </div>
 </main>
