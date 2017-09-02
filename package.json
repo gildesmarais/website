@@ -4,6 +4,7 @@
   "author": "Gil Desmarais <gil@desmarais.de>",
   "license": "MIT",
   "dependencies": {
+    "html-minifier": "^3.5.3",
     "normalize-scss": "^6.0.0"
   }
 }
