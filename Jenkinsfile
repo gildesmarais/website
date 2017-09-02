@@ -28,6 +28,11 @@ pipeline {
     }
 
     stage('Deployment') {
+      when {
+        expression {
+          currentBuild.result == null || currentBuild.result == 'SUCCESS'
+        }
+      }
       steps {
         sh 'rsync -avz --delete -e ssh _site/ gil-drop1:/var/www/gil.desmarais.de/html'
       }
