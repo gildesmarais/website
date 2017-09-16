@@ -7,17 +7,6 @@ show_teaser: true
     <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
     <h2 class="header__subheadline">{{ site.subheadline }}</h2>
 
-    <h3 class="index__teaser">
-      Do you want to build your MVP or need new features?
-    </h3>
-
-    <p>
-      With my experience in
-      <a href="{{ '/about' | relative_url }}" class="index__link--silent">backend and frontend development</a>
-      I'll be of great help.<br>
-      <a href="{{ '/about' | relative_url }}" class="index__link">Let me tell you more about me.</a>
-    </p>
-
     {% assign post = site.posts.first %}
     <div class="index__post index__post--hidden" data-timed-display="true" data-post-date="{{ post.date | date: "%Y-%m-%d" }}">
       <p>
