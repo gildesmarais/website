@@ -30,15 +30,6 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="{% asset_path "mstile-144x144.png" %}">
   <meta name="theme-color" content="#ffffff">
-
-  {% if site.twitter_username %}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@{{ site.twitter_username }}">
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% endif %}">
-    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta name="twitter:image" content="{{ asset_path "gil.jpg" }}">
-  {% endif %}
-
   <link rel="prefetch" href="/about">
   <link rel="prefetch" href="/about/experiences/">
   <link rel="prefetch" href="/contact/">
