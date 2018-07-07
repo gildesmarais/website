@@ -27,6 +27,7 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
   padding-left: 0.5rem;
   font-size: $small-font-size;
   line-height: 1.5;
+  user-select: none;
 }
 
 .contact__mailing-address,
