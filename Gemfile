@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 3.4.0'
+gem 'jekyll', '~> 3.8.0'
 gem 'uglifier'
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
@@ -9,7 +9,7 @@ gem 'uglifier'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem 'jekyll-assets', '~> 2.2.0'
+  gem 'jekyll-assets', '~> 2.0'
   gem 'jekyll-autoprefixer'
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-sitemap'
