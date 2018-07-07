@@ -17,10 +17,6 @@ layout: default
       {{ content }}
     </div>
 
-    {% if site.disqus.shortname %}
-    {% include disqus_comments.html %}
-    {% endif %}
-
     <div class="post__footer-note" role="complementary">
       If you don’t want to miss any of my rare posts, I suggest
       <a href="{{ '/feed.xml' | relative_url }}">subscribing to the RSS feed</a>.

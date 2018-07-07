@@ -27,9 +27,6 @@ subheadline: I'm a full stack developer from Berlin.
 
 permalink: /posts/:title_:year-:month-:day.html
 
-disqus:
-  shortname: 'gil-1'
-
 # Build settings
 markdown: kramdown
 theme:
