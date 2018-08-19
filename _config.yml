@@ -30,7 +30,7 @@ permalink: /posts/:title_:year-:month-:day.html
 # Build settings
 markdown: kramdown
 theme:
-gems:
+plugins:
   - jekyll-feed
   - jekyll-autoprefixer
   - jekyll-sitemap
