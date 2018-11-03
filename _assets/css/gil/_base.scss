@@ -33,6 +33,37 @@ $breakpoint-medium: 600px;
   }
 }
 
+@mixin box {
+  font-size: 0.9rem;
+  padding: 1rem 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  background-color: $base06;
+  border: 1px solid $base0d;
+  filter: brightness(.9);
+
+  &:hover {
+    filter: brightness(1);
+  }
+
+  a:hover {
+    background-color: $base05;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $base02;
+    border: 1px solid $base0d;
+
+    a {
+      color: $base09;
+    }
+
+    a:hover {
+      background-color: $base01;
+    }
+  }
+}
+
 body {
   color: $base00;
   font-family: $base-font;
@@ -57,4 +88,19 @@ h4,
 h5,
 h6 {
   font-family: $alternative-font;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $base01;
+    color: $base06;
+  }
+
+  a {
+    color: $base09;
+
+    &:hover {
+      background-color: $base02;
+    }
+  }
 }

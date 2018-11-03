@@ -1,12 +1,3 @@
-$tag-color: darken($base03, 20);
-$tag-settings: (
-  1: 60%,
-  2: 65%,
-  3: 75%,
-  4: 90%,
-  5: 100%,
-  );
-
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -18,16 +9,25 @@ $tag-settings: (
   margin: 1em 0;
 }
 
-%tags__tag {
+@mixin tag {
   display: inline-block;
   padding: 0 .5rem;
   line-height: 1.1;
   font-family: $alternative-font;
 }
 
+$tag-color: darken($base03, 20);
+$tag-settings: (
+  1: 60%,
+  2: 65%,
+  3: 75%,
+  4: 90%,
+  5: 100%,
+  );
+
 @each $level, $visibility in $tag-settings {
   .tags__tag--#{$level} {
-    @extend %tags__tag;
+    @include tag;
     font-size: $visibility;
     color: rgba($tag-color, ($visibility / 100%));
   }
@@ -37,3 +37,15 @@ $tag-settings: (
   display: none;
 }
 
+
+@media (prefers-color-scheme: dark) {
+  $tag-color: $base04;
+
+  @each $level, $visibility in $tag-settings {
+    .tags__tag--#{$level} {
+      @include tag;
+      font-size: $visibility;
+      color: rgba($tag-color, ($visibility / 100%));
+    }
+  }
+}
