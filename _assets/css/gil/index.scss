@@ -12,19 +12,12 @@
 }
 
 .index__link--prominent {
+  @include box();
+
   display: block;
   padding: 1rem;
-  background-color: $base06;
-  border: 1px solid $base05;
-  border-radius: 3px;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   text-align: center;
-  margin: 1rem 3.3rem;
-
-  &:hover {
-    background-color: $base05;
-    border: 1px solid $base06;
-  }
 }
 
 .index__link {

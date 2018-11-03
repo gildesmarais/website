@@ -35,3 +35,10 @@
   background-color: lighten($base02, 10);
   color: #b3cae0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .navigation__item:hover,
+  .navigation__item--active {
+    background-color: $base01;
+  }
+}

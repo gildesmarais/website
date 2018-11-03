@@ -13,6 +13,10 @@
   font-weight: 100;
 }
 
+.header__linked-portrait {
+  font-size: 0;
+}
+
 .header__portrait {
   width: auto;
   height: 15rem;
@@ -28,4 +32,15 @@
 .header__column--right {
   padding-top: 3rem;
   text-align: right;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header__portrait {
+    filter: brightness(.9);
+    transition: filter .4s ease-in;
+
+    &:hover {
+      filter: brightness(1);
+    }
+  }
 }

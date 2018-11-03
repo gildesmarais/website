@@ -70,3 +70,21 @@
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
 }
+
+
+@media (prefers-color-scheme: dark) {
+   .highlighter-rouge {
+     background-color: $base00;
+   }
+
+  .highlight {
+    background-color: $base00;
+
+    .c , .err , .cm , .cp , .c1 , .cs , .gd , .gd .x , .gr , .gh , .gi , .gi .x,
+    .go , .gp , .gu , .gt , .kt , .m , .s , .na , .nb , .nc , .no , .ni , .ne,
+    .nf , .nn , .nt , .nv , .w , .mf , .mh , .mi , .mo , .sb , .sc , .sd , .s2 ,
+    .se , .sh , .si , .sx , .sr , .s1 , .ss , .bp , .vc , .vg , .vi , .il {
+      filter: invert(100%);
+    }
+  }
+}
