@@ -64,4 +64,13 @@
   .post__content {
     font-size: 0.9rem;
   }
+
+  .post-preview__list > li {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .post-preview__meta {
+    order: -1;
+  }
 }
