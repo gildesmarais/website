@@ -36,6 +36,7 @@
 
 .post__footer-note {
   @include box;
+  margin: 3rem auto 1rem;
 }
 
 .post-preview__list {
@@ -43,16 +44,16 @@
   padding-left: 0;
 }
 
+.post-preview__list > li {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-preview__meta {
   color: $base03;
   font-family: $alternative-font;
   padding-right: 1rem;
-  display: table-cell;
   white-space: nowrap;
-}
-
-.post-preview__link {
-  display: table-cell;
 }
 
 @media (max-width: $breakpoint-medium) {

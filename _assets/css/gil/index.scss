@@ -1,4 +1,5 @@
 @import '_base';
+
 .index__teaser {
   font-size: 1.125rem;
   font-family: $base-font;
@@ -27,19 +28,10 @@
 }
 
 .index__post {
-  line-height: 1.5;
-  color: $base02;
-  margin-top: 2rem;
-  padding-right: 1rem;
-  font-size: 0.9rem;
+  @include box();
+  margin: 3rem 0 0;
 }
 
 .index__post--hidden {
   display: none;
-}
-
-.index__post-link {
-  font-weight: 100;
-  display: inline-block;
-  margin-left: 1rem;
 }
