@@ -35,16 +35,7 @@
 }
 
 .post__footer-note {
-  font-size: 0.9rem;
-  padding: 1rem 0.5rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  background-color: $base06;
-  border: 1px solid $base0d;
-
-  a:hover {
-    background-color: $base05;
-  }
+  @include box;
 }
 
 .post-preview__list {

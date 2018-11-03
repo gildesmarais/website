@@ -36,3 +36,11 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
   font-size: $small-font-size;
   margin: 2rem 0 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .contact__phone,
+  .contact__mailing-address,
+  .contact_phone-number {
+    color: $base05;
+  }
+}
