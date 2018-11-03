@@ -36,31 +36,35 @@ $breakpoint-medium: 600px;
 @mixin box {
   font-size: 0.9rem;
   padding: 1rem 0.5rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  background-color: $base06;
+  background-color: lighten($base06, 10);
   border: 1px solid $base0d;
-  filter: brightness(.9);
+  text-decoration: none;
+  display: block;
+  color: $base02;
 
-  &:hover {
-    filter: brightness(1);
+  span {
+    color: darken($base0d, 20);
   }
 
-  a:hover {
-    background-color: $base05;
+  &:hover span {
+    text-decoration: underline;
   }
 
   @media (prefers-color-scheme: dark) {
     background-color: $base02;
     border: 1px solid $base0d;
+    color: $base04;
 
-    a {
+    filter: brightness(.9);
+
+    &:hover {
+      filter: brightness(1);
+    }
+
+    span {
       color: $base09;
     }
 
-    a:hover {
-      background-color: $base01;
-    }
   }
 }
 
