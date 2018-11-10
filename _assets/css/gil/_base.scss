@@ -1,6 +1,7 @@
 // base16 tomorrow color scheme by chris kempson,
 // https://chriskempson.github.io/base16/#tomorrow
 
+$black: #000;
 $base00: #1d1f21;
 $base01: #282a2e;
 $base02: #373b41;
@@ -51,20 +52,19 @@ $breakpoint-medium: 600px;
   }
 
   @media (prefers-color-scheme: dark) {
-    background-color: $base02;
+    background-color: $black;
     border: 1px solid $base0d;
     color: $base04;
 
     filter: brightness(.9);
 
     &:hover {
-      filter: brightness(1);
+      background-color: $base00;
     }
 
     span {
       color: $base09;
     }
-
   }
 }
 
@@ -96,7 +96,7 @@ h6 {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: $base01;
+    background-color: #000;
     color: $base06;
   }
 
