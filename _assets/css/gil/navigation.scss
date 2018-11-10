@@ -37,6 +37,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .navigation {
+    background-color: $black;
+    border-bottom: 1px solid $base02;
+  }
+
   .navigation__item:hover,
   .navigation__item--active {
     background-color: $base01;
