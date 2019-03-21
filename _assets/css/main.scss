@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Jura';
   font-style: normal;
+  font-display: fallback;
   font-weight: 300;
   src: local('Jura'), local('Jura-Light'), font_url('Jura/Jura-Light.ttf') format('truetype');
 }
