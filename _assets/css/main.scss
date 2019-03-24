@@ -3,7 +3,10 @@
   font-style: normal;
   font-display: fallback;
   font-weight: 300;
-  src: local('Jura'), local('Jura-Light'), font_url('Jura/Jura-Light.ttf') format('truetype');
+  src: local('Jura'),
+       local('Jura-Light'),
+       font-url('Jura/Jura-Light.woff2') format('woff2'),
+       font-url('Jura/Jura-Light.ttf') format('truetype');
 }
 
 @import '../../node_modules/normalize-scss/sass/normalize/import-now';
