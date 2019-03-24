@@ -2,7 +2,8 @@
   "name": "jekyll",
   "version": "1.0.0",
   "author": "Gil Desmarais <gil@desmarais.de>",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
     "html-minifier": "^3.5.3",
     "normalize-scss": "^7.0"
