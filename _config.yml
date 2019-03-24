@@ -32,7 +32,6 @@ markdown: kramdown
 theme:
 plugins:
   - jekyll-feed
-  - jekyll-autoprefixer
   - jekyll-sitemap
   - jekyll-assets
 
@@ -49,7 +48,3 @@ exclude:
 
 sass:
   style: compressed
-
-assets:
-  autoprefixer:
-    only_production: true
