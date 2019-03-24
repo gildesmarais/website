@@ -3,7 +3,6 @@ layout: default
 ---
 <main class="container">
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
     <header class="post__header">
       <p class="post__meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -20,6 +19,6 @@ layout: default
     <a class="post__footer-note" role="complementary" href="{{ '/feed.xml' | relative_url }}">
       If you don’t want to miss any of my rare posts, I suggest
       <span>subscribing to the RSS feed</span>.
-    </div>
+    </a>
   </article>
 </main>
