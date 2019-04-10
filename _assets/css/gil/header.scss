@@ -18,9 +18,13 @@
 }
 
 .header__portrait {
-  width: auto;
-  height: 15rem;
-  vertical-align: bottom;
+  margin: 0;
+}
+
+.header__linked-portrait svg {
+  height: 7rem;
+  width: 7rem;
+  margin-bottom: -0.25rem;
 }
 
 @media (min-width: $breakpoint-medium) {
@@ -30,7 +34,6 @@
 }
 
 .header__column--right {
-  padding-top: 3rem;
   text-align: right;
 }
 
