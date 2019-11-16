@@ -6,11 +6,12 @@
 .navigation__container {
   overflow: hidden;
   display: flex;
+  margin: 0 auto;
+  max-width: 50rem;
 }
 
 .navigation__item {
-  flex-grow: 1;
-  display: inline-block;
+  flex: 1 1 25%;
   margin-top: -1px;
   color: $base0d;
   font-size: 1rem;
