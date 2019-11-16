@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - run: npm install
+    - run: yarn install
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
