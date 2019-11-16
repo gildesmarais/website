@@ -39,8 +39,8 @@
 
 @media (prefers-color-scheme: dark) {
   .header__portrait {
-    filter: brightness(.9);
-    transition: filter .4s ease-in;
+    filter: brightness(0.9);
+    transition: filter 0.4s ease-in;
 
     &:hover {
       filter: brightness(1);

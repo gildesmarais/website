@@ -19,8 +19,9 @@ $base0d: #89a8c3;
 $base0e: #b294bb;
 $base0f: #a3685a;
 
-$alternative-font: Jura, 'Bangla Sangam MN', sans-serif;
-$base-font: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+$alternative-font: Jura, "Bangla Sangam MN", sans-serif;
+$base-font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
+  sans-serif;
 
 $breakpoint-medium: 600px;
 
@@ -56,7 +57,7 @@ $breakpoint-medium: 600px;
     border: 1px solid $base0d;
     color: $base04;
 
-    filter: brightness(.9);
+    filter: brightness(0.9);
 
     &:hover {
       background-color: $base00;
