@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Dependencies
-      run: yarn install
     - uses: actions/checkout@v1
+    - run: npm install
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
