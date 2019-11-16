@@ -11,7 +11,7 @@
 
 @mixin tag {
   display: inline-block;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   line-height: 1.1;
   font-family: $alternative-font;
 }
@@ -22,8 +22,8 @@ $tag-settings: (
   2: 65%,
   3: 75%,
   4: 90%,
-  5: 100%,
-  );
+  5: 100%
+);
 
 @each $level, $visibility in $tag-settings {
   .tags__tag--#{$level} {
@@ -36,7 +36,6 @@ $tag-settings: (
 .tags__tag--0 {
   display: none;
 }
-
 
 @media (prefers-color-scheme: dark) {
   $tag-color: $base04;
