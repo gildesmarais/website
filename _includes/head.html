@@ -1,10 +1,10 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
   <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}" />
 
   {% asset "main.css" %}
