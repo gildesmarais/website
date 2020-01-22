@@ -20,6 +20,7 @@
   text-decoration: none;
   white-space: nowrap;
   padding: 1rem 0.5rem;
+  transition: background-color .2s;
 
   &:focus {
     outline: 0;
@@ -40,7 +41,7 @@
 @media (prefers-color-scheme: dark) {
   .navigation {
     background-color: $black;
-    border-bottom: 1px solid $base02;
+    border-bottom: 1px solid $base01;
   }
 
   .navigation__item:hover,

@@ -18,7 +18,6 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
   font-size: $small-font-size;
   display: inline-block;
   margin-bottom: 1rem;
-  letter-spacing: -3px;
 }
 
 .contact__address {
@@ -31,7 +30,7 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
 }
 
 .contact__mailing-address,
-.contact_phone-number {
+.contact__phone-number {
   color: $base02;
   font-size: $small-font-size;
   margin: 2rem 0 0;
@@ -40,7 +39,7 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
 @media (prefers-color-scheme: dark) {
   .contact__phone,
   .contact__mailing-address,
-  .contact_phone-number {
+  .contact__phone-number {
     color: $base05;
   }
 }
