@@ -6,18 +6,27 @@ layout: default
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post__header">
       <p class="post__meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        <time
+          datetime="{{ page.date | date_to_xmlschema }}"
+          itemprop="datePublished"
+        >
           {{ page.date | date_to_long_string }}
         </time>
       </p>
-      <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
+      <h1 class="post__title" itemprop="name headline">
+        {{ page.title | escape }}
+      </h1>
     </header>
 
     <div class="post__content" itemprop="articleBody">
       {{ content }}
     </div>
 
-    <a class="post__footer-note" role="complementary" href="{{ '/feed.xml' | relative_url }}">
+    <a
+      class="post__footer-note"
+      role="complementary"
+      href="{{ '/feed.xml' | relative_url }}"
+    >
       If you don’t want to miss any of my rare posts, I suggest
       <span>subscribing to the RSS feed</span>.
     </a>
