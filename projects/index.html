@@ -1,0 +1,117 @@
+---
+title: Projects
+layout: page
+noindex: true
+---
+
+<main class="container" role="main">
+  <h1>Projects</h1>
+
+  <p>I have a few (software) side projects. Most notable are:</p>
+
+  <section class="project__outgoings">
+    <h2>Outgoings</h2>
+
+    <p>
+      A minimalistic, privacy-focused and data economic
+      <em>expense tracking</em> web app.
+    </p>
+
+    <p>
+      Allows users to collectively track expenses. The form to create
+      outgoings is optimized to be as hassle-free and as quickly to use as
+      possible.
+    </p>
+
+    <p>
+      With the midnight digest email you never lose track of your collective
+      expenses.
+      <br />
+      By using it you'll have new <em>data-based</em> arguments for financial
+      decisions.
+    </p>
+
+    <ul>
+      <li>Closed source. More information coming soon.</li>
+    </ul>
+  </section>
+
+  <section class="project__html2rss">
+    <h2><span>HTML</span><span>2</span><span>RSS</span></h2>
+
+    <p>
+      My RSS reader is my favorite place on the Internet.
+    </p>
+
+    <p>
+      Every interesting bit of content from any website shows up in the same
+      format. Well, in&nbsp;theory.
+    </p>
+    <p>
+      RSS has been declining while social networks became popular.
+      <br />
+
+      <code>html2rss</code> scrapes websites to build RSS feeds, without
+      reinventing the wheel for each and every website. With this tool I can
+      keep my favorite place on the Internet filled with interesting content.
+    </p>
+
+    <p>The <code>html2rss</code> project consists of three components:</p>
+
+    <ol>
+      <li>
+        The <code>html2rss</code> ruby gem doing the heavy lifting of scraping
+        and feed building.
+      </li>
+      <li>A <code>web</code> app which exposes the RSS feeds via HTTP.</li>
+      <li>A feed <code>config</code> repository.</li>
+    </ol>
+
+    <p>
+      The <code>config</code> and the <code>web</code> components follow a
+      rolling release pattern. The <code>web</code> app automatically updates
+      when there are changes in the <code>config</code>
+      repository and publishes a new version.
+    </p>
+
+    <ul>
+      <li>
+        <a
+          href="https://github.com/gildesmarais/html2rss"
+          target="_blank"
+          rel="noopener"
+        >
+          <code>html2rss</code>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/gildesmarais/html2rss-web"
+          target="_blank"
+          rel="noopener"
+        >
+          <code>html2rss-web</code>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/gildesmarais/html2rss-configs"
+          target="_blank"
+          rel="noopener"
+        >
+          <code>html2rss-configs</code>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <p>
+    Find more projects on
+    <a
+      href="https://github.com/{{ site.github_username }}"
+      target="_blank"
+      rel="noopener"
+      >my Github profile</a
+    >.
+  </p>
+</main>
