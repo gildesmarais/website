@@ -2,17 +2,18 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 1.5rem;
+  line-height: 1.5;
 }
 
 %timerange-font {
   font-family: $alternative-font;
   font-size: 1rem;
-  letter-spacing: -0.05rem;
   line-height: 1.6;
 }
 
 .work-experience__timerange {
   width: 25%;
+  padding-top: .25em;
   @extend %timerange-font;
 }
 

@@ -29,13 +29,17 @@
 
 .container {
   margin: 0 auto;
-  max-width: 80ch;
+  max-width: 70ch;
   font-size: 0.95rem;
 }
 
 .section {
   padding: 0 0.5rem;
   border-top: 1px solid $base06;
+}
+
+.section p {
+  line-height: 1.5;
 }
 
 .footer__social-links {

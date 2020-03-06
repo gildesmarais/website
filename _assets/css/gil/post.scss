@@ -16,8 +16,9 @@
 
 .post__content {
   text-align: justify;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   word-wrap: break-word;
+  hyphens: auto;
   line-height: 1.5;
 
   h1,
@@ -30,7 +31,7 @@
   }
 
   .highlighter-rouge {
-    word-break: break-all;
+    hyphens: none;
   }
 }
 
@@ -46,6 +47,7 @@
 
 .post-preview__list > li {
   display: flex;
+  padding: 0.5em 0;
   justify-content: space-between;
 }
 
