@@ -12,15 +12,6 @@
   font-weight: 400;
 }
 
-.index__link--prominent {
-  @include box();
-
-  display: block;
-  padding: 1rem;
-  margin: 0 auto 1rem;
-  text-align: center;
-}
-
 .index__link {
   display: inline-block;
   margin: 1rem 0;

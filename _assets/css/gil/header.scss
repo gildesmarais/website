@@ -27,12 +27,6 @@
   margin-bottom: -0.25rem;
 }
 
-@media (min-width: $breakpoint-medium) {
-  .header__column {
-    padding-right: 12rem;
-  }
-}
-
 .header__column--right {
   text-align: right;
 }
