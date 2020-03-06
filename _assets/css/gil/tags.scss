@@ -7,6 +7,8 @@
   font-size: 1.5rem;
   padding: 0 2rem;
   margin: 1em 0;
+
+  list-style: none;
 }
 
 @mixin tag {
@@ -16,11 +18,11 @@
   font-family: $alternative-font;
 }
 
-$tag-color: darken($base03, 20);
+$tag-color: darken($base03, 25);
 $tag-settings: (
-  1: 60%,
-  2: 65%,
-  3: 75%,
+  1: 65%,
+  2: 70%,
+  3: 80%,
   4: 90%,
   5: 100%
 );
@@ -47,4 +49,10 @@ $tag-settings: (
       color: rgba($tag-color, ($visibility / 100%));
     }
   }
+}
+
+.tags__tag-linebreak {
+  flex: 0 0 100%;
+  margin: 0;
+  padding: 0;
 }
