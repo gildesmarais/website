@@ -6,21 +6,39 @@
 .navigation__container {
   overflow: hidden;
   display: flex;
-  margin: 0 auto;
+  margin: -1px auto 0;
   max-width: 50rem;
 }
 
+.navigation__logo {
+  flex: 1 1 20%;
+  height: 2rem;
+  align-self: flex-end;
+  text-align: center;
+
+  > svg {
+    overflow: hidden;
+    height: 3rem;
+    margin-top: -1rem;
+  }
+
+  &:hover,
+  &--active {
+    color: #b3cae0;
+  }
+}
 .navigation__item {
   flex: 1 1 25%;
-  margin-top: -1px;
   color: $base0d;
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: $base01;
   white-space: nowrap;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.25rem;
   transition: background-color 0.2s;
+  align-self: flex-end;
 
   &:focus {
     outline: 0;

@@ -27,10 +27,6 @@
   margin-bottom: -0.25rem;
 }
 
-.header__column--right {
-  text-align: right;
-}
-
 @media (prefers-color-scheme: dark) {
   .header__portrait {
     filter: brightness(0.9);

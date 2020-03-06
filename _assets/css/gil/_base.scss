@@ -79,6 +79,8 @@ body {
 a {
   color: darken($base0d, 20);
   font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: $base03;
 
   &:hover {
     background-color: $base06;
