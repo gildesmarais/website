@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "html-minifier": "^3.5.3",
+    "html-minifier": "^4.0",
     "normalize-scss": "^7.0"
   }
 }
