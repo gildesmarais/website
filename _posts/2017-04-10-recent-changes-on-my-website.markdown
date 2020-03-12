@@ -35,7 +35,7 @@ from a single page into smaller chunks, which allows you
 to grasp easily what the current page is about without ~~scrolling~~ swiping
 too much.
 
-The colors didn’t change *much*. They’re still based on [`base16-tomorrow`](https://chriskempson.github.io/base16/#tomorrow).
+The colors didn’t change *much*. They’re still based on `base16-tomorrow`.
 However, the contrasts seemed very low sometimes (as pointed out by
 [tota11y](http://khan.github.io/tota11y/)), so I darkened some colors.
 
