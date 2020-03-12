@@ -16,8 +16,6 @@ does not know of it, yet.
 The migration was straightforward: changing some colors here and there,
 but most of the time a `filter: invert(100%);` yielded a perfect result.
 
-Find the [code changes on Github in this pull request](https://github.com/gildesmarais/website/pull/6/files).
-
 I'd love to see your website supporting dark mode, too!
 
 **Update 2018-11-10:**
