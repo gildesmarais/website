@@ -1,16 +1,16 @@
-name: Jekyll site CI
+name: build Jekyll site
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - run: yarn install
     - name: Build the site in the jekyll/builder container
+      env:
+        JEKYLL_ENV: production
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
