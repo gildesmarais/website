@@ -1,0 +1,23 @@
+name: rsync build to production
+
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Deploy to server
+        id: deploy
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        with:
+          flags: '-avzr --delete'
+          options: ''
+          ssh_options: ''
+          src: '_site/'
+          dest: 'admiral@skiff.uberspace.de:/var/www/virtual/admiral/gil.desmarais.de'
+
+      - name: Display status from deploy
+        run: echo "${{ steps.deploy.outputs.status }}"
