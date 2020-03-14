@@ -30,6 +30,8 @@ jobs:
           bundle config --global frozen 1
           bundle install --jobs 4 --retry 3
           bundle exec jekyll build -d $GITHUB_WORKSPACE/_site
+          echo $(pwd)
+          bundle exec jekyll doctor
 
   publish:
     runs-on: ubuntu-latest
