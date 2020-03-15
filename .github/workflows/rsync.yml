@@ -1,4 +1,4 @@
-name: build and publish master
+name: jekyll build and publish artifact with rsync
 
 on:
   push:
@@ -21,7 +21,6 @@ jobs:
           key: ${{ runner.os }}-gem-${{ hashFiles('Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gem-
-      - run: yarn install
       - name: Build the site
         env:
           JEKYLL_ENV: production
