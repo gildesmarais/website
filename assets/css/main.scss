@@ -1,27 +1,29 @@
+---
+---
+
 @font-face {
   font-family: "Jura";
   font-style: normal;
   font-display: fallback;
   font-weight: 300;
   src: local("Jura"), local("Jura-Light"),
-    font-url("Jura/Jura-Light.woff2") format("woff2"),
-    font-url("Jura/Jura-Light.ttf") format("truetype");
+    url("fonts/Jura/Jura-Light.woff2") format("woff2"),
+    url("fonts/Jura/Jura-Light.ttf") format("truetype");
 }
 
-@import "../../node_modules/normalize-scss/sass/normalize/import-now";
+@import "vendor/normalize-8.0.1";
 
-@import "gil/_base";
-@import "gil/contact";
-@import "gil/header";
-@import "gil/index";
-@import "gil/navigation";
-@import "gil/post";
-@import "gil/project";
-@import "gil/syntax-highlighting";
-@import "gil/tags";
-@import "gil/work-experience";
-
-@import "gil/print";
+@import "_base";
+@import "contact";
+@import "header";
+@import "index";
+@import "navigation";
+@import "post";
+@import "project";
+@import "syntax-highlighting";
+@import "tags";
+@import "work-experience";
+@import "print";
 
 *,
 *:before,

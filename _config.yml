@@ -19,10 +19,10 @@ description: > # this means to ignore newlines until "baseurl:"
   Gil Desmarais is a fullstack developer, focusing on web development, living in Berlin.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gil.desmarais.de" # the base hostname & protocol for your site, e.g. http://example.com
+
 github_username: gildesmarais
 linkedin_username: gildesmarais
 
-google_analytics: UA-59253807-1
 subheadline: I'm a full stack developer from Berlin.
 
 permalink: /posts/:title_:year-:month-:day.html
@@ -33,7 +33,6 @@ theme:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-assets
 
 exclude:
   - .gitignore
@@ -50,3 +49,4 @@ exclude:
 
 sass:
   style: compressed
+  sass_dir: assets/css/sass
