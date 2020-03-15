@@ -3,24 +3,13 @@
     {% assign current = page.url | downcase | split: '/' %}
 
     <a href="{{ "/" | relative_url }}" class="navigation__logo {% if current[1] == null %}navigation__logo--active{% endif %}">
-      {% asset gil.svg @inline %}
+      {% include gil.svg %}
     </a>
 
-    <!-- <a href="{{ "/" | relative_url }}" class="navigation__item {% if current[1] == null %}navigation__item--active{% endif %} ">
-      Home
-    </a> -->
     <a href="{{ "/projects" | relative_url }}" class="navigation__item {% if current[1] == 'projects' %}navigation__item--active{% endif %} {% if current[1] == 'posts' %}navigation__item--active{% endif %}">Projects</a>
     <a href="{{ "/resume" | relative_url }}" class="navigation__item {% if current[1] == 'resume' %}navigation__item--active{% endif %} ">Résumé</a>
     <a href="{{ "/blog" | relative_url }}" class="navigation__item {% if current[1] == 'blog' %}navigation__item--active{% endif %} {% if current[1] == 'posts' %}navigation__item--active{% endif %}">Blog</a>
     <a href="{{ "/contact" | relative_url }}" class="navigation__item {% if current[1] == 'contact' %}navigation__item--active{% endif %} ">Contact</a>
-
-    {% comment %}
-    {% for my_page in site.pages %}
-      {% if my_page.title %}
-      <a href="{{ my_page.url | relative_url }}" class="navigation__item">{{ my_page.title | escape }}</a>
-      {% endif %}
-    {% endfor %}
-    {% endcomment %}
   </header>
 </nav>
 

@@ -8,7 +8,7 @@ show_teaser: true
     <h2 class="header__subheadline">{{ site.subheadline }}</h2>
 
     {% assign post = site.posts.first %}
-    <a href="{{ root_url }}{{ post.url }}" class="index__post index__post--hidden" data-timed-display="true" data-post-date="{{ post.date | date: "%Y-%m-%d" }}">
+    <a href="{{ root_url }}{{ post.url }}" class="index__post index__post--hidden">
       My latest blog post:
       <span class="index__post-link">{{ post.title }}</span>
     </a>
