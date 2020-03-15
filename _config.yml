@@ -38,12 +38,10 @@ exclude:
   - .gitignore
   - .ruby-version
   - .nvmrc
-  - deploy.sh
+  - .jekyll-cache
+  - .sass-cache
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - package.json
-  - yarn.lock
   - vendor
   - .github/
 
