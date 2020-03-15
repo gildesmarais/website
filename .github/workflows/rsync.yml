@@ -35,8 +35,8 @@ jobs:
         env:
           DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
         with:
-          flags: "-avzr --delete"
-          options: ""
+          flags: "-avzr --prune-empty-dirs --delete"
+          options: "--exclude *.scss"
           ssh_options: ""
           src: "_site/"
           dest: "admiral@skiff.uberspace.de:/var/www/virtual/admiral/gil.desmarais.de"
