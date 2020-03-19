@@ -2,21 +2,25 @@
 layout: page
 show_teaser: true
 ---
+
 <main class="container" role="main">
   <div class="header__column">
     <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
     <h2 class="header__subheadline">{{ site.subheadline }}</h2>
 
     {% assign post = site.posts.first %}
-    <a href="{{ root_url }}{{ post.url }}" class="index__post index__post--hidden">
+    <a
+      href="{{ root_url }}{{ post.url }}"
+      class="index__post index__post--hidden"
+    >
       My latest blog post:
       <span class="index__post-link">{{ post.title }}</span>
     </a>
 
     <p>
-      I worked for young and established startups, agencies and my side projects.
-      That not only included the creation of software, but also identifying
-      business problems and solving those with software.
+      I worked for young and established startups, agencies and my side
+      projects. That not only included the creation of software, but also
+      identifying business problems and solving those with software.
     </p>
 
     <p>
@@ -24,6 +28,7 @@ show_teaser: true
       prefer to write boring code.
     </p>
 
+    <h2 class="visually-hidden">My professional knowledge not only covers…</h2>
     <ul class="tags">
       <li class="tags__tag--4">Ruby</li>
       <li class="tags__tag--4">JavaScript</li>
@@ -45,6 +50,7 @@ show_teaser: true
       <li class="tags__tag--4">nginx</li>
       <li class="tags__tag--4">git</li>
       <li class="tags__tag--4">Docker</li>
+      <li class="tags__tag--4">object oriented design</li>
 
       <li class="tags__tag--3">search engine optimization</li>
       <li class="tags__tag--3">Selenium & Capybara</li>
@@ -56,8 +62,6 @@ show_teaser: true
       <li class="tags__tag--3">project management</li>
       <li class="tags__tag--3">team lead</li>
       <li class="tags__tag--3">product management</li>
-
-      <li class="tags__tag--3">object oriented design</li>
       <li class="tags__tag--3">static code analysis</li>
 
       <li class="tags__tag--1">Elasticsearch</li>
