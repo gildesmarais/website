@@ -87,6 +87,15 @@ a {
   }
 }
 
+kbd {
+  font-family: $base-font;
+
+  @media (hover: hover) {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -109,4 +118,17 @@ h6 {
       background-color: $base02;
     }
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }

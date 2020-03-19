@@ -1,11 +1,20 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
   <meta charset="utf-8" />
-  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <title>
+    {% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title |
+    escape }}
+  </title>
+  <meta
+    name="description"
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}"
+  />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="referrer" content="no-referrer" />
-  <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}" />
+  <meta
+    name="robots"
+    content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}"
+  />
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   <link rel="canonical" href="{{ page.url | replace: 'index.html','' | absolute_url }}">

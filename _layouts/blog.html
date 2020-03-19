@@ -11,7 +11,7 @@ layout: default
     <ul class="post-preview__list">
       {% for post in site.posts %}
       <li>
-        <a class="post-preview__link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <a class="post-preview__link" href="{{ post.url | relative_url }}" tabindex="1">{{ post.title | escape }}</a>
         <time class="post-preview__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
       </li>
       {% endfor %}
