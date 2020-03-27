@@ -20,5 +20,5 @@ I ran out of labels to also tape the function key row and some super keys. The s
 
 <small>
   <a name="obelix">*</a> 
-  OK, there is reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.
+  OK, there is another reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.
 </small>
