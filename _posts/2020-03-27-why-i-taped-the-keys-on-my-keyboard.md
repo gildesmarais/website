@@ -1,0 +1,24 @@
+---
+layout: post
+title: Why I taped the keys on my keyboard
+date: 2020-03-27 16:45:00 +0100
+excerpt: "Observations while becoming better at typing blindly."
+---
+
+About two years ago, I taped the keys on my working keyboard with fitting white labels.
+
+The idea was to force myself to get better at typing without looking.<sup>[\*](#obelix)</sup>
+
+I thought I'd type without looking all the time.
+Since the labels are on, I noticed when I looked at the keyboard. That happened unconsciously sometimes.
+
+For a while I struggled to press the correct key in the number row. There's no indicator like on the F and J key. With time I became more precise, but you can't fully make up the missing indicators.
+
+![A photo of my taped keyboard](/assets/images/posts/2020-03-27-keyboard.jpg)
+
+I ran out of labels to also tape the function key row and some super keys. The super keys I know in and out. Pressing one of the function keys is a well considered operation IMHO. When pressing one, I look at the keyboard and press that key, awaiting _functions_ to happen.
+
+<small>
+  <a name="obelix">*</a> 
+  OK, there is reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.
+</small>
