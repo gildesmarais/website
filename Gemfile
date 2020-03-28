@@ -12,6 +12,7 @@ gem 'sassc', github: 'sass/sassc-ruby'
 group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-sitemap'
+  gem 'jekyll-target-blank'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
