@@ -8,9 +8,6 @@ excerpt: "Moving out of the comfortable filter bubble and explore art."
 The question <q>What do we watch?</q> is a tough one to answer.
 We decided to break out of our self-established, comfortable, filter bubble and start watching movies alphabetically.
 
-We started on 15th February 2020 and made it through the alphabet by end of March 2020. That's a pace of
-<sup>26</sup>∕<sub>7</sub> = 3.714 movies per week.
-
 Moving out of the filter bubble has been a good experience:
 
 - We saved a good amount of time with the chosen selection method.
@@ -18,6 +15,9 @@ Moving out of the filter bubble has been a good experience:
 - We watched classics, B-movies, genres we'd usually skip, etc.
 - We also lost some saved time by watching movies which weren't good — but is that a difference to any other selection method?
 - We made an exception for the letter X and skipped it.<sup>[\[1\]](#note-1)</sup>
+
+We started on 15th February 2020 and made it through the alphabet by end of March 2020. That's a pace of
+<sup>25</sup>∕<sub>7</sub> = 3.5714 movies per week.
 
 Movies are a form of art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
 
