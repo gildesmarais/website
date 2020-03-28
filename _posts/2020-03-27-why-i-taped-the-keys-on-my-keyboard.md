@@ -5,12 +5,12 @@ date: 2020-03-27 16:45:00 +0100
 excerpt: "Observations while becoming better at typing blindly."
 ---
 
-About two years ago, I taped the keys on my working keyboard with fitting white labels.
+About two years ago, I taped the keys on my work keyboard with fitting white labels.
 
 The idea was to force myself to get better at typing without looking.<sup>[\*](#obelix)</sup>
 
 I thought I'd type without looking all the time.
-Since the labels are on, I noticed when I looked at the keyboard. That happened unconsciously sometimes.
+Since the labels are on, I was reminded when I looked at the keyboard. It happened unconsciously a few times a day.
 
 For a while I struggled to press the correct key in the number row. There's no indicator like on the F and J key. With time I became more precise, but you can't fully make up the missing indicators.
 
