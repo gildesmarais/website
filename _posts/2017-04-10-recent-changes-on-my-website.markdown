@@ -2,8 +2,7 @@
 layout: post
 title: "Recent changes on my website"
 date: 2017-04-10 15:45:58 +0100
-excerpt: A post about switching to Jekyll and throwing code away by using modern technologies.
-comments: true
+description: A post about switching to Jekyll and throwing code away by using modern technologies.
 ---
 You may have already noticed some changes on my website. This post describes
 why and what has changed.
