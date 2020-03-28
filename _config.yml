@@ -23,6 +23,9 @@ url: "https://gil.desmarais.de" # the base hostname & protocol for your site, e.
 author: Gil Desmarais
 github_username: gildesmarais
 linkedin_username: gildesmarais
+twitter:
+  username: gldsmrs
+  card: summary
 
 subheadline: I'm a full stack developer from Berlin.
 

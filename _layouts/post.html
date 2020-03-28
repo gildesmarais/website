@@ -3,22 +3,21 @@ layout: default
 ---
 
 <main class="container">
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="post">
     <header class="post__header">
       <p class="post__meta">
         <time
           datetime="{{ page.date | date_to_xmlschema }}"
-          itemprop="datePublished"
         >
           {{ page.date | date_to_long_string }}
         </time>
       </p>
-      <h1 class="post__title" itemprop="name headline">
+      <h1 class="post__title">
         {{ page.title | escape }}
       </h1>
     </header>
 
-    <div class="post__content" itemprop="articleBody">
+    <div class="post__content">
       {% if page.toc %}
         <p class="is-alternative-font">{{ page.description }}</p>
       {% endif %}
