@@ -2,7 +2,7 @@
 layout: post
 title: Picking and watching movies alphabetically
 date: 2020-03-31 12:00:00 +0200
-excerpt: "Moving out of the comfortable filter bubble and "
+excerpt: "Moving out of the comfortable filter bubble and explore art."
 ---
 
 The question <q>What do we watch?</q> is a tough one to answer.
@@ -19,12 +19,12 @@ Moving out of the filter bubble has been a good experience:
 - We also lost some saved time by watching movies which weren't good — but is that a difference to any other selection method?
 - We made an exception for the letter X and skipped it.<sup>[\[1\]](#note-1)</sup>
 
-Making movies is an art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
+Movies are a form of art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
 
 <details>
-  <summary>Find the movies we watched and my ratings here</summary>
+  <summary>The movies we watched with my ratings</summary>
 
-  <p>Ratings are on a scale from 1 (bad) to 10 (good).</p>
+  <p>Ratings are on a scale of 1 (bad) to 10 (good).</p>
   <ol>
     <li>Ad Astra 6/10</li>
     <li>Beach Bum 5/10</li>
@@ -32,7 +32,7 @@ Making movies is an art. Let's keep it alive and diverse by watching movies whic
     <li>Death Race 2050 2/10</li>
     <li>Escape from Alcatraz 6/10</li>
     <li>Fitzcarraldo 7/10</li>
-    <li>Gisaengchung (english: Parasite)</li>
+    <li>Gisaengchung (english: Parasite) 5/10</li>
     <li>Hidden Figures 6/10</li>
     <li>It&#39;s All Gone Pete Tong 4/10</li>
     <li>Judgement at Nuremberg 8/10</li>
@@ -42,14 +42,14 @@ Making movies is an art. Let's keep it alive and diverse by watching movies whic
     <li>Nothing But the Truth 5/10</li>
     <li>Once upon a time in America 5/10</li>
     <li>Paths of Glory 6/10</li>
-    <li>!!! Q</li>
+    <li>Quadrophenia *tba*</li>
     <li>Rocco 5/10</li>
     <li>Star Wars: Episode IX - Der Aufstieg Skywalkers 6/10</li>
     <li>Trance (2013) 6/10</li>
     <li>Upgrade 5/10</li>
     <li>Vanilla Sky 5/10</li>
     <li>Watership Down 2/10</li>
-    <li>❌</li>
+    <li>❌ None we're available to us.<a href="#note-1"><sup>[1]</sup></a></li>
     <li>Young People Fucking 4/10</li>
     <li>!!! Z</li>
   </ol>
@@ -59,7 +59,7 @@ I'm in for a repetition.
 
 <small>
   [<a name="note-1">1</a>]: 
-  I'm *d'accord* with this opinion: 
+  We're not into superhero movies. I'm *d'accord* with this opinion: 
   <a href="https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html" target="_blank" rel="noopener nofollow">
       Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.
   </a>
