@@ -33,6 +33,7 @@ theme:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-target-blank
 
 exclude:
   - .gitignore
