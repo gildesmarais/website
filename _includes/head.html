@@ -22,4 +22,11 @@
   <link rel="prefetch" href="/resume">
 
   {% seo %}
+
+  {% if page.seo.image %}
+    <meta property="og:image" content="{{ page.seo.image | absolute_url }}" />
+  {% else %}
+    <meta property="og:image" content="{{ "/assets/images/social.png" | absolute_url }}" />
+  {% endif %}
+
 </head>
