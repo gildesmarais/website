@@ -4,11 +4,11 @@
  */
 
 .highlighter-rouge {
-  background: #eef;
+  background: $base00;
 }
 
 .highlight {
-  background: #fff;
+  background: $base00;
 
   .c     { color: #998; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
