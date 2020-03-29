@@ -1,10 +1,3 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
@@ -14,26 +7,32 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Gil Desmarais
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Gil Desmarais is a fullstack developer, focusing on web development, living in Berlin.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gil.desmarais.de" # the base hostname & protocol for your site, e.g. http://example.com
-
-github_username: gildesmarais
-linkedin_username: gildesmarais
-
 subheadline: I'm a full stack developer from Berlin.
 
-permalink: /posts/:title_:year-:month-:day.html
+email: your-email@domain.com
+description: A fullstack developer, focusing on web development, living in Berlin, working worldwide.
+baseurl: ""
+url: "https://gil.desmarais.de"
+
+author: Gil Desmarais
+github_username: gildesmarais
+linkedin_username: gildesmarais
+twitter:
+  username: gldsmrs
+  card: summary
 
 # Build settings
 markdown: kramdown
 theme:
+
+permalink: /posts/:title_:year-:month-:day.html
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-target-blank
+  - jekyll-toc
+  - jekyll-seo-tag
 
 exclude:
   - .gitignore
