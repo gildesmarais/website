@@ -35,15 +35,20 @@ plugins:
   - jekyll-seo-tag
 
 exclude:
+  - .github/
   - .gitignore
-  - .ruby-version
-  - .nvmrc
   - .jekyll-cache
+  - .nvmrc
+  - .ruby-version
   - .sass-cache
+  - .stylelintrc.json
   - Gemfile
   - Gemfile.lock
+  - node_modules/
+  - package.json
   - vendor
-  - .github/
+  - yarn.error
+  - yarn.lock
 
 sass:
   style: compressed

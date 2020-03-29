@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "function-comma-space-after": "always",
+    "no-descending-specificity": null,
+    "declaration-block-single-line-max-declarations": 1,
+    "unit-whitelist": ["%", "fr", "em", "rem", "deg", "px", "ch", "s", "vh", "vw", "ms", "turn"],
+    "max-empty-lines": 1,
+    "max-line-length": 110,
+    "no-empty-first-line": true,
+    "indentation": 2,
+    "number-leading-zero": "always",
+    "media-feature-name-no-unknown": [
+      true,
+      {
+        "ignoreMediaFeatureNames": ["prefers-color-scheme"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["system", "symbols", "suffix"]
+      }
+    ]
+  }
+}

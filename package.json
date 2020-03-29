@@ -1,0 +1,17 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "repository": "git@github.com:gildesmarais/website.git",
+  "author": "Gil Desmarais <git@desmarais.de>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "lintfix": "stylelint --fix assets/**/*.scss"
+  },
+  "devDependencies": {
+    "stylelint": "^13.2.1",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-recommended-scss": "^4.2",
+    "stylelint-scss": "^3.16.0"
+  }
+}
