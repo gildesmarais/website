@@ -74,6 +74,7 @@ body {
   font-size: 1rem;
   font-weight: 300;
   color: $base00;
+  padding-bottom: 25vh;
 }
 
 a {
@@ -84,15 +85,6 @@ a {
 
   &:hover {
     background-color: $base06;
-  }
-}
-
-kbd {
-  font-family: $base-font;
-
-  @media (hover: hover) {
-    text-decoration: underline;
-    text-decoration-style: dotted;
   }
 }
 
