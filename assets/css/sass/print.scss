@@ -11,10 +11,10 @@
   *,
   *:before,
   *:after {
-    background: transparent !important;
-    box-shadow: none !important;
     color: #000 !important; // Black prints faster: http://www.sanbeiji.com/archives/953
     text-shadow: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   body {

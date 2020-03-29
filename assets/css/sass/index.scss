@@ -1,15 +1,15 @@
 @import "_base";
 
 .index__teaser {
-  font-size: 1.125rem;
   font-family: $base-font;
+  font-size: 1.125rem;
   font-weight: 100;
 }
 
 .index__link--silent {
+  font-weight: 400;
   color: $base00;
   text-decoration: underline;
-  font-weight: 400;
 }
 
 .index__link {
