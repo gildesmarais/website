@@ -28,7 +28,16 @@
   h5,
   h6 {
     text-align: left;
-    margin-bottom: 0.125rem;
+    margin-bottom: 0.25em;
+    text-decoration: underline;
+    text-decoration-color: $base02;
+  }
+
+  h4,
+  h5,
+  h6 {
+    text-decoration-color: $base01;
+    padding-top: 1rem;
   }
 
   p {
