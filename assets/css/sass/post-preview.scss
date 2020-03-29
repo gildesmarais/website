@@ -1,0 +1,28 @@
+.post-preview__list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.post-preview__list > li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0;
+}
+
+.post-preview__meta {
+  padding-right: 1rem;
+  font-family: $alternative-font;
+  color: $base03;
+  white-space: nowrap;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .post-preview__list > li {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .post-preview__meta {
+    order: -1;
+  }
+}

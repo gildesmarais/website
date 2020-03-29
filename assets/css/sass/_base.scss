@@ -107,12 +107,13 @@ h6 {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: $base06;
+    color: darken($base04, 15);
     background-color: #000;
   }
 
   a {
     color: $base09;
+    text-decoration-color: $base00;
 
     &:hover {
       background-color: $base02;
