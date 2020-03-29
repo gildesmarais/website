@@ -3,21 +3,21 @@
     {% assign current = page.url | downcase | split: '/' %}
 
     <a href="{{ "/" | relative_url }}" class="navigation__logo {% if current[1] == null %}navigation__logo--active{% endif %}">
-      <kbd class="visually-hidden">h</kbd><span class="visually-hidden">ome</span>
+      <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
       {% include gil.svg %}
     </a>
 
     <a href="{{ "/projects" | relative_url }}" class="navigation__item {% if current[1] == 'projects' %}navigation__item--active{% endif %} ">
-      <kbd>P</kbd>rojects
+      <span data-mousetrap>P</span>rojects
     </a>
     <a href="{{ "/resume" | relative_url }}" class="navigation__item {% if current[1] == 'resume' %}navigation__item--active{% endif %} ">
-      <kbd>R</kbd>ésumé
+      <span data-mousetrap>R</span>ésumé
     </a>
     <a href="{{ "/blog" | relative_url }}" class="navigation__item {% if current[1] == 'blog' %}navigation__item--active{% endif %} {% if current[1] == 'posts' %}navigation__item--active{% endif %}">
-      <kbd>B</kbd>log
+      <span data-mousetrap>B</span>log
     </a>
     <a href="{{ "/contact" | relative_url }}" class="navigation__item {% if current[1] == 'contact' %}navigation__item--active{% endif %} ">
-      <kbd>C</kbd>ontact
+      <span data-mousetrap>C</span>ontact
     </a>
   </header>
 </nav>

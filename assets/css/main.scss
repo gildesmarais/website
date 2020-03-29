@@ -80,3 +80,22 @@
     border-top-color: $base00;
   }
 }
+
+@media (hover: hover) {
+  [data-mousetrap] {
+    text-decoration: underline;
+  }
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.0125em 0.25em;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  color: $base01;
+  white-space: nowrap;
+  background-color: $base05;
+  border: 1px solid $base03;
+  border-radius: 0.3em;
+}
