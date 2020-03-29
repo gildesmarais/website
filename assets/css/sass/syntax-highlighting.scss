@@ -73,11 +73,14 @@
 
 @media (prefers-color-scheme: dark) {
   .highlighter-rouge {
-    background-color: $base00;
+    background-color: darken($base00, 10);
+    border: 1px solid rgba($base01, 0.25);
+    border-left: 0;
+    border-right: 0;
   }
 
   .highlight {
-    background-color: $base00;
+    background-color: darken($base00, 10);
 
     .c , .err , .cm , .cp , .c1 , .cs , .gd , .gd .x , .gr , .gh , .gi , .gi .x,
     .go , .gp , .gu , .gt , .kt , .m , .s , .na , .nb , .nc , .no , .ni , .ne,
