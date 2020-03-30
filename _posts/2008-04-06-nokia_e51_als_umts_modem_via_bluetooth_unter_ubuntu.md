@@ -18,7 +18,7 @@ Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig au
 
      00:1D:6E:BC:xx:xx Gil
 
-Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zwei mal gebraucht (wird nachfolgend <mac> genannt).  
+Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zwei mal gebraucht (wird nachfolgend `<mac>` genannt).  
 Jetzt soll Ubuntu das Handy nach den via Bluetooth angebotenen Services durchsuchen. Hierfür kann das Handy schon wieder unsichtbar gemacht werden, da die MAC-Adresse zum Verbinden vollkommen ausreicht.
 
     $ sdptool browse <mac>
@@ -36,7 +36,7 @@ Service angeboten wird. Bei meinem E51 ist das der Channel 2.
      "RFCOMM" (0x0003)
      **Channel: 2**
 
-Ein letztes Mal wird die MAC Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die _/etc/bluetooth/rfcomm.conf \_bearbeiten (bspw. mit: \_sudo gedit /etc/bluetooth/rfcomm.conf_) und folgendes hineinschreiben.
+Ein letztes Mal wird die MAC Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit: `sudo gedit /etc/bluetooth/rfcomm.conf`) und folgendes hineinschreiben.
 
      rfcomm0 {
        bind yes;
@@ -49,7 +49,7 @@ Speichern und danach mit
 
     sudo /etc/init.d/bluetooth restart
 
-den Bluetooth Dienst neustarten. Jetzt sollte unter _/dev/_ ein Gerät (= Datei) namens _rfcomm0_ vorhanden sein.
+den Bluetooth Dienst neustarten. Jetzt sollte unter `/dev/` ein Gerät (= Datei) namens `rfcomm0` vorhanden sein.
 
 Nun _wvdial_ installieren.
 
