@@ -16,7 +16,7 @@ Moving out of the filter bubble has been a good experience:
 - We made an exception for the letter X and skipped it.<sup>[\[1\]](#note-1)</sup>
 
 We started on 15th February 2020 and made it through the alphabet by end of March 2020. That's a pace of
-<sup>25</sup>∕<sub>7</sub> = 3.5714 movies per week.
+<sup>26</sup>∕<sub>7</sub> = 3.714285714 movies per week.
 
 Movies are a form of art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
 
