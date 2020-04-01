@@ -1,0 +1,18 @@
+ul.section-nav {
+  font-family: $alternative-font;
+  font-size: 1rem;
+  color: $base03;
+  list-style: outside decimal;
+
+  a {
+    font-family: $base-font
+  }
+
+  li > ul {
+    list-style: outside lower-latin;
+  }
+
+  li > ul > li > ul {
+    list-style: outside upper-roman;
+  }
+}

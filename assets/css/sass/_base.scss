@@ -36,13 +36,13 @@ $breakpoint-medium: 600px;
 }
 
 @mixin box {
-  font-size: 0.9rem;
+  display: block;
   padding: 1rem 0.5rem;
+  font-size: 0.9rem;
+  color: $base02;
+  text-decoration: none;
   background-color: lighten($base06, 10);
   border: 1px solid $base0d;
-  text-decoration: none;
-  display: block;
-  color: $base02;
 
   span {
     color: darken($base0d, 20);
@@ -53,11 +53,11 @@ $breakpoint-medium: 600px;
   }
 
   @media (prefers-color-scheme: dark) {
-    background-color: $black;
-    border: 1px solid $base0d;
     color: $base04;
+    background-color: $black;
 
     filter: brightness(0.9);
+    border: 1px solid $base0d;
 
     &:hover {
       background-color: $base00;
@@ -70,29 +70,21 @@ $breakpoint-medium: 600px;
 }
 
 body {
-  color: $base00;
   font-family: $base-font;
   font-size: 1rem;
   font-weight: 300;
+  color: $base00;
+  padding-bottom: 25vh;
 }
 
 a {
-  color: darken($base0d, 20);
   font-weight: 500;
+  color: darken($base0d, 20);
   text-decoration: underline;
   text-decoration-color: $base03;
 
   &:hover {
     background-color: $base06;
-  }
-}
-
-kbd {
-  font-family: $base-font;
-
-  @media (hover: hover) {
-    text-decoration: underline;
-    text-decoration-style: dotted;
   }
 }
 
@@ -107,12 +99,13 @@ h6 {
 
 @media (prefers-color-scheme: dark) {
   body {
+    color: darken($base04, 15);
     background-color: #000;
-    color: $base06;
   }
 
   a {
     color: $base09;
+    text-decoration-color: $base00;
 
     &:hover {
       background-color: $base02;
@@ -122,13 +115,11 @@ h6 {
 
 .visually-hidden {
   position: absolute;
-  left: -10000px;
   top: auto;
+  left: -10000px;
   width: 1px;
   height: 1px;
   overflow: hidden;
-  height: 1px;
-  width: 1px;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }

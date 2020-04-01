@@ -9,32 +9,32 @@ $small-font-size: 14px; // let's use the px unit here, for legal reasons
 }
 
 .contact__phone {
-  color: $base02;
-  font-size: $small-font-size;
   display: inline-block;
   margin-bottom: 1rem;
+  font-size: $small-font-size;
+  color: $base02;
 }
 
 .contact__address {
-  font-style: normal;
   display: block;
   padding-left: 0.5rem;
   font-size: $small-font-size;
+  font-style: normal;
   line-height: 1.5;
   user-select: none;
 }
 
 .contact__mailing-address,
 .contact__phone-number {
-  color: $base02;
-  font-size: $small-font-size;
   margin: 2rem 0 0;
+  font-size: $small-font-size;
+  color: $base02;
 }
 
 @media (prefers-color-scheme: dark) {
   .contact__phone,
   .contact__mailing-address,
   .contact__phone-number {
-    color: $base05;
+    color: $base04;
   }
 }

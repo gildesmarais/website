@@ -1,12 +1,12 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   align-content: center;
-  font-size: 1.4rem;
+  align-items: center;
+  justify-content: center;
   padding: 0 2rem;
   margin: 1em 0;
+  font-size: 1.4rem;
 
   list-style: none;
 }
@@ -14,8 +14,8 @@
 @mixin tag {
   display: inline-block;
   padding: 0 0.5rem;
-  line-height: 1.1;
   font-family: $alternative-font;
+  line-height: 1.1;
 }
 
 $tag-color: darken($base03, 25);
@@ -53,6 +53,6 @@ $tag-settings: (
 
 .tags__tag-linebreak {
   flex: 0 0 100%;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
