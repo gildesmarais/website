@@ -1,16 +1,16 @@
-.navigation {
+.nav {
   font-size: 0;
   background-color: $base02;
 }
 
-.navigation__container {
+.nav__container {
   display: flex;
   max-width: 50rem;
   margin: -1px auto 0;
   overflow: hidden;
 }
 
-.navigation__logo {
+.nav__logo {
   flex: 1 1 20%;
   align-self: flex-end;
   height: 2rem;
@@ -27,7 +27,7 @@
     color: #b3cae0;
   }
 }
-.navigation__item {
+.nav__item {
   flex: 1 1 25%;
   align-self: flex-end;
   padding: 0.5rem 0.5rem 0.25rem;
@@ -50,19 +50,19 @@
   }
 }
 
-.navigation__item--active {
+.nav__item--active {
   color: #b3cae0;
   background-color: lighten($base02, 10);
 }
 
 @media (prefers-color-scheme: dark) {
-  .navigation {
+  .nav {
     background-color: $black;
     border-bottom: 1px solid $base01;
   }
 
-  .navigation__item:hover,
-  .navigation__item--active {
+  .nav__item:hover,
+  .nav__item--active {
     background-color: $base01;
   }
 }
