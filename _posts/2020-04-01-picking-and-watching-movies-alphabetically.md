@@ -31,10 +31,10 @@ Movies are a form of art. Let's keep it alive and diverse by watching movies whi
     <li>Death Race 2050 2/10</li>
     <li>Escape from Alcatraz 6/10</li>
     <li>Fitzcarraldo 7/10</li>
+    <li>Gisaengchung (aka Parasite) 5/10</li>
     <li>Hidden Figures 6/10</li>
     <li>It&#39;s All Gone Pete Tong 4/10</li>
     <li>Judgement at Nuremberg 8/10</li>
-    <li>Knives Out 8/10</li>
     <li>Knockin&#39; on Heaven&#39;s Door 6/10</li>
     <li>L.A. Story 4/10</li>
     <li>Moon 5/10</li>
