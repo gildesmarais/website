@@ -1,22 +1,22 @@
-<nav class="navigation">
-  <header class="navigation__container" role="navigation">
+<nav class="nav">
+  <header class="nav__container" role="nav">
     {% assign current = page.url | downcase | split: '/' %}
 
-    <a href="{{ "/" | relative_url }}" class="navigation__logo {% if current[1] == null %}navigation__logo--active{% endif %}">
+    <a href="{{ "/" | relative_url }}" class="nav__logo {% if current[1] == null %}nav__logo--active{% endif %}">
       <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
       {% include gil.svg %}
     </a>
 
-    <a href="{{ "/projects" | relative_url }}" class="navigation__item {% if current[1] == 'projects' %}navigation__item--active{% endif %} ">
+    <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %} ">
       <span data-mousetrap>P</span>rojects
     </a>
-    <a href="{{ "/resume" | relative_url }}" class="navigation__item {% if current[1] == 'resume' %}navigation__item--active{% endif %} ">
+    <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %} ">
       <span data-mousetrap>R</span>ésumé
     </a>
-    <a href="{{ "/blog" | relative_url }}" class="navigation__item {% if current[1] == 'blog' %}navigation__item--active{% endif %} {% if current[1] == 'posts' %}navigation__item--active{% endif %}">
+    <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}">
       <span data-mousetrap>B</span>log
     </a>
-    <a href="{{ "/contact" | relative_url }}" class="navigation__item {% if current[1] == 'contact' %}navigation__item--active{% endif %} ">
+    <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %} ">
       <span data-mousetrap>C</span>ontact
     </a>
   </header>
