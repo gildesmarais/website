@@ -18,6 +18,7 @@ For a while I struggled to press the correct key in the number row. There's no i
 
 I ran out of labels to also tape the function key row and some super keys. The super keys I know in and out. Pressing one of the function keys is a well considered operation IMHO. When pressing one, I look at the keyboard and press that key, awaiting _functions_ to happen.
 
+<hr>
 <small>
   <a name="obelix">*</a> 
   OK, there is another reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.
