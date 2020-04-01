@@ -41,6 +41,7 @@ Sometimes it's nice to have a GUI instead of cli tool.
 - PostgreSQL: [Postico](https://eggerapps.at/postico/)
 - MySQL/MariaDB: [Sequel Pro](https://sequelpro.com/)
 
+But remember: avoiding your business logic and fiddle in the database will cause trouble.
 I keep code snippets, research results and other notes in a git repository containing mainly Markdown files.
 However, I'll check out [FSNotes]() (an nvAlt inspired app), which looks very promising for that.
 That repository is in my iCloud Drive and thus I can take notes on my phone, too.
