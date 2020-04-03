@@ -71,10 +71,10 @@ $breakpoint-medium: 600px;
 
 body {
   padding-bottom: 25vh;
-
   font-family: $base-font;
   font-size: 1rem;
   font-weight: 300;
+  font-variant-ligatures: common-ligatures;
   color: $base00;
 }
 
