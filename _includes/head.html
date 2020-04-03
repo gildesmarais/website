@@ -9,23 +9,30 @@
   />
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-  <link rel="canonical" href="{{ page.url | replace: 'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  <link
+    rel="canonical"
+    href="{{ page.url | replace: 'index.html','' | absolute_url }}"
+  />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="{{ site.title | escape }}"
+    href="{{ "/feed.xml" | relative_url }}"
+  />
 
-  <link rel="prefetch" href="/">
-  <link rel="prefetch" href="/blog">
-  <link rel="prefetch" href="/contact">
-  <link rel="prefetch" href="/projects">
-  <link rel="prefetch" href="/resume">
+  <link rel="prefetch" href="/" />
+  <link rel="prefetch" href="/blog" />
+  <link rel="prefetch" href="/projects" />
+  <link rel="prefetch" href="/resume" />
 
   {% include favicons.html %}
 
   {% seo %}
 
   {% if page.seo.image %}
-    <meta property="og:image" content="{{ page.seo.image | absolute_url }}" />
+  <meta property="og:image" content="{{ page.seo.image | absolute_url }}" />
   {% else %}
-    <meta property="og:image" content="{{ "/assets/images/social.png" | absolute_url }}" />
+  <meta property="og:image" content="{{ "/assets/images/social.png" |
+  absolute_url }}" />
   {% endif %}
-
 </head>
