@@ -16,6 +16,7 @@
 @import "_base";
 @import "contact";
 @import "header";
+@import "footer";
 @import "index";
 @import "nav";
 @import "post";
@@ -52,30 +53,7 @@
   line-height: 1.5;
 }
 
-.footer__social-links {
-  float: right;
-}
-
-.footer__social-link {
-  display: inline-block;
-  padding: 1rem;
-  font-family: $alternative-font;
-  color: $base03;
-  text-decoration: none;
-
-  &:focus,
-  &:hover {
-    background: linear-gradient(
-      to bottom, rgba($base06, 0.75), rgba($base06, 0)
-    );
-  }
-}
-
 @media (prefers-color-scheme: dark) {
-  .footer__social-link {
-    filter: invert(100%);
-  }
-
   .section {
     border-top-color: $base00;
   }
