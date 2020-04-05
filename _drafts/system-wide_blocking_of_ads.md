@@ -1,5 +1,3 @@
-
-
 https://pgl.yoyo.org/adservers/
 
 generate the url in the form on top of the page by selecting 'little snitch'

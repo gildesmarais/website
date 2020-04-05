@@ -10,11 +10,11 @@ toc: true
 There are several ways to obtain music nowadays:
 
 1. Rip it from CDs  
-  Use [ExactAudioCopy](http://exactaudiocopy.de/) on a window machine with an optical disc reading device (they still exist outside museums)
+   Use [ExactAudioCopy](http://exactaudiocopy.de/) on a window machine with an optical disc reading device (they still exist outside museums)
 2. Rip it from vinyl  
-  Use a turntable, an analog to digital audio converter and use [Audacity](https://www.audacityteam.org/) to record it. Audacity offers some filters to reduce noise and remove cracks and pops.
-3. Download from *web 2.0* websites  
-  [youtube-dl](https://github.com/ytdl-org/youtube-dl/) is the swiss-army-knife for downloading from those sites. Check if your local radio stations are supported! :)
+   Use a turntable, an analog to digital audio converter and use [Audacity](https://www.audacityteam.org/) to record it. Audacity offers some filters to reduce noise and remove cracks and pops.
+3. Download from _web 2.0_ websites  
+   [youtube-dl](https://github.com/ytdl-org/youtube-dl/) is the swiss-army-knife for downloading from those sites. Check if your local radio stations are supported! :)
 4. Some radio stations provide their shows as podcasts.
 5. Some DJs run their own podcast to promote themselves.
 6. Buy it online.
@@ -26,13 +26,13 @@ There are several ways to obtain music nowadays:
 These tools come in handy:
 
 - [ffmpeg](https://ffmpeg.org/) the swiss-army-knife for audio & video en-/trans-/decoding on the command line.
-- [XLD](https://tmkk.undo.jp/xld/index_e.html) to transcode audio files, split one file to tracks, etc. 
+- [XLD](https://tmkk.undo.jp/xld/index_e.html) to transcode audio files, split one file to tracks, etc.
 
 ### Set and clean ID3 tags
 
-- [MusicBrainz Picard](https://picard.musicbrainz.org/) is matching the files  with their accoustic fingerprint against the freedb and sets their tags.
+- [MusicBrainz Picard](https://picard.musicbrainz.org/) is matching the files with their accoustic fingerprint against the freedb and sets their tags.
 - [mp3tag](https://www.mp3tag.de/) for derive ID3 tags from folder & file name, and fixing ID3/APEv2 tags.  
-  Mp3tag is a power tool for mass manipulating and cleaning tags. It's outstanding and works well within wine. Nothing comes close to it and it is the only reason I keep wine installed.  
+  Mp3tag is a power tool for mass manipulating and cleaning tags. It's outstanding and works well within wine. Nothing comes close to it and it is the only reason I keep wine installed.
 
   Wine is holding me back from upgrading to macOS Catalina as it does not support 64bit-only OSes yet. I'm btw. afraid of the Music.app which comes with macOS Catalina.
 
@@ -86,7 +86,7 @@ Tagging something as "pop" is basically avoiding to set a genre. For Pop I start
 
 ### Cleaning up the iTunes library with beaTunes
 
-beaTunes not only analyzes the content of each track, but also inspects your library. It detects illogical tags, missing compilation tags, different notations of the same artist, finds duplicates, etc. 
+beaTunes not only analyzes the content of each track, but also inspects your library. It detects illogical tags, missing compilation tags, different notations of the same artist, finds duplicates, etc.
 
 ### Creating playlists
 
@@ -105,9 +105,9 @@ Stars 1 is your "to remove" list.
 
 Now you can create a smart playlist like:
 
-*Banger tracks*: Track is in Playlist "Energy 8" and "Stars 5".
-*Calm popular music*: Genre begins with Pop and is in Playlist "Energy 4" or "Energy 5".
-*Hard Techno post 2010*: Genre begins with Techno/Hard and year >= 2010, in Playlist Energy 6, 7, 8, 9.
+_Banger tracks_: Track is in Playlist "Energy 8" and "Stars 5".
+_Calm popular music_: Genre begins with Pop and is in Playlist "Energy 4" or "Energy 5".
+_Hard Techno post 2010_: Genre begins with Techno/Hard and year >= 2010, in Playlist Energy 6, 7, 8, 9.
 
 #### Using beaTunes
 
@@ -116,15 +116,17 @@ But as time showed, I do not use that feature much. I'm fine with the smart play
 
 ## Backup
 
-1. Use [rsync](https://rsync.samba.org/) to sync the local Music folder to my NAS:  
-  ```
-  rsync --archive --verbose --human-readable \
-   --itemize-changes --progress \
-   --prune-empty-dirs --delete \
-   -e ssh /Users/gil/Music/iTunes my-nas:/mnt/somewhere/backup/Backup_Music
-  ```
+1. Use [rsync](https://rsync.samba.org/) to sync the local Music folder to my NAS:
+
+```
+rsync --archive --verbose --human-readable \
+ --itemize-changes --progress \
+ --prune-empty-dirs --delete \
+ -e ssh /Users/gil/Music/iTunes my-nas:/mnt/somewhere/backup/Backup_Music
+```
+
 2. export the playlist with [Doug's Batch Export Playlists](https://dougscripts.com/itunes/scripts/ss.php?sp=batchexportplaylists) script.  
-  ⚠️ Make sure to export your *Stars* playlists! iTunes does not save the rating in the files tags!
+   ⚠️ Make sure to export your _Stars_ playlists! iTunes does not save the rating in the files tags!
 3. Add the exported playlists to a git repository and commit the changes, push to a remote host.
 
 ## Playing
@@ -148,4 +150,5 @@ Some mixes may need more preparation. Then I create a plain old playlist in iTun
 ### with MPD and Cantata
 
 scp playlists (with correct url of tracks) to playlists folder of remote mpd
+
 - [Cantata]() to control the MPD

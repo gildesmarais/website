@@ -58,4 +58,4 @@ I'm in for a repetition.
 
 <hr>
 
-[^1]: We're not into superhero movies. I'm *d'accord* with this opinion: [Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.](https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html), *The New York Times, 4th November 2019*
+[^1]: We're not into superhero movies. I'm _d'accord_ with this opinion: [Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.](https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html), _The New York Times, 4th November 2019_
