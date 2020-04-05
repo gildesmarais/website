@@ -136,7 +136,7 @@ rsync --archive --verbose --human-readable \
 ```
 
 2. export the playlists with [Doug's Batch Export Playlists](https://dougscripts.com/itunes/scripts/ss.php?sp=batchexportplaylists) script.  
-   ⚠️ Make sure to export your _Stars_ playlists! iTunes does not save the rating in the files tags! With those playlists you can recover your ratings.
+   ⚠️ Make sure to export your _Stars_ playlists! iTunes does not save the rating in the files' tags! With those playlists you can recover your ratings.
 3. Add the exported playlists to a git repository and commit the changes, push to a remote host.
 
 ## Playing music
@@ -151,11 +151,9 @@ On desktop, I work with my the smart playlists and the "Column Browser" in the "
 
 ### DJ set preparation
 
-I use [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/) with a [Denon MC 6000](https://duckduckgo.com/?q=Denon+MC+6000&iax=images&ia=images).
-
 When creating a DJ set, I have a playlist of _A tracks_ to play which acts like a track pool. Traktor reads my iTunes library and I usually just pick tracks out of that pool and go with it.
 
-Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in Traktor.
+Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/).
 
 ### with MPD and Cantata
 
