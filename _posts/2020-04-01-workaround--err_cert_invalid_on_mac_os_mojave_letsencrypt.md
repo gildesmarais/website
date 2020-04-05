@@ -35,4 +35,4 @@ I assume it has something to do with [Apple's upcoming changes in _Extended KeyU
 
 <hr>
 
-[^1]: Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like *cURL*.
+[^1]: Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like _cURL_.

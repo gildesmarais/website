@@ -12,7 +12,7 @@ The real work is done in the terminal.
 
 My `.zshrc` is stuffed with aliases. Find its in my [dotfiles](https://github.com/gildesmarais/dotfiles). Some things stand out and I'll describe them below.
 
-## `zsh`: move cursor *by words* with Alt + arrow left/right key
+## `zsh`: move cursor _by words_ with Alt + arrow left/right key
 
 To use Alt+ ← and Alt + → to jump words with cursor, add this to your `.zshrc`
 

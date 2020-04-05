@@ -1,6 +1,7 @@
 ---
 layout: post
 ---
+
 uberspace web log access enable
 touch ~/bin/stats
 
@@ -10,12 +11,12 @@ mkdir -p ~/tmp/goaccess
 mkdir -p ~/html/stats
 
 goaccess --agent-list \
-         --db-path=~/tmp/goaccess
-         --keep-db-files \
-         --load-from-disk \
-         --config-file ~/etc/goaccess.conf \
-         --log-file ~/logs/webserver/access_log \
-         --output ~/html/stats/index.html
+ --db-path=~/tmp/goaccess
+--keep-db-files \
+ --load-from-disk \
+ --config-file ~/etc/goaccess.conf \
+ --log-file ~/logs/webserver/access_log \
+ --output ~/html/stats/index.html
 
 chmod +x ~/bin/stats
 
@@ -39,4 +40,4 @@ check all works
 automatic generation
 crontab -e
 
-0 * * * * $HOME/bin/stats >/dev/null 2>&1
+0 \* \* \* \* \$HOME/bin/stats >/dev/null 2>&1

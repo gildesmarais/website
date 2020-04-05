@@ -118,7 +118,7 @@ I start every app with it. I feel clueless when the launch bar does not show up 
 - [encode]()
 - [caniuse]()
 
-## Sublime Text 
+## Sublime Text
 
 As a software developer I write a lot of code. It's important to use one editor efficiently.
 In 2014 I decided to use Sublime Text and bought a license.
@@ -126,7 +126,8 @@ In 2014 I decided to use Sublime Text and bought a license.
 I'm still using it as my main editor today and I like it a lot. On remote machine I use `vim` (see Terminal section below).
 
 For navigating files: <kbd>Ctrl</kbd>+<kbd>P</kbd>
-For navigating in the active file:  <kbd>Ctrl</kbd>+<kbd>R</kbd>
+For navigating in the active file: <kbd>Ctrl</kbd>+<kbd>R</kbd>
+
 ### Sublime Text Plugins
 
 - [Sidebar Enhancements](https://github.com/titoBouzout/SideBarEnhancements): should ship with Sublime Text
