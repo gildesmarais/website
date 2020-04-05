@@ -1,17 +1,15 @@
 ---
 layout: post
-title: My setup
+title: html2rss
 ---
 
 TODO:
-Laura Kalbag's [How to read RSS in 2020](https://laurakalbag.com/how-to-read-rss-in-2020/)
 
-    > Don’t you want people to read your stuff? Having an RSS feed is saying, “I’m happy to meet you where you are. If you like reading stuff over there, then great, read it over there. I just like it when you read my stuff.”
-    -- [Chris Coyier ](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
-
-    [Please Add RSS Support To Your Site](https://kevq.uk/please-add-rss-support-to-your-site)
-
-    [RSS is still alive](https://jlelse.blog/thoughts/2019/rss-still-alive/)
+- Laura Kalbag's [How to read RSS in 2020](https://laurakalbag.com/how-to-read-rss-in-2020/)
+- > Don’t you want people to read your stuff? Having an RSS feed is saying, “I’m happy to meet you where you are. If you like reading stuff over there, then great, read it over there. I just like it when you read my stuff.”
+  > -- [Chris Coyier ](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
+- [Please Add RSS Support To Your Site](https://kevq.uk/please-add-rss-support-to-your-site)
+- [RSS is still alive](https://jlelse.blog/thoughts/2019/rss-still-alive/)
 
 Do you remember RSS feeds? Some websites still have them (like this one!)
 and you can subscribe to that website in your RSS reader and pull updates from it, when you're in your RSS client.

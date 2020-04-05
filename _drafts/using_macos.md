@@ -125,8 +125,9 @@ In 2014 I decided to use Sublime Text and bought a license.
 
 I'm still using it as my main editor today and I like it a lot. On remote machine I use `vim` (see Terminal section below).
 
-For navigating files: <kbd>Ctrl</kbd>+<kbd>P</kbd>
-For navigating in the active file: <kbd>Ctrl</kbd>+<kbd>R</kbd>
+- For navigating files: <kbd>Ctrl</kbd>+<kbd>P</kbd>
+- For navigating in the active file: <kbd>Ctrl</kbd>+<kbd>R</kbd>
+- Multiline editor: <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and <kbd>↑</kbd> or <kbd>↓</kbd>
 
 ### Sublime Text Plugins
 

@@ -69,6 +69,15 @@ $breakpoint-medium: 600px;
   }
 }
 
+@mixin tile {
+  background-color: rgba(lighten($base06, 10), 0.1);
+  box-shadow: 0 1px 3px rgba($base00, 0.4);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba($base00, 0.5);
+  }
+}
+
 body {
   padding-bottom: 25vh;
   font-family: $base-font;

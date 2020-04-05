@@ -43,19 +43,17 @@ Movies are a form of art. Let's keep it alive and diverse by watching movies whi
     <li>Paths of Glory 6/10</li>
     <li>Quadrophenia 5/10</li>
     <li>Rocco 5/10</li>
-    <li>Star Wars: Episode IX - Der Aufstieg Skywalkers 6/10</li>
+    <li>Star Wars: Episode IX - Rise of Skywalker 6/10</li>
     <li>Trance (2013) 6/10</li>
     <li>Upgrade 5/10</li>
     <li>Vanilla Sky 5/10</li>
     <li>Watership Down 2/10</li>
-    <li>❌ None we're available to us. <sup><a href="#fn:1">1</a></sup></li>
+    <li>❌ None we're available to us.<sup><a href="#fn:1">1</a></sup></li>
     <li>Young People Fucking 4/10</li>
     <li>Zoku Shinya shokudô 6/10</li>
   </ol>
 </details>
 
 I'm in for a repetition.
-
-<hr>
 
 [^1]: We're not into superhero movies. I'm _d'accord_ with this opinion: [Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.](https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html), _The New York Times, 4th November 2019_

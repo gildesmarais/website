@@ -74,15 +74,37 @@
     text-align: left;
   }
 
-  hr {
-    margin: 1.5rem 0 0.5rem;
-    border: 1px solid rgba($base00, 0.5);
+  blockquote {
+    @include tile;
+
+    padding: 0.25rem;
+    margin-left: 0;
+    font-size: 0.95em;
+    line-height: 1.25;
+    text-align: justify;
   }
 }
 
 .post__footer-note {
   @include box;
   margin: 3rem auto 1rem;
+}
+
+.post .footnotes {
+  margin: 1.5rem 0;
+  border-top: 2px solid rgba($base00, 0.5);
+
+  ol {
+    margin: .5em 0 0;
+  }
+
+  ol > li {
+    font-size: .95em;
+  }
+
+  ol > li a {
+    color: inherit;
+  }
 }
 
 @media (max-width: $breakpoint-medium) {
