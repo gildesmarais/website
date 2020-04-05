@@ -2,6 +2,7 @@ default: clean fix
 
 fix:
 	prettier --write "**/*.md" "*.css" "*.rb" "*.js"  "**/*.mdx"
+	yarn run stylelint --fix assets/**/*.scss
 
 clean:
 	find . -type d -empty -delete
