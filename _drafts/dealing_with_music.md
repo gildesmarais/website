@@ -21,7 +21,7 @@ There are several ways to obtain music nowadays:
 
 ## Before importing to the library
 
-### Transcode to the desired format
+### Transcode to a supported format
 
 These tools come in handy:
 
@@ -30,86 +30,84 @@ These tools come in handy:
 
 ### Set and clean ID3 tags
 
-- [MusicBrainz Picard](https://picard.musicbrainz.org/) is matching the files with their accoustic fingerprint against the freedb and sets their tags.
-- [mp3tag](https://www.mp3tag.de/) for derive ID3 tags from folder & file name, and fixing ID3/APEv2 tags.  
+- [MusicBrainz Picard](https://picard.musicbrainz.org/) is matching the files' accoustic fingerprints against freedb and sets their tags accordingly.
+- Use [mp3tag](https://www.mp3tag.de/) to derive ID3 tags from folder & file name and fixing ID3/APEv2 tags.  
   Mp3tag is a power tool for mass manipulating and cleaning tags. It's outstanding and works well within wine. Nothing comes close to it and it is the only reason I keep wine installed.
 
   Wine is holding me back from upgrading to macOS Catalina as it does not support 64bit-only OSes yet. I'm btw. afraid of the Music.app which comes with macOS Catalina.
 
 ## Import to library and organizing
 
-All my music files are managed by iTunes.
+All my music files are managed by iTunes. iTunes is really good in dealing with large music collections. I subscribed to iTunes Match to have the music available on all of my devices.
 
-### iTunes with iTunes Match
+### iTunes Match restrictions
 
-iTunes is really good in dealing with large music collections.
-Although iTunes Match is slow sometimes, it only failed me on matching 'clean' versions of lyrically explicit tracks. It's annoying, but since voices annoy me in music it does not affect me much.
+iTunes Match is sometimes slow.
 
-#### Restrictions
+It matches _clean_ versions of lyrically explicit tracks. It's annoying, but since voices annoy me in music and I rarely listen to rap, it does not affect me much. Also I keep the original files instead of replacing them with the matched version.
 
-If you listen to mixes and livesets, you will hit iTunes Match's 2h or 200MB file size limit.
-Most of these mixes are distributed as mp3. [`mp3splt`](http://mp3splt.sourceforge.net/) to the rescue!
+If you listen to DJ mixes, you will hit iTunes Match's `2h` or `200MB` file size limit.
+Most of these mixes are distributed as MP3. [`mp3splt`](http://mp3splt.sourceforge.net/) splits the files evenly without reencoding.
 
-### Rating music
+### Rating with a schema
 
 After the import of new tracks, I start rating the tracks. Over time I've developed a rating schema (on a scale of 0 to 5 stars).
 
-- 0 stars: new to library, needs a rating
-- 1 stars: rated, do not keep.
-- 2 stars: keep for a reason, but the track is not good
-- 3 stars: an average track
-- 4 stars: a good track
-- 5 stars: a personal favorite track
+- `0 stars`: new to library, needs a rating
+- `1 stars`: rated, do not keep.
+- `2 stars`: keep for a reason, but the track is not good
+- `3 stars`: an average track
+- `4 stars`: a good track
+- `5 stars`: a personal favorite track
 
 For rating, I find [Stars](http://www.karelia.com/products/stars/) very useful to rate music via hotkey.
 
-### Make the genre field accurate
+### Accurate genre field
 
-I try to set specific genres, if possible and desired.
+I try to set specific genres: Instead of `Rock` I narrow it down to `Rock/Metal` or even `Rock/Metal/Black`. Here are a few other specific examples:
 
-Instead of "Rock" I'd narrow it down to "Rock/Metal" or even "Rock/Metal/Black", etc.
+- `Drum & Bass/Jump-Up`
+- `House/Bass`
+- `Techno/Acid`
+- `Techno/Hard`
 
-Few more examples:
+Tagging something as `Pop` is basically avoiding to set a genre. For `Pop` I started adding the decade like this: `Pop/60`, `Pop/70`, …, `Pop/00`, `Pop/10`, `Pop/20`
 
-- "Drum & Bass/Jump-Up"
-- "House/Bass"
-- "Pop/Mallorca"
-- "Techno/Acid"
-- "Techno/Hard"
+### Clean up the iTunes library with beaTunes
 
-Tagging something as "pop" is basically avoiding to set a genre. For Pop I started adding the decade like this: "Pop/60", "Pop/70", …, "Pop/00", "Pop/10", "Pop/20"
+[beaTunes](https://www.beatunes.com/en/) not only analyzes the content of each track, but also inspects your library.  
+The inspection detects illogical tags, missing compilation tags, different notations of the same artist, finds duplicates, etc.
 
-### Analyze music automatically
+Go through the results and commit the results.
 
-- [Mixed in Key](https://mixedinkey.com/) analyses the BPM, key and "energy" of your music.
-- [beaTunes](https://www.beatunes.com/en/) analyses and inspects your music library
+## Determining the _Key_ and _Energy_ with Mixed in Key
 
-### Cleaning up the iTunes library with beaTunes
+[Mixed in Key](https://mixedinkey.com/) analyses the _key_ and _energy_ of your music.
 
-beaTunes not only analyzes the content of each track, but also inspects your library. It detects illogical tags, missing compilation tags, different notations of the same artist, finds duplicates, etc.
+Create a smart playlist _MiK todo_ which lists all files without Energy or BPM and a rating of greater or equal than 2 stars.
 
-### Creating playlists
+## Creating playlists
 
 With the rated and analyzed tracks we can begin creating smart playlists.
 
-#### Smart playlists
+### Smart playlists
 
 Scaffold a base:
 
 1. create a smart playlists in iTunes for Energy (filter rules depend on your Mixed in Key configuration)
-2. create a smart playlists for each possible rating (Stars 0, Stars 1, …)
-3. create a smart playlist for "Added date in the last x weeks/months". I have those for 4 weeks and 6 months.
+2. create a smart playlists for each possible rating (_Stars 0_, _Stars 1_, …)
+3. create a smart playlist for _Added in the last x weeks/months_. I have those for 4 weeks and 6 months.
 
 Stars 0 is your "to rate" list.
 Stars 1 is your "to remove" list.
 
 Now you can create a smart playlist like:
 
-_Banger tracks_: Track is in Playlist "Energy 8" and "Stars 5".
-_Calm popular music_: Genre begins with Pop and is in Playlist "Energy 4" or "Energy 5".
-_Hard Techno post 2010_: Genre begins with Techno/Hard and year >= 2010, in Playlist Energy 6, 7, 8, 9.
+- _Banger tracks_: Track is in playlist _Energy 8_ and _Stars 5_.
+- _Calm popular music_: Genre begins with `Pop` and is in Playlist _Energy 4_ or _Energy 5_.
+- _Hard Techno post 2010_: Genre begins with `Techno/Hard` and `year >= 2010`, in playlist _Energy 6, 7, 8, 9_.
 
-#### Using beaTunes
+### Using beaTunes
 
 In beaTunes you can setup some criteria like "Instrumentation", "Key", "Speed" etc. and let it create a playlist for you based on a seed track selection. That is super nice and the results are good.[^2]
 But as time showed, I do not use that feature much. I'm fine with the smart playlists.
@@ -144,7 +142,8 @@ On desktop, I work with my the smart playlists and the "Column Browser" in the "
 [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/) is an industry-proven DJ application. I use it with a [Denon MC 6000](https://duckduckgo.com/?q=Denon+MC+6000&iax=images&ia=images).
 Traktor reads my iTunes library.
 
-When creating a DJ set, I have a list of "A tracks" to play. Usually I pick tracks out of that list.
+When creating a DJ set, I have a playlist of _A tracks_ to play which acts like a pool of track. Usually I pick tracks out of that pool and go with it.
+
 Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in Traktor.
 
 ### with MPD and Cantata

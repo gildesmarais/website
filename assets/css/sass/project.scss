@@ -1,13 +1,9 @@
 .project__outgoings,
 .project__html2rss {
+  @include tile;
+
   padding: 1rem 0.75rem;
   margin: 1rem 0 3rem;
-  background-color: rgba(lighten($base06, 10), 0.1);
-  box-shadow: 0 1px 3px rgba($base00, 0.4);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: rgba($base00, 0.5);
-  }
 
   > h2 {
     margin: 0 0 0.5rem;
