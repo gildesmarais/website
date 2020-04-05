@@ -149,12 +149,6 @@ On desktop, I work with my the smart playlists and the "Column Browser" in the "
 
 ![](/assets/images/posts/2020-04-05-itunes-song-column.png)
 
-### DJ set preparation
-
-When creating a DJ set, I have a playlist of _A tracks_ to play which acts like a track pool. Traktor reads my iTunes library and I usually just pick tracks out of that pool and go with it.
-
-Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/).
-
 ### with MPD and Cantata
 
 To play music on my stereo I launch [Cantata](https://github.com/cdrummond/cantata) to control the MPD which is connected to it via HDMI. It plays the files from my NAS. I `scp` the exported playlists (with corrected file urls) to the `playlists` folder of the mpd.
@@ -164,3 +158,12 @@ To play music on my stereo I launch [Cantata](https://github.com/cdrummond/canta
 [^3]: This is collision-free until the year 2049. The first Pop songs I own are from the 1950s (`Pop/50`).
 [^4]: And more, like BPM. It can also set cue points to use with DJ standard software.
 [^5]: [A naming convention for CSS.](https://en.bem.info/methodology/naming-convention/)
+
+
+### DJ set preparation
+
+When creating a DJ set, I have a playlist of _A tracks_ to play which acts like a track pool. Traktor reads my iTunes library and I usually just pick tracks out of that pool and go with it.
+
+Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/).
+
+![](/assets/images/posts/2020-04-05-traktor-the-end.jpg)
