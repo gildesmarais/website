@@ -3,7 +3,7 @@ layout: post
 title: Fixing NET::ERR_CERT_INVALID errors on macOS Mojave with Let's Encrypt certificates
 ---
 
-Recently a weird problem started occurring to me when browsing the web with Safari or Chrome<sup>[\[1\]](#note-1)</sup>.
+Recently a weird problem started occurring to me when browsing the web with Safari or Chrome[^1].
 These browsers refused to load some sites like stackoverflow.com or letsencrypt.org. Safari complained about the certificate not being standards compliant, while Chromium based browser showed a completely valid certificate chain.
 
 ![Safari complaining about a not standards compliant cert](/assets/images/posts/2020-04-01-safari-ssl-cert-invalid.png)
@@ -34,7 +34,5 @@ I'm not 100% sure why macOS renders the system-provided cert invalid.
 I assume it has something to do with [Apple's upcoming changes in _Extended KeyUsage_](https://support.apple.com/en-us/HT210176). However, that change is due with macOS 10.15 (macOS Mojave is 10.14).
 
 <hr>
-<small>
-  [<a name="note-1">1</a>]:
-  Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like *cURL*.
-</small>
+
+[^1]: Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like *cURL*.

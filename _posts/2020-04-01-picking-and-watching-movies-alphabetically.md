@@ -13,7 +13,7 @@ Moving out of the filter bubble has been a good experience:
 - We've watched movies we would never have picked.
 - We watched classics, B-movies, genres we'd usually skip, etc.
 - We also lost some saved time by watching movies which weren't good — but is that a difference to any other selection method?
-- We made an exception for the letter X and skipped it.<sup>[\[1\]](#note-1)</sup>
+- We made an exception for the letter X and skipped it.[^1]
 
 We started on 15th February 2020 and made it through the alphabet by end of March 2020. That's a pace of
 <sup>26</sup>∕<sub>7</sub> = 3.714285714 movies per week.
@@ -48,7 +48,7 @@ Movies are a form of art. Let's keep it alive and diverse by watching movies whi
     <li>Upgrade 5/10</li>
     <li>Vanilla Sky 5/10</li>
     <li>Watership Down 2/10</li>
-    <li>❌ None we're available to us.<a href="#note-1"><sup>[1]</sup></a></li>
+    <li>❌ None we're available to us. <sup><a href="#fn:1">1</a></sup></li>
     <li>Young People Fucking 4/10</li>
     <li>Zoku Shinya shokudô 6/10</li>
   </ol>
@@ -56,11 +56,6 @@ Movies are a form of art. Let's keep it alive and diverse by watching movies whi
 
 I'm in for a repetition.
 
-<small>
-  [<a name="note-1">1</a>]:
-  We're not into superhero movies. I'm *d'accord* with this opinion:
-  <a href="https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html" target="_blank" rel="noopener nofollow">
-      Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.
-  </a>
-  <em>The New York Times, 4th November 2019</em>
-</small>
+<hr>
+
+[^1]: We're not into superhero movies. I'm *d'accord* with this opinion: [Martin Scorsese: I Said Marvel Movies Aren’t Cinema. Let Me Explain.](https://www.nytimes.com/2019/11/04/opinion/martin-scorsese-marvel.html), *The New York Times, 4th November 2019*
