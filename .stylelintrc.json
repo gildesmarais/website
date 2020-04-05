@@ -8,7 +8,20 @@
     "function-comma-space-after": "always",
     "no-descending-specificity": null,
     "declaration-block-single-line-max-declarations": 1,
-    "unit-whitelist": ["%", "fr", "em", "rem", "deg", "px", "ch", "s", "vh", "vw", "ms", "turn"],
+    "unit-whitelist": [
+      "%",
+      "fr",
+      "em",
+      "rem",
+      "deg",
+      "px",
+      "ch",
+      "s",
+      "vh",
+      "vw",
+      "ms",
+      "turn"
+    ],
     "max-empty-lines": 1,
     "max-line-length": 110,
     "no-empty-first-line": true,
@@ -25,6 +38,15 @@
       {
         "ignoreProperties": ["system", "symbols", "suffix"]
       }
+    ],
+    "font-family-no-missing-generic-family-keyword": null,
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements", "default-namespace"],
+        "ignoreNamespaces": ["---", "@font-face"]
+      }
     ]
-  }
+  },
+  "ignoreFiles": ["assets/css/sass/syntax-highlighting.scss"]
 }
