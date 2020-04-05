@@ -44,6 +44,7 @@ exclude:
   - .stylelintrc.json
   - Gemfile
   - Gemfile.lock
+  - Makefile
   - node_modules/
   - package.json
   - vendor
