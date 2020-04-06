@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<main class="container">
+<section class="container">
   <article class="post">
     <header class="post__header">
       <p class="post__meta">
@@ -15,13 +15,17 @@ layout: default
       </h1>
     </header>
 
-    <div class="post__content">
+    <main class="post__content">
       {% if page.toc %}
       <p class="is-alternative-font">{{ page.description }}</p>
       {% endif %}
 
       {{ content | toc }}
-    </div>
+    </main>
+
+    <footer>
+      {% include tags.html %}
+    </footer>
 
     <aside>
       <a

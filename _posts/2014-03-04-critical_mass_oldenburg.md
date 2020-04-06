@@ -2,6 +2,8 @@
 lang: de
 layout: post
 title: "Große Gruppe Radfahrender auf der Straße in Oldenburg?!"
+tags:
+  - traffic
 ---
 
 Wer sich in Oldenburg am letzten Freitag des Monats über eine große Gruppe Radfahrender, die auf der Straße fuhren, wunderte: du hast eine [Critical Mass](<https://de.wikipedia.org/wiki/Critical_Mass_(Aktionsform)>) gesehen.

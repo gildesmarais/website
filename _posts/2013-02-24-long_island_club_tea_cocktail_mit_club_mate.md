@@ -2,6 +2,9 @@
 lang: de
 layout: post
 title: Long Island Club Tea ‒ Cocktail mit Club-Mate
+tags:
+  - cocktail
+  - recipe
 ---
 
 Neben dem [bekannten Tschunk](https://entropia.de/Tschunk) fehlte mir ein alternativer Drink mit Club-Mate. Deshalb versuchte ich mich eines Abends an einer Alternative. Diese gefällt mir nach ein wenig experimentieren geschmacklich.

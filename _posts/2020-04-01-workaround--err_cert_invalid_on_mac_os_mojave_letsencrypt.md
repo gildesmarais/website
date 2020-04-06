@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Fixing NET::ERR_CERT_INVALID errors on macOS Mojave with Let's Encrypt certificates
+tags:
+  - macos
 ---
 
 Recently a weird problem started occurring to me when browsing the web with Safari or Chrome[^1].

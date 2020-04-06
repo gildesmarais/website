@@ -3,6 +3,8 @@ layout: post
 title: Handling, organizing and listening to music
 description: How I manage and listen to music.
 toc: true
+tags:
+  - audio
 ---
 
 ## Getting music

@@ -3,6 +3,8 @@ layout: post
 title: Using a shell
 # date: 2020-03-29 13:30:00 +0200
 # description: "This post documents how I work productively."
+tags:
+  - software
 ---
 
 The real work is done in the terminal.

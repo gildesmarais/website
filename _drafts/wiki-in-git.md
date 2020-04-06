@@ -1,3 +1,9 @@
+---
+tags:
+  - software
+  - knowledge
+---
+
 # the problem
 
 having snippets and notes spread on different devices and apps.

@@ -4,6 +4,10 @@ lang: de
 title: "Bluetooth Headset mit Pulseaudio"
 date: 2009-02-19 20:32:12 +00:00
 description: Bluetooth Headset mit Pulseaudio
+tags:
+  - linux
+  - bluetooth
+  - audio
 ---
 
 Wer, wie ich, mit Ubuntu ein Bluetooth-Headset als Soundausgabe nutzen wollte, musste bisher immer umständlich zusätzliche Kernel-Module laden und ggf. noch eine “Umleitung" mit ALSA für den Pulseaudio-Server einrichten.

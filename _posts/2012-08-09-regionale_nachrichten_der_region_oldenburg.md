@@ -5,6 +5,8 @@ title: "Regionale Nachrichtenquellen aus der Region Oldenburg"
 date: 2012-08-09 18:00:00 +0100
 description: Eine lange Liste mit Links zu Webseiten.
 toc: true
+tags:
+  - oldenburg
 ---
 
 Dieser Post ist eine lange Liste mit Links zu Webseiten. Ganz bewusst wurden auf Links zu den Webseiten politischer Parteien verzichtet. Die werdet ihr schon durch eine Suchmaschine selbst herausfinden.

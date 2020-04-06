@@ -1,5 +1,8 @@
 ---
 layout: post
+tags:
+  - linux
+  - software
 ---
 
 uberspace web log access enable

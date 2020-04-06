@@ -2,6 +2,8 @@
 layout: post
 title: Picking and watching movies alphabetically
 excerpt: "Moving out of the comfortable filter bubble and explore art."
+tags:
+  - movies
 ---
 
 The question <q>What do we watch?</q> is a tough one to answer.

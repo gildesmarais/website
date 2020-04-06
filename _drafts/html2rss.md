@@ -1,6 +1,11 @@
 ---
 layout: post
 title: html2rss
+tags:
+  - webdev
+  - rss
+  - project
+  - software
 ---
 
 TODO:
