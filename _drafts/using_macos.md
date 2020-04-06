@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Using macOS
-# date: 2020-03-29 13:30:00 +0200
 description: "This post documents how I work productively."
 ---
 

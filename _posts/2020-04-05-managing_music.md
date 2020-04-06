@@ -159,7 +159,6 @@ To play music on my stereo I launch [Cantata](https://github.com/cdrummond/canta
 [^4]: And more, like BPM. It can also set cue points to use with DJ standard software.
 [^5]: [A naming convention for CSS.](https://en.bem.info/methodology/naming-convention/)
 
-
 ### DJ set preparation
 
 When creating a DJ set, I have a playlist of _A tracks_ to play which acts like a track pool. Traktor reads my iTunes library and I usually just pick tracks out of that pool and go with it.
