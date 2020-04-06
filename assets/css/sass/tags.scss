@@ -14,8 +14,9 @@
 
 .tags--left {
   @extend %tags;
-  justify-content: unset;
-  padding-left: 0;
+
+  justify-content: flex-end;
+  padding: 0;
   margin: 2rem 0;
 }
 
