@@ -28,11 +28,23 @@ theme:
 permalink: /posts/:title_:year-:month-:day.html
 
 plugins:
+  - jekyll-archives
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-target-blank
   - jekyll-toc
   - jekyll-seo-tag
+
+jekyll-archives:
+  enabled:
+    - tags
+  layout: archive
+  permalinks:
+    # year: '/:year/'
+    # month: '/:year/:month/'
+    # day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
 
 exclude:
   - .github/

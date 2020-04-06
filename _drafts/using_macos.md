@@ -2,6 +2,9 @@
 layout: post
 title: Using macOS
 description: "This post documents how I work productively."
+tags:
+  - macos
+  - software
 ---
 
 At the time of writing I use macOS Mojave. I'd love to jump ship to an open OS and window manager, but ... last time I tried none felt finished or polished. I can't afford tools which require high maintenance.

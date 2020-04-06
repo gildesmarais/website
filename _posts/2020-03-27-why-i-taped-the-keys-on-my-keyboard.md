@@ -3,11 +3,14 @@ layout: post
 title: Why I taped the keys on my keyboard
 date: 2020-03-27 16:45:00 +0100
 description: "Observations while becoming better at typing blindly."
+tags:
+  - work
+  - hardware
 ---
 
 About two years ago, I taped the keys on my work keyboard with fitting white labels.
 
-The idea was to force myself to get better at typing without looking.<sup>[\*](#obelix)</sup>
+The idea was to force myself to get better at typing without looking.[^1]
 
 I thought I'd type without looking all the time.
 Since the labels are on, I was reminded when I looked at the keyboard. It happened unconsciously a few times a day.
@@ -18,8 +21,4 @@ For a while I struggled to press the correct key in the number row. There's no i
 
 I ran out of labels to also tape the function key row and some super keys. The super keys I know in and out. Pressing one of the function keys is a well considered operation IMHO. When pressing one, I look at the keyboard and press that key, awaiting _functions_ to happen.
 
-<hr>
-<small>
-  <a name="obelix">*</a> 
-  OK, there is another reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.
-</small>
+[^1]: OK, there is another reason why I did this: I bought the keyboard of someone and it has a <q>Nordic</q> key layout, which contains characters which I've never seen before.

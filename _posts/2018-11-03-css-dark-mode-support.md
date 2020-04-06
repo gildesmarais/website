@@ -3,6 +3,10 @@ layout: post
 title: "Dark mode support on this website"
 date: 2018-11-03 17:30:00 +0200
 description: "This website now supports dark mode, if your browser supports 'prefers-color-scheme: dark'."
+tags:
+  - webdev
+  - project
+  - css
 ---
 
 Quick info: this website now supports a dark color scheme, more commonly called

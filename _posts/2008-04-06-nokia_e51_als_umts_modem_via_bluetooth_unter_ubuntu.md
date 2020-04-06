@@ -4,6 +4,9 @@ lang: de
 title: "Nokia E51 als UMTS Modem via Bluetooth unter Ubuntu"
 date: 2008-04-05 15:19:47 +00:00
 description: Nokia E51 als UMTS Modem via Bluetooth unter Ubuntu nutzen.
+tags:
+  - linux
+  - bluetooth
 ---
 
 Nichts ist unmöglich. Nachdem ich gestern ein wenig Zeit hatte, beschreibe ich heute, wie man kabellos unter Ubuntu via Bluetooth per UMTS surft.
