@@ -21,9 +21,10 @@ A well equipped desk contains at least:
 - the <q>old</q>  trackpad
 - the <q>old</q>  wireless keyboard with _International Layout_[^1]
 - a laptop stand to move the machine above the level where I place fluid containers
-- a desk-pad
+- a transparent desk-pad to place cheat sheets below it
 
-Usually I'm wearing a Bose QC15 headphone with Airmod for bluetooth connectivity. The headphones are with me for seven years. I use them every working day for at least 6 hours. Despite their age they are in a good state. Some parts wear out, so I've replaced the ear cushions multiple times and the headband once with after market parts for a few Euros. The headphones cause an aura of silence around me and are super comfortable.[^2] They run with one AAA battery (!).
+Usually I'm wearing a Bose QC15 headphone with Airmod for bluetooth connectivity. The headphones are with me for seven years. I use them every working day for at least 6 hours. Despite their age they are in good shape.
+Some parts wear out and thus I've replaced the ear cushions multiple times and the headband once with after market parts for a few Euros. The headphones cause an aura of silence around me and are super comfortable.[^2] They run with one AAA battery (!).
 
 For the wireless devices I have a box of fully charged AA and AAA rechargeable batteries in reach.
 
@@ -66,7 +67,7 @@ Some interruptions can be controlled by myself and thus I acted upon them:
 
 I made one conscious exception: my watch vibrates when I receive a message of a few important people in my life.
 
-If you want any synchronous communication with me (a phone call, a meeting, …) then I advise you to sent a calendar invitation with a fixed date and time. Or become efficient in typing and sending emails :)  
+If you want any synchronous communication with me (a phone call, a meeting, …) then I advise you to send a calendar invitation with a fixed date and time. Or become efficient in typing and sending emails. :)  
 I do not send voice messages, they're pesky and I would not want to receive those, too.
 If we're working in the same room, then please stop your devices from emitting sounds. It's the year 2020, come on already!
 
@@ -101,7 +102,7 @@ Touching the trackpad to move the cursor is a flaw I try to avoid at any time. M
 I prefer sitting next to a window and have daylight. If that's not possible a dimmable workbench lamp helps to mitigate.
 
 I stand up every hour for a few minutes. My watch reminds me to be active.[^9]  
-Depending on the time, getting a coffee is usually a good idea in the morning. 
+Depending on the time, getting a coffee is usually a good idea in the morning.
 In the afternoon I likely do some exercises/movements: swirl my arms, circle my head, raise/lower my shoulders, hold myself on the pull-up bar for a minute, do some pull-ups, maybe plank for 3 minutes.  
 At any time it's a good moment to look outside and focus something in the distance. If possible, I get some deep breaths of fresh air and/or air the room. My brain and eyes are relived afterwards.
 
