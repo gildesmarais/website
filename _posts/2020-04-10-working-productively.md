@@ -117,7 +117,7 @@ Stay tuned for the next parts on which I'll explain which software I use to work
 [^3]: I have a soft spot for good pens and pencils. I use a mechanical pencil 99% of the time. The faible is counter-intuitive to my minimalist side. The latter wins.
 [^4]: [Wikipedia: Flow (psychology)](<https://en.wikipedia.org/wiki/Flow_(psychology)>), 2020-04-10.
 [^5]: One exception: Fabio & Grooverider's long running radio show. They broadcast on [RinseFM](https://rinse.fm/schedule/) by now. I see Fabio & Grooverider as ambassadors of music. They really dig out the [choons](https://www.urbandictionary.com/define.php?term=choon) which will never be released … or _maybe_ in 3 months. They also have a superb time together: they're joking, laughing, make many technical mistakes (leaving the microphone open is a classic) and they transport an overwhelming amount of joy. I somehow manage to stay in the zone with these brilliant chaps.
-[^6]: I also find Pete Tong's voice introducing every mix very soothing (I've you're reading this, Pete: Heya 👋).
+[^6]: I also find Pete Tong's voice introducing every mix very soothing (If you're reading this, Pete: Heya 👋).
 [^7]: I hope you had goosebumps caused from music at least once in your life.
 [^8]: I really want a perfectly working eye tracking device. Privacy respecting and easy to setup. ([<q>Plug it in, switch it on and ... _BSOD_ **woo**</q>](https://invidio.us/watch?v=IW7Rqwwth84&local=true&quality=hd720)).
 [^9]: Sounds silly to need a reminder, no? It isn't, I was afraid to learn how seldom I stand up when being in the flow.
