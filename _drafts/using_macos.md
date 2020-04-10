@@ -15,6 +15,7 @@ I manage the positions of the windows with [Rectangle](https://github.com/rxhans
 I arrange windows like I'd use a tiling window manager: the windows take the space of the left half/right half/upper right half, etc.). With Rectangle's hotkeys, moving a window to the left half or upper right half is just a key combination press away.
 
 <!-- TODO: move this where it fits: -->
+
 While standing up I move the cursor with one swift movement to the bottom left corner. There's a 'hot corner' setup in macOS to lock itself (when returning, my watch unlocks the system automatically <3).
 
 ## Default applications

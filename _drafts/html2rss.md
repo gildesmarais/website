@@ -14,7 +14,7 @@ and you can subscribe to that website in your RSS reader and pull updates from i
 Sadly RSS feeds seem to disappear. Other content distribution ways seem more popular for publishers and seem to have business advantages. RSS is a feature often scraped on relaunches.
 Many publishers nowadays distribute their content via their own mobile apps, on social networks, or newsletters. Gone is the good old RSS feed.
 
-But I'm not alone in thinking [RSS is still alive](https://jlelse.blog/thoughts/2019/rss-still-alive/). 
+But I'm not alone in thinking [RSS is still alive](https://jlelse.blog/thoughts/2019/rss-still-alive/).
 
 ## the problem
 
@@ -28,7 +28,6 @@ I see my RSS reader as the door to the Internet. It's where my daily browsing se
 Every article, independent of the publishing source, appears in there in the same style. It's like a newspaper, where every piece is set in the same font, etc.
 
 The increasing lack of feeds became a problem.
-
 
 I thought having a script which scrapes for one website that generates feed would be enough... like we all know `640k` of memory ought to be.  
 It was enough, for a short amount of time.
@@ -61,7 +60,7 @@ That involves a bit more than just selecting an HTML element's innerText.
 - What about sending an Authorization or Cookie HTTP header?
 - What if you want to scrape several syntactically equal pages on one website without duplicating the configs?
 
-Over a short time the gem's functionality grew and several *item extractors* and *post processors* came to life. In a few nightly session I've brushed up the gem's [README](https://github.com/gildesmarais/html2rss/blob/master/README.md) to cover everything the gem is capable of. And there's also code documentation for the straightforward API, usually with examples. However, I'd recommend looking inside the test suite to find more interesting examples.
+Over a short time the gem's functionality grew and several _item extractors_ and _post processors_ came to life. In a few nightly session I've brushed up the gem's [README](https://github.com/gildesmarais/html2rss/blob/master/README.md) to cover everything the gem is capable of. And there's also code documentation for the straightforward API, usually with examples. However, I'd recommend looking inside the test suite to find more interesting examples.
 
 ### The repository of configs
 
@@ -73,7 +72,7 @@ Being able to write CSS selectors and YAML is sufficient to create a config for 
 ### The web application
 
 A web app which uses the gem and the configs, to expose the generated feeds via HTTP. Deployable without much hassle.
-It has a file-based application cache to prevent *hammering* websites and deal with client-side HTTP cache headers.
+It has a file-based application cache to prevent _hammering_ websites and deal with client-side HTTP cache headers.
 
 ## Continuous Integration and Deployment
 
@@ -93,7 +92,6 @@ i'm not so happy these 3 components are required to provide me a desirable web b
 
 > Don’t you want people to read your stuff?  
 > Having an RSS feed is saying, <q>I’m happy to meet you where you are. If you like reading stuff over there, then great, read it over there. I just like it when you read my stuff.</q>
--- [Chris Coyier](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
+> -- [Chris Coyier](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
 
-
-[^1]: In case you have no clue what I'm talking about, I recommend *Laura Kalbag's <q>[How to read RSS in 2020](https://laurakalbag.com/how-to-read-rss-in-2020/)</q>*.
+[^1]: In case you have no clue what I'm talking about, I recommend _Laura Kalbag's <q>[How to read RSS in 2020](https://laurakalbag.com/how-to-read-rss-in-2020/)</q>_.
