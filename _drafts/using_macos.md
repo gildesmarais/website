@@ -113,6 +113,8 @@ Remember I think taking your hands of the keyboard is a flaw? [Alfred](https://w
 I use it it _all the time_. **All the time**.
 I start every app with it. I feel clueless when the launch bar does not show up (happened a few times after rebooting when Alfred wasn't launched yet) and having to start an application by double clicking it in the /Applications folder. Like in the Stone Age.
 
+One of the most used functions beside launching workflows are applications is the clipboard manager.
+
 ### Alfred workflows
 
 - [sublime text projects]()
