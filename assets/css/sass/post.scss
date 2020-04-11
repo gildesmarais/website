@@ -94,20 +94,43 @@
   margin: 3rem auto 1rem;
 }
 
+.post .footnote {
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .post .footnotes {
   margin: 1.5rem 0;
   border-top: 2px solid rgba($base00, 0.5);
 
   ol {
-    margin: .5em 0 0;
+    margin: 0.5em 0 0;
   }
 
   ol > li {
-    font-size: .95em;
+    font-size: 0.95em;
+    padding: 0 0.25em;
   }
 
   ol > li a {
     color: inherit;
+  }
+
+  ol > li:target {
+    border: 1px solid $base0c;
+  }
+
+  ol > li:target .reversefootnote {
+    padding: 0;
+    margin: 0;
+    line-height: 1em;
+    text-decoration: none;
+    vertical-align: middle;
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: $base09;
+    }
   }
 }
 
