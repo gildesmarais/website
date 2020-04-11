@@ -3,6 +3,7 @@ layout: post
 title: On slaughtering a pig
 toc: true
 description: Last winter I witnessed a home slaughtering of a pig.
+tags: [knowledge, recipe]
 ---
 
 ## A warning beforehand
@@ -28,8 +29,8 @@ When choosing a pig to kill, you want to avoid any stress possible. Our isolated
 
 Blood will squirt out of the cut. The pig will still twitch while and after it bleeds out. That's normal: the brain's last commands reach the muscles via the nerves and react accordingly.
 
-The local laws might not always permit the most pain- and stress-less method. It's hard to measure how pain- and stressless each method is. Discussing this topic objectively is hard as it is fueled with emotional and moral questions.  
-For example, some do not daze the animal and just cut the throat with a special knife and a clean cut.[^3] That cut causes instant death. Before they do so, they sit next/on the animal and send prayers and talk to the animal calmly.
+The local laws might not always permit the most pain- and stress-less method. It's hard to measure how pain- and stressless each method is. Discussing this topic objectively is hard as it is fueled with ethical, emotional and moral questions.  
+For example, some do not daze the animal and just cut the throat with a special knife and a clean cut.[^3] That cut causes an instant death. Before they do, they sit next to the animal and send prayers and talk to the animal calmly.[^4]
 
 Many traditions demand to have a toast on the now dead pig. So did we.
 
@@ -41,9 +42,9 @@ When the blood stopped flowing, the procedure continues.
 - remove fur thoroughly by scraping it off (e.g. with a [<q>Kratzglocke</q>](https://duckduckgo.com/?q=kratzglocke&iax=images&ia=images#))
 - burn the remaining bristles
 - hang the pig with its hind legs up
-- cut it open: from the anus, via belly to the head while removing innards[^4]
-- a veterinary checks the meat for diseases[^5] and rates the quality[^6]
-- saw it open: from the anus, via the back, through the head. Make sure to stay in the line and avoid cutting the meat.
+- cut it open: from the anus, via belly to the head while removing innards[^5]
+- a veterinary must check the meat for diseases[^6] and rates the quality[^7]
+- saw it open: from the anus, via the back, through the head. Make sure to stay on the line and avoid cutting the meat.
 
 Now you have two halves which are (almost?) mirrored. You hang those halves for a day (or longer) in a cooling house to dry out and ease the meat up. The traditional house slaughtering happens in late autumn/winter for that reason.
 
@@ -54,7 +55,7 @@ Depending on your butcher tradition, you start cutting pieces out of the halves.
 The different parts of the pig also have different cooking characteristics: some parts are tender after a quick sear or grill, while other parts require a long cooking process to become tender. Some parts aren't needed to be cooked, like ham and raw sausage (e.g. salami), but are conserved.
 
 There are a bunch of different cutting methods, depending on the cuisine and the pig's race mostly.
-Read more about in the Wikipedia[^7] or your favorite non-veggie cookbook[^8].
+Read more about in the Wikipedia[^8] or your favorite non-veggie cookbook[^9].
 
 As this pig's race is known for good (and lots of) fats, we concentrated on the belly, bacon, etc. When cutting, you usually avoid cutting through the red meat and cut along the fascia and through fat.
 Usually unnecessary fat is scraped of the meaty pieces. We put the fat aside and made lard out of it.
@@ -63,26 +64,26 @@ The end result are pieces of meat you can buy at your butchery: rips, cutlet, ch
 
 ## Observations and thoughts
 
-One pig causes a lot of work. A house slaughtering requires multiple people to physically work all day. During the day I've been quite busy. Most thoughts developed in the days afterwards.
+One pig causes a lot of work. A house slaughtering requires multiple people to physically work that day. During the day I've been quite busy. Most thoughts developed in the days afterwards.
 
 ### Avoiding stress
 
-You want to avoid any stress possible during the killing procedure. The situation when entering the sty should be totally normal for the pigs.[^9]
+You want to avoid any stress possible during the killing procedure. The situation when entering the sty should be totally normal for the pigs.[^10]
 
-So far, so good. Let's change the perspective from pig to human for a second and imagine the situation yourself: if you know your life will be taken by that person entering the sty, you'd be pumped with adrenaline and fight back.[^10]  
+So far, so good. Let's change the perspective from pig to human for a second and imagine the situation yourself: if you know your life will be taken by that person entering the sty, you'd be pumped with adrenaline and fight back.[^11]  
 Wouldn't it be nicer if it would just get dark in front of your eyes and from that point on you'd notice nothing anymore?
 
 Switching the perspective back to the pig: the adrenaline will cause blood pressure to raise and thus fill all organs with water and oxygen. Having blood in meat is to be avoided (it spoils) and water lowers the meat's quality (you can find the water between fascia and muscles). Also the stress hormones released will decrease the meat's taste.  
 Some pigs have aching muscles _after_ the procedure. You can spot aching muscles from their color after hanging.
 
 The isolation itself, which involves entering the sty and e.g. put an iron cage around it, looks stressful to me.
-While shooting a resting animal does not.[^11]
+While shooting a resting animal does not.[^12]
 
 I'm afraid most pigs who's designation is to give their meat won't have such <q>good</q> slaughtering conditions. I can't see a pig being carried in a cramped lorry to the slaughter house for hours being relaxed and calm.
 
-The meat industry utilizes a handful of techniques to daze pigs. They have them available because the law allows them to.[^12]  
+The meat industry utilizes a handful of techniques to daze pigs. They have them available because the law allows them to.[^13]  
 For example, they use a gas chamber.  
-They put pigs in a gondola and move them underground. That room is filled with CO2. Since CO2 is heavier than oxygen, the pigs will suffocate. While this requires less human interaction (good for the business), the death itself is agonizing (bad for the animal).
+They put pigs in a gondola and move them underground. That room is filled with CO2. Since CO2 is heavier than oxygen, the pigs will suffocate. While this requires less human interaction, the death itself is pure agony.
 
 ### Coping with routine
 
@@ -151,7 +152,7 @@ I don't mind too much about their reaction, don't get me wrong. I suspect people
 ### Changing habits
 
 Did I change my eating habits because of this experience?  
-Yes, and I remain a carnivore. I buy only _biological_ raised meat when possible and avoid low-cost mass product meat.[^13]
+Yes, and I remain a carnivore. I buy only _biological_ raised meat when possible and avoid low-cost mass product meat.[^14]
 
 I still eat sausages although I know what's in them.
 
@@ -164,13 +165,14 @@ It won't be a joyful day, but a day full of physical work, in your life. One you
 [^1]: It's important to not cut the trachae, as that would allow blood to fill the lungs.
 [^2]: We caught all the blood and mixed it in a bowl to make [blood sausage](https://en.wikipedia.org/wiki/Blood_sausage) out of it. In some religions consuming the blood is forbidden and is thus wasted.
 [^3]: [Wikipedia: Shechita](https://en.wikipedia.org/wiki/Shechita)
-[^4]: The innards are full of valuable nutrients. However, I choose not to eat some innards from a commercial fattened pig due to the amount of medicine.
-[^5]: Especially for [Trichinella (Wikipedia)](https://en.wikipedia.org/wiki/Trichinella)
-[^6]: [German: Schlachttier- und Fleischuntersuchung](https://de.wikipedia.org/wiki/Schlachttier-_und_Fleischuntersuchung)
-[^7]: e.g. compare [_English: Cut of pork_](https://en.wikipedia.org/wiki/Cut_of_pork) and [_German: Teilstücke des Schweinefleischs_](https://de.wikipedia.org/wiki/Teilstücke_des_Schweinefleischs)
-[^8]: If your cookbook does not list cuts of meat, get a cookbook and not just a collection of instructions to create meals.
-[^9]: Also change their food beforehand to avoid a full pig's stomach.
-[^10]: Pigs can jump man-high. I saw it.
-[^11]: In German speaking countries this is called <q>Weideschlachtung</q>. For Germany it is regulated in [Anlage 1 Nr. 2 in TierSchlV](https://www.gesetze-im-internet.de/tierschlv_2013/anlage_1.html). The slaughterer has to apply for allowance which is linked with some other duties.
-[^12]: For Germany, see [Anlage 1 Nr. 2 in TierSchlV](https://www.gesetze-im-internet.de/tierschlv_2013/anlage_1.html)
-[^13]: The German laws aren't really pushing to a sustainable consumption of meat. There's no mandatory labeling and the different types of seals are more green-washing than anything.
+[^4]: If you're eager to _see_ more, search your favorite user-generated video platform.
+[^5]: The innards are full of valuable nutrients. However, I choose not to eat some innards from a commercial fattened pig due to the amount of medicine.
+[^6]: Especially for [Trichinella (Wikipedia)](https://en.wikipedia.org/wiki/Trichinella)
+[^7]: [German: Schlachttier- und Fleischuntersuchung](https://de.wikipedia.org/wiki/Schlachttier-_und_Fleischuntersuchung)
+[^8]: e.g. compare [_English: Cut of pork_](https://en.wikipedia.org/wiki/Cut_of_pork) and [_German: Teilstücke des Schweinefleischs_](https://de.wikipedia.org/wiki/Teilstücke_des_Schweinefleischs)
+[^9]: If your cookbook does not list cuts of meat, get a cookbook and not just a collection of instructions to create meals.
+[^10]: Also change their food beforehand to avoid a full pig's stomach.
+[^11]: Pigs can jump man-high. I saw it.
+[^12]: In German speaking countries this is called <q>Weideschlachtung</q>. For Germany it is regulated in [Anlage 1 Nr. 2 in TierSchlV](https://www.gesetze-im-internet.de/tierschlv_2013/anlage_1.html). The slaughterer has to apply for allowance which is linked with some other duties.
+[^13]: For Germany, see [Anlage 1 Nr. 2 in TierSchlV](https://www.gesetze-im-internet.de/tierschlv_2013/anlage_1.html)
+[^14]: The German laws aren't really pushing to a sustainable consumption of meat. There's no mandatory labeling for the _growing-up standards_ and the different types of seals are more green-washing than an improvement for the animals.
