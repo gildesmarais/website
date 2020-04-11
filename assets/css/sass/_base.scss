@@ -24,6 +24,7 @@ $base-font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
   sans-serif;
 
 $breakpoint-medium: 600px;
+$header-height: 2rem;
 
 @keyframes highlight {
   0% {
@@ -76,6 +77,11 @@ $breakpoint-medium: 600px;
   @media (prefers-color-scheme: dark) {
     background-color: rgba($base00, 0.5);
   }
+}
+
+html,
+body {
+  scroll-padding-top: $header-height;
 }
 
 body {
