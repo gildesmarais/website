@@ -11,5 +11,11 @@
     Array.from(document.querySelectorAll("[data-mousetrap]")).forEach(
       bindMousetrap
     )
+
+    Mousetrap.bind('j', _ => { window.scroll(0, window.scrollY + 16) })
+    Mousetrap.bind('k', _ => { window.scroll(0, window.scrollY - 16) })
+    Mousetrap.bind('g g', _ => { window.scroll(0, 0) })
+    Mousetrap.bind('G', _ => { window.scroll(0, window.document.body.scrollHeight) })
+    Mousetrap.bind('?', _ => { window.location.href = '/help' })
   })
 })(window, document, Mousetrap)

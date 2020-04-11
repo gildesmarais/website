@@ -23,6 +23,14 @@
     overflow: hidden;
   }
 
+  &:focus svg{
+    background-color: transparent;
+  }
+
+  &:focus {
+    background-color: $base09;
+  }
+
   &:hover,
   &--active {
     color: #b3cae0;
