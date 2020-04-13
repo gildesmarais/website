@@ -1,25 +1,21 @@
 ---
-layout: default
+layout: container
 ---
 
-<section class="section">
-  <div class="container">
-    <h1>Blog</h1>
+<h1>Blog</h1>
 
-    {{ content }}
+{{ content }}
 
-    <ul class="post-preview__list">
-      {% for post in site.posts %}
-      <li>
-        <a class="post-preview__link" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
-          {% if post.lang == 'de' %}
-          🇩🇪
-          {% endif %}
-          {{ post.title | escape }}
-        </a>
-        <time class="post-preview__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
+<ul class="post-preview__list">
+  {% for post in site.posts %}
+  <li>
+    <a class="post-preview__link" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
+      {% if post.lang == 'de' %}
+      🇩🇪
+      {% endif %}
+      {{ post.title | escape }}
+    </a>
+    <time class="post-preview__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+  </li>
+  {% endfor %}
+</ul>

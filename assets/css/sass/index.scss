@@ -1,5 +1,9 @@
 @import "_base";
 
+.index {
+  max-width: 25rem;
+}
+
 .index__headline {
   display: block;
   width: 100%;
@@ -22,4 +26,13 @@
 .index__link--blog {
   font-weight: normal;
   color: unset;
+}
+
+.index__post-title {
+  display: inline-block;
+  padding: 0.5rem;
+  padding-left: 0;
+
+  font-weight: 100;
+  letter-spacing: 0.025em;
 }

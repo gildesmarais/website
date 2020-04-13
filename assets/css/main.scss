@@ -43,16 +43,14 @@
 .section {
   padding: 0 0.5rem;
   border-top: 1px solid $base06;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $base00;
+  }
 }
 
 .is-alternative-font {
   font-family: $alternative-font;
-}
-
-@media (prefers-color-scheme: dark) {
-  .section {
-    border-top-color: $base00;
-  }
 }
 
 @media (hover: hover) {
