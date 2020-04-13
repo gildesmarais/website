@@ -1,28 +1,25 @@
 @import "_base";
 
-.index__teaser {
-  font-family: $base-font;
-  font-size: 1.125rem;
-  font-weight: 100;
+.index__headline {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  margin-left: -0.1rem; // the capital h looks offset
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
-.index__link--silent {
-  font-weight: 400;
-  color: $base00;
-  text-decoration: underline;
+.index__ipa {
+  font-size: 1.2em;
+  color: $base03;
+  letter-spacing: 0.025em;
 }
 
-.index__link {
-  display: inline-block;
-  margin: 1rem 0;
-  text-decoration: none;
-}
-
-.index__post {
-  @include box();
-  margin: 3rem 0 0;
-}
-
-.index__post--hidden {
+.index__photo {
   display: none;
+}
+
+.index__link--blog {
+  font-weight: normal;
+  color: unset;
 }
