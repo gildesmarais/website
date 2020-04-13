@@ -1,26 +1,30 @@
 ---
 layout: container
 ---
-<div class="h-card" id="hcard-Gil-Desmarais">
+<div class="h-card index" id="hcard-Gil-Desmarais">
   <h1 class="index__headline">Hi, I'm <span class="p-name">Gil Desmarais</span>!</h1>
 
   <span class="index__ipa p-ipa">/ʒ​ɪ​l dɛsm​​ɐ​ʁɛ/</span>
 
   <img src="/assets/images/gil.png" class="u-logo index__photo" role="presentation" hidden>
+  <a href="{{site.url}}" class="u-url" hidden></a>
 
   <p>
     This is my personal website.
   </p>
   <p>
-    I work as
-    <span class="p-category">full-stack developer</span>.
-    That means I develop on
+    I live in
+    <span class="p-locality">Berlin</span>
+    and work as
+    <span class="p-job-title">full-stack developer</span>.
+    <br>
+    Full-stack means I develop on the
     <span class="p-category">frontend</span>
     and
-    <span class="p-category">backend</span>,
-    administrate
+    <span class="p-category">backend</span>
+    and administrate
     <span class="p-category">servers</span>.
-    I work on
+    I also work on
     <span class="p-category">products</span>
     and monitor and analyze.
   </p>
@@ -29,7 +33,7 @@ layout: container
     <span class="p-category">music</span>,
     <span class="p-category">cooking</span>,
     <span class="p-category">lifelong learning</span>,
-    <span class="p-category">a decentralized web</span>,
+    a <span class="p-category">decentralized web</span>,
     <span class="p-category">sports</span>,
     <span class="p-category">bicycling</span>
     and
@@ -37,13 +41,11 @@ layout: container
   </p>
 </div>
 
-<div>
-  <p>
-    Sometimes I write about interesting things in my
-    <a href="/blog" class="index__link--blog category">blog</a>.
-    My latest blog post is:
-    <br>
-    {% assign post = site.posts.first %}
-    <a href="{{ root_url }}{{ post.url }}" class="h-entry p-name u-url"><q>{{ post.title }}</q></a>.
-  </p>
-</div>
+<p class="index">
+  Sometimes I write about interesting things in my
+  <a href="/blog" class="index__link--blog category">blog</a>.
+  My latest blog post is:
+  <br>
+  {% assign post = site.posts.first %}
+  <a href="{{ root_url }}{{ post.url }}" class="h-entry p-name u-url index__post-title">› {{ post.title }}</a>
+</p>
