@@ -8,14 +8,26 @@ layout: container
 
 <ul class="post-preview__list">
   {% for post in site.posts %}
-  <li>
-    <a class="post-preview__link" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
+  <li class="h-entry">
+    <a class="post-preview__link p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
       {% if post.lang == 'de' %}
       🇩🇪
       {% endif %}
       {{ post.title | escape }}
     </a>
-    <time class="post-preview__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    <time class="post-preview__meta dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+
+    {% for tag in page.tags %}
+      <span class="p-category" hidden>{{ tag }}</span>
+    {% endfor %}
+
+    {% if post.description %}
+    <span class="p-summary" hidden>{{post.description}}</span>
+    {% endif %}
+
+    <a href="{{ site.url }}" class="h-card p-author" hidden>
+      {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
+    </a>
   </li>
   {% endfor %}
 </ul>

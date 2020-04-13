@@ -1,42 +1,48 @@
 ---
-layout: default
+layout: container
 ---
 
-<section class="container">
-  <article class="post">
-    <header class="post__header">
-      <p class="post__meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date_to_long_string }}
-        </time>
-      </p>
-      <h1 class="post__title">
-        {{ page.title | escape }}
-      </h1>
-    </header>
+<article class="post h-entry">
+  <header class="post__header">
+    <p class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published">
+        {{ page.date | date_to_long_string }}
+      </time>
+    </p>
+    <h1 class="post__title p-name">
+      {{ page.title | escape }}
+    </h1>
+  </header>
 
-    <main class="post__content">
-      {% if page.toc %}
-      <p class="post__description">{{ page.description }}</p>
-      {% endif %}
+  {% if post.description %}
+  <span class="p-summary" hidden>{{post.description}}</span>
+  {% endif %}
 
-      {{ content | toc }}
-    </main>
+  <main class="post__content e-content">
+    {% if page.toc %}
+    <p class="post__description">{{ page.description }}</p>
+    {% endif %}
 
-    <footer>
-      {% include tags.html %}
-    </footer>
+    {{ content | toc }}
+  </main>
 
-    <aside>
-      <a
-        class="post__footer-note"
-        role="complementary"
-        href="{{ '/feed.xml' | relative_url }}"
-        aria-labelledby="rss_feed"
-      >
-        If you don’t want to miss any of my rare posts, I suggest
-        <span id="rss_feed">subscribing to the RSS feed</span>.
-      </a>
-    </aside>
-  </article>
-</main>
+  <footer>
+    {% include tags.html %}
+
+    <a href="{{ site.url }}" class="h-card p-author" hidden>
+      {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
+    </a>
+  </footer>
+
+  <aside>
+    <a
+      class="post__footer-note"
+      role="complementary"
+      href="{{ '/feed.xml' | relative_url }}"
+      aria-labelledby="rss_feed"
+    >
+      If you don’t want to miss any of my rare posts, I suggest
+      <span id="rss_feed">subscribing to the RSS feed</span>.
+    </a>
+  </aside>
+</article>
