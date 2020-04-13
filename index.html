@@ -1,12 +1,20 @@
 ---
 layout: container
 ---
+
 <div class="h-card index" id="hcard-Gil-Desmarais">
-  <h1 class="index__headline">Hi, I'm <span class="p-name">Gil Desmarais</span>!</h1>
+  <h1 class="index__headline">
+    Hi, I'm <span class="p-name">Gil Desmarais</span>!
+  </h1>
 
   <span class="index__ipa p-ipa">/ʒ​ɪ​l dɛsm​​ɐ​ʁɛ/</span>
 
-  <img src="/assets/images/gil.png" class="u-logo index__photo" role="presentation" hidden>
+  <img
+    src="/assets/images/gil.png"
+    class="u-logo index__photo"
+    role="presentation"
+    hidden
+  />
   <a href="{{site.url}}" class="u-url" hidden></a>
 
   <p>
@@ -17,14 +25,13 @@ layout: container
     <span class="p-locality">Berlin</span>
     and work as
     <span class="p-job-title">full-stack developer</span>.
-    <br>
+    <br />
     Full-stack means I develop on the
     <span class="p-category">frontend</span>
     and
     <span class="p-category">backend</span>
     and administrate
-    <span class="p-category">servers</span>.
-    I also work on
+    <span class="p-category">servers</span>. I also work on
     <span class="p-category">products</span>
     and monitor and analyze.
   </p>
@@ -32,8 +39,8 @@ layout: container
     I'm furthermore interested (but not only) in:
     <span class="p-category">music</span>,
     <span class="p-category">cooking</span>,
-    <span class="p-category">lifelong learning</span>,
-    a <span class="p-category">decentralized web</span>,
+    <span class="p-category">lifelong learning</span>, a
+    <span class="p-category">decentralized web</span>,
     <span class="p-category">sports</span>,
     <span class="p-category">bicycling</span>
     and
@@ -43,9 +50,13 @@ layout: container
 
 <p class="index">
   Sometimes I write about interesting things in my
-  <a href="/blog" class="index__link--blog category">blog</a>.
-  My latest blog post is:
-  <br>
+  <a href="/blog" class="index__link--blog category">blog</a>. My latest blog
+  post is:
+  <br />
   {% assign post = site.posts.first %}
-  <a href="{{ root_url }}{{ post.url }}" class="h-entry p-name u-url index__post-title">› {{ post.title }}</a>
+  <a
+    href="{{ root_url }}{{ post.url }}"
+    class="h-entry p-name u-url index__post-title"
+    >› {{ post.title }}</a
+  >
 </p>
