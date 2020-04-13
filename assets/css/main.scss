@@ -15,18 +15,18 @@
 
 @import "_base";
 @import "contact";
-@import "header";
 @import "footer";
 @import "index";
 @import "nav";
 @import "post";
 @import "post-preview";
+@import "print";
 @import "project";
+@import "resume";
 @import "syntax-highlighting";
 @import "tags";
 @import "toc";
 @import "work-experience";
-@import "print";
 
 *,
 *:before,
@@ -47,10 +47,6 @@
 
 .is-alternative-font {
   font-family: $alternative-font;
-}
-
-.section p {
-  line-height: 1.5;
 }
 
 @media (prefers-color-scheme: dark) {

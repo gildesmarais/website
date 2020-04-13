@@ -1,86 +1,49 @@
 ---
-layout: page
-show_teaser: true
+layout: container
 ---
+<div class="h-card" id="hcard-Gil-Desmarais">
+  <h1 class="index__headline">Hi, I'm <span class="p-name">Gil Desmarais</span>!</h1>
 
-<main class="container" role="main">
-  <div class="header__column">
-    <h1 class="header__headline">Hi, I'm Gil Desmarais!</h1>
-    <h2 class="header__subheadline">{{ site.subheadline }}</h2>
+  <span class="index__ipa p-ipa">/ʒ​ɪ​l dɛsm​​ɐ​ʁɛ/</span>
 
+  <img src="/assets/images/gil.png" class="u-logo index__photo" role="presentation" hidden>
+
+  <p>
+    This is my personal website.
+  </p>
+  <p>
+    I work as
+    <span class="p-category">full-stack developer</span>.
+    That means I develop on
+    <span class="p-category">frontend</span>
+    and
+    <span class="p-category">backend</span>,
+    administrate
+    <span class="p-category">servers</span>.
+    I work on
+    <span class="p-category">products</span>
+    and monitor and analyze.
+  </p>
+  <p>
+    I'm furthermore interested (but not only) in:
+    <span class="p-category">music</span>,
+    <span class="p-category">cooking</span>,
+    <span class="p-category">lifelong learning</span>,
+    <span class="p-category">a decentralized web</span>,
+    <span class="p-category">sports</span>,
+    <span class="p-category">bicycling</span>
+    and
+    <span class="p-category">aviation</span>.
+  </p>
+</div>
+
+<div>
+  <p>
+    Sometimes I write about interesting things in my
+    <a href="/blog" class="index__link--blog category">blog</a>.
+    My latest blog post is:
+    <br>
     {% assign post = site.posts.first %}
-    <a
-      href="{{ root_url }}{{ post.url }}"
-      class="index__post index__post--hidden"
-    >
-      My latest blog post:
-      <span class="index__post-link">{{ post.title }}</span>
-    </a>
-
-    <p>
-      I worked for young and established startups, agencies and my side
-      projects. That not only included the creation of software, but also
-      identifying business problems and solving those with code.
-    </p>
-
-    <p>
-      My aim is to write easily understandable and maintainable applications. I
-      prefer to write boring code.
-    </p>
-
-    <h2 class="visually-hidden">My professional knowledge not only covers…</h2>
-    <ul class="tags">
-      <li class="tags__tag--4">Ruby</li>
-      <li class="tags__tag--4">JavaScript</li>
-      <li class="tags__tag--4">PostgreSQL</li>
-
-      <li class="tags__tag-linebreak"></li>
-      <li class="tags__tag--4">Ruby on Rails</li>
-      <li class="tags__tag--4">RSpec</li>
-      <li class="tags__tag--4">Vue.js</li>
-      <li class="tags__tag--4">PostGIS</li>
-
-      <li class="tags__tag-linebreak"></li>
-      <li class="tags__tag--4">HTML5</li>
-      <li class="tags__tag--4">SCSS</li>
-      <li class="tags__tag--4">BEM methodology</li>
-      <li class="tags__tag--4">UI & UX design</li>
-      <li class="tags__tag--4">Linux</li>
-      <li class="tags__tag--4">CI&thinsp;/&thinsp;CD</li>
-      <li class="tags__tag--4">nginx</li>
-      <li class="tags__tag--4">git</li>
-      <li class="tags__tag--4">Docker</li>
-      <li class="tags__tag--4">object oriented design</li>
-
-      <li class="tags__tag--3">search engine optimization</li>
-      <li class="tags__tag--3">Selenium & Capybara</li>
-      <li class="tags__tag--3">Nuxt.js</li>
-      <li class="tags__tag--3">macOS</li>
-      <li class="tags__tag--3">ansible</li>
-
-      <li class="tags__tag--3">process optimization</li>
-      <li class="tags__tag--3">project management</li>
-      <li class="tags__tag--3">team lead</li>
-      <li class="tags__tag--3">product management</li>
-      <li class="tags__tag--3">static code analysis</li>
-
-      <li class="tags__tag--1">Elasticsearch</li>
-      <li class="tags__tag--1">MySQL</li>
-      <li class="tags__tag--1">Puppet</li>
-      <li class="tags__tag--1">Java</li>
-      <li class="tags__tag--1">OSGi</li>
-      <li class="tags__tag--1">Swift&thinsp;3</li>
-      <li class="tags__tag--1">Heroku</li>
-
-      <li class="tags__tag--0">AngularJS&thinsp;1.x</li>
-      <li class="tags__tag--0">Hibernate ORM</li>
-      <li class="tags__tag--0">Objective-C</li>
-      <li class="tags__tag--0">RabbitMQ</li>
-      <li class="tags__tag--0">React</li>
-      <li class="tags__tag--0">Scrivito CMS</li>
-      <li class="tags__tag--0">Spring Framework</li>
-      <li class="tags__tag--0">Subversion</li>
-      <li class="tags__tag--0">WebSockets</li>
-    </ul>
-  </div>
-</main>
+    <a href="{{ root_url }}{{ post.url }}" class="h-entry p-name u-url"><q>{{ post.title }}</q></a>.
+  </p>
+</div>
