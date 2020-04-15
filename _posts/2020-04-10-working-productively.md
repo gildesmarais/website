@@ -19,7 +19,7 @@ A well equipped desk contains at least:
 
 - a screen with 2560×1440px (WQHD) resolution with 109dpi minimum
 - the <q>old</q>  trackpad
-- the <q>old</q>  wireless keyboard with _International Layout_[^1]
+- the <q>old</q>  [wireless keyboard]({% post_url 2020-03-27-why-i-taped-the-keys-on-my-keyboard %}) with _International Layout_[^1]
 - a laptop stand to move the machine above the level where I place fluid containers
 - a transparent desk-pad to place cheat sheets below it
 
