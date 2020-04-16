@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gildesmarais/jekyll-loading-lazy.git
-  revision: b42a4fc84744dba8ac4c88c0dfc28e4cd9c1c37f
+  revision: 1ad7692d352550921b560453ffe86f750110daaa
   specs:
     jekyll-loading-lazy (0.1.0)
       jekyll (>= 3.0, < 5.0)
@@ -75,11 +75,11 @@ GEM
       mini_portile2 (~> 2.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rouge (3.17.0)
+    rouge (3.18.0)
     safe_yaml (1.0.5)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
