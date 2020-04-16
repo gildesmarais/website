@@ -52,12 +52,13 @@ Now you have two halves which are (almost?) mirrored. You hang those halves for 
 
 Depending on your butcher tradition, you start cutting pieces out of the halves. Without those pieces it would be hard to use the pig's meat further.
 
-The different parts of the pig also have different cooking characteristics: some parts are tender after a quick sear or grill, while other parts require a long cooking process to become tender. Some parts aren't needed to be cooked, like ham and raw sausage (e.g. salami), but are conserved.
+The different parts of the pig also have different cooking characteristics: some parts are tender after a quick sear or grill, while other parts require a long cooking process to become tender. Some parts aren't needed to be cooked, like ham but are conserved.
 
 There are a bunch of different cutting methods, depending on the cuisine and the pig's race mostly.
 Read more about in the Wikipedia[^8] or your favorite non-veggie cookbook[^9].
 
-As this pig's race is known for good (and lots of) fats, we concentrated on the belly, bacon, etc. When cutting, you usually avoid cutting through the red meat and cut along the fascia and through fat.
+As our pig's race is known for good (and lots of) fats, we concentrated on the belly, bacon, etc.
+When cutting, you usually avoid cutting through the red meat and cut along the fascia and through fat.
 Usually unnecessary fat is scraped of the meaty pieces. We put the fat aside and made lard out of it.
 
 The end result are pieces of meat you can buy at your butchery: rips, cutlet, chops, tenderloin, neck, roasts, bacon, flank, etc ...
