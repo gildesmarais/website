@@ -16,6 +16,7 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-target-blank'
   gem 'jekyll-toc'
+  gem 'jekyll-loading-lazy', github: 'gildesmarais/jekyll-loading-lazy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

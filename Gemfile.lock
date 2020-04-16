@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/gildesmarais/jekyll-loading-lazy.git
+  revision: b42a4fc84744dba8ac4c88c0dfc28e4cd9c1c37f
+  specs:
+    jekyll-loading-lazy (0.1.0)
+      jekyll (>= 3.0, < 5.0)
+      nokogiri (>= 1.10, < 2.0)
+
+GIT
   remote: https://github.com/sass/sassc-ruby.git
   revision: 0cb5c9e635bf94707c920227d4bd20c51e37922a
   specs:
@@ -84,6 +92,7 @@ DEPENDENCIES
   jekyll (~> 4.0)
   jekyll-archives
   jekyll-feed
+  jekyll-loading-lazy!
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-target-blank
