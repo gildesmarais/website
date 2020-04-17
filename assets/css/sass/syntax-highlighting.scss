@@ -90,3 +90,13 @@
     }
   }
 }
+
+.highlight a,
+.highlight-rouge a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: inherit;
+  }
+}

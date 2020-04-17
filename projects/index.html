@@ -83,8 +83,11 @@ layout: container
   <p>
     A plugin for the Jekyll static site generator.
     <br>
-    It automatically adds `loading="lazy"` to all images and iframes on the
-    generated website.
+    It automatically adds
+
+    <span class="highlight"><a href="https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attributes"><code><span class="na">loading=</span><span class="s">"lazy"</span></code></a></span>
+
+    to all images and iframes on the generated website.
     <br>
     That attribute causes browsers to load the resource lazily without adding
     any JavaScript to the site.
