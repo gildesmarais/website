@@ -6,7 +6,7 @@ gem 'jekyll', '~> 4.0'
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 
-gem 'sassc', github: 'sass/sassc-ruby'
+gem 'sassc'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -16,7 +16,9 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-target-blank'
   gem 'jekyll-toc'
-  gem 'jekyll-loading-lazy', github: 'gildesmarais/jekyll-loading-lazy'
+  gem 'jekyll-loading-lazy'
+  # gem 'jekyll-loading-lazy', path: '/Users/gil/versioned/github-gill0r/jekyll-loading-lazy'
+  # gem 'jekyll-loading-lazy', github: 'gildesmarais/jekyll-loading-lazy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
