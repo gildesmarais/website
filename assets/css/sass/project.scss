@@ -1,5 +1,6 @@
 .project__outgoings,
-.project__html2rss {
+.project__html2rss,
+.project__jekyll-loading-lazy {
   @include tile;
 
   padding: 1rem 0.75rem;
@@ -24,4 +25,9 @@
   span:last-child {
     color: #60b0f4;
   }
+}
+
+.project__jekyll-loading-lazy > h2 {
+  font-weight: normal;
+  letter-spacing: -0.05em;
 }
