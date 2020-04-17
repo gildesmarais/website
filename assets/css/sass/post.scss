@@ -1,16 +1,11 @@
-.post {
-  padding: 0 4rem;
-}
-
 .post__header,
 .post__title {
   line-height: 1;
 }
 
 .post__description {
+  font-family: $alternative-font;
   font-size: 1.2em;
-  font-family: $alternative-font;
-  font-family: $alternative-font;
 }
 
 .post__meta {
@@ -62,7 +57,7 @@
   }
 
   p+p {
-    margin-top: .75em;
+    margin-top: 0.75em;
   }
 
   img {
@@ -101,8 +96,8 @@
 }
 
 .post .footnote {
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .post .footnotes {
@@ -141,12 +136,14 @@
 }
 
 @media (max-width: $breakpoint-medium) {
-  .post {
-    padding: 0 1.5rem;
-  }
-
   .post__content {
     font-size: 0.9rem;
+  }
+
+  .post__content img {
+    width: calc(100% + (var(--section-padding) * 2));
+    max-width: unset;
+    margin: 0 calc(var(--section-padding) * -1);
   }
 
   li {

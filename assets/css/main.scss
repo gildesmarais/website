@@ -41,7 +41,8 @@
 }
 
 .section {
-  padding: 0 0.5rem;
+  --section-padding: 0.5rem;
+  padding: 0 var(--section-padding);
   border-top: 1px solid $base06;
 
   @media (prefers-color-scheme: dark) {
