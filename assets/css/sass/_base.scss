@@ -79,57 +79,6 @@ $header-height: 2rem;
   }
 }
 
-html,
-body {
-  scroll-padding-top: $header-height;
-}
-
-body {
-  padding-bottom: 25vh;
-  font-family: $base-font;
-  font-size: 1rem;
-  font-weight: 300;
-  font-variant-ligatures: common-ligatures;
-  line-height: 1.25;
-  color: $base00;
-}
-
-a {
-  font-weight: 500;
-  color: darken($base0d, 20);
-  text-decoration: underline;
-  text-decoration-color: $base03;
-
-  &:hover {
-    background-color: $base06;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $alternative-font;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: darken($base04, 15);
-    background-color: #000;
-  }
-
-  a {
-    color: $base09;
-    text-decoration-color: $base00;
-
-    &:hover {
-      background-color: $base02;
-    }
-  }
-}
-
 .visually-hidden {
   position: absolute;
   top: auto;
