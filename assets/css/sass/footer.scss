@@ -12,7 +12,9 @@
   &:focus,
   &:hover {
     background: linear-gradient(
-      to bottom, rgba($base06, 0.75), rgba($base06, 0)
+      to bottom,
+      rgba($base06, 0.75),
+      rgba($base06, 0)
     );
   }
 }
