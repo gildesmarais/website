@@ -1,12 +1,13 @@
 .nav {
-  min-height: $header-height;
+  max-width: var(--container-width);
+  min-height: var(--nav-height);
+  margin: 0 auto;
   font-size: 0;
   background-color: $base02;
 }
 
 .nav__container {
   display: flex;
-  max-width: 50rem;
   margin: -1px auto 0;
   overflow: hidden;
 }

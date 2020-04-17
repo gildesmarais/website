@@ -6,7 +6,7 @@
 
 html,
 body {
-  scroll-padding-top: $header-height;
+  scroll-padding-top: var(--nav-height);
 }
 
 body {
