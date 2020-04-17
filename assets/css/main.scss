@@ -30,6 +30,8 @@
 @import "work-experience";
 
 :root {
+  --nav-height: 2rem;
+  --container-width: #{$breakpoint-medium};
   --section-padding: 0.5rem;
 }
 
@@ -39,7 +41,7 @@
 // }
 
 .container {
-  max-width: 670px;
+  max-width: var(--container-width);
   margin: 0 auto;
   font-size: 0.95rem;
 }
