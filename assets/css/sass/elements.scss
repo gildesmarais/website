@@ -40,6 +40,14 @@ h4,
 h5,
 h6 {
   font-family: $alternative-font;
+  color: $base00;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: $base02;
+
+  @media (prefers-color-scheme: dark) {
+    color: $base06;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,6 +79,15 @@ kbd {
   border-radius: 0.3em;
 }
 
+details {
+  margin: 1rem 0;
+}
+
 details > summary {
+  color: $base01;
   cursor: pointer;
+
+  @media (prefers-color-scheme: dark) {
+    color: $base04;
+  }
 }
