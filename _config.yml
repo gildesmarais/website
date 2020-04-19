@@ -59,7 +59,7 @@ pwa:
     - "assets/**/*.{js,css,eot,svg,ttf,woff,woff2}"
     - index.html
     - manifest.json
-    - "{contact,html,projects,resume,tag}/*.html"
+    - "{contact,help,projects,resume,tag}/*.html"
   # precache_glob_ignores: # Optional
   # - sw-register.js
   # - "fonts/**/*"
