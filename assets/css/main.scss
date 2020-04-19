@@ -55,6 +55,35 @@
   }
 }
 
+.sw-update[hidden] {
+  height: 0;
+  overflow: hidden;
+}
+
+.sw-update:not([hidden]) {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  font-weight: bold;
+  color: $base0c;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background: $base00;
+  border-bottom: 1px solid $base0c;
+  box-shadow: 0 0 3px $base0c;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 @media (hover: hover) {
   [data-mousetrap] {
     text-decoration: underline;
