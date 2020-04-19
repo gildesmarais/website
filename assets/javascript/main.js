@@ -19,6 +19,7 @@
     Mousetrap.bind('g g', _ => { window.scroll(0, 0) })
     Mousetrap.bind('G', _ => { window.scroll(0, window.document.body.scrollHeight) })
     Mousetrap.bind('?', _ => { window.location.href = '/help' })
+    Mousetrap.bind('t', _ => { window.location.href = '/tag' })
   }
 
   const onSwUpdate = _ => {
@@ -26,7 +27,7 @@
       return
     }
 
-    window.location.reload(true)
+    window.setTimeout(_ => window.location.reload(true), 100)
   }
 
   window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
