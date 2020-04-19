@@ -3,7 +3,7 @@ layout: post
 title: On slaughtering a pig
 toc: true
 description: Last winter I witnessed a home slaughtering of a pig.
-tags: [knowledge, recipe]
+tags: [food]
 ---
 
 ## A warning beforehand

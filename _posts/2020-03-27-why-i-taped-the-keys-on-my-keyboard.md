@@ -3,9 +3,7 @@ layout: post
 title: Why I taped the keys on my keyboard
 date: 2020-03-27 16:45:00 +0100
 description: "Observations while becoming better at typing blindly."
-tags:
-  - work
-  - hardware
+tags: project
 ---
 
 About two years ago, I taped the keys on my work keyboard with fitting white labels.
