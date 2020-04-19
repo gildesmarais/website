@@ -26,14 +26,9 @@
       return
     }
 
-    const el = document.querySelector('#sw-update')
-    el.hidden = false
-    el.tabIndex = 0
-    el.addEventListener('click', _ => { window.location.reload(true) }, options)
+    window.location.reload(true)
   }
 
   window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
   window.addEventListener("sw.update", onSwUpdate, options)
-  window.onSwUpdate = onSwUpdate
-
 })(window, document, Mousetrap)
