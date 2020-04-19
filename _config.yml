@@ -35,6 +35,7 @@ plugins:
   - jekyll-toc
   - jekyll-seo-tag
   - jekyll-loading-lazy
+  - jekyll-pwa-plugin
 
 jekyll-archives:
   enabled:
@@ -44,10 +45,27 @@ jekyll-archives:
     # year: '/:year/'
     # month: '/:year/:month/'
     # day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    category: '/category/:name/'
+    tag: "/tag/:name/"
+    category: "/category/:name/"
+
+pwa:
+  # enabled: false # Optional
+  # sw_src_filepath: service-worker.js # Optional
+  # sw_dest_filename: service-worker.js # Optional
+  dest_js_directory: assets/javascript # Required
+  precache_recent_posts_num: 15 # Optional
+  # precache_glob_directory: / # Optional
+  precache_glob_patterns: # Optional
+    - "assets/**/*.{js,css,eot,svg,ttf,woff,woff2}"
+    - index.html
+    - manifest.json
+    - "{contact,html,projects,resume,tag}/*.html"
+  # precache_glob_ignores: # Optional
+  # - sw-register.js
+  # - "fonts/**/*"
 
 exclude:
+  - .git/
   - .github/
   - .gitignore
   - .jekyll-cache
