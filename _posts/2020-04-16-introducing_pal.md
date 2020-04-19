@@ -2,8 +2,7 @@
 layout: post
 title: Introducing Pal
 tags:
-  - dev
-  - work
+  - programming
 ---
 
 [Rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) is an essential method to solve problems by yourself. The idea is that you explain a rubber duck your problem and while explaining the problem you come (closer) to a solution.  
