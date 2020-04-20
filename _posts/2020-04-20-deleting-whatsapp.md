@@ -35,4 +35,4 @@ However, it misses the latest hack, but [read about that yourself on this Guardi
 
 [^1]: They use Whatsapp only. I think [Signal](https://www.signal.org/) and [Riot](https://about.riot.im/) are good alternatives.
 [^2]: Watch the movie [The Great Hack](https://www.themoviedb.org/movie/566222-the-great-hack) if you haven't yet.
-[^3]: https://ikouchiha47.github.io/two-cents/pages/episode_1.html
+[^3]: [<q>The WhatsApp privacy problem.</q>](https://ikouchiha47.github.io/two-cents/pages/episode_1.html), 2020-04-20
