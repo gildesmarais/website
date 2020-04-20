@@ -1,7 +1,7 @@
 default: clean fix
 
 fix:
-	prettier --write "**/*.md" "*.scss" "*.rb" "*.js"  "**/*.mdx"
+	prettier --write --no-semi "**/*.yml" "**/*.md" "*.scss" "*.rb" "assets/javascript/main.js"  "**/*.mdx"
 	yarn run stylelint --fix assets/**/*.scss
 
 clean:
