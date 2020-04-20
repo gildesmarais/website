@@ -6,9 +6,9 @@ image: /assets/images/posts/2020-04-20-deleting-whatsapp-2.png
 
 Today marks the day I deleted Whatsapp from my phone. From now on you can't contact me via Whatsapp.
 
-This was a long-running undertake. Sadly that app is the only to communicate with some of my contacts.
+This was a long-running undertake. Sadly that app is the only messenger to communicate with some of my contacts.
 It's not so easy to move them to install _another_ messenger app.[^1]
-I told all remaining contacts where they can find me and send them the URL to my website.
+I told all remaining contacts where they can find me and sent them the URL to my website.
 
 Anyway, at some time you have to pull the plug.
 
