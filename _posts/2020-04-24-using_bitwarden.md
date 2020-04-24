@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Using Bitwarden'
-tags: 
+title: "Using Bitwarden"
+tags:
   - linux
 ---
 
