@@ -20,7 +20,7 @@ Whatsapp is owned by Facebook. Even tho they said they won't merge Facebook and 
 
 And, IMHO, privacy always was an afterthought on Whatsapp.[^3]
 
-If you think security-wise it looks better, I recommend scrolling through this [dedicated page (!) on Wikipedia](https://en.wikipedia.org/wiki/Reception_and_criticism_of_WhatsApp_security_and_privacy_features) which lists security and privacy related incidents since the year 2011.  
+If you think security-wise it looks better, I recommend scrolling through this [dedicated page (!) on Wikipedia](https://en.wikipedia.org/wiki/Reception_and_criticism_of_WhatsApp_security_and_privacy_features) which lists security and privacy related incidents since the year 2011.
 
 However, it misses the latest hack, but [read about that yourself on this Guardian article](https://www.theguardian.com/technology/2020/jan/21/amazon-boss-jeff-bezoss-phone-hacked-by-saudi-crown-prince). This is not science-fiction.
 
