@@ -3,6 +3,7 @@ layout: post
 title: "Using Bitwarden"
 tags:
   - linux
+  - decentralize
 ---
 
 Today I've setup my personal [Bitwarden](https://bitwarden.com/) instance and migrated from 1Password to it.[^1]

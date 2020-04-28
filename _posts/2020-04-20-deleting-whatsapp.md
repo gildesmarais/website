@@ -2,7 +2,7 @@
 layout: post
 title: Deleting Whatsapp (finally)
 image: /assets/images/posts/2020-04-20-deleting-whatsapp-2.png
-tags: 
+tags:
   - reference
 ---
 

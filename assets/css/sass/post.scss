@@ -74,12 +74,26 @@
 
   blockquote {
     @include tile;
-
-    padding: 0.25rem;
-    margin-left: 0;
-    font-size: 0.95em;
-    line-height: 1.25;
+    padding: 0.5em 0.75em;
+    margin: 1.5em 0.75em 1.5em 0;
+    line-height: 1.61;
     text-align: justify;
+    letter-spacing: -0.025em;
+    quotes: "\201C""\201D""\2018""\2019";
+    border-left: 0.75em solid $base00;
+  }
+
+  blockquote:before {
+    margin-right: 0.125em;
+    font-family: serif;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+    content: open-quote;
+  }
+
+  blockquote p {
+    display: inline;
   }
 }
 
