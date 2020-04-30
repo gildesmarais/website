@@ -34,7 +34,7 @@ I decided not to go down that path. I simply didn't feel good with it.
 
 ## A better solution
 
-In the last years I've created a better organized way of generating RSS feeds. The idea was to create a *feed config* containing CSS selectors (looking basically like the following YAML) and have a RSS feed build:
+In the last years I've created a better organized way of generating RSS feeds. The idea was to create a _feed config_ containing CSS selectors (looking basically like the following YAML) and have a RSS feed build:
 
 ```yml
 channel:
@@ -72,14 +72,14 @@ Scraping involves a tad more than just selecting an HTML element's text contents
 - Maybe you want to send the request with Authorization or Cookie HTTP headers?
 - You want to scrape several syntactically equal pages on one website without duplicating the configs.
 
-Over a short time the gem's functionality grew and several _item extractors_ and _post processors_ came to life. 
+Over a short time the gem's functionality grew and several _item extractors_ and _post processors_ came to life.
 
 In a few nightly session I've brushed up the [gem's README](https://github.com/gildesmarais/html2rss/blob/master/README.md) to cover everything it is capable of. It's all automatically tested. There's also code documentation for the API, usually with examples. However, I'd recommend looking inside the test suite to find more complex examples.
 
 ### A repository of configs
 
 The [html2rss-config](https://github.com/gildesmarais/html2rss-configs)'s repository contains feed configs. Each feed config contains the instructions for the html2rss gem on how to build the RSS feed. Thus, to create a config, you need write CSS selectors and express them in YAML.[^5]
-The feed config must reside in a folder named after the fully qualified domain name[^6] of the website. 
+The feed config must reside in a folder named after the fully qualified domain name[^6] of the website.
 The config repository has its own test suite. It automatically tests each config and requires them to adhere to the conventions.
 
 The generator scaffolds a config and a test for a new config. It gets you started in a breeze and let's you focus on writing the selectors.
@@ -107,7 +107,6 @@ The corresponding URL:
 `‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ^^^^^^^^^^^^^^^^^^^^^^^^^^^`
 
 In case you do not have a Docker installed: check [`html2rss-web`'s README](https://github.com/gildesmarais/html2rss-web/blob/master/README.md) for other deployment options.
-
 
 **Contributions are welcome to all projects.**
 
