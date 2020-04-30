@@ -3,7 +3,6 @@
   min-height: var(--nav-height);
   margin: 0 auto;
   font-size: 0;
-  background-color: $base02;
 }
 
 .nav__container {
@@ -42,7 +41,6 @@
   align-self: flex-end;
   padding: 0.5rem 0.5rem 0.25rem;
   font-size: 1rem;
-  font-weight: 400;
   color: $base0d;
   text-align: center;
   text-decoration: none;
@@ -62,7 +60,7 @@
 
 .nav__item--active {
   color: #b3cae0;
-  background-color: lighten($base02, 10);
+  background-color: $base01;
 }
 
 @media (prefers-color-scheme: dark) {

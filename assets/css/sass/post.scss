@@ -75,7 +75,7 @@
   blockquote {
     @include tile;
     padding: 0.5em 0.75em;
-    margin: 1.5em 0.75em 1.5em 0;
+    margin: 1.5em 0;
     line-height: 1.61;
     text-align: justify;
     letter-spacing: -0.025em;
@@ -103,7 +103,6 @@
 }
 
 .post .footnote {
-  font-weight: bold;
   text-decoration: none;
 }
 
