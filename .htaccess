@@ -933,3 +933,27 @@ FileETag None
 #     RewriteCond %{REQUEST_FILENAME} !-f
 #     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp)$ $1.$3 [L]
 # </IfModule>
+
+
+# Redirect old page urls to new ones...
+
+<IfModule mod_rewrite.c>
+  Redirect permanent /posts/nokia_e51_als_umts_modem_via_bluetooth_unter_ubuntu-2008-04-06.html     https://gil.desmarais.de/posts/nokia_e51_als_umts_modem_via_bluetooth_unter_ubuntu/
+  Redirect permanent /posts/bluetooth_headset_mit_pulseaudio-2009-02-19.html     https://gil.desmarais.de/posts/bluetooth_headset_mit_pulseaudio/
+  Redirect permanent /posts/regionale_nachrichten_der_region_oldenburg-2012-08-09.html     https://gil.desmarais.de/posts/regionale_nachrichten_der_region_oldenburg/
+  Redirect permanent /posts/long_island_club_tea_cocktail_mit_club_mate-2013-02-24.html     https://gil.desmarais.de/posts/long_island_club_tea_cocktail_mit_club_mate/
+  Redirect permanent /posts/critical_mass_oldenburg-2014-03-04.html     https://gil.desmarais.de/posts/critical_mass_oldenburg/
+  Redirect permanent /posts/recent-changes-on-my-website2017-04-10.html     https://gil.desmarais.de/posts/recent-changes-on-my-website/
+  Redirect permanent /posts/rails-5.1.rc1-with-webpack-and-react2017-04-11.html     https://gil.desmarais.de/posts/rails-5.1.rc1-with-webpack-and-react/
+  Redirect permanent /posts/css-dark-mode-support-2018-11-03.html     https://gil.desmarais.de/posts/css-dark-mode-support/
+  Redirect permanent /posts/why-i-taped-the-keys-on-my-keyboard-2020-03-27.html     https://gil.desmarais.de/posts/why-i-taped-the-keys-on-my-keyboard/
+  Redirect permanent /posts/picking-and-watching-movies-alphabetically-2020-04-01.html     https://gil.desmarais.de/posts/picking-and-watching-movies-alphabetically/
+  Redirect permanent /posts/workaround--err_cert_invalid_on_mac_os_mojave_letsencrypt-2020-04-01.html     https://gil.desmarais.de/posts/workaround--err_cert_invalid_on_mac_os_mojave_letsencrypt/
+  Redirect permanent /posts/managing_music-2020-04-05.html     https://gil.desmarais.de/posts/managing_music/
+  Redirect permanent /posts/working-productively-2020-04-10.html     https://gil.desmarais.de/posts/working-productively/
+  Redirect permanent /posts/on_slaughtering_a_pig-2020-04-11.html     https://gil.desmarais.de/posts/on_slaughtering_a_pig/
+  Redirect permanent /posts/introducing_pal-2020-04-16.html     https://gil.desmarais.de/posts/introducing_pal/
+  Redirect permanent /posts/deleting-whatsapp-2020-04-20.html     https://gil.desmarais.de/posts/deleting-whatsapp/
+  Redirect permanent /posts/using_bitwarden-2020-04-24.html     https://gil.desmarais.de/posts/using_bitwarden/
+  Redirect permanent /posts/loading-images-lazily-with-jekyll-2020-05-03.html     https://gil.desmarais.de/posts/loading-images-lazily-with-jekyll/
+</IfModule>

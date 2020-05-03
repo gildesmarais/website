@@ -25,7 +25,7 @@ twitter:
 markdown: kramdown
 theme:
 
-permalink: /posts/:title_:year-:month-:day.html
+permalink: /posts/:title
 
 plugins:
   - jekyll-archives
