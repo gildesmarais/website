@@ -1,5 +1,5 @@
 ---
-title: Contact
+title: Privacy
 layout: container
 noindex: true
 sitemap: false
