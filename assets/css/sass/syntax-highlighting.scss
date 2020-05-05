@@ -4,12 +4,10 @@
  */
 
 .highlighter-rouge {
-  background: rgba($base06, 0.25);
+  background-color: darken($base00, 10);
 }
 
 .highlight {
-  background: rgba($base06, 0.25);
-
   .c     { font-style: italic; color: #998 } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
   .k     { font-weight: bold } // Keyword
@@ -71,23 +69,14 @@
   .il    { color: #099 } // Literal.Number.Integer.Long
 }
 
-@media (prefers-color-scheme: dark) {
-  .highlighter-rouge {
-    background-color: darken($base00, 10);
-    border: 1px solid rgba($base01, 0.25);
-    border-right: 0;
-    border-left: 0;
-  }
+.highlight {
+  background-color: darken($base00, 10);
 
-  .highlight {
-    background-color: darken($base00, 10);
-
-    .c , .err , .cm , .cp , .c1 , .cs , .gd , .gd .x , .gr , .gh , .gi , .gi .x,
-    .go , .gp , .gu , .gt , .kt , .m , .s , .na , .nb , .nc , .no , .ni , .ne,
-    .nf , .nn , .nt , .nv , .w , .mf , .mh , .mi , .mo , .sb , .sc , .sd , .s2 ,
-    .se , .sh , .si , .sx , .sr , .s1 , .ss , .bp , .vc , .vg , .vi , .il {
-      filter: invert(100%);
-    }
+  .c , .err , .cm , .cp , .c1 , .cs , .gd , .gd .x , .gr , .gh , .gi , .gi .x,
+  .go , .gp , .gu , .gt , .kt , .m , .s , .na , .nb , .nc , .no , .ni , .ne,
+  .nf , .nn , .nt , .nv , .w , .mf , .mh , .mi , .mo , .sb , .sc , .sd , .s2 ,
+  .se , .sh , .si , .sx , .sr , .s1 , .ss , .bp , .vc , .vg , .vi , .il {
+    filter: invert(100%);
   }
 }
 

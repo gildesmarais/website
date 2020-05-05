@@ -8,6 +8,10 @@ layout: container
       <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published">
         {{ page.date | date_to_long_string }}
       </time>
+
+      <a href="{{ site.url }}" class="h-card p-author post__author" hidden>
+        {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
+      </a>
     </p>
     <h1 class="post__title p-name">
       {{ page.title | escape }}
@@ -28,10 +32,6 @@ layout: container
 
   <footer>
     {% include tags.html %}
-
-    <a href="{{ site.url }}" class="h-card p-author" hidden>
-      {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
-    </a>
   </footer>
 
   <aside>

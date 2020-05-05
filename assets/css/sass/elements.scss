@@ -13,22 +13,24 @@ body {
   padding-bottom: 25vh;
   font-family: $base-font;
   font-size: 1rem;
-  font-weight: 300;
-  font-variant-ligatures: common-ligatures;
+  font-weight: 350;
   line-height: 1.25;
-  color: $base00;
+  color: darken($base04, 15);
+  background-color: #000;
+  font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
 }
 
 a {
-  color: darken($base0d, 20);
+
+  color: $base09;
   text-decoration: underline;
-  text-decoration-color: $base03;
+  text-decoration-color: $base00;
 
   &:hover {
-    background-color: $base06;
+    background-color: $base02;
   }
 }
 
@@ -39,31 +41,10 @@ h4,
 h5,
 h6 {
   font-family: $alternative-font;
-  color: $base00;
+  color: $base06;
   text-align: left;
   text-decoration: underline;
   text-decoration-color: $base02;
-
-  @media (prefers-color-scheme: dark) {
-    color: $base06;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    font-weight: 350;
-    color: darken($base04, 15);
-    background-color: #000;
-  }
-
-  a {
-    color: $base09;
-    text-decoration-color: $base00;
-
-    &:hover {
-      background-color: $base02;
-    }
-  }
 }
 
 kbd {
@@ -84,10 +65,6 @@ details {
 }
 
 details > summary {
-  color: $base01;
+  color: $base04;
   cursor: pointer;
-
-  @media (prefers-color-scheme: dark) {
-    color: $base04;
-  }
 }

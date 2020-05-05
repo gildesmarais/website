@@ -23,7 +23,7 @@
 
 .work-experience__textbox {
   width: 75%;
-  color: $base02;
+  color: $base04;
 }
 
 .work-experience__position {
@@ -52,11 +52,5 @@
   .work-experience__timerange,
   .work-experience__textbox {
     width: 100%;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .work-experience__textbox {
-    color: $base04;
   }
 }
