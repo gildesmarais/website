@@ -3,6 +3,7 @@
   min-height: var(--nav-height);
   margin: 0 auto;
   font-size: 0;
+  background-color: $black;
 }
 
 .nav__container {
@@ -36,40 +37,10 @@
     color: #b3cae0;
   }
 }
+
 .nav__item {
+  @extend %navigation-item;
   flex: 1 1 25%;
   align-self: flex-end;
-  padding: 0.5rem 0.5rem 0.25rem;
   font-size: 1rem;
-  color: $base0d;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 0.2s;
-
-  &:focus {
-    color: $base06;
-    background-color: $base09;
-    outline: 0;
-  }
-
-  &:hover {
-    background-color: lighten($base02, 20);
-  }
-}
-
-.nav__item--active {
-  color: #b3cae0;
-  background-color: $base01;
-}
-
-@media (prefers-color-scheme: dark) {
-  .nav {
-    background-color: $black;
-  }
-
-  .nav__item:hover,
-  .nav__item--active {
-    background-color: $base01;
-  }
 }

@@ -39,43 +39,29 @@ $breakpoint-medium: 670px;
   display: block;
   padding: 1rem 0.5rem;
   font-size: 0.9rem;
-  color: $base02;
+  color: $base04;
   text-decoration: none;
-  background-color: lighten($base06, 10);
+  background-color: $black;
+
+  filter: brightness(0.9);
   border: 1px solid $base0d;
 
   span {
-    color: darken($base0d, 20);
+    color: $base09;
   }
 
   &:hover span {
     text-decoration: underline;
   }
 
-  @media (prefers-color-scheme: dark) {
-    color: $base04;
-    background-color: $black;
-
-    filter: brightness(0.9);
-    border: 1px solid $base0d;
-
-    &:hover {
-      background-color: $base00;
-    }
-
-    span {
-      color: $base09;
-    }
+  &:hover {
+    background-color: $base00;
   }
 }
 
 @mixin tile {
-  background-color: rgba(lighten($base06, 10), 0.1);
+  background-color: rgba($base00, 0.5);
   box-shadow: 0 1px 3px rgba($base00, 0.4);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: rgba($base00, 0.5);
-  }
 }
 
 .visually-hidden {
@@ -87,4 +73,33 @@ $breakpoint-medium: 670px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
+}
+
+%navigation-item {
+  padding: 0.5rem 0.5rem 0.25rem;
+  color: $base0d;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+
+  &:focus {
+    color: $base06;
+    background-color: $base09;
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: $base01;
+  }
+
+  &--active {
+    &,
+    &:focus,
+    &:hover {
+      // background: rgba($base06, 0.5);
+      color: #b3cae0;
+      background-color: $base01;
+    }
+  }
 }

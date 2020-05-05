@@ -28,10 +28,12 @@
   }
 
   a[href]:after {
+    font-size: 0.9em;
     content: " (" attr(href) ")";
   }
 
   abbr[title]:after {
+    font-size: 0.9em;
     content: " (" attr(title) ")";
   }
 
@@ -82,8 +84,32 @@
     display: none;
   }
 
+  ul.section-nav a {
+    text-decoration: none;
+  }
+
   .post__content {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.25;
+    text-align: left;
+  }
+
+  .post__author {
+    display: block !important;
+    float: left;
+    font-family: $alternative-font;
+    text-decoration: none;
+  }
+
+  .post__footer-note {
+    display: none;
+  }
+
+  .highlight * {
+    filter: unset !important;
+  }
+
+  footer.section {
+    display: none;
   }
 }

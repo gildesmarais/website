@@ -37,6 +37,7 @@
   padding: 0 0.5rem;
   font-family: $alternative-font;
   line-height: 1.1;
+  text-decoration: none;
 }
 
 $tag-color: darken($base03, 25);
@@ -48,27 +49,17 @@ $tag-settings: (
   5: 100%
 );
 
+.tags__tag--0 {
+  display: none;
+}
+
+$tag-color: $base04;
+
 @each $level, $visibility in $tag-settings {
   .tags__tag--#{$level} {
     @include tag;
     font-size: $visibility;
     color: rgba($tag-color, ($visibility / 100%));
-  }
-}
-
-.tags__tag--0 {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  $tag-color: $base04;
-
-  @each $level, $visibility in $tag-settings {
-    .tags__tag--#{$level} {
-      @include tag;
-      font-size: $visibility;
-      color: rgba($tag-color, ($visibility / 100%));
-    }
   }
 }
 
