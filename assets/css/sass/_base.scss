@@ -75,7 +75,7 @@ $breakpoint-medium: 670px;
   white-space: nowrap;
 }
 
-%navigation-item {
+@mixin navigation-item {
   padding: 0.5rem 0.5rem 0.25rem;
   color: $base0d;
   text-align: center;
@@ -93,13 +93,10 @@ $breakpoint-medium: 670px;
     background-color: $base01;
   }
 
-  &--active {
-    &,
-    &:focus,
-    &:hover {
-      // background: rgba($base06, 0.5);
-      color: #b3cae0;
-      background-color: $base01;
-    }
+  &--active,
+  &:focus,
+  &:hover {
+    color: hsl(209, 42%, 79%);
+    background-color: hsla(220, 26%, 9%, 1);
   }
 }
