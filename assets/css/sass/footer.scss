@@ -3,7 +3,7 @@
 }
 
 .footer__link {
-  @extend %navigation-item;
+  @include navigation-item;
 
   display: inline-block;
   font-size: 0.9em;
