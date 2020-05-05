@@ -24,7 +24,6 @@ body {
 }
 
 a {
-
   color: $base09;
   text-decoration: underline;
   text-decoration-color: $base00;
@@ -32,6 +31,10 @@ a {
   &:hover {
     background-color: $base02;
   }
+}
+
+a[target="_blank"] {
+  text-decoration-color: $base09;
 }
 
 h1,
