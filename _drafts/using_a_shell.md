@@ -72,3 +72,10 @@ If I'd setup my machine again, I'd ditch `rvm` and `nvm` in favor of [`asdf`](ht
 - ssh
 - tmux
 - rsync
+
+
+## Downloading
+
+- curl
+- aria2c
+- youtube-dl
