@@ -80,7 +80,9 @@
   }
 
   .nav,
-  .footer {
+  .footer,
+  .post__footer-note,
+  footer.section {
     display: none;
   }
 
@@ -94,22 +96,20 @@
     text-align: left;
   }
 
+  .post__meta,
   .post__author {
     display: block !important;
-    float: left;
     font-family: $alternative-font;
     text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.05em;
   }
 
-  .post__footer-note {
-    display: none;
+  .post__author {
+    float: left;
   }
 
   .highlight * {
     filter: unset !important;
-  }
-
-  footer.section {
-    display: none;
   }
 }
