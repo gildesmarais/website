@@ -73,7 +73,6 @@ If I'd setup my machine again, I'd ditch `rvm` and `nvm` in favor of [`asdf`](ht
 - tmux
 - rsync
 
-
 ## Downloading
 
 - curl

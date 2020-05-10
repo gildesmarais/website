@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How I work, part 2: macOS'
+title: "How I work, part 2: macOS"
 description: "This post documents how I work productively with macOS. It is part of a post series."
 toc: true
 tags:
@@ -21,7 +21,7 @@ As developer I take screenshots quite often. A picture says more than thousand w
 Cmd+Shift+3 captures the whole screen.
 Cmd+Shift+4 activates the capture mode and space screenshots just the window below the cursor. You can alternatively select an area of the screen with your mouse and have that captured.
 
-Since some macOS versions there's an innovate and most of the time useless feature: it ask you what to do with the screenshot *before saving it*.[^1]
+Since some macOS versions there's an innovate and most of the time useless feature: it ask you what to do with the screenshot _before saving it_.[^1]
 
 Turn that time-wasting behavior off:
 
@@ -64,6 +64,7 @@ If there's more than two buttons, Tab switches the focus.
 While standing up I move the cursor with one swift movement to the bottom left corner. There's a 'hot corner' setup in macOS to lock itself (when returning, my watch unlocks the system automatically <3).
 
 <!-- TODO: add screenshot -->
+
 ### Speed up / disable animations
 
 ```
@@ -112,7 +113,7 @@ And what if a window has multiple tabs, like a browser? Try Alt+1, Alt+2, ... to
 
 On macOS, each application's menubar is fixed at the top of the screen. It's not sitting inside the application window. That means you only see the menubar of the foremost application of that screen.
 
-While each application has its own hotkeys, some hotkeys exist systemwide and thus in every application (if applicable). 
+While each application has its own hotkeys, some hotkeys exist systemwide and thus in every application (if applicable).
 
 Pressing Cmd+, opens the application's preferences.
 
@@ -139,7 +140,8 @@ I work a lot inside a shell. In this post I'll leave the shell out as this is wo
 
 ### Alfred and workflows
 
-Remember I think taking your hands of the keyboard is a flaw? 
+Remember I think taking your hands of the keyboard is a flaw?
+
 <!-- TODO: make link to blog post, anchor: strain -->
 
 [Alfred](https://www.alfredapp.com/) let's you get a lot of things done by typing a few characters.
@@ -159,10 +161,10 @@ One of the most used core functions beside launching workflows is the clipboard 
 - [encode]()
 - [caniuse]()
 
-
 ### Utilities
 
 <!-- TODO: add bitwarden post url -->
+
 - [Bitwarden]() (recently migrated away from 1Password)
 - [Bitbar](https://getbitbar.com/) puts the output of your scripts in your menu bar. Probably worth a more in-depth post.
 - [MenuMeters](https://github.com/yujitach/MenuMeters))
@@ -194,7 +196,6 @@ On top of it I use [gollum](https://github.com/gollum/gollum) sometimes. It brin
 However, I'll check out [FSNotes]() (an nvAlt inspired app), which looks very promising for that.
 That repository is in my iCloud Drive and thus I can take notes on my phone, too.
 
-
 ### Office
 
 Usually I write my notes in Markdown with Sublime Text. I don't know which flavour of Markdown I'm writing nor do I have a favourite. I just start writing and structure my thoughts with headlines.[^3]
@@ -210,7 +211,7 @@ I'm not a friend of budgeting or double-accounting software for personal finance
 
 To track expenses I wrote my own expense tracking (cloud based) web application. It supports sharing expense lists with others. I use it mainly on my smartphone.
 
-If you're invested in the stock market, I recommend [Portfolio Performance](https://www.portfolio-performance.info/) (open-source, offline-only, Java app (yup)). It scrapes the PDF documents your broker generates for you and mines all the data to from them. 
+If you're invested in the stock market, I recommend [Portfolio Performance](https://www.portfolio-performance.info/) (open-source, offline-only, Java app (yup)). It scrapes the PDF documents your broker generates for you and mines all the data to from them.
 It's Java (can't stress it enough) and thus you can use it on any basically any computer.
 
 ### Browsers
@@ -239,7 +240,7 @@ Every browser is different. Some extensions might not be available everywhere. I
 - [https everywhere]()
 - [The Great Suspender]()
 - [Privacy Redirect]()
-- [NoScript]() 
+- [NoScript]()
 
 #### Bookmarklets
 
@@ -260,6 +261,7 @@ Dealing with any kind of compressed files with [Keka](https://www.keka.io/en/) i
 For everything else there are non-GUI tools (read: the shell) which probably excel at dealing with files.
 
 <!-- TODO: add link to post -->
+
 Note: I wrote about dealing with audio files in a separate blog post.
 
 ### Images
@@ -293,15 +295,9 @@ I'm still using it as my main editor today and I like it a lot. On remote machin
 
 - Added a macro to delete the current line on Super+d.
 
-[^1]: On an iOS device it makes perfect sense IMHO. But on macOS it's just annoying. Another badly executed try to make macOS behave like i[pad]OS. *shaking head*
-
-
+[^1]: On an iOS device it makes perfect sense IMHO. But on macOS it's just annoying. Another badly executed try to make macOS behave like i[pad]OS. _shaking head_
 [^2]: `git log -p dev/imagemagick.md` and multiple `git show deadc0de`, `git show baddcafe` etc. isn't really nice to navigate.
-
 [^3]: You can even [generate Mindmaps from Markdown](https://github.com/dundalek/markmap).
-
 [^4]: If you write web components and need to demo them, try [`mdx`](https://github.com/mdx-js/mdx).
-
 [^5]: That's a lie, I look forward to the official [end of support of the IE11](https://death-to-ie11.com/).
-
-[^6]: Finder has nice batch renaming feature tho (select multiple files, File -> Rename *n* Items). *Naturally*, no keyboard shortcut for this useful feature.
+[^6]: Finder has nice batch renaming feature tho (select multiple files, File -> Rename _n_ Items). _Naturally_, no keyboard shortcut for this useful feature.

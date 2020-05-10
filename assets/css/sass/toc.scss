@@ -1,9 +1,9 @@
 ul.section-nav {
   padding-left: 0;
-  list-style: inside decimal;
   font-size: 1rem;
   line-height: 1.61;
   letter-spacing: 0.025em;
+  list-style: inside decimal;
 
   a {
     font-size: inherit;
@@ -23,14 +23,14 @@ ul.section-nav {
   }
 
   > li > ul {
-    list-style: outside decimal;
-  }
-
-  > li > ul > li > ul {
     list-style: outside lower-latin;
   }
 
+  > li > ul > li > ul {
+    list-style: outside upper-roman;
+  }
+
   > li > ul > li > ul > li > ul {
-     list-style: outside upper-roman;
+    list-style: outside lower-roman;
   }
 }
