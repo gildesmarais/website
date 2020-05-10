@@ -90,6 +90,14 @@ A RSS feed is not complete when my feed reader can't consume it via HTTP. The [h
 
 It's deployable without much hassle via Docker. It has a file-based application cache to prevent _hammering_ websites and deals with client-side HTTP cache headers.
 
+## Continuous Integration and Deployment
+
+Aside to having tests suite runs and automatic builds on any code changes, there's some more _magic_ going on: the CI/CD orchestrates the three components to build nicely together.
+
+A change in `html2rss-config`'s `master` branch triggers a test run. If it is successful, it updates `html2rss-web` to contain the latest configs from `html2rss-config`. This in turn triggers a rebuild of `html2rss-web`. A successful build is pushed as new docker image to Docker Hub.
+
+The server running a `html2rss-web` instance can then update the docker image.[^7]
+
 ## Get started and setup your instance
 
 If you have Docker installed:
@@ -112,14 +120,6 @@ In case you do not have a Docker installed: check [`html2rss-web`'s README](http
 
 Do you have site in mind and want to write a own config for it? Check [`html2rss-config`'s README](https://github.com/gildesmarais/html2rss-configs/blob/master/README.md). If you have your own instance running, you can keep your config private.
 Do you need to extend the gem's capabilities? Check [`html2rss`'s README](https://github.com/gildesmarais/html2rss/blob/master/README.md).
-
-## Continuous Integration and Deployment
-
-Aside to having tests suite runs and automatic builds on any code changes, there's some more _magic_ going on: the CI/CD orchestrates the three components to build nicely together.
-
-A change in `html2rss-config`'s `master` branch triggers a test run. If it is successful, it updates `html2rss-web` to contain the latest configs from `html2rss-config`. This in turn triggers a rebuild of `html2rss-web`. A successful build is pushed as new docker image to Docker Hub.
-
-The server running a `html2rss-web` instance can then update the docker image.[^7]
 
 ## Further reading
 

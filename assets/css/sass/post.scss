@@ -57,6 +57,10 @@
     box-shadow: 0 0 0.25em rgba($base01, 0.25);
   }
 
+  a[target="_blank"] {
+    color: inherit;
+  }
+
   .highlighter-rouge {
     hyphens: none;
   }
@@ -95,8 +99,16 @@
 }
 
 .post__footer-note {
-  @include box;
+  @include tile;
+  padding: 0.5rem 0 0.5rem 0.75rem;
   margin: 3rem auto 1rem;
+  font-size: 1.1rem;
+  line-height: 1.61;
+  border-left: 0.75em solid $base06;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .post .footnote {
