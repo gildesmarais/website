@@ -32,7 +32,12 @@ Turn that time-wasting behavior off:
 The screenshot then appears directly as a file on your Desktop after capturing. Oh no, that's causing chaos quickly. Change that to save them in `~/Desktop/Screenshots` with:
 
 ```
-mkdir -p ~/Desktop/Screenshots
+# Save screenshots to the ~/Desktop/Screenshots, create directory if it does not exist
+mkdir -p "${HOME}/Desktop/Screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Desktop/Screenshots"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
 
 ```
 
@@ -59,6 +64,19 @@ If there's more than two buttons, Tab switches the focus.
 While standing up I move the cursor with one swift movement to the bottom left corner. There's a 'hot corner' setup in macOS to lock itself (when returning, my watch unlocks the system automatically <3).
 
 <!-- TODO: add screenshot -->
+### Speed up / disable animations
+
+```
+defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write NSGlobalDomain NSWindowResizeTime .001
+defaults write com.apple.Dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -int 0
+killall Finder
+```
+
+And more .. https://github.com/gildesmarais/dotfiles/blob/master/scripts/macosx_defaults.sh
+
+https://robservatory.com/speed-up-your-mac-via-hidden-prefs/
 
 ### Window placement
 
@@ -153,6 +171,8 @@ One of the most used core functions beside launching workflows is the clipboard 
 - [Little Snitch](https://www.obdev.at/products/littlesnitch/index.html) is a Personal firewall for macOS. Think of _snake oil_ or not, I use it to subscribe to [Peter Lowe's block list] to have system wide blocking.
 - [ArqBackup](https://www.arqbackup.com/)
 
+While screenshots are sometimes more efficient than writing, an screen recording communicates even better. [GifCapture](https://github.com/onmyway133/GifCapture) replaced LiceCap.
+
 Sometimes it's nice to have a GUI instead of cli tool.
 
 - FTPS/SCP/anything: [Transmit](https://www.panic.com/transmit/)
@@ -238,6 +258,9 @@ Luckily, there's [Marta](https://marta.yanex.org/), a two pane file manager, lik
 Dealing with any kind of compressed files with [Keka](https://www.keka.io/en/) is a breeze. Zero hiccups so far, took any archived file I've thrown at it like a champ.
 
 For everything else there are non-GUI tools (read: the shell) which probably excel at dealing with files.
+
+<!-- TODO: add link to post -->
+Note: I wrote about dealing with audio files in a separate blog post.
 
 ### Images
 
