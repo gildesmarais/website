@@ -20,7 +20,13 @@
     rel="alternate"
     type="application/rss+xml"
     title="{{ site.title | escape }}"
-    href="{{ "/feed.xml" | relative_url }}"
+    href="{{ "/feed.xml" | absolute_url }}"
+  />
+  <link
+    rel="alternate"
+    type="application/json"
+    title="{{ site.title | escape }}"
+    href="{{ "/feed.json" | absolute_url }}"
   />
 
   {% include favicons.html %}
