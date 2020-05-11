@@ -14,6 +14,8 @@ At the time of writing I use macOS Mojave. I'd love to jump ship to an open OS a
 
 ## macOS System settings
 
+<!-- Scroll through https://github.com/drduh/macOS-Security-and-Privacy-Guide -->
+
 ### Taking Screenshots
 
 As developer I take screenshots quite often. A picture says more than thousand words.
@@ -160,6 +162,9 @@ One of the most used core functions beside launching workflows is the clipboard 
 - [deepl]()
 - [encode]()
 - [caniuse]()
+
+I depend on Omnifocus for managing personal tasks.
+https://github.com/rhydlewis/search-omnifocus
 
 ### Utilities
 
