@@ -1,0 +1,15 @@
+.glider-contain {
+  .glider-dot {
+    background: $base02;
+  }
+
+  .glider-dot.active {
+    background: $base09;
+  }
+}
+@media (max-width: $breakpoint-medium) {
+  .glider-prev,
+  .glider-next {
+    display: none;
+  }
+}
