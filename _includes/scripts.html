@@ -1,9 +1,18 @@
 <script
-  src="{{ '/assets/javascript/vendor/mousetrap-1.6.5.min.js' | relative_url }}"
+  src="{{ '/assets/vendor/mousetrap-1.6.5.min.js' | relative_url }}"
   type="text/javascript"
   charset="utf-8"
   defer
 ></script>
+
+{% if page.glider %}
+<script
+  src="{{ '/assets/vendor/Glider.js-1.7.3/glider.min.js' | relative_url }}"
+  type="text/javascript"
+  charset="utf-8"
+  defer
+></script>
+{% endif %}
 
 <script
   src="{{ '/assets/javascript/main.js' | relative_url }}"

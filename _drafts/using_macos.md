@@ -159,7 +159,7 @@ One of the most used core functions beside launching workflows is the clipboard 
 - [dash]()
 - [colors](https://github.com/TylerEich/Alfred-Extras/tree/master/Workflows)
 - [unicode symbol search]()
-- [deepl]()
+- [dict.cc]()
 - [encode]()
 - [caniuse]()
 

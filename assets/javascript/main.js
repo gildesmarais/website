@@ -9,7 +9,7 @@
     })
   }
 
-  const onDomContentLoad = _ => {
+  const setupMousetrap = () => {
     Array.from(document.querySelectorAll("[data-mousetrap]")).forEach(
       bindMousetrap
     )
@@ -32,6 +32,22 @@
     Mousetrap.bind("t", _ => {
       window.location.href = "/tag"
     })
+  }
+
+  const setupGlider = () => {
+    const el = document.querySelector('.glider')
+    if (!el) { return }
+
+    return new Glider(el, {
+      slidesToShow: 2,
+      dots: '#dots',
+      draggable: true,
+    })
+  }
+
+  const onDomContentLoad = _ => {
+    setupMousetrap()
+    setupGlider()
   }
 
   const onSwUpdate = _ => {
