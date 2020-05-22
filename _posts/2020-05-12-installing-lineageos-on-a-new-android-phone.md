@@ -6,11 +6,11 @@ tags:
   - project
 ---
 
-I bought an Android device to fiddle with it. As an iOS user (and software developer creating UIs) I felt obligated to expose myself to *the other side*.
+I bought an Android device to fiddle with it. As an iOS user (and software developer creating UIs) I felt obligated to expose myself to _the other side_.
 
 The phone is a Motorola G6 Plus. My idea was to install [LineageOS](https://lineageos.org/) on it. Before I could install it, I had to over-the-air upgrade to the latest Android version available.
 
-Luckily, [Pal was around]({% post_url 2020-04-16-introducing_pal %}) and he did the tiresome work of taping *OK*, *Reboot*, *Update* for me. The whole process took several hours and required constant attention.[^1]
+Luckily, [Pal was around]({% post_url 2020-04-16-introducing_pal %}) and he did the tiresome work of taping _OK_, _Reboot_, _Update_ for me. The whole process took several hours and required constant attention.[^1]
 
 <img src="/assets/images/posts/2020-05-12_IMG_1324.jpeg">
 <img src="/assets/images/posts/2020-05-12_IMG_1325.jpeg">

@@ -136,7 +136,7 @@ Many applications I mention are free to use. Some are not. If that's the case I 
 - [Sublime Text 3]()
 - [iTerm2](https://iterm2.com/)
 - [SourceTree](https://www.sourcetreeapp.com/)
-- [Dash 4](https://kapeli.com/dash) (haven't updated to version 5 and I do not plan in doing so)
+- [Dash 4](https://kapeli.com/dash)
 
 I work a lot inside a shell. In this post I'll leave the shell out as this is worth an whole other post. So, with the focus set on GUI applications, let's dig in.
 
@@ -156,7 +156,7 @@ One of the most used core functions beside launching workflows is the clipboard 
 
 - [sublime text projects]()
 - [sourcetree](https://github.com/yourtion/Alfred_SourceTree)
-- [dash]()
+- [dash]() comes with Dash (see Preferences -> Integrations)
 - [colors](https://github.com/TylerEich/Alfred-Extras/tree/master/Workflows)
 - [unicode symbol search]()
 - [dict.cc]()
@@ -305,7 +305,9 @@ I'm still using it as my main editor today and I like it a lot. On remote machin
 [^3]: You can even [generate Mindmaps from Markdown](https://github.com/dundalek/markmap).
 [^4]: If you write web components and need to demo them, try [`mdx`](https://github.com/mdx-js/mdx).
 [^5]: That's a lie, I look forward to the official [end of support of the IE11](https://death-to-ie11.com/).
-[^6]:(pos: 17) [John Siracusa: <q>About the Finder…</q>
- published 17 (seventeen!!) years ago](https://arstechnica.com/gadgets/2003/04/finder/)
+[^6]:
+
+  (pos: 17) [John Siracusa: <q>About the Finder…</q>
+  published 17 (seventeen!!) years ago](https://arstechnica.com/gadgets/2003/04/finder/)
 
 [^7]: Finder has nice batch renaming feature tho (select multiple files, File -> Rename _n_ Items). _Naturally_, no keyboard shortcut for this useful feature.

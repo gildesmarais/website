@@ -9,32 +9,30 @@ toc: true
 ---
 
 Do you remember RSS feeds? Some websites still have them ([like this one](/feed.xml)!)
-and you can subscribe to that website in your RSS reader and pull updates from it.[^1]
+You can subscribe to that website in your RSS reader. Everytime some new is published on that website, your RSS reader pulls the update and displays it to you.[^1] Every article, independent of the publisher, appears in the same style and typography. No "we care about your privacy", cookies, no annoying modal dialogs.
 
 I see my RSS reader as the main entry to the Internet. It's where my daily browsing session begins.
-Every article, independent of the publishing source, appears in there in the same style and typography.
 
 ## The problem
 
-RSS feeds disappear. For publishers other content distribution channels are more popular and have business advantages. Nowadays their content distribution occurs via mobile apps, social networks, email newsletters or click-bait articles which are ruminated on other platforms.[^2]
-Gone is the good old RSS feed.
+RSS feeds disappear. For publishers other content distribution channels became more popular and have business advantages. Content distribution shifted to mobile apps, social networks, email newsletters or click-bait articles which are ruminated on other platforms.[^2]
+Gone is the good old RSS feed for the regulars.
 
-The lack of feeds - and thus fresh reading content - started to become a problem. Instead of accepting the lack of RSS feeds, I started scraping websites to generate RSS feeds and make up for the loss.
+The lack of feeds - and thus fresh reading content - started to become a problem. Instead of accepting the [Disintermediation](https://en.m.wikipedia.org/wiki/Disintermediation), I started scraping websites to generate RSS feeds.
 
 ## One scraping script for each website? 😱
 
 I thought having one script which scrapes one website to generate a feed would be a suitable approach.
-It worked, it felt alright ... for a short amount of time.
+It worked, it felt alright ... until, a few days later: I had a second script for another website at hand. That script could have reused some code from the previous one, but didn't. Even worse, both scripts contained code which mixed CSS selectors and the XML building together.
 
-A few days later I had a second script for another website at hand. That script could have reused some code from the previous one, but didn't. Even worse, both scripts contained code which mixed CSS selectors and the XML building together.
+Creating a mess of scripts isn't a viable long-term strategy IMHO. I wasn't happy adding yet another script for that other interesting website.[^3]
 
-Creating a mess of scripts obviously isn't a viable long-term strategy. I wasn't happy adding yet another script for that other interesting website.[^3]
+I decided not to go down that chaos path. It didn't feel good.
 
-I decided not to go down that path. I simply didn't feel good with it.
+## A organized solution
 
-## A better solution
-
-In the last years I've created a better organized way of generating RSS feeds. The idea was to create a _feed config_ containing CSS selectors (looking basically like the following YAML) and have a RSS feed build:
+In the last years I've created a organized way of generating RSS feeds.
+The idea was to create a config file per site which contains CSS selectors and build a valid RSS feed from that. It looks basically like this YAML:
 
 ```yml
 channel:
@@ -51,30 +49,34 @@ selectors:
 
 This is what emerged:
 
-1. A **Ruby gem**[^4] which takes a config for each site and returns a RSS feed.
-2. A repository with **feed configs** which has tests to identify broken configs and has utilities for simple config creation.
-3. A **web** application which handles caching (prevent hammering the site's server and provide RSS to clients with properly setup HTTP cache headers)
+1. A **Ruby gem**[^4] which takes a config, scrapes the site and builds the RSS feed.
+2. A repository with **feed configs**. It also contains tests to identify broken configs and provides utilities for feed config creation.
+3. A **web** application which handles caching (providing RSS feeds to clients with properly setup HTTP cache headers and prevents hammering the site's server)
 
-It should be deployed automatically and the feeds generation should just work.
+The web application should be deployed automatically, always contain all feed configs from the repository.
 
-I don't want to monetize this project. The opposite is the case: I want others to be able to run their own instances, without the need to know Ruby or another programming language.
+I don't want to monetize this project. Quite the opposite is the case: I want others to be able to run their own instances, without the need to know Ruby or another programming language.
 
 ### The html2rss gem
 
-The [html2rss gem](https://rubygems.org/gems/html2rss) takes a feed config and scrapes, extracts and generates a ruby RSS object.
+The [html2rss gem](https://rubygems.org/gems/html2rss) generates a Ruby RSS object from the feed config. It does so by scraping and extracting the website.
 
 Scraping involves a tad more than just selecting an HTML element's text contents.
 
-- You want to sanitize the HTML you'll use.
+- You want to sanitize HTML.
 - You might find useful information in a `data` attribute in the page's source.
+- You need to convert relative URLs to absolute ones.
 - You want to parse dates & times in the publishers' time zone.
 - Maybe the website is a JSON API and you want that response converted to a RSS feed?
-- Maybe you want to send the request with Authorization or Cookie HTTP headers?
+- You might need to send requests with Authorization or Cookie HTTP headers.
 - You want to scrape several syntactically equal pages on one website without duplicating the configs.
+- You want to create a custom item description from other attributes.
 
 Over a short time the gem's functionality grew and several _item extractors_ and _post processors_ came to life.
 
-In a few nightly session I've brushed up the [gem's README](https://github.com/gildesmarais/html2rss/blob/master/README.md) to cover everything it is capable of. It's all automatically tested. There's also code documentation for the API, usually with examples. However, I'd recommend looking inside the test suite to find more complex examples.
+In a few nightly session I've brushed up the documentation to cover everything the gem is capable of. I won't repeat what the gem is capable of in detail. If you want to dive deeper, I suggest reading the [gem's README](https://github.com/gildesmarais/html2rss/blob/master/README.md).
+
+The gem's code is automatically tested. There's also code documentation for the API, usually with examples. However, I'd recommend looking inside the test suite to find more complex examples.
 
 ### A repository of configs
 
@@ -116,7 +118,7 @@ The corresponding URL:
 
 In case you do not have a Docker installed: check [`html2rss-web`'s README](https://github.com/gildesmarais/html2rss-web/blob/master/README.md) for other deployment options.
 
-**Contributions are welcome to all projects.**
+**Contributions to all projects are welcome.**
 
 Do you have site in mind and want to write a own config for it? Check [`html2rss-config`'s README](https://github.com/gildesmarais/html2rss-configs/blob/master/README.md). If you have your own instance running, you can keep your config private.
 Do you need to extend the gem's capabilities? Check [`html2rss`'s README](https://github.com/gildesmarais/html2rss/blob/master/README.md).
