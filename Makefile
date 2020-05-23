@@ -11,7 +11,7 @@ clean:
 serve:
 	bundle check || bundle
 	open http://127.0.0.1:4000/blog/
-	bundle exec jekyll s --drafts
+	bundle exec jekyll s --drafts --trace
 
 pcp: | clean fix
 	git add .

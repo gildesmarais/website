@@ -12,7 +12,6 @@ gem 'sassc'
 group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-feed'
-  gem 'jekyll-pwa-plugin'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'jekyll-target-blank'
