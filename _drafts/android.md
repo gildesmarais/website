@@ -13,7 +13,6 @@ This post documents my experiences and thoughts while diving into the other side
 
 i create graphical user interfaces every day. i can not only use ios to create UIs. my knowledge would not be diverse. these GUIs were then created from my non-diverse knowledge. i don't want to build a GUI which is equivalent to a [soap dispenser that only dispenses to white hands](https://invidio.us/watch?v=WHynGQ9Vg30).
 
-
 PWA:
 
 bei android sind progressive web apps gut supported. theshrine wird dann offline nutzbar werden. das is unter ios noch gar nich möglich, find ich aber sehr fein. hab festgestellt, dass das logo auch viel klein angezeigt wird. ich hätte es ohne testen auf nem droiden nie gemerkt :)
@@ -95,7 +94,6 @@ The aforementioned Klack app does that: when you buy it via the AppStore, you ge
 The app developers sell license keys, because (i assume) the store does not offer the possibility to generate other sources of income. I wish the ecosystem develops a non-google store where developers can earn money for their work. On the other hand, I fear that Android users per se don't want to spend (much) money for apps and therefore the market is inexistent. Often you can see that there is a tip button and the devs get recognition. Those buttons sprout widely in the open source economy.
 
 I sincerely hope that people realize that depending on a few companies for all _information technology things_ is bad. One of the first things is to stop using Google products and find (and pay for) alternatives.[^4]
-
 
 ## Lineage OS reliability worries
 

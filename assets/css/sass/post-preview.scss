@@ -11,10 +11,26 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5em 0;
+  line-height: 2.25;
+  border-bottom: 1px solid rgba($base00, 0.5);
+}
+
+.post-preview__list > li:last-child {
+  border-bottom-color: transparent;
+}
+
+.post-preview__list > li > a {
+  width: 100%;
+  text-decoration: none;
+}
+
+.post-preview__list > li > a:hover {
+  text-decoration: underline;
+  background-color: unset;
 }
 
 .post-preview__meta {
-  padding-right: 1rem;
+  padding-right: 0;
   color: $base03;
   white-space: nowrap;
 }
