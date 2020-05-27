@@ -61,12 +61,6 @@ To install one which e.g. works by manipulating the `/etc/hosts` file you (natur
 
 On iOS you can at least have Safari block ads natively via its [Web Content Filter](https://developer.apple.com/documentation/devicemanagement/webcontentfilter). This can't provide ads and tracking blocking in apps and thus adblocking just works on websites. There's a loophole: an app could provide a VPN on localhost, redirect all traffic through it and the VPN blocks connections according to a domain list. [Lockdown](https://github.com/confirmedcode/Lockdown-iOS) does that.[^1]I couldn't find something like that on Android and I also don't want to root the device just yet.
 
-### "degoogle"
-
-I installed [microG](https://microg.org/) (a [prototypefund funded project](https://prototypefund.de/project/microg/)), but nonetheless I try to cut as much connections to Google as possible. The term in the Android community for that is _degoogle_. Several guides to _degoogle_ exist, although some aren't updated for Lineage 17.1 yet:
-
-- [How to deGoogle LineageOS in 2019](https://www.reddit.com/r/degoogle/comments/cldohl/how_to_degoogle_lineageos_in_2019/)
-
 ### Exceptional iOS apps
 
 Some people told me one reason they'd never switch to Android is that some apps on iOS are exceptional. No counter-parts on Android would exist. That's true[^2].
@@ -94,6 +88,12 @@ The aforementioned Klack app does that: when you buy it via the AppStore, you ge
 The app developers sell license keys, because (i assume) the store does not offer the possibility to generate other sources of income. I wish the ecosystem develops a non-google store where developers can earn money for their work. On the other hand, I fear that Android users per se don't want to spend (much) money for apps and therefore the market is inexistent. Often you can see that there is a tip button and the devs get recognition. Those buttons sprout widely in the open source economy.
 
 I sincerely hope that people realize that depending on a few companies for all _information technology things_ is bad. One of the first things is to stop using Google products and find (and pay for) alternatives.[^4]
+
+## "degoogle"
+
+I installed [microG](https://microg.org/) (a [prototypefund funded project](https://prototypefund.de/project/microg/)), but nonetheless I try to cut as much connections to Google as possible. The term in the Android community for that is _degoogle_. Several guides to _degoogle_ exist, although some aren't updated for Lineage 17.1 yet:
+
+- [How to deGoogle LineageOS in 2019](https://www.reddit.com/r/degoogle/comments/cldohl/how_to_degoogle_lineageos_in_2019/)
 
 ## Lineage OS reliability worries
 
