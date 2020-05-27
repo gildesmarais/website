@@ -10,17 +10,29 @@ body {
 }
 
 body {
-  padding-bottom: 25vh;
+  position: relative;
+  padding-bottom: 66vh;
   font-family: $base-font;
   font-size: 1rem;
   font-weight: 350;
   line-height: 1.25;
   color: darken($base04, 15);
-  background-color: #000;
+  background-color: $black;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    font-size: 0.8em;
+    line-height: 2;
+    text-align: center;
+    content: "You've scrolled all the way to the bottom. 👏";
+  }
 }
 
 a {
