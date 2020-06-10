@@ -82,6 +82,8 @@ $breakpoint-medium: 670px;
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 0.2s;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-font-smoothing: subpixel-antialiased;
 
   &:focus {
     color: $base06;
