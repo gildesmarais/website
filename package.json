@@ -9,7 +9,7 @@
     "lintfix": "stylelint --fix assets/**/*.scss"
   },
   "devDependencies": {
-    "stylelint": "^13.4.1",
+    "stylelint": "^13.6.0",
     "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-recommended-scss": "^4.2",
     "stylelint-scss": "^3.17.2"
