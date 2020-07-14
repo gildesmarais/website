@@ -587,7 +587,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_headers.c>
 Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
-Header set Content-Security-Policy "default-src 'self'; img-src https://gil.goatcounter.com/count; script-src https://gc.zgo.at"
+Header set Content-Security-Policy "default-src 'self'; img-src 'self' https://gil.goatcounter.com/count; script-src 'self' https://gc.zgo.at"
 </IfModule>
 
 # ----------------------------------------------------------------------
