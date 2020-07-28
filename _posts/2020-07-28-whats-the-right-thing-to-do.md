@@ -26,6 +26,6 @@ You can find it on the well-known centralized video platform by that North-Ameri
 
 I wish I would have experienced such a lecture format during my studies. The interactivity and open discussions are impressive.[^1] The audience does not shy away from hard questions and is striving to keep discussions on the "high level".
 
-And now, <q>you've got to do what you've go to do</q>: start watching. :)
+And now, <q>you've got to do what you've got to do</q>: start watching. :)
 
 [^1]: To be honest, I found it weird when the lecturers started to remember the student's names.
