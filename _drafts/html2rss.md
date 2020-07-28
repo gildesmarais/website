@@ -133,9 +133,7 @@ If you're a developer, [please support RSS on your sites](https://kevq.uk/please
 >
 > -- [Chris Coyier](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
 
-
 Anton wrote a thorough post about building your personal news inbox. I recommend to [check it out](https://blog.mironov.live/how-to-build-your-personal-news-inbox/).
-
 
 [^1]: In case you have no clue what I'm talking about, I recommend _Laura Kalbag's <q>[How to read RSS in 2020](https://laurakalbag.com/how-to-read-rss-in-2020/)</q>_.
 [^2]: And not uncommonly, you will be tracked and analyzed by a multitude of services in doing so.
