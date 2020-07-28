@@ -13,5 +13,8 @@
     "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-recommended-scss": "^4.2",
     "stylelint-scss": "^3.17.2"
+  },
+  "dependencies": {
+    "instant.page": "^5.1.0"
   }
 }
