@@ -5,7 +5,7 @@ tags:
   - recommendation
 ---
 
-I would like to make a recommendation for the lecture <q>Justice: What's the right thing to do</q> by [Michael Sandel](https://en.wikipedia.org/wiki/Michael_J._Sandel), given at Havard University. It is an introduction on moral reasoning.
+I would like to make a recommendation for the lecture <q>Justice: What's the right thing to do?</q> by [Michael Sandel](https://en.wikipedia.org/wiki/Michael_J._Sandel), given at Havard University. It is an introduction on moral reasoning.
 
 A warning in advance: you cannot unlearn what you have learned. This lecture will change your way of thinking and consequently your reasoning.
 
