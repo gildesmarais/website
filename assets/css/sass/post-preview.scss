@@ -4,17 +4,25 @@
 
 .post-preview__list {
   padding-left: 0;
+  margin: 0 -0.5em;
   list-style-type: none;
 }
 
 .post-preview__list > li {
   display: flex;
   justify-content: space-between;
-  padding: 0.5em 0;
+  padding: 0.25em 0.5em;
   line-height: 2.25;
   border-bottom: 1px solid rgba($base00, 0.5);
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;
+  border-left: 2px solid transparent;
+
+  &:focus,
+  &:hover {
+    background-color: rgba($base00, 0.5);
+    border-left-color: $base06;
+  }
 }
 
 .post-preview__list > li:last-child {
