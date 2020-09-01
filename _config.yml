@@ -27,6 +27,11 @@ theme:
 
 permalink: /posts/:title/
 
+collections:
+  fleamarket:
+    output: true
+    sort_by: title
+
 plugins:
   - jekyll-archives
   - jekyll-feed
@@ -56,6 +61,7 @@ exclude:
   - .ruby-version
   - .sass-cache
   - .stylelintrc.json
+  - bin/
   - Gemfile
   - Gemfile.lock
   - Makefile
