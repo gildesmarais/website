@@ -6,7 +6,6 @@ require 'bundler/setup'
 require 'json'
 require 'fileutils'
 require 'yaml'
-require 'byebug'
 
 urls = [
   'https://api.discogs.com/users/giLL0r/inventory?sort=artist&per_page=100&page=1',
