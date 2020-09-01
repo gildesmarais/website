@@ -5,3 +5,5 @@ _site
 node_modules/
 npm-debug.log
 .jekyll-cache
+_fleamarket/*.md
+

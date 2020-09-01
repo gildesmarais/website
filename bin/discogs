@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'rubygems'
+require 'bundler/setup'
+require 'json'
+require 'fileutils'
+require 'yaml'
+require 'byebug'
+
+urls = [
+  'https://api.discogs.com/users/giLL0r/inventory?sort=artist&per_page=100&page=1',
+  'https://api.discogs.com/users/giLL0r/inventory?sort=artist&per_page=100&page=2'
+]
+
+FileUtils.mkdir_p File.join(__dir__, '..', '_fleamarket')
+
+urls.each do |url|
+  json = JSON.parse(`curl "#{url}"`)
+
+  json['listings'].each do |listing|
+    release = listing['release']
+    next if release['description'].include? 'Unofficial'
+
+    listing['seller'] = {}
+
+    listing['layout'] = 'discogs'
+    listing['title'] = "#{release['description']} [#{release['catalog_number']}]"
+    listing['description'] = "Buy the #{release['format']} record from #{release['year']} from my private collection. Condition: #{listing['condition']}."
+
+    output = <<~MD
+      #{listing.to_yaml}
+      ---
+      #{listing['title']}
+    MD
+
+    file = File.join(__dir__, '..', '_fleamarket', "#{listing['id'].to_i.to_s(9).to_i.to_s(36).upcase}.md")
+    FileUtils.touch(file) unless File.exist?(file)
+    File.write(file, output)
+  end
+end
