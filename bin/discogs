@@ -20,6 +20,7 @@ urls.each do |url|
   json['listings'].each do |listing|
     release = listing['release']
     next if release['description'].include? 'Unofficial'
+    next if release['description'].include? 'W/Lbl'
 
     listing['seller'] = {}
 
