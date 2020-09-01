@@ -1,0 +1,22 @@
+---
+title: Fleamarket
+layout: container
+---
+
+<h1>Fleamarket</h1>
+
+<p>
+  I'm selling a large part of my personal vinyl record collection, containing mostly 
+  <b>Techno</b> records.
+  You can buy these records on Discogs. Here's a list of what's up for sale.
+</p>
+
+<ol class="fleamarket__list">
+{% for listing in site.fleamarket %}
+  <li>
+    <a href="{{ listing.url }}">
+      {{ listing.title }}
+    </a>
+  </li>
+{% endfor %}
+</ol>

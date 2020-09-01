@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+  schedule:
+    - cron: "15 3 * * *"
 
 jobs:
   build:
@@ -21,6 +23,8 @@ jobs:
           key: ${{ runner.os }}-gem-${{ hashFiles('Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gem-
+      - name: sync fleamarket with discogs
+        run: bin/discogs
       - name: Build the site
         env:
           JEKYLL_ENV: production

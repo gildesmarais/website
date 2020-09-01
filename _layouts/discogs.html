@@ -1,0 +1,47 @@
+---
+layout: container
+---
+
+<h1>{{page.title}}</h1>
+
+<table class="fleamarket__table">
+  <tbody>
+    <tr>
+      <th>Artist</th>
+      <td>{{page.release.artist}}</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td>{{page.release.title}}</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>{{page.release.year}}</td>
+    </tr>
+    <tr>
+      <th>Format</th>
+      <td>{{page.release.format}}</td>
+    </tr>
+    <tr>
+      <th>Catalog Number</th>
+      <td>{{page.release.catalog_number}}</td>
+    </tr>
+    <tr>
+      <th>Condition</th>
+      <td>{{page.condition}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a class="fleamarket__button" href="{{page.uri}}" target='_blank' rel="noopener noreferrer">
+          Open this record on Discogs
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="fleamarket__more">
+  Find more records from my private collection
+  <a href="/fleamarket/">check my fleamarket</a>.
+</p>
+

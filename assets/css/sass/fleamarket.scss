@@ -1,0 +1,33 @@
+.fleamarket__list {
+  padding: 0;
+  line-height: 2;
+  list-style: none;
+
+  > li {
+    border-bottom: 1px solid darken($base03, 25);
+  }
+
+  > li > a {
+    display: flex;
+    color: $base04;
+  }
+}
+
+.fleamarket__table {
+  width: 100%;
+}
+
+.fleamarket__button {
+  margin: 2rem 0;
+  text-align: right;
+}
+
+.fleamarket__more {
+  @include tile;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0.75rem;
+  margin: 3rem auto 1rem;
+  font-size: 1.1rem;
+  line-height: 1.61;
+  border-left: 0.75em solid $base06;
+}
