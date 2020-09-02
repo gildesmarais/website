@@ -7,9 +7,6 @@ gemfile(true) do
   source 'https://rubygems.org'
   gem 'faraday'
   gem 'faraday-cookie_jar'
-
-  gem 'awesome_print'
-  gem 'byebug'
 end
 
 require 'json'
