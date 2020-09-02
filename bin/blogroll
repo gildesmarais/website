@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'faraday'
+  gem 'faraday-cookie_jar'
+
+  gem 'awesome_print'
+  gem 'byebug'
+end
+
+require 'json'
+require 'fileutils'
+require 'yaml'
+
+class Newsblur
+  def initialize(username, password)
+    conn.post 'api/login', "username=#{username}&password=#{password}"
+  end
+
+  def logout
+    conn.post 'api/logout'
+  end
+
+  def reader_feeds(include_favicons: false, flat: false, update_counts: false)
+    JSON.parse conn.get('reader/feeds', {
+                          include_favicons: include_favicons,
+                          flat: flat,
+                          update_counts: update_counts
+                        })
+                   .body
+  end
+
+  private
+
+  def conn
+    @conn ||= Faraday.new(
+      url: 'https://newsblur.com/',
+      headers: {
+        accept: 'application/json'
+      }
+    ) do |builder|
+      builder.use :cookie_jar
+      builder.adapter Faraday.default_adapter
+    end
+  end
+end
+
+# 1 signin
+# 2 get newsblur_sessionid cookie and set with all following requests
+nb = Newsblur.new(ARGV[0], ARGV[1])
+
+# find all feeds in folder
+reader_feeds = nb.reader_feeds(include_favicons: true, flat: true)
+feeds_in_folder = reader_feeds.dig('flat_folders', '#04_Blogs')
+feeds = feeds_in_folder.map { |feed| reader_feeds.dig('feeds', feed.to_s) }
+
+# output feeds to _data/blogroll.yml
+
+FileUtils.mkdir_p File.join(__dir__, '..', '_data')
+file = File.join(__dir__, '..', '_data', 'blogroll.yml')
+File.write(file, feeds.to_yaml)
+
+# check if we can encode the favicon and use it in the collection
+# TODO: add blogroll/index.html and output the collection details
+# TODO optional: offer opml download
+
+# final step: logout
+nb.logout
