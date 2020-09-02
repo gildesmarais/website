@@ -31,7 +31,11 @@ jobs:
       - name: sync fleamarket with discogs
         run: bin/discogs
       - name: update blogroll
-        run: bin/blogroll
+        env:
+          NB_USERNAME: ${{secrets.NB_USERNAME}}
+          NB_PASSWORD: ${{secrets.NB_PASSWORD}}
+          NB_FOLDER: ${{secrets.NB_FOLDER}}
+        run: bin/blogroll "$NB_USERNAME" "$NB_PASSWORD" "$NB_FOLDER"
       - name: build the site
         env:
           JEKYLL_ENV: production
