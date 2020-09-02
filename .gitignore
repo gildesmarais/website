@@ -6,4 +6,4 @@ node_modules/
 npm-debug.log
 .jekyll-cache
 _fleamarket/*.md
-
+_data/blogroll.yml

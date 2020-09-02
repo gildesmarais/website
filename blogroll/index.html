@@ -1,0 +1,30 @@
+---
+layout: container
+title: Blogroll
+description: This is an old-school blog roll; an alphabetically sorted list of interesting blogs I read.
+---
+<h1>{{page.title}}</h1>
+
+<p>
+  This is a alphabetically sorted list of blogs I subscribed to.
+</p>
+
+<!-- You can also read about how I create the blogroll automatically. -->
+
+<p>Continuously automatically updated…</p>
+
+<ul class="blogroll__blogs">
+{% assign blogroll = site.data.blogroll | sort_natural: "feed_title" %}
+{% for blog in blogroll %}
+  <li>
+    {% if blog.favicon != '' %}
+    <img class="blogroll__blog-favicon" src="data:image/ico;base64,{{blog.favicon}}" role="presentation">
+    {% else %}
+    <img class="blogroll__blog-favicon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" role="presentation">
+    {% endif %}
+
+    <a href="{{blog.feed_link}}" target="_blank" rel="noopener">{{ blog.feed_title }}</a>
+    <a href="{{blog.feed_address}}" class="blogroll__blog-feed" target="_blank" rel="nofollow noopener">Feed</a>
+  </li>
+{% endfor %}
+</ul>
