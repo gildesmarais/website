@@ -1,18 +1,19 @@
 ---
 layout: post
-title: "How I work, part 2: the shell"
+title: "How I work, part 2: the command line"
 toc: true
-# description: "This post documents how I work productively."
+description: "The 'How I work' post series documents how I work. This episode is about working  productively on the command line."
 tags:
-  - software
-  - reference
+  - macos
   - programming
+  - reference
+  - software
 ---
 
 This is the second part of the "how I work" series.
 [Read the first part here]({% post_url 2020-04-10-working-productively %}).
 
-In this part I will document with which tools I work inside a terminal. [zsh](https://www.zsh.org/) is my shell of choice. Recently I switched from oh-my-zsh to [prezto](https://github.com/sorin-ionescu/prezto) as configuration framework.
+In this part I will document with which tools I work inside a command line. [zsh](https://www.zsh.org/) is my shell of choice. Recently I switched from oh-my-zsh to [prezto](https://github.com/sorin-ionescu/prezto) as configuration framework.
 
 I keep the configuration of most tools inside a so-called [dotfiles](https://github.com/gildesmarais/dotfiles) repository. To use them on my machines, I use [rcm](https://github.com/thoughtbot/rcm).
 
@@ -20,6 +21,7 @@ I keep the configuration of most tools inside a so-called [dotfiles](https://git
 
 My [`.zshrc`](https://github.com/gildesmarais/dotfiles/blob/master/zshrc) is stuffed with aliases.
 
+I clear the backlog frequently with <kbd>Cmd</kbd>+<kbd>K</kbd>
 Some configuration options stand out and I'll describe what they do in the next sections.
 
 ### Move the cursor _by words_ with <kbd>Alt</kbd> + arrow keys
@@ -53,7 +55,7 @@ Whenever I create a new directory with `mkdir -p ~/whatever/foo/bar/baz` I like 
 
 [`ZSH-z`](https://github.com/agkozak/zsh-z) is a tool to jump between directories you visited recently and frequently. It's fuzzy-matching those paths and super helpful.
 
-`z foobar` changes the to the directory matching `foobar`.
+`z foobar` changes the to the matched directory.
 
 ## Version and package managers
 
@@ -86,7 +88,6 @@ What follows is a listing of tools I use with a short description. Most of the t
 ### Create, read, manipulate, save and delete files
 
 - echo, touch, grep, cat, tail, less, more, man, rm: goes without saying.
-- using `cmd &`, `jobs`, `fg`, `bg` and `wait` is `nice`, too ;)
 - [jq](https://stedolan.github.io/jq/): a cli JSON processor. Mostly I'm piping output into it to pretty print.
 - [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage. Finds large files and directories and deletes them from inside the UI.
 - [pup](https://github.com/EricChiang/pup): what jq is for JSON, pup is for HTML
@@ -100,7 +101,6 @@ What follows is a listing of tools I use with a short description. Most of the t
 - [cURL](https://curl.haxx.se/): for HTTP requests and debugging those. I can't work without it.
 - [ffmpeg](https://ffmpeg.org/): de-, en- and transcodes basically everything to whatever you want.
 - [htop](https://htop.dev/): the system monitor
-- [make](https://www.gnu.org/software/make/): a build tool which is widely available
 - [rsync](https://rsync.samba.org/): synchronize files quickly (supports binary deltas)
 - [ssh](https://www.openssh.com/): SSH is a protocol which allows you to connect to remote servers securely
 - [tmux](https://github.com/tmux/tmux): terminal window multiplexer

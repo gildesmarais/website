@@ -4,9 +4,9 @@ title: "How I work, part 1: devices, utilities and environment"
 description: "How I develop software. Part 1."
 toc: true
 tags:
-  - reference
-  - programming
   - bluetooth
+  - programming
+  - reference
 ---
 
 I've been asked how I work. In this case _work_ means the development of software.  
