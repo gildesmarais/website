@@ -72,7 +72,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 
 ```
 
-Drag the Screenshots folder from your Desktop into your Dock (i place it left to the Trash). Right click on it, set View to Fan.
+Drag the Screenshots folder from your Desktop into your Dock (i place it left to the Trash). Right click on it, set View to Fan and sort by Date Added.
 
 <!-- TODO: add screenshot of the fan -->
 
@@ -369,7 +369,31 @@ I'm still using it as my main editor today and I like it a lot. On remote machin
 - [Sublime Linter](https://github.com/SublimeLinter/SublimeLinter) and the contributing packages for the linters I use
 - [Emmet](https://github.com/sergeche/emmet-sublime)
 
-- Added a macro to delete the current line on Super+d.
+#### Delete current line with Super+d
+
+Probably I got used to this by using Eclipse IDE when writing Java back in the days.
+vim also deletes the line when pressing <kbd>d</kbd>. Here's how to have it in Sublime Text, too.
+
+Add this to your key bindings:
+
+```json
+{
+  "keys": ["super+d"],
+  "command": "run_macro_file",
+  "args": {
+    "file": "res://Packages/Default/Delete Line.sublime-macro"
+  }
+}
+```
+
+## Outlook
+
+In case you need more inspiration on cool macOS apps, check these two lists:
+
+- https://github.com/serhii-londar/open-source-mac-os-apps
+- https://github.com/iCHAIT/awesome-macOS
+
+I'm thinking of ditching iTerm2 for Alacritty and tmux.
 
 [^1]: On an iOS device it makes perfect sense IMHO. But on macOS it's just annoying. Another badly executed try to make macOS behave like i[pad]OS. _shaking head_
 [^2]: `git log -p dev/imagemagick.md` and multiple `git show deadc0de`, `git show baddcafe` etc. isn't really nice to navigate.
