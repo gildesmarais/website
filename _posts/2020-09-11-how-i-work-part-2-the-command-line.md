@@ -97,7 +97,7 @@ What follows is a list of tools I use with a short description. Most of them are
 
 ### Miscellaneous
 
-The following tools belong in my toolbox, too. I file them under Miscellaneous as the amount would not justify categories on their own in this post. That does not mean that I use them less... most of them are invaluable.
+The following tools are also in my toolbox. I file them under Miscellaneous as the amount would not justify categories on their own in this post. That does not mean that I use them less... most of them are invaluable.
 
 These are helpful when dealing with (not only) remote systems:
 
