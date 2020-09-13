@@ -230,8 +230,7 @@ https://github.com/rhydlewis/search-omnifocus
 
 ### Utilities
 
-<!-- TODO: add bitwarden post url -->
-
+- [AppCleaner](): to remove installed .apps and their settings (should be called AppPurge IMHO)
 - [Bitwarden](): recently migrated away from 1Password <!-- (TODO: post link) -->
 - [Bitbar](https://getbitbar.com/) puts the output of any executable in your menu bar. Great for uptime monitoring of websites.
 - [MenuMeters](https://github.com/yujitach/MenuMeters):
@@ -242,7 +241,7 @@ https://github.com/rhydlewis/search-omnifocus
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704?mt=12): keeps the mac+screen awake
 - [Pennywise](https://github.com/kamranahmedse/pennywise): a floating window for everything
 - [VLC](): the media player
-- [Stars by Karelia](): rate songs in iTunes via hotkey
+- [Song-Rating](): rate songs in iTunes/Music.app via hotkey TODO: add post url
 - [wine](): to emulate windows
 - [onyx](): to configure macOS ... go through all tabs and disable all animations
 - [Xcode]():

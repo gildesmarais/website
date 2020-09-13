@@ -13,7 +13,7 @@ My new laptop came with macOS Catalina pre-installed. As described in my post ab
 
 [Song-Rating](https://github.com/MainasuK/Song-Rating) was the closest I could find, but it lacked the possibility to rate the amount of stars via Hotkey. But since it's open-source, I was able to add the feature myself. I've fired up XCode, implemented the feature and [opened a pull request](https://github.com/MainasuK/Song-Rating/pull/12) to have it included in the next release.
 
-The maintainer, [@MainasuK](https://github.com/MainasuK), merged the pull request and already [released version](https://github.com/MainasuK/Song-Rating/releases/tag/1.2.5) this morning. Hooray!
+The maintainer, [@MainasuK](https://github.com/MainasuK), merged the pull request and already [released version 1.2.5](https://github.com/MainasuK/Song-Rating/releases/tag/1.2.5) this morning. Hooray!
 
 In case you need such a rating utility which works with macOS Catalina (Big Sur is apparently supported, too), I recommend Star-Rating.
 
