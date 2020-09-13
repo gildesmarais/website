@@ -107,7 +107,7 @@ While standing up I move the cursor with one swift movement to the bottom left c
 Set it up under:
 
 1. System Settings -> Desktop & Screen Saver -> Screen Saver -> Hot Corner
-2. System Settings -> Security & Privacy -> General -> require password *immediately*.
+2. System Settings -> Security & Privacy -> General -> require password _immediately_.
 
 ![Rectangle Hotkeys](/assets/images/posts/hot_corner.jpg)
 
@@ -325,8 +325,8 @@ Bookmarklets sit like a bookmark in your bookmark bar, but they execute Javascri
 
 ### Dealing with files in general
 
-The macOS' Finder app is an ironic joke. Apple does not seem to care much about it.[^6] 
-I can't *find* anything with it, it just stands in the way. It's barely usable with a keyboard. The (unchangeable) hotkeys are weird (Return to start renaming?! What?). To work effectively with it you have to move the cursor. Instant disqualification.[^7]
+The macOS' Finder app is an ironic joke. Apple does not seem to care much about it.[^6]
+I can't _find_ anything with it, it just stands in the way. It's barely usable with a keyboard. The (unchangeable) hotkeys are weird (Return to start renaming?! What?). To work effectively with it you have to move the cursor. Instant disqualification.[^7]
 
 Luckily, there's [Marta](https://marta.yanex.org/), a two pane file manager, like the Norton Commander in the good old days (not the stone age). It has a fuzzy search/lookup relative to `cwd` with <kbd>Ctrl</kbd>+<kbd>P</kbd>.
 
@@ -402,7 +402,7 @@ I'm thinking of ditching iTerm2 for Alacritty and tmux.
 [^5]: That's a lie, I look forward to the official [end of support of the IE11](https://death-to-ie11.com/).
 [^6]:
 
-  (pos: 17) [John Siracusa: <q>About the Finder…</q>
-  published 17 (seventeen!!) years ago](https://arstechnica.com/gadgets/2003/04/finder/)
+(pos: 17) [John Siracusa: <q>About the Finder…</q>
+published 17 (seventeen!!) years ago](https://arstechnica.com/gadgets/2003/04/finder/)
 
 [^7]: Finder has nice batch renaming feature tho (select multiple files, File -> Rename _n_ Items). _Naturally_, no keyboard shortcut for this useful feature.
