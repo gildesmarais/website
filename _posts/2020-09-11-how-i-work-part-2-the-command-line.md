@@ -11,13 +11,13 @@ tags:
   - software
 ---
 
-This is the second part of my "How I work" series. In case you missed it, [read the first part here]({% post_url 2020-04-10-working-productively %}). In this part I will document with which tools I work on the command line. 
+This is the second part of my "How I work" series. In case you missed it, [read the first part here]({% post_url 2020-04-10-working-productively %}). In this part I will document with which tools I work on the command line.
 
 I keep the configuration of most tools inside a so-called [dotfiles](https://github.com/gildesmarais/dotfiles) repository. This allows me to sync my configuration between machines. To manage the dotfiles on my machines, I use [rcm](https://github.com/thoughtbot/rcm) and version control them with [git](https://git-scm.com/).
 
 While most tools do one thing good, chaining them by piping (`|`) or redirecting their output (`>`, `<`) makes working with the command line powerful and efficient. You need just a part of the output? No problem: pipe it to `awk` and choose only what you need.
 
-Although I like the green colored characters on dark background scrolling by, they need to get out of the way quickly. I'm one of these computer users who clear the scrollback buffer with <kbd>Cmd</kbd>+<kbd>K</kbd> often. 
+Although I like the green colored characters on dark background scrolling by, they need to get out of the way quickly. I'm one of these computer users who clear the scrollback buffer with <kbd>Cmd</kbd>+<kbd>K</kbd> often.
 
 ![A screenshot of iTerm2 running ZSH and homebrew](/assets/images/posts/2020-09-11-command-line.jpg)
 
