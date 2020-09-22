@@ -6,7 +6,7 @@ tags:
   - ruby
 ---
 
-A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000's, the time before most people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
+A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000's, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
 
 Anyway, I've automated the updating of my [blogroll](/blogroll) to link to blogs I subscribe to and recommend others to do the same.
 
