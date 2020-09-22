@@ -3,6 +3,8 @@ layout: post
 title: Loading images lazily with Jekyll (natively & automatically)
 tags:
   - project
+  - programming
+  - ruby
 ---
 
 An important metric in today's websites is performance. Loading images lazily — meaning they are only loaded when they'd become visible — is one of the big wins to implement.

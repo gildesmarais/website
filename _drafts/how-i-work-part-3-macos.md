@@ -74,8 +74,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 
 Drag the Screenshots folder from your Desktop into your Dock (i place it left to the Trash). Right click on it, set View to Fan and sort by Date Added.
 
-<!-- TODO: add screenshot of the fan -->
-
 ![A folder in fan mode in the macOS dock](/assets/images/posts/screenshots_fan.jpg)
 
 This way you won't need to Cmd+F11 back to your desktop or navigate in the Finder to that folder. Just drag it from the fan and drop it wherever you need it.
@@ -197,6 +195,10 @@ So, with the focus set on GUI applications, let's dig in.
 - [SourceTree](https://www.sourcetreeapp.com/)
 - [Dash](https://kapeli.com/dash)
 
+### Fonts
+
+`brew cask install font-ubuntu font-ubuntu-mono`
+
 ### Alfred and its workflows
 
 Remember I think taking your hands of the keyboard is a flaw from part 1?
@@ -228,36 +230,6 @@ https://github.com/rhydlewis/search-omnifocus
 
 <!-- link to https://github.com/learn-anything/alfred-workflows -->
 
-### Utilities
-
-- [AppCleaner](): to remove installed .apps and their settings (should be called AppPurge IMHO)
-- [Bitwarden](): recently migrated away from 1Password <!-- (TODO: post link) -->
-- [Bitbar](https://getbitbar.com/) puts the output of any executable in your menu bar. Great for uptime monitoring of websites.
-- [MenuMeters](https://github.com/yujitach/MenuMeters):
-- [Itsycal](https://www.mowglii.com/itsycal/):
-- ~~[Bartender](https://www.macbartender.com/)~~ [Dozer](https://github.com/Mortennn/Dozer/): hides all unappealing stuff from the menu bar and let it show only what I think is relevant.
-- [Little Snitch](https://www.obdev.at/products/littlesnitch/index.html): is a Personal firewall for macOS. Think of _snake oil_ or not, I use it to subscribe to [Peter Lowe's block list] to have system wide blocking.
-  <!-- - [ArqBackup](https://www.arqbackup.com/) -->
-- [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704?mt=12): keeps the mac+screen awake
-- [Pennywise](https://github.com/kamranahmedse/pennywise): a floating window for everything
-- [VLC](): the media player
-- [Song-Rating](): rate songs in iTunes/Music.app via hotkey TODO: add post url
-- [wine](): to emulate windows
-- [onyx](): to configure macOS ... go through all tabs and disable all animations
-- [Xcode]():
-
-* While screenshots are sometimes more efficient in communication than writing, a screen recording is even better.  
-  [GifCapture](https://github.com/onmyway133/GifCapture) replaced the previously used LiceCap.
-* [Transmit](https://www.panic.com/transmit/): FTPS/SCP/anything
-* [Postico](https://eggerapps.at/postico/): PostgreSQL management GUI tool
-  Serious warning: avoiding your business logic by fiddling in the database will cause trouble (sooner or later).
-
-* Apple Calendar & Contact, syncs nicely via CalDAV and CardDAV
-* Apple Mail app syncs syncs nicely via IMAP with my mailbox.org accounts
-* [MailTrackerBlocker](https://github.com/apparition47/MailTrackerBlocker): blocks tracking images in mails
-* [Omnifocus Pro](https://www.omnigroup.com/omnifocus) with its iOS counterpart.  
-  Another rock-solid power tool I can't live without. Probably worth a more in-depth post.
-
 ### Taking notes, keeping code snippets
 
 I keep code snippets, research results and other notes in Markdown files, which are kept in a git repository. It uses a loose file structure (e.g. dev/ruby/rails/active_foobar/baz.md).
@@ -266,7 +238,7 @@ On top of these files it I start [gollum](https://github.com/gollum/gollum) some
 
 The repository is synced in my iCloud Drive and thus I can read and take notes on my phone, too.
 
-### Office
+### Office, Todo lists, eMail
 
 Usually I write my notes in Markdown with Sublime Text. I don't explicitly know which flavour of Markdown I'm writing nor do I have a favorite one. I just start writing and structure my thoughts with headlines first.[^3]
 
@@ -275,6 +247,11 @@ I love the concept of spreadsheets. Usually I share those sheets with colleagues
 - LibreOffice: a word processor or an (offline) spreadsheet, even more.
 - [`marp`](https://github.com/marp-team/marp/) to generate a fullscreen presentation out of Markdown files.[^4]
 - [Marked2](): to preview Markdown files.
+- Apple Calendar & Contact, syncs nicely via CalDAV and CardDAV
+- Apple Mail app syncs syncs nicely via IMAP with my mailbox.org accounts
+- [MailTrackerBlocker](https://github.com/apparition47/MailTrackerBlocker): blocks tracking images in mails
+- [Omnifocus Pro](https://www.omnigroup.com/omnifocus) with its iOS counterpart.  
+  Another rock-solid power tool I can't live without. Probably worth a more in-depth post.
 
 ### Finances
 
@@ -346,6 +323,7 @@ Note: I wrote about dealing with audio files in a separate blog post.
 - [Pixelmator](): just a general image editor I do not use so much.
 - [PosteRazor](): print large image files to multiple sheets of paper, cut with margin and glue them together. Tada, now you have your image on dead wood, ready to draw something in with a pencil. (I rarely need it)
 - while tools like Trimage and ImageOptim do not change the quality of an image to optimize the file size, [OptImage](https://optimage.app/) does -- unnoticeable. There's still a difference from the before-mentioned two: the file size is usually a massive difference.
+- [GifCapture](https://github.com/onmyway133/GifCapture): to record animated gifs from your screen.
 
 ### Sublime Text
 
@@ -384,6 +362,28 @@ Add this to your key bindings:
   }
 }
 ```
+
+### Miscellaneous utilities
+
+- [AppCleaner](): to remove installed .apps and their settings (should be called AppPurge IMHO)
+- [Bitwarden](): recently migrated away from 1Password <!-- (TODO: post link) -->
+- [Bitbar](https://getbitbar.com/) puts the output of any executable in your menu bar. Great for uptime monitoring of websites.
+- [MenuMeters](https://github.com/yujitach/MenuMeters):
+- [Itsycal](https://www.mowglii.com/itsycal/):
+- ~~[Bartender](https://www.macbartender.com/)~~ [Dozer](https://github.com/Mortennn/Dozer/): hides all unappealing stuff from the menu bar and let it show only what I think is relevant.
+- [Little Snitch](https://www.obdev.at/products/littlesnitch/index.html): is a Personal firewall for macOS. Think of _snake oil_ or not, I use it to subscribe to [Peter Lowe's block list] to have system wide blocking.
+  <!-- - [ArqBackup](https://www.arqbackup.com/) -->
+- [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704?mt=12): keeps the mac+screen awake
+- [Pennywise](https://github.com/kamranahmedse/pennywise): a floating window for everything
+- [VLC](): the media player
+- [Song Rating](https://github.com/MainasuK/Song-Rating): rate songs in iTunes/Music.app via hotkey. [I've contributed to it.]({% post_url 2020-09-13-rate-songs-in-music.app-via-hotkey %})
+- [wine](): to emulate windows
+- [onyx](): to configure macOS ... go through all tabs and disable all animations
+- [Xcode]():
+
+* [Transmit](https://www.panic.com/transmit/): FTPS/SCP/anything
+* [Postico](https://eggerapps.at/postico/): PostgreSQL management GUI tool
+  Serious warning: avoiding your business logic by fiddling in the database will cause trouble (sooner or later).
 
 ## Outlook
 

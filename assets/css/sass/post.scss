@@ -106,6 +106,14 @@
   blockquote p {
     display: inline;
   }
+
+  code {
+    width: 100%;
+    max-width: 110ch;
+    font-family: 'Fira Code', 'Ubuntu Mono', 'Monaco', 'Lucida Console', monospace;
+    font-size: 0.85em;
+    line-height: 1;
+  }
 }
 
 .post__footer-note {
