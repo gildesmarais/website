@@ -9,9 +9,10 @@ description: This is an old-school blog roll; an alphabetically sorted list of i
   This is a alphabetically sorted list of blogs I subscribed to.
 </p>
 
-<!-- You can also read about how I create the blogroll automatically. -->
-
-<p>Continuously automatically updated…</p>
+<p>
+  You can
+  <a href="{% post_url 2020-09-22-an-automated-blogroll-with-jekyll %}">
+  read about how I keep the the blogroll updated automatically</a>.</p>
 
 <ul class="blogroll__blogs">
 {% assign blogroll = site.data.blogroll | sort_natural: "feed_title" %}
