@@ -13,7 +13,7 @@
 }
 
 .post__content {
-  font-size: 1.05rem;
+  font-size: 1rem;
   hyphens: auto;
   line-height: 1.5;
   text-align: justify;
@@ -29,7 +29,7 @@
     top: 0;
     z-index: 1;
     height: 100%;
-    min-height: 2.5rem;
+    min-height: 2.5em;
     margin-bottom: 0.25em;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -109,7 +109,7 @@
 
   code {
     width: 100%;
-    font-family: 'Fira Code', 'Ubuntu Mono', 'Monaco', 'Lucida Console', monospace;
+    font-family:  SFMono-Regular, Menlo, 'Ubuntu Mono', Consolas, 'Monaco', 'Lucida Console', monospace;
     font-size: 0.85em;
     line-height: 1;
     font-variant-ligatures: discretionary-ligatures;
@@ -180,7 +180,7 @@
     margin: 0 calc(var(--section-padding) * -1);
   }
 
-  li {
+  .post__content li {
     padding: 0.25em 0;
   }
 }

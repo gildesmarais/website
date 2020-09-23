@@ -19,7 +19,6 @@
 @import "blogroll";
 @import "fleamarket";
 @import "footer";
-@import "glider";
 @import "index";
 @import "nav";
 @import "post";
@@ -33,7 +32,7 @@
 @import "work-experience";
 
 :root {
-  --nav-height: 2rem;
+  --nav-height: 4rem;
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5rem;
 }

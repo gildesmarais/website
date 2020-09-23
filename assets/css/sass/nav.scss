@@ -1,46 +1,51 @@
 .nav {
-  max-width: var(--container-width);
-  min-height: var(--nav-height);
-  margin: 0 auto;
-  font-size: 0;
-  background-color: $black;
+  height: var(--nav-height);
+  font-weight: 500;
 }
 
 .nav__container {
   display: flex;
-  margin: -1px auto 0;
-  overflow: hidden;
+  justify-content: space-between;
+  max-width: $breakpoint-medium;
+  height: 100%;
+  margin: 0 auto;
 }
 
-.nav__logo {
-  flex: 1 1 20%;
-  align-self: flex-end;
-  height: 2rem;
-  text-align: center;
+.nav__items {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
 
-  > svg {
-    height: 3rem;
-    margin-top: -1rem;
-    overflow: hidden;
+  > li:first-child {
+    margin-right: auto;
+    margin-left: -0.5em;
   }
 
-  &:focus svg {
-    background-color: transparent;
+  > li > a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0.25em 0.5em;
   }
 
-  &:focus {
-    background-color: $base09;
-  }
-
-  &:hover,
-  &--active {
-    color: #b3cae0;
+  a:hover {
+    background-color: unset;
+    text-decoration: underline
   }
 }
 
-.nav__item {
-  @include navigation-item;
-  flex: 1 1 25%;
-  align-self: flex-end;
-  font-size: 1rem;
+.nav__item--active > a {
+  text-decoration: underline;
+}
+
+.nav__site-title {
+  font-family: $alternative-font;
+  color: $base06;
+  // letter-spacing: -0.025em;
+  text-decoration-color: $base04;
+  font-weight: 600;
+  font-size: 1.2em;
 }

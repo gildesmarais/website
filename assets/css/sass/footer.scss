@@ -2,15 +2,3 @@
   margin-top: 4rem;
   border-top: 1px solid $base01;
 }
-
-.footer__links {
-  float: right;
-  font-size: 0.9em;
-}
-
-.footer__link {
-  @include navigation-item;
-
-  display: inline-block;
-  font-size: 0.9em;
-}

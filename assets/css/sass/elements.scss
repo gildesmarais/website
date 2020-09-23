@@ -12,10 +12,10 @@ body {
 body {
   padding-bottom: 66vh;
   font-family: $base-font;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 350;
   line-height: 1.25;
-  color: darken($base04, 10);
+  color: $base04;
   background-color: $black;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
