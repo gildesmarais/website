@@ -62,6 +62,7 @@ exclude:
   - .sass-cache
   - .stylelintrc.json
   - bin/
+  - node_modules
   - Gemfile
   - Gemfile.lock
   - Makefile
