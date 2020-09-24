@@ -14,10 +14,11 @@
 
 .post__content {
   font-size: 1rem;
-  hyphens: auto;
-  line-height: 1.5;
-  text-align: justify;
-  word-wrap: break-word;
+
+  @supports (hyphens: auto) {
+    hyphens: auto;
+    text-align: justify;
+  }
 
   h1,
   h2,
@@ -25,15 +26,8 @@
   h4,
   h5,
   h6 {
-    position: sticky;
-    top: 0;
-    z-index: 1;
     height: 100%;
     margin-bottom: 0.25em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-color: $black;
 
     > code {
       font-family: inherit;
@@ -53,7 +47,7 @@
   }
 
   p + p {
-    margin-top: 0.75em;
+    margin-top: 1em;
   }
 
   img {
@@ -65,7 +59,7 @@
   }
 
   ul {
-    list-style: outside circle;
+    list-style-type: square;
   }
 
   li {
@@ -112,7 +106,7 @@
   margin: 3rem auto 1rem;
   font-size: 1.1rem;
   line-height: 1.61;
-  border-left: 0.75em solid $base06;
+  border-left: 0.75em solid $base03;
 
   a {
     text-decoration: underline;
@@ -126,14 +120,10 @@
 .post .footnotes {
   margin: 1.5rem 0;
   border-top: 2px solid $base01;
+  font-size: .9em;
 
   ol {
-    margin: 0.5em 0 0;
-  }
-
-  ol > li {
-    padding: 0 0.25em;
-    font-size: 0.95em;
+    margin: 0.5em 0 0 inherit;
   }
 
   ol > li a {

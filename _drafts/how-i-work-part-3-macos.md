@@ -56,13 +56,13 @@ Since some macOS versions there's an innovate and most of the time useless featu
 
 Turn that time-wasting behavior off:
 
-```
+```sh
 <!-- TODO: add cmd -->
 ```
 
 The screenshot then appears directly as a file on your Desktop after capturing. That would cause chaos quickly. Change the default location to store screenshots to `~/Desktop/Screenshots` with:
 
-```
+```sh
 # Save screenshots to the ~/Desktop/Screenshots, create directory if it does not exist
 mkdir -p "${HOME}/Desktop/Screenshots"
 defaults write com.apple.screencapture location -string "${HOME}/Desktop/Screenshots"
@@ -111,7 +111,7 @@ Set it up under:
 
 ### Speed up / disable animations
 
-```
+```sh
 defaults write com.apple.finder DisableAllAnimations -bool true
 defaults write NSGlobalDomain NSWindowResizeTime .001
 defaults write com.apple.Dock autohide-delay -float 0
