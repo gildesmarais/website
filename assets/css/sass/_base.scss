@@ -22,4 +22,5 @@ $breakpoint-medium: 730px;
 @mixin tile {
   background-color: $base000;
   box-shadow: 0 1px 3px $base00;
+  border: 1px solid $base00;
 }

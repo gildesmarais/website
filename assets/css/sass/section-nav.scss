@@ -1,9 +1,10 @@
 ul.section-nav {
   padding-left: 0;
-  font-size: 1rem;
-  line-height: 1.61;
+  font-size: 1em;
+  // line-height: 1.61;
   letter-spacing: 0.025em;
-  list-style: inside decimal;
+  list-style: outside decimal;
+  margin-left: 1rem;
 
   a {
     font-size: inherit;

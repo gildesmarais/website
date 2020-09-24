@@ -1,16 +1,6 @@
 ---
 ---
 
-@font-face {
-  font-family: "Jura";
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 300;
-  src: local("Jura"), local("Jura-Light"),
-    url("fonts/Jura/Jura-Light.woff2") format("woff2"),
-    url("fonts/Jura/Jura-Light.ttf") format("truetype");
-}
-
 @import "vendor/minireset";
 @import "_base";
 @import "elements";
@@ -27,8 +17,18 @@
 @import "resume";
 @import "syntax-highlighting";
 @import "tags";
-@import "toc";
+@import "section-nav";
 @import "work-experience";
+
+@font-face {
+  font-family: "Jura";
+  font-style: normal;
+  font-display: fallback;
+  font-weight: 300;
+  src: local("Jura"), local("Jura-Light"),
+    url("fonts/Jura/Jura-Light.woff2") format("woff2"),
+    url("fonts/Jura/Jura-Light.ttf") format("truetype");
+}
 
 :root {
   --nav-height: 4rem;

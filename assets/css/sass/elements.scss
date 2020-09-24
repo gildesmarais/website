@@ -34,8 +34,33 @@ a {
 }
 
 h1 {
-  margin: 0.67em 0;
-  font-size: 2em;
+  font-size: 2.625em;
+  line-height: 1.548;
+}
+
+h2 {
+  font-size: 2.063em;
+  line-height: 1.576;
+}
+
+h3 {
+  font-size: 1.625em;
+  line-height: 1.615;
+}
+
+h4 {
+  font-size: 1.25em;
+  line-height: 1.65;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 1.75;
+}
+
+h6 {
+  font-size: 0.813em;
+  line-height: 1.769;
 }
 
 h1,
@@ -49,6 +74,7 @@ h6 {
   text-align: left;
   text-decoration: underline;
   text-decoration-color: $base02;
+  margin: 0;
 }
 
 kbd {
@@ -77,4 +103,10 @@ table th {
   padding-right: 0.5em;
   text-align: left;
   vertical-align: top;
+}
+
+ol,
+ul {
+  margin-left: 1.5em;
+  list-style-position: outside;
 }
