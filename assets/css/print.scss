@@ -1,5 +1,6 @@
 ---
 ---
+
 @import "_base";
 
 // mainly taken from the great h5bp project :)
@@ -15,106 +16,100 @@
   --font-size: 12px;
 }
 
-@media print {
-  *,
-  *:before,
-  *:after {
-    color: #000 !important; // Black prints faster: http://www.sanbeiji.com/archives/953
-    text-shadow: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-  }
+*,
+*:before,
+*:after {
+  color: #000 !important; // Black prints faster: http://www.sanbeiji.com/archives/953
+  text-shadow: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
 
-  body {
-    padding: 0;
-  }
+body {
+  padding: 0;
+}
 
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+a,
+a:visited {
+  text-decoration: underline;
+}
 
-  a[href]:after {
-    font-size: 0.9em;
-    content: " (" attr(href) ")";
-  }
+a[href]:after {
+  font-size: 0.9em;
+  content: " (" attr(href) ")";
+}
 
-  abbr[title]:after {
-    font-size: 0.9em;
-    content: " (" attr(title) ")";
-  }
+abbr[title]:after {
+  font-size: 0.9em;
+  content: " (" attr(title) ")";
+}
 
-  // Don't show links that are fragment identifiers,
-  // or use the `javascript:` pseudo protocol
+// Don't show links that are fragment identifiers,
+// or use the `javascript:` pseudo protocol
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
+a[href^="#"]:after,
+a[href^="javascript:"]:after {
+  content: "";
+}
 
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+pre,
+blockquote {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
 
-  // Printing Tables:
-  // http://css-discuss.incutio.com/wiki/Printing_Tables
+// Printing Tables:
+// http://css-discuss.incutio.com/wiki/Printing_Tables
 
-  thead {
-    display: table-header-group;
-  }
+thead {
+  display: table-header-group;
+}
 
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
+tr,
+img {
+  page-break-inside: avoid;
+}
 
-  img {
-    max-width: 100% !important;
-  }
+img {
+  max-width: 100% !important;
+}
 
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
+p,
+h2,
+h3 {
+  orphans: 3;
+  widows: 3;
+}
 
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+h2,
+h3 {
+  page-break-after: avoid;
+}
 
-  .nav,
-  .footer,
-  .post__footer-note,
-  footer.section {
-    display: none;
-  }
+.nav,
+.footer,
+.post__footer-note,
+footer.section {
+  display: none;
+}
 
-  ul.section-nav a {
-    text-decoration: none;
-  }
+ul.section-nav a {
+  text-decoration: none;
+}
 
-  .post__content {
-    text-align: left;
-  }
+.post__content {
+  text-align: left;
+}
 
-  .post__meta,
-  .post__author {
-    display: block !important;
-    font-family: $alternative-font;
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-  }
+.post__meta,
+.post__author {
+  display: block !important;
+  font-family: $alternative-font;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
 
-  .post__author {
-    float: left;
-  }
-
-  .highlight * {
-    filter: unset !important;
-  }
+.post__author {
+  float: left;
 }

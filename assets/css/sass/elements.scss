@@ -97,6 +97,10 @@ details {
 details > summary {
   color: $base04;
   cursor: pointer;
+
+  &::-webkit-details-marker {
+    color: $base09;
+  }
 }
 
 table th {
