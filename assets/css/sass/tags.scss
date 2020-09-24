@@ -2,9 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 2em;
   margin: 1em 0;
-  font-size: 1.4rem;
+  font-size: 1.4em;
   list-style: none;
 }
 
@@ -17,17 +17,17 @@
 
   justify-content: flex-end;
   padding: 0;
-  margin: 2rem 0;
+  margin: 2em 0;
 }
 
 .tags__headline {
   flex: 1 1 30ch;
-  font-size: 1.1rem;
+  font-size: 1.1em;
 }
 
 @mixin tag {
   display: inline-block;
-  padding: 0 0.5rem;
+  padding: 0 0.5em;
   font-family: $alternative-font;
   line-height: 1.1;
   text-decoration: none;

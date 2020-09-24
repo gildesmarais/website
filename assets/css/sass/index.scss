@@ -6,7 +6,7 @@
   display: block;
   width: 100%;
   margin-bottom: 0;
-  margin-left: -0.1rem; // the capital h looks offset
+  margin-left: -0.1em; // the capital h looks offset
   line-height: 1;
   letter-spacing: -0.025em;
 }
@@ -24,6 +24,6 @@
 .index__post-title {
   display: inline-block;
   padding-left: 0;
-  margin: 0.5rem 0;
+  margin: 0.5em 0;
   letter-spacing: 0.025em;
 }

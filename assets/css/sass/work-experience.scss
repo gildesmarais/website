@@ -3,14 +3,14 @@
 
   display: flex;
   flex-direction: row;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1.5rem;
+  padding: 0.75em 1.25em;
+  margin-bottom: 1.5em;
   line-height: 1.5;
 }
 
 %timerange-font {
   font-family: $alternative-font;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6;
 }
 
@@ -30,11 +30,11 @@
 }
 
 .work-experience__company {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 .work-experience__thesis--originaltitle {
-  margin-top: 1rem;
+  margin-top: 1em;
   font-size: 80%;
 }
 

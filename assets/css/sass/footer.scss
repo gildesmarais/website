@@ -2,7 +2,7 @@
   max-width: var(--container-width);
   padding: 0 var(--section-padding);
   margin: 0 auto;
-  font-size: 0.85rem;
+  font-size: 0.85em;
 }
 
 .footer__links {
@@ -11,6 +11,6 @@
 }
 
 .footer__links a {
-  margin-left: 1rem;
+  margin-left: 1em;
   color: $base03;
 }

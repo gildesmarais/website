@@ -91,7 +91,7 @@ kbd {
 }
 
 details {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 
 details > summary {
@@ -104,9 +104,10 @@ details > summary {
 }
 
 table th {
-  padding-right: 0.5em;
+  padding-right: 1em;
   text-align: left;
   vertical-align: top;
+  font-weight: 500;
 }
 
 ol,
