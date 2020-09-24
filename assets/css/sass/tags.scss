@@ -20,13 +20,6 @@
   margin: 2rem 0;
 }
 
-.tags__box {
-  color: $base01;
-  border: 1px solid darken($base03, 25);
-  border-right: 0;
-  border-left: 0;
-}
-
 .tags__headline {
   flex: 1 1 30ch;
   font-size: 1.1rem;
@@ -42,13 +35,14 @@
   -moz-font-smoothing: subpixel-antialiased;
 }
 
-$tag-color: darken($base03, 25);
+$tag-color: $base03;
+
 $tag-settings: (
   1: 65%,
   2: 70%,
   3: 80%,
   4: 90%,
-  5: 100%
+  5: 100%,
 );
 
 .tags__tag--0 {

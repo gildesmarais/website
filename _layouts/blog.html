@@ -1,21 +1,35 @@
 ---
-layout: container
+layout: page
 ---
 
 <h1>Blog</h1>
 
 {{ content }}
 
-<ul class="post-preview__list">
+<a
+  class="blog__rss"
+  rel="noindex nofollow"
+  href="{{ "/feed.xml" | relative_url }}"
+>
+  RSS</a
+>
+
+<a href="/blogroll"
+   class="blog__blogroll">
+  Blogroll
+</a>
+
+
+<ul class="blog__list">
   {% for post in site.posts %}
   <li class="h-entry">
-    <a class="post-preview__link p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
+    <a class="blog__link p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
       {% if post.lang == 'de' %}
       🇩🇪
       {% endif %}
       {{ post.title | escape }}
     </a>
-    <time class="post-preview__meta dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    <time class="blog__meta dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
 
     {% for tag in page.tags %}
       <span class="p-category" hidden>{{ tag }}</span>

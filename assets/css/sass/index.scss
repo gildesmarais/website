@@ -1,8 +1,6 @@
 @import "_base";
 
-.index {
-  max-width: 25rem;
-}
+// .index {}
 
 .index__headline {
   display: block;
@@ -17,10 +15,6 @@
   font-size: 1.2em;
   color: $base03;
   letter-spacing: 0.025em;
-}
-
-.index__photo {
-  display: none;
 }
 
 .index__link--blog {

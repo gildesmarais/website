@@ -11,8 +11,7 @@
     url("fonts/Jura/Jura-Light.ttf") format("truetype");
 }
 
-@import "vendor/normalize-8.0.1";
-
+@import "vendor/minireset";
 @import "_base";
 @import "elements";
 @import "contact";
@@ -22,7 +21,7 @@
 @import "index";
 @import "nav";
 @import "post";
-@import "post-preview";
+@import "blog";
 @import "print";
 @import "project";
 @import "resume";
@@ -37,15 +36,10 @@
   --section-padding: 0.5rem;
 }
 
-.container {
+.page {
   max-width: var(--container-width);
-  margin: 0 auto;
-  font-size: 0.95rem;
-}
-
-.section {
   padding: 0 var(--section-padding);
-  border-top: 1px solid $base00;
+  margin: 0 auto;
 }
 
 @media (hover: hover) {
@@ -62,8 +56,13 @@
   }
 }
 
-table th {
-  padding-right: 0.5em;
-  text-align: left;
-  vertical-align: top;
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }

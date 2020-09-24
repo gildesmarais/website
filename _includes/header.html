@@ -6,7 +6,9 @@
       <li>
         <a href="{{ "/" | relative_url }}" class="nav__item {% if current[1] == null %}nav__item--active{% endif %}">
           <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
+          {% if current[0] == '' %}
           <span class="nav__site-title">Gil Desmarais</span>
+          {% endif %}
         </a>
       </li>
 

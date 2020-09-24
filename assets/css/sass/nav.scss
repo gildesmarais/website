@@ -1,6 +1,7 @@
 .nav {
   height: var(--nav-height);
   font-weight: 500;
+  background-color: $base000;
 }
 
 .nav__container {
@@ -21,7 +22,6 @@
 
   > li:first-child {
     margin-right: auto;
-    margin-left: -0.5em;
   }
 
   > li > a {
@@ -32,8 +32,8 @@
   }
 
   a:hover {
+    text-decoration: underline;
     background-color: unset;
-    text-decoration: underline
   }
 }
 
@@ -43,9 +43,9 @@
 
 .nav__site-title {
   font-family: $alternative-font;
+  font-size: 1.2em;
+  font-weight: 600;
   color: $base06;
   // letter-spacing: -0.025em;
   text-decoration-color: $base04;
-  font-weight: 600;
-  font-size: 1.2em;
 }

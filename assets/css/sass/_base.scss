@@ -1,23 +1,17 @@
-// base16 tomorrow color scheme by chris kempson,
-// https://chriskempson.github.io/base16/#tomorrow
-
 $black: #000;
-$base00: #1d1f21;
-$base01: #282a2e;
-$base02: #373b41;
-$base03: #757775;
-$base04: #b4b7b4;
-$base05: #c5c8c6;
-$base06: #e0e0e0;
-$base07: #fff;
-$base08: #c66;
-$base09: hsl(25, 100%, 65%);
-$base0a: #f0c674;
-$base0b: #b5bd68;
-$base0c: #8abeb7;
-$base0d: #89a8c3;
-$base0e: #b294bb;
-$base0f: #a3685a;
+$base0000: hsl(210, 6%, 3%);
+$base000: hsl(210, 6%, 6%);
+$base00: hsl(210, 6%, 12%);
+$base01: hsl(210, 6%, 18%);
+$base02: hsl(210, 6%, 27%);
+
+$base03: hsl(70, 6%, 53%);
+$base04: hsl(70, 6%, 62%);
+$base05: hsl(70, 6%, 78%); // default front
+$base06: hsl(70, 6%, 94%);
+
+$base09: hsl(21, 93%, 66%);
+$base0c: hsl(201, 93%, 66%);
 
 $alternative-font: Jura, "Bangla Sangam MN", sans-serif;
 $base-font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
@@ -25,52 +19,7 @@ $base-font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
 
 $breakpoint-medium: 730px;
 
-@keyframes highlight {
-  0% {
-    background-color: rgba($base0a, 0.5);
-  }
-
-  100% {
-    background-color: $base07;
-  }
-}
-
-@mixin box {
-  display: block;
-  padding: 1rem 0.5rem;
-  font-size: 0.9rem;
-  color: $base04;
-  text-decoration: none;
-  background-color: $black;
-
-  filter: brightness(0.9);
-  border: 1px solid $base0d;
-
-  span {
-    color: $base09;
-  }
-
-  &:hover span {
-    text-decoration: underline;
-  }
-
-  &:hover {
-    background-color: $base00;
-  }
-}
-
 @mixin tile {
-  background-color: rgba($base00, 0.5);
-  box-shadow: 0 1px 3px rgba($base00, 0.4);
-}
-
-.visually-hidden {
-  position: absolute;
-  top: auto;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+  background-color: $base000;
+  box-shadow: 0 1px 3px $base00;
 }

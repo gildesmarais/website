@@ -1,4 +1,16 @@
 .footer {
-  margin-top: 4rem;
-  border-top: 1px solid $base01;
+  max-width: var(--container-width);
+  padding: 0 var(--section-padding);
+  margin: 0 auto;
+  font-size: 0.85rem;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer__links a {
+  margin-left: 1rem;
+  color: $base03;
 }

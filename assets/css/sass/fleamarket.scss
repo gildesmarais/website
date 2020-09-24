@@ -4,7 +4,7 @@
   list-style: none;
 
   > li {
-    border-bottom: 1px solid darken($base03, 25);
+    border-bottom: 1px solid $base01;
   }
 
   > li > a {

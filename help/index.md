@@ -1,6 +1,6 @@
 ---
 title: Help
-layout: container
+layout: page
 noindex: true
 sitemap: false
 ---

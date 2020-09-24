@@ -60,19 +60,9 @@
   img {
     width: 100%;
     height: auto;
-    border: 1px solid rgba($base01, 0.8);
+    border: 1px solid $base01;
     border-radius: 0.05em;
-    box-shadow: 0 0 0.25em rgba($base01, 0.25);
-  }
-
-  a[target="_blank"] {
-    color: inherit;
-  }
-
-  .highlighter-rouge {
-    max-width: 100%;
-    overflow: auto;
-    hyphens: none;
+    box-shadow: 0 0 0.25em $base00;
   }
 
   ul {
@@ -109,7 +99,8 @@
 
   code {
     width: 100%;
-    font-family:  SFMono-Regular, Menlo, 'Ubuntu Mono', Consolas, 'Monaco', 'Lucida Console', monospace;
+    font-family: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
+      "Lucida Console", monospace;
     font-size: 0.85em;
     line-height: 1;
     font-variant-ligatures: discretionary-ligatures;
@@ -135,7 +126,7 @@
 
 .post .footnotes {
   margin: 1.5rem 0;
-  border-top: 2px solid rgba($base00, 0.5);
+  border-top: 2px solid $base01;
 
   ol {
     margin: 0.5em 0 0;
@@ -161,10 +152,6 @@
     text-decoration: none;
     vertical-align: middle;
     border: 1px solid transparent;
-
-    &:hover {
-      border-color: $base09;
-    }
   }
 }
 

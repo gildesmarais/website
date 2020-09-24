@@ -15,7 +15,7 @@ body {
   font-size: 16px;
   font-weight: 350;
   line-height: 1.25;
-  color: $base04;
+  color: $base05;
   background-color: $black;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
@@ -29,16 +29,13 @@ a {
   text-decoration-color: $base00;
 
   &:hover {
-    background-color: $base02;
+    background-color: $base000;
   }
 }
 
-a[target="_blank"] {
-  text-decoration-color: rgba($base09, 0.65);
-
-  &:hover {
-    text-decoration-color: $base09;
-  }
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
 h1,
@@ -56,13 +53,13 @@ h6 {
 
 kbd {
   display: inline-block;
-  padding: 0.0125em 0.25em;
+  padding: 0.1em 0.25em;
   font-size: 0.85em;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
-  color: $base01;
+  color: $base06;
   white-space: nowrap;
-  background-color: $base05;
+  background-color: $base02;
   border: 1px solid $base03;
   border-radius: 0.3em;
 }
@@ -74,4 +71,10 @@ details {
 details > summary {
   color: $base04;
   cursor: pointer;
+}
+
+table th {
+  padding-right: 0.5em;
+  text-align: left;
+  vertical-align: top;
 }
