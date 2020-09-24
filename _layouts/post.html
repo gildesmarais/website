@@ -24,10 +24,13 @@ layout: page
 
   <main class="post__content e-content">
     {% if page.toc %}
-    <p class="post__description">{{ page.description }}</p>
+    <div class="post__toc">
+      <span>Table of contents</span>
+      {% toc %}
+    </div>
     {% endif %}
 
-    {{ content | toc }}
+    {{ content }}
   </main>
 
   <aside class="post__footer-note">

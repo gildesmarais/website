@@ -3,17 +3,29 @@
   line-height: 1;
 }
 
-.post__description {
-  font-size: 1.2em;
-}
-
 .post__meta {
   color: $base03;
   text-align: right;
 }
 
+.post__toc {
+  @include tile;
+  padding: 0.5em;
+
+  margin: 1.5em 0;
+
+  > span {
+    display: inline-block;
+    font-family: $alternative-font;
+    font-size: 1.2em;
+    color: $base05;
+    text-decoration: underline;
+    text-decoration-color: $base02;
+  }
+}
+
 .post__content {
-  font-size: 1rem;
+  font-size: 1em;
 
   @supports (hyphens: auto) {
     hyphens: auto;
@@ -115,8 +127,8 @@
 
 .post .footnotes {
   margin: 1.5rem 0;
+  font-size: 0.9em;
   border-top: 2px solid $base01;
-  font-size: .9em;
 
   ol {
     margin: 0.5em 0 0 inherit;

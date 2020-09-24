@@ -1,34 +1,25 @@
 ul.section-nav {
-  padding-left: 0;
-  letter-spacing: 0.025em;
-  list-style: outside decimal;
+  margin-left: 0;
+}
+
+.section-nav {
+  &,
+  ul {
+    list-style-type: none;
+
+    counter-reset: section;
+  }
+
+  li::before {
+    color: $base03;
+    content: counters(section, ".") ". ";
+    counter-increment: section;
+  }
 
   a {
-    font-size: inherit;
-    color: inherit;
-  }
-
-  > li {
-    font-size: 1em;
-  }
-
-  > li > li {
-    font-size: 0.85em;
-  }
-
-  > li > li > li {
-    font-size: 0.7225em;
-  }
-
-  > li > ul {
-    list-style: outside lower-latin;
-  }
-
-  > li > ul > li > ul {
-    list-style: outside upper-roman;
-  }
-
-  > li > ul > li > ul > li > ul {
-    list-style: outside lower-roman;
+    font-weight: 400;
+    line-height: 1.36;
+    color: $base05;
+    letter-spacing: 0.005em;
   }
 }

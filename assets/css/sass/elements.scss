@@ -12,7 +12,7 @@ body {
 body {
   padding-bottom: 66vh;
   font-family: $base-font;
-  font-size: 16px;
+  font-size: var(--font-size);
   font-weight: 350;
   line-height: 1.25;
   color: $base05;
@@ -69,12 +69,12 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-family: $alternative-font;
   color: $base06;
   text-align: left;
   text-decoration: underline;
   text-decoration-color: $base02;
-  margin: 0;
 }
 
 kbd {
@@ -87,7 +87,7 @@ kbd {
   white-space: nowrap;
   background-color: $base02;
   border: 1px solid $base03;
-  border-radius: 0.3em;
+  border-radius: 0.25em;
 }
 
 details {

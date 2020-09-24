@@ -12,9 +12,7 @@
 @import "nav";
 @import "post";
 @import "blog";
-@import "print";
 @import "project";
-@import "resume";
 @import "syntax-highlighting";
 @import "tags";
 @import "section-nav";
@@ -31,6 +29,7 @@
 }
 
 :root {
+  --font-size: 16px;
   --nav-height: 4rem;
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5rem;

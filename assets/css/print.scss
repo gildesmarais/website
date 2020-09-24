@@ -1,3 +1,7 @@
+---
+---
+@import "_base";
+
 // mainly taken from the great h5bp project :)
 // https://github.com/h5bp/html5-boilerplate/blob/60a8ff033665e1207714d6670fcd7b65304ec02f/dist/css/main.css
 
@@ -6,6 +10,10 @@
 // Inlined to avoid the additional HTTP request:
 // http://www.phpied.com/delay-loading-your-print-css/
 // ==========================================================================
+
+:root {
+  --font-size: 12px;
+}
 
 @media print {
   *,
@@ -19,7 +27,6 @@
 
   body {
     padding: 0;
-    font-size: 12px;
   }
 
   a,
@@ -91,8 +98,6 @@
   }
 
   .post__content {
-    font-size: 14px;
-    line-height: 1.25;
     text-align: left;
   }
 
