@@ -4,21 +4,14 @@ layout: page
 
 <h1>Blog</h1>
 
-{{ content }}
-
-<a
-  class="blog__rss"
-  rel="noindex nofollow"
-  href="{{ "/feed.xml" | relative_url }}"
->
-  RSS</a
->
-
-<a href="/blogroll"
-   class="blog__blogroll">
-  Blogroll
-</a>
-
+<ul>
+  <li>
+    <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>
+  </li>
+  <li>
+    <a href="/blogroll" class="blog__blogroll">Blogroll</a>
+  </li>
+</ul>
 
 <ul class="blog__list">
   {% for post in site.posts %}
@@ -32,7 +25,7 @@ layout: page
     <time class="blog__meta dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
 
     {% for tag in page.tags %}
-      <span class="p-category" hidden>{{ tag }}</span>
+    <span class="p-category" hidden>{{ tag }}</span>
     {% endfor %}
 
     {% if post.description %}
