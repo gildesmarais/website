@@ -30,6 +30,14 @@
     text-align: justify;
   }
 
+  code {
+    width: 100%;
+    font-family: $monospace-font;
+    font-size: 0.85em;
+    line-height: 1;
+    font-variant-ligatures: discretionary-ligatures;
+  }
+
   h1,
   h2,
   h3,
@@ -94,14 +102,6 @@
 
   blockquote p {
     display: inline;
-  }
-
-  code {
-    width: 100%;
-    font-family: $monospace-font;
-    font-size: 0.85em;
-    line-height: 1;
-    font-variant-ligatures: discretionary-ligatures;
   }
 }
 

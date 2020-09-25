@@ -29,10 +29,10 @@
 }
 
 :root {
-  --font-size: 16px;
-  --nav-height: 4rem;
+  --rem: 16px;
+  --nav-height: 4em;
   --container-width: #{$breakpoint-medium};
-  --section-padding: 0.5rem;
+  --section-padding: 0.5em;
 }
 
 .page {

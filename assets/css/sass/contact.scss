@@ -1,9 +1,7 @@
-$small-font-size: 14px; // let's use the px unit here, for legal reasons
-
 .contact__address {
   display: block;
-  font-size: $small-font-size;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1.35;
+  pointer-events: none;
   user-select: none;
 }

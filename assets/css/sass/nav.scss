@@ -28,7 +28,7 @@
     display: inline-block;
     width: 100%;
     height: 100%;
-    padding: 0.25em 0.5em;
+    padding: 0.25em 0.25em;
   }
 
   a:hover {
@@ -47,4 +47,10 @@
   font-weight: 600;
   color: $base06;
   text-decoration-color: $base04;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .nav__items > li > a {
+    padding: 0.25em 0.5em;
+  }
 }
