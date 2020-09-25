@@ -31,7 +31,7 @@ a {
 
 h1 {
   font-size: 2.625em;
-  line-height: 1.548;
+  line-height: 1.3;
 }
 
 h2 {
@@ -67,6 +67,7 @@ h5,
 h6 {
   margin: 0;
   font-family: var(--font-alt);
+  font-weight: 600;
   color: var(--front-100);
   text-align: left;
   text-decoration: underline;
