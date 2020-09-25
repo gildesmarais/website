@@ -5,12 +5,25 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 0;
+  margin-left: -0.5em;
 }
 
 .blog__list > li {
   flex: 1 1 calc(48% - 1em);
   margin: 0.5em;
 }
+
+@media (max-width: $breakpoint-medium / 1.25) {
+  .blog__list {
+    margin-left: 0;
+  }
+
+  .blog__list > li {
+    flex: 1 1 100%;
+    margin: 0.5em 0;
+  }
+}
+
 // .blog__link {
 //   font-weight: 450;
 // }

@@ -25,37 +25,40 @@ layout: page
       <img class="post-preview__img" src="{{ "/assets/images/social.png" | relative_url }}" />
       <img class="post-preview__blurry-img" src="{{ "/assets/images/social.png" | relative_url }}" />
       {% endif %}
+
+      {% if post.lang == 'de' %}<span class="post-preview__lang">🇩🇪</span>{% endif %}
     </header>
 
-    <section class="post-preview__body">
+    <main class="post-preview__body">
       <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
-        {% if post.lang == 'de' %}
-        <span class="post-preview__lang">🇩🇪</span>
-        {% endif %}
         {{ post.title | escape }}
       </a>
+
       <p class="post-preview__time">
         <time class="dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
       </p>
 
-      {% if post.tags %}
-        <ul class="post-preview__tags">
-          {% for tag in post.tags %}
-          <li>
-            <a href="/tag/{{ tag }}" class="tags__tag--5 p-category">{{ tag }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
 
       {% if post.description %}
-      <span class="p-summary">{{post.description}}</span>
+      <span class="post-preview__description p-summary">{{post.description}}</span>
       {% endif %}
 
       <a href="{{ site.url }}" class="h-card p-author" hidden>
         {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
       </a>
-    </section>
+    </main>
+
+    {% if post.tags %}
+    <footer>
+      <ul class="post-preview__tags">
+        {% for tag in post.tags %}
+        <li>
+          <a href="/tag/{{ tag }}" class="tags__tag--5 p-category">{{ tag }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </footer>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>
