@@ -1,7 +1,7 @@
 .nav {
   height: var(--nav-height);
   font-weight: 500;
-  background-color: $base000;
+  background-color: var(--back-600);
 }
 
 .nav__container {
@@ -45,8 +45,8 @@
   font-family: $alternative-font;
   font-size: 1.2em;
   font-weight: 600;
-  color: $base06;
-  text-decoration-color: $base04;
+  color: var(--front-100);
+  text-decoration-color: var(--front-300);
 }
 
 @media (min-width: $breakpoint-medium) {

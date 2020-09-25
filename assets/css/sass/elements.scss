@@ -15,8 +15,8 @@ body {
   font-size: var(--rem);
   font-weight: 350;
   line-height: 1.25;
-  color: $base05;
-  background-color: $black;
+  color: var(--front-200);
+  background-color: var(--back-900);
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,9 +24,9 @@ body {
 }
 
 a {
-  color: $base09;
+  color: var(--brand-100);
   text-decoration: underline;
-  text-decoration-color: $base00;
+  text-decoration-color: var(--back-500);
 }
 
 h1 {
@@ -67,16 +67,16 @@ h5,
 h6 {
   margin: 0;
   font-family: $alternative-font;
-  color: $base06;
+  color: var(--front-100);
   text-align: left;
   text-decoration: underline;
-  text-decoration-color: $base02;
+  text-decoration-color: var(--back-300);
 }
 
 img {
-  border: 1px solid $base01;
+  border: 1px solid var(--back-400);
   border-radius: 0.05em;
-  box-shadow: 0 0 0.25em $base00;
+  box-shadow: 0 0 0.25em var(--back-500);
 }
 
 kbd {
@@ -85,10 +85,10 @@ kbd {
   font-size: 0.85em;
   font-weight: 600;
   line-height: 1;
-  color: $base06;
+  color: var(--front-100);
   white-space: nowrap;
-  background-color: $base02;
-  border: 1px solid $base03;
+  background-color: var(--back-300);
+  border: 1px solid var(--front-400);
   border-radius: 0.25em;
 }
 
@@ -97,11 +97,11 @@ details {
 }
 
 details > summary {
-  color: $base04;
+  color: var(--front-300);
   cursor: pointer;
 
   &::-webkit-details-marker {
-    color: $base09;
+    color: var(--brand-100);
   }
 }
 

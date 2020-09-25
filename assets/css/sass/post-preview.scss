@@ -11,8 +11,8 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  background-color: $base00;
-  border-bottom: 1px solid $base0000;
+  background-color: var(--back-500);
+  border-bottom: 1px solid var(--back-700);
 }
 
 .post-preview__shade {
@@ -23,7 +23,7 @@
   width: 100%;
   height: 66%;
   user-select: none;
-  background: linear-gradient(to bottom, rgba($base00, 0.3), transparent);
+  background: linear-gradient(to bottom, rgba(var(--back-500), 0.3), transparent);
 }
 
 .post-preview > header > img {
@@ -91,7 +91,7 @@
 
 .post-preview__time {
   font-size: 0.8em;
-  color: $base03;
+  color: var(--front-400);
 }
 
 .post-preview__description {
@@ -120,7 +120,7 @@
 
     &:focus,
     &:hover {
-      color: $base09;
+      color: var(--brand-100);
     }
   }
 }

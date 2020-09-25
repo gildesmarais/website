@@ -1,5 +1,5 @@
 .message {
   @include tile;
 
-  border-left: 0.75em solid var(--color, #{$base03});
+  border-left: 0.75em solid var(--color, var(--front-400));
 }

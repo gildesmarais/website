@@ -34,7 +34,7 @@
   -moz-font-smoothing: subpixel-antialiased;
 }
 
-$tag-color: $base03;
+$tag-color: var(--front-400);
 
 $tag-settings: (
   1: 65%,
@@ -48,7 +48,7 @@ $tag-settings: (
   display: none;
 }
 
-$tag-color: $base04;
+$tag-color: var(--front-300);
 
 @each $level, $visibility in $tag-settings {
   .tags__tag--#{$level} {

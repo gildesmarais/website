@@ -11,14 +11,14 @@ ul.section-nav {
   }
 
   li::before {
-    color: $base03;
+    color: var(--front-400);
     content: counters(section, ".") ". ";
     counter-increment: section;
   }
 
   a {
     font-weight: 400;
-    color: $base05;
+    color: var(--front-200);
     letter-spacing: 0.005em;
   }
 }

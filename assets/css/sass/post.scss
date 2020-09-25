@@ -3,7 +3,7 @@
 
 .post__meta {
   font-size: 0.8em;
-  color: $base03;
+  color: var(--front-400);
   text-align: right;
 }
 
@@ -16,9 +16,9 @@
     display: inline-block;
     font-family: $alternative-font;
     font-size: 1.2em;
-    color: $base05;
+    color: var(--front-200);
     text-decoration: underline;
-    text-decoration-color: $base02;
+    text-decoration-color: var(--back-300);
   }
 }
 
@@ -55,7 +55,7 @@
   h4,
   h5,
   h6 {
-    text-decoration-color: $base01;
+    text-decoration-color: var(--back-400);
   }
 
   p {
@@ -83,7 +83,7 @@
     text-align: justify;
     letter-spacing: -0.025em;
     quotes: "\201C""\201D""\2018""\2019";
-    border-left: 0.75em solid $base00;
+    border-left: 0.75em solid var(--back-500);
   }
 
   blockquote p {
@@ -113,7 +113,7 @@
 .post .footnotes {
   margin: 1.5em 0;
   font-size: 0.9em;
-  border-top: 2px solid $base01;
+  border-top: 2px solid var(--back-400);
 
   ol {
     margin: 0.5em 0 0;
@@ -124,14 +124,14 @@
   ol > li::before {
     display: inline-block;
     font-family: $monospace-font;
-    color: $base04;
+    color: var(--front-300);
     letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";
     counter-increment: section;
   }
 
   ol > li:target {
-    border: 1px solid $base0c;
+    border: 1px solid var(--contrast-100);
   }
 
   ol > li > p {

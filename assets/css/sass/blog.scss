@@ -22,11 +22,13 @@
   }
 }
 
+.blog__message {
+  --color: var(--back-500);
+}
+
 $message-width: 6.5em;
 @media (min-width: #{$breakpoint-medium + $message-width + 6em}) {
   .blog__message {
-    --color: #{$base00};
-
     position: fixed;
     top: calc(var(--nav-height) + 4.5em);
     right: 0;
