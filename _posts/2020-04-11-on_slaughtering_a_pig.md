@@ -1,6 +1,7 @@
 ---
 layout: post
 title: On slaughtering a pig
+image: /assets/images/posts/2020-04-11_pigs.jpg
 toc: true
 description: Last winter I witnessed a home slaughtering of a pig.
 tags: [food]
@@ -162,6 +163,8 @@ I still eat sausages although I know what's in them.
 I recommend anyone who has the chance to witness a home slaughtering of an animal, to take part in it.
 
 It won't be a joyful day, but a day full of physical work, in your life. One you will remember and it might change your opinion on some things (in whatever way).
+
+![picture of pigs in a sty](/assets/images/posts/2020-04-11_pigs.jpg)
 
 [^1]: It's important to not cut the trachae, as that would allow blood to fill the lungs.
 [^2]: We caught all the blood and mixed it in a bowl to make [blood sausage](https://en.wikipedia.org/wiki/Blood_sausage) out of it. In some religions consuming the blood is forbidden and is thus wasted.

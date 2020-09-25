@@ -3,6 +3,7 @@ layout: post
 title: "Recent changes on my website"
 date: 2017-04-10 15:45:58 +0100
 description: A post about switching to Jekyll and throwing code away by using modern technologies.
+image: /assets/images/social.png
 tags:
   - programming
   - project

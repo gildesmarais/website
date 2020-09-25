@@ -1,6 +1,7 @@
 ---
 layout: post
 title: An automated blogroll with Jekyll, Newsblur and Github Actions
+description: This blog's blogroll is updated automatically and this post explains how it works.
 tags:
   - programming
   - ruby

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Loading images lazily with Jekyll (natively & automatically)
+description: My plugin improves your Jekyll website's performance.
 tags:
   - project
   - programming

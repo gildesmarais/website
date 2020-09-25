@@ -3,7 +3,7 @@ layout: post
 lang: de
 title: "Bluetooth Headset mit Pulseaudio"
 date: 2009-02-19 20:32:12 +00:00
-description: Bluetooth Headset mit Pulseaudio
+description: Bluetooth Headset mit Pulseaudio unter Ubuntu einrichten.
 tags:
   - linux
   - bluetooth

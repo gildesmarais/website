@@ -2,6 +2,7 @@
 layout: post
 title: Handling, organizing and listening to music
 description: How I manage and listen to music.
+image: /assets/images/posts/2020-04-05-traktor-the-end.jpg
 toc: true
 tags:
   - reference
