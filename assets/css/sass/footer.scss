@@ -2,12 +2,12 @@
   max-width: var(--container-width);
   padding: 0 var(--section-padding);
   margin: 0 auto;
-  font-size: 0.85em;
 }
 
 .footer__links {
   display: flex;
   justify-content: flex-end;
+  font-size: 0.85em;
 }
 
 .footer__links a {

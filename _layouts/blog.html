@@ -25,7 +25,7 @@ layout: page
         <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" />
         <img class="post-preview__blurry-img" aria-hidden="true" src="{{ post.image | relative_url }}" />
         {% else %}
-        <img class="post-preview__img--missing" aria-hidden="true" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" />
+        <span class="post-preview__img--missing" />
         <img class="post-preview__blurry-img" aria-hidden="true" src="{{ "/assets/images/social.png" | relative_url }}" />
         {% endif %}
 
