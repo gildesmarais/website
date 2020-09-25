@@ -6,7 +6,6 @@
   display: block;
   width: 100%;
   margin-bottom: 0;
-  margin-left: -0.1em; // the capital h looks offset
   letter-spacing: -0.025em;
 }
 
@@ -20,9 +19,28 @@
   color: unset;
 }
 
+.index__blog > b {
+  display: inline-block;
+  margin-top: 1em;
+  font-family: var(--font-alt);
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--front-100);
+  text-decoration: underline;
+  text-decoration-color: var(--back-300);
+}
+
 .index__post-title {
   display: inline-block;
   padding-left: 0;
   margin: 0.5em 0;
   letter-spacing: 0.025em;
+}
+
+.index__post-preview {
+  max-width: 30em;
+
+  .post-preview__img--missing {
+    display: none;
+  }
 }
