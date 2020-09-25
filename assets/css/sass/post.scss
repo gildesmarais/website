@@ -41,11 +41,11 @@
   h4,
   h5,
   h6 {
-    height: 100%;
-    margin-bottom: 0.25em;
+    > * {
+      font-family: inherit;
+    }
 
     > code {
-      font-family: inherit;
       letter-spacing: 0.05em;
       background-color: unset;
     }
@@ -88,17 +88,14 @@
     border-left: 0.75em solid $base00;
   }
 
-  blockquote:before {
-    margin-right: 0.125em;
-    font-family: serif;
-    font-size: 4em;
-    line-height: 0.1em;
-    vertical-align: -0.4em;
-    content: open-quote;
-  }
-
   blockquote p {
     display: inline;
+  }
+
+  ul,
+  ol {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
   }
 }
 
@@ -106,7 +103,7 @@
   @include tile;
 
   margin: 3em auto 1em;
-  border-left: 0.75em solid $base02;
+  border-left: 0.75em solid $base03;
 
   a {
     text-decoration: underline;
@@ -177,8 +174,8 @@
 
 @media (hover: hover) {
   .post img {
-    filter: brightness(0.75);
-    transition: filter 0.4s;
+    filter: brightness(0.85);
+    transition: filter 0.2s linear;
 
     &:hover,
     &:focus {
