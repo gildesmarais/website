@@ -52,16 +52,15 @@ layout: page
     <span class="p-category">aviation</span>.
   </p>
 
-  <p>
+  <p class="index__blog">
     Sometimes I write about interesting things in my
-    <a href="/blog" class="index__link--blog category">blog</a>. My latest blog
-    post is:
-    <br />
-    {% assign post = site.posts.first %}
-    <a
-      href="{{ root_url }}{{ post.url }}"
-      class="h-entry p-name u-url index__post-title"
-      >› {{ post.title }}</a
-    >
+    <a href="/blog" class="index__link--blog p-category">blog</a>.
+    <br>
+    <b>Latest blog post</b>
   </p>
+
+  <div class="index__post-preview">
+    {% assign post = site.posts.first %}
+    {% include post-preview.html %}
+  </div>
 </div>
