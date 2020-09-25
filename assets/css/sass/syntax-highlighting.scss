@@ -1,14 +1,15 @@
-.highlight {
-  background: var(--back-700);
-}
-
 .highlighter-rouge {
-  width: 100%;
-  max-width: 100%;
-  overflow: auto;
   hyphens: none;
   white-space: nowrap;
   font-size: 0.9em;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.highlight {
+  background: var(--back-700);
+  max-width: 100%;
+  overflow: auto;
 }
 
 .highlight .hll {
