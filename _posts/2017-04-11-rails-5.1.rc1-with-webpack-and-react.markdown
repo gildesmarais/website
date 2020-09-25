@@ -2,6 +2,7 @@
 layout: post
 title: "Rails 5.1 RC1 with Webpack and React"
 date: 2017-04-11 16:30:00 +0100
+image: /assets/images/posts/2017-04-11-webpacker.jpg
 description: Early adopting Rails 5.1 RC1 to take advantage of the new webpacker gem.
 toc: true
 tags:
