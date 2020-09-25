@@ -1,7 +1,5 @@
-.post__header,
-.post__title {
-  line-height: 1;
-}
+// .post__header,
+// .post__title {}
 
 .post__meta {
   color: $base03;
@@ -100,8 +98,7 @@
 
   code {
     width: 100%;
-    font-family: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
-      "Lucida Console", monospace;
+    font-family: $monospace-font;
     font-size: 0.85em;
     line-height: 1;
     font-variant-ligatures: discretionary-ligatures;
@@ -114,7 +111,7 @@
   margin: 3em auto 1em;
   font-size: 1.1em;
   line-height: 1.61;
-  border-left: 0.75em solid $base03;
+  border-left: 0.75em solid $base02;
 
   a {
     text-decoration: underline;
@@ -122,7 +119,16 @@
 }
 
 .post .footnote {
+  font-family: $monospace-font;
   text-decoration: none;
+  letter-spacing: -0.05em;
+
+  &:before {
+    content: "[";
+  }
+  &:after {
+    content: "]";
+  }
 }
 
 .post .footnotes {
@@ -131,14 +137,27 @@
   border-top: 2px solid $base01;
 
   ol {
-    margin: 0.5em 0 0 inherit;
-    list-style-type: decimal;
+    margin: 0.5em 0 0;
+    list-style-type: none;
+    counter-reset: section;
+  }
+
+  ol > li::before {
+    display: inline-block;
+    font-family: $monospace-font;
+    color: $base04;
+    letter-spacing: -0.05em;
+    content: "[" counters(section, ".") "]";
+    counter-increment: section;
   }
 
   ol > li:target {
     border: 1px solid $base0c;
   }
 
+  ol > li > p {
+    display: inline-block;
+  }
   ol > li a {
     color: inherit;
   }
@@ -146,7 +165,6 @@
   ol > li:target .reversefootnote {
     padding: 0;
     margin: 0;
-    line-height: 1em;
     text-decoration: none;
     vertical-align: middle;
     border: 1px solid transparent;
