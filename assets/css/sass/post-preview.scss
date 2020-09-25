@@ -11,9 +11,21 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  background-color: $black;
-  border-bottom: 1px solid $base000;
+  background-color: $base00;
+  border-bottom: 1px solid $base0000;
 }
+
+.post-preview__shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 66%;
+  user-select: none;
+  background: linear-gradient(to bottom, rgba($base00, 0.3), transparent);
+}
+
 .post-preview > header > img {
   &,
   &:focus,
@@ -23,13 +35,18 @@
   }
 }
 
-.post-preview__img {
+.post-preview__img,
+.post-preview__img--missing {
   position: relative;
   z-index: 2;
   width: auto;
   min-height: 10em;
   max-height: 16vh;
   border-width: 0;
+}
+
+.post-preview__img--missing {
+  display: none;
 }
 
 .post-preview__blurry-img {
@@ -40,16 +57,16 @@
   left: 0;
   z-index: 1;
   width: 200%;
-  height: 200%;
+  height: 100%;
   overflow: hidden;
   object-fit: cover;
   object-position: center;
-  opacity: 0.3;
+  mix-blend-mode: multiply;
 
   &,
   &:focus,
   &:hover {
-    filter: blur(5em);
+    filter: blur(3em);
   }
 }
 
@@ -64,6 +81,11 @@
 
 .post-preview__body {
   padding: 0.5em 1em;
+
+  > a {
+    display: block;
+    width: 100%;
+  }
 }
 
 .post-preview__time {
@@ -72,7 +94,7 @@
 }
 
 .post-preview__description {
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .post-preview > footer {
@@ -85,8 +107,8 @@
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
+  font-size: 0.9em;
   list-style: none;
-  font-size: .9em;
 
   > li {
     margin-right: 1em;
@@ -99,5 +121,12 @@
     &:hover {
       color: $base09;
     }
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .post-preview__img--missing {
+    display: inline-block;
+    box-shadow: unset;
   }
 }

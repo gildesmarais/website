@@ -19,7 +19,7 @@ $base-font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
 $monospace-font: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
   "Lucida Console", monospace;
 
-$breakpoint-medium: 730px;
+$breakpoint-medium: 45em;
 
 @mixin tile {
   padding: 0.75em 1.25em;

@@ -4,29 +4,33 @@ layout: page
 
 <h1>Blog</h1>
 
-<ul>
-  <li>
-    <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>
-  </li>
-  <li>
-    <a href="/blogroll" class="blog__blogroll">Blogroll</a>
-  </li>
-</ul>
+<aside class="message blog__message">
+  <ul>
+    <li>
+      <a href="/blogroll" class="blog__blogroll">Blogroll</a>
+    </li>
+    <li>
+      <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>
+    </li>
+  </ul>
+</aside>
 
 <ul class="blog__list">
   {% for post in site.posts %}
   <li class="h-entry post-preview">
     <header>
-      {% if post.image %}
-      <img class="post-preview__img" src="{{ post.image | relative_url }}" />
-      <img class="post-preview__blurry-img" src="{{ post.image | relative_url }}" />
-      {% else %}
-      <!-- TODO: change fallback image -->
-      <img class="post-preview__img" src="{{ "/assets/images/social.png" | relative_url }}" />
-      <img class="post-preview__blurry-img" src="{{ "/assets/images/social.png" | relative_url }}" />
-      {% endif %}
+      <a href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}">
+        <div class="post-preview__shade"></div>
+        {% if post.image %}
+        <img class="post-preview__img" src="{{ post.image | relative_url }}" />
+        <img class="post-preview__blurry-img" src="{{ post.image | relative_url }}" />
+        {% else %}
+        <img class="post-preview__img--missing" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" />
+        <img class="post-preview__blurry-img" src="{{ "/assets/images/social.png" | relative_url }}" />
+        {% endif %}
 
-      {% if post.lang == 'de' %}<span class="post-preview__lang">🇩🇪</span>{% endif %}
+        {% if post.lang == 'de' %}<span class="post-preview__lang" title="Deutschsprachiger Blogpost">🇩🇪</span>{% endif %}
+      </a>
     </header>
 
     <main class="post-preview__body">
@@ -38,14 +42,9 @@ layout: page
         <time class="dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
       </p>
 
-
       {% if post.description %}
       <span class="post-preview__description p-summary">{{post.description}}</span>
       {% endif %}
-
-      <a href="{{ site.url }}" class="h-card p-author" hidden>
-        {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
-      </a>
     </main>
 
     {% if post.tags %}
@@ -57,6 +56,10 @@ layout: page
         </li>
         {% endfor %}
       </ul>
+
+      <a href="{{ site.url }}" class="h-card p-author" hidden>
+        {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
+      </a>
     </footer>
     {% endif %}
   </li>

@@ -96,17 +96,6 @@
   }
 }
 
-.post__footer-note {
-  @include tile;
-
-  margin: 3em auto 1em;
-  border-left: 0.75em solid $base03;
-
-  a {
-    text-decoration: underline;
-  }
-}
-
 .post .footnote {
   font-family: $monospace-font;
   text-decoration: none;
@@ -158,6 +147,10 @@
     vertical-align: middle;
     border: 1px solid transparent;
   }
+}
+
+.post__message {
+  margin: 3em 0;
 }
 
 @media (max-width: $breakpoint-medium) {
