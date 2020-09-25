@@ -2,7 +2,7 @@
 layout: post
 title: Deleting Whatsapp (finally)
 description: Bye bye, Whatsapp.
-image: /assets/images/posts/2020-04-20-deleting-whatsapp-2.png
+image: /assets/images/posts/2020-04-20-deleting-whatsapp-2.jpg
 tags:
   - reference
 ---
@@ -32,7 +32,7 @@ However, it misses the latest hack, but [read about that yourself on this Guardi
     <img src="/assets/images/posts/2020-04-20-deleting-whatsapp-1.png" alt="Screenshot of account deletion">
   </div>
   <div class="w50">
-    <img src="/assets/images/posts/2020-04-20-deleting-whatsapp-2.png" alt="Screenshot of app deletion">
+    <img src="/assets/images/posts/2020-04-20-deleting-whatsapp-2.jpg" alt="Screenshot of app deletion">
   </div>
 </div>
 
