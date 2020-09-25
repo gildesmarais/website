@@ -25,10 +25,10 @@
     rel="preload"
     type="font/ttf"
   />
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}" />
   <link
     rel="stylesheet"
-    href="{{ '/assets/css/print.css' | relative_url }}"
+    href="{{ '/assets/css/print.css' | relative_url }}?{% cachebuster %}"
     media="print"
   />
   <link
