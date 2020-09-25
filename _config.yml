@@ -72,6 +72,9 @@ exclude:
   - yarn.error
   - yarn.lock
 
+keep_files:
+  - googleeaa7abda502171aa.html
+
 sass:
   style: compressed
   sass_dir: assets/css/sass
