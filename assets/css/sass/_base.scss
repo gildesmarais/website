@@ -22,6 +22,7 @@ $monospace-font: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
 $breakpoint-medium: 730px;
 
 @mixin tile {
+  padding: 0.75em 1.25em;
   background-color: $base000;
   border: 1px solid $base00;
   box-shadow: 0 1px 3px $base00;

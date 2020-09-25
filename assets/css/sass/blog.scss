@@ -15,10 +15,12 @@
   display: flex;
   justify-content: space-between;
   padding: 0.25em 0.5em;
+
+  margin-bottom: 1em;
   border-bottom: 1px solid $base01;
+  border-left: 2px solid transparent;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;
-  border-left: 2px solid transparent;
 
   &:focus,
   &:hover {
@@ -45,15 +47,4 @@
   padding-right: 0;
   color: $base03;
   white-space: nowrap;
-}
-
-@media (max-width: $breakpoint-medium) {
-  .blog__list > li {
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-
-  .blog__meta {
-    order: -1;
-  }
 }

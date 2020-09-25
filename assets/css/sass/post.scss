@@ -8,7 +8,6 @@
 
 .post__toc {
   @include tile;
-  padding: 0.5em;
 
   margin: 1.5em 0;
 
@@ -23,8 +22,6 @@
 }
 
 .post__content {
-  font-size: 1em;
-
   @supports (hyphens: auto) {
     hyphens: auto;
     text-align: justify;
@@ -107,10 +104,8 @@
 
 .post__footer-note {
   @include tile;
-  padding: 0.5em 0 0.5em 0.75em;
+
   margin: 3em auto 1em;
-  font-size: 1.1em;
-  line-height: 1.61;
   border-left: 0.75em solid $base02;
 
   a {
@@ -172,19 +167,11 @@
 }
 
 @media (max-width: $breakpoint-medium) {
-  .post__content {
-    font-size: 0.9em;
-  }
-
   .post__content img {
     width: calc(100% + (var(--section-padding) * 2));
     max-width: unset;
     // stylelint-disable-next-line function-calc-no-invalid
     margin: 0 calc(var(--section-padding) * -1);
-  }
-
-  .post__content li {
-    padding: 0.25em 0;
   }
 }
 

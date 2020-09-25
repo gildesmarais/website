@@ -2,29 +2,18 @@
   @include tile;
 
   display: flex;
-  flex-direction: row;
-  padding: 0.75em 1.25em;
   margin-bottom: 1.5em;
 }
 
-%timerange-font {
-  font-family: $alternative-font;
-  font-size: 1em;
-}
-
 .work-experience__timerange {
-  width: 25%;
-  padding-top: 0.25em;
-  @extend %timerange-font;
-}
-
-.work-experience__timerange-seperator {
-  @extend %timerange-font;
+  width: 100%;
+  padding-top: 0.75em;
+  color: $base04;
 }
 
 .work-experience__textbox {
   width: 75%;
-  color: $base04;
+  width: 100%;
 }
 
 .work-experience__company {
@@ -36,17 +25,15 @@
   font-size: 0.8em;
 }
 
-.work-experience__list {
-  list-style-type: square;
-}
-
-@media (max-width: $breakpoint-medium) {
+@media (min-width: $breakpoint-medium) {
   .work-experience {
-    flex-direction: column;
+    flex-direction: row;
   }
 
-  .work-experience__timerange,
+  .work-experience__timerange {
+    width: 25%;
+  }
   .work-experience__textbox {
-    width: 100%;
+    width: 75%;
   }
 }
