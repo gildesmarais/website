@@ -42,7 +42,7 @@
 }
 
 .nav__site-title {
-  font-family: $alternative-font;
+  font-family: var(--font-alt);
   font-size: 1.2em;
   font-weight: 600;
   color: var(--front-100);

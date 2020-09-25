@@ -28,7 +28,7 @@
 @mixin tag {
   display: inline-block;
   padding: 0 0.5em;
-  font-family: $alternative-font;
+  font-family: var(--font-alt);
   text-decoration: none;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;

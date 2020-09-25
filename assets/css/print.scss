@@ -104,7 +104,7 @@ ul.section-nav a {
 .post__meta,
 .post__author {
   display: block !important;
-  font-family: $alternative-font;
+  font-family: var(--font-alt);
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 0.05em;

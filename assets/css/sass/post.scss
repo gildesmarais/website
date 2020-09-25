@@ -14,7 +14,7 @@
 
   > span {
     display: inline-block;
-    font-family: $alternative-font;
+    font-family: var(--font-alt);
     font-size: 1.2em;
     color: var(--front-200);
     text-decoration: underline;
@@ -30,7 +30,7 @@
 
   code {
     width: 100%;
-    font-family: $monospace-font;
+    font-family: var(--font-mono);
     font-size: 0.85em;
     line-height: 1;
     font-variant-ligatures: discretionary-ligatures;
@@ -98,7 +98,7 @@
 }
 
 .post .footnote {
-  font-family: $monospace-font;
+  font-family: var(--font-mono);
   text-decoration: none;
   letter-spacing: -0.05em;
 
@@ -123,7 +123,7 @@
 
   ol > li::before {
     display: inline-block;
-    font-family: $monospace-font;
+    font-family: var(--font-mono);
     color: var(--front-300);
     letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";

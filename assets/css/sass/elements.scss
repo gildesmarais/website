@@ -11,7 +11,7 @@ body {
 
 body {
   padding-bottom: 66vh;
-  font-family: $base-font;
+  font-family: var(--font);
   font-size: var(--rem);
   font-weight: 350;
   line-height: 1.25;
@@ -66,7 +66,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: $alternative-font;
+  font-family: var(--font-alt);
   color: var(--front-100);
   text-align: left;
   text-decoration: underline;

@@ -27,7 +27,7 @@
 }
 
 .project__jekyll-loading-lazy > h2 {
-  font-family: $monospace-font;
+  font-family: var(--font-mono);
   font-weight: normal;
   letter-spacing: -0.05em;
 }
