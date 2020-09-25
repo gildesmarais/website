@@ -19,14 +19,14 @@ layout: page
   {% for post in site.posts %}
   <li class="h-entry post-preview">
     <header>
-      <a href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}">
+      <a href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" title="{{ post.title | escape }}">
         <div class="post-preview__shade"></div>
         {% if post.image %}
-        <img class="post-preview__img" src="{{ post.image | relative_url }}" />
-        <img class="post-preview__blurry-img" src="{{ post.image | relative_url }}" />
+        <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" />
+        <img class="post-preview__blurry-img" aria-hidden="true" src="{{ post.image | relative_url }}" />
         {% else %}
-        <img class="post-preview__img--missing" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" />
-        <img class="post-preview__blurry-img" src="{{ "/assets/images/social.png" | relative_url }}" />
+        <img class="post-preview__img--missing" aria-hidden="true" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" />
+        <img class="post-preview__blurry-img" aria-hidden="true" src="{{ "/assets/images/social.png" | relative_url }}" />
         {% endif %}
 
         {% if post.lang == 'de' %}<span class="post-preview__lang" title="Deutschsprachiger Blogpost">🇩🇪</span>{% endif %}
@@ -34,7 +34,7 @@ layout: page
     </header>
 
     <main class="post-preview__body">
-      <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
+      <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}">
         {{ post.title | escape }}
       </a>
 

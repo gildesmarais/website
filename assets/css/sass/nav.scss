@@ -19,6 +19,7 @@
   padding-left: 0;
   margin: 0;
   list-style-type: none;
+  font-weight: 500;
 
   > li:first-child {
     margin-right: auto;
@@ -37,7 +38,7 @@
   }
 }
 
-.nav__item--active > a {
+.nav__item--active {
   text-decoration: underline;
 }
 
