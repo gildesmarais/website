@@ -4,6 +4,7 @@ layout: page
 
 <article class="post h-entry">
   <header class="post__header">
+    <h1 class="post__title p-name">{{ page.title | escape }}</h1>
     <p class="post__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published">
         {{ page.date | date_to_long_string }}
@@ -13,7 +14,6 @@ layout: page
         {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
       </a>
     </p>
-    <h1 class="post__title p-name">{{ page.title | escape }}</h1>
   </header>
 
   {% if post.description %}
