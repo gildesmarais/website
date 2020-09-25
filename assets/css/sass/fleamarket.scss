@@ -1,15 +1,15 @@
 .fleamarket__list {
   padding: 0;
-  line-height: 2;
   list-style: none;
 
   > li {
-    border-bottom: 1px solid darken($base03, 25);
+    border-bottom: 1px solid var(--back-400);
   }
 
   > li > a {
     display: flex;
-    color: $base04;
+    padding: 0.33em 0;
+    color: var(--front-300);
   }
 }
 
@@ -18,16 +18,15 @@
 }
 
 .fleamarket__button {
-  margin: 2rem 0;
+  margin: 2em 0;
   text-align: right;
 }
 
 .fleamarket__more {
   @include tile;
   width: 100%;
-  padding: 0.5rem 0 0.5rem 0.75rem;
-  margin: 3rem auto 1rem;
-  font-size: 1.1rem;
-  line-height: 1.61;
-  border-left: 0.75em solid $base06;
+  padding: 0.5em 0 0.5em 0.75em;
+  margin: 3em auto 1em;
+  font-size: 1.1em;
+  border-left: 0.75em solid var(--front-100);
 }

@@ -2,6 +2,7 @@
 layout: post
 title: "How I work, part 1: devices, utilities and environment"
 description: "How I develop software. Part 1."
+image: /assets/images/posts/2020-04-05-minimal-setup.jpg
 toc: true
 tags:
   - bluetooth

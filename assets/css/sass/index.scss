@@ -1,26 +1,19 @@
 @import "_base";
 
-.index {
-  max-width: 25rem;
-}
+// .index {}
 
 .index__headline {
   display: block;
   width: 100%;
   margin-bottom: 0;
-  margin-left: -0.1rem; // the capital h looks offset
-  line-height: 1;
+  margin-left: -0.1em; // the capital h looks offset
   letter-spacing: -0.025em;
 }
 
 .index__ipa {
   font-size: 1.2em;
-  color: $base03;
+  color: var(--front-400);
   letter-spacing: 0.025em;
-}
-
-.index__photo {
-  display: none;
 }
 
 .index__link--blog {
@@ -30,6 +23,6 @@
 .index__post-title {
   display: inline-block;
   padding-left: 0;
-  margin: 0.5rem 0;
+  margin: 0.5em 0;
   letter-spacing: 0.025em;
 }

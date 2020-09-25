@@ -1,9 +1,10 @@
 ---
-layout: container
+layout: page
 ---
 
 <article class="post h-entry">
   <header class="post__header">
+    <h1 class="post__title p-name">{{ page.title | escape }}</h1>
     <p class="post__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published">
         {{ page.date | date_to_long_string }}
@@ -13,9 +14,6 @@ layout: container
         {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
       </a>
     </p>
-    <h1 class="post__title p-name">
-      {{ page.title | escape }}
-    </h1>
   </header>
 
   {% if post.description %}
@@ -24,24 +22,25 @@ layout: container
 
   <main class="post__content e-content">
     {% if page.toc %}
-    <p class="post__description">{{ page.description }}</p>
+    <div class="post__toc">
+      <span>Table of contents</span>
+      {% toc %}
+    </div>
     {% endif %}
 
-    {{ content | toc }}
+    {{ content }}
   </main>
 
-  <aside class="post__footer-note">
+  <aside class="message post__message">
     <b>Thank you for reading my post!</b>
     If you don’t want to miss any future posts, I suggest subscribing to the
-    <a
-      role="complementary"
-      href="{{ '/feed.xml' | relative_url }}"
-    > RSS feed</a>
+    <a role="complementary" href="{{ '/feed.xml' | relative_url }}">
+      RSS feed</a
+    >
     or following me on
-    <a href="https://twitter.com/{{ site.twitter.username}}">Twitter</a> to stay in touch.
+    <a href="https://twitter.com/{{ site.twitter.username}}">Twitter</a> to stay
+    in touch.
   </aside>
 
-  <footer>
-    {% include tags.html %}
-  </footer>
+  <footer>{% include tags.html %}</footer>
 </article>

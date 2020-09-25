@@ -2,6 +2,7 @@
 lang: de
 layout: post
 title: "Große Gruppe Radfahrender auf der Straße in Oldenburg?!"
+description: Eine internationale Bewegung, die für Rechte der Radfahrenden eintritt.
 tags:
   - bicycle
   - oldenburg

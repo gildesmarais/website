@@ -1,0 +1,24 @@
+ul.section-nav {
+  margin-left: 0;
+}
+
+.section-nav {
+  &,
+  ul {
+    list-style-type: none;
+
+    counter-reset: section;
+  }
+
+  li::before {
+    color: var(--front-400);
+    content: counters(section, ".") ". ";
+    counter-increment: section;
+  }
+
+  a {
+    font-weight: 400;
+    color: var(--front-200);
+    letter-spacing: 0.005em;
+  }
+}

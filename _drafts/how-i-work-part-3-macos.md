@@ -7,7 +7,6 @@ tags:
   - macos
   - programming
   - reference
-  - reference
   - software
 ---
 
@@ -49,20 +48,20 @@ When that first sprint is done, I adjust the OS to my liking even more...
 
 As developer I take screenshots quite often. A picture says more than thousand words.
 
-Cmd+Shift+3 captures the whole screen.
-Cmd+Shift+4 activates the capture mode and space screenshots just the window below the cursor. You can alternatively select an area of the screen with your mouse and have that captured.
+<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>3</kbd> captures the whole screen.
+<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd> activates the capture mode and space screenshots just the window below the cursor. You can alternatively select an area of the screen with your mouse and have that captured.
 
 Since some macOS versions there's an innovate and most of the time useless feature: it ask you what to do with the screenshot _before saving it_.[^1]
 
 Turn that time-wasting behavior off:
 
-```
+```sh
 <!-- TODO: add cmd -->
 ```
 
 The screenshot then appears directly as a file on your Desktop after capturing. That would cause chaos quickly. Change the default location to store screenshots to `~/Desktop/Screenshots` with:
 
-```
+```sh
 # Save screenshots to the ~/Desktop/Screenshots, create directory if it does not exist
 mkdir -p "${HOME}/Desktop/Screenshots"
 defaults write com.apple.screencapture location -string "${HOME}/Desktop/Screenshots"
@@ -111,7 +110,7 @@ Set it up under:
 
 ### Speed up / disable animations
 
-```
+```sh
 defaults write com.apple.finder DisableAllAnimations -bool true
 defaults write NSGlobalDomain NSWindowResizeTime .001
 defaults write com.apple.Dock autohide-delay -float 0
@@ -145,8 +144,8 @@ I also move windows to another screen with it.
 
 ### Switching between applications and their windows
 
-Cmd - Tab ⌘ - ↹ brings up the application switcher.
-Keep on holding Cmd.
+<kbd>⌘</kbd>+<kbd>Tab ⇥</kbd> brings up the application switcher.
+Keep holding <kbd>⌘</kbd>.
 
 Press Tab to choose the next application.
 Press Shift+Tab to choose the previous application.

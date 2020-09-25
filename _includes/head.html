@@ -1,43 +1,48 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <meta name="referrer" content="no-referrer" />
   <meta
     name="robots"
     content="{% if page.noindex %}noindex, noarchive, follow{% else %}index, follow{% endif %}"
   />
 
-  <link rel="manifest" href="/manifest.json">
-  <link as="font" crossorigin href="/assets/css/fonts/Jura/Jura-Light.woff2" rel="preload" type="font/woff2">
-  <link as="font" crossorigin href="/assets/css/fonts/Jura/Jura-Light.ttf" rel="preload" type="font/ttf">
+  <link rel="manifest" href="/manifest.json" />
+  <link
+    as="font"
+    crossorigin
+    href="/assets/css/fonts/Jura/Jura-Light.woff2"
+    rel="preload"
+    type="font/woff2"
+  />
+  <link
+    as="font"
+    crossorigin
+    href="/assets/css/fonts/Jura/Jura-Light.ttf"
+    rel="preload"
+    type="font/ttf"
+  />
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/print.css' | relative_url }}"
+    media="print"
+  />
   <link
     rel="canonical"
     href="{{ page.url | replace: 'index.html','' | absolute_url }}"
   />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="{{ site.title | escape }}"
-    href="{{ "/feed.xml" | absolute_url }}"
-  />
-  <link
-    rel="alternate"
-    type="application/json"
-    title="{{ site.title | escape }}"
-    href="{{ "/feed.json" | absolute_url }}"
-  />
-
   {% include favicons.html %}
 
   {% seo %}
 
   {% if page.seo.image %}
   <meta property="og:image" content="{{ page.seo.image | absolute_url }}" />
+  {% elsif post.image %}
+  <meta property="og:image" content="{{ post.image | absolute_url }}" />
   {% else %}
   <meta property="og:image" content="{{ "/assets/images/social.png" | absolute_url }}" />
   {% endif %}
