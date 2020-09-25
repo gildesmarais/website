@@ -68,9 +68,6 @@
   img {
     width: 100%;
     height: auto;
-    border: 1px solid $base01;
-    border-radius: 0.05em;
-    box-shadow: 0 0 0.25em $base00;
   }
 
   li {
@@ -169,17 +166,5 @@
     max-width: unset;
     // stylelint-disable-next-line function-calc-no-invalid
     margin: 0 calc(var(--section-padding) * -1);
-  }
-}
-
-@media (hover: hover) {
-  .post img {
-    filter: brightness(0.85);
-    transition: filter 0.2s linear;
-
-    &:hover,
-    &:focus {
-      filter: unset;
-    }
   }
 }

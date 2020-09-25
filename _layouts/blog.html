@@ -15,26 +15,47 @@ layout: page
 
 <ul class="blog__list">
   {% for post in site.posts %}
-  <li class="h-entry">
-    <a class="blog__link p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
-      {% if post.lang == 'de' %}
-      🇩🇪
+  <li class="h-entry post-preview">
+    <header>
+      {% if post.image %}
+      <img class="post-preview__img" src="{{ post.image | relative_url }}" />
+      <img class="post-preview__blurry-img" src="{{ post.image | relative_url }}" />
+      {% else %}
+      <!-- TODO: change fallback image -->
+      <img class="post-preview__img" src="{{ "/assets/images/social.png" | relative_url }}" />
+      <img class="post-preview__blurry-img" src="{{ "/assets/images/social.png" | relative_url }}" />
       {% endif %}
-      {{ post.title | escape }}
-    </a>
-    <time class="blog__meta dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    </header>
 
-    {% for tag in page.tags %}
-    <span class="p-category" hidden>{{ tag }}</span>
-    {% endfor %}
+    <section class="post-preview__body">
+      <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
+        {% if post.lang == 'de' %}
+        <span class="post-preview__lang">🇩🇪</span>
+        {% endif %}
+        {{ post.title | escape }}
+      </a>
+      <p class="post-preview__time">
+        <time class="dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+      </p>
 
-    {% if post.description %}
-    <span class="p-summary" hidden>{{post.description}}</span>
-    {% endif %}
+      {% if post.tags %}
+        <ul class="post-preview__tags">
+          {% for tag in post.tags %}
+          <li>
+            <a href="/tag/{{ tag }}" class="tags__tag--5 p-category">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-    <a href="{{ site.url }}" class="h-card p-author" hidden>
-      {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
-    </a>
+      {% if post.description %}
+      <span class="p-summary">{{post.description}}</span>
+      {% endif %}
+
+      <a href="{{ site.url }}" class="h-card p-author" hidden>
+        {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
+      </a>
+    </section>
   </li>
   {% endfor %}
 </ul>

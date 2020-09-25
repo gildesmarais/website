@@ -1,0 +1,63 @@
+.post-preview {
+  @include tile;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+.post-preview > header {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.post-preview__blurry-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 200%;
+  height: 200%;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+
+  &,
+  &:focus,
+  &:hover {
+    filter: blur(5em);
+  }
+}
+
+.post-preview__img {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  min-height: 10em;
+  max-height: 16vh;
+  border-width: 0;
+}
+
+.post-preview__lang {
+  float: right;
+}
+.post-preview__body {
+  padding: 0.75em 1.25em;
+}
+
+.post-preview__time {
+  font-size: 0.8em;
+}
+.post-preview__tags {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  > li > a {
+    padding: 0;
+  }
+}
