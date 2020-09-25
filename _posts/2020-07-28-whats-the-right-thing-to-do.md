@@ -1,6 +1,7 @@
 ---
 layout: post
 title: What's the Right Thing To Do?
+description: Recommendation for an enjoyable lecture ‒ freely available ‒ on moral reasoning.
 tags:
   - recommendation
 ---

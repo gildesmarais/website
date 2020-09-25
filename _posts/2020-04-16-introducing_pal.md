@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Introducing Pal
+description: Get to know Pal and what differentiates an aligator from a crocodile.
+image: /assets/images/posts/2020-04-16-pal.jpg
 tags:
   - programming
 ---

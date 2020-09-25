@@ -1,20 +1,34 @@
 <nav class="nav">
-  <header class="nav__container">
+  <div class="nav__container">
     {% assign current = page.url | downcase | split: '/' %}
 
-    <a href="{{ "/" | relative_url }}" class="nav__logo {% if current[1] == null %}nav__logo--active{% endif %}">
-      <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
-      {% include gil.svg %}
-    </a>
+    <ul class="nav__items">
+      <li>
+        <a href="{{ "/" | relative_url }}" class="nav__item {% if current[1] == null %}nav__item--active{% endif %}">
+          <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
+          {% if current[0] == '' %}
+          <span class="nav__site-title">Gil Desmarais</span>
+          {% endif %}
+        </a>
+      </li>
 
-    <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %} ">
-      <span data-mousetrap>P</span>rojects
-    </a>
-    <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %} ">
-      <span data-mousetrap>R</span>ésumé
-    </a>
-    <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}">
-      <span data-mousetrap>B</span>log
-    </a>
-  </header>
+      <li>
+        <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %} ">
+          <span data-mousetrap>R</span>ésumé
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %} ">
+          <span data-mousetrap>P</span>rojects
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}">
+          <span data-mousetrap>B</span>log
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>

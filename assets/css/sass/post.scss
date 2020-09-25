@@ -1,23 +1,40 @@
-.post__header,
-.post__title {
-  line-height: 1;
-}
-
-.post__description {
-  font-size: 1.2em;
-}
+// .post__header,
+// .post__title {}
 
 .post__meta {
-  color: $base03;
+  font-size: 0.8em;
+  color: var(--front-400);
   text-align: right;
 }
 
+.post__toc {
+  @include tile;
+
+  margin: 1.5em 0;
+
+  > span {
+    display: inline-block;
+    font-family: var(--font-alt);
+    font-size: 1.2em;
+    color: var(--front-200);
+    text-decoration: underline;
+    text-decoration-color: var(--back-300);
+  }
+}
+
 .post__content {
-  font-size: 1.05rem;
-  hyphens: auto;
-  line-height: 1.5;
-  text-align: justify;
-  word-wrap: break-word;
+  @supports (hyphens: auto) {
+    hyphens: auto;
+    text-align: justify;
+  }
+
+  code {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    line-height: 1;
+    font-variant-ligatures: discretionary-ligatures;
+  }
 
   h1,
   h2,
@@ -25,19 +42,11 @@
   h4,
   h5,
   h6 {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    height: 100%;
-    min-height: 2.5rem;
-    margin-bottom: 0.25em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-color: $black;
+    > * {
+      font-family: inherit;
+    }
 
     > code {
-      font-family: inherit;
       letter-spacing: 0.05em;
       background-color: unset;
     }
@@ -46,7 +55,7 @@
   h4,
   h5,
   h6 {
-    text-decoration-color: $base01;
+    text-decoration-color: var(--back-400);
   }
 
   p {
@@ -54,29 +63,12 @@
   }
 
   p + p {
-    margin-top: 0.75em;
+    margin-top: 1em;
   }
 
   img {
     width: 100%;
     height: auto;
-    border: 1px solid rgba($base01, 0.8);
-    border-radius: 0.05em;
-    box-shadow: 0 0 0.25em rgba($base01, 0.25);
-  }
-
-  a[target="_blank"] {
-    color: inherit;
-  }
-
-  .highlighter-rouge {
-    max-width: 100%;
-    overflow: auto;
-    hyphens: none;
-  }
-
-  ul {
-    list-style: outside circle;
   }
 
   li {
@@ -91,108 +83,82 @@
     text-align: justify;
     letter-spacing: -0.025em;
     quotes: "\201C""\201D""\2018""\2019";
-    border-left: 0.75em solid $base00;
-  }
-
-  blockquote:before {
-    margin-right: 0.125em;
-    font-family: serif;
-    font-size: 4em;
-    line-height: 0.1em;
-    vertical-align: -0.4em;
-    content: open-quote;
+    border-left: 0.75em solid var(--back-500);
   }
 
   blockquote p {
     display: inline;
   }
 
-  code {
-    width: 100%;
-    font-family: 'Fira Code', 'Ubuntu Mono', 'Monaco', 'Lucida Console', monospace;
-    font-size: 0.85em;
-    line-height: 1;
-    font-variant-ligatures: discretionary-ligatures;
-  }
-}
-
-.post__footer-note {
-  @include tile;
-  padding: 0.5rem 0 0.5rem 0.75rem;
-  margin: 3rem auto 1rem;
-  font-size: 1.1rem;
-  line-height: 1.61;
-  border-left: 0.75em solid $base06;
-
-  a {
-    text-decoration: underline;
+  ul,
+  ol {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
   }
 }
 
 .post .footnote {
+  font-family: var(--font-mono);
   text-decoration: none;
+  letter-spacing: -0.05em;
+
+  &:before {
+    content: "[";
+  }
+  &:after {
+    content: "]";
+  }
 }
 
 .post .footnotes {
-  margin: 1.5rem 0;
-  border-top: 2px solid rgba($base00, 0.5);
+  margin: 1.5em 0;
+  font-size: 0.9em;
+  border-top: 2px solid var(--back-400);
 
   ol {
     margin: 0.5em 0 0;
+    list-style-type: none;
+    counter-reset: section;
   }
 
-  ol > li {
-    padding: 0 0.25em;
-    font-size: 0.95em;
-  }
-
-  ol > li a {
-    color: inherit;
+  ol > li::before {
+    display: inline-block;
+    font-family: var(--font-mono);
+    color: var(--front-300);
+    letter-spacing: -0.05em;
+    content: "[" counters(section, ".") "]";
+    counter-increment: section;
   }
 
   ol > li:target {
-    border: 1px solid $base0c;
+    border: 1px solid var(--contrast-100);
+  }
+
+  ol > li > p {
+    display: inline-block;
+  }
+  ol > li a {
+    color: inherit;
   }
 
   ol > li:target .reversefootnote {
     padding: 0;
     margin: 0;
-    line-height: 1em;
     text-decoration: none;
     vertical-align: middle;
     border: 1px solid transparent;
-
-    &:hover {
-      border-color: $base09;
-    }
   }
 }
 
-@media (max-width: $breakpoint-medium) {
-  .post__content {
-    font-size: 0.9rem;
-  }
+.post__message {
+  margin: 3em 0;
+}
 
+@media (max-width: $breakpoint-medium) {
   .post__content img {
     width: calc(100% + (var(--section-padding) * 2));
     max-width: unset;
     // stylelint-disable-next-line function-calc-no-invalid
     margin: 0 calc(var(--section-padding) * -1);
-  }
-
-  li {
-    padding: 0.25em 0;
-  }
-}
-
-@media (hover: hover) {
-  .post img {
-    filter: brightness(0.75);
-    transition: filter 0.4s;
-
-    &:hover,
-    &:focus {
-      filter: unset;
-    }
   }
 }

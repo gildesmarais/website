@@ -1,6 +1,7 @@
 ---
 layout: post
 title: On slaughtering a pig
+image: /assets/images/posts/2020-04-11_pigs.jpg
 toc: true
 description: Last winter I witnessed a home slaughtering of a pig.
 tags: [food]
@@ -163,6 +164,8 @@ I recommend anyone who has the chance to witness a home slaughtering of an anima
 
 It won't be a joyful day, but a day full of physical work, in your life. One you will remember and it might change your opinion on some things (in whatever way).
 
+![picture of pigs in a sty](/assets/images/posts/2020-04-11_pigs.jpg)
+
 [^1]: It's important to not cut the trachae, as that would allow blood to fill the lungs.
 [^2]: We caught all the blood and mixed it in a bowl to make [blood sausage](https://en.wikipedia.org/wiki/Blood_sausage) out of it. In some religions consuming the blood is forbidden and is thus wasted.
 [^3]: [Wikipedia: Shechita](https://en.wikipedia.org/wiki/Shechita)
@@ -170,7 +173,7 @@ It won't be a joyful day, but a day full of physical work, in your life. One you
 [^5]: The innards are full of valuable nutrients. However, I choose not to eat some innards from a commercial fattened pig due to the amount of medicine.
 [^6]: Especially for [Trichinella (Wikipedia)](https://en.wikipedia.org/wiki/Trichinella)
 [^7]: [German: Schlachttier- und Fleischuntersuchung](https://de.wikipedia.org/wiki/Schlachttier-_und_Fleischuntersuchung)
-[^8]: e.g. compare [_English: Cut of pork_](https://en.wikipedia.org/wiki/Cut_of_pork) and [_German: Teilstücke des Schweinefleischs_](https://de.wikipedia.org/wiki/Teilstücke_des_Schweinefleischs)
+[^8]: e.g. compare [_English: Cut of pork_](https://en.wikipedia.org/wiki/Cut_of_pork) and [_German: Teilstücke des Schweinefleischs_](https%3A//de.wikipedia.org/wiki/Teilst%FCcke_des_Schweinefleischs)
 [^9]: If your cookbook does not list cuts of meat, get a cookbook and not just a collection of instructions to create meals.
 [^10]: Also change their food beforehand to avoid a full pig's stomach.
 [^11]: Pigs can jump man-high. I saw it.

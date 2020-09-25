@@ -2,58 +2,38 @@
   @include tile;
 
   display: flex;
-  flex-direction: row;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-}
-
-%timerange-font {
-  font-family: $alternative-font;
-  font-size: 1rem;
-  line-height: 1.6;
+  margin-bottom: 1.5em;
 }
 
 .work-experience__timerange {
-  width: 25%;
-  padding-top: 0.25em;
-  @extend %timerange-font;
-}
-
-.work-experience__timerange-seperator {
-  @extend %timerange-font;
+  width: 100%;
+  padding-top: 0.75em;
+  color: var(--front-300);
 }
 
 .work-experience__textbox {
   width: 75%;
-  color: $base04;
-}
-
-.work-experience__position {
-  margin: 0;
-  font-size: 1.3rem;
+  width: 100%;
 }
 
 .work-experience__company {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 .work-experience__thesis--originaltitle {
-  margin-top: 1rem;
-  font-size: 80%;
+  margin-top: 1em;
+  font-size: 0.8em;
 }
 
-.work-experience__list {
-  list-style-type: square;
-}
-
-@media (max-width: $breakpoint-medium) {
+@media (min-width: $breakpoint-medium) {
   .work-experience {
-    flex-direction: column;
+    flex-direction: row;
   }
 
-  .work-experience__timerange,
+  .work-experience__timerange {
+    width: 25%;
+  }
   .work-experience__textbox {
-    width: 100%;
+    width: 75%;
   }
 }

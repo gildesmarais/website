@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Using Bitwarden"
+description: A new password manager, self-hosted.
 tags:
   - linux
   - decentralize

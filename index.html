@@ -1,5 +1,5 @@
 ---
-layout: container
+layout: page
 ---
 
 <div class="h-card index" id="hcard-Gil-Desmarais">
@@ -20,21 +20,26 @@ layout: container
   <p>
     This is my personal website.
   </p>
+
   <p>
     I live in
     <span class="p-locality">Berlin</span>
-    and work as
+    and currently work as
     <span class="p-job-title">full-stack developer</span>.
     <br />
     Full-stack means I develop on the
     <span class="p-category">frontend</span>
     and
     <span class="p-category">backend</span>
+    of web applications
     and administrate
-    <span class="p-category">servers</span>. I also work on
+    <span class="p-category">servers</span>.
+
+    I&nbsp;also work on
     <span class="p-category">products</span>
     and monitor and analyze.
   </p>
+
   <p>
     I'm furthermore interested (but not only) in:
     <span class="p-category">music</span>,
@@ -46,17 +51,17 @@ layout: container
     and
     <span class="p-category">aviation</span>.
   </p>
-</div>
 
-<p class="index">
-  Sometimes I write about interesting things in my
-  <a href="/blog" class="index__link--blog category">blog</a>. My latest blog
-  post is:
-  <br />
-  {% assign post = site.posts.first %}
-  <a
-    href="{{ root_url }}{{ post.url }}"
-    class="h-entry p-name u-url index__post-title"
-    >› {{ post.title }}</a
-  >
-</p>
+  <p>
+    Sometimes I write about interesting things in my
+    <a href="/blog" class="index__link--blog category">blog</a>. My latest blog
+    post is:
+    <br />
+    {% assign post = site.posts.first %}
+    <a
+      href="{{ root_url }}{{ post.url }}"
+      class="h-entry p-name u-url index__post-title"
+      >› {{ post.title }}</a
+    >
+  </p>
+</div>
