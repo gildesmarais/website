@@ -1,11 +1,9 @@
-;(function (window, document, Mousetrap) {
-  "use strict"
-
+;((window, document, Mousetrap) => {
   const options = { passive: true }
 
-  const bindMousetrap = (el) => {
-    Mousetrap.bind(el.innerText.toLowerCase(), (_) => {
-      window.location.href = el.parentElement.href
+  const bindMousetrap = ({ innerText, parentElement }) => {
+    Mousetrap.bind(innerText.toLowerCase(), (_) => {
+      window.location.href = parentElement.href
     })
   }
 
@@ -43,7 +41,7 @@
   if (window.console && window.console.log) {
     const font = "font-family: monospace; font-size:16px; line-height: 2"
 
-    window.console.log("%c👋🏽 Hey there!", "font-weight:bold;" + font)
+    window.console.log("%c👋🏽 Hey there!", `font-weight:bold;${font}`)
     window.console.log(
       "%c🧐 Looks like you are interested in my work. That's cool.",
       font

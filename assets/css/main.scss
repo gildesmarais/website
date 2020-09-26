@@ -43,30 +43,30 @@
     "Lucida Console", monospace;
 
   // the higher, the more in the back
-  --back-900: hsl(70, 0%, 100%);
-  --back-700: hsl(70, 6%, 97%);
-  --back-600: hsl(70, 6%, 94%);
-  --back-500: hsl(70, 6%, 88%);
-  --back-400: hsl(70, 6%, 82%);
-  --back-300: hsl(70, 6%, 73%);
+  --back-900: hsl(70, 0%, 97%);
+  --back-700: hsl(70, 6%, 94%);
+  --back-600: hsl(70, 6%, 91%);
+  --back-500: hsl(70, 6%, 85%);
+  --back-400: hsl(70, 6%, 79%);
+  --back-300: hsl(70, 6%, 70%);
 
   --front-400: hsl(210, 6%, 32%);
   --front-300: hsl(210, 6%, 27%);
   --front-200: hsl(210, 6%, 22%);
   --front-100: hsl(210, 6%, 6%);
 
-  --brand-100: hsl(21, 100%, 39%);
+  --brand-100: hsl(17, 89%, 48%);
   --contrast-100: hsl(201, 93%, 66%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --back-900: hsl(210, 0%, 0%);
-    --back-700: hsl(210, 6%, 3%);
-    --back-600: hsl(210, 6%, 6%);
-    --back-500: hsl(210, 6%, 12%);
-    --back-400: hsl(210, 6%, 18%);
-    --back-300: hsl(210, 6%, 27%);
+    --back-900: hsl(210, 0%, 1%);
+    --back-700: hsl(210, 6%, 6%);
+    --back-600: hsl(210, 6%, 9%);
+    --back-500: hsl(210, 6%, 15%);
+    --back-400: hsl(210, 6%, 21%);
+    --back-300: hsl(210, 6%, 30%);
 
     --front-400: hsl(70, 6%, 60%);
     --front-300: hsl(70, 6%, 69%);
