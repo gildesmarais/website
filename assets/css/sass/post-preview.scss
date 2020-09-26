@@ -50,6 +50,10 @@
   object-fit: cover;
 }
 
+.post-preview__img {
+  object-fit: contain;
+}
+
 .post-preview__img--missing {
   display: none;
 }
