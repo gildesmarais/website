@@ -72,8 +72,9 @@ exclude:
   - yarn.error
   - yarn.lock
 
-keep_files:
+include:
   - googleeaa7abda502171aa.html
+  - .htaccess
 
 sass:
   style: compressed
