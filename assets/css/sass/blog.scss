@@ -9,7 +9,7 @@
 
 .blog__list > li {
   flex: 1 1 calc(48% - 1em);
-  margin: 0.5em;
+  margin: 0.75em 0.5em;
 }
 
 @media (max-width: $breakpoint-medium) {
