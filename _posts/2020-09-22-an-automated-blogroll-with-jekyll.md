@@ -14,7 +14,7 @@ Anyway, I've automated the updating of my [blogroll](/blogroll) to link to blogs
 
 Every night a Github Action workflow builds and deploys this website.
 Before building the website, a ruby script fetches all my blog subscriptions from Newsblur (my feed reader).
-The script then outputs a YAML file which Jekyll reads as a collection.
+The script then outputs a YAML file which Jekyll reads as a data.
 The blogroll itself is then build as a regular HTML page in Jekyll.
 
 This post explain how it works.
@@ -99,7 +99,7 @@ bin/blogroll USERNAME PASSWORD FOLDER
 
 For `USERNAME` and `PASSWORD` write your Newsblur credentials. `FOLDER` is the name of the folder containing your blog subscriptions, e.g. <q>Cool Blogs</q>. If any of these strings contain a space or special characters, you must wrap them in quotes.
 
-The script creates a `blogroll.yml` file in `_data`. The `_data` directory is the place where Jekyll looks for its powerful [collections](https://jekyllrb.com/docs/collections/) feature. Jekyll automatically reads and populates the contents of the files there to the global site variable. `site.data.blogroll`.
+The script creates a `blogroll.yml` file in `_data`. The `_data` directory is the place where Jekyll looks for [data files](https://jekyllrb.com/docs/datafiles/). Jekyll automatically reads and populates the contents of the files there to the global site variable. `site.data.blogroll`.
 
 Finally, exclude the `bin/` folder from the build in the `_config.yml`
 
@@ -177,6 +177,6 @@ And lastly, add the required secrets (`NB_*`) to your website's repository setti
 Blogrolls are valuable to the independent world wide web. Let's not forget them.
 There are still plenty of blogs out there. It just hard to find them... a blogroll can mitigate the problematic discovery. If you write a blog, why not add a blogroll to your blog? It doesn't have to be automated; you can update the blogroll manually..
 
-Jekyll Collections are super powerful. In conjunction with scheduled deployments you can even display _not so static_ content easily.
+Jekylls support for data files is super powerful. In conjunction with scheduled deployments you can even display _not so static_ content easily.
 
 If you're familiar with Ruby, the script is straightforward. But don't worry, the data exchange format is YAML which probably every programming language can create. Use whatever language you like and runs on your continuous deployment service.
