@@ -13,7 +13,7 @@
   overflow: hidden;
   text-align: center;
   background-color: var(--back-500);
-  border-bottom: 1px solid var(--back-700);
+  border-bottom: 1px solid var(--back-400);
 }
 
 .post-preview__shade {
@@ -118,11 +118,11 @@
   list-style: none;
 
   > li {
-    margin-right: 1em;
+    margin-right: 0.25em;
   }
 
   > li > a {
-    padding: 0;
+    // padding: 0;
 
     &:focus,
     &:hover {
