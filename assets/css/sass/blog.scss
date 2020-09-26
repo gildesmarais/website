@@ -14,7 +14,8 @@
 
 @media (max-width: $breakpoint-medium) {
   .blog__list {
-    margin-left: 0;
+    padding: 0 0.75em;
+    margin: 0 auto;
   }
 
   .blog__list > li {

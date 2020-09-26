@@ -2,22 +2,15 @@
 layout: page
 ---
 
-<section class="section">
-  <div class="container">
-    <h1>All posts with {{ page.type }} '{{ page.title }}'</h1>
+<h1 class="archive__headline">
+  All posts with {{ page.type }}
+  <span class="tags__tag--5">{{ page.title }}</span>
+</h1>
 
-    <ul class="post-preview__list">
-      {% for post in page.posts %}
-      <li>
-        <a class="post-preview__link" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" tabindex="1">
-          {% if post.lang == 'de' %}
-          🇩🇪
-          {% endif %}
-          {{ post.title | escape }}
-        </a>
-        <time class="post-preview__meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
+<ul class="blog__list">
+  {% for post in site.posts %}
+  <li>
+    {% include post-preview.html %}
+  </li>
+  {% endfor %}
+</ul>
