@@ -5,8 +5,9 @@ ul.section-nav {
 .section-nav {
   &,
   ul {
+    margin-top: 0.125em;
+    margin-bottom: 0.125em;
     list-style-type: none;
-
     counter-reset: section;
   }
 
