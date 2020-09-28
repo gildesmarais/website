@@ -31,19 +31,7 @@
     href="{{ '/assets/css/print.css' | relative_url }}?{% cachebuster %}"
     media="print"
   />
-  <link
-    rel="canonical"
-    href="{{ page.url | replace: 'index.html','' | absolute_url }}"
-  />
   {% include favicons.html %}
 
   {% seo %}
-
-  {% if page.seo.image %}
-  <meta property="og:image" content="{{ page.seo.image | absolute_url }}" />
-  {% elsif post.image %}
-  <meta property="og:image" content="{{ post.image | absolute_url }}" />
-  {% else %}
-  <meta property="og:image" content="{{ "/assets/images/social.png" | absolute_url }}" />
-  {% endif %}
 </head>
