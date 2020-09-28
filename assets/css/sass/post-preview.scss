@@ -11,8 +11,6 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  background-color: var(--back-500);
-  border-bottom: 1px solid var(--back-400);
 }
 
 .post-preview__shade {
@@ -68,14 +66,18 @@
   width: 200%;
   height: 100%;
   overflow: hidden;
-  opacity: 0.5;
   object-fit: cover;
   object-position: center;
+  opacity: 0.3;
+
+  @media (prefers-color-scheme: dark) {
+    opacity: 1;
+  }
 
   &,
   &:focus,
   &:hover {
-    filter: blur(3em);
+    filter: blur(10em);
   }
 }
 
@@ -94,6 +96,11 @@
   > a {
     display: block;
     width: 100%;
+  }
+
+  > a:focus,
+  > a:hover {
+    text-decoration: underline;
   }
 }
 
