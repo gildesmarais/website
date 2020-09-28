@@ -2,7 +2,7 @@
   const options = { passive: true }
 
   const bindMousetrap = ({ innerText, parentElement }) => {
-    Mousetrap.bind(innerText.toLowerCase(), _ => {
+    Mousetrap.bind(innerText.toLowerCase(), (_) => {
       window.location.href = parentElement.href
     })
   }
@@ -12,27 +12,27 @@
       bindMousetrap
     )
 
-    Mousetrap.bind("j", _ => {
+    Mousetrap.bind("j", (_) => {
       window.scroll(0, window.scrollY + 16)
     })
-    Mousetrap.bind("k", _ => {
+    Mousetrap.bind("k", (_) => {
       window.scroll(0, window.scrollY - 16)
     })
-    Mousetrap.bind("g g", _ => {
+    Mousetrap.bind("g g", (_) => {
       window.scroll(0, 0)
     })
-    Mousetrap.bind("G", _ => {
+    Mousetrap.bind("G", (_) => {
       window.scroll(0, window.document.body.scrollHeight)
     })
-    Mousetrap.bind("?", _ => {
+    Mousetrap.bind("?", (_) => {
       window.location.href = "/help"
     })
-    Mousetrap.bind("t", _ => {
+    Mousetrap.bind("t", (_) => {
       window.location.href = "/tag"
     })
   }
 
-  const onDomContentLoad = _ => {
+  const onDomContentLoad = (_) => {
     setupMousetrap()
   }
 
