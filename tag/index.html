@@ -9,10 +9,12 @@ sitemap: false
 
 <h1>All Tags</h1>
 
-{% for tag in site.tags %}
-  {% assign t = tag | first %}
-  {% assign clean = t | downcase | replace:" ","-" %}
-  <p>
-    <a class="tags__tag" href="/tag/{{ t }}">{{ clean }}</a>
-  </p>
-{% endfor %}
+<ul class="tags">
+  {% for tag in site.tags %}
+    {% assign t = tag | first %}
+    {% assign clean = t | downcase | replace:" ","-" %}
+    <li class="tags__tag--5">
+      <a href="/tag/{{ t }}">{{ clean }}</a>
+    </li>
+  {% endfor %}
+</ul>
