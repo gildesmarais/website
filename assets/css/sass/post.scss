@@ -23,6 +23,8 @@
 }
 
 .post__content {
+  font-size: 1.125em;
+
   @supports (hyphens: auto) {
     hyphens: auto;
     text-align: justify;
