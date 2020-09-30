@@ -11,8 +11,8 @@
 }
 
 .project__outgoings > h2 {
-  font-weight: normal;
-  color: hsl(49, 86%, 50%);
+  font-weight: 400;
+  color: #edc512;
 }
 
 .project__html2rss > h2 {
@@ -28,6 +28,6 @@
 
 .project__jekyll-loading-lazy > h2 {
   font-family: var(--font-mono);
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.05em;
 }
