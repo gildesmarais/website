@@ -130,12 +130,16 @@
     counter-increment: section;
   }
 
+  ol > li {
+    margin-bottom: 0.25em;
+  }
+
   ol > li:target {
     border: 1px solid var(--contrast-100);
   }
 
   ol > li > p {
-    display: inline-block;
+    display: inline;
   }
   ol > li a {
     color: inherit;
