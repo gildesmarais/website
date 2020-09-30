@@ -17,6 +17,16 @@
   width: 100%;
 }
 
+.work-experience__tags {
+  margin-top: 1em;
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+  }
+}
+
 .work-experience__company {
   font-size: 0.8em;
 }

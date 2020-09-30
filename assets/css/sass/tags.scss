@@ -29,11 +29,11 @@
   font-size: 1.1em;
 }
 
-@mixin tag {
+.tags__tag {
   flex: 0;
   align-self: center;
   padding: 0.15em 0.2em;
-  margin: 0.15em;
+  margin: 0.15em 0.2em;
   font-family: var(--font-alt);
   font-size: 100%;
   color: rgba(var(--front-300), 1);
@@ -44,28 +44,4 @@
   border-radius: 0.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;
-}
-
-$tag-color: var(--front-400);
-
-$tag-settings: (
-  1: 65%,
-  2: 70%,
-  3: 80%,
-  4: 90%,
-  5: 100%
-);
-
-.tags__tag--0 {
-  display: none;
-}
-
-$tag-color: var(--front-300);
-
-@each $level, $visibility in $tag-settings {
-  .tags__tag--#{$level} {
-    @include tag;
-    font-size: $visibility;
-    color: rgba($tag-color, ($visibility / 100%));
-  }
 }
