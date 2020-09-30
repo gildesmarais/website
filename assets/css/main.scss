@@ -31,7 +31,7 @@
 }
 
 :root {
-  --rem: 16px;
+  --rem: 17px;
   --nav-height: 4em;
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5em;
@@ -87,6 +87,7 @@
 .archive__headline {
   margin: 1em 0;
 }
+
 @media (hover: hover) {
   [data-mousetrap] {
     text-decoration: underline;
