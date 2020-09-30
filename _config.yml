@@ -1,3 +1,10 @@
+defaults:
+  -
+    scope:
+      path:            "googleeaa7abda502171a*.html"
+    values:
+      sitemap:         false
+
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
