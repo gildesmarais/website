@@ -4,10 +4,8 @@
       <div class="post-preview__shade"></div>
       {% if post.image %}
       <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" />
-      <img class="post-preview__blurry-img" aria-hidden="true" src="{{ post.image | relative_url }}" />
       {% else %}
       <span class="post-preview__img--missing" />
-      <img class="post-preview__blurry-img" aria-hidden="true" src="{{ "/assets/images/social.png" | relative_url }}" />
       {% endif %}
 
       {% if post.lang == 'de' %}<span class="post-preview__lang" title="Deutschsprachiger Blogpost">🇩🇪</span>{% endif %}
