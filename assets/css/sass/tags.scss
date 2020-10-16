@@ -16,6 +16,10 @@
   }
 }
 
+.tags--list {
+  margin-left: 0;
+}
+
 .tags--left {
   @extend %tags;
 
