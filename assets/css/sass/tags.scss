@@ -30,18 +30,24 @@
 }
 
 .tags__tag {
+  display: inline-block;
   flex: 0;
   align-self: center;
-  padding: 0.15em 0.2em;
-  margin: 0.15em 0.2em;
-  font-family: var(--font-alt);
-  font-size: 100%;
-  color: rgba(var(--front-300), 1);
-  text-decoration-color: transparent;
+  padding: 0.2em 0.3em;
+  margin: 0.15em 0.15em;
+  font-size: 0.9em;
+  line-height: 1.16;
+  color: var(--front-400);
+  letter-spacing: 0.015em;
   white-space: nowrap;
-  background-color: var(--back-500);
+  background-color: var(--back-700);
   border: 1px solid var(--back-400);
   border-radius: 0.3em;
+  text-decoration-color: transparent;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;
+
+  &:first-child {
+    margin-left: 0;
+  }
 }

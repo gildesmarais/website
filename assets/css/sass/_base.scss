@@ -2,7 +2,8 @@ $breakpoint-medium: 45em;
 
 @mixin tile {
   padding: 0.75em 1.25em;
-  background-color: var(--back-600);
+  background-color: var(--back-700);
   border: 1px solid var(--back-500);
+  border-radius: 1px;
   box-shadow: 0 1px 3px var(--back-500);
 }
