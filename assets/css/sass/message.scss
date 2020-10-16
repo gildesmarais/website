@@ -1,5 +1,6 @@
 .message {
   @include tile;
+  font-size: 0.95em;
 
-  border-left: 0.75em solid var(--color, var(--front-400));
+  border-left: 0.75em solid var(--back-500);
 }

@@ -7,6 +7,7 @@ tags:
   - macos
   - programming
   - software
+  - project
 ---
 
 My new laptop came with macOS Catalina pre-installed. As described in my post about [managing music with iTunes]({% post_url 2020-04-05-managing_music %}), I rely on being able to rate the currently playing song with a specific amount of stars via Hotkey. Since the little app I used for that wasn't updated in a long time and is incompatible with Music.app (which replaces iTunes in Catalina), I searched for an alternative.
