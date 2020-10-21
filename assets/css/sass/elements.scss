@@ -123,6 +123,10 @@ ul {
   list-style-type: square;
 }
 
+label {
+  cursor: pointer;
+}
+
 @media (hover: hover) {
   img {
     filter: brightness(0.9);

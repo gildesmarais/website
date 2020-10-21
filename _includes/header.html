@@ -1,34 +1,69 @@
+{% assign current = page.url | downcase | split: '/' %}
+
 <nav class="nav">
   <div class="nav__container">
-    {% assign current = page.url | downcase | split: '/' %}
+    {% if current[0] == '' %}
+    <a class="nav__site-title" href="/">Gil Desmarais</a>
+    {% endif %}
 
-    <ul class="nav__items">
-      <li>
-        <a href="{{ "/" | relative_url }}" class="nav__item {% if current[1] == null %}nav__item--active{% endif %}">
-          <span data-mousetrap class="visually-hidden">h</span><span class="visually-hidden">ome</span>
-          {% if current[0] == '' %}
-          <span class="nav__site-title">Gil Desmarais</span>
-          {% endif %}
-        </a>
-      </li>
+    <label class="nav__hamburger" for="_nav-checkbox">
+      <span class="nav__icon"></span>
 
-      <li>
-        <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %} ">
-          <span data-mousetrap>R</span>ésumé
-        </a>
-      </li>
+    </label>
+    <input class="nav__checkbox" type="checkbox" id="_nav-checkbox">
+    <section class="nav__menu">
+      <ul class="nav__items">
+        <li class="nav__item--first">
+          <span class="nav__site-title--menu">Gil Desmarais</span>
+          <label for="_nav-checkbox">Close Menu</label>
+        </li>
+        <li>
+          <a href="{{ "/" | relative_url }}" class="nav__item {% if current[1] == null %}nav__item--active{% endif %}">
+            <span data-mousetrap>H</span>ome</span>
+          </a>
+        </li>
 
-      <li>
-        <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %} ">
-          <span data-mousetrap>P</span>rojects
-        </a>
-      </li>
+        <li>
+          <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %} ">
+            <span data-mousetrap>R</span>ésumé
+          </a>
+        </li>
 
-      <li>
-        <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}">
-          <span data-mousetrap>B</span>log
-        </a>
-      </li>
-    </ul>
+        <li>
+          <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %} ">
+            <span data-mousetrap>P</span>rojects
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}">
+            <span data-mousetrap>B</span>log
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ "/blogroll" | relative_url }}" class="nav__item {% if current[1] == 'blogroll' %}nav__item--active{% endif %}">
+            Blogroll
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ "/fleamarket" | relative_url }}" class="nav__item {% if current[1] == 'fleamarket' %}nav__item--active{% endif %}">
+            Flea Market
+          </a>
+        </li>
+
+        <li class="nav__item--last">
+          <a href="{{ "/help" | relative_url }}" class="nav__item {% if current[1] == 'help' %}nav__item--active{% endif %} ">Help</a>
+
+          |
+
+          <a href="{{ "/privacy" | relative_url }}" class="nav__item {% if current[1] == 'privacy' %}nav__item--active{% endif %} ">Privacy</a>
+          |
+
+          <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %} "><span data-mousetrap>C</span>ontact</a>
+        </li>
+      </ul>
+    </section>
   </div>
 </nav>
