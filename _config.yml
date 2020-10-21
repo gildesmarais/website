@@ -36,7 +36,7 @@ permalink: /posts/:title/
 collections:
   fleamarket:
     output: true
-    sort_by: title
+    sort_by: sort_criteria
 
 plugins:
   - jekyll-archives
