@@ -7,3 +7,55 @@ $breakpoint-medium: 45em;
   border-radius: 1px;
   box-shadow: 0 1px 3px var(--back-500);
 }
+
+@mixin tile-with-list {
+  @include tile;
+  padding: 0;
+  margin: 2em 0;
+
+  &__list {
+    margin-left: 0;
+    font-size: 0.925em;
+    line-height: 2;
+    list-style: none;
+
+    > li {
+      display: flex;
+      width: 100%;
+      padding: 0.25em 1.25em;
+      margin: 0;
+      border-bottom: 1px solid var(--back-800);
+    }
+
+    > li:nth-child(odd) {
+      background-color: var(--back-600);
+    }
+
+    > li:hover,
+    > li:focus {
+      background-color: var(--back-500);
+    }
+  }
+
+  &__list-item--right {
+    margin-left: auto;
+    font-size: 0.9em;
+  }
+}
+
+@mixin button {
+  color: var(--front-100);
+  background-color: var(--back-500);
+  border: 1px solid var(--back-700);
+  border-radius: 3px;
+
+  transition: color 0.2s linear, background-color 0.2s linear,
+    border-color 0.2s linear;
+
+  &:hover,
+  &:focus {
+    color: var(--brand-100);
+    background-color: var(--back-700);
+    border-color: var(--back-500);
+  }
+}

@@ -2,7 +2,9 @@
 layout: page
 ---
 
-<h1>{{page.title}}</h1>
+<h1>{{page.release.description}}</h1>
+
+<p>This record from my private collection is for sale.</p>
 
 <table class="fleamarket__table">
   <tbody>
@@ -30,20 +32,19 @@ layout: page
       <th>Condition</th>
       <td>{{page.condition}}</td>
     </tr>
-    <tr>
-      <td colspan="2">
-        <a
-          class="fleamarket__button"
-          href="{{page.uri}}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          This record is for sale. Check out my offer on Discogs.
-        </a>
-      </td>
-    </tr>
   </tbody>
 </table>
+
+<div class="flex">
+  <a
+    class="fleamarket__button"
+    href="{{page.uri}}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Check out my offer on Discogs
+  </a>
+</div>
 
 <p class="fleamarket__more">
   Find more records from my private collection and
