@@ -21,7 +21,7 @@ urls.each do |url|
     next if release['description'].include? 'W/Lbl'
 
     listing['seller'] = {}
-
+    listing['sort_criteria'] = release['artist'].downcase
     listing['layout'] = 'discogs'
     listing['description'] = "Buy the #{release['format']} record from #{release['year']} from my private collection. Condition: #{listing['condition']}."
 
