@@ -1,25 +1,26 @@
-.fleamarket__list {
-  padding: 0;
-  list-style: none;
-
-  > li {
-    border-bottom: 1px solid var(--back-400);
-  }
-
-  > li > a {
-    display: flex;
-    padding: 0.33em 0;
-    color: var(--front-300);
-  }
+.fleamarket {
+  @include tile-with-list;
 }
 
 .fleamarket__table {
+  @include tile;
   width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  border-collapse: separate;
+
+  > tbody > tr {
+    padding: 0 0.5em;
+  }
 }
 
 .fleamarket__button {
-  margin: 2em 0;
-  text-align: right;
+  @include button;
+  display: inline-block;
+  padding: 0.5em;
+  margin: 2em auto 3em;
+
+  font-size: 1.25em;
 }
 
 .fleamarket__more {
@@ -27,6 +28,5 @@
   width: 100%;
   padding: 0.5em 0 0.5em 0.75em;
   margin: 3em auto 1em;
-  font-size: 1.1em;
-  border-left: 0.75em solid var(--front-100);
+  border-left: 0.75em solid var(--back-500);
 }
