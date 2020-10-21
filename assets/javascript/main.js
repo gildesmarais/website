@@ -33,8 +33,10 @@
   }
 
   const makeEmailLinkClickable = (_) => {
-    const el = document.querySelector('#_contact-mail')
-    if (!el) { return }
+    const el = document.querySelector("#_contact-mail")
+    if (!el) {
+      return
+    }
 
     el.href = `mailto:${el.innerText}`
   }
