@@ -128,6 +128,15 @@ label {
 }
 
 @media (hover: hover) {
+  a {
+    transition: filter 0.2s linear;
+
+    &:hover,
+    &:focus {
+      filter: saturate(1.5);
+    }
+  }
+
   img {
     filter: brightness(0.9);
     transition: filter 0.2s linear;

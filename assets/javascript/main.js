@@ -41,7 +41,19 @@
     el.href = `mailto:${el.innerText}`
   }
 
+  const lockBodySizeOnNavMenuOpen = () => {
+    const el = document.querySelector("#_nav-checkbox")
+    el.addEventListener(
+      "change",
+      ({ target }) => {
+        document.body.classList.toggle("body--nav-open", target.checked)
+      },
+      options
+    )
+  }
+
   const onDomContentLoad = (_) => {
+    lockBodySizeOnNavMenuOpen()
     setupMousetrap()
     makeEmailLinkClickable()
   }
