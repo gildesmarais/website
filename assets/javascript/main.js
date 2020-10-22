@@ -52,7 +52,13 @@
     )
   }
 
+  const setupHeadroom = (_) => {
+    const headroom = new Headroom(document.querySelector("body > header"))
+    headroom.init()
+  }
+
   const onDomContentLoad = (_) => {
+    setupHeadroom()
     lockBodySizeOnNavMenuOpen()
     setupMousetrap()
     makeEmailLinkClickable()

@@ -16,6 +16,7 @@
     "stylelint-scss": "^3.17.2"
   },
   "dependencies": {
+    "headroom.js": "^0.12.0",
     "instant.page": "^5.1.0"
   }
 }
