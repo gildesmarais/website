@@ -10,6 +10,7 @@ body {
 }
 
 body {
+  padding-top: var(--nav-height);
   padding-bottom: 66vh;
   font-family: var(--font);
   font-size: var(--rem);

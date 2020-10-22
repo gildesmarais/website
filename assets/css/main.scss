@@ -9,6 +9,7 @@
 @import "elements";
 @import "fleamarket";
 @import "footer";
+@import "header";
 @import "help";
 @import "index";
 @import "message";
@@ -33,7 +34,7 @@
 
 :root {
   --rem: 17px;
-  --nav-height: 4em;
+  --nav-height: 3rem;
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5em;
 

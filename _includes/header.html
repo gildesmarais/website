@@ -1,9 +1,9 @@
 {% assign current = page.url | downcase | split: '/' %}
 
-<nav class="nav">
-  <div class="nav__container">
+<header class="header">
+  <div class="header__container">
     {% if current[0] == '' %}
-    <a class="nav__site-title" href="/">Gil Desmarais</a>
+    <a class="header__site-title" href="/">Gil Desmarais</a>
     {% endif %}
 
     <label class="nav__hamburger" for="_nav-checkbox">
@@ -11,7 +11,7 @@
       <span class="visually-hidden">Open Navigation Menu</span>
     </label>
     <input class="nav__checkbox" type="checkbox" id="_nav-checkbox">
-    <section class="nav__menu">
+    <nav class="nav__menu">
       <ul class="nav__items">
         <li class="nav__item--first">
           <span class="nav__site-title--menu">Gil Desmarais</span>
@@ -64,6 +64,6 @@
           <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %} "><span data-mousetrap>C</span>ontact</a>
         </li>
       </ul>
-    </section>
+    </nav>
   </div>
-</nav>
+</header>
