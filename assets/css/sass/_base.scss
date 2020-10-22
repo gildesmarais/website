@@ -1,4 +1,6 @@
-$breakpoint-medium: 45em;
+/* stylelint-disable unit-whitelist */
+$breakpoint-medium: 45rem;
+/* stylelint-enable unit-whitelist */
 
 @mixin tile {
   padding: 0.75em 1.25em;
@@ -6,6 +8,7 @@ $breakpoint-medium: 45em;
   border: 1px solid var(--back-500);
   border-radius: 1px;
   box-shadow: 0 1px 3px var(--back-500);
+  content-visibility: auto;
 }
 
 @mixin tile-with-list {
