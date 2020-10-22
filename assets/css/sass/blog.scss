@@ -22,22 +22,3 @@
     margin: 0.5em 0;
   }
 }
-
-.blog__message {
-  margin-bottom: 2em;
-}
-
-$message-width: 6.5em;
-@media (min-width: #{$breakpoint-medium + $message-width + 6em}) {
-  .blog__message {
-    position: fixed;
-    top: calc(var(--nav-height) + 4.5em);
-    right: 0;
-    width: $message-width;
-
-    > ul {
-      margin-left: 0;
-      list-style: none;
-    }
-  }
-}

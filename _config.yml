@@ -72,7 +72,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Makefile
-  - node_modules/
+  - node_modules
   - package.json
   - vendor
   - yarn.error

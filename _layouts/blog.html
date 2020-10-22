@@ -4,16 +4,10 @@ layout: page
 
 <h1>Blog</h1>
 
-<aside class="message blog__message">
-  <ul>
-    <li>
-      <a href="/blogroll" class="blog__blogroll">Blogroll</a>
-    </li>
-    <li>
-      <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>
-    </li>
-  </ul>
-</aside>
+<p>
+  Subscribe to my blog via
+  <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>.
+</p>
 
 <ul class="blog__list">
   {% for post in site.posts %}

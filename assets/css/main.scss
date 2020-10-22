@@ -3,18 +3,19 @@
 
 @import "vendor/minireset";
 @import "_base";
-@import "elements";
 @import "blog";
 @import "blogroll";
 @import "contact";
+@import "elements";
 @import "fleamarket";
 @import "footer";
+@import "help";
 @import "index";
+@import "message";
 @import "nav";
 @import "post";
 @import "post-preview";
 @import "project";
-@import "message";
 @import "section-nav";
 @import "syntax-highlighting";
 @import "tags";
@@ -55,8 +56,8 @@
   --front-200: hsl(210, 6%, 22%);
   --front-100: hsl(210, 6%, 6%);
 
-  --brand-100: hsl(17, 89%, 48%);
-  --contrast-100: hsl(201, 100%, 50%);
+  --brand-100: hsl(14, 75%, 44%);
+  --contrast-100: hsl(201, 93%, 29%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,6 +76,14 @@
 
     --brand-100: hsl(21, 93%, 66%);
     --contrast-100: hsl(201, 93%, 66%);
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
