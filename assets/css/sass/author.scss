@@ -24,15 +24,14 @@
 
 .author__description {
   font-size: 0.95em;
-  color: var(--back-500);
   text-align: justify;
 
   a {
-    color: var(--back-700);
+    color: inherit;
 
     &:hover,
     &:focus {
-      color: var(--back-300);
+      color: var(--back-500);
     }
   }
 }
