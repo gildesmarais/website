@@ -28,11 +28,6 @@
   margin: 2em 0;
 }
 
-.tags__headline {
-  flex: 1 1 30ch;
-  font-size: 1.1em;
-}
-
 .tags__tag {
   display: inline-block;
   flex: 0;
@@ -56,7 +51,12 @@
   }
 }
 
-a.tags__tag:focus,
-a.tags__tag:hover {
-  color: var(--brand-100);
+a.tags__tag,
+.tags__tag > a {
+  border-color: var(--back-300);
+
+  &:focus,
+  &:hover {
+    color: var(--brand-100);
+  }
 }

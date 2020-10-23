@@ -20,6 +20,8 @@
 }
 
 .post__content {
+  word-break: break-word;
+
   @supports (hyphens: auto) {
     hyphens: auto;
     text-align: justify;

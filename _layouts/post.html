@@ -1,12 +1,12 @@
 ---
-layout: page
+layout: default
 ---
 
-<article class="post h-entry">
+<article class="page post h-entry">
   <header class="post__header">
     <h1 class="post__title p-name">{{ page.title | escape }}</h1>
     <p class="post__meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}" class="dt-published">
+      <time datetime="{{ page.date | date_to_xmlschema }}" title="{{ page.date }}" class="dt-published">
         {{ page.date | date_to_long_string }}
       </time>
 
@@ -31,16 +31,17 @@ layout: page
     {{ content }}
   </main>
 
+  <footer>{% include tags.html %}</footer>
+
   <aside class="message post__message">
     <b>Thank you for reading my post!</b>
     If you don’t want to miss any future posts, I suggest subscribing to the
     <a role="complementary" aria-label="RSS feed of this blog" href="{{ '/feed.xml' | relative_url }}">
       RSS feed</a
     >
-    or following me on
-    <a href="https://twitter.com/{{ site.twitter.username}}">Twitter</a> to stay
-    in touch.
+    to stay in touch.
   </aside>
 
-  <footer>{% include tags.html %}</footer>
 </article>
+
+{% include author.html %}
