@@ -55,3 +55,8 @@
     margin-left: 0;
   }
 }
+
+a.tags__tag:focus,
+a.tags__tag:hover {
+  color: var(--brand-100);
+}
