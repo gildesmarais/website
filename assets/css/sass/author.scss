@@ -1,0 +1,44 @@
+.author {
+  padding: 2em var(--section-padding);
+  margin: 2em calc(-1 * var(--section-padding)) 0;
+  color: var(--back-700);
+  text-shadow: 0.2em 0.2em 0.75em rgba(0, 0, 0, 0.16);
+  background-color: var(--contrast-100);
+  border: 1px solid var(--back-500);
+  border-right: 0;
+  border-left: 0;
+}
+
+.author__wrapper {
+  max-width: var(--container-width);
+  padding: 0 var(--section-padding);
+  margin: 0 auto;
+}
+
+.author__person {
+  @extend %h1;
+
+  margin: 0 auto;
+  font-family: var(--font-alt);
+}
+
+.author__description {
+  font-size: 0.95em;
+  color: var(--back-500);
+  text-align: justify;
+
+  a {
+    color: var(--back-700);
+
+    &:hover,
+    &:focus {
+      color: var(--back-300);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .author__description > p {
+    max-width: 66%;
+  }
+}

@@ -3,6 +3,7 @@
 
 @import "vendor/minireset";
 @import "_base";
+@import "author";
 @import "blog";
 @import "blogroll";
 @import "contact";
@@ -57,8 +58,8 @@
   --front-200: hsl(210, 6%, 22%);
   --front-100: hsl(210, 6%, 6%);
 
-  --brand-100: hsl(14, 75%, 44%);
-  --contrast-100: hsl(201, 93%, 29%);
+  --brand-100: hsl(340, 100%, 33%);
+  --contrast-100: hsl(196, 25%, 34%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -76,7 +77,7 @@
     --front-100: hsl(70, 6%, 94%);
 
     --brand-100: hsl(21, 93%, 66%);
-    --contrast-100: hsl(201, 93%, 66%);
+    --contrast-100: hsl(201, 93%, 43%);
   }
 }
 

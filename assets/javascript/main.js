@@ -8,10 +8,15 @@
   }
 
   const setupMousetrap = () => {
-    Array.from(document.querySelectorAll("[data-mousetrap]")).forEach(
+    ;[].forEach.call(
+      document.querySelectorAll("[data-mousetrap]"),
       bindMousetrap
     )
 
+    Mousetrap.bind("m", (_) => {
+      const checkbox = document.querySelector("#_nav-checkbox")
+      checkbox.checked = !checkbox.checked
+    })
     Mousetrap.bind("j", (_) => {
       window.scroll(0, window.scrollY + 16)
     })
@@ -33,12 +38,13 @@
   }
 
   const makeEmailLinkClickable = (_) => {
-    const el = document.querySelector("#_contact-mail")
-    if (!el) {
-      return
-    }
+    const body = encodeURIComponent(
+      `Hi Gil,\nI found your contact details on ${window.location.href}\n`
+    )
 
-    el.href = `mailto:${el.innerText}`
+    ;[].forEach.call(document.querySelectorAll("[data-mail]"), (el) => {
+      el.href = `mailto:${el.dataset.mail}?body=${body}`
+    })
   }
 
   const lockBodySizeOnNavMenuOpen = () => {
