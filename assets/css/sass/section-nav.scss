@@ -20,5 +20,11 @@ ul.section-nav {
   a {
     font-weight: 400;
     color: var(--front-200);
+    text-decoration: none;
+  }
+
+  a:focus,
+  a:hover {
+    text-decoration: underline;
   }
 }
