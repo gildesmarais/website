@@ -1,4 +1,4 @@
-;((window, document, Mousetrap, Headroom) => {
+;(() => {
   const options = { passive: true }
 
   const bindMousetrap = ({ innerText, parentElement }) => {
@@ -8,10 +8,7 @@
   }
 
   const setupMousetrap = () => {
-    ;[].forEach.call(
-      document.querySelectorAll("[data-mousetrap]"),
-      bindMousetrap
-    )
+    ;[].forEach.call(document.querySelectorAll("[data-mousetrap]"), bindMousetrap)
 
     Mousetrap.bind("m", (_) => {
       const checkbox = document.querySelector("#_nav-checkbox")
@@ -38,9 +35,7 @@
   }
 
   const makeEmailLinkClickable = (_) => {
-    const body = encodeURIComponent(
-      `Hi Gil,\nI found your contact details on ${window.location.href}\n`
-    )
+    const body = encodeURIComponent(`Hi Gil,\nI found your contact details on ${window.location.href}\n`)
 
     ;[].forEach.call(document.querySelectorAll("[data-mail]"), (el) => {
       el.href = `mailto:${el.dataset.mail}?body=${body}`
@@ -81,6 +76,9 @@
   }
 
   const setupGlide = (_) => {
+    if (!window.Glide) {
+      return
+    }
     ;[].forEach.call(document.querySelectorAll(".glide"), (el) => {
       const glide = new Glide(el)
       glide.mount()
@@ -93,10 +91,7 @@
     lockBodySizeOnNavMenuOpen()
     setupMousetrap()
     makeEmailLinkClickable()
-
-    if (Glide) {
-      setupGlide()
-    }
+    setupGlide()
   }
 
   window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
@@ -105,13 +100,7 @@
     const font = "font-family: monospace; font-size:16px; line-height: 2"
 
     window.console.log("%c👋🏽 Hey there!", `font-weight:bold;${font}`)
-    window.console.log(
-      "%c🧐 Looks like you are interested in my work. That's cool.",
-      font
-    )
-    window.console.log(
-      "%c📧 If you like what you see, don't hesitate to contact me!",
-      font
-    )
+    window.console.log("%c🧐 Looks like you are interested in my work. That's cool.", font)
+    window.console.log("%c📧 If you like what you see, don't hesitate to contact me!", font)
   }
-})(window, document, Mousetrap, Headroom, Glide)
+})()
