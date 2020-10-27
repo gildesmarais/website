@@ -1,0 +1,91 @@
+@import "vendor/glide.core";
+
+$bullet-radius: 0.1em;
+$arrow-width: 1.5em;
+
+@mixin button {
+  z-index: 1;
+  background-color: var(--back-400);
+  border: 2px solid transparent;
+  outline: 0;
+}
+
+.glide {
+  margin: 1em auto;
+  background-color: var(--back-700);
+}
+
+.glide__slides {
+  margin-left: 0;
+}
+
+.glide__slide > div {
+  display: flex;
+  justify-content: center;
+}
+
+.glide__bullets {
+  position: absolute;
+  bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.glide__bullets > button {
+  @include button;
+  width: 1em;
+  opacity: 0.9;
+}
+
+button.glide__bullet--active {
+  background-color: var(--brand-100);
+  border-color: var(--brand-100);
+}
+
+.glide__bullets > button:first-child {
+  border-top-left-radius: $bullet-radius;
+  border-bottom-left-radius: $bullet-radius;
+}
+
+.glide__bullets > button:last-child {
+  border-top-right-radius: $bullet-radius;
+  border-bottom-right-radius: $bullet-radius;
+}
+
+.glide__arrows {
+  display: none;
+}
+
+@media (hover: hover) {
+  .glide__track {
+    border: 1px solid var(--back-600);
+  }
+  .glide__arrows {
+    display: block;
+  }
+
+  .glide__arrow {
+    @include button;
+
+    position: absolute;
+    top: 0;
+    width: $arrow-width;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+      background-color: var(--back-500);
+    }
+  }
+
+  .glide__arrow--left {
+    left: 0;
+  }
+
+  .glide__arrow--right {
+    right: 0;
+  }
+}

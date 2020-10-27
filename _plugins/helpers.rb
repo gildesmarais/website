@@ -7,7 +7,7 @@ require 'digest/sha1'
 module Helpers
   class CacheBuster < Liquid::Tag
     def render(context)
-      context["site"]["time"].to_i.to_s(33)
+      context['site']['time'].to_i.to_s(33)
     end
   end
 

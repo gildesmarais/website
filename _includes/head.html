@@ -31,6 +31,8 @@
     href="{{ '/assets/css/print.css' | relative_url }}?{% cachebuster %}"
     media="print"
   />
+
+  {% feed_meta %}
   {% include favicons.html %}
 
   {% seo %}
