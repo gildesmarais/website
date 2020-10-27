@@ -2,6 +2,15 @@
   @include tile-with-list;
 }
 
+.fleamarket__list-item--right {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--front-300);
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
 .fleamarket__table {
   @include tile;
   width: 100%;

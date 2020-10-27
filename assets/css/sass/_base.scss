@@ -1,6 +1,6 @@
 /* stylelint-disable unit-whitelist */
 $breakpoint-medium: 45rem;
-$breakpoint-large: 84rem;
+$breakpoint-large: $breakpoint-medium * 1.618;
 /* stylelint-enable unit-whitelist */
 
 @mixin tile {
@@ -42,6 +42,7 @@ $breakpoint-large: 84rem;
   }
 
   &__list-item--right {
+    padding-left: 0.5em;
     margin-left: auto;
     font-size: 0.9em;
   }
