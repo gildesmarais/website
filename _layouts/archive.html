@@ -1,24 +1,26 @@
 ---
-layout: page
+layout: default
 ---
 
-<h1 class="archive__headline">
-  All posts with {{ page.type }}
-  <span class="tags__tag">{{ page.title }}</span>
-</h1>
+<main>
+  <header class="page">
+    <h1 class="archive__headline">
+      All posts with {{ page.type }}
+      <span class="tags__tag">{{ page.title }}</span>
+    </h1>
 
-<p class="message">
-  <a href="/blog">Remove the tag filter</a> to see all blog posts.
-</p>
+    <p>
+      <a href="/blog/">Remove the tag filter</a> to see all blog posts.
+    </p>
+  </header>
 
-<ul class="blog__list">
-  {% for post in page.posts %}
-  <li>
-    {% include post-preview.html %}
-  </li>
-  {% endfor %}
-</ul>
+  <ul class="blog__list">
+    {% for post in page.posts %}
+    <li>
+      {% include post-preview.html %}
+    </li>
+    {% endfor %}
+  </ul>
+</main>
 
-<p class="message">
-  <a href="/blog">Remove the tag filter</a> to see all blog posts.
-</p>
+{% include author.html %}
