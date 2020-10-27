@@ -29,8 +29,7 @@
   font-style: normal;
   font-display: fallback;
   font-weight: 300;
-  src: local("Jura"), local("Jura-Light"),
-    url("fonts/Jura/Jura-Light.woff2") format("woff2"),
+  src: local("Jura"), local("Jura-Light"), url("fonts/Jura/Jura-Light.woff2") format("woff2"),
     url("fonts/Jura/Jura-Light.ttf") format("truetype");
 }
 
@@ -41,10 +40,8 @@
   --section-padding: 0.5em;
 
   --font-alt: Jura, "Bangla Sangam MN", sans-serif;
-  --font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
-    sans-serif;
-  --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
-    "Lucida Console", monospace;
+  --font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco", "Lucida Console", monospace;
 
   --back-900: hsl(210, 0%, 1%);
   --back-700: hsl(210, 6%, 6%);

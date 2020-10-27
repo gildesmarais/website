@@ -1,7 +1,7 @@
 default: clean fix
 
 fix:
-	yarn run prettier --write --no-semi "**/*.yml" "**/*.md" "assets/**/*.scss" "assets/javascript/main.js"
+	yarn run prettier --write --no-semi --print-width 110 "**/*.yml" "**/*.md" "assets/**/*.scss" "assets/javascript/main.js"
 	yarn run stylelint --fix "assets/**/*.scss"
 
 clean:
