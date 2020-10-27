@@ -28,7 +28,7 @@
 }
 
 .header__menu {
-  padding: var(--section-padding);
+  display: flex;
   margin-left: auto;
 
   &:focus-within {
