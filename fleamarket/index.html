@@ -18,7 +18,7 @@ description: I'm selling a large part of my personal vinyl record collection, co
   {% for listing in site.fleamarket %}
     <li>
       <a href="{{ listing.url }}">{{ listing.release.artist }} — {{ listing.release.title }}</a>
-      <a href="{{ listing.url }}" class="fleamarket__list-item--right">[{{listing.release.catalog_number}}]</a>
+      <a href="{{ listing.url }}" class="fleamarket__list-item--right">{{listing.release.catalog_number}}</a>
     </li>
   {% endfor %}
   </ol>

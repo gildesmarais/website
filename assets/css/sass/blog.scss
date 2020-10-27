@@ -16,13 +16,13 @@
   }
 
   .blog__list > li {
-    flex: 1 1 22em;
+    flex: 1 1 calc(#{$breakpoint-medium / 2} - 1em);
     margin: 0.75em 0.5em;
   }
 }
 
 @media (min-width: $breakpoint-large) {
   .blog__list {
-    padding: 0 5vw;
+    padding: 0 2em;
   }
 }
