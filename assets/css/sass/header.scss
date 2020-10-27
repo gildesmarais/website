@@ -27,6 +27,11 @@
   text-decoration-color: var(--front-300);
 }
 
+.header__menu {
+  padding: var(--section-padding);
+  margin-left: auto;
+}
+
 .headroom {
   will-change: transform;
   transition: transform 200ms linear;

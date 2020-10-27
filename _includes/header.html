@@ -6,7 +6,7 @@
     <a class="header__site-title" href="/">Gil Desmarais</a>
     {% endif %}
 
-    <form>
+    <form class="header__menu">
       <label class="nav__hamburger" for="_nav-checkbox">
         <span class="nav__icon"></span>
         <button type="button" class="visually-hidden" data-nav-toggle>Open Navigation Menu</button>
@@ -66,6 +66,7 @@
 
           <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %} "><span data-mousetrap>C</span>ontact</a>
 
+          <br>
           <button type="button" class="nav__close-a11y-button" data-nav-toggle>Close Menu</button>
         </li>
       </ul>
