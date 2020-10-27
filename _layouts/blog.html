@@ -1,18 +1,31 @@
 ---
-layout: page
+layout: default
 ---
+<main>
+  <header class="page">
+    <h1>Blog</h1>
 
-<h1>Blog</h1>
+    <p>
+      Subscribe to my blog via
+      <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>.
+    </p>
 
-<p>
-  Subscribe to my blog via
-  <a class="blog__rss" rel="noindex nofollow" href="{{ "/feed.xml" | relative_url }}">RSS</a>.
-</p>
+  </header>
 
-<ul class="blog__list">
-  {% for post in site.posts %}
-  <li>
-    {% include post-preview.html %}
-  </li>
-  {% endfor %}
-</ul>
+  <ul class="blog__list">
+    {% for post in site.posts %}
+    <li>
+      {% include post-preview.html %}
+    </li>
+    {% endfor %}
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</main>
