@@ -1,24 +1,28 @@
 .blog__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-right: -0.5em;
-  margin-left: -0.5em;
-  list-style: none;
+  margin: 0 auto;
 }
 
 .blog__list > li {
-  flex: 1 1 calc(48% - 1em);
-  margin: 0.75em 0.5em;
+  flex: 1 1 100%;
+  margin: 0.5em 0;
 }
 
-@media (max-width: $breakpoint-medium) {
+@media (min-width: $breakpoint-medium) {
   .blog__list {
-    margin: 0 auto;
+    justify-content: space-around;
+    list-style: none;
   }
 
   .blog__list > li {
-    flex: 1 1 100%;
-    margin: 0.5em 0;
+    flex: 1 1 22em;
+    margin: 0.75em 0.5em;
+  }
+}
+
+@media (min-width: $breakpoint-large) {
+  .blog__list {
+    padding: 0 5vw;
   }
 }
