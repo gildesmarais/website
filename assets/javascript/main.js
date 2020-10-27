@@ -52,11 +52,6 @@
     el.addEventListener(
       "change",
       ({ target }) => {
-        if (target.checked) {
-          document.querySelector(".nav__items > li a").focus()
-        } else {
-          el.focus()
-        }
         document.body.classList.toggle("body--nav-open", target.checked)
       },
       options

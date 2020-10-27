@@ -30,6 +30,10 @@
 .header__menu {
   padding: var(--section-padding);
   margin-left: auto;
+
+  &:focus-within {
+    outline: 1px dotted var(--brand-100);
+  }
 }
 
 .headroom {
