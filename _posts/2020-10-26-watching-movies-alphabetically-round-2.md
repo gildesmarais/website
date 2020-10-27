@@ -52,13 +52,13 @@ Q is another letter we had to skip. We couldn't find a movie starting with Q.
 
 Only few movies in this round left a lasting impression:
 
-**Free Solo**: this movie was thrilling and intense. Had goosebumps most of the time and wanted to scream.  
+**Free Solo**: this movie was thrilling and intense. Had goosebumps most of the time and wanted to scream.
 
-**M**: a must see, a milestone in film history.  
+**M**: a must see, a milestone in film history.
 
-**Utøya: July 22**: another one-take movie. I haven't really liked any one-take movie yet and this one, although covering a movie-worthy topic, wasn't worth it at all.  
+**Utøya: July 22**: another one-take movie. I haven't really liked any one-take movie yet and this one, although covering a movie-worthy topic, wasn't worth it at all.
 
-**What Dreams May Come**: the atmosphere was amazing and the progression of film style reflected the topic on a very meta basis.  
+**What Dreams May Come**: the atmosphere was amazing and the progression of film style reflected the topic on a very meta basis.
 
 **Zero Days**: although the impression manifests that the told story is true, no evidence is provided which would hold up in a court house. This ambiguity in combination with its political explosiveness makes it a movie worth watching... with a grain of salt.
 
