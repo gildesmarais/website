@@ -52,6 +52,11 @@
     el.addEventListener(
       "change",
       ({ target }) => {
+        if (target.checked) {
+          document.querySelector(".nav__items > li a").focus()
+        } else {
+          el.focus()
+        }
         document.body.classList.toggle("body--nav-open", target.checked)
       },
       options
@@ -63,8 +68,26 @@
     headroom.init()
   }
 
+  const setupNavigationA11y = (_) => {
+    const checkbox = document.querySelector("#_nav-checkbox")
+
+    const handler = (event) => {
+      // code 32 == space
+      if (event.keyCode !== 32) return
+
+      event.preventDefault()
+      checkbox.checked = !checkbox.checked
+    }
+
+    ;[].forEach.call(document.querySelectorAll("[data-nav-toggle]"), (el) => {
+      el.addEventListener("click", handler)
+      el.addEventListener("keydown", handler)
+    })
+  }
+
   const onDomContentLoad = (_) => {
     setupHeadroom()
+    setupNavigationA11y()
     lockBodySizeOnNavMenuOpen()
     setupMousetrap()
     makeEmailLinkClickable()

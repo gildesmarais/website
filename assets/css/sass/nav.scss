@@ -47,6 +47,7 @@ $icon-line-strength: 2px;
   }
 }
 
+.nav__hamburger:focus-within,
 .nav__hamburger:focus,
 .nav__hamburger:hover {
   .nav__icon,
@@ -145,7 +146,7 @@ li.nav__item--first {
 li.nav__item--last {
   position: absolute;
   right: 0;
-  bottom: 2em;
+  bottom: 3em;
   left: 0;
 
   padding-bottom: 0.5em;
@@ -154,5 +155,23 @@ li.nav__item--last {
   > a {
     display: inline;
     width: auto;
+  }
+}
+
+.nav__close-a11y-button {
+  @include button;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+
+  &:focus,
+  &:hover,
+  &:focus-within {
+    display: block;
+    margin: 0.5em auto;
+    font-size: 1.15em;
+    pointer-events: all;
+    user-select: all;
+    opacity: 1;
   }
 }

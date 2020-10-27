@@ -35,7 +35,7 @@
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": ["system", "symbols", "suffix"]
+        "ignoreProperties": ["system", "symbols", "suffix", "content-visibility", "contain-intrinsic-size"]
       }
     ],
     "font-family-no-missing-generic-family-keyword": null,

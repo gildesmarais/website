@@ -6,10 +6,13 @@
     <a class="header__site-title" href="/">Gil Desmarais</a>
     {% endif %}
 
-    <label class="nav__hamburger" for="_nav-checkbox">
-      <span class="nav__icon"></span>
-      <span class="visually-hidden">Open Navigation Menu</span>
-    </label>
+    <form>
+      <label class="nav__hamburger" for="_nav-checkbox">
+        <span class="nav__icon"></span>
+        <button type="button" class="visually-hidden" data-nav-toggle>Open Navigation Menu</button>
+      </label>
+    </form>
+
     <input class="nav__checkbox" type="checkbox" id="_nav-checkbox">
     <nav class="nav__menu">
       <ul class="nav__items">
@@ -62,6 +65,8 @@
           |
 
           <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %} "><span data-mousetrap>C</span>ontact</a>
+
+          <button type="button" class="nav__close-a11y-button" data-nav-toggle>Close Menu</button>
         </li>
       </ul>
     </nav>
