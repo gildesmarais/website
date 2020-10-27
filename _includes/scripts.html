@@ -19,6 +19,15 @@
   defer
 ></script>
 
+{% if page.slider %}
+<script
+  src="{{ '/assets/vendor/glide-3.4.1.min.js' | relative_url }}?{% cachebuster %}"
+  type="text/javascript"
+  charset="utf-8"
+  defer
+></script>
+{% endif %}
+
 <script
   src="{{ '/assets/javascript/main.js' | relative_url }}?{% cachebuster %}"
   type="text/javascript"

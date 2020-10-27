@@ -1,4 +1,4 @@
-;((window, document, Mousetrap) => {
+;((window, document, Mousetrap, Headroom) => {
   const options = { passive: true }
 
   const bindMousetrap = ({ innerText, parentElement }) => {
@@ -80,12 +80,23 @@
     })
   }
 
+  const setupGlide = (_) => {
+    ;[].forEach.call(document.querySelectorAll(".glide"), (el) => {
+      const glide = new Glide(el)
+      glide.mount()
+    })
+  }
+
   const onDomContentLoad = (_) => {
     setupHeadroom()
     setupNavigationA11y()
     lockBodySizeOnNavMenuOpen()
     setupMousetrap()
     makeEmailLinkClickable()
+
+    if (Glide) {
+      setupGlide()
+    }
   }
 
   window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
@@ -103,4 +114,4 @@
       font
     )
   }
-})(window, document, Mousetrap)
+})(window, document, Mousetrap, Headroom, Glide)
