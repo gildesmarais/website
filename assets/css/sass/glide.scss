@@ -1,7 +1,6 @@
 @import "vendor/glide.core";
 
 $bullet-radius: 0.1em;
-$arrow-width: 1.5em;
 
 @mixin button {
   z-index: 1;
@@ -65,27 +64,35 @@ button.glide__bullet--active {
     display: block;
   }
 
+  .glide:hover .glide__arrow {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
   .glide__arrow {
     @include button;
 
     position: absolute;
     top: 0;
-    width: $arrow-width;
+    width: 6.25%;
     height: 100%;
     padding: 0;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.125);
     transition: background-color 0.2s linear;
 
     &:hover {
-      background-color: var(--back-500);
+      background-color: rgba(0, 0, 0, 0.25);
     }
   }
 
   .glide__arrow--left {
     left: 0;
+    border-left: 1px solid var(--brand-100);
   }
 
   .glide__arrow--right {
     right: 0;
+    border-right: 1px solid var(--brand-100);
   }
 }
