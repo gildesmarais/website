@@ -9,6 +9,16 @@ module Jekyll
   # ![alt text](/image/file.png)
   # {% endslider %}
   class SliderTag < Liquid::Block
+    SLIDER = <<~SLIDER
+      <div class="glide">
+          <div data-glide-el="track" class="glide__track" aria-roledescription="slide">
+            <ul class="glide__slides">%<images>s</ul>
+          </div>
+          %<arrows>s
+          %<bullets>s
+        </div>
+    SLIDER
+
     ARROWS = '<div class="glide__arrows" data-glide-el="controls">
               <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="prev">
               </button>
@@ -16,25 +26,26 @@ module Jekyll
               </button>
             </div>'
 
+    SLIDE = '<li class="glide__slide" aria-roledescription="slide"><div>%<image>s</div></li>'
+
     def render(context)
       context.environments.first['page']['slider'] = true
 
-      #  call the default markdown renderer
-      converter = context.registers[:site].find_converter_instance(Jekyll::Converters::Markdown)
+      format(SLIDER, images: images.join, arrows: ARROWS, bullets: bullets(images.size))
+    end
 
+    def images(context)
+      converter = context.registers[:site].find_converter_instance(Jekyll::Converters::Markdown)
       # render the markdown inside the block
       images = Nokogiri::HTML.fragment(converter.convert(super(context))).css('img').to_a
-      images.map! { |image| "<li class=\"glide__slide\"><div>#{image.to_html}</div></li>" }
 
-      <<~SLIDER
-        <div class="glide">
-          <div data-glide-el="track" class="glide__track">
-            <ul class="glide__slides">#{images.join}</ul>
-          </div>
-          #{ARROWS}
-          #{bullets(images.size)}
-        </div>
-      SLIDER
+      images.map! do |image|
+        image['role'] = :presentation if !image['alt'] && !image['role']
+
+        format(SLIDE, image: image)
+      end
+
+      images
     end
 
     def bullets(count)
@@ -42,7 +53,7 @@ module Jekyll
         "<button class=\"glide__bullet\" data-glide-dir=\"=#{i}\"></button>"
       end
 
-      '<div class="glide__bullets" data-glide-el="controls[nav]">' + bullets.join + '</div>'
+      "<div class=\"glide__bullets\" data-glide-el=\"controls[nav]\">#{bullets.join}</div>"
     end
   end
 end
