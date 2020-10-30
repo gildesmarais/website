@@ -9,6 +9,8 @@ module Jekyll
   # ![alt text](/image/file.png)
   # {% endslider %}
   class SliderTag < Liquid::Block
+    attr_reader :context, :html
+
     SLIDER = <<~SLIDER
       <div class="glide">
           <div data-glide-el="track" class="glide__track" aria-roledescription="slide">
@@ -29,23 +31,27 @@ module Jekyll
     SLIDE = '<li class="glide__slide" aria-roledescription="slide"><div>%<image>s</div></li>'
 
     def render(context)
+      @context = context
+      @html = converter.convert(super(context))
       context.environments.first['page']['slider'] = true
 
       format(SLIDER, images: images.join, arrows: ARROWS, bullets: bullets(images.size))
     end
 
-    def images(context)
-      converter = context.registers[:site].find_converter_instance(Jekyll::Converters::Markdown)
+    def converter
+      @converter ||= context.registers[:site].find_converter_instance(Jekyll::Converters::Markdown)
+    end
+
+    def images
       # render the markdown inside the block
-      images = Nokogiri::HTML.fragment(converter.convert(super(context))).css('img').to_a
+      @images ||= Nokogiri::HTML.fragment(html).css('img').to_a
+                                .then do |images|
+        images.map! do |image|
+          image['role'] = :presentation if !image['alt'] && !image['role']
 
-      images.map! do |image|
-        image['role'] = :presentation if !image['alt'] && !image['role']
-
-        format(SLIDE, image: image)
+          format(SLIDE, image: image)
+        end
       end
-
-      images
     end
 
     def bullets(count)
