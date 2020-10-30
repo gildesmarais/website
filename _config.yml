@@ -85,3 +85,7 @@ include:
 sass:
   style: compressed
   sass_dir: assets/css/sass
+
+feed:
+  posts_limit: 10
+  excerpt_only: true
