@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'jekyll', '~> 4.1'
 gem 'sassc'
+gem 'terser'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -20,3 +21,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+group :development do
+  gem 'rubocop'
+  gem 'byebug'
+  gem 'awesome_print'
+end
