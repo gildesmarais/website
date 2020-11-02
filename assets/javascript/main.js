@@ -97,9 +97,9 @@
   window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
 
   if (window.console && window.console.log) {
-    const font = "font-family: monospace; font-size:16px; line-height: 2"
+    const font = "font-family: var(--font-mono); font-size: 1rem; line-height: 1.618"
 
-    window.console.log("%c👋🏽 Hey there!", `font-weight:bold;${font}`)
+    window.console.log("%c👋🏽 Hey there!", `font-weight: 700;${font}`)
     window.console.log("%c🧐 Looks like you are interested in my work. That's cool.", font)
     window.console.log("%c📧 If you like what you see, don't hesitate to contact me!", font)
   }
