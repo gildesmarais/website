@@ -13,7 +13,7 @@
 .header__container {
   display: flex;
   justify-content: space-between;
-  max-width: $breakpoint-medium;
+  max-width: var(--container-width);
   height: 100%;
   margin: 0 auto;
 }

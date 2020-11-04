@@ -85,7 +85,7 @@ $icon-line-strength: 2px;
 
 .nav__items {
   width: 100%;
-  max-width: $breakpoint-medium;
+  max-width: var(--container-width);
   margin: 0 auto;
   font-size: 1.5em;
   font-weight: 500;
