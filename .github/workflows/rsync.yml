@@ -32,6 +32,9 @@ jobs:
       - name: build the site
         env:
           JEKYLL_ENV: production
+          NB_USERNAME: ${{secrets.NB_USERNAME}}
+          NB_PASSWORD: ${{secrets.NB_PASSWORD}}
+          NB_FOLDER: ${{secrets.NB_FOLDER}}
         run: make build
       - name: Deploy to server
         id: deploy
