@@ -23,7 +23,8 @@ urls.each do |url|
     listing['seller'] = {}
     listing['sort_criteria'] = release['artist'].downcase
     listing['layout'] = 'discogs'
-    listing['description'] = "Buy the #{release['format']} record from #{release['year']} from my private collection. Condition: #{listing['condition']}."
+    listing['description'] = "Buy the #{release['format']} record from #{release['year']} " \
+                             "from my private collection. Condition: #{listing['condition']}."
 
     output = <<~MD
       #{listing.to_yaml}
