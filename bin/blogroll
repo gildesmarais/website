@@ -49,6 +49,8 @@ class Newsblur
   end
 end
 
+exit if ARGV.size < 3
+
 # 1. signin to get newsblur_sessionid cookie and set it with all following requests
 newsblur = Newsblur.new(ARGV[0], ARGV[1])
 
