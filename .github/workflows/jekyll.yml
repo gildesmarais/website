@@ -20,7 +20,7 @@ jobs:
             ${{ runner.os }}-gem-
       - name: install deps
         run: |
-          bundle update --bundler
+          gem install bundler
           bundle config path vendor/bundle
           bundle config --global frozen 1
           bundle install --jobs 4 --retry 3
