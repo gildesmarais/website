@@ -23,14 +23,6 @@ jobs:
           key: ${{ runner.os }}-gem-${{ hashFiles('Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gem-
-      - name: update blogroll
-        env:
-          NB_USERNAME: ${{secrets.NB_USERNAME}}
-          NB_PASSWORD: ${{secrets.NB_PASSWORD}}
-          NB_FOLDER: ${{secrets.NB_FOLDER}}
-        run: bin/blogroll "$NB_USERNAME" "$NB_PASSWORD" "$NB_FOLDER"
-      - name: sync fleamarket with discogs
-        run: bin/discogs
       - name: Bundler
         run: |
           bundle config path vendor/bundle
@@ -39,7 +31,7 @@ jobs:
       - name: build the site
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build
+        run: make build
       - name: Deploy to server
         id: deploy
         uses: Pendect/action-rsyncer@v1.1.0
