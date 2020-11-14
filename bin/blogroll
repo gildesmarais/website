@@ -14,6 +14,8 @@ require 'json'
 require 'fileutils'
 require 'yaml'
 
+##
+# API wrapper class for Newsblur
 class Newsblur
   def initialize(username, password)
     conn.post 'api/login', "username=#{username}&password=#{password}"
