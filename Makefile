@@ -17,3 +17,8 @@ pcp: | clean fix
 	git add .
 	git commit -m 'make pull-commit-push'
 	git push
+
+build:
+	bin/discogs
+	bin/blogroll "$NB_USERNAME" "$NB_PASSWORD" "$NB_FOLDER"
+	bundle exec jekyll build
