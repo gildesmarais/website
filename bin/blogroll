@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+if ARGV.size < 3
+  warn 'blogroll: missing parameters, exiting gracefully.'
+  exit
+end
+
 require 'bundler/inline'
 
 gemfile(true) do
@@ -48,8 +53,6 @@ class Newsblur
     end
   end
 end
-
-exit if ARGV.size < 3
 
 # 1. signin to get newsblur_sessionid cookie and set it with all following requests
 newsblur = Newsblur.new(ARGV[0], ARGV[1])
