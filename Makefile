@@ -18,7 +18,12 @@ pcp: | clean fix
 	git commit -m 'make pull-commit-push'
 	git push
 
-build:
+ci-install:
+	gem install bundler
+	bundle config --global frozen 1
+	bundle install --jobs 4 --retry 3
+
+build: 
 	bin/discogs
-	bin/blogroll "$NB_USERNAME" "$NB_PASSWORD" "$NB_FOLDER"
+	bin/blogroll "${NB_USERNAME}" "${NB_PASSWORD}" "${NB_FOLDER}"
 	bundle exec jekyll build
