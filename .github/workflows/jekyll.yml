@@ -1,0 +1,29 @@
+name: jekyll build
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+      - name: Cache gems
+        uses: actions/cache@preview
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+      - name: install deps
+        run: |
+          make ci-install
+          bundle config path vendor/bundle
+      - name: Build the site
+        env:
+          JEKYLL_ENV: production
+        run: |
+          make build
