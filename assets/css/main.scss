@@ -40,43 +40,24 @@
   --section-padding: 0.5em;
 
   --font-alt: Jura, "Bangla Sangam MN", sans-serif;
-  --font: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  --font: system-ui, Roboto, "Helvetica Neue", sans-serif;
   --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco", "Lucida Console", monospace;
 
-  --back-900: hsl(210, 0%, 1%);
-  --back-700: hsl(210, 6%, 6%);
-  --back-600: hsl(210, 6%, 9%);
-  --back-500: hsl(210, 6%, 15%);
-  --back-400: hsl(210, 6%, 21%);
-  --back-300: hsl(210, 6%, 30%);
+  --back-900: hsl(212, 3%, 3%);
+  --back-700: hsl(212, 3%, 6%);
+  --back-600: hsl(212, 3%, 9%);
+  --back-500: hsl(212, 3%, 15%);
+  --back-400: hsl(212, 3%, 21%);
+  --back-300: hsl(212, 3%, 30%);
 
-  --front-400: hsl(70, 6%, 60%);
-  --front-300: hsl(70, 6%, 69%);
-  --front-200: hsl(70, 6%, 78%);
-  --front-100: hsl(70, 6%, 94%);
+  --front-400: hsl(72, 6%, 70%);
+  --front-300: hsl(72, 6%, 79%);
+  --front-200: hsl(72, 6%, 88%);
+  --front-100: hsl(72, 6%, 94%);
 
-  --brand-100: hsl(21, 93%, 66%);
-  --contrast-100: hsl(201, 93%, 43%);
+  --brand-100: hsl(32, 83%, 48%);
+  --contrast-100: hsl(212, 93%, 43%);
   // the higher, the more in the back
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --back-900: hsl(70, 6%, 99%);
-    --back-700: hsl(70, 6%, 97%);
-    --back-600: hsl(70, 6%, 96%);
-    --back-500: hsl(70, 6%, 94%);
-    --back-400: hsl(70, 6%, 86%);
-    --back-300: hsl(70, 6%, 70%);
-
-    --front-400: hsl(210, 6%, 32%);
-    --front-300: hsl(210, 6%, 27%);
-    --front-200: hsl(210, 6%, 22%);
-    --front-100: hsl(210, 6%, 6%);
-
-    --brand-100: hsl(340, 100%, 33%);
-    --contrast-100: hsl(196, 25%, 34%);
-  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
