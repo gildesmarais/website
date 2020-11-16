@@ -1,5 +1,15 @@
 @import "_base";
 
+.index {
+  max-width: 25em;
+  margin: 0 auto;
+}
+
+.index > p {
+  hyphens: auto;
+  text-align: justify;
+}
+
 .index__headline {
   display: block;
   width: 100%;
