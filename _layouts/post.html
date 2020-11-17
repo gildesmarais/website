@@ -22,10 +22,10 @@ layout: default
 
   <main class="post__content e-content">
     {% if page.toc %}
-    <div class="post__toc">
-      <span>Table of contents</span>
+    <details class="post__toc">
+      <summary>Table of contents</summary>
       {% toc %}
-    </div>
+    </details>
     {% endif %}
 
     {{ content }}
