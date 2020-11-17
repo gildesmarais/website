@@ -11,13 +11,11 @@
 
 @import "_base";
 @import "elements";
-@import "header";
-@import "nav";
 @import "index";
 
 :root {
   --rem: #{$rem};
-  --nav-height: 3rem;
+  --nav-height: #{$rem * 3};
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5em;
 
@@ -48,6 +46,38 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+// prepare header and nav, since its real styles are loaded async
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: var(--nav-height);
+  padding: 0 0.25em;
+  font-weight: 500;
+  background-color: var(--back-900);
+}
+
+.header__container {
+  display: flex;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  margin-left: auto;
+}
+
+.nav__checkbox,
+.nav__menu,
+.nav__icon {
+  display: none;
 }
 
 .page {
