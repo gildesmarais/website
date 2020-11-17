@@ -25,7 +25,21 @@
     rel="preload"
     type="font/ttf"
   />
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}" />
+
+  <style type="text/css">
+    {% capture critical %}
+      {% include critical.scss %}
+    {% endcapture %}
+    {{ critical | scssify }}
+  </style>
+
+  <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}">
+  </noscript>
+
+
   <link
     rel="stylesheet"
     href="{{ '/assets/css/print.css' | relative_url }}?{% cachebuster %}"

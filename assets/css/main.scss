@@ -1,21 +1,16 @@
 ---
 ---
 
-@import "vendor/minireset";
 @import "_base";
 @import "author";
 @import "blog";
 @import "blogroll";
 @import "contact";
-@import "elements";
 @import "fleamarket";
 @import "footer";
-@import "header";
 @import "help";
 @import "glide";
-@import "index";
 @import "message";
-@import "nav";
 @import "post";
 @import "post-preview";
 @import "project";
@@ -23,56 +18,6 @@
 @import "syntax-highlighting";
 @import "tags";
 @import "work-experience";
-
-@font-face {
-  font-family: "Jura";
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 300;
-  src: local("Jura"), local("Jura-Light"), url("fonts/Jura/Jura-Light.woff2") format("woff2"),
-    url("fonts/Jura/Jura-Light.ttf") format("truetype");
-}
-
-:root {
-  --rem: #{$rem};
-  --nav-height: 3rem;
-  --container-width: #{$breakpoint-medium};
-  --section-padding: 0.5em;
-
-  --font-alt: Jura, "Bangla Sangam MN", sans-serif;
-  --font: system-ui, Roboto, "Helvetica Neue", sans-serif;
-  --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco", "Lucida Console", monospace;
-
-  --back-900: hsl(212, 3%, 3%);
-  --back-700: hsl(212, 3%, 6%);
-  --back-600: hsl(212, 3%, 9%);
-  --back-500: hsl(212, 3%, 15%);
-  --back-400: hsl(212, 3%, 21%);
-  --back-300: hsl(212, 3%, 30%);
-
-  --front-400: hsl(72, 6%, 70%);
-  --front-300: hsl(72, 6%, 79%);
-  --front-200: hsl(72, 6%, 88%);
-  --front-100: hsl(72, 6%, 94%);
-
-  --brand-100: hsl(32, 83%, 48%);
-  --contrast-100: hsl(212, 93%, 43%);
-  // the higher, the more in the back
-}
-
-@media screen and (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-.page {
-  max-width: var(--container-width);
-  padding: 0 var(--section-padding);
-  margin: 0 auto;
-}
 
 .archive__headline {
   margin: 1em 0;

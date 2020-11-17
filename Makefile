@@ -1,8 +1,8 @@
 default: clean fix
 
 fix:
-	yarn run prettier --write --no-semi --print-width 110 "**/*.yml" "**/*.md" "assets/**/*.scss" "assets/javascript/main.js"
-	yarn run stylelint --fix "assets/**/*.scss"
+	yarn run prettier --write --no-semi --print-width 110 "**/*.yml" "**/*.md" "(assets|_includes)/**/*.scss" "assets/javascript/main.js"
+	yarn run stylelint --fix "(assets|_includes)/**/*.scss"
 
 clean:
 	find . -type d -empty -delete
@@ -23,7 +23,7 @@ ci-install:
 	bundle config --global frozen 1
 	bundle install --jobs 4 --retry 3
 
-build: 
+build:
 	bin/discogs
 	bin/blogroll "${NB_USERNAME}" "${NB_PASSWORD}" "${NB_FOLDER}"
 	bundle exec jekyll build
