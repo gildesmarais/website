@@ -69,6 +69,15 @@
   margin: 0 auto;
 }
 
+.header__site-title {
+  padding: 0.5em;
+  font-family: var(--font-alt);
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--front-100);
+  text-decoration-color: var(--front-300);
+}
+
 .header__menu {
   display: flex;
   margin-left: auto;
