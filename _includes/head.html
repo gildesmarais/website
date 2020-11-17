@@ -34,7 +34,9 @@
   </style>
 
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
+        as="style">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}"
+        onload="this.onload=null;this.media='screen'" media="async">
   <noscript>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}">
   </noscript>
