@@ -28,21 +28,9 @@
   margin: 2em 0;
 }
 
-.tags__tag {
-  display: inline-block;
+.tag {
   flex: 0;
   align-self: center;
-  padding: 0.2em 0.3em;
-  margin: 0.15em 0.15em;
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  line-height: 1.16;
-  color: var(--front-400);
-  letter-spacing: -0.0125em;
-  white-space: nowrap;
-  background-color: var(--back-700);
-  border: 1px solid var(--back-400);
-  border-radius: 0.3em;
   text-decoration-color: transparent;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: subpixel-antialiased;
@@ -52,8 +40,8 @@
   }
 }
 
-a.tags__tag,
-.tags__tag > a {
+a.tag,
+.tag > a {
   border-color: var(--back-300);
 
   &:focus,

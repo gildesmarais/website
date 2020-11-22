@@ -13,7 +13,7 @@ sitemap: false
   {% for tag in site.tags %}
     {% assign t = tag | first %}
     {% assign clean = t | downcase | replace:" ","-" %}
-    <li class="tags__tag">
+    <li class="tag">
       <a href="/tag/{{ t }}">{{ clean }}</a>
     </li>
   {% endfor %}
