@@ -5,8 +5,7 @@
   font-style: normal;
   font-display: fallback;
   font-weight: 300;
-  src: local("Jura"), local("Jura-Light"), url("/assets/css/fonts/Jura/Jura-Light.woff2") format("woff2"),
-    url("/assets/css/fonts/Jura/Jura-Light.ttf") format("truetype");
+  src: local("Jura"), local("Jura-Light"), url("/assets/css/fonts/Jura/Jura-Light.woff2") format("woff2");
 }
 
 @import "_base";
