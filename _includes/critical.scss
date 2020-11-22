@@ -1,13 +1,5 @@
 @import "vendor/minireset";
 
-@font-face {
-  font-family: "Jura";
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 300;
-  src: local("Jura"), local("Jura-Light"), url("/assets/css/fonts/Jura/Jura-Light.woff2") format("woff2");
-}
-
 @import "_base";
 @import "elements";
 @import "index";
@@ -18,7 +10,7 @@
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5em;
 
-  --font-alt: Jura, "Bangla Sangam MN", sans-serif;
+  --font-alt: "Helvetica Neue", Roboto, Arial, sans-serif;
   --font: system-ui, Roboto, "Helvetica Neue", sans-serif;
   --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco", "Lucida Console", monospace;
 
@@ -72,9 +64,9 @@
   padding: 0.5em;
   font-family: var(--font-alt);
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 300;
   color: var(--front-100);
-  text-decoration-color: var(--front-300);
+  text-decoration-color: var(--back-300);
 }
 
 .header__menu {
