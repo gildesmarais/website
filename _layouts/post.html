@@ -26,9 +26,7 @@ layout: default
       <summary>Table of contents</summary>
       {% toc %}
     </details>
-    {% endif %}
-
-    {{ content }}
+    {% endif %} {{ content }}
   </main>
 
   <footer>{% include tags.html %}</footer>
@@ -41,7 +39,6 @@ layout: default
     >
     to stay in touch.
   </aside>
-
 </article>
 
 {% include author.html %}
