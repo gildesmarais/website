@@ -64,6 +64,7 @@ exclude:
   - .gitignore
   - .jekyll-cache
   - .nvmrc
+  - .prettierignore
   - .ruby-version
   - .sass-cache
   - .stylelintrc.json
