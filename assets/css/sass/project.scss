@@ -1,4 +1,3 @@
-.project__outgoings,
 .project__html2rss,
 .project__jekyll-loading-lazy {
   @include tile;
@@ -8,11 +7,6 @@
   > h2 {
     margin: 0 0 0.5em;
   }
-}
-
-.project__outgoings > h2 {
-  font-weight: 400;
-  color: #edc512;
 }
 
 .project__html2rss > h2 {
