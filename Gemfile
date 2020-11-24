@@ -19,6 +19,8 @@ group :jekyll_plugins do
   gem 'jekyll-loading-lazy'
   # gem 'jekyll-loading-lazy', path: '/Users/gil/versioned/github-gill0r/jekyll-loading-lazy'
   # gem 'jekyll-loading-lazy', github: 'gildesmarais/jekyll-loading-lazy'
+
+  gem 'jekyll-recipe', path: '/Users/gil/versioned/gildesmarais/jekyll-recipe'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
