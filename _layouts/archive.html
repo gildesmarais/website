@@ -9,16 +9,12 @@ layout: default
       <span class="tag">{{ page.title }}</span>
     </h1>
 
-    <p>
-      <a href="/blog/">Remove the tag filter</a> to see all blog posts.
-    </p>
+    <p><a href="/blog/">Remove the tag filter</a> to see all blog posts.</p>
   </header>
 
   <ul class="blog__list">
     {% for post in page.posts %}
-    <li>
-      {% include post-preview.html %}
-    </li>
+    <li>{% include post-preview.html %}</li>
     {% endfor %}
     <li></li>
     <li></li>
