@@ -9,6 +9,8 @@ end
 require 'json'
 require 'fileutils'
 require 'yaml'
+require 'faraday'
+require 'faraday-cookie_jar'
 
 ##
 # API wrapper class for Newsblur
