@@ -6,15 +6,6 @@ if ARGV.size < 3
   exit
 end
 
-require 'bundler/inline'
-
-gemfile(true) do
-  source 'https://rubygems.org'
-
-  gem 'faraday'
-  gem 'faraday-cookie_jar'
-end
-
 require 'json'
 require 'fileutils'
 require 'yaml'
