@@ -7,8 +7,10 @@ gem 'jekyll', '~> 4.1'
 gem 'sassc'
 gem 'terser'
 
-gem 'faraday'
-gem 'faraday-cookie_jar'
+group :newsblur do
+  gem 'faraday'
+  gem 'faraday-cookie_jar'
+end
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
