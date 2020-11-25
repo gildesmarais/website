@@ -6,27 +6,27 @@ layout: default
 
 <main class="page">
   <article class="recipe">
-    <h1>{{ title }}</h1>
-    <p>{{ description }} </p>
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
 
-    {% if image %}<img src="{{ image | absolute_url }}" role="presentation">{% endif %}
+    {% if recipe.image %}<img src="{{ recipe.image | absolute_url }}" role="presentation" />{% endif %}
 
     <table>
       <tbody>
         <tr>
-          <th>recipe_yield</th>
+          <th>Yield</th>
           <td>{{ recipe.recipe_yield }}</td>
         </tr>
         <tr>
-          <th>cooking_method</th>
+          <th>Method</th>
           <td>{{ recipe.cooking_method }}</td>
         </tr>
         <tr>
-          <th>prep_time</th>
+          <th>Preparation time</th>
           <td>{{ recipe.prep_time | recipe_pretty_duration }}</td>
         </tr>
         <tr>
-          <th>cook_time</th>
+          <th>Cook time</th>
           <td>{{ recipe.cook_time | recipe_pretty_duration }}</td>
         </tr>
       </tbody>
@@ -37,7 +37,7 @@ layout: default
       {% for ingredient in recipe.ingredients %}
       <li>
         <label>
-          <input type="checkbox">
+          <input type="checkbox" />
           {{ ingredient }}
         </label>
       </li>
@@ -49,20 +49,17 @@ layout: default
       {% for instruction in recipe.instructions %}
       <li>
         <label>
-          <input type="checkbox">
+          <input type="checkbox" />
           {{ instruction }}
         </label>
       </li>
       {% endfor %}
     </ol>
+
+    <aside role="contentinfo">{{ recipe.author }} {{ recipe.date | date_to_long_string }}</aside>
+
+    <button onclick="print()">Print</button>
   </article>
-
-  <aside role="contentinfo">
-    {{ recipe.author }}
-    {{ page.date | date_to_long_string }}
-  </aside>
-
-  <button onclick="print()">Print</button>
 </main>
 
 {% recipe_seo %}
