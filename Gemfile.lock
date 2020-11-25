@@ -1,5 +1,7 @@
-PATH
-  remote: /Users/gil/versioned/gildesmarais/jekyll-recipe
+GIT
+  remote: https://github.com/gildesmarais/jekyll-recipe
+  revision: 832a46d37b1be855a21147ce14cfba56d5da1cd2
+  branch: main
   specs:
     jekyll-recipe (0.1.0)
       activesupport
