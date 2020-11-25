@@ -27,6 +27,7 @@ ci-install:
 build:
 	bin/discogs
 	bin/blogroll "${NB_USERNAME}" "${NB_PASSWORD}" "${NB_FOLDER}"
+	bundle install --jobs 4 --retry 3
 	bundle exec jekyll build
 
 post-deploy:
