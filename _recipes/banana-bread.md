@@ -17,8 +17,8 @@ instructions:
   - Pour the mixture into a loaf pan and bake for one hour.
 recipe_yield: 1 loaf
 cooking_method: bake
-prep_time: 0h15m
-cook_time: 1h00m
+prep_time: 15m
+cook_time: 1h 15m
 
 # suitableForDiet: https://schema.org/LowFatDiet
 ---
