@@ -9,7 +9,6 @@ ingredients:
   - 1 egg
   - 3/4 cup of sugar
 name: Mom's World Famous Banana Bread
-prep_time: PT15M
 instructions:
   - Preheat the oven to 350 degrees.
   - Mix in the ingredients in a bowl.
