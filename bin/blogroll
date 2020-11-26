@@ -10,8 +10,10 @@ require 'json'
 require 'fileutils'
 require 'yaml'
 
-require 'bundler'
-Bundler.require(:newsblur)
+# require 'bundler'
+# Bundler.require(:newsblur)
+require 'faraday'
+require 'faraday-cookie_jar'
 
 ##
 # API wrapper class for Newsblur
