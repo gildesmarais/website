@@ -25,8 +25,11 @@ ci-install:
 	bundle install --jobs 4 --retry 3
 
 build:
+	echo "Fleamarket: pulling from discogs"
 	bin/discogs
+	echo "Blogroll: pulling from Newsblur"
 	bin/blogroll "${NB_USERNAME}" "${NB_PASSWORD}" "${NB_FOLDER}"
+	echo "Jekyll: build"
 	bundle exec jekyll build
 
 post-deploy:
