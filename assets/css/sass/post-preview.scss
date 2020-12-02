@@ -58,6 +58,11 @@
 }
 
 .post-preview__lang {
+  display: none;
+}
+
+html[lang="en"] .post-preview__lang {
+  display: block;
   position: absolute;
   top: 0.125em;
   right: 0.25em;

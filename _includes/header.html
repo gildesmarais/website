@@ -57,6 +57,12 @@
           </a>
         </li>
 
+        <li>
+          <a href="{{ "/recipes" | relative_url }}" class="nav__item {% if current[1] == 'recipes' %}nav__item--active{% endif %}" role="menuitem">
+            Rezepte 🇩🇪
+          </a>
+        </li>
+
         <li class="nav__item--last">
           <a href="{{ "/help" | relative_url }}" class="nav__item {% if current[1] == 'help' %}nav__item--active{% endif %}" role="menuitem">Help</a>
 
