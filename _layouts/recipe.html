@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% assign recipe = page.recipe %}
+
+<main class="page">
+  <article class="recipe">
+    {% if recipe.image %}
+    <div class="recipe__hero">
+      <img src="{{ recipe.image | absolute_url }}" role="presentation" />
+      <h1>{{ recipe.title }}</h1>
+    </div>
+    {% else %}
+    <h1>{{ recipe.title }}</h1>
+    {% endif %} {{ recipe.description | markdownify }}
+
+    <table>
+      <tbody>
+        <tr>
+          <th>Yield</th>
+          <td>{{ recipe.recipe_yield }}</td>
+        </tr>
+        <tr>
+          <th>Method</th>
+          <td>{{ recipe.cooking_method }}</td>
+        </tr>
+        <tr>
+          <th>Preparation time</th>
+          <td>{{ recipe.prep_time | recipe_pretty_duration }}</td>
+        </tr>
+        <tr>
+          <th>Cook time</th>
+          <td>{{ recipe.cook_time | recipe_pretty_duration }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Ingredients</h2>
+    <ul>
+      {% for ingredient in recipe.ingredients %}
+      <li>
+        <label>
+          <input type="checkbox" />
+          {{ ingredient | markdownify }}
+        </label>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Instructions</h2>
+    <ol>
+      {% for instruction in recipe.instructions %}
+      <li>
+        <label>
+          <input type="checkbox" />
+          {{ instruction | markdownify }}
+        </label>
+      </li>
+      {% endfor %}
+    </ol>
+
+    <aside role="contentinfo" class="visually-hidden">
+      {{ recipe.author }} {{ recipe.date | date_to_long_string }}
+    </aside>
+
+    <button onclick="print()">Print</button>
+  </article>
+</main>
+
+{% recipe_seo %}
