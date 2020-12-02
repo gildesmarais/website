@@ -3,7 +3,7 @@ lang: de
 name: Kräuterquark
 description: |
   Kräuterquark aus Quark selbst zu produzieren ist einfach: man braucht 
-  die gewünschten Kräuter und ein wenig Zeit zum ziehen. Mit diesem Rezept weiß man genau, was drin ist ... und gestreckt und angedickt wird bei diesem Rezept nix.
+  die gewünschten Kräuter und ein wenig Zeit zum ziehen. Mit diesem Rezept weiß man genau, was drin ist ... und gestreckt und angedickt wird bei diesem Grundrezept nix.
 
   Ich empfehle die Zubereitung mit 20%igem Quark, weniger und mehr geht auch. Nimmt man 40% Quark wird es allerdings recht flüssig. Dagegen könnte man mit einem Hauch Guarkernmehl (im Drogeriemarkt bzw. Reformhaus zu erhalten) arbeiten und es andicken.
   Mit Magerquark wird es richtig schön quarkig im Geschmack. Toll, wenn man es mag.

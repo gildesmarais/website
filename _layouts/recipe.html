@@ -15,27 +15,6 @@ layout: default
     <h1>{{ recipe.title }}</h1>
     {% endif %} {{ recipe.description | markdownify }}
 
-    <table>
-      <tbody>
-        <tr>
-          <th>Yield</th>
-          <td>{{ recipe.recipe_yield }}</td>
-        </tr>
-        <tr>
-          <th>Method</th>
-          <td>{{ recipe.cooking_method }}</td>
-        </tr>
-        <tr>
-          <th>Preparation time</th>
-          <td>{{ recipe.prep_time | recipe_pretty_duration }}</td>
-        </tr>
-        <tr>
-          <th>Cook time</th>
-          <td>{{ recipe.cook_time | recipe_pretty_duration }}</td>
-        </tr>
-      </tbody>
-    </table>
-
     <h2>Ingredients</h2>
     <ul>
       {% for ingredient in recipe.ingredients %}
@@ -60,12 +39,33 @@ layout: default
       {% endfor %}
     </ol>
 
-    <aside role="contentinfo" class="visually-hidden">
+    <aside role="contentinfo" class="recipe__author">
       {{ recipe.author }} {{ recipe.date | date_to_long_string }}
     </aside>
+
+    <table>
+      <tbody>
+        <tr>
+          <th>Yield</th>
+          <td>{{ recipe.recipe_yield }}</td>
+        </tr>
+        <tr>
+          <th>Method</th>
+          <td>{{ recipe.cooking_method }}</td>
+        </tr>
+        <tr>
+          <th>Preparation time</th>
+          <td>{{ recipe.prep_time | recipe_pretty_duration }}</td>
+        </tr>
+        <tr>
+          <th>Cook time</th>
+          <td>{{ recipe.cook_time | recipe_pretty_duration }}</td>
+        </tr>
+      </tbody>
+    </table>
 
     <button onclick="print()">Print</button>
   </article>
 </main>
 
-{% recipe_seo %}
+{% include author.html %} {% recipe_seo %}
