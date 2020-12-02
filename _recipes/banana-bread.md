@@ -3,7 +3,7 @@ name: Mom's World Famous Banana Bread
 description: |
   This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.
 image: bananabread.jpg
-date: '2020-11-24'
+date: "2020-11-24"
 ingredients:
   - 3 or 4 ripe bananas, smashed
   - 1 egg

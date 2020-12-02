@@ -3,7 +3,7 @@ name: Kräuterquark
 description: |
   Kräuterquark aus Quark selbst zu produzieren ist einfach: man braucht 
   die gewünschten Kräuter und ein wenig Zeit zum ziehen. Mit diesem Rezept weiß man genau, was drin ist ... und gestreckt und angedickt wird bei diesem Rezept nix.
-  
+
   Ich empfehle die Zubereitung mit 20%igem Quark, weniger und mehr geht auch. Nimmt man 40% Quark wird es allerdings recht flüssig. Dagegen könnte man mit Guarkernmehl (im Drogeriemarkt bzw. Reformhaus zu erhalten) arbeiten und es andicken.
   Mit Magerquark wird es richtig schön quarkig im Geschmack. Toll, wenn man es mag.
 
@@ -11,7 +11,7 @@ description: |
 
   Kann zum Dippen verwendet werden oder um es centimeterdick auf frisches rustikales Brot zu schmieren.
 image: assets/images/recipes/kräterquark.jpg
-date: '2020-12-02'
+date: "2020-12-02"
 ingredients:
   - 500g Quark (20% Fett i.T.)
   - 15g Kräuter (fein geschnitten, frisch oder TK, bspw. Schnittlauch und Petersilie zu gleichen Teilen)
