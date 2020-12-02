@@ -51,6 +51,7 @@ $breakpoint-large: $breakpoint-medium * 1.618;
 
 @mixin button {
   color: var(--front-100);
+  cursor: pointer;
   background-color: var(--back-500);
   border: 1px solid var(--back-700);
   border-radius: 3px;

@@ -1,4 +1,5 @@
 ---
+lang: de
 name: Kräuterquark
 description: |
   Kräuterquark aus Quark selbst zu produzieren ist einfach: man braucht 
@@ -7,10 +8,10 @@ description: |
   Ich empfehle die Zubereitung mit 20%igem Quark, weniger und mehr geht auch. Nimmt man 40% Quark wird es allerdings recht flüssig. Dagegen könnte man mit Guarkernmehl (im Drogeriemarkt bzw. Reformhaus zu erhalten) arbeiten und es andicken.
   Mit Magerquark wird es richtig schön quarkig im Geschmack. Toll, wenn man es mag.
 
-  Das fertige Produkt hält sich 3-4 Tage im Kühlschrank (abgdeckt).
+  Das fertige Produkt hält sich abgedeckt im Kühlschrank 3-4 Tage.
 
   Kann zum Dippen verwendet werden oder um es centimeterdick auf frisches rustikales Brot zu schmieren.
-image: assets/images/recipes/kräterquark.jpg
+image: /assets/images/recipes/kraeuterquark.jpg
 date: "2020-12-02"
 ingredients:
   - 500g Quark (20% Fett i.T.)

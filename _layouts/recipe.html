@@ -6,10 +6,14 @@ layout: default
 
 <main class="page">
   <article class="recipe">
+    {% if recipe.image %}
+    <div class="recipe__hero">
+      <img src="{{ recipe.image | absolute_url }}" role="presentation" />
+      <h1>{{ recipe.title }}</h1>
+    </div>
+    {% else %}
     <h1>{{ recipe.title }}</h1>
-    <p>{{ recipe.description }}</p>
-
-    {% if recipe.image %}<img src="{{ recipe.image | absolute_url }}" role="presentation" />{% endif %}
+    {% endif %} {{ recipe.description | markdownify }}
 
     <table>
       <tbody>
@@ -38,7 +42,7 @@ layout: default
       <li>
         <label>
           <input type="checkbox" />
-          {{ ingredient }}
+          {{ ingredient | markdownify }}
         </label>
       </li>
       {% endfor %}
@@ -50,13 +54,15 @@ layout: default
       <li>
         <label>
           <input type="checkbox" />
-          {{ instruction }}
+          {{ instruction | markdownify }}
         </label>
       </li>
       {% endfor %}
     </ol>
 
-    <aside role="contentinfo">{{ recipe.author }} {{ recipe.date | date_to_long_string }}</aside>
+    <aside role="contentinfo" class="visually-hidden">
+      {{ recipe.author }} {{ recipe.date | date_to_long_string }}
+    </aside>
 
     <button onclick="print()">Print</button>
   </article>
