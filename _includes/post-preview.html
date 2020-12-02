@@ -8,7 +8,7 @@
       <span class="post-preview__img--missing"></span>
       {% endif %}
 
-      {% if post.lang == 'de' %}<span class="post-preview__lang" title="Deutschsprachiger Blogpost">🇩🇪</span>{% endif %}
+      {% if post.lang == 'de' %}<span class="post-preview__lang" title="Language: German / Sprache: Deutsch">🇩🇪</span>{% endif %}
     </a>
   </header>
 
@@ -22,7 +22,7 @@
     </p>
 
     {% if post.description %}
-    <span class="post-preview__description p-summary">{{post.description}}</span>
+    <span class="post-preview__description p-summary">{{post.description | truncate: 140 }}</span>
     {% endif %}
   </main>
 

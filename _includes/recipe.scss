@@ -21,6 +21,13 @@
   }
 }
 
+.recipe table {
+  @include tile;
+
+  font-size: 0.9em;
+  border-collapse: separate;
+}
+
 .recipe ol,
 .recipe ul {
   margin-top: 1em;
@@ -58,6 +65,10 @@
   padding: 0.25em 0.5em;
   margin: 1em 0;
   font-size: 1.2em;
+}
+
+.recipe__author {
+  display: none;
 }
 
 .recipe > aside {
