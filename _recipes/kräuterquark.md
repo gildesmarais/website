@@ -22,7 +22,7 @@ instructions:
   - Alle Zutaten exkl. Quark abwiegen und in einer Schale vormischen.
   - Quark hinzugeben und alles ordentlich mit einem Schneebesen durchmischen.
   - Mindestens 1 Stunde kühlstellen und ziehen lassen.
-recipe_yield: 524,5g Kräuterquark
+recipe_yield: 519,5g Kräuterquark
 cooking_method: mix
 prep_time: 10m
 cook_time: 0m
