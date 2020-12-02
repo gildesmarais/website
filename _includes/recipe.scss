@@ -23,13 +23,25 @@
 
 .recipe ol,
 .recipe ul {
+  margin-top: 1em;
   margin-left: 0;
   list-style: none;
+
+  > li {
+    margin-bottom: 0.5em;
+  }
 }
 
 .recipe label {
   display: flex;
   align-items: baseline;
+  line-height: 1.16;
+  transition: background-color 0.2s linear;
+
+  &:focus,
+  &:hover {
+    background-color: var(--back-600);
+  }
 }
 
 .recipe label > input[type="checkbox"] {

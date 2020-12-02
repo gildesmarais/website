@@ -90,8 +90,19 @@ h3 {
 .nav,
 .footer,
 .post__footer-note,
-footer.section {
+footer.section,
+.recipe__hero > img,
+.recipe > button {
   display: none;
+}
+
+.recipe__hero {
+  height: auto;
+
+  > h1 {
+    position: relative;
+    padding: 0;
+  }
 }
 
 ul.section-nav a {
