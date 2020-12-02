@@ -7,6 +7,11 @@ gem 'jekyll', '~> 4.1'
 gem 'sassc'
 gem 'terser'
 
+group :newsblur do
+  gem 'faraday'
+  gem 'faraday-cookie_jar'
+end
+
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'jekyll-archives'
@@ -19,6 +24,9 @@ group :jekyll_plugins do
   gem 'jekyll-loading-lazy'
   # gem 'jekyll-loading-lazy', path: '/Users/gil/versioned/github-gill0r/jekyll-loading-lazy'
   # gem 'jekyll-loading-lazy', github: 'gildesmarais/jekyll-loading-lazy'
+
+  # gem 'jekyll-recipe', path: '/Users/gil/versioned/gildesmarais/jekyll-recipe'
+  gem 'jekyll-recipe', git: 'https://github.com/gildesmarais/jekyll-recipe', branch: 'main'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
