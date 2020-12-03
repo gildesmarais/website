@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gildesmarais/jekyll-recipe
-  revision: 832a46d37b1be855a21147ce14cfba56d5da1cd2
+  revision: 909fb506d0f261698c08dc76e7874e6233597763
   branch: main
   specs:
     jekyll-recipe (0.1.0)
@@ -84,7 +84,7 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
-    listen (3.3.1)
+    listen (3.3.3)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
@@ -133,7 +133,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
-    zeitwerk (2.4.1)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
