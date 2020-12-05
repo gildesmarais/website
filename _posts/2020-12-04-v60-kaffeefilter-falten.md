@@ -18,9 +18,9 @@ Aus einem handelsüblichen Kaffeefilter Größe 4 kann man mit einem Handgriff e
 3. Filter einsetzen.
 
 {% slider %}
-![Ausgangslage](/assets/images/posts/2020-12-04-filter.jpg)
-![Gefaltet](/assets/images/posts/2020-12-04-gefaltet.jpg)
-![Resultat](/assets/images/posts/2020-12-04-resultat.jpg)
+<img alt="Ausgangslage" src="/assets/images/posts/2020-12-04-filter.jpg" loading="eager">
+<img alt="Gefaltet" src="/assets/images/posts/2020-12-04-gefaltet.jpg" loading="lazy">
+<img alt="Resultat" src="/assets/images/posts/2020-12-04-resultat.jpg" loading="lazy">
 {% endslider %}
 
 Es empfiehlt sich vor der Nutzung -- insb. bei braunen Filtern -- ein gründliches Ausspülen mit warmen Wasser, um geschmackbringende Partikel loszuwerden.
