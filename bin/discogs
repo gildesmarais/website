@@ -26,6 +26,8 @@ urls.each do |url|
     listing['description'] = "Buy the #{release['format']} record from #{release['year']} " \
                              "from my private collection. Condition: #{listing['condition']}."
 
+    listing['title'] = release['description']
+
     output = <<~MD
       #{listing.to_yaml}
       ---
