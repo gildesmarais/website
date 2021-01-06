@@ -3,6 +3,10 @@ body {
   scroll-padding-top: var(--nav-height);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: var(--nav-height);
   padding-bottom: 66vh;
