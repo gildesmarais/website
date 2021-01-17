@@ -3,19 +3,22 @@
 
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
   font-size: 0.9em;
 }
 
-.work-experience__timerange {
-  width: 100%;
-  padding-top: 0.75em;
-  font-size: 0.8em;
+.work-experience__timerange,
+.work-experience__company {
+  font-size: 0.875em;
   color: var(--front-300);
 }
 
 .work-experience__textbox {
   width: 100%;
+}
+
+.work-experience__description {
+  margin: 1em 0;
 }
 
 .work-experience__tags {
@@ -28,24 +31,7 @@
   }
 }
 
-.work-experience__company {
-  font-size: 0.8em;
-}
-
 .work-experience__thesis--originaltitle {
   margin-top: 1em;
-  font-size: 0.8em;
-}
-
-@media (min-width: $breakpoint-medium) {
-  .work-experience {
-    flex-direction: row;
-  }
-
-  .work-experience__timerange {
-    width: 25%;
-  }
-  .work-experience__textbox {
-    width: 75%;
-  }
+  font-size: 0.875em;
 }
