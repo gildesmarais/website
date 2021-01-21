@@ -1,21 +1,6 @@
-GIT
-  remote: https://github.com/gildesmarais/jekyll-recipe
-  revision: 909fb506d0f261698c08dc76e7874e6233597763
-  branch: main
-  specs:
-    jekyll-recipe (0.1.0)
-      activesupport
-      jekyll (>= 3.0, < 5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.0)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 1.6, < 2)
-      minitest (>= 5.1)
-      tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
@@ -91,7 +76,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
     multipart-post (2.1.1)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -130,13 +114,10 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     terser (1.1.1)
       execjs (>= 0.3.0, < 3)
-    tzinfo (2.0.4)
-      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
-    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
@@ -150,7 +131,6 @@ DEPENDENCIES
   jekyll-archives
   jekyll-feed
   jekyll-loading-lazy
-  jekyll-recipe!
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-target-blank

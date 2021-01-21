@@ -28,8 +28,6 @@ theme:
 permalink: /posts/:title/
 
 collections:
-  recipes:
-    output: true
   fleamarket:
     output: true
     sort_by: sort_criteria
@@ -42,19 +40,12 @@ plugins:
   - jekyll-toc
   - jekyll-seo-tag
   - jekyll-loading-lazy
-  - jekyll-recipe
 
 defaults:
   - scope:
       path: "googleeaa7abda502171a*.html"
     values:
       sitemap: false
-  - scope:
-      path: ""
-      type: "recipes"
-    values:
-      layout: "recipe"
-      author: Gil
 
 jekyll-archives:
   enabled:
