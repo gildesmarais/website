@@ -18,15 +18,6 @@
     {{ critical | scssify }}
   </style>
 
-  {% if page.recipe %}
-  <style type="text/css">
-    {% capture recipe %}
-      {% include recipe.scss %}
-    {% endcapture %}
-    {{ recipe | scssify }}
-  </style>
-  {% endif %}
-
   <link rel="preconnect" href="https://gil.goatcounter.com" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}?{% cachebuster %}" as="style" />
   <link
