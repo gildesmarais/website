@@ -35,12 +35,12 @@ a:visited {
 }
 
 a[href]:after {
-  font-size: 0.9em;
+  font-size: 0.875rem;
   content: " (" attr(href) ")";
 }
 
 abbr[title]:after {
-  font-size: 0.9em;
+  font-size: 0.875rem;
   content: " (" attr(title) ")";
 }
 
@@ -108,7 +108,6 @@ ul.section-nav a {
   font-family: var(--font-alt);
   font-weight: bold;
   text-decoration: none;
-  letter-spacing: 0.05em;
 }
 
 .post__author {

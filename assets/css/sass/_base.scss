@@ -1,33 +1,42 @@
 /* stylelint-disable unit-whitelist */
-$rem: 17px;
-$breakpoint-medium: 45rem;
+$rem: 20px;
+$breakpoint-medium: 47.5rem;
 $breakpoint-large: $breakpoint-medium * 1.618;
 /* stylelint-enable unit-whitelist */
 
 @mixin tile {
-  padding: 0.75em 1.25em;
+  padding: 0.75em 1em;
   background-color: var(--back-700);
   border: 1px solid var(--back-500);
-  border-radius: 1px;
-  box-shadow: 0 1px 3px var(--back-500);
+  border-radius: 3px;
+  margin: 1.5rem 0 3.5rem;
+  box-shadow: 0 0 3px var(--back-500);
   content-visibility: auto;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+  }
 }
 
 @mixin tile-with-list {
   @include tile;
   padding: 0;
-  margin: 2em 0;
 
   &__list {
     margin-left: 0;
-    font-size: 0.925em;
-    line-height: 2;
+    font-size: 0.875rem;
+    line-height: 1.61;
     list-style: none;
 
     > li {
       display: flex;
       width: 100%;
-      padding: 0.25em 1.25em;
+      padding: 0.5em 1em;
       margin: 0;
       border-bottom: 1px solid var(--back-800);
     }
@@ -45,7 +54,7 @@ $breakpoint-large: $breakpoint-medium * 1.618;
   &__list-item--right {
     padding-left: 0.5em;
     margin-left: auto;
-    font-size: 0.9em;
+    font-size: 0.875rem;
   }
 }
 
@@ -66,33 +75,26 @@ $breakpoint-large: $breakpoint-medium * 1.618;
   }
 }
 
-$scaling: 0.85;
 %h1 {
-  font-size: 2.625em * $scaling;
-  line-height: 1.3 * $scaling;
+  font-size: 2.5rem;
 }
 
 %h2 {
-  font-size: 2.063em * $scaling;
-  line-height: 1.576 * $scaling;
+  font-size: 1.75rem;
 }
 
 %h3 {
-  font-size: 1.625em * $scaling;
-  line-height: 1.615 * $scaling;
+  font-size: 1.5rem;
 }
 
 %h4 {
-  font-size: 1.25em * $scaling;
-  line-height: 1.65 * $scaling;
+  font-size: 1.25rem;
 }
 
 %h5 {
-  font-size: 1em * $scaling;
-  line-height: 1.75 * $scaling;
+  font-size: 1.125rem;
 }
 
 %h6 {
-  font-size: 0.813em * $scaling;
-  line-height: 1.769 * $scaling;
+  font-size: 1rem;
 }

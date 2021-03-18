@@ -4,10 +4,9 @@
 
 .fleamarket__list-item--right {
   font-family: var(--font-mono);
-  font-size: 0.95em;
+  font-size: 1rem;
   color: var(--front-300);
   text-decoration: none;
-  letter-spacing: -0.05em;
   white-space: nowrap;
 }
 
@@ -15,7 +14,7 @@
   @include tile;
   width: 100%;
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: 0.875rem;
   border-collapse: separate;
 
   > tbody > tr {
@@ -29,7 +28,7 @@
   padding: 0.5em;
   margin: 2em auto 3em;
 
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .fleamarket__more {

@@ -1,6 +1,6 @@
 .post__meta {
   font-family: var(--font-mono);
-  font-size: 0.8em;
+  font-size: 0.75rem;
   color: var(--front-400);
   text-align: right;
 }
@@ -14,7 +14,7 @@
     display: inline-block;
     width: 100%;
     font-family: var(--font-alt);
-    font-size: 1.2em;
+    font-size: 1.25rem;
     color: var(--front-200);
   }
 }
@@ -29,10 +29,6 @@
 
   code {
     width: 100%;
-    font-family: var(--font-mono);
-    font-size: 0.85em;
-    line-height: 1;
-    font-variant-ligatures: discretionary-ligatures;
   }
 
   h1,
@@ -46,23 +42,13 @@
     }
 
     > code {
-      letter-spacing: 0.05em;
       background-color: unset;
+      font-size: inherit;
     }
   }
 
-  h4,
-  h5,
-  h6 {
-    text-decoration-color: var(--back-400);
-  }
-
   p {
-    margin: 0.25em 0;
-  }
-
-  p + p {
-    margin-top: 1em;
+    margin: 0.25em 0 0.75em;
   }
 
   > img {
@@ -80,7 +66,6 @@
     margin: 1.5em 0;
     line-height: 1.61;
     text-align: justify;
-    letter-spacing: -0.025em;
     quotes: "\201C""\201D""\2018""\2019";
     border-left: 0.75em solid var(--back-500);
   }
@@ -94,12 +79,16 @@
     margin-top: 0.5em;
     margin-bottom: 1em;
   }
+
+  sup {
+    font-variant: unicase;
+    letter-spacing: -0.05em;
+  }
 }
 
 .post .footnote {
   font-family: var(--font-mono);
   text-decoration: none;
-  letter-spacing: -0.05em;
 
   &:before {
     content: "[";
@@ -110,12 +99,13 @@
 }
 
 .post .footnotes {
-  margin: 1.5em 0;
-  font-size: 0.9em;
+  padding: 1rem 0;
+  margin: 2rem 0;
+  font-size: 0.875rem;
   border-top: 2px solid var(--back-400);
 
   ol {
-    margin: 0.5em 0 0;
+    margin: 0.5rem 0 0;
     list-style-type: none;
     counter-reset: section;
   }
@@ -123,6 +113,7 @@
   ol > li::before {
     display: inline-block;
     font-family: var(--font-mono);
+    font-variant: unicase;
     color: var(--front-300);
     letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";
@@ -130,7 +121,7 @@
   }
 
   ol > li {
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5rem;
   }
 
   ol > li:target {
@@ -140,6 +131,7 @@
   ol > li > p {
     display: inline;
   }
+
   ol > li a {
     color: inherit;
   }
@@ -154,7 +146,7 @@
 }
 
 .post__message {
-  margin: 3em 0;
+  margin: 3rem 0;
 }
 
 @media (max-width: $breakpoint-medium) {

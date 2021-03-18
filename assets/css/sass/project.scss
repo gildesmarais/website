@@ -1,12 +1,6 @@
 .project__html2rss,
 .project__jekyll-loading-lazy {
   @include tile;
-
-  margin: 1em 0em 2em;
-
-  > h2 {
-    margin: 0 0 0.5em;
-  }
 }
 
 .project__html2rss > h2 {
@@ -23,5 +17,4 @@
 .project__jekyll-loading-lazy > h2 {
   font-family: var(--font-mono);
   font-weight: 400;
-  letter-spacing: -0.05em;
 }
