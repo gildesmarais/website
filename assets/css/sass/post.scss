@@ -29,10 +29,6 @@
 
   code {
     width: 100%;
-    font-family: var(--font-mono);
-    font-size: 0.85em;
-    line-height: 1;
-    font-variant-ligatures: discretionary-ligatures;
   }
 
   h1,
@@ -46,7 +42,6 @@
     }
 
     > code {
-      letter-spacing: 0.05em;
       background-color: unset;
     }
   }
@@ -80,7 +75,6 @@
     margin: 1.5em 0;
     line-height: 1.61;
     text-align: justify;
-    letter-spacing: -0.025em;
     quotes: "\201C""\201D""\2018""\2019";
     border-left: 0.75em solid var(--back-500);
   }
@@ -99,7 +93,6 @@
 .post .footnote {
   font-family: var(--font-mono);
   text-decoration: none;
-  letter-spacing: -0.05em;
 
   &:before {
     content: "[";
@@ -124,7 +117,6 @@
     display: inline-block;
     font-family: var(--font-mono);
     color: var(--front-300);
-    letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";
     counter-increment: section;
   }
