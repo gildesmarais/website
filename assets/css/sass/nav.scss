@@ -16,9 +16,9 @@ $icon-line-strength: 2px;
 .nav__icon {
   position: relative;
   display: block;
-  width: 1em;
+  width: 1rem;
   height: $icon-line-strength;
-  margin-top: calc(0.5em + #{$icon-line-strength * 2 + 2px});
+  margin-top: calc(0.5rem + #{$icon-line-strength * 2 + 2px});
   background-color: var(--front-100);
 
   &,
@@ -87,7 +87,7 @@ $icon-line-strength: 2px;
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  font-size: 1.5em;
+  font-size: 2rem;
   font-weight: 500;
   list-style-type: none;
 
@@ -125,19 +125,19 @@ li.nav__item--first {
   margin-bottom: 1em;
 
   > .nav__site-title--menu {
-    padding: 0.4em 0.5em 0 0.6em;
+    padding: 0.5rem;
     font-family: var(--font-alt);
-    font-size: 0.8em;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 300;
     color: var(--front-100);
     text-decoration: underline;
-    text-decoration-color: var(--front-300);
+    text-decoration-color: var(--back-300);
   }
 
   > label {
     @include button;
-    padding: 0.5em;
-    font-size: 0.75em;
+    padding: 0.5rem;
+    font-size: 1.125rem;
     color: var(--front-200);
   }
 }
@@ -145,11 +145,11 @@ li.nav__item--first {
 li.nav__item--last {
   position: absolute;
   right: 0;
-  bottom: 3em;
+  bottom: 3rem;
   left: 0;
 
-  padding-bottom: 0.5em;
-  font-size: 0.8em;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
   text-align: center;
   > a {
     display: inline;
@@ -167,8 +167,8 @@ li.nav__item--last {
   &:hover,
   &:focus-within {
     display: block;
-    margin: 0.5em auto;
-    font-size: 1.15em;
+    margin: 0.5rem auto;
+    font-size: 1.125rem;
     pointer-events: all;
     user-select: all;
     opacity: 1;

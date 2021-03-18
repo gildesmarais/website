@@ -1,6 +1,6 @@
 .post__meta {
   font-family: var(--font-mono);
-  font-size: 0.8em;
+  font-size: 0.75rem;
   color: var(--front-400);
   text-align: right;
 }
@@ -14,7 +14,7 @@
     display: inline-block;
     width: 100%;
     font-family: var(--font-alt);
-    font-size: 1.2em;
+    font-size: 1.25rem;
     color: var(--front-200);
   }
 }
@@ -43,21 +43,12 @@
 
     > code {
       background-color: unset;
+      font-size: inherit;
     }
   }
 
-  h4,
-  h5,
-  h6 {
-    text-decoration-color: var(--back-400);
-  }
-
   p {
-    margin: 0.25em 0;
-  }
-
-  p + p {
-    margin-top: 1em;
+    margin: 0.25em 0 0.75em;
   }
 
   > img {
@@ -88,6 +79,11 @@
     margin-top: 0.5em;
     margin-bottom: 1em;
   }
+
+  sup {
+    font-variant: unicase;
+    letter-spacing: -0.05em;
+  }
 }
 
 .post .footnote {
@@ -103,12 +99,13 @@
 }
 
 .post .footnotes {
-  margin: 1.5em 0;
-  font-size: 0.9em;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  font-size: 0.875rem;
   border-top: 2px solid var(--back-400);
 
   ol {
-    margin: 0.5em 0 0;
+    margin: 0.5rem 0 0;
     list-style-type: none;
     counter-reset: section;
   }
@@ -119,10 +116,12 @@
     color: var(--front-300);
     content: "[" counters(section, ".") "]";
     counter-increment: section;
+    font-variant: unicase;
+    letter-spacing: -0.05em;
   }
 
   ol > li {
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5rem;
   }
 
   ol > li:target {
@@ -132,6 +131,7 @@
   ol > li > p {
     display: inline;
   }
+
   ol > li a {
     color: inherit;
   }
@@ -146,7 +146,7 @@
 }
 
 .post__message {
-  margin: 3em 0;
+  margin: 3rem 0;
 }
 
 @media (max-width: $breakpoint-medium) {

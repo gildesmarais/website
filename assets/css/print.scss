@@ -35,12 +35,12 @@ a:visited {
 }
 
 a[href]:after {
-  font-size: 0.9em;
+  font-size: 0.875rem;
   content: " (" attr(href) ")";
 }
 
 abbr[title]:after {
-  font-size: 0.9em;
+  font-size: 0.875rem;
   content: " (" attr(title) ")";
 }
 

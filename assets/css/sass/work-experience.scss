@@ -1,15 +1,13 @@
 .work-experience {
   @include tile;
-
+  padding: 1em;
   display: flex;
   flex-direction: column;
-  margin: 1.5em 0;
-  font-size: 0.9em;
 }
 
 .work-experience__timerange,
 .work-experience__company {
-  font-size: 0.875em;
+  font-size: 0.875rem;
   color: var(--front-300);
 }
 
@@ -18,11 +16,16 @@
 }
 
 .work-experience__description {
-  margin: 1em 0;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.work-experience__list {
+  line-height: 1.61;
 }
 
 .work-experience__tags {
-  margin-top: 1em;
+  margin-top: 1rem;
   margin-left: 0;
   list-style: none;
 
@@ -32,6 +35,6 @@
 }
 
 .work-experience__thesis--originaltitle {
-  margin-top: 1em;
-  font-size: 0.875em;
+  margin-top: 1rem;
+  font-size: 0.875rem;
 }
