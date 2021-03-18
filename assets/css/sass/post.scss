@@ -99,8 +99,8 @@
 }
 
 .post .footnotes {
-  margin: 2rem 0;
   padding: 1rem 0;
+  margin: 2rem 0;
   font-size: 0.875rem;
   border-top: 2px solid var(--back-400);
 
@@ -113,11 +113,11 @@
   ol > li::before {
     display: inline-block;
     font-family: var(--font-mono);
+    font-variant: unicase;
     color: var(--front-300);
+    letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";
     counter-increment: section;
-    font-variant: unicase;
-    letter-spacing: -0.05em;
   }
 
   ol > li {
