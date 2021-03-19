@@ -28,7 +28,8 @@ a {
 h1 {
   @extend %h1;
   text-decoration: underline;
-  text-decoration-color: var(--back-300);
+  text-decoration-color: var(--back-500);
+  text-decoration-thickness: 0.125rem;
 }
 
 h2 {

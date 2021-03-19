@@ -77,6 +77,7 @@ html[lang="en"] .post-preview__lang {
   > a {
     display: block;
     width: 100%;
+    min-height: 3rem;
   }
 
   > a:focus,
@@ -86,9 +87,7 @@ html[lang="en"] .post-preview__lang {
 }
 
 .post-preview__time {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--front-400);
+  @extend %time;
 }
 
 .post-preview__description {
