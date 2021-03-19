@@ -300,7 +300,7 @@ Bookmarklets sit like a bookmark in your bookmark bar, but they execute Javascri
 
 ### Dealing with files in general
 
-The macOS' Finder app is an ironic joke. Apple does not seem to care much about it.[^6]
+The macOS' Finder app is an ironic joke. Apple does not seem to care much about it.
 I can't _find_ anything with it, it just stands in the way. It's barely usable with a keyboard. The (unchangeable) hotkeys are weird (Return to start renaming?! What?). To work effectively with it you have to move the cursor. Instant disqualification.[^7]
 
 Luckily, there's [Marta](https://marta.yanex.org/), a two pane file manager, like the Norton Commander in the good old days (not the stone age). It has a fuzzy search/lookup relative to `cwd` with <kbd>Ctrl</kbd>+<kbd>P</kbd>.
@@ -398,7 +398,6 @@ I'm thinking of ditching iTerm2 for Alacritty and tmux.
 [^3]: You can even [generate Mindmaps from Markdown](https://github.com/dundalek/markmap).
 [^4]: If you write web components and need to demo them, try [`mdx`](https://github.com/mdx-js/mdx).
 [^5]: That's a lie, I look forward to the official [end of support of the IE11](https://death-to-ie11.com/).
-[^6]:
 
 (pos: 17) [John Siracusa: <q>About the Finder…</q>
 published 17 (seventeen!!) years ago](https://arstechnica.com/gadgets/2003/04/finder/)
