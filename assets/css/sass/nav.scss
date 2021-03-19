@@ -125,20 +125,21 @@ li.nav__item--first {
   margin-bottom: 1em;
 
   > .nav__site-title--menu {
-    padding: 0.5rem 0.33rem;
+    padding: 0.5rem var(--section-padding);
     font-family: var(--font-alt);
     font-size: 1.25rem;
     font-weight: 300;
     line-height: 1.25;
     color: var(--front-100);
     text-decoration: underline;
-    text-decoration-color: var(--back-300);
+    text-decoration-color: var(--back-500);
+    text-decoration-thickness: 0.125rem;
   }
 
   > label {
     @include button;
-    padding: 0.5rem;
-    font-size: 1.125rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 1rem;
     color: var(--front-200);
   }
 }

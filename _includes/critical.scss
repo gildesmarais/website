@@ -62,25 +62,28 @@
   left: 0;
   z-index: 10;
   height: var(--nav-height);
-  padding: 0 0.25em;
   font-weight: 500;
   background-color: var(--back-900);
+  box-shadow: 0 0 0.125em var(--back-900);
 }
 
 .header__container {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: var(--container-width);
+  height: 100%;
   margin: 0 auto;
 }
 
 .header__site-title {
-  padding: 0.5rem 0.125rem;
+  padding: 0.5rem var(--section-padding);
   font-family: var(--font-alt);
   font-size: 1.25rem;
   font-weight: 300;
   color: var(--front-100);
-  text-decoration-color: var(--back-300);
+  text-decoration-color: var(--back-500);
+  text-decoration-thickness: 0.125rem;
 }
 
 .header__menu {
