@@ -1,8 +1,9 @@
 .work-experience {
-  @include tile;
-  padding: 1em;
   display: flex;
   flex-direction: column;
+
+  margin-bottom: 5rem;
+  border-radius: 3px;
 }
 
 .work-experience__timerange,
@@ -11,30 +12,6 @@
   color: var(--front-300);
 }
 
-.work-experience__textbox {
-  width: 100%;
-}
-
 .work-experience__description {
-  margin: 1rem 0;
-  font-size: 0.875rem;
-}
-
-.work-experience__list {
-  line-height: 1.61;
-}
-
-.work-experience__tags {
-  margin-top: 1rem;
-  margin-left: 0;
-  list-style: none;
-
-  > li {
-    display: inline-block;
-  }
-}
-
-.work-experience__thesis--originaltitle {
-  margin-top: 1rem;
   font-size: 0.875rem;
 }
