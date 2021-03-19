@@ -4,13 +4,13 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: var(--rem);
   font-family: var(--font);
+  font-size: var(--rem);
   font-weight: 250;
   line-height: 1.25;
   color: var(--front-200);
   background-color: var(--back-900);
+  scroll-behavior: smooth;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
 }
@@ -77,9 +77,9 @@ kbd {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.14;
-  vertical-align: middle;
   color: var(--front-200);
   white-space: nowrap;
+  vertical-align: middle;
   background-color: var(--back-500);
   border: 1px solid var(--back-300);
   border-radius: 3px;
@@ -108,8 +108,8 @@ table th {
 ol,
 ul {
   margin-left: 2rem;
-  list-style-position: outside;
   line-height: 1.61;
+  list-style-position: outside;
 }
 
 ol {

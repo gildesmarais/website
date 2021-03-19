@@ -3,60 +3,63 @@
   white-space: nowrap;
   font-size: 0.875rem;
   max-width: 100%;
-  overflow: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.14;
+  font-variant-ligatures: discretionary-ligatures;
+  font-variant: proportional-width;
+
+  pre {
+    background: var(--back-700);
+  }
 }
+// https://github.com/mozmorris/tomorrow-pygments/blob/master/css/tomorrow_night_eighties.css
 
 .highlight {
-  background: var(--back-700);
-  max-width: 100%;
-  overflow: auto;
-  color: #4d4d4c;
-  font-family: var(--font-mono);
-  line-height: 1;
-  font-variant-ligatures: discretionary-ligatures;
-}
-
-.highlight .hll {
-  background-color: #d6d6d6;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 0.25em;
+  margin: 0;
 }
 
 .highlight .c {
-  color: #8e908c;
+  color: #999;
 }
 
 .highlight .err {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .k {
-  color: #8959a8;
+  color: #c9c;
 }
 
 .highlight .l {
-  color: #f5871f;
+  color: #f99157;
 }
 
 .highlight .n {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .o {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .p {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .c1,
 .highlight .cm,
 .highlight .cp,
 .highlight .cs {
-  color: #8e908c;
+  color: #999;
 }
 
 .highlight .gd {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .ge {
@@ -64,16 +67,16 @@
 }
 
 .highlight .gh {
-  color: #4d4d4c;
+  color: #ccc;
   font-weight: 700;
 }
 
 .highlight .gi {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .gp {
-  color: #8e908c;
+  color: #999;
 }
 
 .highlight .gp,
@@ -83,379 +86,155 @@
 }
 
 .highlight .gu {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .kc,
 .highlight .kd {
-  color: #8959a8;
+  color: #c9c;
 }
 
 .highlight .kn {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .kp,
 .highlight .kr {
-  color: #8959a8;
+  color: #c9c;
 }
 
 .highlight .kt {
-  color: #eab700;
+  color: #fc6;
 }
 
 .highlight .ld {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .m {
-  color: #f5871f;
+  color: #f99157;
 }
 
 .highlight .s {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .na {
-  color: #4271ae;
+  color: #69c;
 }
 
 .highlight .nb {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .nc {
-  color: #eab700;
+  color: #fc6;
 }
 
 .highlight .no {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .nd {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .ni {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .ne {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .nf {
-  color: #4271ae;
+  color: #69c;
 }
 
 .highlight .nl {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .nn {
-  color: #eab700;
+  color: #fc6;
 }
 
 .highlight .nx {
-  color: #4271ae;
+  color: #69c;
 }
 
 .highlight .py {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .nt {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .nv {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .ow {
-  color: #3e999f;
+  color: #6cc;
 }
 
 .highlight .w {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .mf,
 .highlight .mh,
 .highlight .mi,
 .highlight .mo {
-  color: #f5871f;
+  color: #f99157;
 }
 
 .highlight .sb {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .sc {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .sd {
-  color: #8e908c;
+  color: #999;
 }
 
 .highlight .s2 {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .se {
-  color: #f5871f;
+  color: #f99157;
 }
 
 .highlight .sh {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .si {
-  color: #f5871f;
+  color: #f99157;
 }
 
 .highlight .s1,
 .highlight .sr,
 .highlight .ss,
 .highlight .sx {
-  color: #718c00;
+  color: #9c9;
 }
 
 .highlight .bp {
-  color: #4d4d4c;
+  color: #ccc;
 }
 
 .highlight .vc,
 .highlight .vg,
 .highlight .vi {
-  color: #c82829;
+  color: #f2777a;
 }
 
 .highlight .il {
-  color: #f5871f;
-}
-
-@media (prefers-color-scheme: dark) {
-  // https://github.com/mozmorris/tomorrow-pygments/blob/master/css/tomorrow_night_eighties.css
-
-  .highlight {
-    color: #ccc;
-  }
-
-  .highlight .c {
-    color: #999;
-  }
-
-  .highlight .err {
-    color: #f2777a;
-  }
-
-  .highlight .k {
-    color: #c9c;
-  }
-
-  .highlight .l {
-    color: #f99157;
-  }
-
-  .highlight .n {
-    color: #ccc;
-  }
-
-  .highlight .o {
-    color: #6cc;
-  }
-
-  .highlight .p {
-    color: #ccc;
-  }
-
-  .highlight .c1,
-  .highlight .cm,
-  .highlight .cp,
-  .highlight .cs {
-    color: #999;
-  }
-
-  .highlight .gd {
-    color: #f2777a;
-  }
-
-  .highlight .ge {
-    font-style: italic;
-  }
-
-  .highlight .gh {
-    color: #ccc;
-    font-weight: 700;
-  }
-
-  .highlight .gi {
-    color: #9c9;
-  }
-
-  .highlight .gp {
-    color: #999;
-  }
-
-  .highlight .gp,
-  .highlight .gs,
-  .highlight .gu {
-    font-weight: 700;
-  }
-
-  .highlight .gu {
-    color: #6cc;
-  }
-
-  .highlight .kc,
-  .highlight .kd {
-    color: #c9c;
-  }
-
-  .highlight .kn {
-    color: #6cc;
-  }
-
-  .highlight .kp,
-  .highlight .kr {
-    color: #c9c;
-  }
-
-  .highlight .kt {
-    color: #fc6;
-  }
-
-  .highlight .ld {
-    color: #9c9;
-  }
-
-  .highlight .m {
-    color: #f99157;
-  }
-
-  .highlight .s {
-    color: #9c9;
-  }
-
-  .highlight .na {
-    color: #69c;
-  }
-
-  .highlight .nb {
-    color: #ccc;
-  }
-
-  .highlight .nc {
-    color: #fc6;
-  }
-
-  .highlight .no {
-    color: #f2777a;
-  }
-
-  .highlight .nd {
-    color: #6cc;
-  }
-
-  .highlight .ni {
-    color: #ccc;
-  }
-
-  .highlight .ne {
-    color: #f2777a;
-  }
-
-  .highlight .nf {
-    color: #69c;
-  }
-
-  .highlight .nl {
-    color: #ccc;
-  }
-
-  .highlight .nn {
-    color: #fc6;
-  }
-
-  .highlight .nx {
-    color: #69c;
-  }
-
-  .highlight .py {
-    color: #ccc;
-  }
-
-  .highlight .nt {
-    color: #6cc;
-  }
-
-  .highlight .nv {
-    color: #f2777a;
-  }
-
-  .highlight .ow {
-    color: #6cc;
-  }
-
-  .highlight .w {
-    color: #ccc;
-  }
-
-  .highlight .mf,
-  .highlight .mh,
-  .highlight .mi,
-  .highlight .mo {
-    color: #f99157;
-  }
-
-  .highlight .sb {
-    color: #9c9;
-  }
-
-  .highlight .sc {
-    color: #ccc;
-  }
-
-  .highlight .sd {
-    color: #999;
-  }
-
-  .highlight .s2 {
-    color: #9c9;
-  }
-
-  .highlight .se {
-    color: #f99157;
-  }
-
-  .highlight .sh {
-    color: #9c9;
-  }
-
-  .highlight .si {
-    color: #f99157;
-  }
-
-  .highlight .s1,
-  .highlight .sr,
-  .highlight .ss,
-  .highlight .sx {
-    color: #9c9;
-  }
-
-  .highlight .bp {
-    color: #ccc;
-  }
-
-  .highlight .vc,
-  .highlight .vg,
-  .highlight .vi {
-    color: #f2777a;
-  }
-
-  .highlight .il {
-    color: #f99157;
-  }
+  color: #f99157;
 }

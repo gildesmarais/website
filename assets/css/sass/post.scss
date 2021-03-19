@@ -1,7 +1,5 @@
 .post__meta {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--front-400);
+  @extend %time;
   text-align: right;
 }
 
@@ -42,8 +40,8 @@
     }
 
     > code {
-      background-color: unset;
       font-size: inherit;
+      background-color: unset;
     }
   }
 
@@ -87,7 +85,8 @@
 }
 
 .post .footnote {
-  font-family: var(--font-mono);
+  @extend %time;
+
   text-decoration: none;
 
   &:before {
@@ -111,10 +110,10 @@
   }
 
   ol > li::before {
+    @extend %time;
     display: inline-block;
     font-family: var(--font-mono);
     font-variant: unicase;
-    color: var(--front-300);
     letter-spacing: -0.05em;
     content: "[" counters(section, ".") "]";
     counter-increment: section;
