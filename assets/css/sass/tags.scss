@@ -8,7 +8,13 @@
   list-style: none;
 }
 
-.tags {
+.tags--list {
+  margin-left: 0;
+}
+
+.tags,
+.tags--right,
+.tags--left {
   @extend %tags;
 
   a {
@@ -16,16 +22,15 @@
   }
 }
 
-.tags--list {
-  margin-left: 0;
-}
-
+.tags--right,
 .tags--left {
-  @extend %tags;
-
   justify-content: flex-end;
   padding: 0;
-  margin: 2em 0;
+  margin: 1rem 0;
+}
+
+.tags--right {
+  justify-content: flex-start;
 }
 
 .tag {

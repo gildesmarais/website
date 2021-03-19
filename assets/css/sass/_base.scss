@@ -1,7 +1,5 @@
 /* stylelint-disable unit-whitelist */
-$rem: 20px;
-$breakpoint-medium: 47.5rem;
-$breakpoint-large: $breakpoint-medium * 1.618;
+$breakpoint-medium: 38rem;
 /* stylelint-enable unit-whitelist */
 
 @mixin tile {
@@ -30,7 +28,6 @@ $breakpoint-large: $breakpoint-medium * 1.618;
   &__list {
     margin-left: 0;
     font-size: 0.875rem;
-    line-height: 1.61;
     list-style: none;
 
     > li {
@@ -80,7 +77,7 @@ $breakpoint-large: $breakpoint-medium * 1.618;
 }
 
 %h2 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 %h3 {

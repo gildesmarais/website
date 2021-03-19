@@ -16,7 +16,7 @@
   }
 
   .blog__list > li {
-    flex: 1 1 calc(#{$breakpoint-medium / 2} - 1em);
+    flex: 1 1 calc(50% - 1em);
     margin: 0.75em 0.5em;
   }
 }
