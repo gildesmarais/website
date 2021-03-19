@@ -7,8 +7,8 @@
 @import "index";
 
 :root {
-  --rem: #{$rem};
-  --nav-height: #{$rem * 3};
+  --rem: 18px;
+  --nav-height: calc(var(--rem) * 3);
   --container-width: #{$breakpoint-medium};
   --section-padding: 0.5em;
 
@@ -31,6 +31,18 @@
   --brand-100: hsl(32, 83%, 48%);
   --contrast-100: hsl(212, 93%, 43%);
   // the higher, the more in the back
+}
+
+@media (min-width: 658px) {
+  :root {
+    --rem: 19px;
+  }
+}
+
+@media (min-width: 980px) {
+  :root {
+    --rem: 20px;
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -63,7 +75,7 @@
 }
 
 .header__site-title {
-  padding: 0.5rem;
+  padding: 0.5rem 0.125rem;
   font-family: var(--font-alt);
   font-size: 1.25rem;
   font-weight: 300;

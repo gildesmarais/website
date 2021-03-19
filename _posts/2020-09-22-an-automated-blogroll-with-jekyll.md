@@ -19,7 +19,7 @@ The blogroll itself is then build as a regular HTML page in Jekyll.
 
 This post explain how it works.
 
-# The Ruby script
+## The Ruby script
 
 Save this script in `bin/blogroll` and afterwards `chmod +x bin/blogroll`.
 
@@ -110,7 +110,7 @@ exclude:
 
 ... and `echo _data/blogroll.yml > .gitignore`
 
-# Render the blogroll page
+## Render the blogroll page
 
 Create the `blogroll/index.html` file.
 
@@ -137,7 +137,7 @@ layout: default
 </ul>{% endraw %}
 ```
 
-# The Github Actions workflow
+## The Github Actions workflow
 
 To automatically update the blogroll, [schedule](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule) a run of your deployment workflow.
 
@@ -169,7 +169,7 @@ jobs:
 
 And lastly, add the required secrets (`NB_*`) to your website's repository settings.
 
-# Conclusion
+## Conclusion
 
 Blogrolls are valuable to the independent world wide web. Let's not forget them.
 There are still plenty of blogs out there. It just hard to find them... a blogroll can mitigate the problematic discovery. If you write a blog, why not add a blogroll to your blog? It doesn't have to be automated; you can update the blogroll manually..

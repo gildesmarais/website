@@ -15,7 +15,7 @@ I told all remaining contacts where they can find me and sent them the URL to my
 
 Anyway, at some time you have to pull the plug.
 
-# A few reasons for that decision
+## A few reasons for that decision
 
 The reasons are diverse, but these are enough for me:
 
