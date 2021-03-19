@@ -8,8 +8,7 @@
 
 .work-experience__timerange,
 .work-experience__company {
-  font-size: 0.875rem;
-  color: var(--front-300);
+  @extend %time;
 }
 
 .work-experience__description {

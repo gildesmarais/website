@@ -72,6 +72,12 @@ $breakpoint-medium: 38rem;
   }
 }
 
+%time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--front-400);
+}
+
 %h1 {
   font-size: 2.125rem;
 }
