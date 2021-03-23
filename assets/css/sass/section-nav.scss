@@ -1,12 +1,11 @@
 ul.section-nav {
   margin-left: 0;
+  font-size: 0.75rem;
 }
 
 .section-nav {
   &,
   ul {
-    margin-top: 0.125em;
-    margin-bottom: 0.125em;
     list-style-type: none;
     counter-reset: section;
   }
