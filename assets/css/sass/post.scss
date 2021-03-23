@@ -5,15 +5,18 @@
 
 .post__toc {
   @include tile;
+  padding: 0.5em 0.5em;
 
-  margin: 1.5em 0;
+  margin: 1rem 0;
 
   > summary {
     display: inline-block;
     width: 100%;
-    font-family: var(--font-alt);
-    font-size: 1.25rem;
     color: var(--front-200);
+
+    &:focus {
+      outline: 0;
+    }
   }
 }
 
