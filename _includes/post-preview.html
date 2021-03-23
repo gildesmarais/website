@@ -17,17 +17,11 @@
       {{ post.title | escape }}
     </a>
 
-    <p class="post-preview__time">
-      <time class="dt-published" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-    </p>
-
     {% if post.description %}
     <span class="post-preview__description p-summary">{{post.description | truncate: 140 }}</span>
     {% endif %}
-  </main>
 
-  {% if post.tags %}
-  <footer>
+    {% if post.tags %}
     <p class="visually-hidden">This post is tagged with:</p>
     <ul class="post-preview__tags">
       {% for tag in post.tags %}
@@ -37,9 +31,9 @@
       {% endfor %}
     </ul>
 
-    <a href="{{ site.url }}" class="h-card p-author" hidden>
+    <a href="{{ site.url }}" class="visually-hidden h-card p-author" hidden>
       {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
     </a>
-  </footer>
-  {% endif %}
+    {% endif %}
+  </main>
 </article>

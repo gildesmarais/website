@@ -1,28 +1,6 @@
 .blog__list {
-  display: flex;
-  flex-wrap: wrap;
+  max-width: var(--container-width);
+  padding: 0 var(--section-padding);
   margin: 0 auto;
-}
-
-.blog__list > li {
-  flex: 1 1 100%;
-  margin: 0.5em 0;
-}
-
-@media (min-width: $breakpoint-medium) {
-  .blog__list {
-    justify-content: space-around;
-    list-style: none;
-  }
-
-  .blog__list > li {
-    flex: 1 1 calc(50% - 1em);
-    margin: 0.75em 0.5em;
-  }
-}
-
-@media (min-width: $breakpoint-medium) {
-  .blog__list {
-    padding: 0 2em;
-  }
+  list-style: none;
 }
