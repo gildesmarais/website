@@ -13,7 +13,7 @@
   </header>
 
   <main class="post-preview__body">
-    <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}">
+    <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" itemprop="url">
       <h1 itemprop="headline">{{ post.title | escape }}</h1>
     </a>
 
