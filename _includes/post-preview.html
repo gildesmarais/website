@@ -1,9 +1,9 @@
-<article class="h-entry post-preview">
+<article class="h-entry post-preview" itemscope itemtype="https://schema.org/BlogPosting">
   <header>
     <a href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" title="{{ post.title | escape }}" tabindex="-1">
       <div class="post-preview__shade"></div>
       {% if post.image %}
-      <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}">
+      <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" itemprop="image">
       {% else %}
       <span class="post-preview__img--missing"></span>
       {% endif %}
@@ -14,11 +14,11 @@
 
   <main class="post-preview__body">
     <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}">
-      {{ post.title | escape }}
+      <h1 itemprop="headline">{{ post.title | escape }}</h1>
     </a>
 
     {% if post.description %}
-    <span class="post-preview__description p-summary">{{post.description | truncate: 140 }}</span>
+    <span class="post-preview__description p-summary" itemprop="description">{{post.description | truncate: 140 }}</span>
     {% endif %}
 
     {% if post.tags %}
@@ -26,12 +26,12 @@
     <ul class="post-preview__tags">
       {% for tag in post.tags %}
       <li>
-        <a href="/tag/{{ tag }}" class="tag p-category">{{ tag }}</a>
+        <a href="/tag/{{ tag }}" class="tag p-category" itemprop="about">{{ tag }}</a>
       </li>
       {% endfor %}
     </ul>
 
-    <a href="{{ site.url }}" class="visually-hidden h-card p-author" hidden>
+    <a href="{{ site.url }}" class="visually-hidden h-card p-author" hidden itemprop="author">
       {% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}
     </a>
     {% endif %}
