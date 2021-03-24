@@ -81,6 +81,13 @@ html[lang="en"] .post-preview__lang {
     width: 100%;
   }
 
+  h1 {
+    font-family: var(--font);
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+  }
+
   > a:focus,
   > a:hover {
     text-decoration: underline;
