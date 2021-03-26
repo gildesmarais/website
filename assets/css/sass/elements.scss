@@ -93,7 +93,7 @@ details > summary {
   color: var(--front-300);
   cursor: pointer;
 
-  &::-webkit-details-marker {
+  &::marker {
     color: var(--brand-100);
   }
 }
