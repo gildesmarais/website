@@ -13,20 +13,21 @@
   --section-padding: 0.5em;
 
   --font-alt: Gill Sans, Gill Sans MT, Calibri, sans-serif;
-  --font: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, sans-serif;
+  --font: Arial, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, sans-serif;
   --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco", "Lucida Console", monospace;
 
   --back-900: hsl(212, 3%, 0%);
+  --back-800: hsl(212, 3%, 3%);
   --back-700: hsl(212, 3%, 6%);
   --back-600: hsl(212, 3%, 9%);
   --back-500: hsl(212, 3%, 15%);
   --back-400: hsl(212, 3%, 21%);
   --back-300: hsl(212, 3%, 30%);
 
-  --front-400: hsl(72, 6%, 70%);
-  --front-300: hsl(72, 6%, 79%);
-  --front-200: hsl(72, 6%, 85%);
-  --front-100: hsl(72, 6%, 96%);
+  --front-400: hsl(72, 6%, 60%);
+  --front-300: hsl(72, 6%, 70%);
+  --front-200: hsl(72, 6%, 80%);
+  --front-100: hsl(72, 6%, 90%);
 
   --brand-100: hsl(32, 83%, 48%);
   --contrast-100: hsl(212, 93%, 43%);
@@ -63,12 +64,13 @@
   z-index: 10;
   height: var(--nav-height);
   font-weight: 500;
-  background-color: var(--back-900);
+  background-color: var(--back-600);
   box-shadow: 0 0 0.125em var(--back-900);
 }
 
 .header__container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: var(--container-width);
@@ -77,7 +79,7 @@
 }
 
 .header__site-title {
-  padding: 0.5rem var(--section-padding);
+  padding: 0 var(--section-padding);
   font-family: var(--font-alt);
   font-size: 1.25rem;
   font-weight: 300;
