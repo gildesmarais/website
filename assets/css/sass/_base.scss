@@ -39,12 +39,17 @@ $breakpoint-medium: 38rem;
     }
 
     > li:nth-child(odd) {
-      background-color: var(--back-600);
+      background-color: var(--back-800);
     }
 
     > li:hover,
     > li:focus {
-      background-color: var(--back-500);
+      background-color: var(--back-600);
+    }
+
+    > li > a {
+      color: var(--front-300);
+      text-decoration: none;
     }
   }
 
