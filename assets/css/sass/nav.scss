@@ -11,7 +11,7 @@
   cursor: pointer;
   border: 1px solid var(--back-500);
   border-radius: 3px;
-  transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear, background-color 0.2s linear;
 }
 
 $icon-line-strength: 2px;
@@ -21,7 +21,6 @@ $icon-line-strength: 2px;
   display: block;
   width: 1rem;
   height: $icon-line-strength;
-  // margin-top: calc(0.5rem + #{$icon-line-strength * 2 + 2px});
   background-color: var(--front-100);
 
   &,
@@ -52,6 +51,7 @@ $icon-line-strength: 2px;
 .nav__hamburger:focus-within,
 .nav__hamburger:focus,
 .nav__hamburger:hover {
+  background-color: var(--back-800);
   border-color: var(--brand-100);
 
   .nav__icon,
