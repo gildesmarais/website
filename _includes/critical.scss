@@ -99,6 +99,14 @@
   display: none;
 }
 
+.nav__hamburger {
+  border-color: var(--back-500);
+}
+
+.nav__icon {
+  background-color: var(--front-100);
+}
+
 .page {
   max-width: var(--container-width);
   padding: 0 var(--section-padding);

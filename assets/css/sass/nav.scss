@@ -22,7 +22,7 @@ $icon-line-strength: 2px;
   display: block;
   width: 1rem;
   height: $icon-line-strength;
-  background-color: var(--front-100);
+  background-color: var(--brand-100);
 
   &,
   &:after,
@@ -37,7 +37,7 @@ $icon-line-strength: 2px;
     width: 100%;
     height: 100%;
     content: "";
-    background-color: var(--front-100);
+    background-color: var(--brand-100);
   }
 
   &:before {
