@@ -6,9 +6,9 @@ $breakpoint-medium: 38rem;
   padding: 0.75em 1em;
   margin: 1.5rem 0 3.5rem;
   background-color: var(--back-700);
-  border: 1px solid var(--back-500);
+  border: 1px solid var(--back-600);
   border-radius: 3px;
-  box-shadow: 0 0 3px var(--back-500);
+  box-shadow: 0 0 0.33rem var(--back-800);
   content-visibility: auto;
 
   h1,
@@ -56,19 +56,21 @@ $breakpoint-medium: 38rem;
 }
 
 @mixin button {
-  color: var(--front-100);
+  color: var(--front-200);
   cursor: pointer;
-  background-color: var(--back-500);
-  border: 1px solid var(--back-700);
+  background-color: var(--back-600);
+  border: 1px solid var(--back-500);
   border-radius: 3px;
 
-  transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
+  transition: color 0.2s linear, background-color 0.2s linear,
+    border-color 0.2s linear, box-shadow 0.2s linear;
 
   &:hover,
   &:focus {
     color: var(--brand-100);
-    background-color: var(--back-700);
-    border-color: var(--back-500);
+    background-color: var(--back-800);
+    border-color: var(--brand-100);
+    box-shadow: 0 0 0.25rem var(--back-900);
   }
 }
 

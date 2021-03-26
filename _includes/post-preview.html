@@ -15,11 +15,11 @@
   <main class="post-preview__body">
     <a class="p-name u-url u-uid" href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" itemprop="url">
       <h1 itemprop="headline">{{ post.title | escape }}</h1>
-    </a>
 
-    {% if post.description %}
-    <span class="post-preview__description p-summary" itemprop="description">{{post.description | truncate: 140 }}</span>
-    {% endif %}
+      {% if post.description %}
+      <span class="post-preview__description p-summary" itemprop="description">{{post.description | truncate: 140 }}</span>
+      {% endif %}
+    </a>
 
     {% if post.tags %}
     <p class="visually-hidden">This post is tagged with:</p>
