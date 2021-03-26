@@ -8,6 +8,7 @@
 
 .nav__hamburger {
   padding: 0.7rem 0.4rem;
+  margin-right: var(--section-padding);
   cursor: pointer;
   border: 1px solid var(--back-500);
   border-radius: 3px;
