@@ -146,7 +146,7 @@ li.nav__item--first {
   > label {
     @include button;
     padding: 0.5rem 0.25rem;
-    margin: auto 0;
+    margin: auto var(--section-padding) auto 0;
     font-size: 0.75rem;
     line-height: 1;
   }
