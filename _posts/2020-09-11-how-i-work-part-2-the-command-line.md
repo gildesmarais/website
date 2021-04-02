@@ -19,7 +19,10 @@ While most tools do one thing good, chaining them by piping (`|`) or redirecting
 
 Although I like the green colored characters on dark background scrolling by, they need to get out of the way quickly. I'm one of these computer users who clear the scrollback buffer with <kbd>Cmd</kbd>+<kbd>K</kbd> often.
 
+{% slider %}
 ![A screenshot of iTerm2 running ZSH and homebrew](/assets/images/posts/2020-09-11-command-line.jpg)
+{% endslider %}
+{{page.glide}}
 
 ## ZSH and its configuration
 

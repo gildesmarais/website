@@ -168,4 +168,7 @@ When creating a DJ set, I have a playlist of _A tracks_ to play which acts like 
 
 Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/).
 
-![](/assets/images/posts/2020-04-05-traktor-the-end.jpg)
+{% slider %}
+![A laptop with a DJ software playing the song 'The End'](/assets/images/posts/2020-04-05-traktor-the-end.jpg)
+{% endslider %}
+{{page.glide}}
