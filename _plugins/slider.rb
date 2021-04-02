@@ -28,7 +28,16 @@ module Jekyll
               </button>
             </div>'
 
-    SLIDE = '<li class="glide__slide" aria-roledescription="slide"><div>%<image>s</div></li>'
+    SLIDE = <<~HTML
+      <li class="glide__slide" aria-roledescription="slide">
+        <picture>
+          %<webp_source_tag>s
+          %<image>s
+        </picture>
+      </li>
+    HTML
+
+    WEBP_SOURCE_TAG = '<source type="image/webp" srcset="%<src>s" />'
 
     def render(context)
       @context = context
@@ -49,7 +58,9 @@ module Jekyll
         images.map! do |image|
           image['role'] = :presentation if !image['alt'] && !image['role']
 
-          format(SLIDE, image: image)
+          webp = format(WEBP_SOURCE_TAG, src: image['src'].gsub(/\.(jpg|png)/, '.webp'))
+
+          format(SLIDE, image: image, webp_source_tag: webp.to_s)
         end
       end
     end

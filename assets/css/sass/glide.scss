@@ -10,17 +10,26 @@ $bullet-radius: 0.1em;
 }
 
 .glide {
+  --max-height: calc(100vh - var(--nav-height) - 2 * var(--section-padding));
   margin: 1em auto 1.5em;
   background-color: var(--back-700);
+  max-height: var(--max-height);
 }
 
 .glide__slides {
   margin-left: 0;
 }
 
-.glide__slide > div {
+.glide__slide > picture {
   display: flex;
   justify-content: center;
+}
+
+.glide__slide img {
+  max-height: var(--max-height);
+  height: 100%;
+  width: auto;
+  max-width: 100%;
 }
 
 .glide__bullets {
@@ -60,6 +69,7 @@ button.glide__bullet--active {
   .glide__track {
     border: 1px solid var(--back-600);
   }
+
   .glide__arrows {
     display: block;
   }
@@ -74,25 +84,26 @@ button.glide__bullet--active {
 
     position: absolute;
     top: 0;
-    width: 6.25%;
+    width: 25%;
     height: 100%;
     padding: 0;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.125);
+    background-color: rgba(0, 0, 0, 0.0625);
     transition: background-color 0.2s linear;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.25);
+      border-color: transparent;
     }
   }
 
   .glide__arrow--left {
     left: 0;
-    border-left: 1px solid var(--brand-100);
+    // border-left: 1px solid var(--brand-100);
   }
 
   .glide__arrow--right {
     right: 0;
-    border-right: 1px solid var(--brand-100);
+    // border-right: 1px solid var(--brand-100);
   }
 }

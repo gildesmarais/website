@@ -3,7 +3,10 @@
     <a href="{{ post.url | relative_url }}" hreflang="{{post.lang | default: site.lang | default: "en"}}" title="{{ post.title | escape }}" tabindex="-1">
       <div class="post-preview__shade"></div>
       {% if post.image %}
-      <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" itemprop="image">
+      <picture>
+        <source type="image/webp" srcset="{{ post.image | replace: 'jpg', 'webp' | relative_url }}" />
+        <img class="post-preview__img" role="presentation" src="{{ post.image | relative_url }}" itemprop="image">
+      </picture>
       {% else %}
       <span class="post-preview__img--missing"></span>
       {% endif %}

@@ -9,7 +9,7 @@ tags: [food]
 
 ## A warning beforehand
 
-This post does not contain any photos, but it might be disturbing to read anyway.
+This post does not contain any graphic photos, but it might be disturbing to read anyway.
 This post is not intended as an instruction manual. You will need experience to do this right and the best/legal way possible.  
 If you're interested in deepening your knowledge, ask a slaughterer, a butcher or your local administration for pointers.
 
