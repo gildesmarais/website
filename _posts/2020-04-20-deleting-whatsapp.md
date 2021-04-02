@@ -27,14 +27,11 @@ If you think security-wise it looks better, I recommend scrolling through this [
 
 However, it misses the latest hack, but [read about that yourself on this Guardian article](https://www.theguardian.com/technology/2020/jan/21/amazon-boss-jeff-bezoss-phone-hacked-by-saudi-crown-prince). This is not science-fiction.
 
-<div class="flex">
-  <div class="w50">
-    <img src="/assets/images/posts/2020-04-20-deleting-whatsapp-1.png" alt="Screenshot of account deletion">
-  </div>
-  <div class="w50">
-    <img src="/assets/images/posts/2020-04-20-deleting-whatsapp-2.jpg" alt="Screenshot of app deletion">
-  </div>
-</div>
+{% slider %}
+<img src="/assets/images/posts/2020-04-20-deleting-whatsapp-1.png" alt="Screenshot of account deletion">
+<img src="/assets/images/posts/2020-04-20-deleting-whatsapp-2.jpg" alt="Screenshot of app deletion">
+{% endslider %}
+{{page.glide}}
 
 [^1]: They use Whatsapp only. I think [Signal](https://www.signal.org/) and [Riot](https://about.riot.im/) are good alternatives.
 [^2]: Watch the movie [The Great Hack](https://www.themoviedb.org/movie/566222-the-great-hack) if you haven't yet.
