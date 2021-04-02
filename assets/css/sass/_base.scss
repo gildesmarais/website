@@ -67,8 +67,8 @@ $breakpoint-medium: 38rem;
   border: 1px solid var(--back-500);
   border-radius: 3px;
 
-  transition: color 0.2s linear, background-color 0.2s linear,
-    border-color 0.2s linear, box-shadow 0.2s linear;
+  transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear,
+    box-shadow 0.2s linear;
 
   &:hover,
   &:focus {
