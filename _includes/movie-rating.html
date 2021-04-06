@@ -9,13 +9,14 @@
   </header>
 
   {% if rating['note'] != '' %}
-  <meta itemprop="author" content="{% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}">
-  <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
-  <meta itemprop="name" content="{{ rating['title'] }}">
+  <meta
+    itemprop="author"
+    content="{% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}"
+  />
+  <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
+  <meta itemprop="name" content="{{ rating['title'] }}" />
   <main class="content" itemprop="reviewBody">{{ rating['note'] | markdownify }}</main>
-  {% endif %}
-
-  {% if rating['imdb'] && rating['imdb'] != '' %}
+  {% endif %} {% if rating['imdb'] && rating['imdb'] != '' %}
   <footer>
     <a href="{{ rating['imdb'] }}">IMDb entry</a>
   </footer>

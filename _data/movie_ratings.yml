@@ -1,6 +1,126 @@
 ---
-round1: []
-round2: []
+round1:
+  - title: "Ad Astra"
+    rating: 6
+  - title: "Beach Bum"
+    rating: 5
+  - title: "Crawl"
+    rating: 1
+  - title: "Death Race 2050"
+    rating: 2
+  - title: "Escape from Alcatraz"
+    rating: 6
+  - title: "Fitzcarraldo"
+    rating: 7
+  - title: "Gisaengchung (aka Parasite)"
+    rating: 5
+  - title: "Hidden Figures"
+    rating: 6
+  - title: "It&#39;s All Gone Pete Tong"
+    rating: 4
+  - title: "Judgement at Nuremberg"
+    rating: 8
+    note: |
+      **Recommendation**
+  - title: "Knockin&#39; on Heaven&#39;s Door"
+    rating: 6
+  - title: "L.A. Story"
+    rating: 4
+  - title: "Moon"
+    rating: 5
+  - title: "Nothing But the Truth"
+    rating: 5
+  - title: "Once upon a time in America"
+    rating: 5
+  - title: "Paths of Glory"
+    rating: 6
+  - title: "Quadrophenia"
+    rating: 5
+  - title: "Rocco"
+    rating: 5
+  - title: "Star Wars: Episode IX - Rise of Skywalker"
+    rating: 6
+  - title: "Trance"
+    year: 2013
+    rating: 6
+  - title: "Upgrade"
+    rating: 5
+  - title: "Vanilla Sky"
+    rating: 5
+  - title: "Watership Down"
+    rating: 2
+  - title: "Young People Fucking"
+    rating: 4
+  - title: "Zoku Shinya shokudô"
+    rating: 6
+round2:
+  - title: "Avengers: Endgame"
+    rating: 3
+  - title: BlacKkKlansman
+    rating: 8
+  - title: Contagion
+    rating: 5
+  - title: Downfall
+    rating: 5
+  - title: Edge of Tomorrow
+    rating: 3
+  - title: Free Solo
+    rating: 7
+    note: |
+      This movie was thrilling and intense. Had goosebumps most of the time and wanted to scream.
+
+      **Recommendation**
+  - title: The Gentlemen
+    rating: 7
+  - title: "Hey Arnold: The Jungle Movie"
+    rating: 1
+  - title: Invictus
+    rating: 6
+  - title: "Jumanji: The Next Level"
+    rating: 5
+  - title: Kids
+    rating: 5
+  - title: Lost In Translation
+    rating: 5
+  - title: M
+    rating: 9
+    note: |
+      A must see, a milestone in film history.
+
+      **Recommendation**
+  - title: Nineteen Eighty-Four
+    rating: 5
+  - title: Overlord
+    rating: 4
+  - title: The Panama Papers
+    rating: 6
+  - title: Righteous Kill
+    rating: 3
+  - title: Sneakers
+    rating: 6
+  - title: The Terminator
+    rating: 6
+  - title: "Utøya: July 22"
+    rating: 1
+    note: |
+      Another one-take movie. I haven't really liked any one-take movie yet
+      and this one, although covering a movie-worthy topic, wasn't worth it at all.
+  - title: Video Games - The Movie
+    rating: 5
+  - title: What Dreams May Come
+    rating: 7
+    note: |
+      The atmosphere was amazing and the progression of film style reflected
+      the topic on a very meta basis.
+  - title: Yellow Submarine
+    rating: 6
+  - title: Zero Days
+    rating: 7
+    note: |
+      Although the impression manifests that the told story is true,
+      no evidence is provided which would hold up in a court house. This
+      ambiguity in combination with its political explosiveness makes it a
+      movie worth watching... with a grain of salt.
 round3:
   - title: "Alien"
     year: "1979"
@@ -266,5 +386,5 @@ round3:
     year: "1999"
     rating: "5"
     note: |
-      Somehow I felt the movie tried to be too much and lost it's plot. Quite disappointing for a Polanski.
+      Somehow I felt the movie tried to be too much and lost its plot. Quite disappointing for a Polanski.
     imdb: https://www.imdb.com/title/tt0142688/
