@@ -1,0 +1,42 @@
+.movie-rating {
+  width: 100%;
+  margin: 0.25em 0 0.75em;
+  font-size: 0.875rem;
+}
+
+.movie-rating > header {
+  display: flex;
+}
+
+.movie-rating__title {
+  flex: 1 1;
+  font-weight: 600;
+}
+
+.movie-rating__year {
+  margin: 0 0.5em;
+  font-size: 0.875em;
+  color: var(--front-400);
+  font-weight: 500;
+}
+
+.movie-rating__rating {
+  flex: 1;
+  align-self: flex-end;
+  margin-left: 0.5em;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.movie-rating__rating > img {
+  height: 1em;
+  border: 0;
+  filter: unset;
+  box-shadow: unset;
+}
+
+.movie-rating > main {
+  padding: 0 1em 0.5em;
+  font-size: 0.75rem;
+  color: var(--front-300);
+}

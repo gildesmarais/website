@@ -1,0 +1,13 @@
+<article class="movie-rating">
+  <header>
+    <span class="movie-rating__title">
+      {{ rating['title'] }}
+      <span class="movie-rating__year">{{ rating['year'] }}</span>
+    </span>
+
+    <span class="movie-rating__rating">{{ rating['rating'] | star_rating }}</span>
+  </header>
+  {% if rating['note'] != '' %}
+  <main class="content">{{ rating['note'] | markdownify }}</main>
+  {% endif %}
+</article>
