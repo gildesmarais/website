@@ -16,7 +16,7 @@ Here are the previous rounds:
 - [Round I]({% post_url 2020-04-01-picking-and-watching-movies-alphabetically %})
 - [Round II]({% post_url 2020-10-26-watching-movies-alphabetically-round-2 %})
 
-For this third round, we've expanded the series to watch movies that start with the numbers 0 through 9. Overall it's been better a round than the previous and quite a few movies left an impression:
+For just this third round, we've expanded the series to watch movies that start with the numbers 0 through 9. Overall, it was a better round than the previous one and some films left a lasting impression.
 
 {% for rating in site.data.movie_ratings.round3 %}
 {% include movie-rating.html %}

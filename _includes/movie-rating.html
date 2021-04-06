@@ -9,5 +9,9 @@
   </header>
   {% if rating['note'] != '' %}
   <main class="content">{{ rating['note'] | markdownify }}</main>
+  {% endif %} {% if rating['imdb'] && rating['imdb'] != '' %}
+  <footer>
+    <a href="{{ rating['imdb'] }}">IMDb entry</a>
+  </footer>
   {% endif %}
 </article>
