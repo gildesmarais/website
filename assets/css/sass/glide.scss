@@ -11,9 +11,9 @@ $bullet-radius: 0.1em;
 
 .glide {
   --max-height: calc(100vh - var(--nav-height) - 2 * var(--section-padding));
+  max-height: var(--max-height);
   margin: 1em auto 1.5em;
   background-color: var(--back-700);
-  max-height: var(--max-height);
 }
 
 .glide__slides {
@@ -26,10 +26,10 @@ $bullet-radius: 0.1em;
 }
 
 .glide__slide img {
-  max-height: var(--max-height);
-  height: 100%;
   width: auto;
   max-width: 100%;
+  height: 100%;
+  max-height: var(--max-height);
 }
 
 .glide__bullets {
