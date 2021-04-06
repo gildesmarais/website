@@ -27,7 +27,15 @@ module StarRating
 
     rating_alt_text = format("%.1f/#{max.to_f}", rating)
 
-    html_output = ["<span aria-label=\"#{rating_alt_text}\" title=\"#{rating_alt_text}\" role=\"img\">"]
+    html_output = []
+    html_output << <<~HTML
+      <div title="#{rating_alt_text}">
+      <meta itemprop="worstRating" content = "0"/>
+      <span class="visually-hidden" itemprop="ratingValue">#{rating}</span>
+      <span class="visually-hidden">/</span>
+      <span class="visually-hidden" itemprop="bestRating">#{max}</span>
+      <span class="visually-hidden">stars</span>
+    HTML
 
     whole_stars.times do
       html_output << format(STAR_IMAGETAG, 'star_filled.png')
@@ -39,7 +47,7 @@ module StarRating
       html_output << format(STAR_IMAGETAG, 'star_clear.png')
     end
 
-    html_output << '</span>'
+    html_output << '</div>'
     html_output.join
   end
   # rubocop:enable Metrics/AbcSize

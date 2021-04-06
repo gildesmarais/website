@@ -1,15 +1,21 @@
-<article class="movie-rating">
+<article class="movie-rating" itemprop="review" itemscope itemtype="https://schema.org/Review">
   <header>
-    <span class="movie-rating__title">
-      {{ rating['title'] }}
+    <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
+      <span itemprop="name">{{ rating['title'] }}</span>
       <span class="movie-rating__year">{{ rating['year'] }}</span>
     </span>
 
     <span class="movie-rating__rating">{{ rating['rating'] | star_rating }}</span>
   </header>
+
   {% if rating['note'] != '' %}
-  <main class="content">{{ rating['note'] | markdownify }}</main>
-  {% endif %} {% if rating['imdb'] && rating['imdb'] != '' %}
+  <meta itemprop="author" content="{% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}">
+  <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
+  <meta itemprop="name" content="{{ rating['title'] }}">
+  <main class="content" itemprop="reviewBody">{{ rating['note'] | markdownify }}</main>
+  {% endif %}
+
+  {% if rating['imdb'] && rating['imdb'] != '' %}
   <footer>
     <a href="{{ rating['imdb'] }}">IMDb entry</a>
   </footer>
