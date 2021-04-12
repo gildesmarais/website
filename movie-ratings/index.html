@@ -1,0 +1,25 @@
+---
+title: Movie Ratings
+layout: page
+description: I like to watch and rate movies. Sometimes I recommend one and write short reviews.
+noindex: true
+sitemap: false
+tags:
+  - movie
+---
+
+<h1>{{ page.title }}</h1>
+
+{% assign ratings = "" | split: "" %}
+
+{% for group in site.data.movie_ratings %}
+{% assign ratings = ratings | concat: group %}
+{% endfor %}
+
+{% assign ratings = ratings | compact | sort_natural: "title" %}
+
+{% for rating in ratings %}
+{% if rating['title'] %}
+{% include movie-rating.html %}
+{% endif %}
+{% endfor %}
