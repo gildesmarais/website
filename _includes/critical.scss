@@ -41,6 +41,15 @@
   // the higher, the more in the back
 }
 
+:root:lang(de),
+:not(:lang(de)) > :lang(de) {
+  quotes: "\201e""\201c""\201a""\2018";
+} /* „ “ ‚ ‘ */
+:root:lang(en),
+:not(:lang(en)) > :lang(en) {
+  quotes: "\201c""\201d""\2018""\2019";
+} /* “ ” ‘ ’ */
+
 @media (min-width: 658px) {
   :root {
     --rem: 19px;
@@ -58,6 +67,11 @@
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    animation-delay: -1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
   }
 }
 
