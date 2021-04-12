@@ -125,6 +125,12 @@ label[for] {
   cursor: pointer;
 }
 
+// https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+nav li:before {
+  position: absolute;
+  content: "\200B";
+}
+
 @media (hover: hover) {
   a {
     transition: filter 0.2s linear;
