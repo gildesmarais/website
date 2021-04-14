@@ -1,0 +1,16 @@
+---
+title: "Movie Ratings for 'A'"
+layout: page
+description: I like to watch and rate movies. Sometimes I recommend one and write short reviews.
+noindex: true
+sitemap: false
+tags:
+  - movie
+---
+
+<h1>{{ page.title }}</h1>
+
+{% assign ratings = site.data.ratings | beginning_with_letters: 'a' %}
+{% for imdb in ratings %}
+{% include movie-rating.html %}
+{% endfor %}

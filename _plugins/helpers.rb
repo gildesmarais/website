@@ -14,6 +14,11 @@ module Helpers
   def squish(string)
     string.split.join(' ')
   end
+
+  def beginning_with_letters(collection, _chars)
+    # TODO: implement
+    collection
+  end
 end
 
 Liquid::Template.register_filter(Helpers)
