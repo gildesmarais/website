@@ -16,7 +16,10 @@ module Helpers
   end
 
   def beginning_with(collection, field, chars)
+    return [] unless chars
+
     chars = [chars] unless chars.is_a?(Array)
+    chars.map!(&:to_s)
 
     collection.select do |obj|
       if (field_value = obj[field])

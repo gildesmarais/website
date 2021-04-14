@@ -6,9 +6,16 @@ noindex: true
 sitemap: false
 tags:
   - movie
+children: ['0-9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'xyz']
 ---
 
 <h1>{{ page.title }}</h1>
 
+{% for child in page.children %}
+<a href="./{{child}}/">{{child}}</a>
+<br>
+{% endfor %}
 <!-- TODO: show a-z index -->
-<!-- TODO: show recommendations -->
+
+<a href="./top_rated/">Top Rated</a>
+<a href="./recommendations/">Recommendations</a>
