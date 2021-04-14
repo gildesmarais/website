@@ -22,8 +22,14 @@ before:
     recommendation: true
   - const: tt6723592
     recommendation: true
+    note: |
+      This goes forward and backward at the same time. Had to watch it twice.
+
+      Tiny movie detail: when you play the radio messages during the car chase
+      backwards, you'll hear what will happen later in the movie.
   - const: tt0118715
     recommendation: true
+    note: A true classic search for a carpet. Best served with the promoted cocktail.
   - const: tt0887912
     recommendation: true
   - const: tt2084970
@@ -49,6 +55,14 @@ before:
     recommendation: true
   - const: tt1313104
     recommendation: true
+  - const: tt5013056
+    recommendation: true
+    note: |
+      A WW2 movie without every clearly showing the enemy.
+
+      I watched it in the IMAX and it was an immersive experience.
+      The constant ticking of the metronome did the rest to me.
+      Amazing dog fights.
 round1:
   - title: "Ad Astra"
     rating: 6

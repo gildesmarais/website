@@ -19,7 +19,6 @@ tags:
     {% assign imdb = site.data.ratings | where: "Const", recommendation['const'] %}
     {% assign imdbs = imdbs | concat: imdb %}
   {% endfor %}
-
 {% endfor %}
 
 {% assign imdbs = imdbs | sort_natural: 'Title' %}
