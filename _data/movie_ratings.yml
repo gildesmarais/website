@@ -39,8 +39,8 @@ round1:
   - title: "Judgement at Nuremberg"
     rating: 8
     const: tt0055031
-    note: |
-      **Recommendation**
+    note:
+    recommendation: true
 
   - title: "Knockin&#39; on Heaven&#39;s Door"
     rating: 6
@@ -109,8 +109,8 @@ round2:
   - title: BlacKkKlansman
     rating: 8
     const: tt7349662
-    note: |
-      **Recommendation**
+    note:
+    recommendation: true
   - title: Contagion
     rating: 5
     const: tt1598778
@@ -127,8 +127,7 @@ round2:
     const: tt7775622
     note: |
       This movie was thrilling and intense. Had goosebumps most of the time and wanted to scream.
-
-      **Recommendation**
+    recommendation: true
   - title: The Gentlemen
     const: tt8367814
     rating: 7
@@ -153,8 +152,7 @@ round2:
     rating: 9
     note: |
       A must see, a milestone in film history.
-
-      **Recommendation**
+    recommendation: true
   - title: Nineteen Eighty-Four
     rating: 5
     const: tt0087803
@@ -257,7 +255,7 @@ round3:
       If you're planning to watch this, I recommend darken your room.
       Do not watch it if you had epileptic episodes. I warned you.
 
-      **Recommendation**
+    recommendation: true
     const: tt10272534
   - note: ""
     const: tt0068931
@@ -285,7 +283,7 @@ round3:
       The movie breaks many social rules. It is hard to withstand. If you like
       such rule-breaking movies:
 
-      **Recommendation**
+    recommendation: true
     const: tt0157016
   - note: >-
       I was surprised about this one. I watched it in the theatre back in the days.
@@ -316,14 +314,14 @@ round3:
 
       Creating this is brave. The result is a well watchable movie.
 
-      **Recommendation**
+    recommendation: true
     const: tt0065234
   - note: |
       If you like dark and violent movies, this one is for you.
       Gave me goosebumps a few times.
       Topic is the US haunting for a popular terrorist.
 
-      **Recommendation**
+    recommendation: true
     const: tt1790885
   - note: |
       I love motorsports and I imbibe everything related to it.
@@ -341,7 +339,7 @@ round3:
 
       Exceptional movie.
 
-      **Recommendation**
+    recommendation: true
     const: tt0423866
   - note: |
       Gaspar Noe said this film inspired him.

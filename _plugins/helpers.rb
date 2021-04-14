@@ -29,6 +29,12 @@ module Helpers
       end
     end
   end
+
+  def flat_map_hash(collection)
+    arr = []
+    collection.each_pair { |_key, value| arr.append(value) }
+    arr.flatten
+  end
 end
 
 Liquid::Template.register_filter(Helpers)

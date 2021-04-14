@@ -1,4 +1,4 @@
-{% if !rating %}
+{% unless rating %}
   {% for round_hash in site.data.movie_ratings %}
     {% assign round = round_hash[0] %}
     {% assign movie_rating = site.data.movie_ratings[round] | where: 'const', imdb['Const'] | first %}
@@ -6,7 +6,7 @@
       {% assign rating = movie_rating %}
     {% endif %}
   {% endfor %}
-{% endif %}
+{% endunless %}
 
 <article class="movie-rating" itemprop="review" itemscope itemtype="https://schema.org/Review">
   <header>
@@ -44,3 +44,5 @@
     <a href="{{ imdb['URL'] }}">IMDb entry</a>
   </footer>
 </article>
+
+{% assign rating = false %}
