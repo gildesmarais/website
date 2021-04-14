@@ -1,4 +1,35 @@
 ---
+before:
+  - const: tt2545118
+    recommendation: true
+  - const: tt0057012
+    recommendation: true
+  - const: tt1191111
+    recommendation: true
+  - const: tt1375666
+    recommendation: true
+  - const: tt7286456
+    recommendation: true
+  - const: tt8946378
+    recommendation: true
+  - const: tt0067334
+    recommendation: true
+  - const: tt0151804
+    recommendation: true
+  - const: tt0040746
+    recommendation: true
+  - const: tt1424432
+    recommendation: true
+  - const: tt6723592
+    recommendation: true
+  - const: tt0118715
+    recommendation: true
+  - const: tt0887912
+    recommendation: true
+  - const: tt2084970
+    recommendation: true
+  - const: tt3397884
+    recommendation: true
 round1:
   - title: "Ad Astra"
     rating: 6
