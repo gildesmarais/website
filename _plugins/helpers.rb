@@ -15,9 +15,16 @@ module Helpers
     string.split.join(' ')
   end
 
-  def beginning_with_letters(collection, _chars)
-    # TODO: implement
-    collection
+  def beginning_with(collection, field, chars)
+    chars = [chars] unless chars.is_a?(Array)
+
+    collection.select do |obj|
+      if (field_value = obj[field])
+        field_value.to_s.start_with?(*chars)
+      else
+        false
+      end
+    end
   end
 end
 

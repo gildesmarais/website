@@ -1,7 +1,9 @@
 ---
-title: "Movie Ratings for 'A'"
+letters:
+  - A
+  - a
+title: "Ratings for movies beginning with 'A'"
 layout: page
-description: I like to watch and rate movies. Sometimes I recommend one and write short reviews.
 noindex: true
 sitemap: false
 tags:
@@ -10,7 +12,7 @@ tags:
 
 <h1>{{ page.title }}</h1>
 
-{% assign ratings = site.data.ratings | beginning_with_letters: 'a' %}
+{% assign ratings = site.data.ratings | beginning_with: 'Title', page.letters %}
 {% for imdb in ratings %}
 {% include movie-rating.html %}
 {% endfor %}
