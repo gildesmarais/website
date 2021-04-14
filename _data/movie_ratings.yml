@@ -30,6 +30,25 @@ before:
     recommendation: true
   - const: tt3397884
     recommendation: true
+  - const: tt0080339
+    recommendation: true
+  - const: tt0405094
+    recommendation: true
+  - const: tt4973112
+    recommendation: true
+  - const: tt3640710
+    recommendation: true
+  - const: tt3856408
+    recommendation: true
+  - const: tt3464902
+    recommendation: true
+  - const: tt0088258
+    recommendation: true
+    note: You can rate this movie with 11 out of 10 stars on IMDb. Because 11 is better than 11.
+  - const: tt3774114
+    recommendation: true
+  - const: tt1313104
+    recommendation: true
 round1:
   - title: "Ad Astra"
     rating: 6
