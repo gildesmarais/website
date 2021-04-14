@@ -43,13 +43,28 @@
   color: var(--front-300);
 }
 
-.movie-rating > footer > a {
+.movie-rating > footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
   font-size: 0.75rem;
+  color: var(--front-500);
+}
+
+.movie-rating > footer > a {
+  width: 100%;
   color: var(--yellow-400);
   text-decoration: none;
 
   &:hover,
   &:focus {
     color: var(--yellow-100);
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .movie-rating > footer > a {
+    text-align: right;
   }
 }
