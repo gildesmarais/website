@@ -16,10 +16,15 @@ before:
     recommendation: true
   - const: tt0151804
     recommendation: true
+    note: |
+      - Uhm yeah, you know what would be great?
+      - Yup, watching this movie!
   - const: tt0040746
     recommendation: true
   - const: tt1424432
     recommendation: true
+    note: |
+      The extended version is worth it. An emotional roller coaster about the life of Ayrton Senna.
   - const: tt6723592
     recommendation: true
     note: |
@@ -38,6 +43,10 @@ before:
     recommendation: true
   - const: tt0080339
     recommendation: true
+    note: |
+      Probably the most classic comedy movie ever?
+
+      What's the vector, Victor?
   - const: tt0405094
     recommendation: true
   - const: tt4973112
@@ -50,7 +59,7 @@ before:
     recommendation: true
   - const: tt0088258
     recommendation: true
-    note: You can rate this movie with 11 out of 10 stars on IMDb. Because 11 is better than 11.
+    note: You can rate this movie with 11 out of 10 stars on IMDb. Because 11 is better than 10.
   - const: tt3774114
     recommendation: true
   - const: tt1313104
