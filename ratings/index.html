@@ -11,11 +11,14 @@ children: ['0-9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 
 <h1>{{ page.title }}</h1>
 
-{% for child in page.children %}
-<a href="./{{child}}/">{{child}}</a>
-<br>
-{% endfor %}
-<!-- TODO: show a-z index -->
-
-<a href="./top_rated/">Top Rated</a>
 <a href="./recommendations/">Recommendations</a>
+<br>
+<a href="./top_rated/">Top Rated</a>
+
+<nav class="side-nav">
+  <ul>
+    {% for child in page.children %}
+    <li><a href="./{{child}}/">{{child}}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

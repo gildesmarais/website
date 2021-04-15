@@ -60,8 +60,6 @@ before:
   - const: tt0088258
     recommendation: true
     note: You can rate this movie with 11 out of 10 stars on IMDb. Because 11 is better than 10.
-  - const: tt3774114
-    recommendation: true
   - const: tt1313104
     recommendation: true
   - const: tt5013056
@@ -72,6 +70,8 @@ before:
       I watched it in the IMAX and it was an immersive experience.
       The constant ticking of the metronome did the rest to me.
       Amazing dog fights.
+  - const: tt4044364
+    recommendation: true
 round1:
   - title: "Ad Astra"
     rating: 6

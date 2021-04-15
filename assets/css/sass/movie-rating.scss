@@ -21,6 +21,13 @@
   color: var(--front-400);
 }
 
+.movie-rating__recommendation {
+  color: var(--brand-100);
+  font-size: 0.875em;
+  float: right;
+  font-weight: 100;
+}
+
 .movie-rating__rating {
   flex: 0 0 5rem;
   align-self: flex-start;

@@ -1,0 +1,25 @@
+.side-nav {
+  --items-count: 24;
+  position: fixed;
+  top: var(--nav-height);
+  right: 0;
+  width: 2rem;
+  height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+}
+
+.side-nav > ul {
+  margin-left: 0;
+  list-style: none;
+}
+
+.side-nav a {
+  text-decoration: none;
+}
+
+.side-nav:not(.side-nav--fixed) > ul > li {
+  text-align: center;
+  height: calc((100vh - var(--nav-height)) / var(--items-count));
+  min-height: 1rem;
+}
+

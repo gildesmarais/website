@@ -13,19 +13,24 @@
     <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
       <span itemprop="name">{{ imdb['Title'] }}</span>
       <span class="movie-rating__year">{{ imdb['Year'] }}</span>
+      {% if rating['recommendation'] %}
+        <span class="movie-rating__recommendation">Recommendation</span>
+      {% endif %}
     </span>
 
     <span class="movie-rating__rating">{{ imdb['Your Rating'] | star_rating }}</span>
   </header>
 
-  {% if rating && rating['note'] != '' %}
+  {% if rating %}
   <meta
     itemprop="author"
     content="{% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}"
   />
   <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
   <meta itemprop="name" content="{{ rating['title'] }}" />
-  <main class="content" itemprop="reviewBody">{{ rating['note'] | markdownify }}</main>
+  <main class="content" itemprop="reviewBody">
+    {{ rating['note'] | markdownify }}
+  </main>
   {% endif %}
 
   <footer>
