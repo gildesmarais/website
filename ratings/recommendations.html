@@ -11,14 +11,12 @@ tags:
 <h1>{{ page.title }}</h1>
 
 {% assign imdbs = "" | split: '' %}
-{% assign movie_ratings = site.data.movie_ratings | flat_map_hash %}
-{% for ratings in movie_ratings %}
-  {% assign recommendations = ratings | where: 'recommendation', true %}
+{% assign recommendations = site.data.movie_ratings | flat_map_hash %}
+{% assign recommendations = recommendations | where: "recommendation", true %}
 
-  {% for recommendation in recommendations %}
-    {% assign imdb = site.data.ratings | where: "Const", recommendation['const'] %}
-    {% assign imdbs = imdbs | concat: imdb %}
-  {% endfor %}
+{% for recommendation in recommendations %}
+  {% assign imdb = site.data.ratings | where: "Const", recommendation['const'] %}
+  {% assign imdbs = imdbs | concat: imdb %}
 {% endfor %}
 
 {% assign imdbs = imdbs | sort_natural: 'Title' %}

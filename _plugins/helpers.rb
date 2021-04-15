@@ -31,9 +31,7 @@ module Helpers
   end
 
   def flat_map_hash(collection)
-    arr = []
-    collection.each_pair { |_key, value| arr.append(value) }
-    arr.flatten
+    [].concat(*collection.values)
   end
 end
 
