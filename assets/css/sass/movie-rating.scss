@@ -9,12 +9,17 @@
 }
 
 .movie-rating__title {
+  display: flex;
+  display: inline;
   flex: 1;
+  flex-wrap: wrap;
+  align-items: baseline;
   margin: 0 0.25em 0 0;
   font-weight: 600;
 }
 
 .movie-rating__year {
+  padding:0 0.5em;
   font-size: 0.875em;
   font-weight: 500;
   font-variant: tabular-nums;
@@ -25,7 +30,9 @@
   float: right;
   font-size: 0.875em;
   font-weight: 100;
+  font-variant: all-petite-caps;
   color: var(--brand-100);
+  letter-spacing: -0.05em;
 }
 
 .movie-rating__rating {
@@ -57,6 +64,10 @@
   justify-content: space-between;
   font-size: 0.75rem;
   color: var(--front-500);
+}
+
+.movie-rating__tags {
+  margin: 0.5em 0;
 }
 
 .movie-rating > footer > a {
