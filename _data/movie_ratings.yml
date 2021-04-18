@@ -1,17 +1,37 @@
 ---
 before:
+  - const: tt4736550
+    recommendation: true
+    note: |
+      The story of Cambridge Analytica.
+      I feel most people (and politicans) still do not understand the consequences.
   - const: tt2545118
     recommendation: true
+    note: |
+      I recommend watching this movie before visiting zoos which showcase orcas.
+      Good thing is, there aren't so many anymore. But there is one in Europe, on
+      Tenerife (Canary Islands) and the siblings of Tilikum are caged there.
+
+      And after watching, I hope you chose to spend your money wisely.
   - const: tt0057012
     recommendation: true
+    note: |
+      A classic and fun movie.
   - const: tt1191111
     recommendation: true
+    note: |
+      A classic Noe movie. It has its lengths, but still it's a highly immersive movie.
   - const: tt1375666
     recommendation: true
+    note: |
+      This is a movie to watch twice and scan for evidences to answer the question
+      which is asked in the last scene.
   - const: tt7286456
     recommendation: true
-  - const: tt8946378
-    recommendation: true
+    note: |
+      Had a good time in the movie observing when people laugh.
+
+      I thoroughly enjoyed the set and its decor. It's well thought out with brilliant performances.
   - const: tt0067334
     recommendation: true
   - const: tt0151804
@@ -21,6 +41,8 @@ before:
       - Yup, watching this movie!
   - const: tt0040746
     recommendation: true
+    note: |
+      This feels like a one-take movie. However, it isn't and it enriches the suspense levels.
   - const: tt1424432
     recommendation: true
     note: |
@@ -37,31 +59,39 @@ before:
     note: A true classic search for a carpet. Best served with the promoted cocktail.
   - const: tt0887912
     recommendation: true
+    note: |
+      A war movie with amazing sound, showing an army soldier operating in a bomb squad.
   - const: tt2084970
     recommendation: true
+    note: |
+      A biographic movie about Alan Turing who cracks the code of the Enigma.
   - const: tt3397884
     recommendation: true
+    note: |
+      Dark and atmospheric war against drugs.
   - const: tt0080339
     recommendation: true
     note: |
       Probably the most classic comedy movie ever?
 
       What's the vector, Victor?
-  - const: tt0405094
-    recommendation: true
   - const: tt4973112
     recommendation: true
-  - const: tt3640710
-    recommendation: true
+    note: |
+      A haunting ride on a MotoGP bike. It doesn't always end well. RIP SuperSic58.
   - const: tt3856408
     recommendation: true
   - const: tt3464902
     recommendation: true
+    note: |
+      I'm not sure if I'd have picked that animal in that situation.
   - const: tt0088258
     recommendation: true
     note: You can rate this movie with 11 out of 10 stars on IMDb. Because 11 is better than 10.
   - const: tt1313104
     recommendation: true
+    note: |
+      An activist group created this movie while investigating (cruel) japanese dolphin killers.
   - const: tt5013056
     recommendation: true
     note: |
@@ -72,6 +102,8 @@ before:
       Amazing dog fights.
   - const: tt4044364
     recommendation: true
+    note: |
+      The story of Edward Snowden with original footage.
 round1:
   - title: "Ad Astra"
     rating: 6
@@ -112,7 +144,8 @@ round1:
   - title: "Judgement at Nuremberg"
     rating: 8
     const: tt0055031
-    note:
+    note: |
+      This should be a mandantory watch for every student in a German school.
     recommendation: true
 
   - title: "Knockin&#39; on Heaven&#39;s Door"
@@ -183,7 +216,6 @@ round2:
     rating: 8
     const: tt7349662
     note:
-    recommendation: true
   - title: Contagion
     rating: 5
     const: tt1598778
