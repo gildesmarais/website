@@ -13,9 +13,14 @@ tags:
 <p>{{page.description}}</p>
 
 <p>
-  You can read <a href="./recommendations/">my recommendations</a>
+  You can read <a href="{{ '/ratings/recommendations/' | relative_url }}">my recommendations</a>
   and
-  <a href="./top_rated/">my top rated</a> movies.
+  <a href="{{ '/ratings/top_rated/' | relative_url }}">my top rated</a> movies.
+</p>
+
+<p>
+  As of today, I've rated {{ site.data.ratings | size }} movies.
 </p>
 
 {% include ratings-nav.html %}
+
