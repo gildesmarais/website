@@ -14,7 +14,7 @@
       <span itemprop="name">{{ imdb['Title'] }}</span>
       <span class="movie-rating__year">{{ imdb['Year'] }}</span>
       {% if rating['recommendation'] %}
-        <span class="movie-rating__recommendation">Recommendation</span>
+      <span class="movie-rating__recommendation">Recommendation</span>
       {% endif %}
     </span>
 
@@ -28,9 +28,7 @@
   />
   <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
   <meta itemprop="name" content="{{ rating['title'] }}" />
-  <main class="content" itemprop="reviewBody">
-    {{ rating['note'] | markdownify }}
-  </main>
+  <main class="content" itemprop="reviewBody">{{ rating['note'] | markdownify }}</main>
   {% endif %}
 
   <footer>
@@ -40,9 +38,9 @@
       <br />
       {% assign genres = imdb['Genres'] | split: "," %}
       <ul class="tags--list movie-rating__tags">
-      {% for genre in genres %}
+        {% for genre in genres %}
         <li class="tag">{{genre}}</li>
-      {% endfor %}
+        {% endfor %}
       </ul>
     </span>
 
