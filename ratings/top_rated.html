@@ -1,7 +1,7 @@
 ---
 title: My top rated movies
 layout: page
-description: I like to watch and rate movies. These are my highest rated movies.
+description: I like to watch and rate movies. Here are my highest rated movies.
 noindex: true
 sitemap: false
 tags:
@@ -9,6 +9,8 @@ tags:
 ---
 
 <h1>{{ page.title }}</h1>
+
+<p>{{page.description}}</p>
 
 {% assign ratings = site.data.ratings | where: 'Your Rating', 10 | sort_natural: 'Title' %}
 {% for imdb in ratings %}

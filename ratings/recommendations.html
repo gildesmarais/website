@@ -1,7 +1,7 @@
 ---
-title: My movie recommendations
+title: Movie recommendations
 layout: page
-description: I like to watch and rate movies. These are my recommendations.
+description: I like to watch and rate movies. Here are my recommendations.
 noindex: true
 sitemap: false
 tags:
@@ -9,6 +9,8 @@ tags:
 ---
 
 <h1>{{ page.title }}</h1>
+
+<p>{{page.description}}</p>
 
 {% assign imdbs = "" | split: '' %}
 {% assign recommendations = site.data.movie_ratings | flat_map_hash %}
