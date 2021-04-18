@@ -6,19 +6,16 @@ noindex: true
 sitemap: false
 tags:
   - movie
-children: ['0-9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'xyz']
 ---
 
 <h1>{{ page.title }}</h1>
 
-<a href="./recommendations/">Recommendations</a>
-<br>
-<a href="./top_rated/">Top Rated</a>
+<p>{{page.description}}</p>
 
-<nav class="side-nav">
-  <ul>
-    {% for child in page.children %}
-    <li><a href="./{{child}}/">{{child}}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
+<p>
+  You can read <a href="./recommendations/">my recommendations</a>
+  and
+  <a href="./top_rated/">my top rated</a> movies.
+</p>
+
+{% include ratings-nav.html %}
