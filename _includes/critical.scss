@@ -26,6 +26,7 @@
   --back-400: hsl(212, 3%, 21%);
   --back-300: hsl(212, 3%, 30%);
 
+  --front-500: hsl(72, 6%, 59%);
   --front-400: hsl(72, 6%, 64%);
   --front-300: hsl(72, 6%, 74%);
   --front-200: hsl(72, 6%, 84%);
@@ -138,7 +139,7 @@
 
   display: inline-block;
   padding: 0.2em 0.3em;
-  margin: 0.15em 0.15em;
+  margin: 0.15em 0.15em 0.15em 0;
   line-height: 1.14;
   white-space: nowrap;
   background-color: var(--back-700);

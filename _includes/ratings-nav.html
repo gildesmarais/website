@@ -1,0 +1,16 @@
+{% assign url = page.url|remove:'index.html' %}
+
+<nav class="ratings__nav">
+  <p>
+    Browse all ratings in alphabetical order:
+  </p>
+  <ul>
+    {% for child in site.ratings.chars %}
+      {% assign href = child | prepend: "/ratings/" %}
+      {% assign href = href | append: "/" %}
+    <li {% if url == href %}class="current"{% endif %}>
+      <a href="{{href}}">{{child}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

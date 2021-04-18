@@ -19,6 +19,7 @@ Q is another letter we had to skip. We couldn't find a movie starting with Q.
 Only few movies in this round left a lasting impression.
 
 {% for rating in site.data.movie_ratings.round2 %}
+{% assign imdb = site.data.ratings | where: "Const", rating['const'] | first %}
 {% include movie-rating.html %}
 {% endfor %}
 
