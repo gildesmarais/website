@@ -1,0 +1,21 @@
+---
+title: Movie Ratings
+layout: page
+description: I like to watch and rate movies. Sometimes I recommend one and write short reviews.
+noindex: true
+sitemap: false
+tags:
+  - movie
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>{{page.description}}</p>
+
+<p>
+  You can read <a href="./recommendations/">my recommendations</a>
+  and
+  <a href="./top_rated/">my top rated</a> movies.
+</p>
+
+{% include ratings-nav.html %}

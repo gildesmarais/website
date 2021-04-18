@@ -25,6 +25,7 @@ We started on 15th February 2020 and made it through the alphabet by end of Marc
 Movies are a form of art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
 
 {% for rating in site.data.movie_ratings.round1 %}
+{% assign imdb = site.data.ratings | where: "Const", rating['const'] | first %}
 {% include movie-rating.html %}
 {% endfor %}
 

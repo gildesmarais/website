@@ -1,14 +1,27 @@
+{% unless rating %}
+  {% for round_hash in site.data.movie_ratings %}
+    {% assign round = round_hash[0] %}
+    {% assign movie_rating = site.data.movie_ratings[round] | where: 'const', imdb['Const'] | first %}
+    {% if movie_rating %}
+      {% assign rating = movie_rating %}
+    {% endif %}
+  {% endfor %}
+{% endunless %}
+
 <article class="movie-rating" itemprop="review" itemscope itemtype="https://schema.org/Review">
   <header>
     <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
-      <span itemprop="name">{{ rating['title'] }}</span>
-      <span class="movie-rating__year">{{ rating['year'] }}</span>
+      <span itemprop="name">{{ imdb['Title'] }}</span>
+      <span class="movie-rating__year">{{ imdb['Year'] }}</span>
+      {% if rating['recommendation'] %}
+      <span class="movie-rating__recommendation">Recommendation</span>
+      {% endif %}
     </span>
 
-    <span class="movie-rating__rating">{{ rating['rating'] | star_rating }}</span>
+    <span class="movie-rating__rating">{{ imdb['Your Rating'] | star_rating }}</span>
   </header>
 
-  {% if rating['note'] != '' %}
+  {% if rating %}
   <meta
     itemprop="author"
     content="{% if post.author %}{{post.author}}{% else %}{{ site.author }}{% endif %}"
@@ -16,9 +29,23 @@
   <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
   <meta itemprop="name" content="{{ rating['title'] }}" />
   <main class="content" itemprop="reviewBody">{{ rating['note'] | markdownify }}</main>
-  {% endif %} {% if rating['imdb'] && rating['imdb'] != '' %}
-  <footer>
-    <a href="{{ rating['imdb'] }}">IMDb entry</a>
-  </footer>
   {% endif %}
+
+  <footer>
+    <span>
+      {{ imdb['Directors'] }}
+      <br />
+      {% assign genres = imdb['Genres'] | split: "," %}
+      <ul class="tags--list movie-rating__tags">
+        {% if imdb['Title Type'] != 'movie' %}
+        <li class="tag">{{imdb['Title Type'] | humanize_title_type }}</li>
+        {% endif %} {% for genre in genres %}
+        <li class="tag">{{genre}}</li>
+        {% endfor %}
+      </ul>
+    </span>
+    <a href="{{ imdb['URL'] }}">IMDb entry</a>
+  </footer>
 </article>
+
+{% assign rating = false %}

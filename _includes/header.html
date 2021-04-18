@@ -51,6 +51,13 @@
           </a>
         </li>
 
+        <li>
+          <a href="{{ "/ratings" | relative_url }}"
+            class="nav__item {% if current[1] == 'ratings' %}nav__item--active{% endif %}" role="menuitem">
+            Movie Ratings
+          </a>
+        </li>
+
         <li class="nav__item--last">
           <a href="{{ "/help" | relative_url }}" class="nav__item {% if current[1] == 'help' %}nav__item--active{% endif %}" role="menuitem">Help</a>
 

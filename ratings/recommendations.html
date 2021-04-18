@@ -1,0 +1,25 @@
+---
+title: My movie recommendations
+layout: page
+description: I like to watch and rate movies. These are my recommendations.
+noindex: true
+sitemap: false
+tags:
+  - movie
+---
+
+<h1>{{ page.title }}</h1>
+
+{% assign imdbs = "" | split: '' %}
+{% assign recommendations = site.data.movie_ratings | flat_map_hash %}
+{% assign recommendations = recommendations | where: "recommendation", true %}
+
+{% for recommendation in recommendations %}
+  {% assign imdb = site.data.ratings | where: "Const", recommendation['const'] %}
+  {% assign imdbs = imdbs | concat: imdb %}
+{% endfor %}
+
+{% assign imdbs = imdbs | sort_natural: 'Title' %}
+{% for imdb in imdbs %}
+  {% include movie-rating.html %}
+{% endfor %}

@@ -6,6 +6,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+encoding: utf-8
 title: Gil Desmarais
 subheadline: I'm a full stack developer from Berlin.
 
@@ -32,9 +33,38 @@ collections:
     output: true
     sort_by: sort_criteria
 
+ratings:
+  chars:
+    [
+      "0‒9",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "xyz",
+    ]
+
 plugins:
   - jekyll-archives
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-target-blank
   - jekyll-toc
