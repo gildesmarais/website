@@ -33,6 +33,17 @@ module Helpers
   def flat_map_hash(collection)
     [].concat(*collection.values)
   end
+
+  def humanize_title_type(string)
+    case string
+    when 'tvSeries'
+      'TV Series'
+    when 'tvMiniSeries'
+      'TV Mini Series'
+    else
+      string
+    end
+  end
 end
 
 Liquid::Template.register_filter(Helpers)
