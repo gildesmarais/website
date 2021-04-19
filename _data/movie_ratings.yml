@@ -1,9 +1,5 @@
 ---
 before:
-  - const: tt5741902
-    recommendation: true
-    note: |
-      Take a seat at the counter of a restaurant and listen to the stories.
   - const: tt6802522
     recommendation: true
     note: |
@@ -368,6 +364,7 @@ round1:
   - title: "Zoku Shinya shokudô"
     const: tt5741902
     rating: 6
+    note: Take a seat at the counter of a restaurant and listen what the others have to say.
 
 round2:
   - title: "Avengers: Endgame"
