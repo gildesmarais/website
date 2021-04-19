@@ -40,6 +40,8 @@ module Helpers
       'TV Series'
     when 'tvMiniSeries'
       'TV Mini Series'
+    when 'tvEpisode'
+      'TV Series Episode'
     else
       string
     end
