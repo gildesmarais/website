@@ -1,10 +1,171 @@
 ---
 before:
+  - const: tt5741902
+    recommendation: true
+    note: |
+      Take a seat at the counter of a restaurant and listen to the stories.
+  - const: tt6802522
+    recommendation: true
+    note: |
+      A calm movie about a young German couple which travels the world in 3.5
+      years by going east.
+
+      They documented the trip by filming and this movie summarizes it.
+
+      Quite a life changing experience for the couple.
+  - const: tt0052357
+    recommendation: true
+    note: My head is still spinning!
+  - const: tt0067927
+    recommendation: true
+    note: |
+      Whispering voice: "Kowalski, Vanishing Point".
+      Does that trigger something in you?
+
+      Yes? No? Doesn't matter, the car needs to be delivered.
+  - const: tt5129818
+    recommendation: true
+    note: |
+      A propaganda movie about North Korea, but the director continues filming between the scripted scenes.
+  - const: tt5278506
+    recommendation: true
+    note: |
+      "Professional tickling" sounds funny to you? Well then, go ahead,
+      watch this movie and have your mind changed.
+  - const: tt3488710
+    recommendation: true
+    note: |
+      I think it's just to recommended this movie to be played on a big screen.
+  - const: tt0469494
+    recommendation: true
+    note: |
+      An intense movie about the oil business around the year 1900.
+  - const: tt0253474
+    recommendation: true
+    note: |
+      A haunting WW2 movie about the Warsaw ghetto.
+  - const: tt5715874
+    recommendation: true
+    note: |
+      An intelligent and terrifying drama/horror/mystery/thriller.
+  - const: tt4359416
+    recommendation: true
+    note: |
+      This is a movie about movies. Get in the taxi with Jafar Panahi as a
+      driver and experience the ride.
+
+      Jafar Panahi is banned from making movies by the Iranian government.
+      That doesn't stop him. Exceptional.
+  - const: tt0978764
+    recommendation: true
+    note: |
+      In an alternative reality weird things happen.
+  - const: tt1895587
+    recommendation: true
+    note: |
+      The story of how a news paper uncovered a massive child abuse scandal in
+      the Catholic Church.
+  - const: tt0070723
+    recommendation: true
+    note: A Sci-Fi classic.
+  - const: tt0054215
+    recommendation: true
+    note: |
+      *violin music intensifies*
+  - const: tt0390384
+    recommendation: true
+    note: |
+      A very nerdy (in the positive sense) film about time traveling.
+      The budget for this movie was around $7000.
+  - const: tt1210166
+    recommendation: true
+    note: |
+      A movie which I can't unlike. It shows how to achieve success in sports
+      with a systematic approach, using mathematics.
+  - const: tt1748122
+    recommendation: true
+    note: |
+      Wes Anderson's film making style is so unique.
+  - const: tt0027977
+    recommendation: true
+    note: |
+      Modern Times, filmed in the 1930s, aged well.
+  - const: tt4669296
+    recommendation: true
+    note: |
+      It's a controversial movie about the Black Metal scene in Norway during the 1990s.
+      I liked it a lot because it pushes several boundaries.
+
+      Very dark and graphic, but most of it really happened. It's not a documentary.
+  - const: tt0130827
+    recommendation: true
+    note: |
+      A German movie, playing in Berlin, about a running woman.
+
+      There's never really a break... but continuos suspense.
+      Probably one of the best German movies out there.
+  - const: tt0079470
+    recommendation: true
+    note: |
+      A huge tank of citable quotes. Best watched during Easter. ;)
+  - const: tt1250777
+    recommendation: true
+    note: |
+      A fun to watch superhero movie. Well produced with an excellent soundtrack.
+  - const: tt0038650
+    recommendation: true
+    note: What a classic from 1946. Best watched during Christmas season.
+  - const: tt0361748
+    recommendation: true
+    note: |
+      A multi-lingual movie about WW2, which makes some fun about languages.
+
+      I can't applaud enough to Mr. Tarantino to limit the speaking to
+      a specific actor in this kind of movie to just a few words.
+
+      Amazing performance by Christoph Waltz.
+  - const: tt0780536
+    recommendation: true
+    note: Very dark humor in this one. The actual reason I paid Bruges a visit once.
+  - const: tt0093058
+    recommendation: true
+    note: |
+      Towards the end it reveals what this movie really is about: an anti-war movie.
+  - const: tt1213644
+    note: This really is a disaster.
+  - const: tt0317219
+    recommendation: true
+    note: |
+      I've watched this dubbed in German. The dubbing is exceptionally good.
+      They've used to commentators and drivers of the Formula1 TV broadcasts.
+
+      The movie itself is quite emotional about friendship and family.
+  - const: tt0144084
+    recommendation: true
+    note: |
+      "I have to return some video tapes."
+      Enough said.
+  - const: tt0469021
+    recommendation: true
+    note: |
+      An over the top comedy about a radio DJ.
+  - const: tt0117951
+    recommendation: true
+    note: |
+      A drug drama. Some scenes are unique and have been referenced in other movies.
+
+      The great electro track 'Born Slippy' by Underworld is featured prominently.
+  - const: tt4048272
+    recommendation: true
+    note: |
+      An above average German comedy with hilarious moments.
+
+      The story of a career woman and her relationship to her father and her job.
   - const: tt4736550
     recommendation: true
     note: |
       The story of Cambridge Analytica.
-      I feel most people (and politicans) still do not understand the consequences.
+      I feel most people (and politicians) still do not understand the consequences.
   - const: tt2545118
     recommendation: true
     note: |
@@ -305,7 +466,7 @@ round2:
   - title: Zero Days
     rating: 7
     const: tt5446858
-
+    recommendation: true
     note: |
       Although the impression manifests that the told story is true,
       no evidence is provided which would hold up in a court house. This
@@ -339,7 +500,7 @@ round3:
   - note: |
       Fascinating and unsettling at the same time.
       Seeing this sushi restaurant owner striving for perfection and not accepting less.
-      The viewer get's to know him a bit.
+      The viewer gets to know him a bit.
 
       I've seen Anthony Bourdain visiting him once and this is probably a
       reason why we decided to watch it with English subtitles.
@@ -379,7 +540,7 @@ round3:
     const: tt0098206
   - note: |
       Another movie by Gaspar Noe. English title is "I Stand Alone".
-      It's Noe's first full length movie, taking some characaters from his
+      It's Noe's first full length movie, taking some characters from his
       previous short movies.
 
       This is an inner dialogue of a person: you hear the person you're following thinking.
@@ -461,7 +622,7 @@ round3:
       Finally I know the origin of a quote I heard quite often. Can't remember where tho.
     const: tt0167404
   - note: |
-      It's really sad to see such a promising topic rehashed into a boring, linear and unthrilling movie.
+      It's really sad to see such a promising topic rehashed into a boring and linear movie.
     const: tt5466186
   - note: |
       No, the title does not contain a typo.
