@@ -364,6 +364,7 @@ round1:
   - title: "Zoku Shinya shokudô"
     const: tt5741902
     rating: 6
+    recommendation: true
     note: Take a seat at the counter of a restaurant and listen what the others have to say.
 
 round2:
