@@ -18,6 +18,11 @@
   font-weight: 600;
 }
 
+.movie-rating__title > a {
+  color: var(--front-200);
+  text-decoration: none;
+}
+
 .movie-rating__year {
   padding: 0 0.5em;
   font-size: 0.875em;
