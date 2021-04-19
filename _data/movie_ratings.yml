@@ -2,7 +2,8 @@
 before:
   - const: tt5741902
     recommendation: true
-    note: Take a seat at the counter of a restaurant and listen to the stories.
+    note: |
+      Take a seat at the counter of a restaurant and listen to the stories.
   - const: tt6802522
     recommendation: true
     note: |
@@ -18,7 +19,7 @@ before:
   - const: tt0067927
     recommendation: true
     note: |
-      Whispering Voice: "Kowalski, Vanishing Point".
+      Whispering voice: "Kowalski, Vanishing Point".
       Does that trigger something in you?
 
       Yes? No? Doesn't matter, the car needs to be delivered.
