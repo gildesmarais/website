@@ -8,10 +8,16 @@
   {% endfor %}
 {% endunless %}
 
-<article class="movie-rating" itemprop="review" itemscope itemtype="https://schema.org/Review">
+<article
+  class="movie-rating"
+  itemprop="review"
+  itemscope
+  itemtype="https://schema.org/Review"
+  id="{{ imdb['Title'] | slugify }}"
+>
   <header>
     <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
-      <span itemprop="name">{{ imdb['Title'] }}</span>
+      <a itemprop="name" href="#{{ imdb['Title'] | slugify }}">{{ imdb['Title'] }}</a>
       <span class="movie-rating__year">{{ imdb['Year'] }}</span>
       {% if rating['recommendation'] %}
       <span class="movie-rating__recommendation">Recommendation</span>
