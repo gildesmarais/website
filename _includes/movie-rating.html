@@ -20,7 +20,10 @@
       <a itemprop="name" href="#{{ imdb['Title'] | slugify }}">{{ imdb['Title'] }}</a>
       <span class="movie-rating__year">{{ imdb['Year'] }}</span>
       {% if rating['recommendation'] %}
-      <span class="movie-rating__recommendation">Recommendation</span>
+      <a class="movie-rating__recommendation"
+         href="{{ '/ratings/recommendations/' | relative_url }}#{{ imdb['Title'] | slugify }}">
+        Recommendation
+      </a>
       {% endif %}
     </span>
 
