@@ -10,7 +10,7 @@ tags: [food]
 ## A warning beforehand
 
 This post does not contain any graphic photos, but it might be disturbing to read anyway.
-This post is not intended as an instruction manual. You will need experience to do this right and the best/legal way possible.  
+This post is not intended as an instruction manual. You will need experience to do this right and the best/legal way possible.
 If you're interested in deepening your knowledge, ask a slaughterer, a butcher or your local administration for pointers.
 
 ## Introduction
@@ -30,7 +30,7 @@ When choosing a pig to kill, you want to avoid any stress possible. Our isolated
 
 Blood will squirt out of the cut. The pig will still twitch while and after it bleeds out. That's normal: the brain's last commands reach the muscles via the nerves and react accordingly.
 
-The local laws might not always permit the most pain- and stress-less method. It's hard to measure how pain- and stressless each method is. Discussing this topic objectively is hard as it is fueled with ethical, emotional and moral questions.  
+The local laws might not always permit the most pain- and stress-less method. It's hard to measure how pain- and stress-less each method is. Discussing this topic objectively is hard as it is fueled with ethical, emotional and moral questions.
 For example, some do not daze the animal and just cut the throat with a special knife and a clean cut.[^3] That cut causes an instant death. Before they do, they sit next to the animal and send prayers and talk to the animal calmly.[^4]
 
 Many traditions demand to have a toast on the now dead pig. So did we.
@@ -62,7 +62,7 @@ As our pig's race is known for good (and lots of) fats, we concentrated on the b
 When cutting, you usually avoid cutting through the red meat and cut along the fascia and through fat.
 Usually unnecessary fat is scraped of the meaty pieces. We put the fat aside and made lard out of it.
 
-The end result are pieces of meat you can buy at your butchery: rips, cutlet, chops, tenderloin, neck, roasts, bacon, flank, etc ...
+The end result are pieces of meat you can buy at your butchery: rips, cutlet, chops, tenderloin, neck, roasts, bacon, flank, etc …
 
 ## Observations and thoughts
 
@@ -72,10 +72,10 @@ One pig causes a lot of work. A house slaughtering requires multiple people to p
 
 You want to avoid any stress possible during the killing procedure. The situation when entering the sty should be totally normal for the pigs.[^10]
 
-So far, so good. Let's change the perspective from pig to human for a second and imagine the situation yourself: if you know your life will be taken by that person entering the sty, you'd be pumped with adrenaline and fight back.[^11]  
+So far, so good. Let's change the perspective from pig to human for a second and imagine the situation yourself: if you know your life will be taken by that person entering the sty, you'd be pumped with adrenaline and fight back.[^11]
 Wouldn't it be nicer if it would just get dark in front of your eyes and from that point on you'd notice nothing anymore?
 
-Switching the perspective back to the pig: the adrenaline will cause blood pressure to raise and thus fill all organs with water and oxygen. Having blood in meat is to be avoided (it spoils) and water lowers the meat's quality (you can find the water between fascia and muscles). Also the stress hormones released will decrease the meat's taste.  
+Switching the perspective back to the pig: the adrenaline will cause blood pressure to raise and thus fill all organs with water and oxygen. Having blood in meat is to be avoided (it spoils) and water lowers the meat's quality (you can find the water between fascia and muscles). Also the stress hormones released will decrease the meat's taste.
 Some pigs have aching muscles _after_ the procedure. You can spot aching muscles from their color after hanging.
 
 The isolation itself, which involves entering the sty and e.g. put an iron cage around it, looks stressful to me.
@@ -83,8 +83,8 @@ While shooting a resting animal does not.[^12]
 
 I'm afraid most pigs who's designation is to give their meat won't have such <q>good</q> slaughtering conditions. I can't see a pig being carried in a cramped lorry to the slaughter house for hours being relaxed and calm.
 
-The meat industry utilizes a handful of techniques to daze pigs. They have them available because the law allows them to.[^13]  
-For example, they use a gas chamber.  
+The meat industry utilizes a handful of techniques to daze pigs. They have them available because the law allows them to.[^13]
+For example, they use a gas chamber.
 They put pigs in a gondola and move them underground. That room is filled with CO2. Since CO2 is heavier than oxygen, the pigs will suffocate. While this requires less human interaction, the death itself is pure agony.
 
 ### Coping with routine
@@ -122,7 +122,7 @@ The pig's body and its organs are similar to a human. I've analyzed a pig's hear
 
 While I usually struggle in winter to maintain a smooth skin on my hands, that day was different. My skin was very soft as I was touching lots of fat and meat.
 
-Would I recommend lard as skin care?  
+Would I recommend lard as skin care?
 Well, it has its pros, but the con is a distinct smell. My verdict: no.
 
 Applying animal produced substances on skin is not that uncommon as it sounds. [Lanolin](https://en.wikipedia.org/wiki/Lanolin) is widely used in skin care products and is sheep secrete.
@@ -141,10 +141,10 @@ It's true. There is nothing more to add to the headline.
 
 ### People are skeptic on homemade Liverwurst
 
-I brought a jar of conserved Liverwurst back home and brought it to the office the other day. I told some colleagues about my experience. Some where eager to try it. But the majority wasn't so keen.  
+I brought a jar of conserved Liverwurst back home and brought it to the office the other day. I told some colleagues about my experience. Some where eager to try it. But the majority wasn't so keen.
 They usually do not refrain from trying the food I bring and offer. Somehow people where doubtful about the Liverwurst. My partner made the exact same experience with her colleagues.
 
-And I wonder why that is?  
+And I wonder why that is?
 Do people trust the meat industry more? Were they offended when I told them which parts of the pig were in it? Do they think the industrially produced liverwurst is of better quality? Or mine unsafe to consume?
 
 Maybe we should have ground the meats finer so it would have been a unicolored mass without tiny chunks of meat in it. Or maybe we should have use pickling salt to keep a shiny red instead of gray product. ;)
@@ -153,7 +153,7 @@ I don't mind too much about their reaction, don't get me wrong. I suspect people
 
 ### Changing habits
 
-Did I change my eating habits because of this experience?  
+Did I change my eating habits because of this experience?
 Yes, and I remain a carnivore. I buy only _biological_ raised meat when possible and avoid low-cost mass product meat.[^14]
 
 I still eat sausages although I know what's in them.

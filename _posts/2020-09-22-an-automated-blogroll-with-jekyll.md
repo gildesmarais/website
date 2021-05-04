@@ -8,7 +8,7 @@ tags:
   - ruby
 ---
 
-A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000's, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
+A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000s, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
 
 Anyway, I've automated the updating of my [blogroll](/blogroll) to link to blogs I subscribe to and recommend others to do the same.
 
@@ -103,12 +103,12 @@ The script creates a `blogroll.yml` file in `_data`. The `_data` directory is th
 
 Finally, exclude the `bin/` folder from the build in the `_config.yml`
 
-```
+```yml
 exclude:
   - bin/
 ```
 
-... and `echo _data/blogroll.yml > .gitignore`
+… and `echo _data/blogroll.yml > .gitignore`
 
 ## Render the blogroll page
 
@@ -172,8 +172,8 @@ And lastly, add the required secrets (`NB_*`) to your website's repository setti
 ## Conclusion
 
 Blogrolls are valuable to the independent world wide web. Let's not forget them.
-There are still plenty of blogs out there. It just hard to find them... a blogroll can mitigate the problematic discovery. If you write a blog, why not add a blogroll to your blog? It doesn't have to be automated; you can update the blogroll manually..
+There are still plenty of blogs out there. It just hard to find them… a blogroll can mitigate the problematic discovery. If you write a blog, why not add a blogroll to your blog? It doesn't have to be automated; you can update the blogroll manually…
 
-Jekylls support for data files is super powerful. In conjunction with scheduled deployments you can even display _not so static_ content easily.
+Jekyll's support for data files is super powerful. In conjunction with scheduled deployments you can even display _not so static_ content easily.
 
 If you're familiar with Ruby, the script is straightforward. But don't worry, the data exchange format is YAML which probably every programming language can create. Use whatever language you like and runs on your continuous deployment service.

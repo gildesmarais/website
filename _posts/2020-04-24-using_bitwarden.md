@@ -15,11 +15,11 @@ I skipped the SSL certs generation during the installation and put Bitwarden beh
 
 1Password exports your passwords in their own file format, which Bitwarden can import. I lost all tags and attachments of my credentials. So there is some manual work to fully migrate.
 
-I've been very happy with 1Password. I was still using their old version which I bought years ago. However, clients for the old 1Password version started to crash on macOS. That's why I needed to decide which way to go:
+I've been happy with 1Password. I was still using their old version which I bought years ago. However, clients for the old 1Password version started to crash on macOS. That's why I needed to decide which way to go:
 
 1. stay with 1Password and subscribe to their app
 2. install and maintain Bitwarden on my private server, which is maintained by myself in my spare time.
 
-Usually it makes no financial sense to maintain something you rely on yourself for free. I went with 2 nonetheless, let's hope it's a smooth ride.
+Usually it makes no financial sense to maintain something you rely on yourself. I went with 2 nonetheless, let's hope it's a smooth ride.
 
 [^1]: That includes installing their app on all my (macOS, iOS and Android) devices.
