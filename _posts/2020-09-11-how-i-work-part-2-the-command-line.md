@@ -53,7 +53,7 @@ You can also _search_ using <kbd>Ctrl</kbd>+<kbd>R</kbd> or use `history | sk` (
 
 ### Navigation between directories
 
-Beside `cd`, `cd ..` (in zsh you can omit cd and type just `..` or even `....`), I use `pushd` and `popd` to move back and forth between directories.
+Beside `cd`, `cd ..` (in zsh you can omit cd and type just `..` or even `….`), I use `pushd` and `popd` to move back and forth between directories.
 
 Whenever I create a new directory with `mkdir -p ~/whatever/foo/bar/baz` I like to change to it directly with `cd $_`.
 
@@ -100,7 +100,7 @@ What follows is a list of tools I use with a short description. Most of them are
 
 ### Miscellaneous
 
-The following tools are also in my toolbox. I file them under Miscellaneous as the amount would not justify categories on their own in this post. That does not mean that I use them less... most of them are invaluable.
+The following tools are also in my toolbox. I file them under Miscellaneous as the amount would not justify categories on their own in this post. That does not mean that I use them less… most of them are invaluable.
 
 These are helpful when dealing with (not only) remote systems:
 
@@ -112,7 +112,7 @@ These are helpful when dealing with (not only) remote systems:
 
 Sometimes you want to download something or need to make raw HTTP requests:
 
-- [aria2](https://aria2.github.io/): universal download utility (http, ftp, bittorrent, magnet, ...).
+- [aria2](https://aria2.github.io/): universal download utility (http, ftp, bittorrent, magnet, …).
 - [curl](https://curl.haxx.se/): for HTTP requests and debugging those. I can't work without it.
 - [youtube-dl](https://youtube-dl.org/): download video and audio (not only from youtube).
 

@@ -56,7 +56,7 @@ Beim Lokalsender _oeins_ findet man in der [Mediathek](http://oeins.de/lokalsend
 
 ## Weitere Quellen
 
-Zu guter Letzt kann man [Google News einfach mal mit dem Suchbegriff “Oldenburg" füttern](http://www.google.de/search?hl=de&gl=de&tbm=nws&q=Oldenburg&oq=Oldenburg&gs_l=news-cc.3..43j0j43i400.717.1525.0.1653.9.4.0.5.5.1.159.504.1j3.4.0...0.0...1ac.mTedOrKYkHA&qscrl=1). Bis auf einige wenige Ausreißer (meistens Artikel, die Oldenburg in Holstein betreffen) findet man dort noch weitere Artikel.
+Zu guter Letzt kann man [Google News einfach mal mit dem Suchbegriff “Oldenburg" füttern](http://www.google.de/search?hl=de&gl=de&tbm=nws&q=Oldenburg&oq=Oldenburg&gs_l=news-cc.3..43j0j43i400.717.1525.0.1653.9.4.0.5.5.1.159.504.1j3.4.0…0.0…1ac.mTedOrKYkHA&qscrl=1). Bis auf einige wenige Ausreißer (meistens Artikel, die Oldenburg in Holstein betreffen) findet man dort noch weitere Artikel.
 
 Mit diesen Quellen braucht ihr in der Regel gar nicht mehr auf die Zeitungen der [(leider einzigen) regionale Tageszeitung mit den drei großen Buchstaben](http://de.wikipedia.org/wiki/Nordwest-Zeitung) zurückgreifen. Ihr seid sogar in einigen Themen sicherlich besser informiert, als ihr es über diese Tageszeitung und ihre Ableger wäret. Sich auf nur eine Nachrichtenquelle zu verlassen ist einseitig und nicht geeignet, um sich ein eigenes Bild zu machen!
 

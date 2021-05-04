@@ -17,17 +17,17 @@ Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig au
 
     $ hcitool scan
 
-    Scanning ...
+    Scanning …
 
      00:1D:6E:BC:xx:xx Gil
 
-Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zwei mal gebraucht (wird nachfolgend `<mac>` genannt).  
+Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zwei mal gebraucht (wird nachfolgend `<mac>` genannt).
 Jetzt soll Ubuntu das Handy nach den via Bluetooth angebotenen Services durchsuchen. Hierfür kann das Handy schon wieder unsichtbar gemacht werden, da die MAC-Adresse zum Verbinden vollkommen ausreicht.
 
     $ sdptool browse <mac>
 
-Erzeugt nun eine Menge Text, hier ist nach _Dial Up Networking_ Ausschau  
-zu halten. Gebraucht wird aus diesem Abschnitt der _Channel_, auf dem der  
+Erzeugt nun eine Menge Text, hier ist nach _Dial Up Networking_ Ausschau
+zu halten. Gebraucht wird aus diesem Abschnitt der _Channel_, auf dem der
 Service angeboten wird. Bei meinem E51 ist das der Channel 2.
 
      Service Name: Dial-Up Networking

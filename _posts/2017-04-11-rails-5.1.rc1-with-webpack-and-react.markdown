@@ -18,7 +18,7 @@ already. You’ll need to install yarn on your
 machine if you haven’t already. Also keep in mind, depending on how you’re
 deploying your app, your build server might need to have yarn installed, too.
 This article leaves out how to install yarn. Follow the setup instructions on the
-project's website and it *should be easy™*.
+project's website and it _should be easy™_.
 
 While I was updating, I kept some notes in this post. They can possibly help or
 totally confuse you. Remember, this post is about Rails 5.1 RC1. Probably
@@ -26,7 +26,7 @@ something will change in later released versions.
 
 ## Installation of ruby dependencies
 
-In your `Gemfile`, change the line with `gem ’rails’ ...` to get bundler to
+In your `Gemfile`, change the line with `gem ’rails’ …` to get bundler to
 lock the version to the latest unstable 5.1 version. Also, you want to
 install the new [webpacker gem](https://github.com/rails/webpacker).
 
@@ -55,7 +55,7 @@ install your preferred JS framework without much hassle.
 
 React is sticking on the top of my ’to learn’ list for quite a while.
 
-To install it, do `rails webpacker:install:react` and ... voilà: react
+To install it, do `rails webpacker:install:react` and … voilà: react
 (with JSX) set up.
 
 OK, but how to use React now?
@@ -68,19 +68,19 @@ To include a javascript pack, put this in your HTML:
 = javascript_pack_tag 'application'
 ```
 
-If you’ve already started `rails s`... hold your horses: you need to start the
+If you’ve already started `rails s`… hold your horses: you need to start the
 webpack development server. That’s new and you need to get used to it
 (or change your project’s tmuxinator config).
 
-The webpack server will build/transpile/*apply the magic* to
+The webpack server will build/transpile/_apply the magic_ to
 your JS code and serve these files. It runs on its own port, defaulting to 8080.
 No need to worry about ports now, just start the webpack development server by
 `bin/webpack-dev-server`.
 
 Start your rails server (`rails s`) and open your app in your browser.
-You shouldn’t be greeted with an *Internal Server Error* page anymore.
+You shouldn’t be greeted with an _Internal Server Error_ page anymore.
 
-But still, there’s no visible React.
+Still, there’s no visible React.
 
 ## Trying the `hello_react` example
 
