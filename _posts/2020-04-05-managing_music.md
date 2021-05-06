@@ -13,7 +13,7 @@ tags:
 There are several ways to obtain music nowadays:
 
 1. Rip it from CDs
-   Use [ExactAudioCopy](http://exactaudiocopy.de/) on a windows machine with an optical disc reading device (they still exist outside museums).
+   Use [ExactAudioCopy](https://exactaudiocopy.de/) on a windows machine with an optical disc reading device (they still exist outside museums).
 2. Rip it from vinyl
    Use a turntable, a good analog to digital audio converter and use [Audacity](https://www.audacityteam.org/) to record it. Audacity offers some filters to reduce noise and remove cracks and pops.
 3. Download from _web 2.0_[^1] websites
@@ -52,7 +52,7 @@ iTunes Match is sometimes slow.
 It matches _clean_ versions of lyrically explicit tracks. It's annoying, but since voices annoy me in music and I rarely listen to rap, it does not affect me much. Also I keep the original files instead of replacing them with the matched version.
 
 If you listen to DJ mixes, you will hit iTunes Match's `2 hour` or `200MB` file size limit.
-Most of these mixes are distributed as MP3. [`mp3splt`](http://mp3splt.sourceforge.net/) splits the files evenly without re-encoding.
+Most of these mixes are distributed as MP3. [`mp3splt`](https://mp3splt.sourceforge.net/) splits the files evenly without re-encoding.
 
 ### Rating with a schema
 
@@ -65,7 +65,7 @@ After the import of new tracks, I start rating the tracks. Over time I've develo
 - `4 stars`: a good track
 - `5 stars`: a personal favorite track
 
-[Stars](http://www.karelia.com/products/stars/) is useful to rate music via hotkey.
+[Stars](https://www.karelia.com/products/stars/) is useful to rate music via hotkey.
 
 ### Accurate genre field
 
@@ -157,7 +157,7 @@ On desktop, I work with my the smart playlists and the <q>Column Browser</q> in 
 To play music on my stereo I launch [Cantata](https://github.com/cdrummond/cantata) to control the MPD which is connected to it via HDMI. It plays the files from my NAS. I `scp` the exported playlists (with corrected file urls) to the `playlists` folder of the mpd.
 
 [^1]: A term coined in 2003 for the social web and user-generated content sites, etc.
-[^2]: [freedb](http://www.freedb.org/) is a GNU GPL licensed track database.
+[^2]: [freedb](https://www.freedb.org/) is a GNU GPL licensed track database.
 [^3]: This is collision-free until the year 2049. The first Pop songs I own are from the 1950s (`Pop/50`).
 [^4]: And more, like BPM. It can also set cue points to use with DJ standard software.
 [^5]: [A naming convention for CSS.](https://en.bem.info/methodology/naming-convention/)

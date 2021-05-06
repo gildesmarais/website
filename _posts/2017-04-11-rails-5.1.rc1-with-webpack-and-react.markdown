@@ -110,4 +110,4 @@ Kudos to everyone involved!
 
 On a larger scale, I’m very pleased to see Rails jumping on the yarn
 and “modern Javascript” train. If you haven’t already,
-[read the Rails 5.1 Release Notes](http://edgeguides.rubyonrails.org/5_1_release_notes.html).
+[read the Rails 5.1 Release Notes](https://edgeguides.rubyonrails.org/5_1_release_notes.html).
