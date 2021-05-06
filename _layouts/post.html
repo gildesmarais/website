@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<p class="page">{% back_link %}{{ '/blog/' | relative_url }}{% endback_link %}</p>
+
 <article class="page post h-entry">
   <header class="post__header">
     <h1 class="post__title p-name">{{ page.title | escape }}</h1>

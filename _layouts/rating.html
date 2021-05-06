@@ -2,6 +2,8 @@
 layout: page
 ---
 
+{% back_link %}{{ '/ratings/' | relative_url }}{% endback_link %}
+
 <h1>{{ page.title }}</h1>
 
 {{ content }}
@@ -14,6 +16,4 @@ layout: page
 
 {% include ratings-nav.html %}
 
-<p>
-  <a href="../">Back to the ratings overview.</a>
-</p>
+{% back_link %}{{ '/ratings/' | relative_url }}{% endback_link %}

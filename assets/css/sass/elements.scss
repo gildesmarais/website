@@ -134,10 +134,12 @@ nav li:before {
 @media (hover: hover) {
   a {
     transition: filter 0.2s linear;
+    text-decoration: none;
 
     &:hover,
     &:focus {
       filter: saturate(1.5);
+      text-decoration: underline;
     }
   }
 
