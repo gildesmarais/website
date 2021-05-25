@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "prettier": "2.3.0",
-    "stylelint": "13.8.0",
+    "stylelint": "13.13.1",
     "stylelint-config-recess-order": "2.3.0",
     "stylelint-config-recommended-scss": "4.2.0",
     "stylelint-scss": "3.18.0"
