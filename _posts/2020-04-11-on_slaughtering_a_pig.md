@@ -141,7 +141,7 @@ It's true. There is nothing more to add to the headline.
 
 ### People are skeptic on homemade Liverwurst
 
-I brought a jar of conserved Liverwurst back home and brought it to the office the other day. I told some colleagues about my experience. Some where eager to try it. But the majority wasn't so keen.
+I brought a jar of conserved Liverwurst back home and brought it to the office the other day. I told some colleagues about my experience. Some were eager to try it. But the majority wasn't so keen.
 They usually do not refrain from trying the food I bring and offer. Somehow people where doubtful about the Liverwurst. My partner made the exact same experience with her colleagues.
 
 And I wonder why that is?
