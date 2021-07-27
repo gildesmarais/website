@@ -1,7 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "schedule:monthly"
   ],
-  "timezone": "Europe/Berlin",
-  "schedule": ["every sunday after 10pm"]
+  "timezone": "Europe/Berlin"
 }
