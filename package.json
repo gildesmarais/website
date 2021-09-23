@@ -18,7 +18,6 @@
   "dependencies": {
     "@glidejs/glide": "3.4.1",
     "headroom.js": "0.12.0",
-    "instant.page": "5.1.0",
-    "mousetrap": "1.6.5"
+    "instant.page": "5.1.0"
   }
 }

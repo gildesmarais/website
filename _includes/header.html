@@ -23,25 +23,25 @@
         </li>
         <li>
           <a href="{{ "/" | relative_url }}" class="nav__item {% if current[1] == null %}nav__item--active{% endif %}" role="menuitem">
-            <span data-mousetrap>H</span>ome
+            Home
           </a>
         </li>
 
         <li>
           <a href="{{ "/resume" | relative_url }}" class="nav__item {% if current[1] == 'resume' %}nav__item--active{% endif %}" role="menuitem">
-            <span data-mousetrap>R</span>ésumé
+            Résumé
           </a>
         </li>
 
         <li>
           <a href="{{ "/projects" | relative_url }}" class="nav__item {% if current[1] == 'projects' %}nav__item--active{% endif %}" role="menuitem">
-            <span data-mousetrap>P</span>rojects
+            Projects
           </a>
         </li>
 
         <li>
           <a href="{{ "/blog" | relative_url }}" class="nav__item {% if current[1] == 'blog' %}nav__item--active{% endif %} {% if current[1] == 'posts' %}nav__item--active{% endif %}" role="menuitem">
-            <span data-mousetrap>B</span>log
+            Blog
           </a>
         </li>
 
@@ -59,14 +59,10 @@
         </li>
 
         <li class="nav__item--last">
-          <a href="{{ "/help" | relative_url }}" class="nav__item {% if current[1] == 'help' %}nav__item--active{% endif %}" role="menuitem">Help</a>
-
-          |
-
           <a href="{{ "/privacy" | relative_url }}" class="nav__item {% if current[1] == 'privacy' %}nav__item--active{% endif %}" role="menuitem">Privacy</a>
           |
 
-          <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %}" role="menuitem"><span data-mousetrap>C</span>ontact</a>
+          <a href="{{ "/contact" | relative_url }}" class="nav__item {% if current[1] == 'contact' %}nav__item--active{% endif %}" role="menuitem">Contact</a>
 
           <br>
           <button type="button" class="nav__close-a11y-button" data-nav-toggle>

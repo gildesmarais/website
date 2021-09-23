@@ -8,7 +8,6 @@
 @import "contact";
 @import "fleamarket";
 @import "footer";
-@import "help";
 @import "glide";
 @import "message";
 @import "post";
@@ -21,12 +20,6 @@
 
 .archive__headline {
   margin: 1em 0;
-}
-
-@media (hover: hover) {
-  [data-mousetrap] {
-    text-decoration: underline;
-  }
 }
 
 .flex {
