@@ -2,24 +2,44 @@
 ---
 
 @import "_base";
-@import "nav";
 @import "author";
-@import "blogroll";
-@import "contact";
 @import "fleamarket";
-@import "footer";
 @import "glide";
-@import "message";
+@import "nav";
 @import "post";
 @import "project";
-@import "section-nav";
 @import "ratings";
+@import "section-nav";
 @import "syntax-highlighting";
 @import "tags";
 @import "work-experience";
 
+.address {
+  display: block;
+  font-style: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
 .archive__headline {
   margin: 1em 0;
+}
+
+.back-link {
+  display: block;
+  margin: 1.75rem 0 1.25rem;
+  font-size: 0.875rem;
+}
+
+.blog__list {
+  max-width: var(--container-width);
+  padding: 0 var(--section-padding);
+  margin: 0 auto;
+  list-style: none;
+}
+
+.blogroll {
+  @include tile-with-list;
 }
 
 .flex {
