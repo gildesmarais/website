@@ -81,5 +81,10 @@
 }
 
 .post__message {
+  @include tile;
+  font-size: 1rem;
+  border: 0.25em solid var(--back-500);
+  border-left: 0;
+  border-right: 0;
   margin: 3rem 0;
 }
