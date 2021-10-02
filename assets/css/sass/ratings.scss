@@ -13,16 +13,16 @@
   align-items: center;
   height: var(--height);
   margin: 1px;
-  background-color: var(--back-600);
+  background-color: var(--back-500);
   transition: background-color 0.2s linear;
 
   &:hover,
   &:focus {
-    background-color: var(--back-800);
+    background-color: var(--back-700);
   }
 
   &.current {
-    background-color: var(--back-500);
+    background-color: var(--back-400);
   }
 }
 
