@@ -17,9 +17,9 @@ Here are the previous rounds:
 - [Round II]({% post_url 2020-10-26-watching-movies-alphabetically-round-2 %})
 - [Round III]({% post_url 2021-04-06-watching-movies-alphabetically %})
 
-The alphabetic selection strategy still works fine. However we watched several other 
+The alphabetic selection strategy still works fine. However we watched several other
 movies in the meantime.  
-Check the [recently rated movies page]({{ '/ratings/recent/' | relative_url }}) 
+Check the [recently rated movies page]({{ '/ratings/recent/' | relative_url }})
 to see which other movies I've rated.
 
 {% assign ratings = site.data.movie_ratings.round4 | reverse %}
