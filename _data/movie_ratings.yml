@@ -629,3 +629,84 @@ round3:
   - note: |
       Somehow I felt the movie tried to be too much and lost its plot. Quite disappointing for a Polanski.
     const: tt0142688
+round4:
+  - const: tt1007028
+    #	3	2021-10-22	Zack and Miri Make a Porno
+  - const: tt4714568
+    #	5	2021-09-27	The Young Offenders
+  - const: tt0329774
+    #	3	2021-09-26	"xXx: State of the Union"
+  - const: tt5195412
+    #	4	2021-09-25	Wakefield
+  - const: tt3626476
+    #	5	2021-09-19	Vacation Friends
+  - const: tt1441395
+    #	8	2021-09-10	Under the Skin
+    note: Visually interesting movie.
+  - const: tt2121382
+    #	5	2021-09-05	Turist
+  - const: tt1272886
+    #	5	2021-09-04	Small Apartments
+  - const: tt14512538
+    #	6	2021-09-04	Roadrunner: A Film About Anthony Bourdain
+    note: R.I.P. Anthony.
+  - const: tt8722346
+    #	8	2021-09-03	Queen & Slim
+  - const: tt5932728
+    #	5	2021-08-09	The Professor and the Madman
+  - const: tt3829920
+    #	4	2021-08-08	Only the Brave
+  - const: tt9770150
+    #	5	2021-08-08	Nomadland
+    note: |
+      A boring movie which tries to incorporate too many topics IMHO.
+      I do like quiet films and didn't expect it to live up to the 3 Oscars it won,
+      but it just didn't impress me.
+
+  - const: tt1560747
+    recommendation: true
+    note: In the epoch of our lifetime, at every corner, there is someone claiming to know it better...
+    #	7	2021-08-07	The Master
+  - const: tt7984734
+    recommendation: true
+    note: |
+      The Lighthouse was a very special movie.
+      Shot in black and white in a square aspect ratio (yes, it has been produced in 2019).
+      A great set and setting. Very intense, has many twists, it's haunting.
+      Overall a great movie but not particularly easy to watch (and understand).
+    #	7	2021-08-08	The Lighthouse
+  - const: tt0107302
+    #	6	2021-08-01	Kalifornia
+  - const: tt6146586
+    note: This feels like the lowlight of the series.
+  - const: tt0278504
+    #	7	2021-07-28	Insomnia
+  - const: tt5503686
+    #	2	2021-07-18	Hustlers
+  - const: tt0099685
+    #	7	2021-07-17	Goodfellas
+  - const: tt1100089
+    recommendation: true
+    note: |
+      A strong, dark and calm movie about a true murder.
+      I found the acting to be top-notch; the emotions were transported so well.
+    #	7	2021-05-31	Foxcatcher
+  - const: tt2719848
+    #	3	2021-05-30	Everest
+  - const: tt0092890
+    #	4	2021-05-21	Dirty Dancing
+  - const: tt8267604
+    #	8	2021-05-18	Capharnaüm
+    recommendation: true
+    note: |
+      A kid sueing his parents for neglect.
+      It was filmed without educated actors and
+      thus it appears very real (and it is - read the Trivia on IMDb after watching).
+  - const: tt0486551
+    #	3	2021-04-17	Beerfest
+    note: |
+      As a German I can just say: this is pure fiction. Don't waste your time.
+
+      Anyway, when watching, opt for something harder than beer to bear this flick.
+  - const: tt8760684
+    #	7	2021-04-16	Apollo 11
