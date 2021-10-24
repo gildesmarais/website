@@ -105,6 +105,7 @@ exclude:
   - Makefile
   - node_modules
   - package.json
+  - README.md
   - vendor
   - yarn.error
   - yarn.lock
