@@ -5,6 +5,12 @@
   "author": "Gil Desmarais <git@desmarais.de>",
   "license": "UNLICENSED",
   "private": true,
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@glidejs/glide": "3.5.1",
     "headroom.js": "0.12.0",
