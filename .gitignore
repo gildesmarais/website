@@ -7,4 +7,4 @@ npm-debug.log
 .jekyll-cache
 _fleamarket/*.md
 _data/blogroll.yml
-assets/javascripts/main.js
+assets/javascript/main.js
