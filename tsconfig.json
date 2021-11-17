@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es2015",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": true
+  },
+  "include": [
+    "./assets/javascript/**/*.ts"
+  ]
+}
