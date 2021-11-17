@@ -97,6 +97,8 @@ exclude:
   - .prettierignore
   - .ruby-version
   - .sass-cache
+  - .stylelintrc.json
+  - "assets/javascript/**/*.ts"
   - bin/
   - node_modules
   - Gemfile

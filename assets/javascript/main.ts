@@ -43,8 +43,12 @@ namespace Utils {
   }
 
   export function setupGlide(): void {
-    document.querySelectorAll(".glide").forEach(el => {
-      const glide = new Glide(el);
+    document.querySelectorAll(".glide").forEach((el, key) => {
+      if (!el.id) {
+        el.id = `glide-${key}`
+      }
+
+      const glide = new Glide(el.id);
       glide.mount();
     });
   }
