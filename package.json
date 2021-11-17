@@ -5,14 +5,22 @@
   "author": "Gil Desmarais <git@desmarais.de>",
   "license": "UNLICENSED",
   "private": true,
-  "devDependencies": {
-    "typescript": "^4.4.4"
-  },
   "scripts": {
+    "lintfix": "stylelint --fix assets/**/*.scss",
     "build": "tsc"
   },
+  "devDependencies": {
+    "@types/glidejs__glide": "^3.4.1",
+    "@types/headroom.js": "^0.12.1",
+    "prettier": "2.4.1",
+    "stylelint": "14.0.1",
+    "stylelint-config-recess-order": "2.6.0",
+    "stylelint-config-recommended-scss": "5.0.1",
+    "stylelint-scss": "4.0.0",
+    "typescript": "^4.4.4"
+  },
   "dependencies": {
-    "@glidejs/glide": "3.5.1",
+    "@glidejs/glide": "3.4.1",
     "headroom.js": "0.12.0",
     "instant.page": "5.1.0"
   }

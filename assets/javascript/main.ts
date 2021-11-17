@@ -1,6 +1,6 @@
 
-declare var Headroom: any;
-declare var Glide: any;
+import Headroom from "headroom.js";
+import Glide from '@glidejs/glide';
 
 namespace Utils {
   export function makeEmailLinkClickable(): void {
@@ -43,10 +43,6 @@ namespace Utils {
   }
 
   export function setupGlide(): void {
-    if (!Glide) {
-      return;
-    }
-
     document.querySelectorAll(".glide").forEach(el => {
       const glide = new Glide(el);
       glide.mount();
