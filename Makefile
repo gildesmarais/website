@@ -2,7 +2,6 @@ default: clean fix
 
 fix:
 	npx prettier --write --no-semi --print-width 110 "**/*.html" "**/*.yml" "**/*.md" "(assets|_includes)/**/*.scss" "assets/javascript/main.js"
-	npx stylelint --fix "(assets|_includes)/**/*.scss"
 	bundle exec rubocop -A
 
 clean:
