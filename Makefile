@@ -1,7 +1,7 @@
 default: clean fix
 
 fix:
-	npx prettier --write --no-semi --print-width 110 "**/*.html" "**/*.yml" "**/*.md" "(assets|_includes)/**/*.scss" "assets/javascript/main.js"
+	npx prettier --write --no-semi --print-width 110 "**/*.(yml|md)" "(assets|_includes)/**/*.scss" "assets/javascript/*/**.ts"
 	bundle exec rubocop -A
 
 clean:
@@ -10,6 +10,8 @@ clean:
 
 serve:
 	bundle check || bundle
+	yarn check || yarn
+	yarn build
 	open http://127.0.0.1:4000/blog/
 	bundle exec jekyll s --drafts --trace
 
@@ -24,7 +26,7 @@ ci-install:
 	bundle install --jobs 4 --retry 3
 	yarn check || yarn install
 
-build:
+build: | assets
 	echo "Fleamarket: pulling from discogs"
 	bin/discogs
 	echo "Blogroll: pulling from Newsblur"
@@ -37,4 +39,3 @@ build:
 post-deploy:
 	curl -fsS http://www.google.com/webmasters/sitemaps/ping?sitemap=https://gil.desmarais.de/sitemap.xml
 	curl -fsS http://www.bing.com/webmaster/ping.aspx?siteMap=https://gil.desmarais.de/sitemap.xml
-
