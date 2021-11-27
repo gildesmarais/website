@@ -20,9 +20,9 @@
   margin: 0 auto;
   font-family: var(--font-alt);
   text-decoration: underline;
-  text-shadow: 0px 0px 1em rgba(255, 255, 255, 0.5);
-  text-decoration-color: var(--back-900);
   text-decoration-thickness: 0.125rem;
+  text-decoration-color: var(--back-900);
+  text-shadow: 0px 0px 1em rgba(255, 255, 255, 0.5);
 }
 
 .author__description {
