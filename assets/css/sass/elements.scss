@@ -7,11 +7,11 @@ html {
   font-family: var(--font);
   font-size: var(--rem);
   font-weight: 450;
+  font-variant-ligatures: common-ligatures;
   line-height: 1.25;
   color: var(--front-200);
   background-color: var(--back-700);
   scroll-behavior: smooth;
-  font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,8 +29,8 @@ a {
 h1 {
   @extend %h1;
   text-decoration: underline;
-  text-decoration-color: var(--back-500);
   text-decoration-thickness: 0.125rem;
+  text-decoration-color: var(--back-500);
 }
 
 h2 {
@@ -133,13 +133,13 @@ nav li:before {
 
 @media (hover: hover) {
   a {
-    transition: filter 0.2s linear;
     text-decoration: none;
+    transition: filter 0.2s linear;
 
     &:hover,
     &:focus {
-      filter: saturate(1.5);
       text-decoration: underline;
+      filter: saturate(1.5);
     }
   }
 
