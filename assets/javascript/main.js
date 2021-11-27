@@ -1,5 +1,5 @@
 ;(() => {
-  const makeEmailLinkClickable = (_) => {
+  const makeEmailLinkClickable = () => {
     const body = encodeURIComponent(`Hi Gil,\nI found your contact details on ${window.location.href}\n`)
 
     ;[].forEach.call(document.querySelectorAll("[data-mail]"), (el) => {
@@ -9,21 +9,17 @@
 
   const lockBodySizeOnNavMenuOpen = () => {
     const el = document.querySelector("#_nav-checkbox")
-    el.addEventListener(
-      "change",
-      ({ target }) => {
-        document.body.classList.toggle("body--nav-open", target.checked)
-      },
-      options
-    )
+    el.addEventListener("change", ({ target }) => {
+      document.body.classList.toggle("body--nav-open", target.checked)
+    })
   }
 
-  const setupHeadroom = (_) => {
+  const setupHeadroom = () => {
     const headroom = new Headroom(document.querySelector("body > header"))
     headroom.init()
   }
 
-  const setupNavigationA11y = (_) => {
+  const setupNavigationA11y = () => {
     const checkbox = document.querySelector("#_nav-checkbox")
 
     const handler = (event) => {
@@ -40,7 +36,7 @@
     })
   }
 
-  const setupGlide = (_) => {
+  const setupGlide = () => {
     if (!window.Glide) {
       return
     }
@@ -58,7 +54,7 @@
     setupGlide()
   }
 
-  window.addEventListener("DOMContentLoaded", onDomContentLoad, options)
+  window.addEventListener("DOMContentLoaded", onDomContentLoad)
 
   if (window.console && window.console.log) {
     const font = "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61"
