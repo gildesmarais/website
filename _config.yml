@@ -97,7 +97,6 @@ exclude:
   - .prettierignore
   - .ruby-version
   - .sass-cache
-  - .stylelintrc.json
   - bin/
   - node_modules
   - Gemfile

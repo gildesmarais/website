@@ -70,7 +70,6 @@
   .content img {
     width: calc(100% + (var(--section-padding) * 2));
     max-width: unset;
-    // stylelint-disable-next-line function-calc-no-invalid
     margin: 0 calc(var(--section-padding) * -1);
   }
 }
