@@ -1,13 +1,9 @@
 <script
-  src="{{ '/assets/vendor/instantpage.5.1.0.min.js' | relative_url }}"
-  type="text/javascript"
-  charset="utf-8"
+  src="{{ '/node_modules/instant.page/instantpage.js' | relative_url }}?{% cachebuster %}"
   async
 ></script>
 
 <script
   src="{{ '/assets/javascript/main.js' | relative_url }}?{% cachebuster %}"
-  type="text/javascript"
-  charset="utf-8"
-  defer
+  type="module"
 ></script>

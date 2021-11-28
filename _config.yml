@@ -98,7 +98,7 @@ exclude:
   - .ruby-version
   - .sass-cache
   - .stylelintrc.json
-  - "assets/javascript/**/*.ts"
+  - assets/javascript
   - bin/
   - node_modules
   - Gemfile
@@ -107,6 +107,7 @@ exclude:
   - node_modules
   - package.json
   - README.md
+  - tsconfig.json
   - vendor
   - yarn.error
   - yarn.lock

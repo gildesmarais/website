@@ -1,5 +1,4 @@
-import Headroom from "headroom.js"
-import Glide from "@glidejs/glide"
+import Glide from "/node_modules/@glidejs/glide/dist/glide.modular.esm.js"
 
 namespace Utils {
   export function makeEmailLinkClickable(): void {
@@ -17,11 +16,6 @@ namespace Utils {
     el.addEventListener("change", ({ target }) => {
       document.body.classList.toggle("body--nav-open", (target as HTMLInputElement).checked)
     })
-  }
-
-  export function setupHeadroom(): void {
-    const headroom = new Headroom(document.querySelector("body > header"))
-    headroom.init()
   }
 
   export function setupNavigationA11y(): void {
@@ -63,7 +57,6 @@ namespace Utils {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  Utils.setupHeadroom()
   Utils.setupNavigationA11y()
   Utils.lockBodySizeOnNavMenuOpen()
   Utils.makeEmailLinkClickable()
