@@ -17,5 +17,20 @@
 
 .index__ipa {
   font-size: 1.25rem;
+  cursor: pointer;
   color: var(--front-400);
+  text-decoration: dotted;
+}
+
+.index__ipa > audio {
+  display: none;
+}
+
+img.index__ipa-play {
+  display: inline-block;
+  height: 1.25ex;
+  width: auto;
+  filter: none;
+  border: 0;
+  box-shadow: none;
 }
