@@ -46,7 +46,19 @@
     })
   }
 
+  const setupIndex = () => {
+    const el = document.getElementById("index-ipa")
+    if (!el) {
+      return
+    }
+
+    el.addEventListener("click", () => {
+      el.querySelector("audio").play()
+    })
+  }
+
   const onDomContentLoad = (_) => {
+    setupIndex()
     setupHeadroom()
     setupNavigationA11y()
     lockBodySizeOnNavMenuOpen()
