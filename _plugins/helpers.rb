@@ -46,6 +46,16 @@ module Helpers
       string
     end
   end
+
+  def howlize(collection)
+    return [] unless collection
+
+    sets = collection.map do |set|
+      { title: set['file'], file: set['file'], howl: nil }
+    end
+
+    { sets: sets }
+  end
 end
 
 Liquid::Template.register_filter(Helpers)
