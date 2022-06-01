@@ -10,7 +10,7 @@ module StarRating
   STAR_IMAGESLOC = '/assets/images'
 
   # The format of the img tag used by % method
-  STAR_IMAGETAG = "<img src=\"#{STAR_IMAGESLOC}/%s\" role=\"presentation\" />".freeze
+  STAR_IMAGETAG = "<img src=\"#{STAR_IMAGESLOC}/%s\" role=\"presentation\" />"
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength

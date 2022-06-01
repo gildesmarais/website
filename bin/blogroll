@@ -28,9 +28,9 @@ class Newsblur
 
   def reader_feeds(include_favicons: false, flat: true, update_counts: false)
     JSON.parse conn.get('reader/feeds', {
-                          include_favicons:,
-                          flat:,
-                          update_counts:
+                          include_favicons: include_favicons,
+                          flat: flat,
+                          update_counts: update_counts
                         })
                    .body
   end
