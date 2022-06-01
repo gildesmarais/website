@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@glidejs/glide@3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.5.1.tgz#dea4f8f6dffe10f565531e19ba41eadb7c22351c"
-  integrity sha512-/ikoU/HOJXDXo+pMw4CiTiltpbnhX41VIcVnocKHELbDh7T5EP4X9uBm4SjC+okF6z5juAxjw1Dx5h7MCQls3A==
+"@glidejs/glide@3.5.2":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.5.2.tgz#7012c5920ecf202bbda44d8526fc979984b6dd54"
+  integrity sha512-7jGciNJ2bQ4eZLSNlSZ+VAyW63kALf420CvkEpK4lEsUfWJq9odqimci0YCiyNyMUFB+pWHwLYyNc57dijYsCg==
 
 headroom.js@0.12.0:
   version "0.12.0"
