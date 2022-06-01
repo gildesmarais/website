@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@glidejs/glide": "3.5.1",
+    "@glidejs/glide": "3.5.2",
     "headroom.js": "0.12.0",
     "instant.page": "5.1.0"
   }
