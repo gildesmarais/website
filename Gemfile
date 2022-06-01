@@ -33,5 +33,5 @@ group :development do
   gem 'awesome_print'
   gem 'byebug'
   gem 'rubocop'
-  gem "webrick", "~> 1.7"
+  gem 'webrick', '~> 1.7'
 end

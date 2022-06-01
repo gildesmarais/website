@@ -54,7 +54,7 @@ module Helpers
       { title: set['file'], file: set['file'], howl: nil }
     end
 
-    { sets: sets }
+    { sets: }
   end
 end
 

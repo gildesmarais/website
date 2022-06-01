@@ -60,7 +60,7 @@ module Jekyll
 
           webp = format(WEBP_SOURCE_TAG, src: image['src'].gsub(/\.(jpg|png)/, '.webp'))
 
-          format(SLIDE, image: image, webp_source_tag: webp.to_s)
+          format(SLIDE, image:, webp_source_tag: webp.to_s)
         end
       end
     end
