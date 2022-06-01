@@ -51,6 +51,7 @@ module Jekyll
       @converter ||= context.registers[:site].find_converter_instance(Jekyll::Converters::Markdown)
     end
 
+    # rubocop:disable Metrics/AbcSize:
     def images
       # render the markdown inside the block
       @images ||= Nokogiri::HTML.fragment(html).css('img').to_a
@@ -64,6 +65,7 @@ module Jekyll
         end
       end
     end
+    # rubocop:enable Metrics/AbcSize:
 
     def bullets(count)
       bullets = Array.new(count).each_with_index.map do |_, i|
