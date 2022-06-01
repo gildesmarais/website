@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+ruby '~> 3.0'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'jekyll', '~> 4.2'
