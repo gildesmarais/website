@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-if ARGV.size < 3
-  warn 'blogroll: missing parameters, exiting gracefully.'
-  exit
-end
-
 require 'json'
 require 'fileutils'
 require 'yaml'
@@ -51,11 +46,11 @@ class Newsblur
 end
 
 # 1. signin to get newsblur_sessionid cookie and set it with all following requests
-newsblur = Newsblur.new(ARGV[0], ARGV[1])
+newsblur = Newsblur.new(ENV.fetch('NB_USERNAME'), ENV.fetch('NB_PASSWORD'))
 
 # 2. find all feeds in desired folder
 reader_feeds = newsblur.reader_feeds
-feeds_in_folder = reader_feeds.dig('flat_folders', ARGV[2])
+feeds_in_folder = reader_feeds.dig('flat_folders', ENV.fetch('NB_FOLDER'))
 feeds = feeds_in_folder.map { |feed| reader_feeds.dig('feeds', feed.to_s) }
 
 # 3. write the feeds to _data/blogroll.yml
