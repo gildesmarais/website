@@ -6,7 +6,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-encoding: utf-8
+encoding: UTF-8
 title: Gil Desmarais
 subheadline: I'm a full stack developer from Berlin.
 
@@ -98,7 +98,6 @@ exclude:
   - .ruby-version
   - .sass-cache
   - bin/
-  - node_modules
   - Gemfile
   - Gemfile.lock
   - Makefile
@@ -120,3 +119,4 @@ sass:
 feed:
   posts_limit: 10
   excerpt_only: true
+  disable_in_development: true
