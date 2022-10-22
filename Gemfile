@@ -8,7 +8,7 @@ gem 'jekyll', '~> 4.2'
 gem 'sassc'
 gem 'terser'
 
-gem 'nokogiri', '~> 1.0', '>= 1.13.6', '!= 1.13.7', '!= 1.13.8', '!= 1.13.9'
+gem 'nokogiri', '~> 1.13'
 
 group :newsblur do
   gem 'faraday'
