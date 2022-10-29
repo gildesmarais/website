@@ -19,6 +19,7 @@ pcp: | clean fix
 	git push
 
 ci-install:
+	yum install xz
 	gem install bundler
 	bundle config --global frozen 1
 	bundle install
