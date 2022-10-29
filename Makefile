@@ -30,7 +30,7 @@ build:
 	echo "Blogroll: pulling from Newsblur"
 	bin/blogroll
 	echo "Jekyll: build"
-	bundle exec jekyll build
+	JEKYLL_ENV=production bundle exec jekyll build
 
 post-deploy:
 	curl -fsS http://www.google.com/webmasters/sitemaps/ping?sitemap=https://gil.desmarais.de/sitemap.xml
