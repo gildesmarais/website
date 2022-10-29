@@ -19,6 +19,7 @@ pcp: | clean fix
 	git push
 
 ci-install:
+	yum install libxml2
 	gem install bundler
 	bundle config --global frozen 1
 	bundle config build.nokogiri --use-system-libraries
