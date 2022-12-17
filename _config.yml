@@ -16,11 +16,8 @@ baseurl: ""
 url: "https://gil.desmarais.de"
 
 author: Gil Desmarais
-github_username: gildesmarais
-linkedin_username: gildesmarais
-twitter:
-  username: gldsmrs
-  card: summary
+github_profile_url: https://github.com/gildesmarais/
+mastodon_profile_url: https://social.tchncs.de/@gil/
 
 # Build settings
 markdown: kramdown
