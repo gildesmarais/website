@@ -96,10 +96,10 @@
   max-width: var(--container-width);
   height: 100%;
   margin: 0 auto;
+  padding: 0 2px;
 }
 
 .header__site-title {
-  padding: 0 var(--section-padding);
   font-family: var(--font-alt);
   font-size: 1.25rem;
   font-weight: 300;
@@ -117,14 +117,6 @@
 .nav__menu,
 .nav__icon {
   display: none;
-}
-
-.nav__hamburger {
-  border-color: var(--back-500);
-}
-
-.nav__icon {
-  background-color: var(--front-100);
 }
 
 .page {
