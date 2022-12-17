@@ -65,17 +65,17 @@ The [html2rss gem](https://rubygems.org/gems/html2rss) generates a Ruby RSS obje
 
 Over a short time frame the gem's functionality grew and several _item extractors_ and _post processors_ came to life.
 
-In a few nightly session I've brushed up the [gem's README](https://github.com/gildesmarais/html2rss/blob/master/README.md). to cover everything its capable of. The README is still not perfect.
+In a few nightly session I've brushed up the [gem's README](https://github.com/html2rss/html2rss/blob/master/README.md). to cover everything its capable of. The README is still not perfect.
 
 The gem's code is automatically tested. There's also an [automatically generated code documentation](https://www.rubydoc.info/gems/html2rss) for the API, usually with examples. The test suite to reveals more complex usage examples.
 
 ### A repository of feed configs
 
-The [html2rss-config](https://github.com/gildesmarais/html2rss-configs)'s repository contains feed configs. Each feed config contains the instructions for the html2rss gem on how to build the RSS feed.
+The [html2rss-config](https://github.com/html2rss/html2rss-configs)'s repository contains feed configs. Each feed config contains the instructions for the html2rss gem on how to build the RSS feed.
 
 ### An application serving feeds via HTTP
 
-A RSS feed is not complete when my feed reader can't consume it. The [html2rss-web](https://github.com/gildesmarais/html2rss-web) app is a small Sinatra-based application which servers the RSS feeds via HTTP(s). It bundles all _html2rss-configs_ and expose the _html2rss_ generated feeds via HTTP.
+A RSS feed is not complete when my feed reader can't consume it. The [html2rss-web](https://github.com/html2rss/html2rss-web) app is a small Sinatra-based application which servers the RSS feeds via HTTP(s). It bundles all _html2rss-configs_ and expose the _html2rss_ generated feeds via HTTP.
 
 It's deployable without much hassle via Docker. It has a file-based application cache to prevent _hammering_ websites and deals with client-side HTTP cache headers.
 
@@ -93,22 +93,22 @@ If you have Docker installed:
 
 `docker run -p 3000:3000 gilcreator/html2rss-web`
 
-Here's a [list of available feed configs](https://github.com/gildesmarais/html2rss-configs/tree/master/lib/html2rss/configs). Now build the URL like this:
+Here's a [list of available feed configs](https://github.com/html2rss/html2rss-configs/tree/master/lib/html2rss/configs). Now build the URL like this:
 
-The _feed config_ you'd like to use:  
-`lib/html2rss/configs/domainname.tld/whatever.yml`  
+The _feed config_ you'd like to use:
+`lib/html2rss/configs/domainname.tld/whatever.yml`
 `‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌^^^^^^^^^^^^^^^^^^^^^^^^^^^`
 
-The corresponding URL:  
-`http://localhost:3000/domainname.tld/whatever.rss`  
+The corresponding URL:
+`http://localhost:3000/domainname.tld/whatever.rss`
 `‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ^^^^^^^^^^^^^^^^^^^^^^^^^^^`
 
 In case you don't need HTTPs: there's a CLI coming up for the html2rss gem.
 
 **Contributions to all projects are welcome.**
 
-Do you have site in mind and want to write a own config for it? Check [`html2rss-config`'s README](https://github.com/gildesmarais/html2rss-configs/blob/master/README.md). If you have your own instance running, you can keep your config private.
-Do you need to extend the gem's capabilities? Check [`html2rss`'s README](https://github.com/gildesmarais/html2rss/blob/master/README.md).
+Do you have site in mind and want to write a own config for it? Check [`html2rss-config`'s README](https://github.com/html2rss/html2rss-configs/blob/master/README.md). If you have your own instance running, you can keep your config private.
+Do you need to extend the gem's capabilities? Check [`html2rss`'s README](https://github.com/html2rss/html2rss/blob/master/README.md).
 
 ## RSS is not dead.
 
@@ -117,7 +117,7 @@ Although RSS feeds seem to fade out of the Internet, I think RSS is alive.
 I'm not alone in thinking [RSS is still alive](https://jlelse.blog/thoughts/2019/rss-still-alive/).
 If you're a developer, [please support RSS on your sites](https://kevq.uk/please-add-rss-support-to-your-site)!
 
-> Don’t you want people to read your stuff?  
+> Don’t you want people to read your stuff?
 > Having an RSS feed is saying, <q>I’m happy to meet you where you are. If you like reading stuff over there, then great, read it over there. I just like it when you read my stuff.</q>
 >
 > -- [Chris Coyier](https://css-tricks.com/is-having-an-rss-feed-just-giving-content-away-for-free/)
