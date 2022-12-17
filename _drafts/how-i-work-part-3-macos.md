@@ -157,7 +157,7 @@ When in the Cmd-Tab application switcher, select the app, but do not switch to i
 Tada, all windows of the application will present themselves.
 From here you can navigate with the right/left arrow keys. When you've found the window you want to activate, press Return.
 
-When you're already inside the application, press Cmd+` to switch through it's windows. With a non-US keyboard layout you might want to remap that to Cmd+< in System Settings, Keyboard, Shortcuts, Keyboard, Move focus to the next window.
+When you're already inside the application, press Cmd+` to switch through it's windows. With a non-US keyboard layout you might want to remap that to Cmd+< in System Settings, Keyboard, Shortcuts, Keyboard, Move focus to the next window.
 
 And what if a window has multiple tabs, like a browser? Try Alt+1, Alt+2, ... to directly address them.
 
@@ -249,7 +249,7 @@ I love the concept of spreadsheets. Usually I share those sheets with colleagues
 - Apple Calendar & Contact, syncs nicely via CalDAV and CardDAV
 - Apple Mail app syncs syncs nicely via IMAP with my mailbox.org accounts
 - [MailTrackerBlocker](https://github.com/apparition47/MailTrackerBlocker): blocks tracking images in mails
-- [Omnifocus Pro](https://www.omnigroup.com/omnifocus) with its iOS counterpart.  
+- [Omnifocus Pro](https://www.omnigroup.com/omnifocus) with its iOS counterpart.
   Another rock-solid power tool I can't live without. Probably worth a more in-depth post.
 
 ### Finances
