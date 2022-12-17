@@ -1,8 +1,9 @@
 @import "_base";
 
 .index {
-  max-width: 25em;
+  max-width: calc(66% + var(--section-padding) * 2);
   margin: 0 auto;
+  text-align: justify;
 }
 
 .index > p {

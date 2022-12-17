@@ -43,6 +43,14 @@
   @include tile-with-list;
 }
 
+.blogroll__list-item--right {
+  @include button;
+  font-family: var(--font-mono);
+
+  &:hover {
+    color: var(--brand-100);
+  }
+}
 .flex {
   display: flex;
 

@@ -52,19 +52,20 @@ $breakpoint-medium: 38rem;
   }
 
   &__list-item--right {
-    padding-left: 0.5em;
+    padding: 0 0.5em;
     margin-left: auto;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 }
 
 @mixin button {
-  color: var(--front-200);
+  background-color: var(--back-400);
+  border-top: 1px solid var(--back-500);
+  color: var(--front-300);
   cursor: pointer;
-  background-color: var(--back-600);
   border: 1px solid var(--back-500);
-  border-radius: 3px;
-
+  border-radius: 2px;
+  font-family: var(--font-mono);
   transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear,
     box-shadow 0.2s linear;
 
