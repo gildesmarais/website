@@ -49,6 +49,7 @@ GEM
       jekyll (>= 3.6, < 5.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-link-attributes (1.0.1)
     jekyll-loading-lazy (0.1.1)
       jekyll (>= 3.0, < 5.0)
       nokogiri (>= 1.10, < 2.0)
@@ -58,9 +59,6 @@ GEM
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-target-blank (2.0.0)
-      jekyll (>= 3.0, < 5.0)
-      nokogiri (~> 1.10)
     jekyll-toc (0.17.1)
       jekyll (>= 3.9)
       nokogiri (~> 1.11)
@@ -132,10 +130,10 @@ DEPENDENCIES
   jekyll (~> 4.3)
   jekyll-archives
   jekyll-feed
+  jekyll-link-attributes
   jekyll-loading-lazy
   jekyll-seo-tag
   jekyll-sitemap
-  jekyll-target-blank
   jekyll-toc
   rubocop
   sassc

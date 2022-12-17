@@ -25,10 +25,73 @@ theme:
 
 permalink: /posts/:title/
 
+plugins:
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-link-attributes
+  - jekyll-toc
+  - jekyll-seo-tag
+  - jekyll-loading-lazy
+
+jekyll-archives:
+  enabled:
+    - tags
+  layout: archive
+  permalinks:
+    # year: '/:year/'
+    # month: '/:year/:month/'
+    # day: '/:year/:month/:day/'
+    tag: "/tag/:name/"
+    category: "/category/:name/"
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+
+feed:
+  posts_limit: 10
+  excerpt_only: true
+  disable_in_development: true
+
 collections:
   fleamarket:
     output: true
     sort_by: sort_criteria
+
+defaults:
+  - scope:
+      path: "googleeaa7abda502171a*.html"
+    values:
+      sitemap: false
+
+exclude:
+  - .git/
+  - .github/
+  - .gitignore
+  - .jekyll-cache
+  - .nvmrc
+  - .prettierignore
+  - .ruby-version
+  - .sass-cache
+  - bin/
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - node_modules
+  - package.json
+  - README.md
+  - vendor
+  - yarn.error
+  - yarn.lock
+
+include:
+  - googleeaa7abda502171aa.html
+  - .htaccess
+
+sass:
+  style: compressed
+  sass_dir: assets/css/sass
 
 ratings:
   chars:
@@ -59,61 +122,3 @@ ratings:
       "w",
       "xyz",
     ]
-
-plugins:
-  - jekyll-archives
-  - jekyll-sitemap
-  - jekyll-target-blank
-  - jekyll-toc
-  - jekyll-seo-tag
-  - jekyll-loading-lazy
-
-defaults:
-  - scope:
-      path: "googleeaa7abda502171a*.html"
-    values:
-      sitemap: false
-
-jekyll-archives:
-  enabled:
-    - tags
-  layout: archive
-  permalinks:
-    # year: '/:year/'
-    # month: '/:year/:month/'
-    # day: '/:year/:month/:day/'
-    tag: "/tag/:name/"
-    category: "/category/:name/"
-
-exclude:
-  - .git/
-  - .github/
-  - .gitignore
-  - .jekyll-cache
-  - .nvmrc
-  - .prettierignore
-  - .ruby-version
-  - .sass-cache
-  - bin/
-  - Gemfile
-  - Gemfile.lock
-  - Makefile
-  - node_modules
-  - package.json
-  - README.md
-  - vendor
-  - yarn.error
-  - yarn.lock
-
-include:
-  - googleeaa7abda502171aa.html
-  - .htaccess
-
-sass:
-  style: compressed
-  sass_dir: assets/css/sass
-
-feed:
-  posts_limit: 10
-  excerpt_only: true
-  disable_in_development: true
