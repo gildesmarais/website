@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="250" y1="0" x2="250" y2="500" id="gradient-0"
+      gradientTransform="matrix(-0.002208, -0.999997, 1, -0.00114, 0.552079, 519.162555)">
+      <stop offset="0" style="stop-color: rgba(255, 127, 0, 1)" />
+      <stop offset="0.500" style="stop-color: rgba(255, 127, 0, 1)" />
+      <stop offset="0.500" style="stop-color: rgba(255, 127, 0, 0)" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M 250 0 L 311.803 186.95 L 499.999 190.983 L 350 310.557 L 404.508 500 L 250 386.95 L 95.492 500 L 150 310.557 L 0.001 190.983 L 188.197 186.95 Z"
+    style="paint-order: fill; stroke-width: 16px; fill: url(#gradient-0);"
+    bx:shape="star 250 276.393 262.865 276.393 0.4 5 1@783ff53c" bx:origin="0 0" />
+</svg>

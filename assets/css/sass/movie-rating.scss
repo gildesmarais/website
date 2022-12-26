@@ -71,19 +71,12 @@ a.movie-rating__recommendation {
   color: var(--front-500);
 }
 
+.movie-rating__director {
+  color: var(--front-500);
+  font-size: 0.75rem;
+}
 .movie-rating__tags {
   margin: 0.5em 0;
-}
-
-.movie-rating > footer > a {
-  width: 100%;
-  color: var(--yellow-400);
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: var(--yellow-100);
-  }
 }
 
 @media (min-width: $breakpoint-medium) {

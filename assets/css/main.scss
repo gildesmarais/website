@@ -51,6 +51,9 @@
     color: var(--brand-100);
   }
 }
+.star-rating > img {
+  margin-right: -1px;
+}
 .flex {
   display: flex;
 

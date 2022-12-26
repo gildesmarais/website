@@ -7,7 +7,7 @@
 # https://github.com/lawrencewoodman/star_rating-liquid_filter/blob/master/_plugins/star_rating.filter.rb
 module StarRating
   # Location of the star images from root of website
-  STAR_IMAGESLOC = '/assets/images'
+  STAR_IMAGESLOC = '/assets/images/stars'
 
   # The format of the img tag used by % method
   STAR_IMAGETAG = "<img src=\"#{STAR_IMAGESLOC}/%s\" role=\"presentation\" />"
@@ -29,7 +29,7 @@ module StarRating
 
     html_output = []
     html_output << <<~HTML
-      <div title="#{rating_alt_text}">
+      <div title="#{rating_alt_text}" class="star-rating">
       <meta itemprop="worstRating" content = "0"/>
       <span class="visually-hidden" itemprop="ratingValue">#{rating}</span>
       <span class="visually-hidden">/</span>
@@ -38,13 +38,13 @@ module StarRating
     HTML
 
     whole_stars.times do
-      html_output << format(STAR_IMAGETAG, 'star_filled.png')
+      html_output << format(STAR_IMAGETAG, 'full.svg')
     end
 
-    html_output << format(STAR_IMAGETAG, 'star_half.png') if half_star == 1
+    html_output << format(STAR_IMAGETAG, 'half.svg') if half_star == 1
 
     clear_stars.times do
-      html_output << format(STAR_IMAGETAG, 'star_clear.png')
+      html_output << format(STAR_IMAGETAG, 'clear.svg')
     end
 
     html_output << '</div>'
