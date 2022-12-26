@@ -2,11 +2,21 @@
 
 ## Update movie ratings
 
-- export from https://www.imdb.com/user/ur67728460/ratings
+- export from <https://www.imdb.com/user/ur67728460/ratings>
 - save in csv in \_data
-- ```sh
+
+- In case of charset problems:
+
+  ```sh
   iconv -f iso-8859-1 -t utf8 ratings.csv > ratings-utf.csv
   rm ratings.csv
   mv ratings-utf.csv ratings.csv
   ```
-- open with LibreOffice Calc, sort by rated at date and create recommendations
+
+- import csv with LibreOffice Calc (Get columns right!)
+- sort ratings by "Date Rated" (data -> autofilter -> sort desc)
+- save as ragings.csv
+
+Go ahead and create recommendations for newly added movies.
+
+## Create move recommendation
