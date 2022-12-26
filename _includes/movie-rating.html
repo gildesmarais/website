@@ -44,10 +44,13 @@
 
   <footer>
     <span>
-      {{ imdb['Directors'] }}
+      <span class="movie-rating__director">{{ imdb['Directors'] }}</span>
       <br />
-      {% assign genres = imdb['Genres'] | split: "," %}
       <ul class="tags--list movie-rating__tags">
+        <li class="tag">
+          <a href="{{ imdb['URL'] }}" rel="nofollow">Open in IMDb</a>
+        </li>
+        {% assign genres = imdb['Genres'] | split: "," %}
         {% if imdb['Title Type'] != 'movie' %}
         <li class="tag">{{imdb['Title Type'] | humanize_title_type }}</li>
         {% endif %} {% for genre in genres %}
@@ -55,7 +58,6 @@
         {% endfor %}
       </ul>
     </span>
-    <a href="{{ imdb['URL'] }}" rel="nofollow">IMDb entry</a>
   </footer>
 </article>
 
