@@ -78,9 +78,3 @@ a.movie-rating__recommendation {
 .movie-rating__tags {
   margin: 0.5em 0;
 }
-
-@media (min-width: $breakpoint-medium) {
-  .movie-rating > footer > a {
-    text-align: right;
-  }
-}
