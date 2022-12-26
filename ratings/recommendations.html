@@ -21,7 +21,7 @@ tags:
   {% assign imdbs = imdbs | concat: imdb %}
 {% endfor %}
 
-{% assign imdbs = imdbs | sort_natural: 'Title' %}
+{% assign imdbs = imdbs | sort_natural: 'Date Rated' | reverse %}
 {% for imdb in imdbs %}
   {% include movie-rating.html %}
 {% endfor %}
