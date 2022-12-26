@@ -28,8 +28,11 @@
 
 .back-link {
   display: block;
-  margin: 1.75rem 0 1.25rem;
   font-size: 0.875rem;
+  position: sticky;
+  top: var(--nav-height);
+  background-color: var(--back-700);
+  padding: 0.5em 0;
 }
 
 .blog__list {
