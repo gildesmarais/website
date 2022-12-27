@@ -9,7 +9,7 @@
 {% endunless %}
 
 <article
-  class="movie-rating"
+  class="movie-rating {% if rating['recommendation'] %}movie-rating--recommendation{% endif %}"
   itemprop="review"
   itemscope
   itemtype="https://schema.org/Review"

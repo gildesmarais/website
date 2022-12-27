@@ -3,6 +3,11 @@
   margin: 0.25rem 0 2rem;
   font-size: 0.875rem;
   padding: 0.25rem;
+  border: 1px solid transparent;
+}
+
+.movie-rating--recommendation {
+  border-color: var(--brand-100);
 }
 
 .page .movie-rating:nth-child(odd) {
