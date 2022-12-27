@@ -1,9 +1,13 @@
 .movie-rating {
   width: 100%;
-  margin: 0.25em 0 4.75em;
+  margin: 0.25em 0 2rem;
   font-size: 0.875rem;
+  padding: 2px;
 }
 
+.page .movie-rating:nth-child(odd) {
+  background-color: var(--back-500);
+}
 .movie-rating > header {
   display: flex;
 }
@@ -16,9 +20,10 @@
   align-items: baseline;
   margin: 0 0.25em 0 0;
   font-weight: 600;
+  height: 1.5em;
 }
 
-.movie-rating__title > a {
+.movie-rating__title > span > a {
   color: var(--front-200);
   text-decoration: none;
 }
@@ -31,21 +36,17 @@
   color: var(--front-400);
 }
 
-a.movie-rating__recommendation {
-  float: right;
-  font-size: 0.875em;
-  font-weight: 100;
-  font-variant: all-petite-caps;
-  color: var(--brand-100);
-  letter-spacing: -0.05em;
+a.movie-rating__recommendation img {
+  height: 1em;
+  width: 1em;
+  margin-right: 0.125em;
 }
 
 .movie-rating__rating {
-  flex: 0 0 5rem;
   align-self: flex-start;
-  margin-left: 0.5em;
+  margin: 0 0 0 0.5em;
   font-size: 1rem;
-  text-align: right;
+  height: 100%;
 }
 
 .movie-rating__rating img {
@@ -57,7 +58,6 @@ a.movie-rating__recommendation {
 
 .movie-rating > main {
   max-width: 25rem;
-  padding: 0 0.125em;
   font-size: 0.75rem;
   color: var(--front-300);
 }
@@ -74,6 +74,15 @@ a.movie-rating__recommendation {
 .movie-rating__director {
   color: var(--front-500);
   font-size: 0.75rem;
+}
+a.movie-rating__imdb {
+  text-decoration: none;
+  color: var(--yellow-200);
+
+  &.movie-rating__imdb:hover,
+  &.movie-rating__imdb:focus {
+    color: var(--yellow-100);
+  }
 }
 .movie-rating__tags {
   margin: 0.5em 0;
