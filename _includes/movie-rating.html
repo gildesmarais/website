@@ -17,18 +17,18 @@
 >
   <header>
     <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
-      <a itemprop="name" href="#{{ imdb['Title'] | slugify }}">{{ imdb['Title'] }}</a>
-      <span class="movie-rating__year">{{ imdb['Year'] }}</span>
-      {% if rating['recommendation'] %}
-      <a
-        class="movie-rating__recommendation"
-        href="{{ '/ratings/recommendations/' | relative_url }}#{{ imdb['Title'] | slugify }}"
-      >
-        Recommendation
-      </a>
-      {% endif %}
+      <span>
+        {% if rating['recommendation'] %}
+        <a class="movie-rating__recommendation"
+          href="{{ '/ratings/recommendations/' | relative_url }}#{{ imdb['Title'] | slugify }}">
+          <img src="/assets/images/stars/full.svg" alt="Recommended movie">
+        </a>
+        {% endif %}
+        <a itemprop="name" href="#{{ imdb['Title'] | slugify }}">{{ imdb['Title'] }}</a>
+        </span>
     </span>
 
+    <span class="movie-rating__year">{{ imdb['Year'] }}</span>
     <span class="movie-rating__rating">{{ imdb['Your Rating'] | star_rating }}</span>
   </header>
 
@@ -48,7 +48,7 @@
       <br />
       <ul class="tags--list movie-rating__tags">
         <li class="tag">
-          <a href="{{ imdb['URL'] }}" rel="nofollow">Open in IMDb</a>
+          <a href="{{ imdb['URL'] }}" class="movie-rating__imdb" rel="nofollow">Open in IMDb</a>
         </li>
         {% assign genres = imdb['Genres'] | split: "," %}
         {% if imdb['Title Type'] != 'movie' %}
