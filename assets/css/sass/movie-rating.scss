@@ -1,8 +1,8 @@
 .movie-rating {
   width: 100%;
-  margin: 0.25em 0 2rem;
+  margin: 0.25rem 0 2rem;
   font-size: 0.875rem;
-  padding: 2px;
+  padding: 0.25rem;
 }
 
 .page .movie-rating:nth-child(odd) {
@@ -20,7 +20,6 @@
   align-items: baseline;
   margin: 0 0.25em 0 0;
   font-weight: 600;
-  height: 1.5em;
 }
 
 .movie-rating__title > span > a {
@@ -40,6 +39,7 @@ a.movie-rating__recommendation img {
   height: 1em;
   width: 1em;
   margin-right: 0.125em;
+  border: 0;
 }
 
 .movie-rating__rating {
@@ -85,5 +85,5 @@ a.movie-rating__imdb {
   }
 }
 .movie-rating__tags {
-  margin: 0.5em 0;
+  margin: 0.5em 0 0;
 }
