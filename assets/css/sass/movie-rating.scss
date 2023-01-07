@@ -3,7 +3,7 @@
   margin: 0.25rem 0 2rem;
   font-size: 0.875rem;
   padding: 0.25rem;
-  border: 1px solid var(--back-300);
+  border: 1px solid var(--back-500);
 }
 
 .movie-rating--recommendation {
@@ -16,6 +16,7 @@
 
 .movie-rating>header {
   display: flex;
+  align-items: baseline;
 }
 
 .movie-rating__title {
@@ -24,7 +25,6 @@
   flex: 1;
   flex-wrap: wrap;
   align-items: baseline;
-  margin: 0 0.25em 0 0;
   font-weight: 600;
 }
 
@@ -50,7 +50,6 @@ a.movie-rating__recommendation img {
 
 .movie-rating__rating {
   align-self: flex-start;
-  margin: 0 0 0 0.5em;
   font-size: 1rem;
   height: 100%;
 }
