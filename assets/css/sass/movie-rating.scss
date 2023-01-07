@@ -3,7 +3,7 @@
   margin: 0.25rem 0 2rem;
   font-size: 0.875rem;
   padding: 0.25rem;
-  border: 1px solid transparent;
+  border: 1px solid var(--back-300);
 }
 
 .movie-rating--recommendation {
@@ -13,7 +13,8 @@
 .page .movie-rating:nth-child(odd) {
   background-color: var(--back-500);
 }
-.movie-rating > header {
+
+.movie-rating>header {
   display: flex;
 }
 
@@ -27,7 +28,7 @@
   font-weight: 600;
 }
 
-.movie-rating__title > span > a {
+.movie-rating__title>span>a {
   color: var(--front-200);
   text-decoration: none;
 }
@@ -61,13 +62,13 @@ a.movie-rating__recommendation img {
   box-shadow: unset;
 }
 
-.movie-rating > main {
+.movie-rating>main {
   max-width: 25rem;
   font-size: 0.75rem;
   color: var(--front-300);
 }
 
-.movie-rating > footer {
+.movie-rating>footer {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -80,6 +81,7 @@ a.movie-rating__recommendation img {
   color: var(--front-500);
   font-size: 0.75rem;
 }
+
 a.movie-rating__imdb {
   text-decoration: none;
   color: var(--yellow-200);
@@ -89,6 +91,7 @@ a.movie-rating__imdb {
     color: var(--yellow-100);
   }
 }
+
 .movie-rating__tags {
   margin: 0.5em 0 0;
 }
