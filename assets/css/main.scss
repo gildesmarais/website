@@ -54,6 +54,9 @@
     color: var(--brand-100);
   }
 }
+.star-rating {
+  white-space: nowrap;
+}
 .star-rating > img {
   margin-right: -1px;
 }
