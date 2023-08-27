@@ -2,11 +2,7 @@
   "name": "Gil Desmarais",
   "short_name": "Gil",
   "icons": [{
-    "src": "/android-chrome-192x192.png?v=deadbeef",
-    "sizes": "192x192",
-    "type": "image/png"
-  }, {
-    "src": "/android-chrome-512x512.png?v=deadbeef",
+    "src": "/favicon-512x512.png?v=deadbeef",
     "sizes": "512x512",
     "type": "image/png"
   }],
