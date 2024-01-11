@@ -1,0 +1,137 @@
+:root {
+  --rem: 18px;
+  /* --nav-height: 3rem; */
+  /* --container-width: #{$breakpoint-medium}; */
+  /* --section-padding: 0.5rem; */
+
+  --font-alt: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+  --font: Arial, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    sans-serif;
+  --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
+    "Lucida Console", monospace;
+
+  --line-height: 1.25;
+  --back-900: hsl(212, 3%, 0%);
+  --back-800: hsl(212, 3%, 3%);
+  --back-700: hsl(212, 3%, 6%);
+  --back-600: hsl(212, 3%, 9%);
+  --back-500: hsl(212, 3%, 15%);
+  --back-400: hsl(212, 3%, 21%);
+  --back-300: hsl(212, 3%, 30%);
+
+  --front-500: hsl(72, 6%, 60%);
+  --front-400: hsl(72, 6%, 64%);
+  --front-300: hsl(72, 6%, 74%);
+  --front-200: hsl(72, 6%, 84%);
+  --front-100: hsl(72, 6%, 94%);
+  --brand-100: hsl(32, 100%, 50%);
+  --contrast-100: hsl(212, 93%, 43%);
+
+  --yellow-400: hsl(47, 92%, 28%);
+  --yellow-300: hsl(47, 92%, 33%);
+  --yellow-200: hsl(47, 92%, 43%);
+  --yellow-100: hsl(47, 92%, 53%);
+  /* the higher, the more in the back */
+}
+
+:root:lang(de),
+:not(:lang(de)) > :lang(de) {
+  quotes: "\201e" "\201c" "\201a" "\2018";
+} /* „ “ ‚ ‘ */
+:root:lang(en),
+:not(:lang(en)) > :lang(en) {
+  quotes: "\201c" "\201d" "\2018" "\2019";
+} /* “ ” ‘ ’ */
+
+@media (min-width: 658px) {
+  :root {
+    --rem: 19px;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    background-attachment: initial !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-delay: -1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  font-family: var(--font);
+  font-size: var(--rem);
+  font-weight: 450;
+  font-variant-ligatures: common-ligatures;
+  line-height: var(--line-height);
+  color: var(--front-200);
+  background-color: var(--back-700);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding-top: var(--nav-height);
+  padding-bottom: 66vh;
+}
+
+a {
+  color: var(--brand-100);
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.125rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.125rem;
+  text-decoration-color: var(--back-500);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.25em 0 0.25em;
+  font-family: var(--font-alt);
+  font-weight: 300;
+  color: var(--front-200);
+  text-align: left;
+}
+
+img {
+  /* border: 1px solid var(--back-400);
+  border-radius: 3px; */
+  /* box-shadow: 0 0 0.25rem var(--back-500); */
+  max-width: 100%;
+}
+
+.page {
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}

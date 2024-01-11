@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="robots"
+      content="{{- typeof(noindex) != 'undefined' ? 'noindex, noarchive, follow' : 'index, follow' }}"
+    />
+
+    <title>
+      {{- ( typeof(title) != 'undefined' ? (title + " – ") : '') + "Gil Desmarais" }}
+    </title>
+
+    <link rel="stylesheet" href="/assets/minireset.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/nav.css" />
+  </head>
+
+  <body>
+    {{ include 'nav.vto' }}
+    {{ content }}
+
+    <noscript>
+      <img src="https://gil.goatcounter.com/count?p={{ page.url }}" alt="" role="none" loading="eager">
+    </noscript>
+    <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>
