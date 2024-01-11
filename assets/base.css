@@ -11,6 +11,7 @@
     "Lucida Console", monospace;
 
   --line-height: 1.25;
+
   --back-900: hsl(212, 3%, 0%);
   --back-800: hsl(212, 3%, 3%);
   --back-700: hsl(212, 3%, 6%);
@@ -19,11 +20,11 @@
   --back-400: hsl(212, 3%, 21%);
   --back-300: hsl(212, 3%, 30%);
 
-  --front-500: hsl(72, 6%, 60%);
-  --front-400: hsl(72, 6%, 64%);
-  --front-300: hsl(72, 6%, 74%);
-  --front-200: hsl(72, 6%, 84%);
-  --front-100: hsl(72, 6%, 94%);
+  --front-500: hsl(72, 6%, 63%);
+  --front-400: hsl(72, 6%, 67%);
+  --front-300: hsl(72, 6%, 77%);
+  --front-200: hsl(72, 6%, 87%);
+  --front-100: hsl(72, 6%, 97%);
   --brand-100: hsl(32, 100%, 50%);
   --contrast-100: hsl(212, 93%, 43%);
 
@@ -35,13 +36,13 @@
 }
 
 :root:lang(de),
-:not(:lang(de)) > :lang(de) {
+:not(:lang(de))> :lang(de) {
   quotes: "\201e" "\201c" "\201a" "\2018";
 }
 
 /* „ “ ‚ ‘ */
 :root:lang(en),
-:not(:lang(en)) > :lang(en) {
+:not(:lang(en))> :lang(en) {
   quotes: "\201c" "\201d" "\2018" "\2019";
 }
 
@@ -65,6 +66,7 @@
   }
 }
 
+/* #region tags */
 html {
   font-family: var(--font);
   font-size: var(--rem);
@@ -108,7 +110,8 @@ h4,
 h5,
 h6 {
   margin: 1.25em 0 0.25em;
-  font-family: var(--font-alt);
+  /* font-family: var(--font-alt); */
+  font-family: var(--font-mono);
   font-weight: 300;
   color: var(--front-200);
   text-align: left;
@@ -119,7 +122,6 @@ h1 {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   text-decoration-color: var(--back-500);
-  font-family: var(--font-mono);
 }
 
 h2 {
@@ -149,6 +151,8 @@ img {
   max-width: 100%;
 }
 
+/* #endregion */
+
 .page {
   margin: 0 auto;
   padding: 0 0.5rem;
@@ -156,6 +160,7 @@ img {
   max-width: 40rem;
 }
 
+/* #region index */
 #index-ipa {
   font-size: 0.375em;
 }
@@ -165,3 +170,24 @@ img {
   max-height: var(--line-height);
   cursor: pointer;
 }
+
+/* #endregion */
+/* #region projects */
+
+.projects dd,
+.projects dt {
+  display: inline-block;
+}
+
+/* #endregion */
+/* #region recent_posts */
+
+.recent_posts {
+  list-style: none;
+}
+
+.recent_posts time {
+  color: var(--front-100)
+}
+
+/* #endregion */

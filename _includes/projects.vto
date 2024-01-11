@@ -1,0 +1,17 @@
+---
+projects:
+  - { name: 'Foo', url: '/', tagline: 'Lorem ipsum' }
+  - { name: 'Bar', url: '/', tagline: 'Lorem ipsum' }
+---
+
+<section>
+  <h2>Highlighted Projects</h2>
+  <ul class="projects">
+    {{ for project of projects }}
+      <li>
+        <dt><a href="{{project.url}}">{{ project.name }}</a>:</dt>
+        <dd>{{ project.tagline }}</dd>
+      </li>
+    {{ /for }}
+  </ul>
+</section>

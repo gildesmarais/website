@@ -1,0 +1,23 @@
+---
+posts:
+  - { title: 'Lorem ipsum', url: '/', date: '2022-12-12' }
+  - { title: 'Lorem ipsum', url: '/', date: '2022-12-12' }
+---
+
+<section>
+  <h2>Recent posts</h2>
+  <ol class="recent_posts">
+    {{ for post of posts }}
+    <li>
+      <a href="{{post.url}}">
+        <time datetime="{{ post.date }}" title="{{ page.date }}">
+        {{ post.date }}
+
+        &ndash;
+        </time>
+        {{ post.title }}
+      </a>
+    </li>
+    {{ /for }}
+  </ol>
+</section>
