@@ -1,14 +1,15 @@
 ---
 layout: 'page.vto'
+postsToShow: 5
 ---
 
 <section className="h-card index" id="hcard-Gil-Desmarais">
   <h1>
-    <span className="p-name">Gil Desmarais</span>
+    <span className="p-name">{{ site.author.name }}</span>
 
     <figure id="index-ipa" className="index__ipa">
       <figcaption onClick={playAudio}>
-        <span className="p-ipa">/ʒ​ɪ​l dɛsm​​ɐ​ʁɛ/</span>
+        <span className="p-ipa">[ʒ​ɪ​l dɛsm​​ɐ​ʁɛ]</span>
         <img
           src="/assets/speaker.svg"
           alt="A speaker icon symbolizing a link to a spoken version of this website's author name"
@@ -17,6 +18,7 @@ layout: 'page.vto'
       <audio preload="metadata" src="/index.flac"></audio>
     </figure>
   </h1>
+
   <p>
     <span className="p-job-title">Full Stack Developer</span> &ndash; <span className="p-locality">Berlin</span>, GER
   </p>

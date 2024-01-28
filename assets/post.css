@@ -13,13 +13,13 @@
   margin: 1rem 0;
 }
 
-.post__toc>summary {
+.post__toc > summary {
   display: inline-block;
   width: 100%;
   color: var(--front-200);
 }
 
-.post__toc>summary:focus {
+.post__toc > summary:focus {
   outline: 0;
 }
 
@@ -48,7 +48,7 @@
   counter-reset: section;
 }
 
-.post .footnotes ol>li::before {
+.post .footnotes ol > li::before {
   /* @extend %time; */
   display: inline-block;
   font-family: var(--font-mono);
@@ -58,23 +58,23 @@
   counter-increment: section;
 }
 
-.post .footnotes ol>li {
+.post .footnotes ol > li {
   margin-bottom: 0.5rem;
 }
 
-.post .footnotes ol>li:target {
+.post .footnotes ol > li:target {
   border: 1px solid var(--contrast-100);
 }
 
-.post .footnotes ol>li>p {
+.post .footnotes ol > li > p {
   display: inline;
 }
 
-.post .footnotes ol>li a {
+.post .footnotes ol > li a {
   color: inherit;
 }
 
-.post .footnotes ol>li:target .reversefootnote {
+.post .footnotes ol > li:target .reversefootnote {
   padding: 0;
   margin: 0;
   text-decoration: none;

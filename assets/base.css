@@ -36,13 +36,13 @@
 }
 
 :root:lang(de),
-:not(:lang(de))> :lang(de) {
+:not(:lang(de)) > :lang(de) {
   quotes: "\201e" "\201c" "\201a" "\2018";
 }
 
 /* „ “ ‚ ‘ */
 :root:lang(en),
-:not(:lang(en))> :lang(en) {
+:not(:lang(en)) > :lang(en) {
   quotes: "\201c" "\201d" "\2018" "\2019";
 }
 
@@ -187,7 +187,7 @@ img {
 }
 
 .recent_posts time {
-  color: var(--front-100)
+  color: var(--front-100);
 }
 
 /* #endregion */

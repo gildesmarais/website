@@ -1,23 +1,24 @@
 ---
-posts:
-  - { title: 'Lorem ipsum', url: '/', date: '2022-12-12' }
-  - { title: 'Lorem ipsum', url: '/', date: '2022-12-12' }
 ---
+{{ if postsToShow === 'undefined' }}{{ set postsToShow = 5 }}{{ /if }}
+{{ if !postsHeadline }}{{ set postsHeadline = "Recent Posts" }}{{ /if }}
+
+{{ set posts = search.pages("type=posts", "date=desc", postsToShow) }}
 
 <section>
-  <h2>Recent posts</h2>
+  <h2>{{ postsHeadline }}</h2>
   <ol class="recent_posts">
     {{ for post of posts }}
-    <li>
-      <a href="{{post.url}}">
-        <time datetime="{{ post.date }}" title="{{ page.date }}">
-        {{ post.date }}
+      <li>
+        <a href="{{post.url}}">
+          <time datetime="{{ post.date }}" title="{{ page.date }}">
+          {{ post.date |> date('ISO_DATE') }}
 
-        &ndash;
-        </time>
-        {{ post.title }}
-      </a>
-    </li>
+          &ndash;
+          </time>
+          {{ post.title }}
+          </a>
+      </li>
     {{ /for }}
   </ol>
 </section>

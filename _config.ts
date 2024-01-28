@@ -1,5 +1,6 @@
 import lume from "lume/mod.ts";
 import code_highlight from "lume/plugins/code_highlight.ts";
+import date from "lume/plugins/date.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
@@ -23,8 +24,26 @@ const site = lume(
 site.data("site", site);
 
 site.use(code_highlight());
+site.use(date(
+  {
+    formats: {
+      "ISO_DATE": "yyyy-MM-dd",
+    }
+  }
+));
 site.use(favicon());
-site.use(feed());
+site.use(feed({
+  output: ["/feed.json", "/feed.rss"],
+  query: "type=posts",
+  info: {
+    title: "=site.title",
+    description: "=site.description",
+  },
+  items: {
+    title: "=title",
+    content: "$.post-body",
+  },
+}));
 site.use(inline());
 site.use(liquid());
 site.use(jsx());

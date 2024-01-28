@@ -1,7 +1,7 @@
 ---
 layout: 'page.vto'
+title: 'Blog'
+postsHeadline: Blog
 ---
 
-{{ for post of [] }}
-{{ post.title }}
-{{ /for }}
+{{ include 'recent_posts.vto' }}
