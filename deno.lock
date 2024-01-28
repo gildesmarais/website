@@ -1155,6 +1155,11 @@
       }
     }
   },
+  "redirects": {
+    "https://esm.sh/remark-capitalize": "https://esm.sh/remark-capitalize@1.1.0",
+    "https://esm.sh/remark-slug": "https://esm.sh/remark-slug@7.0.1",
+    "https://esm.sh/remark-toc@9": "https://esm.sh/remark-toc@9.0.0"
+  },
   "remote": {
     "https://cdn.sheetjs.com/xlsx-0.19.1/package/xlsx.mjs": "583785ceb0cbc86e250f2887b3df149a1999f7a0db29a8cde52570d83924babf",
     "https://deno.land/std@0.170.0/_util/asserts.ts": "d0844e9b62510f89ce1f9878b046f6a57bf88f208a10304aab50efcb48365272",
@@ -1565,6 +1570,7 @@
     "https://deno.land/x/lume@v2.0.2/plugins/modules.ts": "19a66398a5494f506458e48b8443a7c4700b7577e8fcc0818c39b1d0530c8950",
     "https://deno.land/x/lume@v2.0.2/plugins/paginate.ts": "e86617ec1ad491c86bc4866db41f070a6b393e8c2ac94ed28a51ca309f88477d",
     "https://deno.land/x/lume@v2.0.2/plugins/picture.ts": "2754513a4500a2c91c9b1f36bce95d9d612e70f8700771383d00c8f58cedd5d0",
+    "https://deno.land/x/lume@v2.0.2/plugins/reading_info.ts": "74fd91be32099c8f9af2822731ef9036554bcd31a164c99c084de0300b468c8c",
     "https://deno.land/x/lume@v2.0.2/plugins/remark.ts": "1125ef3055ba59f2dd670ca0ceda587d19e452d0807c9a7c3ed3e7f31e5f90a2",
     "https://deno.land/x/lume@v2.0.2/plugins/search.ts": "8ec3a8f082b8ff1532bbe8f8bf76dfaa2d0feab7c2ec5c824d0ccc044c26f640",
     "https://deno.land/x/lume@v2.0.2/plugins/sheets.ts": "c3eb9303b0020bed3bfcaad9f264df1316174f1fcb673c10a1df4861b7e0b21b",
@@ -1602,6 +1608,28 @@
     "https://deno.land/x/xml@2.1.3/utils/streamable.ts": "1603a5f10c859b95d4e9502365a0fba0b19d5d068356e20d5a6813cd37fee780",
     "https://deno.land/x/xml@2.1.3/utils/stringifier.ts": "c701b506835237c0c6c0a08fd94e0a012b644def3f4c819c64788daf2e649ea3",
     "https://deno.land/x/xml@2.1.3/utils/types.ts": "ecaf7785e54a6f1da6f8e56da2bce9853407ceb7d5b3b70f0a60a0890151fe4c",
+    "https://esm.sh/remark-capitalize@1.1.0": "89aa3d0ab5cbfb5ebc55eb392180c21419802ba5385d41025e8b633fd7485b1b",
+    "https://esm.sh/remark-slug@7.0.1": "35fb9c0e83bf9ef5c34e0c8c7034468af922f3a77c9bd109125054b66470d73f",
+    "https://esm.sh/remark-toc@9.0.0": "15375f467d541e8ba1dd52ca58805597dd3def38e803bde25444d4e3748d27e5",
+    "https://esm.sh/v135/@ungap/structured-clone@1.2.0/denonext/structured-clone.mjs": "e683ab48ef7a3afd3bce9d1589d14177ddbdbf76fa1483524dddbeb6b142469f",
+    "https://esm.sh/v135/github-slugger@1.5.0/denonext/github-slugger.mjs": "aff8b9cf584d0483e2423738deefd27bb98dcecc4dca65d522050e0e291f2429",
+    "https://esm.sh/v135/github-slugger@2.0.0/denonext/github-slugger.mjs": "42ff6fe7ba4f63d8a048970e5a32cd5b0348905dde3f9e270d90e44a6e7635ae",
+    "https://esm.sh/v135/mdast-util-to-string@3.2.0/denonext/mdast-util-to-string.mjs": "64fef8fd2a9fdb8abcff4ff6c086c273123c0833c13e465d6c9f82332d1e239c",
+    "https://esm.sh/v135/mdast-util-to-string@4.0.0/denonext/mdast-util-to-string.mjs": "eda9725fc0c7dc0e7b56998d2d8e4f29312cc5493cb7834c70f32fab2609103b",
+    "https://esm.sh/v135/mdast-util-toc@7.0.0/denonext/mdast-util-toc.mjs": "533c8f1317129350db102e9116b48b03e12e327a203852bb3d16d5ffb217d07c",
+    "https://esm.sh/v135/remark-capitalize@1.1.0/denonext/remark-capitalize.mjs": "cdce9d3d0a256dbbfdd3fd579d6e629a7225169e23da4e511f8302c5c8237499",
+    "https://esm.sh/v135/remark-slug@7.0.1/denonext/remark-slug.mjs": "3a2cde6ccfed032c8f75c8d415c7b59e7875ccff8a6ad6cc684c2e211f2e2998",
+    "https://esm.sh/v135/remark-toc@9.0.0/denonext/remark-toc.mjs": "56782a63d575624f318e5057ff25c1a1108c201eca6adcb4f89cf1d4b4c4b5af",
+    "https://esm.sh/v135/title@3.3.1/denonext/title.mjs": "0ba49946a8b8b61f604d6a9a9853edfa3c141879834525e2aba9d1bb547a6fc9",
+    "https://esm.sh/v135/unist-util-is@2.1.3/denonext/unist-util-is.mjs": "8926fa18fb4b5fe2b4ffab4efe946e6e79e98559dd81fb240d36b6b32b7bcceb",
+    "https://esm.sh/v135/unist-util-is@5.2.1/denonext/unist-util-is.mjs": "771abea65db57c71e2a3d98200242c362337617e63881fc9954e891dde32277c",
+    "https://esm.sh/v135/unist-util-is@6.0.0/denonext/unist-util-is.mjs": "d92da46b3a1084450f150cc06c02f3bf85b93ab4c4b43a960d72a4f5678e95cc",
+    "https://esm.sh/v135/unist-util-visit-parents@5.1.3/denonext/unist-util-visit-parents.mjs": "ba7da2ff52f5918f6189e059e076a0d9d5a1b1cda05483f26bafb23659d5e1f4",
+    "https://esm.sh/v135/unist-util-visit-parents@6.0.1/denonext/do-not-use-color.js": "a1c0a6b93471dd4ed996804dd8a2b9f753c83c4a2da98373253e6b312c8492e2",
+    "https://esm.sh/v135/unist-util-visit-parents@6.0.1/denonext/unist-util-visit-parents.mjs": "5f7ececae47bea6d87b7e323153a7415ad8f299dc42e61aefda6d28eaf264c64",
+    "https://esm.sh/v135/unist-util-visit@1.3.1/denonext/unist-util-visit.mjs": "c9099646c0f066c5dca269bf8687a252c5b6ddd90af98e720c9fa7e89ed0b65e",
+    "https://esm.sh/v135/unist-util-visit@4.1.2/denonext/unist-util-visit.mjs": "17fb2ed178b4f6ac073c362ca95680df240fcfb6a324ad79fab34314a3c06929",
+    "https://esm.sh/v135/unist-util-visit@5.0.0/denonext/unist-util-visit.mjs": "6c1b5b3d517cc6dbc88406b2dbab1735d503a797e994dbd4a89f3764098318f7",
     "https://wilsonl.in/minify-html/deno/0.15.0/index.js": "8e7ee5067ca84fb5d5a1f33118cac4998de0b7d80b3f56cc5c6728b84e6bfb70"
   }
 }

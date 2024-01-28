@@ -3,5 +3,10 @@ layout: page.vto
 ---
 
 <article class="post">
-  {{content}}
+  <h1>{{ title }}</h1>
+  <time datetime="{{ date |> date('ISO_DATE') }}" title="{{ date |> date('ISO_DATE') }}" class="dt-published">
+    {{- date |> date('HUMAN_DATE') }}
+  </time>
+
+  {{ content }}
 </article>

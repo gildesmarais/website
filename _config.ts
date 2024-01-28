@@ -8,12 +8,17 @@ import inline from "lume/plugins/inline.ts";
 import jsx from "lume/plugins/jsx.ts";
 import liquid from "lume/plugins/liquid.ts";
 import metas from "lume/plugins/metas.ts";
-// import minify_html from "lume/plugins/minify_html.ts";
+import minify_html from "lume/plugins/minify_html.ts";
 import picture from "lume/plugins/picture.ts";
 import remark from "lume/plugins/remark.ts";
 import sheets from "lume/plugins/sheets.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import transform_images from "lume/plugins/transform_images.ts";
+
+// markdown plugins (for remark)
+import remarkCapitalize from 'https://esm.sh/remark-capitalize';
+import remarkSlug from 'https://esm.sh/remark-slug';
+import remarkToc from 'https://esm.sh/remark-toc@9';
 
 const site = lume(
   {
@@ -28,6 +33,7 @@ site.use(date(
   {
     formats: {
       "ISO_DATE": "yyyy-MM-dd",
+      "HUMAN_DATE": "dd MMMM yyyy"
     }
   }
 ));
@@ -48,13 +54,19 @@ site.use(inline());
 site.use(liquid());
 site.use(jsx());
 site.use(metas());
-// site.use(minify_html());
+site.use(minify_html());
 site.use(picture());
 site.use(transform_images());
-site.use(remark());
+site.use(remark({
+  remarkPlugins: [
+    remarkToc, remarkCapitalize, remarkSlug
+  ],
+}));
 site.use(sheets());
 site.use(sitemap());
 site.use(esbuild(/* Options */));
+
+site.ignore("README.md");
 
 site.copy("assets");
 

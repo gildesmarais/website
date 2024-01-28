@@ -1,5 +1,5 @@
 .nav {
-  padding: .75rem 0.5rem;
+  padding: 0.75rem 0;
 
   display: flex;
   flex-direction: row;
@@ -11,9 +11,10 @@
   border: 1px solid var(--back-500);
 }
 
-.nav img {
-  max-width: 2rem;
-  max-height: 2rem;
+.nav > a,
+.nav > a > img {
+  max-height: 1.61em;
+  height: 1.61rem;
 }
 
 .nav > ol {
@@ -24,6 +25,7 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
+  margin-left: 0.5rem;
 }
 
 /* https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/ */
@@ -33,5 +35,9 @@
 }
 
 .nav > ol > li {
-  margin: 0 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.nav > ol > li:last-child {
+  margin-right: 0;
 }
