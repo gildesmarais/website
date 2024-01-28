@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 lang: de
 title: "Nokia E51 als UMTS Modem via Bluetooth unter Ubuntu"
 date: 2008-04-05 15:19:47 +00:00

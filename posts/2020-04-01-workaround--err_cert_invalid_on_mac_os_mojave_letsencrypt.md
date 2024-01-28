@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Fixing NET::ERR_CERT_INVALID errors on macOS Mojave with Let's Encrypt certificates
 image: /assets/images/posts/2020-04-01-safari-ssl-cert-invalid.png
 description: I was plagued by certificates errors and this is how I fixed it.

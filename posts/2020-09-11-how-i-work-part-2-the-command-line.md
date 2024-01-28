@@ -1,7 +1,5 @@
 ---
-layout: post.vto
 title: "How I work, part 2: the command line"
-toc: true
 image: /assets/images/posts/2020-09-11-command-line.jpg
 description: "The 'How I work' post series documents how I work. This part is about working productively on the command line."
 tags:
@@ -12,6 +10,10 @@ tags:
 ---
 
 This is the second part of my "How I work" series. In case you missed it, [read the first part here]({% post_url 2020-04-10-working-productively %}). In this part I will document with which tools I work on the command line.
+
+## Contents
+
+## sync configuration across machines
 
 I keep the configuration of most tools inside a so-called [dotfiles](https://github.com/gildesmarais/dotfiles) repository. This allows me to sync my configuration between machines. To manage the dotfiles on my machines, I use [rcm](https://github.com/thoughtbot/rcm) and version control them with [git](https://git-scm.com/).
 

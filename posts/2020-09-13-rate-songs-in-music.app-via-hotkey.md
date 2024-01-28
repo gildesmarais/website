@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: "Rate songs in Music.app via Hotkey with Song Rating"
 image: /assets/images/posts/2020-09-13-song-rating.jpg
 description: "Song Rating now supports rating with a specific amount of stars directly."

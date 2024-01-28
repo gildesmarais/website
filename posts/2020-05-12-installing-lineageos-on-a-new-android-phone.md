@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Installing LineageOS on a new phone
 description: Pal was once again very kind and kept clicking through the updates.
 image: /assets/images/posts/2020-05-12_IMG_1325.jpg

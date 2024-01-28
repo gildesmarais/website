@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: An automated blogroll with Jekyll, Newsblur and Github Actions
 description: This blog's blogroll is updated automatically and this post explains how it works.
 image: /assets/images/posts/2020-09-22-blogroll.jpg

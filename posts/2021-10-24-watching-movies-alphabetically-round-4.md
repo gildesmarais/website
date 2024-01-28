@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Watching movies alphabetically, round IV
 description: The ratings of the fourth round are in.
 image: assets/images/tag-movie.jpg
@@ -18,7 +17,7 @@ Here are the previous rounds:
 - [Round III]({% post_url 2021-04-06-watching-movies-alphabetically %})
 
 The alphabetic selection strategy still works fine. However we watched several other
-movies in the meantime.  
+movies in the meantime.
 Check the [recently rated movies page]({{ '/ratings/recent/' | relative_url }})
 to see which other movies I've rated.
 

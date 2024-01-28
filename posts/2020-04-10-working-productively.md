@@ -1,9 +1,7 @@
 ---
-layout: post.vto
 title: "How I work, part 1: devices, utilities and environment"
 description: "How I develop software. Part 1."
 image: /assets/images/posts/2020-04-05-minimal-setup.jpg
-toc: true
 tags:
   - bluetooth
   - programming
@@ -12,6 +10,8 @@ tags:
 
 I've been asked how I work. In this case _work_ means the development of software.
 That's an interesting question which isn't answerable in a single sentence, nor a single blog post. This is the first post which focuses on the involved devices, utilities and the optimal environment.
+
+## Content
 
 ## Devices
 

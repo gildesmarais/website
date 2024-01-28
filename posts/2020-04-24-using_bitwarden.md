@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: "Using Bitwarden"
 description: A new password manager, self-hosted.
 tags:

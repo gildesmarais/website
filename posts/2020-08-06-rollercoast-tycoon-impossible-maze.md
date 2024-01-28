@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: The impossible RollerCoaster Tycoon 2 maze
 description: Someone who's using the Internet uploaded a video.
 image: /assets/images/posts/2020-08-06-rct-maze.jpg

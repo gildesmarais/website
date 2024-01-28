@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Watching movies alphabetically, round III
 description: The ratings of the third round are in.
 image: assets/images/tag-movie.jpg

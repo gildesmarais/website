@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Why I taped the keys on my keyboard
 date: 2020-03-27T16:45:00+0100
 description: "Observations while becoming better at typing blindly."

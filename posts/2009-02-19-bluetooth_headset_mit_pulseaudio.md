@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 lang: de
 title: "Bluetooth Headset mit Pulseaudio"
 date: 2009-02-19 20:32:12 +00:00

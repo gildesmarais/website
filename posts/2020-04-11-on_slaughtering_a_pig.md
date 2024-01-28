@@ -1,11 +1,11 @@
 ---
-layout: post.vto
 title: On slaughtering a pig
 image: /assets/images/posts/2020-04-11_pigs.jpg
-toc: true
 description: Last winter I witnessed a home slaughtering of a pig.
 tags: [food]
 ---
+
+## Contents
 
 ## A warning beforehand
 

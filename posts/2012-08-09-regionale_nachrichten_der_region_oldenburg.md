@@ -1,10 +1,8 @@
 ---
-layout: post.vto
 lang: de
 title: "Regionale Nachrichtenquellen aus der Region Oldenburg"
 date: 2012-08-09T18:00:00+0100
 description: Eine lange Liste mit Links zu Webseiten.
-toc: true
 image: assets/images/tag-oldenburg.jpg
 tags:
   - oldenburg
@@ -15,6 +13,8 @@ Dieser Post ist eine lange Liste mit Links zu Webseiten. Ganz bewusst wurden auf
 Tipp: Diese Seiten jeden Tag manuell anzusurfen und auf Neuigkeiten zu prüfen ist ganzschön mühseelig. Fast alle verlinkten Seiten besitzen daher einen [RSS-Feed](https://de.wikipedia.org/wiki/RSS), den man mit einem [Feedreader](https://de.wikipedia.org/wiki/Feedreader) abonnieren kann. Ich habe die Adresse zu dem jeweiligen RSS-Feed angegeben. Auch [dieses Blog bietet einen RSS-Feed an](https://gil.desmarais.de/feed.xml), der natürlich auch abonniert werden darf.
 
 Also, los geht’s!
+
+## Content
 
 ## Polizei und Feuerwehr
 

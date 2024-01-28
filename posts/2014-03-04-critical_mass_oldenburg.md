@@ -1,6 +1,5 @@
 ---
 lang: de
-layout: post.vto
 title: "Große Gruppe Radfahrender auf der Straße in Oldenburg?!"
 description: Eine internationale Bewegung, die für Rechte der Radfahrenden eintritt.
 image: assets/images/tag-oldenburg.jpg

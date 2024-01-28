@@ -1,5 +1,4 @@
 ---
-layout: post.vto
 title: Picking and watching movies alphabetically
 description: "Moving out of the comfortable filter bubble and explore art."
 image: assets/images/tag-movie.jpg
