@@ -2,3 +2,5 @@ layout: page.vto
 title: "Movie Ratings: "
 letters: []
 base_path: "/movie_ratings/"
+css:
+  - /assets/movie_ratings.css

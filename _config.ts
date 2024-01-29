@@ -51,8 +51,7 @@ site.use(feed({
   },
   items: {
     title: "=title",
-    content: "$.post-body",
-  },
+  }
 }));
 site.use(inline());
 site.use(lightningCss({

@@ -8,7 +8,7 @@ const StarRating = {
   },
   star_rating: function (
     string_rating: string,
-    { max = 5, divide_by = 2.0 } = {},
+    { max = 10, divide_by = 1 } = {},
   ) {
     const rating = parseFloat(string_rating) / divide_by;
 

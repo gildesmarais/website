@@ -1,9 +1,6 @@
-
 @import "css/minireset.css";
 @import "css/nav.css";
-@import "css/movie_rating.css";
 @import "css/movie_ratings_nav.css";
-@import "css/post.css";
 
 :root {
   --rem: 18px;
@@ -212,3 +209,17 @@ img {
   color: var(--front-100);
 }
 /* #endregion */
+
+dl.as-table {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dl.as-table > dt {
+  grid-column-start: 1;
+  padding-right: 0.25em;
+}
+
+dl.as-table > dd {
+  grid-column-start: 2;
+}

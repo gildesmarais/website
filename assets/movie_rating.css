@@ -40,20 +40,12 @@
 }
 
 .movie-rating__rating dl {
-  display: grid;
-  grid-template-columns: max-content auto;
   font-size: 0.75em;
   line-height: 1.25;
 }
 
 .movie-rating__rating dt {
-  grid-column-start: 1;
-  padding-right: 0.25em;
   color: var(--front-500);
-}
-
-.movie-rating__rating dd {
-  grid-column-start: 2;
 }
 
 .movie-rating__my-rating,
@@ -85,8 +77,4 @@ a.movie-rating__imdb:focus {
 .star-rating {
   white-space: nowrap;
   display: inline;
-}
-
-.star-rating > img {
-  margin-right: -1px;
 }

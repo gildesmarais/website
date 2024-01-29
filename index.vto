@@ -3,7 +3,7 @@ layout: 'page.vto'
 posts_to_show: 5
 ---
 
-<section class="h-card index" id="hcard-Gil-Desmarais">
+<section class="h-card index" id="hcard-{{ (site.author.name).replaceAll(' ', '-') }}">
   <h1>
     <span class="p-name">{{ site.author.name }}</span>
 
@@ -15,7 +15,7 @@ posts_to_show: 5
           alt="A speaker icon symbolizing a link to a spoken version of this website's author name"
           role="button" />
       </figcaption>
-      <audio preload="metadata" src="/index.flac"></audio>
+      <audio preload="metadata" src="/assets/index.flac"></audio>
     </figure>
   </h1>
 

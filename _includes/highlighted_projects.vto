@@ -3,12 +3,20 @@
 
 <section>
   <h2>Highlighted Projects</h2>
-  <ul class="projects">
+
+  <dl class="as-table">
     {{ for project of projects }}
-      <li>
-        <dt><a href="{{project.url}}">{{ project.name }}</a>:</dt>
-        <dd>{{ project.tagline }}</dd>
-      </li>
+      <dt><a href="{{project.url}}">{{ project.name }}</a></dt>
+      <dd>{{ project.tagline }}</dd>
     {{ /for }}
-  </ul>
+  </dl>
+
+  <p>
+    Find more projects on
+    <a
+      href="{{ site.github_profile_url }}"
+      target="_blank"
+      rel="noopener"
+      >my Github profile</a>.
+  </p>
 </section>

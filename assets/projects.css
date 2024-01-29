@@ -1,0 +1,18 @@
+.project__html2rss,
+.project__jekyll-loading-lazy {
+  /* @include tile; */
+}
+
+.project__html2rss > h2 span {
+  color: #ff9300;
+}
+
+.project__html2rss > h2 span:first-child,
+.project__html2rss > h2 span:last-child {
+  color: #60b0f4;
+}
+
+.project__jekyll-loading-lazy > h2 {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}

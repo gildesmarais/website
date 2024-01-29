@@ -1,4 +1,4 @@
 type: posts
 layout: post.vto
 css:
-  - /css/post.css
+  - /assets/posts.css
