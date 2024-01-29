@@ -6,6 +6,7 @@ import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 import inline from "lume/plugins/inline.ts";
 import jsx from "lume/plugins/jsx.ts";
+import lightningCss from "lume/plugins/lightningcss.ts";
 import liquid from "lume/plugins/liquid.ts";
 import metas from "lume/plugins/metas.ts";
 import minify_html from "lume/plugins/minify_html.ts";
@@ -54,6 +55,9 @@ site.use(feed({
   },
 }));
 site.use(inline());
+site.use(lightningCss({
+  includes: "assets/css",
+}));
 site.use(liquid());
 site.use(jsx());
 site.use(metas());

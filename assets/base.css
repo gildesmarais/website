@@ -1,3 +1,10 @@
+
+@import "css/minireset.css";
+@import "css/nav.css";
+@import "css/movie_rating.css";
+@import "css/movie_ratings_nav.css";
+@import "css/post.css";
+
 :root {
   --rem: 18px;
 
