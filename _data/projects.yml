@@ -1,0 +1,8 @@
+htmlrss:
+  url: https://github.com/html2rss
+  name: html2rss
+  tagline: html2rss scrapes websites to build RSS feeds, without reinventing the wheel for each and every website.
+jekyll-loading-lazy:
+  url: https://github.com/gildesmarais/jekyll-loading-lazy
+  name: jekyll-loading-lazy
+  tagline: A Jekyll plugin which automatically adds `loading="lazy"` to all image and iframe HTML tags.

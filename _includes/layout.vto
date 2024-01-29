@@ -19,9 +19,8 @@
     <link href="/feed.rss" rel="alternate" type="application/rss+xml" title="RSS Feed for {{ location }}"  />
     <link href="/feed.json" rel="alternate" type="application/feed+json" title="JSON Feed for {{ location }}"  />
 
-    <link rel="stylesheet" href="/assets/minireset.css" />
     <link rel="stylesheet" href="/assets/base.css" />
-    <link rel="stylesheet" href="/assets/nav.css" />
+
     {{ if typeof(css) != 'undefined' }}
       {{ for item of css }}
         <link rel="stylesheet" href="{{ item }}" />

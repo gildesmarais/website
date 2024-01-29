@@ -8,13 +8,14 @@ letters:
   - 'a'
 ---
 
-<a href="/movie_ratings/">‹ back to the overview</a>
+<a href="{{base_path}}">‹ back to the overview</a>
 
 <h1>{{ title }}</h1>
 
 {{ set recommendations = Object.keys(movie_recommendations).flatMap(key => movie_recommendations[key]) }}
 
-{{ for imdb of imdb_ratings.filter(imdb => letters.includes(imdb['Title'].toString()[0]) && imdb['Title Type'] === 'movie')}}
+{{ for imdb of imdb_ratings.filter(imdb => letters.includes(imdb['Title'].toString()[0]) && imdb['Title Type'] === 'movie')
+                           .sort((a, b) => a['Title'].toString().localeCompare(b['Title'].toString()))}}
   {{ set rating = recommendations.find(recommendation => recommendation.const === imdb.Const) }}
 
   {{ include 'movie_rating.vto' { imdb, rating } }}

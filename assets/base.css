@@ -1,7 +1,7 @@
 :root {
   --rem: 18px;
 
-  --font: 'Arial', sans-serif;
+  --font: "Arial", sans-serif;
   --font-alt: Gill Sans, Gill Sans MT, Calibri, sans-serif;
   --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
     "Lucida Console", monospace;
@@ -181,21 +181,27 @@ img {
 
 /* #endregion */
 /* #region projects */
-
 .projects dd,
 .projects dt {
   display: inline-block;
 }
 
 /* #endregion */
-/* #region recent_posts */
 
+/* #region recent_posts */
 .recent_posts {
   list-style: none;
+}
+
+.recent_posts > li {
+  padding: 0.1em 0;
+}
+
+.recent_posts > li:nth-child(odd) {
+  background-color: var(--back-600);
 }
 
 .recent_posts time {
   color: var(--front-100);
 }
-
 /* #endregion */
