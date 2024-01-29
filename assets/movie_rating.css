@@ -69,6 +69,7 @@ a.movie-rating__imdb:focus {
 
 .movie-rating__rating img {
   height: 1em;
+  width: 1em;
   filter: unset;
   border: 0;
   box-shadow: unset;
