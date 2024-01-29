@@ -1,0 +1,13 @@
+<nav class="movie_ratings_nav">
+  <p>
+    Browse all movie ratings in alphabetical order:
+  </p>
+  <ul>
+    {{ for child of ['0‐9'].concat('abcdefghjklmnopqrstuvw'.split('')).concat('xyz') }}
+      {{ set href = `/movie_ratings/${child}/` }}
+      <li {{ if url == href }}class="current"{{ /if }}>
+        <a href="{{href}}">{{child}}</a>
+      </li>
+    {{ /for }}
+  </ul>
+</nav>

@@ -1,4 +1,3 @@
----
 before:
   - const: tt14821150
     recommendation: true
@@ -371,7 +370,6 @@ round1:
     rating: 6
     recommendation: true
     note: Take a seat at the counter of a restaurant and listen what the others have to say.
-
 round2:
   - title: "Avengers: Endgame"
     rating: 3

@@ -1,0 +1,63 @@
+{{ set recommendation = typeof(rating) !== 'undefined' && rating.recommendation }}
+
+<article
+  class="movie-rating {{ if recommendation }}movie-rating--recommendation{{ /if }}"
+  itemprop="review"
+  itemscope
+  itemtype="https://schema.org/Review"
+  id="{{ imdb.Const }}"
+>
+  <header>
+    <span class="movie-rating__title" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Movie">
+      {{ if recommendation }}
+        <a class="movie-rating__recommendation" href="#{{ imdb.Const }}"
+            href="'/movie_ratings/recommendations/#{{ imdb.Const }}">
+            <img src="/assets/images/stars/full.svg" alt="Recommended movie">
+        </a>
+      {{ /if }}
+      <span>
+        <a itemprop="name" href="#{{ imdb.Const }}">{{ imdb['Title'] }}</a>
+      </span>
+    </span>
+  </header>
+
+  <main class="movie-rating__rating">
+    <dl>
+      <dt>Year:</dt>
+      <dd><span class="movie-rating__year">{{ imdb['Year'] }}</span></dd>
+      <dt>Director:</dt>
+      <dd><span class="movie-rating__director">{{ imdb['Directors'] }}</span></dd>
+      <dt>Genres:</dt>
+      <dd><span class="movie-rating__genres">{{ imdb['Genres'] }}</span></dd>
+      <dt>IMDB Rating:</dt>
+      <dd>
+        <a href="https://www.imdb.com/title/{{ imdb.Const }}/" class="movie-rating__imdb">
+          {{ imdb['IMDb Rating'] }} / 10
+        </a>
+      </dd>
+      <dt>My Rating:</dt>
+      <dd>
+        <span class="movie-rating__my-rating">
+          {{ imdb['Your Rating'] }}</sup> {{ imdb['Your Rating'] |> star_rating }}
+        </span>
+      </dd>
+    </dl>
+
+    {{ if recommendation }}
+      <meta
+        itemprop="author"
+        content="{{ if typeof(post) !== 'undefined' && post?.author }}{{post.author}}{{ else }}{{ site.author }}{{ /if }}"
+      />
+      <meta itemprop="datePublished" content="{{ page.date |> date  }}" />
+      <meta itemprop="name" content="{{ rating['title'] }}" />
+      <p class="movie-rating__rating--recommendation" itemprop="reviewBody">
+        {{ rating['note'] }}
+      </p>
+    {{ /if }}
+
+
+  </main>
+
+  <footer>
+  </footer>
+</article>

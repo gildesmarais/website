@@ -1,12 +1,8 @@
 :root {
   --rem: 18px;
-  /* --nav-height: 3rem; */
-  /* --container-width: #{$breakpoint-medium}; */
-  /* --section-padding: 0.5rem; */
 
+  --font: 'Arial', sans-serif;
   --font-alt: Gill Sans, Gill Sans MT, Calibri, sans-serif;
-  --font: Arial, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
-    sans-serif;
   --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
     "Lucida Console", monospace;
 
@@ -90,6 +86,11 @@ a {
   text-decoration: underline;
 }
 
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
 @media (hover: hover) {
   a {
     text-decoration: none;
@@ -110,8 +111,7 @@ h4,
 h5,
 h6 {
   margin: 1.25em 0 0.25em;
-  /* font-family: var(--font-alt); */
-  font-family: var(--font-mono);
+  font-family: var(--font-alt);
   font-weight: 300;
   color: var(--front-200);
   text-align: left;
@@ -145,13 +145,21 @@ h6 {
 }
 
 img {
-  /* border: 1px solid var(--back-400);
-  border-radius: 3px; */
-  /* box-shadow: 0 0 0.25rem var(--back-500); */
   max-width: 100%;
 }
 
 /* #endregion */
+
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
 
 .page {
   margin: 0 auto;

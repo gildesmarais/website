@@ -1,0 +1,93 @@
+.movie-rating {
+  width: 100%;
+  margin-bottom: 2rem;
+  /* font-size: 0.875rem; */
+  padding: .75em 0.5em;
+  border: 1px solid var(--back-500);
+}
+
+.page .movie-rating:nth-child(odd) {
+  background-color: var(--back-600);
+}
+
+.movie-rating>header {
+  display: flex;
+  align-items: baseline;
+}
+
+.movie-rating__title {
+  display: flex;
+  flex: 1;
+  font-family: var(--font-alt);
+}
+
+.movie-rating__title>span>a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movie-rating__recommendation{
+  width: 1em;
+  margin-right: 0.25em;
+}
+
+.movie-rating__stars {
+  align-self: flex-start;
+  height: 100%;
+}
+
+.movie-rating>main {
+  color: var(--front-300);
+}
+
+
+.movie-rating__rating dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+  font-size: 0.75em;
+  line-height: 1.25;
+}
+
+.movie-rating__rating dt {
+  grid-column-start: 1;
+  padding-right: .25em;
+  color: var(--front-500);
+}
+
+.movie-rating__rating dd {
+  grid-column-start: 2;
+
+}
+
+.movie-rating__my-rating,
+a.movie-rating__imdb,
+.movie-rating__year {
+  font-family: var(--font-mono);
+  font-variant: tabular-nums;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.movie-rating__imdb:hover,
+a.movie-rating__imdb:focus {
+  color: var(--yellow-100);
+}
+
+.movie-rating__rating--recommendation {
+  font-size: .875em;
+  max-width: 80ch;
+}
+.movie-rating__rating img {
+  height: 1em;
+  filter: unset;
+  border: 0;
+  box-shadow: unset;
+}
+
+.star-rating {
+  white-space: nowrap;
+  display: inline;
+}
+.star-rating > img {
+  margin-right: -1px;
+}

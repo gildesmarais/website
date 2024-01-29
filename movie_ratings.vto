@@ -1,0 +1,20 @@
+---
+layout: 'page.vto'
+title: 'Movie Ratings'
+base_url: '/movie_ratings/'
+css:
+  - '/assets/movie_ratings_nav.css'
+---
+
+
+{{# <p>{{page.description}} As of today, I've rated {{ site.data.ratings | size }} movies.</p> #}}
+
+{{# <p>
+  You can see my
+  <a href="{{ '/ratings/recommendations/' | relative_url }}">recommendations</a>,
+  <a href="{{ '/ratings/recent/' | relative_url }}">recently rated</a>
+  or
+  <a href="{{ '/ratings/top_rated/' | relative_url }}">top rated</a> movies on a seperate page.
+</p> #}}
+
+{{ include 'movie_ratings_nav.vto' }}

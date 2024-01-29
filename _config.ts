@@ -15,6 +15,9 @@ import sheets from "lume/plugins/sheets.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import transform_images from "lume/plugins/transform_images.ts";
 
+// custom plugins
+import star_rating from "./plugins/star_rating.ts";
+
 // markdown plugins (for remark)
 import remarkCapitalize from 'https://esm.sh/remark-capitalize';
 import remarkSlug from 'https://esm.sh/remark-slug';
@@ -66,7 +69,8 @@ site.use(sheets());
 site.use(sitemap());
 site.use(esbuild(/* Options */));
 
-site.ignore("README.md");
+site.helper('star_rating', (rating) => star_rating.star_rating(rating) , { type: "tag" });
+site.ignore("plugins", "README.md");
 
 site.copy("assets");
 

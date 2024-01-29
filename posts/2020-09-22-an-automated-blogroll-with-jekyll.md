@@ -124,16 +124,20 @@ Add your HTML. Here's what I'm using:
 ---
 layout: default
 ---
-{% raw %}<ul>
-{% assign blogroll = site.data.blogroll | sort_natural: "feed_title" %}
-{% for blog in blogroll %}
+
+{% raw %}
+<ul>
+  {% assign blogroll = site.data.blogroll | sort_natural: "feed_title" %} {% for
+  blog in blogroll %}
   <li>
-    <a href="{{blog.feed_link}}" target="_blank" rel="noopener">{{ blog.feed_title }}</a>
-    <a href="{{blog.feed_address}}" target="_blank"
-       rel="noopener">Feed</a>
+    <a href="{{blog.feed_link}}" target="_blank" rel="noopener"
+      >{{ blog.feed_title }}</a
+    >
+    <a href="{{blog.feed_address}}" target="_blank" rel="noopener">Feed</a>
   </li>
-{% endfor %}
-</ul>{% endraw %}
+  {% endfor %}
+</ul>
+{% endraw %}
 ```
 
 ## The Github Actions workflow

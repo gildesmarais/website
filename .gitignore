@@ -5,6 +5,7 @@ _site
 node_modules/
 npm-debug.log
 .jekyll-cache
+_cache/
 _fleamarket/*.md
 _data/blogroll.yml
 .vscode

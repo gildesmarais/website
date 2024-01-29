@@ -22,7 +22,11 @@
     <link rel="stylesheet" href="/assets/minireset.css" />
     <link rel="stylesheet" href="/assets/base.css" />
     <link rel="stylesheet" href="/assets/nav.css" />
-    <link rel="stylesheet" href="/assets/post.css" />
+    {{ if typeof(css) != 'undefined' }}
+      {{ for item of css }}
+        <link rel="stylesheet" href="{{ item }}" />
+      {{ /for }}
+    {{ /if }}
   </head>
 
   <body>
