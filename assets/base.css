@@ -212,7 +212,9 @@ kbd {
 
 .recent_posts > li > a {
   width: 100%;
+  white-space: pre-line;
 }
+
 .recent_posts time {
   color: var(--front-300);
   font-family: var(--font-mono);
