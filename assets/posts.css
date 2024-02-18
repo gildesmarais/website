@@ -1,3 +1,5 @@
+@import url("css/author.css");
+
 .post ol,
 .post ul {
   list-style: inside;
@@ -8,8 +10,7 @@
 }
 
 .post__toc {
-  padding: 0.5em 0.5em;
-
+  padding: 0.5em;
   margin: 1rem 0;
 }
 
@@ -27,11 +28,11 @@
   text-decoration: none;
 }
 
-.post .footnote:before {
+.post .footnote::before {
   content: "[";
 }
 
-.post .footnote:after {
+.post .footnote::after {
   content: "]";
 }
 
@@ -39,7 +40,7 @@
   padding: 1rem 0;
   margin: 2rem 0;
   font-size: 0.875rem;
-  border-top: 2px solid var(--back-400);
+  border-top: 2px groove var(--brand-100_25);
 }
 
 .post .footnotes ol {
@@ -83,10 +84,15 @@
 }
 
 .post__message {
-  /* @include tile; */
-  margin: 3rem 0;
-  font-size: 1rem;
-  border: 0.25em solid var(--back-500);
+  padding:2em 1em;
+  margin: 5rem 0 ;
+  content-visibility: auto;
+  font-size: .875em;
+  border: 0.25em double var(--brand-100_25);
   border-right: 0;
   border-left: 0;
+}
+
+.post__message b {
+  display: block;
 }

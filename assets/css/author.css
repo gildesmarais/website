@@ -1,0 +1,44 @@
+.author {
+  --section-padding: .5em;
+  --container-width: 100%;
+
+  padding: 2em var(--section-padding) 1em;
+  margin: 25vh 0 0;
+  color: var(--front-100);
+  border: 1px solid var(--brand-100_25);
+  border-radius: .5rem;
+  box-shadow: 0 0 100vh var(--brand-100);
+}
+
+.author__wrapper {
+  max-width: var(--container-width);
+  padding: 0 var(--section-padding);
+  margin: 0 auto;
+}
+
+.author__person {
+  margin: 0 auto;
+  font-family: var(--font-alt);
+  font-size: 2.125rem;
+  font-weight: 300;
+  color: var(--front-100);
+  text-align: left;
+  text-shadow: 0 0 1em var(--contrast-100);
+}
+
+.author__description {
+  font-size: 1rem;
+  text-align: justify;
+  text-shadow: 0 0 1px var(--contrast-100);
+}
+
+.author__description a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-100);
+}
+
+.author__description a:hover,
+.author__description a:focus {
+  color: var(--brand-100);
+}

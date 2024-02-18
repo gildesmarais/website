@@ -1,37 +1,35 @@
-@import "css/minireset.css";
-@import "css/nav.css";
-@import "css/movie_ratings_nav.css";
+@import url("css/minireset.css");
+@import url("css/nav.css");
+@import url("css/movie_ratings_nav.css");
 
 :root {
   --rem: 18px;
-
   --font: "Arial", sans-serif;
-  --font-alt: Gill Sans, Gill Sans MT, Calibri, sans-serif;
-  --font-mono: SFMono-Regular, Menlo, "Ubuntu Mono", Consolas, "Monaco",
+  --font-alt: gill sans, gill sans mt, calibri, sans-serif;
+  --font-mono: sfmono-regular, menlo, "Ubuntu Mono", consolas, "Monaco",
     "Lucida Console", monospace;
-
   --line-height: 1.25;
+  --back-900: hsl(212deg 3% 0%);
+  --back-800: hsl(212deg 3% 3%);
+  --back-700: hsl(212deg 3% 6%);
+  --back-600: hsl(212deg 3% 9%);
+  --back-500: hsl(212deg 3% 15%);
+  --back-400: hsl(212deg 3% 21%);
+  --back-300: hsl(212deg 3% 30%);
+  --front-500: hsl(72deg 6% 63%);
+  --front-400: hsl(72deg 6% 67%);
+  --front-300: hsl(72deg 6% 77%);
+  --front-200: hsl(72deg 6% 87%);
+  --front-100: hsl(72deg 6% 97%);
+  --brand-100_25: hsl(32deg 100% 50% / 25%);
+  --brand-100_75: hsl(32deg 100% 50% / 75%);
+  --brand-100: hsl(32deg 100% 50%);
+  --contrast-100: hsl(212deg 93% 43%);
+  --yellow-400: hsl(47deg 92% 28%);
+  --yellow-300: hsl(47deg 92% 33%);
+  --yellow-200: hsl(47deg 92% 43%);
+  --yellow-100: hsl(47deg 92% 53%);
 
-  --back-900: hsl(212, 3%, 0%);
-  --back-800: hsl(212, 3%, 3%);
-  --back-700: hsl(212, 3%, 6%);
-  --back-600: hsl(212, 3%, 9%);
-  --back-500: hsl(212, 3%, 15%);
-  --back-400: hsl(212, 3%, 21%);
-  --back-300: hsl(212, 3%, 30%);
-
-  --front-500: hsl(72, 6%, 63%);
-  --front-400: hsl(72, 6%, 67%);
-  --front-300: hsl(72, 6%, 77%);
-  --front-200: hsl(72, 6%, 87%);
-  --front-100: hsl(72, 6%, 97%);
-  --brand-100: hsl(32, 100%, 50%);
-  --contrast-100: hsl(212, 93%, 43%);
-
-  --yellow-400: hsl(47, 92%, 28%);
-  --yellow-300: hsl(47, 92%, 33%);
-  --yellow-200: hsl(47, 92%, 43%);
-  --yellow-100: hsl(47, 92%, 53%);
   /* the higher, the more in the back */
 }
 
@@ -48,7 +46,7 @@
 
 /* “ ” ‘ ’ */
 
-@media (min-width: 658px) {
+@media (width >= 658px) {
   :root {
     --rem: 19px;
   }
@@ -76,7 +74,7 @@ html {
   color: var(--front-200);
   background-color: var(--back-700);
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -98,6 +96,8 @@ pre {
 @media (hover: hover) {
   a {
     text-decoration: none;
+    text-decoration-thickness: 0.1em;
+    text-decoration-color: var(--brand-100);
     transition: filter 0.2s linear;
   }
 
@@ -124,8 +124,8 @@ h6 {
 h1 {
   font-size: 2.125rem;
   text-decoration: underline;
-  text-decoration-thickness: 0.125rem;
-  text-decoration-color: var(--back-500);
+  text-decoration-thickness: 0.1em;
+  text-decoration-color: var(--brand-100_75);
 }
 
 h2 {
@@ -166,10 +166,9 @@ img {
 }
 
 .page {
-  margin: 0 auto;
-  padding: 0 0.5rem;
-
   max-width: 40rem;
+  padding: 0 0.5rem;
+  margin: 0 auto;
 }
 
 /* #region index */
@@ -184,6 +183,7 @@ img {
 }
 
 /* #endregion */
+
 /* #region projects */
 .projects dd,
 .projects dt {
@@ -208,6 +208,7 @@ img {
 .recent_posts time {
   color: var(--front-100);
 }
+
 /* #endregion */
 
 dl.as-table {
