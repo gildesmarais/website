@@ -55,8 +55,9 @@ a.movie-rating__imdb,
   text-decoration: none;
 }
 
-.movie-rating__my-rating > span {
-  font-size: 1.5em;
+.movie-rating__my-rating sup {
+  font-size: 1.25em;
+  font-weight: bold;
 }
 
 a.movie-rating__imdb:hover,

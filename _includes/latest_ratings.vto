@@ -1,0 +1,17 @@
+---
+---
+{{ set imdb_ratings_movies = imdb_ratings.filter(imdb => imdb['Title Type'] === 'movie').sort((a,b) => a['Date Rated'] - b['Date Rated']).slice(-5) }}
+<section>
+  <h2>Recently rated movies</h2>
+
+  <dl class="as-table">
+    {{ for imdb of imdb_ratings_movies }}
+      <dt>{{ imdb.Title }}</dt>
+      <dd>
+        <sup>{{ imdb['Your Rating'] }}</sup>⁄<sub>10</sub>
+      </dd>
+    {{ /for }}
+  </dl>
+
+  <p>Browse <a href="/movie_ratings">all movie ratings</a>.</p>
+</section>

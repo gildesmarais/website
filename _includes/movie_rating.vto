@@ -39,7 +39,9 @@
       <dd>
         <span class="movie-rating__my-rating">
          {{ imdb['Your Rating'] |> star_rating }}
-         <span>{{ imdb['Your Rating'] }}</span>
+         <span>
+          <sup>{{ imdb['Your Rating'] }}</sup>⁄<sub>10</sub>
+         </span>
         </span>
       </dd>
     </dl>
