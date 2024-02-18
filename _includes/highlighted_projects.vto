@@ -1,22 +1,18 @@
 ---
 ---
-
+{{ set data = search.data('projects') }}
 <section>
   <h2>Highlighted Projects</h2>
 
   <dl class="as-table">
-    {{ for project of projects }}
+    {{ for project_id of data.highlighted_ids }}
+      {{ set project = data[project_id] }}
       <dt><a href="{{project.url}}">{{ project.name }}</a></dt>
       <dd>{{ project.tagline }}</dd>
     {{ /for }}
   </dl>
 
   <p>
-    Find more projects on
-    <a
-      href="{{ site.github_profile_url }}"
-      target="_blank"
-      rel="noopener"
-      >my Github profile</a>.
+    Explore <a href="/projects">more projects ›</a>
   </p>
 </section>

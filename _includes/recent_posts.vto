@@ -10,7 +10,7 @@
   <ol class="recent_posts">
     {{ for post of posts }}
       <li>
-        <a href="{{post.url}}">
+        <a href="{{post.url}}" lang="{{post.lang}}">
           {{ post.title }}
         </a>
         <time datetime="{{ post.date }}" title="{{ page.date }}">
@@ -19,4 +19,6 @@
       </li>
     {{ /for }}
   </ol>
+
+  <p>See <a href="/blog">all posts ›</a></p>
 </section>
