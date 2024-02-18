@@ -11,13 +11,11 @@
     {{ for post of posts }}
       <li>
         <a href="{{post.url}}">
-          <time datetime="{{ post.date }}" title="{{ page.date }}">
-          {{ post.date |> date('ISO_DATE') }}
-
-          &ndash;
-          </time>
           {{ post.title }}
-          </a>
+        </a>
+        <time datetime="{{ post.date }}" title="{{ page.date }}">
+          {{ post.date |> date('ISO_DATE') }}
+          </time>
       </li>
     {{ /for }}
   </ol>
