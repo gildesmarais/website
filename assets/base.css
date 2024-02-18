@@ -46,7 +46,7 @@
 
 /* “ ” ‘ ’ */
 
-@media (width >= 658px) {
+@media screen and (width >= 658px) {
   :root {
     --rem: 19px;
   }
@@ -152,6 +152,10 @@ img {
   max-width: 100%;
 }
 
+dl {
+  font-variant: all-petite-caps;
+}
+
 /* #endregion */
 
 .visually-hidden {
@@ -214,6 +218,7 @@ img {
 dl.as-table {
   display: grid;
   grid-template-columns: max-content auto;
+  grid-gap: 0 1em;
 }
 
 dl.as-table > dt {

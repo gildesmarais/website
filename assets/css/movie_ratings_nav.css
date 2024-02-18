@@ -1,5 +1,6 @@
 .movie_ratings_nav > ul {
   --height: 2em;
+
   display: flex;
   flex-wrap: wrap;
   margin-left: 0;
@@ -9,7 +10,6 @@
 .movie_ratings_nav > ul > li {
   display: flex;
   flex: 1 1 calc(100% / 5);
-
   align-items: center;
   height: var(--height);
   margin: 1px;

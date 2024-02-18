@@ -31,14 +31,15 @@
       <dd><span class="movie-rating__genres">{{ imdb['Genres'] }}</span></dd>
       <dt>IMDB Rating:</dt>
       <dd>
-        <a href="https://www.imdb.com/title/{{ imdb.Const }}/" class="movie-rating__imdb">
-          {{ imdb['IMDb Rating'] }} / 10
+        <a href="https://www.imdb.com/title/{{ imdb.Const }}/" class="movie-rating__imdb" title="{{imdb['IMDb Rating']}}">
+          {{ Math.floor(imdb['IMDb Rating']) }}
         </a>
       </dd>
       <dt>My Rating:</dt>
       <dd>
         <span class="movie-rating__my-rating">
-          {{ imdb['Your Rating'] }}</sup> {{ imdb['Your Rating'] |> star_rating }}
+         {{ imdb['Your Rating'] |> star_rating }}
+         <span>{{ imdb['Your Rating'] }}</span>
         </span>
       </dd>
     </dl>
@@ -46,10 +47,9 @@
     {{ if recommendation }}
       <meta
         itemprop="author"
-        content="{{ if typeof(post) !== 'undefined' && post?.author }}{{post.author}}{{ else }}{{ site.author }}{{ /if }}"
+        content="{{ if typeof(post) !== 'undefined' && post?.author }}{{post.author}}{{ else }}{{ site.author.name }}{{ /if }}"
       />
-      <meta itemprop="datePublished" content="{{ page.date |> date  }}" />
-      <meta itemprop="name" content="{{ rating['title'] }}" />
+      <meta itemprop="name" content="{{ imdb['Title'] }}" />
       <p class="movie-rating__rating--recommendation" itemprop="reviewBody">
         {{ rating['note'] }}
       </p>
