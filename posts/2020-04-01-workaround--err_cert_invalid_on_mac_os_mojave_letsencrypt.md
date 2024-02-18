@@ -36,4 +36,4 @@ I'm not 100% sure why macOS renders the system-provided cert invalid.
 
 I assume it has something to do with [Apple's upcoming changes in _Extended KeyUsage_](https://support.apple.com/en-us/HT210176). However, that change is due with macOS 10.15 (macOS Mojave is 10.14).
 
-[^1]: Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like _cURL_.
+[^1]: Some browsers, like Firefox, do not rely on the system's certificate management and bring their own. With such a browser you could still browse. Same goes for some command line utilities like _cURL_.

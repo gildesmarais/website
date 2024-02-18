@@ -40,12 +40,12 @@ Service angeboten wird. Bei meinem E51 ist das der Channel 2.
 
 Ein letztes Mal wird die MAC Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit: `sudo gedit /etc/bluetooth/rfcomm.conf`) und folgendes hineinschreiben.
 
-     rfcomm0 {
-       bind yes;
-       device <mac>;
-       channel <channel>;
-       comment "Nokia E51 BT Dial-Up";
-     }
+   rfcomm0 {
+     bind yes;
+     device <mac>;
+     channel <channel>;
+     comment "Nokia E51 BT Dial-Up";
+   }
 
 Speichern und danach mit
 
@@ -57,7 +57,7 @@ Nun _wvdial_ installieren.
 
 Zum Konfigurieren der Verbindung einfach die Sektion
 
-```
+```ini
 [Dialer Defaults]
 ```
 
@@ -65,19 +65,21 @@ kopieren und ans Ende der Datei einfügen. Sektionname ändern, bspw. in
 
 `[Dialer bluetooth]`, und als Modem _/dev/rfcomm0_ setzen. Wer die USB Datenkabel Verbindung nicht einrichten will, kann diesen Abschnitt dennoch so kopieren und nutzen, wenn* wvdial* installiert ist.
 
-    [Dialer bluetooth]
-    Modem = /dev/rfcomm0
-    Baud = 460800
-    SetVolume = 0
-    Dial Command = ATDT
-    FlowControl = NoFlow
-    Init1 = ATZ
-    Init2 = ATM0
-    Username = eplus
-    Password = gprs
-    Phone = \*99#
-    Init3 = AT+CGDCONT=1,"ip","internet.eplus.de"
-    Stupid Mode = 1
-    Dial Attempts = 3
+```ini
+[Dialer bluetooth]
+Modem = /dev/rfcomm0
+Baud = 460800
+SetVolume = 0
+Dial Command = ATDT
+FlowControl = NoFlow
+Init1 = ATZ
+Init2 = ATM0
+Username = eplus
+Password = gprs
+Phone = \*99#
+Init3 = AT+CGDCONT=1,"ip","internet.eplus.de"
+Stupid Mode = 1
+Dial Attempts = 3
+```
 
 Nun mit _wvdial bluetooth_ einwählen. Viel Spaß beim kabellosen Surfen.

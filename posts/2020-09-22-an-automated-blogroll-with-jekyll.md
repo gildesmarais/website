@@ -125,7 +125,6 @@ Add your HTML. Here's what I'm using:
 layout: default
 ---
 
-{% raw %}
 <ul>
   {% assign blogroll = site.data.blogroll | sort_natural: "feed_title" %} {% for
   blog in blogroll %}
@@ -137,7 +136,6 @@ layout: default
   </li>
   {% endfor %}
 </ul>
-{% endraw %}
 ```
 
 ## The Github Actions workflow
@@ -147,7 +145,7 @@ To automatically update the blogroll, [schedule](https://docs.github.com/en/acti
 Example:
 
 ```yml
-{% raw %}name: jekyll build and publish artifact with rsync
+name: jekyll build and publish artifact with rsync
 
 on:
   push:
@@ -167,7 +165,7 @@ jobs:
           NB_PASSWORD: ${{secrets.NB_PASSWORD}}
           NB_FOLDER: ${{secrets.NB_FOLDER}}
         run: bin/blogroll "$NB_USERNAME" "$NB_PASSWORD" "$NB_FOLDER"
-      # clipped: the usual build and deploy stuff{% endraw %}
+      # clipped: the usual build and deploy stuff
 ```
 
 And lastly, add the required secrets (`NB_*`) to your website's repository settings.

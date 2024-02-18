@@ -11,10 +11,7 @@ It would be foolish and not pragmatic for a developer to not have (something lik
 
 Let me introduce Pal:
 
-{% slider %}
 ![picture of a pet toy alligator](/assets/images/posts/2020-04-16-pal.jpg)
-{% endslider %}
-{{page.glide}}
 
 _Pal_ is short for **p**rogramming **al**ligator.
 

@@ -13,14 +13,14 @@ Aus einem handelsüblichen Kaffeefilter Größe 4 kann man mit einem Handgriff e
 **So geht's:**
 
 1. Den Kaffeefilter mit der geriffelten Seite nach rechts-unten legen.
-2. Die geriffelte Seite hochklappen, so dass ein 90° Winkel in der Ecke links-unten entsteht.
-3. Filter einsetzen.
 
-{% slider %}
-<img alt="Ausgangslage" src="/assets/images/posts/2020-12-04-filter.jpg" loading="eager">
-<img alt="Gefaltet" src="/assets/images/posts/2020-12-04-gefaltet.jpg" loading="lazy">
-<img alt="Resultat" src="/assets/images/posts/2020-12-04-resultat.jpg" loading="lazy">
-{% endslider %}
+![Ausgangslage](/assets/images/posts/2020-12-04-filter.jpg)
+
+2. Die geriffelte Seite hochklappen, so dass ein 90° Winkel in der Ecke links-unten entsteht.
+
+![Gefaltet](/assets/images/posts/2020-12-04-gefaltet.jpg)
+
+3. Filter einsetzen.
 
 Es empfiehlt sich vor der Nutzung -- insb. bei braunen Filtern -- ein gründliches Ausspülen mit warmen Wasser, um geschmackbringende Partikel loszuwerden.
 Beim gefalteten Filter entsteht eine kleine Lippe an der Knickstelle. Der Wasserstrudel sollte also in die richtige Richtung drehen, so dass das Wasser nicht hinter diese Lippe gelangt, sondern darüber läuft.

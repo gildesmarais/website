@@ -10,6 +10,12 @@ layout: page.vto
 
   {{ content }}
 
+  {{ if typeof(image) !== 'undefined'}}
+  <figure class="post__image">
+    <img src="{{ image }}" alt="{{ title }}" />
+  </figure>
+  {{ /if }}
+
   <aside class="message post__message">
     <b>Thank you for reading my post!</b>
     If you don’t want to miss any future posts, subscribe to the
@@ -18,7 +24,6 @@ layout: page.vto
     >
     to stay in touch.
   </aside>
-
 </article>
 
 <aside class="author">

@@ -157,6 +157,15 @@ dl {
   font-variant: all-petite-caps;
 }
 
+kbd {
+  display: inline-block;
+  padding: 0.1em 0.25em;
+  font-size: 0.875em;
+  white-space: nowrap;
+  background-color: var(--back-500);
+  border: 1px solid var(--brand-100_25);
+  border-radius: 2px;
+}
 /* #endregion */
 
 .visually-hidden {
