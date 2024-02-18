@@ -84,10 +84,10 @@
 }
 
 .post__message {
-  padding:2em 1em;
-  margin: 5rem 0 ;
+  padding: 2em 1em;
+  margin: 5rem 0;
   content-visibility: auto;
-  font-size: .875em;
+  font-size: 0.875em;
   border: 0.25em double var(--brand-100_25);
   border-right: 0;
   border-left: 0;

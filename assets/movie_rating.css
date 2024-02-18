@@ -58,6 +58,7 @@ a.movie-rating__imdb,
 .movie-rating__my-rating > span {
   font-size: 1.5em;
 }
+
 a.movie-rating__imdb:hover,
 a.movie-rating__imdb:focus {
   color: var(--yellow-100);

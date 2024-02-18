@@ -1,6 +1,7 @@
 @import url("css/minireset.css");
 @import url("css/nav.css");
 @import url("css/movie_ratings_nav.css");
+@import url("css/pronunciation.css");
 
 :root {
   --rem: 18px;
@@ -174,19 +175,6 @@ dl {
   padding: 0 0.5rem;
   margin: 0 auto;
 }
-
-/* #region index */
-#index-ipa {
-  font-size: 0.375em;
-}
-
-#index-ipa img {
-  max-width: 1rem;
-  max-height: var(--line-height);
-  cursor: pointer;
-}
-
-/* #endregion */
 
 /* #region projects */
 .projects dd,

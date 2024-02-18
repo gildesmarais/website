@@ -6,18 +6,8 @@ posts_to_show: 5
 <section class="h-card index" id="hcard-{{ (site.author.name).replaceAll(' ', '-') }}">
   <h1>
     <span class="p-name">{{ site.author.name }}</span>
-
-    <figure id="index-ipa" class="index__ipa">
-      <figcaption onClick={playAudio}>
-        <span class="p-ipa">[ʒ​ɪ​l dɛsm​​ɐ​ʁɛ]</span>
-        <img
-          src="/assets/speaker.svg"
-          alt="A speaker icon symbolizing a link to a spoken version of this website's author name"
-          role="button" />
-      </figcaption>
-      <audio preload="metadata" src="/assets/index.flac"></audio>
-    </figure>
   </h1>
+  {{ include 'pronunciation.vto' }}
 
   <p>
     <span class="p-job-title">Full Stack Developer</span> &ndash; <span class="p-locality">Berlin</span>, GER
