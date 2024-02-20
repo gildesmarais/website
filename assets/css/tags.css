@@ -1,0 +1,44 @@
+.tag {
+  display: inline-block;
+  font-size: 0.875em;
+  padding: 0.2em 0.3em;
+  margin: 0.15em 0.15em 0.15em 0;
+  line-height: 1.14;
+  white-space: nowrap;
+  color: var(--front-400);
+  border: 1px solid var(--brand-100_25);
+  border-radius: 0.3em;
+
+  flex: 0;
+  align-self: center;
+  text-decoration-color: transparent;
+}
+
+.tag:first-child {
+  margin-left: 0;
+}
+
+a.tag,
+.tag>a {
+  border-color: var(--back-300);
+}
+
+a.tag:focus,
+a.tag:hover,
+.tag>a:focus,
+.tag>a:hover {
+  color: var(--brand-100);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1em;
+  margin: 2em auto;
+  list-style: none;
+}
+
+.tags a {
+  text-decoration: none;
+}

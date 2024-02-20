@@ -2,6 +2,7 @@
 @import url("css/nav.css");
 @import url("css/movie_ratings_nav.css");
 @import url("css/pronunciation.css");
+@import url("css/tags.css");
 
 :root {
   --rem: 18px;
