@@ -1,11 +1,16 @@
 const ready = (() => {
   const makeEmailLinkClickable = () => {
     const body = encodeURIComponent(
-      `Hi Gil,\nI found your contact details on ${window.location.href}\n`,
+      `Hi Gil,\nI found your contact details on ${window.location.href}\n\n`,
     );
 
     [].forEach.call(document.querySelectorAll("[data-mail]"), (el) => {
-      el.href = `mailto:${el.dataset.mail}?body=${body}`;
+      const span = document.createElement("span");
+      span.innerHTML = atob(el.dataset.mail);
+      const mail = span.innerText;
+      delete el.dataset.mail;
+
+      el.href = `mailto:${mail}?body=${body}`;
     });
   };
 
