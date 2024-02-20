@@ -167,6 +167,19 @@ kbd {
   border-radius: 2px;
 }
 
+blockquote {
+  margin: 1.5em 0;
+  padding: 0.5em 1em;
+  background-color: var(--back-600);
+  border-left: 0.25em solid var(--brand-100_25);
+  color: var(--front-300);
+  font-size: 0.875em;
+}
+
+blockquote > header {
+  font-weight: 600;
+}
+
 /* #endregion */
 
 .visually-hidden {

@@ -7,6 +7,12 @@ tags:
   - ruby
 ---
 
+<blockquote>
+  <header>Update of 2023-02-20:</header>
+  This blog is not built by Jekyll any more.
+  The blogroll feature has been removed from this blog.
+</blockquote>
+
 A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000s, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
 
 Anyway, I've automated the updating of my [blogroll](/blogroll) to link to blogs I subscribe to and recommend others to do the same.
