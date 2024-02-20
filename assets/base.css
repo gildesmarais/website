@@ -194,6 +194,13 @@ kbd {
 
 /* #endregion */
 
+.address {
+  display: block;
+  font-style: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
 /* #region recent_posts */
 .recent_posts {
   list-style: none;
