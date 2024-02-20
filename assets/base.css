@@ -199,6 +199,7 @@ kbd {
   font-style: normal;
   pointer-events: none;
   user-select: none;
+  line-height: 1;
 }
 
 /* #region recent_posts */

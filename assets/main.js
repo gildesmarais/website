@@ -39,10 +39,23 @@ const ready = (() => {
     );
   };
 
+  const setupNoContextMenu = () => {
+    if (!document.querySelector("[data-nocontextmenu]")) {
+      return;
+    }
+
+    document.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+  };
+
   return (_) => {
-    [setupPronunciation, makeEmailLinkClickable, printToConsole].forEach((fn) =>
-      globalThis.setTimeout(fn, 0),
-    );
+    [
+      setupPronunciation,
+      makeEmailLinkClickable,
+      printToConsole,
+      setupNoContextMenu,
+    ].forEach((fn) => globalThis.setTimeout(fn, 0));
   };
 })();
 
