@@ -1,0 +1,37 @@
+---
+layout: page.vto
+project_ids:
+  - html2rss
+  - jekyll-loading-lazy
+---
+<section>
+  <h1>Projects</h1>
+
+  {{ set data = search.data('projects') }}
+
+  <ul>
+  {{ for project_id of data.highlighted_ids }}
+    {{ set project = data[project_id] }}
+    <li>
+      {{ set project = data[project_id] }}
+      <h2>{{ project.name }}</h2>
+      <p>
+        {{ project.tagline }}
+        <br>
+        <a href="{{project.url}}">Read more ›</a>
+      </p>
+    </li>
+  {{ /for }}
+  </ul>
+
+  <p>
+    This is just a small selection of my projects.
+
+    Find more of what I code on
+    <a
+      href="{{ site.github_profile_url }}"
+      target="_blank"
+      rel="noopener"
+      >my Github profile</a>.
+  </p>
+</section>
