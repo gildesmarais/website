@@ -1644,5 +1644,14 @@
     "https://esm.sh/v135/unist-util-visit@4.1.2/denonext/unist-util-visit.mjs": "17fb2ed178b4f6ac073c362ca95680df240fcfb6a324ad79fab34314a3c06929",
     "https://esm.sh/v135/unist-util-visit@5.0.0/denonext/unist-util-visit.mjs": "6c1b5b3d517cc6dbc88406b2dbab1735d503a797e994dbd4a89f3764098318f7",
     "https://wilsonl.in/minify-html/deno/0.15.0/index.js": "8e7ee5067ca84fb5d5a1f33118cac4998de0b7d80b3f56cc5c6728b84e6bfb70"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:stylelint-config-recess-order@4.6.0",
+        "npm:stylelint-config-standard@36.0.0",
+        "npm:stylelint@16.2.1"
+      ]
+    }
   }
 }

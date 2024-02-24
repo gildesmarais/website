@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "1. Built with https://lume.land/ 2. https://lume.land/docs/overview/about-lume/",
+  "scripts": {
+    "lintfix": "stylelint --fix 'assets/**/*.css'"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "stylelint": "16.2.1",
+    "stylelint-config-recess-order": "4.6.0",
+    "stylelint-config-standard": "36.0.0"
+  }
+}
