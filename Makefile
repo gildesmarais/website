@@ -21,7 +21,7 @@ pcp: | clean fix
 ci-install:
 	yum install -y xz
 	gem install bundler
-	bundle install
+	bundle install --jobs $(nproc) --retry 3
 
 build:
 	echo "Fleamarket: pulling from discogs"
