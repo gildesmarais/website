@@ -19,7 +19,9 @@ pcp: | clean fix
 	git push
 
 ci-install:
-	gem install bundler && bundle install
+	yum install -y xz
+	gem install bundler
+	bundle install
 
 build:
 	echo "Fleamarket: pulling from discogs"
