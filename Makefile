@@ -15,10 +15,10 @@ ci-install:
 	curl -fsSL https://deno.land/install.sh | sh
 	export DENO_INSTALL="/vercel/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
-	deno install --allow-run --allow-env --allow-read --name lume --force --reload https://deno.land/x/lume_cli/mod.ts
+	/vercel/.deno/bin/deno install --allow-run --allow-env --allow-read --name lume --force --reload https://deno.land/x/lume_cli/mod.ts
 
 build:
-	deno task lume
+	/vercel/.deno/bin/deno task lume
 
 post-deploy:
 	# curl -fsS http://www.google.com/webmasters/sitemaps/ping?sitemap=https://gil.desmarais.de/sitemap.xml
