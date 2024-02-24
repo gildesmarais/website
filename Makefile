@@ -12,6 +12,7 @@ serve:
 	open http://127.0.0.1:3000
 
 ci-install:
+	curl -fsSL https://deno.land/install.sh | sh
 	deno install --allow-run --allow-env --allow-read --name lume --force --reload https://deno.land/x/lume_cli/mod.ts
 
 build:
