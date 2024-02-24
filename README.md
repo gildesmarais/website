@@ -15,7 +15,7 @@
 
 - import csv with LibreOffice Calc (Get columns right!)
 - sort ratings by "Date Rated" (data -> autofilter -> sort desc)
-- save as ragings.csv
+- save as ratings.csv
 
 Go ahead and create recommendations for newly added movies.
 
