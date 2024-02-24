@@ -169,12 +169,12 @@ kbd {
 }
 
 blockquote {
-  margin: 1.5em 0;
   padding: 0.5em 1em;
+  margin: 1.5em 0;
+  font-size: 0.875em;
+  color: var(--front-300);
   background-color: var(--back-600);
   border-left: 0.25em solid var(--brand-100_25);
-  color: var(--front-300);
-  font-size: 0.875em;
 }
 
 blockquote > header {
@@ -211,9 +211,9 @@ blockquote > header {
 .address {
   display: block;
   font-style: normal;
+  line-height: 1;
   pointer-events: none;
   user-select: none;
-  line-height: 1;
 }
 
 /* #region recent_posts */
@@ -222,10 +222,10 @@ blockquote > header {
 }
 
 .recent_posts > li {
-  padding: 0.25em 0;
-  font-size: 0.875em;
   display: flex;
   justify-content: space-between;
+  padding: 0.25em 0;
+  font-size: 0.875em;
 }
 
 .recent_posts > li:nth-child(odd) {
@@ -238,10 +238,10 @@ blockquote > header {
 }
 
 .recent_posts time {
-  color: var(--front-300);
   font-family: var(--font-mono);
-  white-space: nowrap;
   font-size: 0.875em;
+  color: var(--front-300);
+  white-space: nowrap;
 }
 
 /* #endregion */

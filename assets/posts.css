@@ -7,19 +7,19 @@
 }
 
 .post code {
-  white-space: pre;
-  user-select: all;
   padding: 0 0.15em;
   color: var(--front-400);
+  white-space: pre;
+  user-select: all;
   border: 1px solid var(--brand-100_25);
 }
 
 .post pre > code {
   display: block;
   padding: 0.5em 1em;
+  font-size: 0.75em;
   line-height: 1.15;
   user-select: text;
-  font-size: 0.75em;
 }
 
 .post img {
@@ -46,9 +46,9 @@
 }
 
 .post__image {
+  height: fit-content;
   margin: 1rem 0;
   text-align: center;
-  height: fit-content;
 }
 
 .post__image img {
@@ -83,12 +83,12 @@
 
 .post .footnotes ol > li::before {
   display: inline-block;
+  margin-right: 0.25em;
   font-family: var(--font-mono);
   font-variant: unicase;
+  color: var(--brand-100);
   content: "[" counters(section, ".") "]";
   counter-increment: section;
-  color: var(--brand-100);
-  margin-right: 0.25em;
 }
 
 .post .footnotes ol > li {
@@ -96,8 +96,8 @@
 }
 
 .post .footnotes ol > li:target {
-  border: 1px dotted var(--contrast-100);
   background: var(--back-600);
+  border: 1px dotted var(--contrast-100);
 }
 
 .post .footnotes ol > li > p {

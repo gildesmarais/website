@@ -30,8 +30,8 @@
 }
 
 .nav ol > li::after {
-  content: " | ";
   color: var(--brand-100_25);
+  content: " | ";
 }
 
 .nav > ol > li {
