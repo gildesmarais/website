@@ -19,10 +19,9 @@ pcp: | clean fix
 	git push
 
 ci-install:
-	yum install xz
+	yum install -y xz
 	gem install bundler
-	bundle config --global frozen 1
-	bundle install
+	bundle install --jobs 4 --retry 3
 
 build:
 	echo "Fleamarket: pulling from discogs"

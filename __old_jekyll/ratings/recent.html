@@ -12,7 +12,7 @@ tags:
 
 <p>{{page.description}}</p>
 
-{% assign ratings = site.data.ratings | sort_natural: 'Date Rated' | reverse | slice: 0, 50 %}
+{% assign ratings = site.data.ratings | sort_natural: 'Date Rated' | reverse | slice: 0, 100 %}
 {% for imdb in ratings %}
 {% include movie-rating.html %}
 {% endfor %}
