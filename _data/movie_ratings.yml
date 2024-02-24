@@ -724,3 +724,22 @@ round5:
     recommendation: true
     note: |
       A colorful interpretation and dark movie implementation of the 1929 novel.
+  - const: tt1379182
+    recommendation: true
+    note: |
+      In my opinion this is Yorgos Lanthimos' best movie so far (Feb' 2024).
+  - const: tt0072431
+    recommendation: true
+    note: |
+      This Frankenstein mock comedy was really special and intelligent. I LOL'ed a lot.
+  - const: tt9603212
+    recommendation: true
+    note: |
+      A genre-defining, well, let's say, genre-bending movie.
+      It's a must-see for every Action movie enthusiast.
+  - const: tt0181653
+    recommendation: true
+    note: |
+      A german Christmas movie with Harald Junke in the main role.
+      Most of the movie is set in Berlin and beside the cold weather during the seasons,
+      the vibe is heartwarming.
