@@ -1,6 +1,10 @@
 ---
+movie_ratings:
+  count: 5
 ---
-{{ set imdb_ratings_movies = imdb_ratings.filter(imdb => imdb['Title Type'] === 'movie').sort((a,b) => a['Date Rated'] - b['Date Rated']).slice(-5) }}
+{{ set imdb_ratings_movies = imdb_ratings.filter(imdb => imdb['Title Type'] === 'movie')
+                                         .sort((a,b) => a['Date Rated'] - b['Date Rated'])
+                                         .slice(-movie_ratings.count) }}
 <section>
   <h2>Recently rated movies</h2>
 
@@ -13,5 +17,7 @@
     {{ /for }}
   </dl>
 
+  {{ if typeof(movie_ratings.show_more_link) !== 'undefined' && movie_ratings.show_more_link === true }}
   <p>Browse <a href="/movie_ratings">all movie ratings ›</a></p>
+  {{/if}}
 </section>
