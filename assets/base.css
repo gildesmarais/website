@@ -33,6 +33,8 @@
   --yellow-100: hsl(47deg 92% 53%);
 
   /* the higher, the more in the back */
+
+  --size-s: 0.875em;
 }
 
 :root:lang(de),
@@ -86,8 +88,10 @@ body {
 }
 
 a {
-  color: var(--brand-100);
+  color: var(--front-200);
   text-decoration: underline;
+  text-decoration-color: var(--brand-100_75);
+  text-decoration-thickness: 0.125em;
 }
 
 code,
@@ -97,16 +101,12 @@ pre {
 
 @media (hover: hover) {
   a {
-    text-decoration: none;
-    text-decoration-thickness: 0.1em;
-    text-decoration-color: var(--brand-100);
-    transition: filter 0.2s linear;
+    transition: text-decoration-color 0.2s linear;
   }
 
   a:hover,
   a:focus {
-    text-decoration: underline;
-    filter: saturate(1.5);
+    text-decoration-color: var(--brand-100);
   }
 }
 
@@ -125,9 +125,6 @@ h6 {
 
 h1 {
   font-size: 2.125rem;
-  text-decoration: underline;
-  text-decoration-thickness: 0.1em;
-  text-decoration-color: var(--brand-100_75);
 }
 
 h2 {
@@ -161,7 +158,7 @@ dl {
 kbd {
   display: inline-block;
   padding: 0.1em 0.25em;
-  font-size: 0.875em;
+  font-size: var(--size-s);
   white-space: nowrap;
   background-color: var(--back-500);
   border: 1px solid var(--brand-100_25);
@@ -171,7 +168,7 @@ kbd {
 blockquote {
   padding: 0.5em 1em;
   margin: 1.5em 0;
-  font-size: 0.875em;
+  font-size: var(--size-s);
   color: var(--front-300);
   background-color: var(--back-600);
   border-left: 0.25em solid var(--brand-100_25);
@@ -225,7 +222,7 @@ blockquote > header {
   display: flex;
   justify-content: space-between;
   padding: 0.25em 0;
-  font-size: 0.875em;
+  font-size: var(--size-s);
 }
 
 .recent_posts > li:nth-child(odd) {
@@ -239,7 +236,7 @@ blockquote > header {
 
 .recent_posts time {
   font-family: var(--font-mono);
-  font-size: 0.875em;
+  font-size: var(--size-s);
   color: var(--front-300);
   white-space: nowrap;
 }
@@ -249,7 +246,9 @@ blockquote > header {
 dl.as-table {
   display: grid;
   grid-template-columns: max-content auto;
-  grid-gap: 0 1em;
+  grid-gap: 0;
+  font-variant: none;
+  font-size: var(--size-s);
 }
 
 dl.as-table > dt {
@@ -259,4 +258,10 @@ dl.as-table > dt {
 
 dl.as-table > dd {
   grid-column-start: 2;
+  text-align: right;
+}
+
+dl.as-table > dt:nth-child(4n + 1),
+dl.as-table > dt:nth-child(4n + 1) + dd {
+  background-color: var(--back-600);
 }
