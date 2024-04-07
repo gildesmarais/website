@@ -10,8 +10,7 @@
 
 .nav > a,
 .nav > a > img {
-  height: 1.61rem;
-  max-height: 1.61em;
+  height: 1em;
 }
 
 .nav > ol {
@@ -21,6 +20,8 @@
   justify-content: flex-start;
   margin-left: 0.5rem;
   list-style: none;
+  font-weight: 600;
+  font-variant: all-small-caps;
 }
 
 /* https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/ */

@@ -6,7 +6,6 @@
   margin: 25vh 0 0;
   color: var(--front-100);
   border: 1px solid var(--brand-100_25);
-  border-radius: .5rem;
   box-shadow: 0 0 100vh var(--brand-100);
 }
 
