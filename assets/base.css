@@ -79,7 +79,7 @@ html {
   font-variant-ligatures: common-ligatures;
   line-height: var(--line-height);
   color: var(--front-200);
-  background-color: var(--back-700);
+  background-color: var(--back-900);
   scroll-behavior: smooth;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
@@ -93,8 +93,8 @@ body {
 a {
   color: var(--front-200);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-decoration-color: var(--brand-100_50);
-  text-decoration-thickness: 0.125em;
 }
 
 code,
@@ -240,9 +240,9 @@ blockquote > header {
 
 .recent_posts time {
   font-size: var(--size-xs);
-  letter-spacing: 1px;
   font-variant-numeric: tabular-nums;
   color: var(--front-300);
+  letter-spacing: 1px;
   white-space: nowrap;
 }
 
@@ -252,8 +252,8 @@ dl.as-table {
   display: grid;
   grid-template-columns: max-content auto;
   grid-gap: 0;
-  font-variant: none;
   font-size: var(--size-s);
+  font-variant: none;
 }
 
 dl.as-table > dt {

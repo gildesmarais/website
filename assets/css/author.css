@@ -5,8 +5,8 @@
   padding: 2em var(--section-padding) 1em;
   margin: 25vh 0 0;
   color: var(--front-100);
-  border: 1px solid var(--brand-100_25);
-  box-shadow: 0 0 100vh var(--brand-100);
+  border: 2px solid var(--brand-100);
+  box-shadow: 0 0 15rem var(--brand-100);
 }
 
 .author__wrapper {
@@ -17,10 +17,7 @@
 
 .author__person {
   margin: 0 auto;
-  font-family: var(--font-alt);
-  font-size: 2.125rem;
-  font-weight: 300;
-  color: var(--front-100);
+  font-weight: 600;
   text-align: left;
   text-shadow: 0 0 1em var(--contrast-100);
 }
