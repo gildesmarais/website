@@ -13,6 +13,6 @@
     ]
   },
   "imports": {
-    "lume/": "https://deno.land/x/lume@v2.0.2/"
+    "lume/": "https://deno.land/x/lume@v2.1.0/"
   }
 }
