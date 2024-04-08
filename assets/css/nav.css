@@ -1,16 +1,22 @@
 .nav {
+  position: fixed;
+  top: 0;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-start;
+  width: var(--width-container);
   padding: 0.75rem 0;
-  background-color: var(--back-600);
-  border: 1px solid var(--back-500);
+  background-color: var(--back-700);
 }
 
 .nav > a,
 .nav > a > img {
   height: 1em;
+}
+
+.nav a {
+  color: var(--front-300);
 }
 
 .nav > ol {
@@ -19,9 +25,9 @@
   align-items: center;
   justify-content: flex-start;
   margin-left: 0.5rem;
-  list-style: none;
   font-weight: 600;
   font-variant: all-small-caps;
+  list-style: none;
 }
 
 /* https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/ */

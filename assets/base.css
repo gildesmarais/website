@@ -37,6 +37,7 @@
 
   --size-s: 0.875em;
   --size-xs: 0.75em;
+  --width-container: 40rem;
 }
 
 :root:lang(de),
@@ -195,7 +196,7 @@ blockquote > header {
 }
 
 .page {
-  max-width: 40rem;
+  max-width: var(--width-container);
   padding: 0 0.5rem;
   margin: 0 auto;
 }
