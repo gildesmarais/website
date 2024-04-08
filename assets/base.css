@@ -24,6 +24,7 @@
   --front-200: hsl(72deg 6% 87%);
   --front-100: hsl(72deg 6% 97%);
   --brand-100_25: hsl(32deg 100% 50% / 25%);
+  --brand-100_50: hsl(32deg 95% 50% / 60%);
   --brand-100_75: hsl(32deg 100% 50% / 75%);
   --brand-100: hsl(32deg 100% 50%);
   --contrast-100: hsl(212deg 93% 43%);
@@ -90,7 +91,7 @@ body {
 a {
   color: var(--front-200);
   text-decoration: underline;
-  text-decoration-color: var(--brand-100_75);
+  text-decoration-color: var(--brand-100_50);
   text-decoration-thickness: 0.125em;
 }
 
