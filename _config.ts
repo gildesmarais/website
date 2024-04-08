@@ -77,4 +77,36 @@ site.ignore("plugins", "README.md");
 
 site.copy("assets");
 
+const processPages = function processPages(page: Page): Promise<unknown> {
+  return new Promise((resolve) => {
+    const as = Array.from(
+      page.document?.querySelectorAll<HTMLAnchorElement>("a[href^='http']") ||
+        [],
+    );
+
+    as.forEach((a) => {
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    });
+
+    const is = Array.from(
+      page.document?.querySelectorAll<(HTMLImageElement | HTMLIFrameElement)>(
+        "img[src], iframe[src]",
+      ) || [],
+    );
+
+    is.forEach((i) => {
+      if (i.getAttribute("loading") === null) {
+        i.setAttribute("loading", "lazy");
+      }
+    });
+
+    resolve(true);
+  });
+};
+
+site.process([".html"], (pages) => {
+  Promise.all(pages.map(processPages));
+});
+
 export default site;
