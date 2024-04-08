@@ -20,14 +20,15 @@ import transform_images from "lume/plugins/transform_images.ts";
 import star_rating from "./plugins/star_rating.ts";
 
 // markdown plugins (for remark)
-import remarkCapitalize from 'https://esm.sh/remark-capitalize';
-import remarkSlug from 'https://esm.sh/remark-slug';
-import remarkToc from 'https://esm.sh/remark-toc@9';
+import remarkCapitalize from "https://esm.sh/remark-capitalize";
+import remarkSlug from "https://esm.sh/remark-slug";
+import remarkToc from "https://esm.sh/remark-toc@9";
+import { Page } from "lume/core/file.ts";
 
 const site = lume(
   {
     location: new URL("https://gil.desmarais.de/"),
-  }
+  },
 );
 
 site.data("site", site);
@@ -37,9 +38,9 @@ site.use(date(
   {
     formats: {
       "ISO_DATE": "yyyy-MM-dd",
-      "HUMAN_DATE": "dd MMMM yyyy"
-    }
-  }
+      "HUMAN_DATE": "dd MMMM yyyy",
+    },
+  },
 ));
 site.use(favicon());
 site.use(feed({
@@ -51,7 +52,7 @@ site.use(feed({
   },
   items: {
     title: "=title",
-  }
+  },
 }));
 site.use(inline());
 site.use(lightningCss({
@@ -65,14 +66,18 @@ site.use(picture());
 site.use(transform_images());
 site.use(remark({
   remarkPlugins: [
-    remarkToc, remarkCapitalize, remarkSlug
+    remarkToc,
+    remarkCapitalize,
+    remarkSlug,
   ],
 }));
 site.use(sheets());
 site.use(sitemap());
 site.use(esbuild(/* Options */));
 
-site.helper('star_rating', (rating) => star_rating.star_rating(rating) , { type: "tag" });
+site.helper("star_rating", (rating) => star_rating.star_rating(rating), {
+  type: "tag",
+});
 site.ignore("plugins", "README.md");
 
 site.copy("assets");

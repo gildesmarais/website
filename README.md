@@ -3,7 +3,6 @@
 1. Built with https://lume.land/
 2. https://lume.land/docs/overview/about-lume/
 
-
 ## Development setup
 
 ```sh

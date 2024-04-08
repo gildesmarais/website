@@ -6,7 +6,20 @@
   "rules": {
     "no-descending-specificity": null,
     "declaration-block-single-line-max-declarations": 1,
-    "unit-allowed-list": ["%", "fr", "em", "rem", "deg", "px", "ch", "s", "vh", "vw", "ms", "turn"],
+    "unit-allowed-list": [
+      "%",
+      "fr",
+      "em",
+      "rem",
+      "deg",
+      "px",
+      "ch",
+      "s",
+      "vh",
+      "vw",
+      "ms",
+      "turn"
+    ],
     "media-feature-name-no-unknown": [
       true,
       {
