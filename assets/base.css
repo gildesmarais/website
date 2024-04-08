@@ -36,6 +36,7 @@
   /* the higher, the more in the back */
 
   --size-s: 0.875em;
+  --size-xs: 0.75em;
 }
 
 :root:lang(de),
@@ -237,8 +238,9 @@ blockquote > header {
 }
 
 .recent_posts time {
-  font-family: var(--font-mono);
-  font-size: var(--size-s);
+  font-size: var(--size-xs);
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
   color: var(--front-300);
   white-space: nowrap;
 }

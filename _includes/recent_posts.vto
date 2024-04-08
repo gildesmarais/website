@@ -1,6 +1,7 @@
 ---
 ---
 {{ if posts_to_show === 'undefined' }}{{ set posts_to_show = 5 }}{{ /if }}
+{{ if !posts_to_show }}{{ set posts_to_show = null }}{{ /if }}
 {{ if !posts_headline }}{{ set posts_headline = "Recent Posts" }}{{ /if }}
 
 {{ set posts = search.pages("type=posts", "date=desc", posts_to_show) }}
@@ -20,5 +21,7 @@
     {{ /for }}
   </ol>
 
+  {{ if posts_to_show }}
   <p>See <a href="/blog">all posts ›</a></p>
+  {{ /if }}
 </section>
