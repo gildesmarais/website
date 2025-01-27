@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'bigdecimal'
-gem 'jekyll', '~> 4.3'
+gem 'jekyll', '~> 4.4'
 gem 'sassc'
 gem 'terser'
 
