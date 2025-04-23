@@ -4,6 +4,16 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
-    open-pull-requests-limit: 10
+      day: friday
+    open-pull-requests-limit: 5
     assignees:
       - gildesmarais
+    reviewers:  # Optional: include reviewers for more oversight
+      - gildesmarais
+    commit-message:
+      prefix: "deps"
+      include: scope  # Helps identify the specific gem or context
+    labels:
+      - dependencies
+      - ruby
+    rebase-strategy: "auto"  # Keeps PRs up to date automatically
