@@ -3,9 +3,17 @@ updates:
   - package-ecosystem: bundler
     directory: "/"
     schedule:
-      interval: daily
-    open-pull-requests-limit: 10
-    allow:
-      - dependency-type: production
+      interval: monthly
+      day: friday
+    open-pull-requests-limit: 5
     assignees:
       - gildesmarais
+    reviewers:  # Optional: include reviewers for more oversight
+      - gildesmarais
+    commit-message:
+      prefix: "deps"
+      include: scope  # Helps identify the specific gem or context
+    labels:
+      - dependencies
+      - ruby
+    rebase-strategy: "auto"  # Keeps PRs up to date automatically
