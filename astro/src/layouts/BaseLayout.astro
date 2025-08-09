@@ -216,13 +216,10 @@ const isActive = (href) => {
               <strong>{brand}</strong>
             </a>
           </li>
-          <li><a href="/" aria-current={isActive("/") ? "page" : undefined}>Home</a></li>
           <li><a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a></li>
           <li><a href="/ratings" aria-current={isActive("/ratings") ? "page" : undefined}>Ratings</a></li>
           <li><a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a></li>
           <li><a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Resume</a></li>
-          <li><a href="/privacy" aria-current={isActive("/privacy") ? "page" : undefined}>Privacy</a></li>
-          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
           <li class="mobile-toggle">
             <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
               <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -242,6 +239,10 @@ const isActive = (href) => {
     <footer>
       <section class="container">
         <small>&copy; {new Date().getFullYear()} Gil Desmarais</small>
+        <nav>
+          <li><a href="/privacy" aria-current={isActive("/privacy") ? "page" : undefined}>Privacy</a></li>
+          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+        </nav>
       </section>
     </footer>
     {import.meta.env.PROD && (
