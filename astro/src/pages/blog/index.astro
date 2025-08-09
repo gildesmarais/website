@@ -16,11 +16,10 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
             <>
               {" "}
               <time datetime={data.date.toISOString()}>
-                {data.date.toLocaleDateString()}
+                {data.date.toISOString().split('T')[0]}
               </time>
             </>
           )}
-          {data.description && <p>{data.description}</p>}
         </li>
       ))}
     </ul>

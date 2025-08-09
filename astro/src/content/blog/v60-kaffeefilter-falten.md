@@ -1,13 +1,26 @@
 ---
-title: "V60 Kaffeefilter falten"
+title: "V60 Kaffeefilter aus normalem Kaffeefilter Größe 4 falten"
 date: 2020-12-04
-description: "Eine kleine Anleitung, wie man V60 Kaffeefilter faltet."
+description: Aus einem handelsüblichen Kaffeefilter Größe 4 kann ein Größe V60 02 gefaltet werden.
+language: de
+tags:
+- food
 ---
 
-Ich habe mir vor einiger Zeit einen V60 Kaffeefilter gekauft. Ich bin sehr zufrieden damit, aber ich habe mich immer gefragt, wie man die Filter richtig faltet. Ich habe ein bisschen recherchiert und eine gute Anleitung gefunden.
+**So geht's:**
 
-1.  Falte den Filter an der Naht.
-2.  Falte die untere Ecke des Filters nach oben.
-3.  Öffne den Filter und setze ihn in den V60.
+1. Den Kaffeefilter mit der geriffelten Seite nach rechts-unten legen.
+2. Die geriffelte Seite hochklappen, so dass ein 90° Winkel in der Ecke links-unten entsteht.
+3. Filter einsetzen.
 
-Das war's schon. So einfach ist das.
+{% slider %}
+<img alt="Ausgangslage" src="/assets/images/posts/2020-12-04-filter.jpg" loading="eager">
+<img alt="Gefaltet" src="/assets/images/posts/2020-12-04-gefaltet.jpg" loading="lazy">
+<img alt="Resultat" src="/assets/images/posts/2020-12-04-resultat.jpg" loading="lazy">
+{% endslider %}
+
+Es empfiehlt sich vor der Nutzung -- insb. bei braunen Filtern -- ein gründliches Ausspülen mit warmen Wasser, um geschmackbringende Partikel loszuwerden.
+Beim gefalteten Filter entsteht eine kleine Lippe an der Knickstelle. Der Wasserstrudel sollte also in die richtige Richtung drehen, so dass das Wasser nicht hinter diese Lippe gelangt, sondern darüber läuft.  
+Nach dem Ausspülen drücke ich die Lippe an den Filter an, um den Spalt, durch den Wasser am Kaffeemehl vorbeilaufen kann, zu verschließen.
+
+Nach ein paar Wiederholungen geht das ganze schnell von der Hand und lässt sich gut in den Kaffeemachen-Prozess integrieren. Also los, _muscle memory_ trainieren und Geld sparen! :)

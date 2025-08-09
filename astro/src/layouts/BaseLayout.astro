@@ -1,5 +1,5 @@
 ---
-const { title: pageTitle = "desmarais", description = "" } = Astro.props;
+const { title: pageTitle = "desmarais", description = "", language } = Astro.props;
 const brand = "Gil Desmarais";
 
 /* Compute active link using pathname; handle root and section prefixes cleanly */
@@ -8,9 +8,10 @@ const isActive = (href) => {
   if (href === "/") return path === "/";
   return path === href || path.startsWith(href.endsWith("/") ? href : href + "/");
 };
+
 ---
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang={language} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -77,6 +78,7 @@ const isActive = (href) => {
         list-style: none;
       }
     }
+
     /* --- Brand tokens (single source of truth) --- */
     :root {
       --brand-bg: #0b0b0b;
@@ -85,11 +87,11 @@ const isActive = (href) => {
       --brand-muted: #a3a3a3;
       --brand-border: #1f1f1f;
 
-      --brand-accent: #ff8800;   /* primary */
-      --brand-accent-bg: #b36200;  /* pressed/filled bg */
-      --brand-accent-hover: #ffa347; /* hover text/links */
-      --brand-accent-focus: rgba(255,136,0,0.35); /* focus ring */
-      --brand-accent-underline: rgba(255,136,0,0.5);
+      --brand-accent:            hsl(32, 100%, 50%);   /* primary */
+      --brand-accent-bg:         hsl(33, 100%, 35%);  /* pressed/filled bg */
+      --brand-accent-hover:      hsl(30, 100%, 64%); /* hover text/links */
+      --brand-accent-focus:     hsla(32, 100%, 50%, 0.35); /* focus ring */
+      --brand-accent-underline: hsla(32, 100%, 50%, 0.50);
     }
 
     /* Apply with <html data-theme="dark"> */
@@ -196,7 +198,13 @@ const isActive = (href) => {
     }
 
     </style>
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta name="theme-color" content="#1d1f21">
   </head>
   <body>
     <header class="container">
