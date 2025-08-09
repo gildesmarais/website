@@ -1,13 +1,22 @@
 ---
-const { title = "desmarais", description = "" } = Astro.props;
+const { title: pageTitle = "desmarais", description = "" } = Astro.props;
+const brand = "Gil Desmarais";
+
+/* Compute active link using pathname; handle root and section prefixes cleanly */
+const path = Astro.url.pathname;
+const isActive = (href) => {
+  if (href === "/") return path === "/";
+  return path === href || path.startsWith(href.endsWith("/") ? href : href + "/");
+};
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark">
     {description && <meta name="description" content={description} />}
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <style>
     /* --- Brand tokens (single source of truth) --- */
@@ -132,22 +141,41 @@ const { title = "desmarais", description = "" } = Astro.props;
     <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
-    <header>
+    <header class="container">
       <nav>
-        <a href="/">Home</a> |
-        <a href="/blog">Blog</a> |
-        <a href="/ratings">Ratings</a> |
-        <a href="/projects">Projects</a> |
-        <a href="/resume">Resume</a> |
-        <a href="/privacy">Privacy</a> |
-        <a href="/contact">Contact</a>
+        <ul>
+          <li>
+            <a href="/" class="contrast">
+              <strong>{brand}</strong>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li><a href="/" aria-current={isActive("/") ? "page" : undefined}>Home</a></li>
+          <li><a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a></li>
+          <li><a href="/ratings" aria-current={isActive("/ratings") ? "page" : undefined}>Ratings</a></li>
+          <li><a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a></li>
+          <li><a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Resume</a></li>
+          <li><a href="/privacy" aria-current={isActive("/privacy") ? "page" : undefined}>Privacy</a></li>
+          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+        </ul>
       </nav>
     </header>
-    <main>
+    <main class="container">
       <slot />
     </main>
     <footer>
-      <p>&copy; {new Date().getFullYear()} Gil Desmarais</p>
+      <section class="container">
+        <small>&copy; {new Date().getFullYear()} Gil Desmarais</small>
+      </section>
     </footer>
+    {import.meta.env.PROD && (
+      <>
+        <noscript>
+          <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
+        </noscript>
+        <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+      </>
+    )}
   </body>
 </html>
