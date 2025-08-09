@@ -1,0 +1,20 @@
+{
+  "name": "website-astro",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.15.0",
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/sitemap": "^3.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.0"
+  }
+}
