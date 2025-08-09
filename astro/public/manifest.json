@@ -1,11 +1,13 @@
 {
   "name": "Gil Desmarais",
   "short_name": "Gil",
-  "icons": [{
-    "src": "/favicon-512x512.png?v=deadbeef",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
+  "icons": [
+    {
+      "src": "/favicon-512x512.png?v=deadbeef",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "theme_color": "#1d1f21",
   "background_color": "#1d1f21",
   "display": "standalone",

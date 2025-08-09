@@ -3,8 +3,8 @@ title: An automated blogroll with Jekyll, Newsblur and Github Actions
 date: 2020-09-22
 description: This blog's blogroll is updated automatically and this post explains how it works.
 tags:
-- programming
-- ruby
+  - programming
+  - ruby
 ---
 
 A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000s, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.

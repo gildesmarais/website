@@ -4,8 +4,8 @@ date: 2009-02-19
 description: Bluetooth Headset mit Pulseaudio unter Ubuntu einrichten.
 language: de
 tags:
-- linux
-- bluetooth
+  - linux
+  - bluetooth
 ---
 
 Wer, wie ich, mit Ubuntu ein Bluetooth-Headset als Soundausgabe nutzen wollte, musste bisher immer umständlich zusätzliche Kernel-Module laden und ggf. noch eine “Umleitung" mit ALSA für den Pulseaudio-Server einrichten.

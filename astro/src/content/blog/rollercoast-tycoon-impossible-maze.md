@@ -3,7 +3,7 @@ title: The impossible RollerCoaster Tycoon 2 maze
 date: 2020-08-06
 description: Someone who's using the Internet uploaded a video.
 tags:
-- recommendation
+  - recommendation
 ---
 
 Back in the days I loved playing [RollerCoaster Tycoon 2](https://abandonwaregames.net/game/rollercoaster-tycoon-2-triple-thrill-pack).
@@ -17,4 +17,5 @@ Someone who's using the Internet uploaded a video[^1] of a maze which barely any
 Watch <q>RollerCoaster Tycoon 2 - The Impossible Maze</q> on [Invidious](https://invidious.ggc-project.de/watch?v=KVgoy_a_gWI) or on [YouTube](https://www.youtube.com/watch?v=KVgoy_a_gWI).
 
 [^1]: Of course to that video platform operated by that North American company, again.
+
 [^2]: That's the offline world. ;)

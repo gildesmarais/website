@@ -4,7 +4,7 @@ date: 2013-02-24
 description: Eine Abwandlung des IBA-Rezepts eines Cocktailklassikers.
 language: de
 tags:
-- food
+  - food
 ---
 
 Neben dem [bekannten Tschunk](https://entropia.de/Tschunk) fehlte mir ein alternativer Drink mit Club-Mate. Deshalb versuchte ich mich eines Abends an einer Alternative. Diese gefällt mir nach ein wenig experimentieren geschmacklich.

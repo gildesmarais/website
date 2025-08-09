@@ -3,7 +3,7 @@ title: Installing LineageOS on a new phone
 date: 2020-05-12
 description: Pal was once again very kind and kept clicking through the updates.
 tags:
-- project
+  - project
 ---
 
 I bought an Android device to fiddle with it. As an iOS user (and software developer creating UIs) I felt obligated to expose myself to _the other side_.

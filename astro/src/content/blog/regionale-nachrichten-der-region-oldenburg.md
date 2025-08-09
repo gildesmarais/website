@@ -4,7 +4,7 @@ date: 2012-08-09
 description: Eine lange Liste mit Links zu Webseiten.
 language: de
 tags:
-- oldenburg
+  - oldenburg
 ---
 
 Dieser Post ist eine lange Liste mit Links zu Webseiten. Ganz bewusst wurden auf Links zu den Webseiten politischer Parteien verzichtet. Die werdet ihr schon durch eine Suchmaschine selbst herausfinden.

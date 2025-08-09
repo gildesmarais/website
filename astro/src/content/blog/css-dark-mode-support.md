@@ -3,8 +3,8 @@ title: "Dark mode support on this website"
 date: 2018-11-03
 description: "This website now supports dark mode, if your browser supports 'prefers-color-scheme: dark'."
 tags:
-- programming
-- project
+  - programming
+  - project
 ---
 
 Quick info: this website now supports a dark color scheme, more commonly called

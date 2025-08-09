@@ -3,8 +3,8 @@ title: Picking and watching movies alphabetically
 date: 2020-04-01
 description: "Moving out of the comfortable filter bubble and explore art."
 tags:
-- movie
-- reference
+  - movie
+  - reference
 ---
 
 The question <q>What do we watch?</q> is a tough one to answer.

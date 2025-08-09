@@ -3,9 +3,9 @@ title: "How I work, part 1: devices, utilities and environment"
 date: 2020-04-10
 description: "How I develop software. Part 1."
 tags:
-- bluetooth
-- programming
-- reference
+  - bluetooth
+  - programming
+  - reference
 ---
 
 I've been asked how I work. In this case _work_ means the development of software.
@@ -33,7 +33,6 @@ For the wireless devices I have a box of fully charged AA and AAA rechargeable b
 To keep my thoughts or prototype a UI, I rely on a DIN A5 sketchbook (with at least 150g/m<sup>2</sup> paper) and a mechanical pencil with 0.5mm B lead.[^3]
 
 <Image src="/src/assets/images/posts/2020-04-05-minimal-setup.webp" alt="minimum working setup" />
-
 
 Sometimes I (prefer to) work offside a desk. Then I need my headphones, the sketchbook and the computer as a minimal setup.
 Staying hydrated and reducing waste is important. I have a reusable water bottle with me most of the time.
@@ -116,11 +115,19 @@ Stay tuned for the next parts on which I'll explain which software I use to work
 [Continue reading the second part here](/blog/how-i-work-part-2-the-command-line).
 
 [^1]: That is QWERTY with a two rows spanning return key. Also known as _British Layout_.
+
 [^2]: That still holds true with the after-market parts. Bose, naturally, has a different opinion on that, [read their QC35 investigation report](https://community.bose.com/t5/Around-On-Ear-Headphones/Bose-QC-35-Firmware-4-5-2-Noise-Cancellation-Investigation/m-p/285738#M56820) for a thorough explanation.
+
 [^3]: I have a soft spot for good pens and pencils. I use a mechanical pencil 99% of the time. The faible is counter-intuitive to my minimalist side. The latter wins.
+
 [^4]: [Wikipedia: Flow (psychology)](<https://en.wikipedia.org/wiki/Flow_(psychology)>), 2020-04-10.
+
 [^5]: One exception: Fabio & Grooverider's long running radio show. They broadcast on [RinseFM](https://rinse.fm/schedule/) by now. I see Fabio & Grooverider as ambassadors of music. They really dig out the [choons](https://www.urbandictionary.com/define.php?term=choon) which will never be released … or _maybe_ in 3 months. They also have a superb time together: they're joking, laughing, make many technical mistakes (leaving the microphone open is a classic) and they transport an overwhelming amount of joy. I somehow manage to stay in the zone with these brilliant chaps.
+
 [^6]: I also find Pete Tong's voice introducing every mix soothing (If you're reading this, Pete: Heya 👋).
+
 [^7]: I hope you had goosebumps caused from music at least once in your life.
+
 [^8]: I really want a perfectly working eye tracking device. Privacy respecting and easy to setup. ([<q>Plug it in, switch it on and … _BSOD_ **woo**</q>](https://invidio.us/watch?v=IW7Rqwwth84&local=true&quality=hd720)).
+
 [^9]: Sounds silly to need a reminder, no? It isn't, I was afraid to learn how seldom I stand up when being in the flow.

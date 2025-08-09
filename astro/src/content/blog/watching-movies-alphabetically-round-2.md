@@ -3,8 +3,8 @@ title: Watching movies alphabetically, round II
 date: 2020-10-26
 description: The ratings of the second round are in.
 tags:
-- movie
-- reference
+  - movie
+  - reference
 ---
 
 This is a sequel of the first post: [Picking and watching movies alphabetically](/blog/picking-and-watching-movies-alphabetically).

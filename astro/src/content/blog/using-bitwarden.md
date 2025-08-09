@@ -3,8 +3,8 @@ title: "Using Bitwarden"
 date: 2020-04-24
 description: A new password manager, self-hosted.
 tags:
-- linux
-- decentralize
+  - linux
+  - decentralize
 ---
 
 Today I've setup my personal [Bitwarden](https://bitwarden.com/) instance and migrated from 1Password to it.[^1]

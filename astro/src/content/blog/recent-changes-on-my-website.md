@@ -3,8 +3,8 @@ title: "Recent changes on my website"
 date: 2017-04-10
 description: A post about switching to Jekyll and throwing code away by using modern technologies.
 tags:
-- programming
-- project
+  - programming
+  - project
 ---
 
 You may have already noticed some changes on my website. This post describes

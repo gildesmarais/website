@@ -4,8 +4,8 @@ date: 2014-03-04
 description: Eine internationale Bewegung, die für Rechte der Radfahrenden eintritt.
 language: de
 tags:
-- bicycle
-- oldenburg
+  - bicycle
+  - oldenburg
 ---
 
 Wer sich in Oldenburg am letzten Freitag des Monats über eine große Gruppe Radfahrender, die auf der Straße fuhren, wunderte: du hast eine [Critical Mass](<https://de.wikipedia.org/wiki/Critical_Mass_(Aktionsform)>) gesehen.

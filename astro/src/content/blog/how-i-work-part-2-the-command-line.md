@@ -3,10 +3,10 @@ title: "How I work, part 2: the command line"
 date: 2020-09-11
 description: "The 'How I work' post series documents how I work. This part is about working productively on the command line."
 tags:
-- macos
-- programming
-- reference
-- software
+  - macos
+  - programming
+  - reference
+  - software
 ---
 
 This is the second part of my "How I work" series. In case you missed it, [read the first part here](/blog/working-productively). In this part I will document with which tools I work on the command line.
@@ -18,7 +18,6 @@ While most tools do one thing good, chaining them by piping (`|`) or redirecting
 Although I like the green colored characters on dark background scrolling by, they need to get out of the way quickly. I'm one of these computer users who clear the scrollback buffer with <kbd>Cmd</kbd>+<kbd>K</kbd> often.
 
 <Image src="/src/assets/images/posts/2020-09-11-command-line.webp" alt="A screenshot of iTerm2 running ZSH and homebrew" />
-
 
 ## ZSH and its configuration
 

@@ -3,10 +3,10 @@ title: "Rate songs in Music.app via Hotkey with Song Rating"
 date: 2020-09-13
 description: "Song Rating now supports rating with a specific amount of stars directly."
 tags:
-- macos
-- programming
-- software
-- project
+  - macos
+  - programming
+  - software
+  - project
 ---
 
 My new laptop came with macOS Catalina pre-installed. As described in my post about [managing music with iTunes](/blog/managing_music), I rely on being able to rate the currently playing song with a specific amount of stars via Hotkey. Since the little app I used for that wasn't updated in a long time and is incompatible with Music.app (which replaces iTunes in Catalina), I searched for an alternative.
@@ -18,4 +18,3 @@ The maintainer, [@MainasuK](https://github.com/MainasuK), merged the pull reques
 In case you need such a rating utility which works with macOS Catalina (Big Sur is apparently supported, too), I recommend Song Rating.
 
 <Image src="/src/assets/images/posts/2020-09-13-song-rating.webp" alt="Screenshot of Star-Rating" />
-

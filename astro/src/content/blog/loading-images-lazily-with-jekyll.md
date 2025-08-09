@@ -3,9 +3,9 @@ title: Loading images lazily with Jekyll (natively & automatically)
 date: 2020-05-03
 description: My plugin improves your Jekyll website's performance.
 tags:
-- project
-- programming
-- ruby
+  - project
+  - programming
+  - ruby
 ---
 
 An important metric in today's websites is performance. Loading images lazily — meaning they are only loaded when they'd become visible — is one of the big wins to implement.

@@ -6,12 +6,12 @@ export default defineConfig({
   integrations: [sitemap()],
   image: {
     formats: ["avif", "webp", "jpg", "jpeg", "png", "gif"],
-    layout: 'constrained',
+    layout: "constrained",
     responsiveStyles: true,
     service: {
-      entrypoint: 'astro/assets/services/sharp',
+      entrypoint: "astro/assets/services/sharp",
       config: {
-        loading: 'lazy',
+        loading: "lazy",
       },
     },
   },

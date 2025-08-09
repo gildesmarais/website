@@ -3,7 +3,7 @@ title: What's the Right Thing To Do?
 date: 2020-07-28
 description: Recommendation for an enjoyable lecture ‒ freely available ‒ on moral reasoning.
 tags:
-- recommendation
+  - recommendation
 ---
 
 I would like to make a recommendation for the lecture <q>Justice: What's the right thing to do?</q> by [Michael Sandel](https://en.wikipedia.org/wiki/Michael_J._Sandel), given at Havard University. It is an introduction on moral reasoning.

@@ -4,7 +4,7 @@ date: 2020-12-04
 description: Aus einem handelsüblichen Kaffeefilter Größe 4 kann ein Größe V60 02 gefaltet werden.
 language: de
 tags:
-- food
+  - food
 ---
 
 **So geht's:**

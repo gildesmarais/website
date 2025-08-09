@@ -1,15 +1,15 @@
 Low-maintenance workflow
 
 - Posts:
-  1) Create a file at src/content/blog/your-slug.md
-  2) Add frontmatter:
-      ---
-      title: Your Title
-      date: YYYY-MM-DD
-      description: Optional short summary
-      draft: true|false (optional)
-      ---
-  3) Commit and push; deploy builds automatically.
+  1. Create a file at src/content/blog/your-slug.md
+  2. Add frontmatter:
+     ***
+     title: Your Title
+     date: YYYY-MM-DD
+     description: Optional short summary
+     draft: true|false (optional)
+     ***
+  3. Commit and push; deploy builds automatically.
 
 - Ratings:
   - Edit src/data/ratings.json (array of { title, rating, year } objects).

@@ -3,8 +3,8 @@ title: "Rails 5.1 RC1 with Webpack and React"
 date: 2017-04-11
 description: Early adopting Rails 5.1 RC1 to take advantage of the new webpacker gem.
 tags:
-- programming
-- ruby
+  - programming
+  - ruby
 ---
 
 My side project turned into a playground for new technologies. Today I’ve set it up
