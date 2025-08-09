@@ -7,7 +7,7 @@ tags:
 - reference
 ---
 
-This is a sequel of the first post: [Picking and watching movies alphabetically]({% post_url 2020-04-01-picking-and-watching-movies-alphabetically %}).
+This is a sequel of the first post: [Picking and watching movies alphabetically](/blog/picking-and-watching-movies-alphabetically).
 
 The question <q>What do we watch?</q> is a tough one to answer.
 We decided to break out of our self-established, comfortable, filter bubble and started watching movies alphabetically.

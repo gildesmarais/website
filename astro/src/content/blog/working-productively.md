@@ -19,7 +19,7 @@ A well equipped desk contains at least:
 
 - a screen with 2560×1440px (WQHD) resolution with 109dpi minimum
 - the <q>old</q>  trackpad
-- the <q>old</q>  [wireless keyboard]({% post_url 2020-03-27-why-i-taped-the-keys-on-my-keyboard %}) with _International Layout_[^1]
+- the <q>old</q>  [wireless keyboard](/blog/why-i-taped-the-keys-on-my-keyboard) with _International Layout_[^1]
 - a laptop stand to move the machine above the level where I place fluid containers
 - a transparent desk-pad to place cheat sheets below it
 
@@ -115,7 +115,7 @@ That's basically it for these aspects. I hope you found it insightful. Did I mis
 
 Stay tuned for the next parts on which I'll explain which software I use to work efficiently.
 
-[Continue reading the second part here]({% post_url 2020-09-11-how-i-work-part-2-the-command-line %}).
+[Continue reading the second part here](/blog/how-i-work-part-2-the-command-line).
 
 [^1]: That is QWERTY with a two rows spanning return key. Also known as _British Layout_.
 [^2]: That still holds true with the after-market parts. Bose, naturally, has a different opinion on that, [read their QC35 investigation report](https://community.bose.com/t5/Around-On-Ear-Headphones/Bose-QC-35-Firmware-4-5-2-Noise-Cancellation-Investigation/m-p/285738#M56820) for a thorough explanation.

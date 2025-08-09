@@ -12,8 +12,8 @@ We decided to break out of our self-established, comfortable, filter bubble and 
 
 Here are the previous rounds:
 
-- [Round I]({% post_url 2020-04-01-picking-and-watching-movies-alphabetically %})
-- [Round II]({% post_url 2020-10-26-watching-movies-alphabetically-round-2 %})
+- [Round I](/blog/picking-and-watching-movies-alphabetically)
+- [Round II](/blog/watching-movies-alphabetically-round-2)
 
 For just this third round, we've expanded the series to watch movies that start with the numbers 0 through 9. Overall, it was a better round than the previous one and some films left a lasting impression.
 

@@ -15,9 +15,9 @@ We decided to break out of our self-established, comfortable, filter bubble and 
 
 Here are the previous rounds:
 
-- [Round I]({% post_url 2020-04-01-picking-and-watching-movies-alphabetically %})
-- [Round II]({% post_url 2020-10-26-watching-movies-alphabetically-round-2 %})
-- [Round III]({% post_url 2021-04-06-watching-movies-alphabetically %})
+- [Round I](/blog/picking-and-watching-movies-alphabetically)
+- [Round II](/blog/watching-movies-alphabetically-round-2)
+- [Round III](/blog/watching-movies-alphabetically)
 
 The alphabetic selection strategy still works fine. However we watched several other
 movies in the meantime.  
