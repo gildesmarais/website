@@ -19,6 +19,64 @@ const isActive = (href) => {
     <title>{pageTitle}</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <style>
+    #menu-toggle-checkbox {
+      display: none;
+    }
+    #menu-toggle-label {
+      display: none; /* Hidden by default */
+      cursor: pointer;
+      color: var(--brand-text);
+      width: 2rem;
+      height: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-menu, .icon-close {
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke: currentColor;
+    }
+    .icon-close {
+      display: none;
+    }
+    #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-menu {
+      display: none;
+    }
+    #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-close {
+      display: block;
+    }
+    #menu-toggle-checkbox:checked ~ #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
+      display: list-item;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #menu-toggle-label {
+        display: flex;
+      }
+      nav #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
+        display: none;
+        visibility: hidden;
+        pointer-events: none;
+        width: 100%;
+        text-align: left;
+        list-style: none;
+      }
+      #main-nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        text-align: left;
+      }
+      .mobile-toggle {
+        list-style: none;
+      }
+    }
     /* --- Brand tokens (single source of truth) --- */
     :root {
       --brand-bg: #0b0b0b;
@@ -143,14 +201,13 @@ const isActive = (href) => {
   <body>
     <header class="container">
       <nav>
-        <ul>
+        <input type="checkbox" id="menu-toggle-checkbox" />
+        <ul id="main-nav-list">
           <li>
             <a href="/" class="contrast">
               <strong>{brand}</strong>
             </a>
           </li>
-        </ul>
-        <ul>
           <li><a href="/" aria-current={isActive("/") ? "page" : undefined}>Home</a></li>
           <li><a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a></li>
           <li><a href="/ratings" aria-current={isActive("/ratings") ? "page" : undefined}>Ratings</a></li>
@@ -158,6 +215,16 @@ const isActive = (href) => {
           <li><a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Resume</a></li>
           <li><a href="/privacy" aria-current={isActive("/privacy") ? "page" : undefined}>Privacy</a></li>
           <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+          <li class="mobile-toggle">
+            <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
+              <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
+          </li>
         </ul>
       </nav>
     </header>
@@ -177,5 +244,23 @@ const isActive = (href) => {
         <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
       </>
     )}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('menu-toggle-checkbox');
+        const label = document.getElementById('menu-toggle-label');
+        const navList = document.getElementById('main-nav-list');
+
+        if (checkbox && label && navList) {
+          // Set initial ARIA attributes
+          label.setAttribute('aria-controls', 'main-nav-list');
+          label.setAttribute('aria-expanded', checkbox.checked);
+
+          // Update ARIA attribute on change
+          checkbox.addEventListener('change', function () {
+            label.setAttribute('aria-expanded', this.checked);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
