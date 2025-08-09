@@ -13,11 +13,9 @@ tags:
 2. Die geriffelte Seite hochklappen, so dass ein 90° Winkel in der Ecke links-unten entsteht.
 3. Filter einsetzen.
 
-{% slider %}
-<img alt="Ausgangslage" src="/assets/images/posts/2020-12-04-filter.jpg" loading="eager">
-<img alt="Gefaltet" src="/assets/images/posts/2020-12-04-gefaltet.jpg" loading="lazy">
-<img alt="Resultat" src="/assets/images/posts/2020-12-04-resultat.jpg" loading="lazy">
-{% endslider %}
+<img alt="Ausgangslage" src="/src/assets/images/posts/2020-12-04-filter.webp" loading="eager" />
+<img alt="Gefaltet" src="/src/assets/images/posts/2020-12-04-gefaltet.webp" loading="lazy" />
+<img alt="Resultat" src="/src/assets/images/posts/2020-12-04-resultat.webp" loading="lazy" />
 
 Es empfiehlt sich vor der Nutzung -- insb. bei braunen Filtern -- ein gründliches Ausspülen mit warmen Wasser, um geschmackbringende Partikel loszuwerden.
 Beim gefalteten Filter entsteht eine kleine Lippe an der Knickstelle. Der Wasserstrudel sollte also in die richtige Richtung drehen, so dass das Wasser nicht hinter diese Lippe gelangt, sondern darüber läuft.  

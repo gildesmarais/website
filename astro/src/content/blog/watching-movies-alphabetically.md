@@ -17,7 +17,4 @@ Here are the previous rounds:
 
 For just this third round, we've expanded the series to watch movies that start with the numbers 0 through 9. Overall, it was a better round than the previous one and some films left a lasting impression.
 
-{% for rating in site.data.movie_ratings.round3 %}
-{% assign imdb = site.data.ratings | where: "Const", rating['const'] | first %}
-{% include movie-rating.html %}
-{% endfor %}
+

@@ -148,7 +148,7 @@ With iTunes match I can listen to my music on any of my  devices.
 
 On desktop, I work with my the smart playlists and the <q>Column Browser</q> in the <q>Song</q> view mode:
 
-![iTunes showing its song column](/assets/images/posts/2020-04-05-itunes-song-column.png)
+![iTunes showing its song column](/src/assets/images/posts//assets/images/posts/2020-04-05-itunes-song-column.webp)
 
 ### with MPD and Cantata
 
@@ -166,7 +166,5 @@ When creating a DJ set, I have a playlist of _A tracks_ to play which acts like 
 
 Some mixes may need more preparation. Then I create a plain old playlist in iTunes first and use that in [Traktor Pro 3](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-3/).
 
-{% slider %}
-![A laptop with a DJ software playing the song 'The End'](/assets/images/posts/2020-04-05-traktor-the-end.jpg)
-{% endslider %}
-{{page.glide}}
+<Image src="/src/assets/images/posts/2020-04-05-traktor-the-end.webp" alt="A laptop with a DJ software playing the song 'The End'" />
+

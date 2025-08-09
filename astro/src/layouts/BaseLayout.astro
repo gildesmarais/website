@@ -8,7 +8,7 @@ const brand = "Gil Desmarais";
 
 /* Compute active link using pathname; handle root and section prefixes cleanly */
 const path = Astro.url.pathname;
-const isActive = (href) => {
+const isActive = (href: string) => {
   if (href === "/") return path === "/";
   return (
     path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
@@ -347,18 +347,18 @@ const isActive = (href) => {
     }
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const checkbox = document.getElementById("menu-toggle-checkbox");
+        const checkbox = document.getElementById("menu-toggle-checkbox") as HTMLInputElement | null;
         const label = document.getElementById("menu-toggle-label");
         const navList = document.getElementById("main-nav-list");
 
         if (checkbox && label && navList) {
           // Set initial ARIA attributes
           label.setAttribute("aria-controls", "main-nav-list");
-          label.setAttribute("aria-expanded", checkbox.checked);
+          label.setAttribute("aria-expanded", checkbox.checked.toString());
 
           // Update ARIA attribute on change
-          checkbox.addEventListener("change", function () {
-            label.setAttribute("aria-expanded", this.checked);
+          checkbox.addEventListener("change", function (this: HTMLInputElement) {
+            label.setAttribute("aria-expanded", this.checked.toString());
           });
         }
       });

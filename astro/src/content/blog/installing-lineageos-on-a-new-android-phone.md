@@ -12,19 +12,16 @@ The phone is a Motorola G6 Plus. My idea was to install [LineageOS](https://line
 
 Luckily, [Pal was around](/blog/introducing_pal) and he did the tiresome work of taping _OK_, _Reboot_, _Update_ for me. The whole process took several hours and required constant attention.[^1]
 
-{% slider %}
-<img src="/assets/images/posts/2020-05-12_IMG_1324.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1325.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1327.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1328.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1329.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1330.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1333.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1334.jpg">
-<img src="/assets/images/posts/2020-05-12_IMG_1336.jpg">
-{% endslider %}
+![](/src/assets/images/posts/2020-05-12_IMG_1324.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1325.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1327.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1328.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1329.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1330.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1333.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1334.webp)
+![](/src/assets/images/posts/2020-05-12_IMG_1336.webp)
 
-{{page.glide}}
 As you can see in the last photo, Pal was really tired afterwards. But he did a good job and LineageOS is running smoothly since then.
 
 Expect an more in-depth post about my Android experience in this blog soon.
