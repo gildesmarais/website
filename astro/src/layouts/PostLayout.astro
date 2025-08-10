@@ -2,18 +2,55 @@
 import BaseLayout from "./BaseLayout.astro";
 const { title, date, description, language } = Astro.props;
 ---
+
+<style>
+  /* Long-read improvements for Pico */
+  article {
+    max-width: 70ch; /* Ideal reading measure */
+    margin-inline: auto; /* Center column */
+    line-height: 1.6; /* Comfortable paragraph spacing */
+    font-size: 1.125rem; /* Slightly larger text */
+    padding-inline: 1rem; /* Breathing room on mobile */
+  }
+
+  article p + p {
+    margin-top: 1.5rem; /* Extra space between paragraphs */
+  }
+
+  article h1,
+  article h2,
+  article h3 {
+    margin-top: 2em; /* Distinct section spacing */
+    margin-bottom: 0.6em;
+  }
+
+  article blockquote {
+    border-left: 4px solid var(--pico-secondary);
+    padding-left: 1.5rem;
+    font-style: italic;
+  }
+
+  :not(pre) > code {
+    background-color: var(--pico-background-color-tertiary);
+    border-radius: var(--pico-border-radius);
+    padding: 0.2rem 0.4rem;
+  }
+</style>
+
 <BaseLayout title={title} description={description} language={language}>
   <article>
     <header>
       <hgroup>
         <h1>{title}</h1>
-        {date && (
-          <p>
-            <time datetime={new Date(date).toISOString()}>
-              {new Date(date).toISOString().split('T')[0]}
-            </time>
-          </p>
-        )}
+        {
+          date && (
+            <p>
+              <time datetime={new Date(date).toISOString()}>
+                {new Date(date).toISOString().split("T")[0]}
+              </time>
+            </p>
+          )
+        }
       </hgroup>
       {description && <p>{description}</p>}
     </header>
