@@ -1,10 +1,21 @@
 import type { APIRoute } from "astro";
+import { subtle } from "crypto";
 
 export const prerender = false; // Ensure this API route is never pre-rendered
 
+// Helper to generate a SHA-1 ETag
+async function generateETag(data: string): Promise<string> {
+  const hashBuffer = await subtle.digest(
+    "SHA-1",
+    new TextEncoder().encode(data),
+  );
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return `"${hashArray.map((b) => b.toString(16).padStart(2, "0")).join("")}"`;
+}
+
 export const GET: APIRoute = async ({ params, request }) => {
   const imdbId = params.imdbId;
-  const API_KEY = import.meta.env.OMDB_API_KEY; // Access the non-public key
+  const API_KEY = import.meta.env.OMDB_API_KEY;
 
   if (!imdbId) {
     return new Response(JSON.stringify({ error: "IMDb ID is required" }), {
@@ -31,16 +42,25 @@ export const GET: APIRoute = async ({ params, request }) => {
     const data = await response.json();
 
     if (data.Response === "True" && data.Poster && data.Poster !== "N/A") {
-      return new Response(
-        JSON.stringify({ poster: data.Poster, title: data.Title }),
-        {
-          status: 200,
-          headers: {
-            "Content-Type": "application/json",
-            "Cache-Control": "public, max-age=86400", // Cache for 1 day
-          },
+      const payload = JSON.stringify({
+        poster: data.Poster,
+        title: data.Title,
+      });
+      const etag = await generateETag(payload);
+
+      const ifNoneMatch = request.headers.get("if-none-match");
+      if (ifNoneMatch === etag) {
+        return new Response(null, { status: 304 });
+      }
+
+      return new Response(payload, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "public, max-age=86400", // Cache for 1 day
+          ETag: etag,
         },
-      );
+      });
     } else {
       console.warn(
         `OMDb API: No poster found for IMDb ID: ${imdbId}. Reason: ${data.Error || "Unknown error"}`,

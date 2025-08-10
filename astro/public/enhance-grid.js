@@ -20,7 +20,7 @@
 
     let currentFilters = new Map();
 
-    const applySort = (sortBy, sortDir) => {
+    const applySort = (sortBy, sortDir, updateHistory = true) => {
       const visibleItems = items.filter((item) => !item.hidden);
       const hiddenItems = items.filter((item) => item.hidden);
 
@@ -48,14 +48,16 @@
 
       grid.replaceChildren(...sortedVisible, ...hiddenItems);
 
-      const p = new URLSearchParams(location.search);
-      p.set("sort", sortBy);
-      p.set("dir", sortDir);
-      history.replaceState(
-        null,
-        "",
-        p.toString() ? "?" + p.toString() : location.pathname,
-      );
+      if (updateHistory) {
+        const p = new URLSearchParams(location.search);
+        p.set("sort", sortBy);
+        p.set("dir", sortDir);
+        history.replaceState(
+          null,
+          "",
+          p.toString() ? "?" + p.toString() : location.pathname,
+        );
+      }
     };
 
     sortButtons.forEach((button) => {
@@ -74,7 +76,7 @@
       });
     });
 
-    const applyFilters = () => {
+    const applyFilters = (updateHistory = true) => {
       const term = (filterInput ? filterInput.value : "").trim().toLowerCase();
       items.forEach((item) => {
         const textMatch =
@@ -85,25 +87,27 @@
         item.hidden = !(textMatch && filterMatch);
       });
 
-      const p = new URLSearchParams();
-      if (term) p.set("q", term);
-      currentFilters.forEach((value, key) => p.set(key, value));
-      const sortButton = document.querySelector(
-        "[data-sort-by][data-sort-dir]",
-      );
-      if (sortButton) {
-        p.set("sort", sortButton.dataset.sortBy);
-        p.set("dir", sortButton.dataset.sortDir);
+      if (updateHistory) {
+        const p = new URLSearchParams();
+        if (term) p.set("q", term);
+        currentFilters.forEach((value, key) => p.set(key, value));
+        const sortButton = document.querySelector(
+          "[data-sort-by][data-sort-dir]",
+        );
+        if (sortButton) {
+          p.set("sort", sortButton.dataset.sortBy);
+          p.set("dir", sortButton.dataset.sortDir);
+        }
+        history.replaceState(
+          null,
+          "",
+          p.toString() ? "?" + p.toString() : location.pathname,
+        );
       }
-      history.replaceState(
-        null,
-        "",
-        p.toString() ? "?" + p.toString() : location.pathname,
-      );
     };
 
     if (filterInput) {
-      filterInput.addEventListener("input", applyFilters);
+      filterInput.addEventListener("input", () => applyFilters());
     }
 
     filterButtons.forEach((button) => {
@@ -139,18 +143,29 @@
 
     params.forEach((value, key) => {
       if (key !== "q" && key !== "sort" && key !== "dir") {
-        const camelKey = toCamelCase(key);
-        const btn = document.querySelector(
-          `[data-filter-by="${camelKey}"][data-filter-value="${value}"]`,
+        // Handle the parameter name as-is first, then try camelCase conversion
+        let targetKey = key;
+        let btn = document.querySelector(
+          `[data-filter-by="${targetKey}"][data-filter-value="${value}"]`,
         );
+
+        // If not found and key contains dashes/underscores, try camelCase
+        if (!btn && (key.includes('-') || key.includes('_'))) {
+          targetKey = toCamelCase(key);
+          btn = document.querySelector(
+            `[data-filter-by="${targetKey}"][data-filter-value="${value}"]`,
+          );
+        }
+
         if (btn) {
-          currentFilters.set(camelKey, value);
+          currentFilters.set(targetKey, value);
           btn.dataset.sortDir = "asc";
         }
       }
     });
 
-    applyFilters();
+    // Apply initial filters without updating history
+    applyFilters(false);
 
     const sortId = params.get("sort");
     const dir = params.get("dir") || "asc";
@@ -158,8 +173,17 @@
       const sortButton = document.querySelector(`[data-sort-by="${sortId}"]`);
       if (sortButton) {
         sortButton.dataset.sortDir = dir;
-        applySort(sortId, dir);
+        // Apply initial sort without updating history
+        applySort(sortId, dir, false);
       }
     }
+
+    // Update history once after initial setup
+    const p = new URLSearchParams(location.search);
+    history.replaceState(
+      null,
+      "",
+      p.toString() ? "?" + p.toString() : location.pathname,
+    );
   }
 })();
