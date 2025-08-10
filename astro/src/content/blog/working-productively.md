@@ -2,7 +2,6 @@
 title: "How I work, part 1: devices, utilities and environment"
 date: 2020-04-10
 description: "How I develop software. Part 1."
-showcase: true
 tags:
   - bluetooth
   - programming

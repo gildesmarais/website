@@ -10,6 +10,8 @@ const description =
 const socials = [
   { name: "GitHub", url: "https://github.com/gildesmarais/", rel: "me" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/gildesmarais/", rel: "me" },
+  { name: "Soundcloud", url: "https://soundcloud.com/admiralgiesse", rel: "me" },
+  { name: "Bluesky", url: "https://bsky.app/profile/gil.desmarais.de", rel: "me" },
 ];
 
 const contactHref = "/contact";
@@ -17,10 +19,9 @@ const contactHref = "/contact";
 
 <BaseLayout title={title} description={description}>
   <header>
-    <h1>About me</h1>
-    <p class="lede">
-      Moin, I'm Gil.<br>
-      I like understanding how things work and making them kinder to humans.
+    <h1><abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil.</h1>
+    <p>
+      I like understanding how things work and making them kinder to humans — and hearing how others see the world.
       Professionally I'm an Engineering Team Lead; here, I'm someone who values clarity, good company, and the occasional well‑timed joke. I tend to think things through before I speak, but I enjoy genuine conversations and learning what excites other people.
     </p>
   </header>
@@ -37,21 +38,22 @@ const contactHref = "/contact";
     <section aria-labelledby="care">
       <h2 id="care">Things I care about</h2>
       <ul>
-        <li><strong>Efficiency</strong>.</li>
-        <li>Understanding systems — from tech to culture.</li>
-        <li>Making life easier, not more complicated.</li>
-        <li>Sharing knowledge and helping others grow.</li>
-        <li>Good experiences with minimal fuss.</li>
-        <li>Learning: music, cities, culture, aviation, food.</li>
-        <li>Creating Music: loving to select vinyl records to DJ with, layering elements of techno tracks digitally</li>
-        <li>Movement: cycling, yoga, walks.</li>
+        <li><strong>Efficiency</strong></li>
+        <li>Understanding systems — from tech to culture</li>
+        <li>Making life easier, not more complicated</li>
+        <li>Sharing knowledge and helping others grow</li>
+        <li>Good experiences with minimal fuss</li>
+        <li>Learning: music, cities, culture, aviation, food</li>
+        <li>Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two</li>
+        <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
+        <li>Movement: cycling, yoga, walks</li>
       </ul>
     </section>
 
     <section aria-labelledby="elsewhere">
       <h2 id="elsewhere">Elsewhere</h2>
       <p>
-        Sometimes I <a href="/ratings">log movies</a>. I explore architecture and enjoy discovering different cuisines.
+        Sometimes I <a href="/ratings">log movies</a>. I explore architecture and enjoy discovering different cuisines — always open to recommendations.
       </p>
     </section>
 

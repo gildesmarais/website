@@ -2,7 +2,6 @@
 title: "How I work, part 2: the command line"
 date: 2020-09-11
 description: "The 'How I work' post series documents how I work. This part is about working productively on the command line."
-showcase: true
 tags:
   - macos
   - programming

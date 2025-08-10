@@ -4,7 +4,8 @@ import { getCollection } from "astro:content";
 
 const posts = (
   await getCollection("blog", ({ data }) => !data.draft && data.showcase)
-).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date)).
+slice(0, 5);
 ---
 
 <BaseLayout title="Blog">
