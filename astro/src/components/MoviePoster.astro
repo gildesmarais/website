@@ -58,7 +58,7 @@ const { imdbId } = Astro.props;
 <style>
   .movie-poster-container {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 2 / 3; /* Enforce movie poster aspect ratio */
     display: flex;
     justify-content: center;
     align-items: center;

@@ -63,16 +63,14 @@ const {
   document.addEventListener("click", (event) => {
     const target = event.target;
 
-    // Event delegation for movie cards
-    const movieCard = target.closest(".movie-card");
-    if (movieCard) {
-      const imdbId = movieCard.dataset.imdbId;
+    const movieRow = target.closest("[data-imdb-id]");
+    if (movieRow) {
+      const imdbId = movieRow.dataset.imdbId;
       if (imdbId) {
         showImdbModal(imdbId);
       }
     }
 
-    // Close modal logic
     if (
       target.matches(".close") ||
       (target.matches("dialog") && target.id === "imdb-modal")

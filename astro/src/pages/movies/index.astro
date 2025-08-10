@@ -2,52 +2,221 @@
 export const prerender = true;
 
 import MovieLayout from "../../layouts/MovieLayout.astro";
+import ratings from "../../data/ratings.json";
+import recommendations from "../../data/recommendations.json";
 import movies from "../../data/movies.json";
----
-<MovieLayout title="Ratings">
-  <section>
-    <h1>Ratings</h1>
-    <p>Static snapshot.</p>
+import MoviePoster from "../../components/MoviePoster.astro";
 
+const title = "Movie Ratings";
+
+const ratingsMap = new Map(
+  ratings.map((r) => [`${r.title} (${r.year})`, r.rating]),
+);
+const recommendationsSet = new Set(recommendations.map((r) => r.const));
+const recommendationNotes = new Map(
+  recommendations.map((r) => [r.const, r.note]),
+);
+
+const moviesWithRatings = movies.map((movie) => {
+  const key = `${movie.title} (${movie.year})`;
+  const your_rating = ratingsMap.get(key) || movie.your_rating;
+  return { ...movie, your_rating };
+});
+---
+
+<MovieLayout title={title}>
+  <section>
+    <h1>{title}</h1>
     <input id="movieFilter" type="search" placeholder="Filter…" />
-    {Array.isArray(movies) && movies.length > 0 ? (
-      <table data-enhance data-filter="#movieFilter">
-        <thead>
-          <tr>
-        <th data-col-id="title">Title</th>
-        <th data-sort-type="number">Your Rating</th>
-        <th data-sort-type="number">IMDb Rating</th>
-        <th data-sort-type="number" data-col-id="runtime">Runtime</th>
-        <th data-sort-type="number" data-col-id="year">Year</th>
-        <th>Genres</th>
-        <th data-nosort>IMDb Link</th>
-      </tr>
-        </thead>
-        <tbody>
-          {movies.map((movie) => (
-            <tr>
-              <td>{movie.title}</td>
-              <td>{movie.your_rating}</td>
-              <td>{movie.imdb_rating}</td>
-              <td>{movie.runtime_mins}</td>
-              <td>{movie.year}</td>
-              <td>{movie.genres}</td>
-              <td>
-                <a
-                  href={movie.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {movie.const}
-                </a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    ) : (
-      <p>No movies yet.</p>
-    )}
+    <div class="sort-buttons">
+      <button data-filter-by="isRecommendation" data-filter-value="true">
+        Recommendations
+      </button>
+      <button data-sort-by="title">Title</button>
+      <button data-sort-by="year">Year</button>
+      <button data-sort-by="yourRating">My Rating</button>
+      <button data-sort-by="imdbRating">IMDb Rating</button>
+      <button data-sort-by="runtimeMins">Runtime</button>
+    </div>
+    <div class="recommendations-grid" data-enhance-grid data-filter="#movieFilter">
+      {
+        moviesWithRatings.map((movie) => {
+          const isRecommendation = recommendationsSet.has(movie.const);
+          const note = recommendationNotes.get(movie.const);
+          return (
+            <article
+              class="movie-card"
+              data-imdb-id={movie.const}
+              data-title={movie.title}
+              data-year={movie.year}
+              data-your-rating={movie.your_rating}
+              data-imdb-rating={movie.imdb_rating}
+              data-runtime-mins={movie.runtime_mins}
+              data-is-recommendation={isRecommendation ? "true" : "false"}
+            >
+              <MoviePoster imdbId={movie.const} />
+              <header>
+                <h2>
+                  <button class="imdb-link-button">
+                    {movie.title} ({movie.year})
+                  </button>
+                </h2>
+              </header>
+              <p class="ratings">
+                <span class="your-rating">
+                  My Rating: {movie.your_rating}/10
+                </span>
+                <span class="imdb-rating">
+                  IMDb: {movie.imdb_rating}/10
+                </span>
+              </p>
+              <div class="grid metadata-grid">
+                <p>
+                  <strong>Genre:</strong>
+                </p>
+                <p>{movie.genres}</p>
+                <p>
+                  <strong>Runtime:</strong>
+                </p>
+                <p>{movie.runtime_mins} mins</p>
+                <p>
+                  <strong>Director:</strong>
+                </p>
+                <p>{movie.directors}</p>
+              </div>
+              {isRecommendation && note && <p class="note">{note}</p>}
+            </article>
+          );
+        })
+      }
+    </div>
   </section>
-  <script src="/enhance-table.js" type="module"></script>
+  <script src="/enhance-grid.js" type="module"></script>
+  <aside class="micro">
+    Thank you to the <a
+      href="https://www.omdbapi.com/"
+      target="_blank"
+      rel="noopener noreferrer">OMDb API for providing the movie posters</a
+    > used in this page. 🧡
+  </aside>
 </MovieLayout>
+
+<style>
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--pico-spacing);
+    padding: var(--pico-spacing) 0;
+  }
+
+  .recommendations-grid article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(
+      --pico-card-background-color
+    ); /* Add a background to the card */
+    border: 1px solid var(--pico-border-color);
+    border-radius: var(--pico-border-radius);
+    padding: var(--pico-spacing); /* Add padding inside the card */
+  }
+
+  .recommendations-grid article h2 {
+    margin-top: 0;
+    margin-bottom: var(--pico-spacing-sm);
+    font-size: 1.5em;
+    color: var(--pico-h2-color);
+  }
+
+  .recommendations-grid article h2 button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: var(--pico-color);
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+  }
+
+  .recommendations-grid article h2 button:hover {
+    color: var(--pico-primary-hover);
+    text-decoration: underline; /* Add underline on hover for button */
+  }
+
+  .recommendations-grid article p {
+    margin-bottom: var(--pico-spacing-xs);
+    line-height: 1.4;
+    color: var(--pico-color);
+  }
+
+  .recommendations-grid article p strong {
+    color: var(--pico-muted-color);
+  }
+
+  .recommendations-grid article p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .recommendations-grid article p:not(.note) {
+    font-size: 0.9em;
+  }
+
+  .recommendations-grid article .ratings {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: var(--pico-spacing-sm);
+  }
+
+  .recommendations-grid article .your-rating {
+    color: var(--pico-primary);
+  }
+
+  .recommendations-grid article .imdb-rating {
+    color: var(--pico-secondary);
+  }
+
+  .recommendations-grid article .note {
+    font-style: italic;
+    color: var(--pico-muted-color);
+    margin-top: auto; /* Pushes the note to the bottom */
+    border-top: 1px solid var(--pico-muted-border-color);
+    padding-top: var(--pico-spacing-sm);
+  }
+
+  .sort-buttons {
+    margin-bottom: var(--pico-spacing);
+  }
+
+  .sort-buttons button {
+    margin-right: var(--pico-spacing-sm);
+  }
+
+  .sort-buttons button[data-sort-by][data-sort-dir="asc"]::after {
+    content: " ▲";
+  }
+
+  .sort-buttons button[data-sort-by][data-sort-dir="desc"]::after {
+    content: " ▼";
+  }
+
+  .sort-buttons button[data-filter-by][data-sort-dir="asc"]::after {
+    content: " ✓";
+  }
+
+  /* Adjust grid for metadata within the card */
+  .recommendations-grid article .metadata-grid {
+    grid-template-columns: auto 1fr; /* Labels take minimal space, values fill rest */
+    gap: var(--pico-spacing-xs) var(--pico-spacing-sm);
+    margin-bottom: var(--pico-spacing-sm);
+  }
+
+  .recommendations-grid article .metadata-grid p {
+    margin-bottom: 0; /* Remove default paragraph margin within grid */
+    font-size: 0.9em; /* Keep consistent with other non-note paragraphs */
+  }
+</style>

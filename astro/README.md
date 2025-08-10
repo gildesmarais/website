@@ -24,3 +24,4 @@ npm run dev
 - [x] migrate the ratings data (all, not just a subset)
 - [x] implement https://gil.desmarais.de/ratings/recommendations/
 - [ ] check redirects work as intended
+- [ ] setup vercel deployment (hybrid, set api key via env secret)
