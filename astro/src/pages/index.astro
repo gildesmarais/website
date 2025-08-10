@@ -1,14 +1,75 @@
 ---
+export const prerender = true;
+
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import speakerImage from "../assets/images/speaker.svg";
+
+const title = "Gil Desmarais — Engineering Team Lead";
+const description = `
+  I build secure, scalable identity and platform capabilities that improve reliability,
+  developer velocity, and ROI.`;
+
+  const evergreenFocus = [
+  "Identity & access",
+  "Platform engineering",
+  "Reliability",
+  "Security",
+  "Ruby/Rails",
+  "AWS",
+];
 ---
+
 <BaseLayout title="Home">
+  <header>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <p>
+      <a href="/resume">Résumé</a> ·
+      <a href="/projects">Selected work</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+  </header>
+
   <section>
-    <h1>Hi.</h1>
-    <p>Minimal v3 rewrite with Astro. No custom CSS, ready for a classless CSS drop-in later.</p>
-    <ul>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/ratings">Ratings</a></li>
-      <li><a href="/projects">Projects</a></li>
-    </ul>
+    <h2>Focus areas</h2>
+    <p>{evergreenFocus.join(" • ")}</p>
+  </section>
+
+  <section aria-labelledby="name-pronunciation">
+    <h2 id="name-pronunciation">Name pronunciation</h2>
+    <figure>
+      <figcaption>
+        <span>/ʒɪl dɛsm ɐ ʁɛ/</span>
+        <button type="button" aria-label="Play name pronunciation">
+          <Image src={speakerImage} alt="" width="16" height="16" loading="eager"/>
+        </button>
+      </figcaption>
+      <audio preload="metadata" src="/index.flac"></audio>
+    </figure>
   </section>
 </BaseLayout>
+
+<script>
+  (() => {
+    const s = document.querySelector(
+      'section[aria-labelledby="name-pronunciation"]',
+    );
+    if (!s) return;
+    const btn = s.querySelector('button[type="button"]');
+    const audio = s.querySelector("audio");
+    if (!btn || !audio) return;
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.currentTime = 0;
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+    audio.addEventListener("ended", () => {
+      audio.currentTime = 0;
+    });
+  })();
+</script>
