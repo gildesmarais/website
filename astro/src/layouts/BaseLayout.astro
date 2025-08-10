@@ -3,6 +3,7 @@ const {
   title: pageTitle = "desmarais",
   description = "",
   language,
+  robots = "index, follow",
 } = Astro.props;
 const brand = "Gil Desmarais";
 
@@ -23,10 +24,11 @@ const isActive = (href: string) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <meta name="color-scheme" content="dark" />
+    <meta name="robots" content={robots} />
     {description && <meta name="description" content={description} />}
     <title>{pageTitle}</title>
     <link
@@ -236,7 +238,10 @@ const isActive = (href: string) => {
         }
       }
 
-      .micro { opacity: .8; font-size: .95em; }
+      .micro {
+        opacity: 0.8;
+        font-size: 0.95em;
+      }
     </style>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -278,7 +283,7 @@ const isActive = (href: string) => {
           <li>
             <a
               href="/resume"
-              aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a
+              aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a
             >
           </li>
           <li>
@@ -329,7 +334,7 @@ const isActive = (href: string) => {
     </main>
     <footer>
       <section class="container">
-        <nav>
+        <nav class="micro">
           <li>
             <a
               href="/privacy"
