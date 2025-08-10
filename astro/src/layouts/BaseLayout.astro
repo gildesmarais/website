@@ -24,7 +24,7 @@ const isActive = (href: string) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <meta name="color-scheme" content="dark" />
@@ -370,23 +370,20 @@ const isActive = (href: string) => {
         </>
       )
     }
-    <script>
+    <script is:inline>
       document.addEventListener("DOMContentLoaded", function () {
-        const checkbox = document.getElementById(
-          "menu-toggle-checkbox",
-        ) as HTMLInputElement | null;
+        // Existing menu toggle logic
+        const checkbox = document.getElementById("menu-toggle-checkbox");
         const label = document.getElementById("menu-toggle-label");
         const navList = document.getElementById("main-nav-list");
 
         if (checkbox && label && navList) {
-          // Set initial ARIA attributes
           label.setAttribute("aria-controls", "main-nav-list");
           label.setAttribute("aria-expanded", checkbox.checked.toString());
 
-          // Update ARIA attribute on change
           checkbox.addEventListener(
             "change",
-            function (this: HTMLInputElement) {
+            function () {
               label.setAttribute("aria-expanded", this.checked.toString());
             },
           );

@@ -9,9 +9,21 @@ const description =
 
 const socials = [
   { name: "GitHub", url: "https://github.com/gildesmarais/", rel: "me" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/gildesmarais/", rel: "me" },
-  { name: "Soundcloud", url: "https://soundcloud.com/admiralgiesse", rel: "me" },
-  { name: "Bluesky", url: "https://bsky.app/profile/gil.desmarais.de", rel: "me" },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/gildesmarais/",
+    rel: "me",
+  },
+  {
+    name: "Soundcloud",
+    url: "https://soundcloud.com/admiralgiesse",
+    rel: "me",
+  },
+  {
+    name: "Bluesky",
+    url: "https://bsky.app/profile/gil.desmarais.de",
+    rel: "me",
+  },
 ];
 
 const contactHref = "/contact";
@@ -21,8 +33,11 @@ const contactHref = "/contact";
   <header>
     <h1><abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil.</h1>
     <p>
-      I like understanding how things work and making them kinder to humans — and hearing how others see the world.
-      Professionally I'm an Engineering Team Lead; here, I'm someone who values clarity, good company, and the occasional well‑timed joke. I tend to think things through before I speak, but I enjoy genuine conversations and learning what excites other people.
+      I like understanding how things work and making them kinder to humans —
+      and hearing how others see the world. Professionally I'm an Engineering
+      Team Lead; here, I'm someone who values clarity, good company, and the
+      occasional well‑timed joke. I tend to think things through before I speak,
+      but I enjoy genuine conversations and learning what excites other people.
     </p>
   </header>
 
@@ -31,7 +46,8 @@ const contactHref = "/contact";
       <h2 id="now">What I'm like</h2>
       <p>
         Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans.
-        I'm the friend who fixes the wobbly table and then puts on a solid playlist.
+        I'm the friend who fixes the wobbly table and then puts on a solid
+        playlist.
       </p>
     </section>
 
@@ -44,8 +60,14 @@ const contactHref = "/contact";
         <li>Sharing knowledge and helping others grow</li>
         <li>Good experiences with minimal fuss</li>
         <li>Learning: music, cities, culture, aviation, food</li>
-        <li>Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two</li>
-        <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
+        <li>
+          Music: passionate listener of electronic music for over three decades;
+          bedroom vinyl DJ for two
+        </li>
+        <li>
+          DJing: selecting vinyl records, layering elements of techno tracks
+          digitally
+        </li>
         <li>Movement: cycling, yoga, walks</li>
       </ul>
     </section>
@@ -53,24 +75,33 @@ const contactHref = "/contact";
     <section aria-labelledby="elsewhere">
       <h2 id="elsewhere">Elsewhere</h2>
       <p>
-        Sometimes I <a href="/ratings">log movies</a>. I explore architecture and enjoy discovering different cuisines — always open to recommendations.
+        Sometimes I <a href="/movies">log movies</a> and and some make it to my <a
+          href="/movies/recommendations"
+        >
+          recommendation list.</a
+        >
       </p>
-    </section>
 
-    <section aria-labelledby="contact">
-      <h2 id="contact">Say hi</h2>
-      <p>
-        Best way: <a href={contactHref}>write an email</a>.
-        Or find me on
-        {socials.map(({ name, url, rel }, i) => (
-          <>
-            <a href={url} rel={rel}>{name}</a>{i < socials.length - 1 ? " · " : ""}
-          </>
-        ))}
-      </p>
-      <p class="micro">
-        If you're here for work specifics, my <a href="/resume">resume</a> has the details.
-      </p>
+      <section aria-labelledby="contact">
+        <h2 id="contact">Say hi</h2>
+        <p>
+          Best way: <a href={contactHref}>write an email</a>. Or find me on
+          {
+            socials.map(({ name, url, rel }, i) => (
+              <>
+                <a href={url} rel={rel}>
+                  {name}
+                </a>
+                {i < socials.length - 1 ? " · " : ""}
+              </>
+            ))
+          }
+        </p>
+        <p class="micro">
+          If you're here for work specifics, my <a href="/resume">resume</a> has
+          the details.
+        </p>
+      </section>
     </section>
   </main>
 </BaseLayout>

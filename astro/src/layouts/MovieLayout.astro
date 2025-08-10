@@ -1,0 +1,83 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const {
+  title: pageTitle,
+  description,
+  language,
+  robots,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  language={language}
+  robots={robots}
+>
+  <slot />
+</BaseLayout>
+
+<!-- IMDb Modal Dialog -->
+<dialog id="imdb-modal">
+  <article>
+    <header>
+      <a
+        href="#close"
+        aria-label="Close"
+        class="close"
+        data-target="imdb-modal"
+        onclick="event.preventDefault(); closeImdbModal();"></a>
+      <h3 id="imdb-modal-title">More Details</h3>
+    </header>
+    <ul id="imdb-links-container">
+      <!-- Links will be dynamically inserted here -->
+    </ul>
+  </article>
+</dialog>
+
+<script is:inline>
+  function showImdbModal(imdbId) {
+    const imdbModal = document.getElementById("imdb-modal");
+    const imdbModalTitle = document.getElementById("imdb-modal-title");
+    const imdbLinksContainer = document.getElementById("imdb-links-container");
+
+    if (imdbModal && imdbModalTitle && imdbLinksContainer) {
+      imdbModalTitle.textContent = `More details for ${imdbId}`;
+      imdbLinksContainer.innerHTML = `
+        <li><a href="https://www.imdb.com/title/${imdbId}/" target="_blank" rel="noopener noreferrer">IMDb</a></li>
+        <li><a href="https://letterboxd.com/imdb/${imdbId}/" target="_blank" rel="noopener noreferrer">Letterboxd</a></li>
+        <li><a href="https://trakt.tv/search/imdb/${imdbId}" target="_blank" rel="noopener noreferrer">Trakt.tv</a></li>
+      `;
+      imdbModal.setAttribute("open", "");
+    }
+  }
+
+  function closeImdbModal() {
+    const imdbModal = document.getElementById("imdb-modal");
+    if (imdbModal) {
+      imdbModal.removeAttribute("open");
+    }
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    // Event delegation for movie cards
+    const movieCard = target.closest(".movie-card");
+    if (movieCard) {
+      const imdbId = movieCard.dataset.imdbId;
+      if (imdbId) {
+        showImdbModal(imdbId);
+      }
+    }
+
+    // Close modal logic
+    if (
+      target.matches(".close") ||
+      (target.matches("dialog") && target.id === "imdb-modal")
+    ) {
+      closeImdbModal();
+    }
+  });
+</script>

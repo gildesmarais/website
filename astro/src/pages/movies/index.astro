@@ -1,10 +1,10 @@
 ---
 export const prerender = true;
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import MovieLayout from "../../layouts/MovieLayout.astro";
 import movies from "../../data/movies.json";
 ---
-<BaseLayout title="Ratings">
+<MovieLayout title="Ratings">
   <section>
     <h1>Ratings</h1>
     <p>Static snapshot.</p>
@@ -50,4 +50,4 @@ import movies from "../../data/movies.json";
     )}
   </section>
   <script src="/enhance-table.js" type="module"></script>
-</BaseLayout>
+</MovieLayout>

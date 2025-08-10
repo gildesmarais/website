@@ -11,7 +11,6 @@ npm run dev
 
 ## TODOs:
 
-- [ ] check redirects work as intended
 - [ ] migrate remaining contents
 - [ ] do an iteration on the content (see conversations, notes, this will be crucial)
 - [ ] improve/update resume (open PRs!)
@@ -22,5 +21,6 @@ npm run dev
 
 - [x] Cut (from home): movie ratings, tag cloud vibe, hobby list (move to About).
 
-- [ ] migrate the ratings data (all, not just a subset)
-- [ ] implement https://gil.desmarais.de/ratings/recommendations/
+- [x] migrate the ratings data (all, not just a subset)
+- [x] implement https://gil.desmarais.de/ratings/recommendations/
+- [ ] check redirects work as intended

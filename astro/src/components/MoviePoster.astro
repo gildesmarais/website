@@ -1,0 +1,78 @@
+---
+interface Props {
+  imdbId: string;
+}
+
+const { imdbId } = Astro.props;
+---
+
+<div class="movie-poster-container">
+  <img
+    id={`poster-${imdbId}`}
+    src="/placeholder-poster.svg"
+    alt="Movie Poster"
+    class="movie-poster"
+    loading="lazy"
+  />
+</div>
+
+<script define:vars={{ imdbId }}>
+  const posterElement = document.getElementById(`poster-${imdbId}`);
+
+  if (posterElement) {
+    const fetchPoster = async () => {
+      try {
+        // Fetch from your own secure API route
+        const response = await fetch(`/api/movie/${imdbId}`);
+        const data = await response.json();
+
+        if (response.ok && data.poster && data.poster !== "N/A") {
+          posterElement.src = data.poster;
+          posterElement.alt = `${data.title} Poster`;
+        } else {
+          console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || 'Unknown error'}`);
+          posterElement.src = "/no-poster-available.svg"; // Fallback for no poster
+          posterElement.alt = "No poster available";
+        }
+      } catch (error) {
+        console.error(`Error fetching poster for IMDb ID: ${imdbId}`, error);
+        posterElement.src = "/error-poster.svg"; // Fallback for fetch error
+        posterElement.alt = "Error loading poster";
+      }
+    };
+
+    // Use Intersection Observer for lazy loading
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          fetchPoster();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(posterElement);
+  }
+</script>
+
+<style>
+  .movie-poster-container {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pico-background-color); /* Or a subtle placeholder color */
+    border: 1px solid var(--pico-border-color);
+    border-radius: var(--pico-border-radius);
+    overflow: hidden;
+    margin-bottom: var(--pico-spacing-sm); /* Space below the poster */
+  }
+
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Ensure the entire image is visible */
+  }
+</style>
