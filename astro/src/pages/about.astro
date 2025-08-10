@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "About";
 const description =
-  "Gil Desmarais — Engineering Team Lead focused on secure, scalable identity and platform capabilities.";
+  "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems.";
 
 const socials = [
   { name: "GitHub", url: "https://github.com/gildesmarais/", rel: "me" },
@@ -19,76 +19,55 @@ const contactHref = "/contact";
   <header>
     <h1>About me</h1>
     <p class="lede">
-      Engineering Team Lead working at the intersection of identity, platform,
-      and product outcomes. Secure by default. Pragmatic by choice.
+      Moin, I'm Gil.<br>
+      I like understanding how things work and making them kinder to humans.
+      Professionally I'm an Engineering Team Lead; here, I'm someone who values clarity, good company, and the occasional well‑timed joke. I tend to think things through before I speak, but I enjoy genuine conversations and learning what excites other people.
     </p>
   </header>
 
   <main>
-    <section aria-labelledby="philosophy">
-      <h2 id="philosophy">Work philosophy</h2>
+    <section aria-labelledby="now">
+      <h2 id="now">What I'm like</h2>
       <p>
-        Lead with clarity, deliver with focus, and optimize for long‑term value.
-        Empower teams, automate the repetitive, and make decisions grounded in
-        measurable impact.
+        Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans.
+        I'm the friend who fixes the wobbly table and then puts on a solid playlist.
       </p>
     </section>
 
-    <section aria-labelledby="background">
-      <h2 id="background">Professional background</h2>
-      <p>
-        I’ve grown from backend engineering (Ruby/Rails) into platform
-        leadership. My recent work centers on identity migrations, infrastructure
-        automation, and security-at-scale in med‑tech and adjacent domains.
-      </p>
+    <section aria-labelledby="care">
+      <h2 id="care">Things I care about</h2>
+      <ul>
+        <li><strong>Efficiency</strong>.</li>
+        <li>Understanding systems — from tech to culture.</li>
+        <li>Making life easier, not more complicated.</li>
+        <li>Sharing knowledge and helping others grow.</li>
+        <li>Good experiences with minimal fuss.</li>
+        <li>Learning: music, cities, culture, aviation, food.</li>
+        <li>Movement: cycling, yoga, walks.</li>
+      </ul>
     </section>
 
-    <section aria-labelledby="beyond">
-      <h2 id="beyond">Beyond work</h2>
+    <section aria-labelledby="elsewhere">
+      <h2 id="elsewhere">Elsewhere</h2>
       <p>
-        Techno mixing, cycling, yoga, aviation. Also into architecture, street
-        food, and the cultural side of travel. Sometimes I <a href="/ratings">log movies</a>.
+        Sometimes I <a href="/ratings">log movies</a>. I explore architecture and enjoy discovering different cuisines.
       </p>
     </section>
 
     <section aria-labelledby="contact">
-      <h2 id="contact">Contact</h2>
+      <h2 id="contact">Say hi</h2>
       <p>
-        Fastest: <a href={contactHref}>contact form</a>.
-        Elsewhere:
+        Best way: <a href={contactHref}>write an email</a>.
+        Or find me on
         {socials.map(({ name, url, rel }, i) => (
           <>
             <a href={url} rel={rel}>{name}</a>{i < socials.length - 1 ? " · " : ""}
           </>
         ))}
       </p>
-    </section>
-
-    <!-- Optional: human-readable, OCR-hostile line (progressive enhancement-free) -->
-    <section aria-hidden="true">
-      <p class="human-only" role="note">
-        hi there — if you can read this, you are human enough.
+      <p class="micro">
+        If you're here for work specifics, my <a href="/resume">resume</a> has the details.
       </p>
     </section>
   </main>
 </BaseLayout>
-
-<style>
-  .lede { max-width: 60ch; }
-  main { display: grid; gap: var(--pico-spacing); }
-  /* OCR-avoidance: visually readable, annoying for OCR */
-  .human-only {
-    user-select: none;
-    pointer-events: none;
-    letter-spacing: 0.03em;
-    text-shadow: 0 0 1px currentColor, 0 0 0.5px currentColor;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0 1px,
-      rgba(0,0,0,.07) 1px 2px
-    );
-    mix-blend-mode: difference;
-    padding: .25rem .5rem;
-    display: inline-block;
-  }
-</style>
