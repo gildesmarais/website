@@ -2,6 +2,7 @@
 title: Introducing Pal
 date: 2020-04-16
 description: Get to know Pal and what differentiates an aligator from a crocodile.
+showcase: true
 tags:
   - programming
 ---

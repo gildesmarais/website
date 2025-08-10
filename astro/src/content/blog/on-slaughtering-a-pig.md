@@ -2,6 +2,7 @@
 title: On slaughtering a pig
 date: 2020-04-11
 description: Last winter I witnessed a home slaughtering of a pig.
+showcase: true
 tags:
   - food
 ---

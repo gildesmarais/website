@@ -2,26 +2,39 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft))
-  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+const posts = (
+  await getCollection("blog", ({ data }) => !data.draft && data.showcase)
+).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
 ---
+
 <BaseLayout title="Blog">
   <section>
     <h1>Blog</h1>
     <ul>
-      {posts.map(({ slug, data }) => (
-        <li>
-          <a href={`/blog/${slug}`}>{data.title}</a>
-          {data.date && (
-            <>
-              {" "}
-              <time datetime={data.date.toISOString()}>
-                {data.date.toISOString().split('T')[0]}
-              </time>
-            </>
-          )}
-        </li>
-      ))}
+      {
+        posts.map(({ slug, data }) => (
+          <li>
+            <a href={`/blog/${slug}`}>{data.title}</a>
+            {data.language && data.language != "en" && (
+              <sup>[{data.language.toUpperCase()}]</sup>
+            )}
+            {data.date && (
+              <>
+                {" "}
+                <time datetime={data.date.toISOString()} class="micro">
+                  {data.date.toISOString().split("T")[0]}
+                </time>
+              </>
+            )}
+            <br />
+            {data.description && <small>{data.description}</small>}
+          </li>
+        ))
+      }
     </ul>
+
+    <nav>
+      <a href="/blog/archive/">Archive ⇾</a>
+    </nav>
   </section>
 </BaseLayout>

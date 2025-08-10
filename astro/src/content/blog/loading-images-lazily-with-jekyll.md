@@ -2,6 +2,7 @@
 title: Loading images lazily with Jekyll (natively & automatically)
 date: 2020-05-03
 description: My plugin improves your Jekyll website's performance.
+showcase: true
 tags:
   - project
   - programming
