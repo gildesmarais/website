@@ -1,18 +1,23 @@
-Low-maintenance workflow
+# Maintenance Guide
 
-- Posts:
-  1. Create a file at src/content/blog/your-slug.md
-  2. Add frontmatter:
-     ***
-     title: Your Title
-     date: YYYY-MM-DD
-     description: Optional short summary
-     draft: true|false (optional)
-     ***
-  3. Commit and push; deploy builds automatically.
+This document outlines key maintenance procedures for the Astro website.
 
-- Ratings:
-  - Edit src/data/ratings.json (array of { title, rating, year } objects).
-  - Commit and push.
+## Movie Ratings and Recommendations Data Migration
 
-- No custom CSS or JS by default. When ready, drop a classless CSS into public/ and link it in BaseLayout. No markup changes needed.
+The movie ratings and recommendations data displayed on the website are generated from two source files:
+
+- `_data/ratings.csv`: Contains the primary movie data, including titles, ratings, and IMDb IDs.
+- `_data/movie_ratings.yml`: Contains additional information, specifically which movies are recommended and their associated notes.
+
+To update the `astro/src/data/movies.json` and `astro/src/data/recommendations.json` files (which are consumed by the Astro site), you must run the migration script located at `bin/migrate-ratings`.
+
+**Steps to update movie data:**
+
+1.  Ensure you have the latest versions of `_data/ratings.csv` and `_data/movie_ratings.yml`.
+2.  Open your terminal in the project root directory (`/Users/gil/versioned/gildesmarais/website`).
+3.  Execute the migration script:
+    ```bash
+    bin/migrate-ratings
+    ```
+4.  This script will regenerate `astro/src/data/movies.json` and `astro/src/data/recommendations.json` based on the latest source data.
+5.  You may need to restart your Astro development server (`cd astro && npm run dev`) to see the changes reflected on the website.

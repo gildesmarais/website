@@ -1,0 +1,33 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import recommendations from "../../data/recommendations.json";
+import movies from "../../data/movies.json";
+---
+<BaseLayout title="Recommendations">
+  <section>
+    <h1>Recommended Movies</h1>
+    {Array.isArray(recommendations) && recommendations.length > 0 ? (
+      <ul>
+        {recommendations.map((rec) => {
+          const movie = movies.find((m) => m.const === rec.const);
+          return movie ? (
+            <li>
+              <a
+                href={movie.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {movie.title}
+              </a>
+              {rec.note && <p>{rec.note}</p>}
+            </li>
+          ) : null;
+        })}
+      </ul>
+    ) : (
+      <p>No recommendations yet.</p>
+    )}
+  </section>
+</BaseLayout>

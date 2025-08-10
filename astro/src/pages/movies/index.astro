@@ -1,0 +1,53 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import movies from "../../data/movies.json";
+---
+<BaseLayout title="Ratings">
+  <section>
+    <h1>Ratings</h1>
+    <p>Static snapshot.</p>
+
+    <input id="movieFilter" type="search" placeholder="Filter…" />
+    {Array.isArray(movies) && movies.length > 0 ? (
+      <table data-enhance data-filter="#movieFilter">
+        <thead>
+          <tr>
+        <th data-col-id="title">Title</th>
+        <th data-sort-type="number">Your Rating</th>
+        <th data-sort-type="number">IMDb Rating</th>
+        <th data-sort-type="number" data-col-id="runtime">Runtime</th>
+        <th data-sort-type="number" data-col-id="year">Year</th>
+        <th>Genres</th>
+        <th data-nosort>IMDb Link</th>
+      </tr>
+        </thead>
+        <tbody>
+          {movies.map((movie) => (
+            <tr>
+              <td>{movie.title}</td>
+              <td>{movie.your_rating}</td>
+              <td>{movie.imdb_rating}</td>
+              <td>{movie.runtime_mins}</td>
+              <td>{movie.year}</td>
+              <td>{movie.genres}</td>
+              <td>
+                <a
+                  href={movie.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {movie.const}
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p>No movies yet.</p>
+    )}
+  </section>
+  <script src="/enhance-table.js" type="module"></script>
+</BaseLayout>
