@@ -1,16 +1,23 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-
+const title = "Blog";
 const posts = (
   await getCollection("blog", ({ data }) => !data.draft && data.showcase)
-).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date)).
-slice(0, 5);
+)
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .slice(0, 5);
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title={title}>
   <section>
-    <h1>Blog</h1>
+    <h1>{title}</h1>
+    <p>
+      Five recent posts, hand-picked.
+      See the <a href="/blog/archive/">archive</a
+      > for all, or <a href="/blog/rss.xml">subscribe</a>.
+    </p>
+
     <ul>
       {
         posts.map(({ slug, data }) => (
