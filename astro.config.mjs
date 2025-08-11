@@ -1,18 +1,13 @@
 import { defineConfig } from "astro/config"
 import sitemap from "@astrojs/sitemap"
-import vercel from "@astrojs/vercel/serverless"
+import vercel from "@astrojs/vercel"
 
 export default defineConfig({
   site: "https://gil.desmarais.de",
   integrations: [sitemap()],
-  output: "hybrid",
+  output: "static",
   adapter: vercel(),
   prefetch: true,
-  redirects: {
-    // old: new
-    "/tag/food": "/about",
-    "/blogroll": "/about",
-  },
   image: {
     formats: ["avif", "webp", "jpg", "jpeg", "png", "gif"],
     layout: "constrained",
