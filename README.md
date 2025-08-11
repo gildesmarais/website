@@ -6,6 +6,12 @@ make fix
 make build
 ```
 
+## Deployment
+
+Vercel. Login via email: `g*@*s.de`
+
+https://vercel.com/gils-projects-950b2ab6/website
+
 ## Resources
 
 - site generator: https://docs.astro.build/

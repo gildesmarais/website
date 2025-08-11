@@ -7,6 +7,9 @@ clean:
 	find . -type d -empty -delete
 	find . -type f -empty -delete
 
+ci-install:
+	npm ci
+
 serve:
 	npm run dev
 
