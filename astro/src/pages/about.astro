@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
-
+import { Image } from "astro:assets";
+import speakerImage from "../assets/images/speaker.svg";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "About";
@@ -42,6 +43,34 @@ const contactHref = "/contact";
   </header>
 
   <main>
+    <section aria-labelledby="name-pronunciation">
+      <h2 id="name-pronunciation">Name pronunciation</h2>
+      <figure>
+        <figcaption>
+          <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh"
+            >/ʒɪl dɛsm ɐ ʁɛ/</span
+          >
+          <button
+            type="button"
+            id="play-name"
+            aria-label="Play name pronunciation"
+            aria-controls="name-audio"
+            aria-pressed="false"
+          >
+            <Image src={speakerImage} alt="" width="16" height="16" />
+          </button>
+        </figcaption>
+
+        <audio id="name-audio" preload="metadata" controls>
+          <source src="/index.flac" type="audio/flac" />
+          Your browser can’t play the audio. <a href="/index.flac"
+            >Download audio</a
+          >.
+        </audio>
+      </figure>
+    </section>
+
+
     <section aria-labelledby="now">
       <h2 id="now">What I'm like</h2>
       <p>
@@ -95,3 +124,43 @@ const contactHref = "/contact";
     </section>
   </main>
 </BaseLayout>
+
+<script>
+  (() => {
+    const s = document.querySelector(
+      'section[aria-labelledby="name-pronunciation"]',
+    );
+    if (!s) return;
+    const btn = s.querySelector("#play-name");
+    const audio = s.querySelector("#name-audio");
+    if (!btn || !audio) return;
+
+    // Enhance: hide native controls if JS is available
+    audio.controls = false;
+
+    const setPressed = (pressed) => {
+      btn.setAttribute("aria-pressed", String(pressed));
+      btn.setAttribute(
+        "aria-label",
+        pressed ? "Stop name pronunciation" : "Play name pronunciation",
+      );
+    };
+
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.currentTime = 0;
+        audio.play();
+        setPressed(true);
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        setPressed(false);
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      audio.currentTime = 0;
+      setPressed(false);
+    });
+  })();
+</script>
