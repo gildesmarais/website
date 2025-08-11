@@ -1,8 +1,9 @@
 {
-  "name": "website-astro",
+  "name": "website",
+  "description": "Gil's personal website / portfolio. Built with Astro.",
   "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "3.0.0-alpha.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
