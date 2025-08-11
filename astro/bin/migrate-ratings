@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+require 'yaml'
+require 'json'
+
+# Load the CSV data
+unless File.exist?('ratings.csv')
+  raise "Error: The file 'ratings.csv' does not exist in the current directory."
+end
+
+csv_movies_raw = CSV.read('ratings.csv', headers: true).map(&:to_h)
+
+# Sanitize CSV headers for JSON keys
+csv_movies = csv_movies_raw.map do |row|
+  new_row = {}
+  row.each do |key, value|
+    # Convert header to snake_case and remove special characters
+    sanitized_key = key.to_s.downcase.gsub(/[^a-z0-9_]+/, '_').gsub(/^_|_$/, '')
+    new_row[sanitized_key] = value
+  end
+  new_row
+end
+
+# Process CSV data for all movies
+all_movies = csv_movies.map do |movie|
+  # Convert numeric fields to integers
+  movie['your_rating'] = movie['your_rating'].to_i if movie['your_rating']
+  movie['imdb_rating'] = movie['imdb_rating'].to_f if movie['imdb_rating']
+  movie['runtime_mins'] = movie['runtime_mins'].to_i if movie['runtime_mins']
+  movie['year'] = movie['year'].to_i if movie['year']
+  movie['num_votes'] = movie['num_votes'].to_i if movie['num_votes']
+end
+
+# Remove duplicates from all_movies and recommendations_only_const_and_note based on 'const'
+all_movies_unique = all_movies.uniq { |m| m['const'] }
+
+# Write to movies.json
+File.open('src/data/movies.json', 'w') do |f|
+  f.write(JSON.pretty_generate(all_movies_unique))
+end
+
+puts "Successfully regenerated movies.json from ratings.csv and saved to src/data/movies.json"
