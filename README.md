@@ -1,7 +1,9 @@
 ## Getting started
 
 ```sh
-npm run dev
+make serve
+make fix
+make build
 ```
 
 ## Resources

@@ -1,2 +1,2 @@
-_site
-**/*.html
+dist
+node_modules

@@ -8,6 +8,11 @@ export default defineConfig({
   output: "hybrid",
   adapter: vercel(),
   prefetch: true,
+  redirects: {
+    // old: new
+    "/tag/food": "/about",
+    "/blogroll": "/about",
+  },
   image: {
     formats: ["avif", "webp", "jpg", "jpeg", "png", "gif"],
     layout: "constrained",
