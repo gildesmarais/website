@@ -33,3 +33,4 @@ https://vercel.com/gils-projects-950b2ab6/website
 - [x] implement https://gil.desmarais.de/ratings/recommendations/
 - [ ] check redirects work as intended
 - [ ] setup vercel deployment (hybrid, set api key via env secret)
+- [x] setup vercel speed insights: https://vercel.com/gils-projects-950b2ab6/website/speed-insights && `npm i @vercel/speed-insights`

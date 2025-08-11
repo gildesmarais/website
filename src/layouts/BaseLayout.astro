@@ -1,6 +1,8 @@
 ---
+import  SpeedInsights  from "@vercel/speed-insights/astro"
+
 const {
-  title: pageTitle = "desmarais",
+  title: pageTitle = "Gil Desmarais",
   description = "",
   language,
   robots = "index, follow",
@@ -262,6 +264,7 @@ const isActive = (href: string) => {
     />
   </head>
   <body>
+    <SpeedInsights/>
     <header class="container">
       <nav id="main-nav">
         <input type="checkbox" id="menu-toggle-checkbox" />
