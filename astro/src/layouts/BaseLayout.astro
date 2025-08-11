@@ -381,11 +381,23 @@ const isActive = (href: string) => {
           label.setAttribute("aria-controls", "main-nav-list");
           label.setAttribute("aria-expanded", checkbox.checked.toString());
 
-          checkbox.addEventListener(
-            "change",
-            function () {
-              label.setAttribute("aria-expanded", this.checked.toString());
-            },
+          checkbox.addEventListener("change", function () {
+            label.setAttribute("aria-expanded", this.checked.toString());
+          });
+        }
+
+        if (window.console && window.console.log) {
+          const font =
+            "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61";
+
+          window.console.log("%c👋🏽 Hey there!", `font-weight: 700;${font}`);
+          window.console.log(
+            "%c🧐 Looks like you are interested in my work. That's cool.",
+            font,
+          );
+          window.console.log(
+            "%c📧 If you like what you see, don't hesitate to contact me!",
+            font,
           );
         }
       });

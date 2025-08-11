@@ -1,5 +1,5 @@
 // src/content/config.ts
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from "astro:content"
 
 const blog = defineCollection({
   schema: z.object({
@@ -10,6 +10,6 @@ const blog = defineCollection({
     showcase: z.boolean().default(false),
     description: z.string().optional(),
   }),
-});
+})
 
-export const collections = { blog };
+export const collections = { blog }
