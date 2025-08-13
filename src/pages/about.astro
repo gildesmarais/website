@@ -1,12 +1,12 @@
 ---
-export const prerender = true;
-import { Image } from "astro:assets";
-import speakerImage from "../assets/images/speaker.svg";
-import BaseLayout from "../layouts/BaseLayout.astro";
+export const prerender = true
+import { Image } from "astro:assets"
+import speakerImage from "../assets/images/speaker.svg"
+import BaseLayout from "../layouts/BaseLayout.astro"
 
-const title = "About";
+const title = "About"
 const description =
-  "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems.";
+  "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems."
 
 const socials = [
   { name: "GitHub", url: "https://github.com/gildesmarais/", rel: "me" },
@@ -25,20 +25,19 @@ const socials = [
     url: "https://bsky.app/profile/gil.desmarais.de",
     rel: "me",
   },
-];
+]
 
-const contactHref = "/contact";
+const contactHref = "/contact"
 ---
 
 <BaseLayout title={title} description={description}>
   <header>
     <h1><abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil.</h1>
     <p>
-      I like understanding how things work and making them kinder to humans —
-      and hearing how others see the world. Professionally I'm an Engineering
-      Team Lead; here, I'm someone who values clarity, good company, and the
-      occasional well‑timed joke. I tend to think things through before I speak,
-      but I enjoy genuine conversations and learning what excites other people.
+      I like understanding how things work and making them kinder to humans — and hearing how others see the
+      world. Professionally I'm an Engineering Team Lead; here, I'm someone who values clarity, good company,
+      and the occasional well‑timed joke. I tend to think things through before I speak, but I enjoy genuine
+      conversations and learning what excites other people.
     </p>
   </header>
 
@@ -47,9 +46,7 @@ const contactHref = "/contact";
       <h2 id="name-pronunciation">Name pronunciation</h2>
       <figure>
         <figcaption>
-          <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh"
-            >/ʒɪl dɛsm ɐ ʁɛ/</span
-          >
+          <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh">/ʒɪl dɛsm ɐ ʁɛ/</span>
           <button
             type="button"
             id="play-name"
@@ -63,20 +60,16 @@ const contactHref = "/contact";
 
         <audio id="name-audio" preload="metadata" controls>
           <source src="/index.flac" type="audio/flac" />
-          Your browser can’t play the audio. <a href="/index.flac"
-            >Download audio</a
-          >.
+          Your browser can’t play the audio. <a href="/index.flac">Download audio</a>.
         </audio>
       </figure>
     </section>
 
-
     <section aria-labelledby="now">
       <h2 id="now">What I'm like</h2>
       <p>
-        Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans.
-        I'm the friend who fixes the wobbly table and then puts on a solid
-        playlist.
+        Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans. I'm the friend who fixes the
+        wobbly table and then puts on a solid playlist.
       </p>
     </section>
 
@@ -91,13 +84,9 @@ const contactHref = "/contact";
         <li>Watching <a href="/movies?isRecommendation=true&sort=year&dir=desc">movies I recommend</a></li>
         <li>Learning: music, cities, culture, aviation, food</li>
         <li>
-          Music: passionate listener of electronic music for over three decades;
-          bedroom vinyl DJ for two
+          Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two
         </li>
-        <li>
-          DJing: selecting vinyl records, layering elements of techno tracks
-          digitally
-        </li>
+        <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
         <li>Movement: cycling, yoga, walks</li>
       </ul>
     </section>
@@ -118,49 +107,43 @@ const contactHref = "/contact";
         }
       </p>
       <p class="micro">
-        If you're here for work specifics, my <a href="/resume">resume</a> has the
-        details.
+        If you're here for work specifics, my <a href="/resume">resume</a> has the details.
       </p>
     </section>
   </main>
 </BaseLayout>
 
 <script>
-  (() => {
-    const s = document.querySelector(
-      'section[aria-labelledby="name-pronunciation"]',
-    );
-    if (!s) return;
-    const btn = s.querySelector("#play-name");
-    const audio = s.querySelector("#name-audio");
-    if (!btn || !audio) return;
+  ;(() => {
+    const s = document.querySelector('section[aria-labelledby="name-pronunciation"]')
+    if (!s) return
+    const btn = s.querySelector("#play-name")
+    const audio = s.querySelector("#name-audio")
+    if (!btn || !audio) return
 
     // Enhance: hide native controls if JS is available
-    audio.controls = false;
+    audio.controls = false
 
     const setPressed = (pressed) => {
-      btn.setAttribute("aria-pressed", String(pressed));
-      btn.setAttribute(
-        "aria-label",
-        pressed ? "Stop name pronunciation" : "Play name pronunciation",
-      );
-    };
+      btn.setAttribute("aria-pressed", String(pressed))
+      btn.setAttribute("aria-label", pressed ? "Stop name pronunciation" : "Play name pronunciation")
+    }
 
     btn.addEventListener("click", () => {
       if (audio.paused) {
-        audio.currentTime = 0;
-        audio.play();
-        setPressed(true);
+        audio.currentTime = 0
+        audio.play()
+        setPressed(true)
       } else {
-        audio.pause();
-        audio.currentTime = 0;
-        setPressed(false);
+        audio.pause()
+        audio.currentTime = 0
+        setPressed(false)
       }
-    });
+    })
 
     audio.addEventListener("ended", () => {
-      audio.currentTime = 0;
-      setPressed(false);
-    });
-  })();
+      audio.currentTime = 0
+      setPressed(false)
+    })
+  })()
 </script>

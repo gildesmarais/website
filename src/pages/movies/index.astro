@@ -1,27 +1,23 @@
 ---
-export const prerender = true;
+export const prerender = true
 
-import MovieLayout from "../../layouts/MovieLayout.astro";
-import ratings from "../../data/ratings.json";
-import recommendations from "../../data/recommendations.json";
-import movies from "../../data/movies.json";
-import MoviePoster from "../../components/MoviePoster.astro";
+import MovieLayout from "../../layouts/MovieLayout.astro"
+import ratings from "../../data/ratings.json"
+import recommendations from "../../data/recommendations.json"
+import movies from "../../data/movies.json"
+import MoviePoster from "../../components/MoviePoster.astro"
 
-const title = "Movie Ratings";
+const title = "Movie Ratings"
 
-const ratingsMap = new Map(
-  ratings.map((r) => [`${r.title} (${r.year})`, r.rating]),
-);
-const recommendationsSet = new Set(recommendations.map((r) => r.const));
-const recommendationNotes = new Map(
-  recommendations.map((r) => [r.const, r.note]),
-);
+const ratingsMap = new Map(ratings.map((r) => [`${r.title} (${r.year})`, r.rating]))
+const recommendationsSet = new Set(recommendations.map((r) => r.const))
+const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]))
 
 const moviesWithRatings = movies.map((movie) => {
-  const key = `${movie.title} (${movie.year})`;
-  const your_rating = ratingsMap.get(key) || movie.your_rating;
-  return { ...movie, your_rating };
-});
+  const key = `${movie.title} (${movie.year})`
+  const your_rating = ratingsMap.get(key) || movie.your_rating
+  return { ...movie, your_rating }
+})
 ---
 
 <MovieLayout title={title}>
@@ -29,9 +25,7 @@ const moviesWithRatings = movies.map((movie) => {
     <h1>{title}</h1>
     <input id="movieFilter" type="search" placeholder="Filter…" />
     <div class="sort-buttons">
-      <button data-filter-by="isRecommendation" data-filter-value="true">
-        Recommendations
-      </button>
+      <button data-filter-by="isRecommendation" data-filter-value="true"> Recommendations </button>
       <button data-sort-by="title">Title</button>
       <button data-sort-by="year">Year</button>
       <button data-sort-by="yourRating">My Rating</button>
@@ -41,8 +35,8 @@ const moviesWithRatings = movies.map((movie) => {
     <div class="recommendations-grid" data-enhance-grid data-filter="#movieFilter">
       {
         moviesWithRatings.map((movie) => {
-          const isRecommendation = recommendationsSet.has(movie.const);
-          const note = recommendationNotes.get(movie.const);
+          const isRecommendation = recommendationsSet.has(movie.const)
+          const note = recommendationNotes.get(movie.const)
           return (
             <article
               class="movie-card"
@@ -63,12 +57,8 @@ const moviesWithRatings = movies.map((movie) => {
                 </h2>
               </header>
               <p class="ratings">
-                <span class="your-rating">
-                  My Rating: {movie.your_rating}/10
-                </span>
-                <span class="imdb-rating">
-                  IMDb: {movie.imdb_rating}/10
-                </span>
+                <span class="your-rating">My Rating: {movie.your_rating}/10</span>
+                <span class="imdb-rating">IMDb: {movie.imdb_rating}/10</span>
               </p>
               <div class="grid metadata-grid">
                 <p>
@@ -86,17 +76,15 @@ const moviesWithRatings = movies.map((movie) => {
               </div>
               {isRecommendation && note && <p class="note">{note}</p>}
             </article>
-          );
+          )
         })
       }
     </div>
   </section>
   <script src="/enhance-grid.js" type="module"></script>
   <aside class="micro">
-    Thank you to the <a
-      href="https://www.omdbapi.com/"
-      target="_blank"
-      rel="noopener noreferrer">OMDb API for providing the movie posters</a
+    Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer"
+      >OMDb API for providing the movie posters</a
     > used in this page. 🧡
   </aside>
 </MovieLayout>
@@ -113,9 +101,7 @@ const moviesWithRatings = movies.map((movie) => {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: var(
-      --pico-card-background-color
-    ); /* Add a background to the card */
+    background-color: var(--pico-card-background-color); /* Add a background to the card */
     border: 1px solid var(--pico-border-color);
     border-radius: var(--pico-border-radius);
     padding: var(--pico-spacing); /* Add padding inside the card */

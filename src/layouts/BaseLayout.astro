@@ -1,25 +1,23 @@
 ---
-import  SpeedInsights  from "@vercel/speed-insights/astro"
-import '@picocss/pico/css/pico.min.css';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import "@picocss/pico/css/pico.min.css"
 
 const {
   title: pageTitle = "Gil Desmarais",
   description = "",
   language,
   robots = "index, follow",
-} = Astro.props;
-const brand = "Gil Desmarais";
+} = Astro.props
+const brand = "Gil Desmarais"
 
-const siteUrl = import.meta.env.PROD ? Astro.site : "/";
+const siteUrl = import.meta.env.PROD ? Astro.site : "/"
 
 /* Compute active link using pathname; handle root and section prefixes cleanly */
-const path = Astro.url.pathname;
+const path = Astro.url.pathname
 const isActive = (href: string) => {
-  if (href === "/") return path === "/";
-  return (
-    path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
-  );
-};
+  if (href === "/") return path === "/"
+  return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
+}
 ---
 
 <!doctype html>
@@ -57,21 +55,13 @@ const isActive = (href: string) => {
       .icon-close {
         display: none;
       }
-      #menu-toggle-checkbox:checked
-        ~ #main-nav-list
-        #menu-toggle-label
-        .icon-menu {
+      #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-menu {
         display: none;
       }
-      #menu-toggle-checkbox:checked
-        ~ #main-nav-list
-        #menu-toggle-label
-        .icon-close {
+      #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-close {
         display: block;
       }
-      #menu-toggle-checkbox:checked
-        ~ #main-nav-list
-        > li:not(:first-child):not(.mobile-toggle) {
+      #menu-toggle-checkbox:checked ~ #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
         display: list-item;
         visibility: visible;
         pointer-events: auto;
@@ -190,14 +180,10 @@ const isActive = (href: string) => {
         /* Valid/invalid colors kept neutral; not christmas-tree */
         --pico-form-element-invalid-border-color: #8a3a2f;
         --pico-form-element-invalid-active-border-color: #a23d2c;
-        --pico-form-element-invalid-focus-color: var(
-          --pico-form-element-invalid-active-border-color
-        );
+        --pico-form-element-invalid-focus-color: var(--pico-form-element-invalid-active-border-color);
         --pico-form-element-valid-border-color: #2a7b6f;
         --pico-form-element-valid-active-border-color: #188969;
-        --pico-form-element-valid-focus-color: var(
-          --pico-form-element-valid-active-border-color
-        );
+        --pico-form-element-valid-focus-color: var(--pico-form-element-valid-active-border-color);
 
         /* Accents & components */
         --pico-blockquote-border-color: var(--pico-muted-border-color);
@@ -254,15 +240,10 @@ const isActive = (href: string) => {
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#1d1f21" />
-    <link
-      type="application/atom+xml"
-      rel="alternate"
-      href="/feed.xml"
-      title="Gil Desmarais"
-    />
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Gil Desmarais" />
   </head>
   <body>
-    <SpeedInsights/>
+    <SpeedInsights />
     <header class="container">
       <nav id="main-nav">
         <input type="checkbox" id="menu-toggle-checkbox" />
@@ -273,36 +254,19 @@ const isActive = (href: string) => {
             </a>
           </li>
           <li>
-            <a
-              href="/blog"
-              aria-current={isActive("/blog") ? "page" : undefined}>Blog</a
-            >
+            <a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
           </li>
           <li>
-            <a
-              href="/projects"
-              aria-current={isActive("/projects") ? "page" : undefined}
-              >Projects</a
-            >
+            <a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a>
           </li>
           <li>
-            <a
-              href="/resume"
-              aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a
-            >
+            <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
           </li>
           <li>
-            <a
-              href="/about"
-              aria-current={isActive("/about") ? "page" : undefined}>About</a
-            >
+            <a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a>
           </li>
           <li class="mobile-toggle">
-            <label
-              id="menu-toggle-label"
-              for="menu-toggle-checkbox"
-              aria-label="Open navigation menu"
-            >
+            <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
               <svg
                 class="icon-menu"
                 xmlns="http://www.w3.org/2000/svg"
@@ -324,10 +288,7 @@ const isActive = (href: string) => {
                 stroke-width="1.5"
                 stroke="currentColor"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </label>
           </li>
@@ -341,18 +302,10 @@ const isActive = (href: string) => {
       <section class="container">
         <nav class="micro">
           <li>
-            <a
-              href="/privacy"
-              aria-current={isActive("/privacy") ? "page" : undefined}
-              >Privacy</a
-            >
+            <a href="/privacy" aria-current={isActive("/privacy") ? "page" : undefined}>Privacy</a>
           </li>
           <li>
-            <a
-              href="/contact"
-              aria-current={isActive("/contact") ? "page" : undefined}
-              >Contact</a
-            >
+            <a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
           </li>
         </nav>
       </section>
@@ -363,45 +316,34 @@ const isActive = (href: string) => {
           <noscript>
             <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
           </noscript>
-          <script
-            data-goatcounter="https://gil.goatcounter.com/count"
-            async
-            src="//gc.zgo.at/count.js"
-          />
+          <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js" />
         </>
       )
     }
     <script is:inline>
       document.addEventListener("DOMContentLoaded", function () {
         // Existing menu toggle logic
-        const checkbox = document.getElementById("menu-toggle-checkbox");
-        const label = document.getElementById("menu-toggle-label");
-        const navList = document.getElementById("main-nav-list");
+        const checkbox = document.getElementById("menu-toggle-checkbox")
+        const label = document.getElementById("menu-toggle-label")
+        const navList = document.getElementById("main-nav-list")
 
         if (checkbox && label && navList) {
-          label.setAttribute("aria-controls", "main-nav-list");
-          label.setAttribute("aria-expanded", checkbox.checked.toString());
+          label.setAttribute("aria-controls", "main-nav-list")
+          label.setAttribute("aria-expanded", checkbox.checked.toString())
 
           checkbox.addEventListener("change", function () {
-            label.setAttribute("aria-expanded", this.checked.toString());
-          });
+            label.setAttribute("aria-expanded", this.checked.toString())
+          })
         }
 
         if (window.console && window.console.log) {
-          const font =
-            "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61";
+          const font = "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61"
 
-          window.console.log("%c👋🏽 Hey there!", `font-weight: 700;${font}`);
-          window.console.log(
-            "%c🧐 Looks like you are interested in my work. That's cool.",
-            font,
-          );
-          window.console.log(
-            "%c📧 If you like what you see, don't hesitate to contact me!",
-            font,
-          );
+          window.console.log("%c👋🏽 Hey there!", `font-weight: 700;${font}`)
+          window.console.log("%c🧐 Looks like you are interested in my work. That's cool.", font)
+          window.console.log("%c📧 If you like what you see, don't hesitate to contact me!", font)
         }
-      });
+      })
     </script>
   </body>
 </html>

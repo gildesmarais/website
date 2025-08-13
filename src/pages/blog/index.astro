@@ -1,21 +1,19 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-const title = "Blog";
-const posts = (
-  await getCollection("blog", ({ data }) => !data.draft && data.showcase)
-)
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { getCollection } from "astro:content"
+const title = "Blog"
+const posts = (await getCollection("blog", ({ data }) => !data.draft && data.showcase))
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-  .slice(0, 5);
+  .slice(0, 5)
 ---
 
 <BaseLayout title={title}>
   <section>
     <h1>{title}</h1>
     <p>
-      Five recent posts, hand-picked.
-      See the <a href="/blog/archive/">archive</a
-      > for all, or <a href="/feed.xml">subscribe to the RSS feed</a>.
+      Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or <a
+        href="/feed.xml">subscribe to the RSS feed</a
+      >.
     </p>
 
     <ul>
@@ -23,9 +21,7 @@ const posts = (
         posts.map(({ slug, data }) => (
           <li>
             <a href={`/blog/${slug}`}>{data.title}</a>
-            {data.language && data.language != "en" && (
-              <sup>[{data.language.toUpperCase()}]</sup>
-            )}
+            {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
             {data.date && (
               <>
                 {" "}

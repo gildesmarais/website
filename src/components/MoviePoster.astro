@@ -1,9 +1,9 @@
 ---
 interface Props {
-  imdbId: string;
+  imdbId: string
 }
 
-const { imdbId } = Astro.props;
+const { imdbId } = Astro.props
 ---
 
 <div class="movie-poster-container">
@@ -17,41 +17,41 @@ const { imdbId } = Astro.props;
 </div>
 
 <script define:vars={{ imdbId }}>
-  const posterElement = document.getElementById(`poster-${imdbId}`);
+  const posterElement = document.getElementById(`poster-${imdbId}`)
 
   if (posterElement) {
     const fetchPoster = async () => {
       try {
         // Fetch from your own secure API route
-        const response = await fetch(`/api/movie/${imdbId}`);
-        const data = await response.json();
+        const response = await fetch(`/api/movie/${imdbId}`)
+        const data = await response.json()
 
         if (response.ok && data.poster && data.poster !== "N/A") {
-          posterElement.src = data.poster;
-          posterElement.alt = `${data.title} Poster`;
+          posterElement.src = data.poster
+          posterElement.alt = `${data.title} Poster`
         } else {
-          console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || 'Unknown error'}`);
-          posterElement.src = "/no-poster-available.svg"; // Fallback for no poster
-          posterElement.alt = "No poster available";
+          console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || "Unknown error"}`)
+          posterElement.src = "/no-poster-available.svg" // Fallback for no poster
+          posterElement.alt = "No poster available"
         }
       } catch (error) {
-        console.error(`Error fetching poster for IMDb ID: ${imdbId}`, error);
-        posterElement.src = "/error-poster.svg"; // Fallback for fetch error
-        posterElement.alt = "Error loading poster";
+        console.error(`Error fetching poster for IMDb ID: ${imdbId}`, error)
+        posterElement.src = "/error-poster.svg" // Fallback for fetch error
+        posterElement.alt = "Error loading poster"
       }
-    };
+    }
 
     // Use Intersection Observer for lazy loading
     const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          fetchPoster();
-          observer.unobserve(entry.target);
+          fetchPoster()
+          observer.unobserve(entry.target)
         }
-      });
-    });
+      })
+    })
 
-    observer.observe(posterElement);
+    observer.observe(posterElement)
   }
 </script>
 

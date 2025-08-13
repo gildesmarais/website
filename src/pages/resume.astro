@@ -1,31 +1,28 @@
 ---
-export const prerender = true;
+export const prerender = true
 
-import SkillsMatrix from "../components/SkillsMatrix.astro";
-import { skills } from "../data/skills";
-import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Résumé";
----
+import SkillsMatrix from "../components/SkillsMatrix.astro"
+import { skills } from "../data/skills"
+import BaseLayout from "../layouts/BaseLayout.astro"
+const title = "Résumé"
 ---
 
 <BaseLayout title={title}>
   <h1>{title}</h1>
 
   <p>
-    Platform-focused engineering lead / full-stack developer. Boring-by-default,
-    idiomatic systems. Broad product-phase experience; revenue-minded,
-    cost-aware, ISO/IEC 27001 collaboration.
+    Platform-focused engineering lead / full-stack developer. Boring-by-default, idiomatic systems. Broad
+    product-phase experience; revenue-minded, cost-aware, ISO/IEC 27001 collaboration.
   </p>
 
   <p>
-    My broad knowledge supports companies in the many phases of product
-    development. I enjoy driving companies forward, increasing revenue and
-    reducing internal costs.
+    My broad knowledge supports companies in the many phases of product development. I enjoy driving companies
+    forward, increasing revenue and reducing internal costs.
   </p>
 
   <SkillsMatrix title="Skills" categories={skills} />
 
-  <hr />
+  <!-- <hr /> -->
 
   <section>
     <h2>Experience</h2>
@@ -39,15 +36,16 @@ const title = "Résumé";
       <div>Berlin, hybrid (99% remote)</div>
 
       <p>
-        Owning platform modernization and reliability. Standardized the stack
-        (TypeScript/Ruby), simplified service topology, and raised delivery
-        quality.
+        Owning platform modernization and reliability. Standardized the stack (TypeScript/Ruby), simplified
+        service topology, and raised delivery quality.
       </p>
 
       <ul>
+        <li>Unified the stack by replacing legacy services with TypeScript or Ruby.</li>
         <li>
-          Unified the stack by replacing legacy services with TypeScript or
-          Ruby.
+          Stabilized and revitalized a decayed core Rails API application, implementing maintainable
+          architecture, reducing tech debt, and restoring it as the company’s primary platform for product
+          delivery.
         </li>
         <li>Ongoing architecture development across departments/teams.</li>
         <li>
@@ -58,10 +56,7 @@ const title = "Résumé";
             rel="external nofollow noopener">ISO/IEC 27001</a
           > requirements.
         </li>
-        <li>
-          Demoed product features in sprint reviews; close collaboration with
-          data and QA.
-        </li>
+        <li>Demoed product features in sprint reviews; close collaboration with data and QA.</li>
         <li>Close cooperation with data and QA teams.</li>
         <li>Leading and coaching of team members.</li>
       </ul>
@@ -139,35 +134,21 @@ const title = "Résumé";
       <div>Berlin</div>
 
       <p>
-        Relaunched the agency's own product: a web portal, that targets the
-        areas of tourism, events, arts and entertainment, local retail and city
-        marketing, based on interactive virtual tours.
+        Relaunched the agency's own product: a web portal, that targets the areas of tourism, events, arts and
+        entertainment, local retail and city marketing, based on interactive virtual tours.
         <br />
-        I've been involved deeply in the creation process: From idea, to concept,
-        to development of software, and eventually to analytical review, monitoring
-        and maintenance.
+        I've been involved deeply in the creation process: From idea, to concept, to development of software, and
+        eventually to analytical review, monitoring and maintenance.
       </p>
       <ul>
-        <li>
-          Created products for target groups (city &amp; business customers, end
-          consumers)
-        </li>
+        <li>Created products for target groups (city &amp; business customers, end consumers)</li>
         <li>Established and optimized business processes</li>
-        <li>
-          Proposed and setup a monitoring infrastructure incl. product
-          dashboards
-        </li>
+        <li>Proposed and setup a monitoring infrastructure incl. product dashboards</li>
         <li>Developed individual customer projects (web applications)</li>
-        <li>
-          Been the technical contact person to the general management and
-          customers
-        </li>
+        <li>Been the technical contact person to the general management and customers</li>
         <li>Maintained and extended various legacy web applications</li>
         <li>Played a key role in the move to a new CRM system</li>
-        <li>
-          Proposed technical improvements, including economic viability
-          calculations
-        </li>
+        <li>Proposed technical improvements, including economic viability calculations</li>
         <li>Lead and mentored working students</li>
         <li>Proposed and implemented several SEO measures for the product</li>
         <li>Wrote customer and end user documentation</li>
@@ -192,10 +173,7 @@ const title = "Résumé";
           <span>Server Administration</span>,
           <span>ansible</span>,
           <span>Monitoring</span>,
-          <span
-            ><abbr title="Telegraf, InfluxDB, Chronograph, Kapacitor">TICK</abbr
-            ></span
-          >,
+          <span><abbr title="Telegraf, InfluxDB, Chronograph, Kapacitor">TICK</abbr></span>,
           <span>CI / CD</span>,
           <span>nginx</span>,
           <span>git</span>,
@@ -239,16 +217,9 @@ const title = "Résumé";
 
       <ul>
         <li>Built an internal curation app for freshly published divs.</li>
-        <li>
-          Delivered a revenue-share application integrating payments/analytics.
-        </li>
-        <li>
-          New home/div pages at scale; supported transition to microservices and
-          vertical platforms.
-        </li>
-        <li>
-          Maintained front- and back-end apps; internal technical support.
-        </li>
+        <li>Delivered a revenue-share application integrating payments/analytics.</li>
+        <li>New home/div pages at scale; supported transition to microservices and vertical platforms.</li>
+        <li>Maintained front- and back-end apps; internal technical support.</li>
       </ul>
 
       <p>
@@ -315,15 +286,9 @@ const title = "Résumé";
 
       <ul>
         <li>Backend API for a large customer and apps.</li>
-        <li>
-          Data-viz front- and back-end for smart-meter customers; SPA for
-          energy-plant data.
-        </li>
+        <li>Data-viz front- and back-end for smart-meter customers; SPA for energy-plant data.</li>
         <li>Sports portal incl. video processing, payments, subscriptions.</li>
-        <li>
-          Introduced task runners and CI; shipped static sites; maintained
-          WordPress/Joomla.
-        </li>
+        <li>Introduced task runners and CI; shipped static sites; maintained WordPress/Joomla.</li>
         <li>Relocated to Berlin for growth.</li>
       </ul>
 
@@ -358,18 +323,18 @@ const title = "Résumé";
   <section>
     <h2>Case study — Portal relaunch</h2>
     <p>
-      <strong>Context:</strong> Agency-owned portal based on interactive virtual
-      tours; multiple target groups (cities, businesses, consumers).
+      <strong>Context:</strong> Agency-owned portal based on interactive virtual tours; multiple target groups
+      (cities, businesses, consumers).
     </p>
     <p>
-      <strong>Actions:</strong> Led relaunch end-to-end; established monitoring dashboards;
-      maintained legacy apps while delivering new features; SEO measures; technical
-      contact to management/customers; mentoring; supported CRM migration; documentation.
+      <strong>Actions:</strong> Led relaunch end-to-end; established monitoring dashboards; maintained legacy apps
+      while delivering new features; SEO measures; technical contact to management/customers; mentoring; supported
+      CRM migration; documentation.
     </p>
     <p>
-      <strong>Outcomes (qualitative):</strong> Modernized portal serving distinct
-      audiences; improved operational visibility; smoother processes; SEO improvements increased discoverability, securing
-      additional multi-year contracts and predictable revenue.
+      <strong>Outcomes (qualitative):</strong> Modernized portal serving distinct audiences; improved operational
+      visibility; smoother processes; SEO improvements increased discoverability, securing additional multi-year
+      contracts and predictable revenue.
     </p>
   </section>
 
@@ -388,21 +353,18 @@ const title = "Résumé";
       <div>Jade University of Applied Science, Wilhelmshaven</div>
 
       <p>
-        Elected courses: Network Administration (CCNA Exploration 1-4),
-        Operating Systems, Online Marketing.
+        Elected courses: Network Administration (CCNA Exploration 1-4), Operating Systems, Online Marketing.
       </p>
 
       <p>
-      <b>Thesis:</b>
-      <q
-        >Software Modularity in Smart Homes – OSGi as a Base for future Products
-        and Services in Smart Homes</q
-      >
-    <br />
-    <br />
-        Frontend application based on jQuery Mobile. Communication via AJAX,
-        WebSockets and JSON with a backend implemented in Java and OSGi,
-        utilizing
+        <b>Thesis:</b>
+        <q
+          >Software Modularity in Smart Homes – OSGi as a Base for future Products and Services in Smart Homes</q
+        >
+        <br />
+        <br />
+        Frontend application based on jQuery Mobile. Communication via AJAX, WebSockets and JSON with a backend
+        implemented in Java and OSGi, utilizing
         <a
           href="http://www.prosyst.com/what-we-do/smart-home-smart-energy/products/"
           rel="external nofollow noopener"
@@ -444,11 +406,7 @@ const title = "Résumé";
     <p>
       Are you looking for code examples? Head over to
       <a href="/projects">my projects</a>
-      or <a
-        href="https://github.com/gildesmarais/"
-        target="_blank"
-        rel="noopener">my Github profile</a
-      >.
+      or <a href="https://github.com/gildesmarais/" target="_blank" rel="noopener">my Github profile</a>.
     </p>
   </aside>
 </BaseLayout>

@@ -1,20 +1,10 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "./BaseLayout.astro"
 
-const {
-  title: pageTitle,
-  description,
-  language,
-  robots,
-} = Astro.props;
+const { title: pageTitle, description, language, robots } = Astro.props
 ---
 
-<BaseLayout
-  title={pageTitle}
-  description={description}
-  language={language}
-  robots={robots}
->
+<BaseLayout title={pageTitle} description={description} language={language} robots={robots}>
   <slot />
 </BaseLayout>
 
@@ -39,83 +29,76 @@ const {
 
 <script is:inline>
   async function showImdbModal(imdbId, title, year) {
-    const imdbModal = document.getElementById("imdb-modal");
-    const imdbModalTitle = document.getElementById("imdb-modal-title");
-    const imdbLinksContainer = document.getElementById("imdb-links-container");
-    const posterContainer = document.getElementById(
-      "imdb-modal-poster-container",
-    );
+    const imdbModal = document.getElementById("imdb-modal")
+    const imdbModalTitle = document.getElementById("imdb-modal-title")
+    const imdbLinksContainer = document.getElementById("imdb-links-container")
+    const posterContainer = document.getElementById("imdb-modal-poster-container")
 
     if (imdbModal && imdbModalTitle && imdbLinksContainer && posterContainer) {
-      imdbModalTitle.textContent = `${title} (${year})`;
+      imdbModalTitle.textContent = `${title} (${year})`
       imdbLinksContainer.innerHTML = `
         <li><a href="https://www.imdb.com/title/${imdbId}/" target="_blank" rel="noopener noreferrer">IMDb</a></li>
         <li><a href="https://letterboxd.com/imdb/${imdbId}/" target="_blank" rel="noopener noreferrer">Letterboxd</a></li>
         <li><a href="https://trakt.tv/search/imdb/${imdbId}" target="_blank" rel="noopener noreferrer">Trakt.tv</a></li>
-      `;
+      `
 
-      posterContainer.innerHTML = ""; // Clear previous poster
-      const posterImg = document.createElement("img");
-      posterImg.src = "/placeholder-poster.svg";
-      posterImg.alt = "Loading poster...";
-      posterContainer.appendChild(posterImg);
+      posterContainer.innerHTML = "" // Clear previous poster
+      const posterImg = document.createElement("img")
+      posterImg.src = "/placeholder-poster.svg"
+      posterImg.alt = "Loading poster..."
+      posterContainer.appendChild(posterImg)
 
       try {
-        const response = await fetch(`/api/movie/${imdbId}`);
+        const response = await fetch(`/api/movie/${imdbId}`)
         if (response.ok) {
-          const data = await response.json();
+          const data = await response.json()
           if (data.poster && data.poster !== "N/A") {
-            posterImg.src = data.poster;
-            posterImg.alt = `${data.title} Poster`;
+            posterImg.src = data.poster
+            posterImg.alt = `${data.title} Poster`
           } else {
-            posterImg.src = "/no-poster-available.svg";
-            posterImg.alt = "No poster available";
+            posterImg.src = "/no-poster-available.svg"
+            posterImg.alt = "No poster available"
           }
         } else {
-          posterImg.src = "/error-poster.svg";
-          posterImg.alt = "Error loading poster";
+          posterImg.src = "/error-poster.svg"
+          posterImg.alt = "Error loading poster"
         }
       } catch (error) {
-        console.error("Error fetching poster:", error);
-        posterImg.src = "/error-poster.svg";
-        posterImg.alt = "Error loading poster";
+        console.error("Error fetching poster:", error)
+        posterImg.src = "/error-poster.svg"
+        posterImg.alt = "Error loading poster"
       }
 
-      imdbModal.setAttribute("open", "");
+      imdbModal.setAttribute("open", "")
     }
   }
 
   function closeImdbModal() {
-    const imdbModal = document.getElementById("imdb-modal");
+    const imdbModal = document.getElementById("imdb-modal")
     if (imdbModal) {
-      imdbModal.removeAttribute("open");
-      const posterContainer = document.getElementById(
-        "imdb-modal-poster-container",
-      );
-      if (posterContainer) posterContainer.innerHTML = "";
+      imdbModal.removeAttribute("open")
+      const posterContainer = document.getElementById("imdb-modal-poster-container")
+      if (posterContainer) posterContainer.innerHTML = ""
     }
   }
 
   document.addEventListener("click", (event) => {
-    const target = event.target;
+    const target = event.target
 
-    const movieCard = target.closest(".movie-card[data-imdb-id]");
+    const movieCard = target.closest(".movie-card[data-imdb-id]")
     if (movieCard) {
-      const imdbId = movieCard.dataset.imdbId;
-      const title = movieCard.dataset.title;
-      const year = movieCard.dataset.year;
+      const imdbId = movieCard.dataset.imdbId
+      const title = movieCard.dataset.title
+      const year = movieCard.dataset.year
       if (imdbId && title && year) {
-        showImdbModal(imdbId, title, year);
+        showImdbModal(imdbId, title, year)
       }
     }
 
-    if (
-      target.matches(".close") ||
-      (target.matches("dialog") && target.id === "imdb-modal")
-    ) {
-      closeImdbModal();
+    if (target.matches(".close") || (target.matches("dialog") && target.id === "imdb-modal")) {
+      closeImdbModal()
     }
-  });
+  })
 </script>
 <style>
   #imdb-modal-poster-container {
