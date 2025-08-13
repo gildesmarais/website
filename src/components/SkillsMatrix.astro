@@ -1,0 +1,111 @@
+---
+export interface Category {
+  label: string
+  skills: string[]
+}
+
+export interface Props {
+  title?: string
+  categories: Category[]
+}
+
+const { title = "Skills matrix", categories } = Astro.props
+---
+
+<section aria-labelledby="skills-heading">
+  <h2 id="skills-heading">{title}</h2>
+
+  <dl>
+    {
+      categories.map(({ label, skills }) => (
+        <>
+          <dt>{label}</dt>
+          <dd>
+            <ul role="list">
+              {skills.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </dd>
+        </>
+      ))
+    }
+  </dl>
+</section>
+
+<style>
+  section[aria-labelledby="skills-heading"] {
+    margin-block: var(--pico-spacing);
+    max-width: 90rem;
+  }
+
+  section[aria-labelledby="skills-heading"] > h2 {
+    margin-block-end: calc(var(--pico-spacing) * 0.25);
+    letter-spacing: 0.015em;
+  }
+
+  /* DL grid layout */
+  section[aria-labelledby="skills-heading"] > dl {
+    display: grid;
+    grid-template-columns: minmax(14ch, 18ch) 1fr;
+    gap: 0.4rem 1rem;
+    align-items: start;
+    padding-block: 0.25rem;
+    border-top: 1px solid var(--pico-muted-border-color);
+    border-bottom: 1px solid var(--pico-muted-border-color);
+  }
+
+  @media (max-width: 760px) {
+    section[aria-labelledby="skills-heading"] > dl {
+      grid-template-columns: 1fr;
+      gap: 0.25rem 0;
+    }
+  }
+
+  /* Category labels */
+  dt {
+    color: var(--pico-muted-color);
+    font-weight: 600;
+    line-height: 1.2;
+    padding-block: 0.35rem;
+    white-space: nowrap;
+  }
+
+  /* Alternating row tint for readability */
+  dt:nth-of-type(odd),
+  dd:nth-of-type(odd) {
+    background: color-mix(in oklab, var(--pico-background-color), white 2%);
+  }
+
+  /* Remove bullets inside dd */
+  dd > ul[role="list"] {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.55rem;
+  }
+
+  /* Tight dd layout */
+  dd {
+    margin: 0;
+    padding-block: 0.25rem;
+  }
+
+  /* Tokens */
+  dd > ul[role="list"] > li {
+    list-style: none;
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: var(--pico-border-radius);
+    padding: 0.18rem 0.5rem;
+    line-height: 1.35;
+    font-size: 0.9em;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--pico-card-background-color)),
+      color-mix(in oklab, var(--pico-background-color))
+    );
+    box-shadow: inset 0 1px 0 color-mix(in oklab, var(--pico-background-color), white 8%);
+  }
+</style>

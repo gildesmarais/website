@@ -1,8 +1,11 @@
 ---
 export const prerender = true;
 
+import SkillsMatrix from "../components/SkillsMatrix.astro";
+import { skills } from "../data/skills";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Résumé";
+---
 ---
 
 <BaseLayout title={title}>
@@ -20,44 +23,7 @@ const title = "Résumé";
     reducing internal costs.
   </p>
 
-  <section>
-    <h2>Skills matrix</h2>
-    <dl>
-      <dt>Core</dt>
-      <dd>
-        Ruby, Ruby on Rails, TypeScript, JavaScript, PostgreSQL, GraphQL,
-        Docker, AWS, CI/CD (GitHub Actions), Testing (RSpec, Jest),
-        Monitoring/Observability
-      </dd>
-    </dl>
-    <dl>
-      <dt>Frontend</dt>
-      <dd>Vue.js, Nuxt.js, React, Angular, HTML5, SCSS</dd>
-    </dl>
-
-    <dl>
-      <dt>Data & infra</dt>
-      <dd>PostGIS, Elasticsearch, nginx, Ansible, Puppet, Lambda, RabbitMQ</dd>
-    </dl>
-
-    <dl>
-      <dt>Practices</dt>
-      <dd>
-        Architecture, TDD, Agile/Scrum, Process optimization, SEO,
-        Documentation, Mentoring/Team lead
-      </dd>
-    </dl>
-
-    <dl>
-      <dt>Compliance</dt>
-      <dd>ISO/IEC 27001 (requirements, collaboration with security/QA)</dd>
-    </dl>
-
-    <dl>
-      <dt>Tooling</dt>
-      <dd>Git/GitHub, Cypress, Selenium & Capybara, Sentry.io, UptimeRobot</dd>
-    </dl>
-  </section>
+  <SkillsMatrix title="Skills" categories={skills} />
 
   <hr />
 
