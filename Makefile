@@ -1,7 +1,7 @@
 default: clean fix
 
 fix:
-	npm exec prettier -- --write --no-semi --print-width=110 .
+	npm exec prettier -- . --write
 
 clean:
 	find . -type d -empty -delete
