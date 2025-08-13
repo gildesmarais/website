@@ -4,123 +4,115 @@ export const prerender = true
 import SkillsMatrix from "../components/SkillsMatrix.astro"
 import { skills } from "../data/skills"
 import BaseLayout from "../layouts/BaseLayout.astro"
+
 const title = "Résumé"
 ---
 
 <BaseLayout title={title}>
   <h1>{title}</h1>
 
+  <!-- Skip link remains -->
+  <p><a href="#skills">Skip to skills</a></p>
+
+  <!-- One-liner -->
   <p>
-    Platform-focused engineering lead / full-stack developer. Boring-by-default, idiomatic systems. Broad
-    product-phase experience; revenue-minded, cost-aware, ISO/IEC 27001 collaboration.
+    Engineering Team Lead focused on platform, identity, and reliability. I ship boring‑by‑default, idiomatic
+    systems that raise delivery velocity and cut cost.
   </p>
 
-  <p>
-    My broad knowledge supports companies in the many phases of product development. I enjoy driving companies
-    forward, increasing revenue and reducing internal costs.
-  </p>
+  <!-- At‑a‑glance facts (minimal, evergreen) -->
+  <ul>
+    <li>Location: Berlin (hybrid, 99% remote)</li>
+    <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
+    <!-- Optional later: Languages / Work authorization / Availability -->
+  </ul>
 
-  <SkillsMatrix title="Skills" categories={skills} />
+  <section aria-labelledby="exp">
+    <h2 id="exp">Experience</h2>
 
-  <section>
-    <h2>Experience</h2>
-    <div id="current">
-      <h3>Engineering Team Lead (Platform)</h3>
-      <div>
-        2022-10
-        <span>–</span>
-        present
-      </div>
-      <div>Berlin, hybrid (99% remote)</div>
-
-      <p>
-        Owning platform modernization and reliability. Standardized the stack (TypeScript/Ruby), simplified
-        service topology, and raised delivery quality.
-      </p>
+    <!-- Current role -->
+    <article aria-labelledby="etl-platform">
+      <header>
+        <h3 id="etl-platform">Engineering Team Lead (Platform)</h3>
+        <p>
+          <time datetime="2022-10">Oct 2022</time>
+          <span aria-hidden="true">–</span>
+          <time aria-current="date">Present</time>
+          · Berlin (hybrid, 99% remote)
+        </p>
+        <p>
+          Lead platform modernization and reliability. Revived stalled delivery, restored core systems, and
+          embedded lasting service ownership.
+        </p>
+      </header>
 
       <ul>
-        <li>Unified the stack by replacing legacy services with TypeScript or Ruby.</li>
         <li>
-          Stabilized and revitalized a decayed core Rails API application, implementing maintainable
-          architecture, reducing tech debt, and restoring it as the company’s primary platform for product
-          delivery.
+          Restarted delivery after months of zero output; raised production deploys to ~15/month on regulated,
+          QA-heavy services.
         </li>
-        <li>Ongoing architecture development across departments/teams.</li>
+        <li>Reduced memory use from 10 GB to 3 GB via YJIT/jemalloc tuning and targeted allocation fixes.</li>
+        <li>Eliminated PostgreSQL scaling bottlenecks through in-depth production analysis and tuning.</li>
         <li>
-          Worked to
-          <a
+          Assigned clear service ownership in Shopify-style squad restructure, improving accountability.
+        </li>
+        <li>
+          Led engineering’s role in first ISO/IEC 27001 audit — certified with zero non-conformities; authored
+          and refined SOPs. (<a
             href="https://www.iso.org/isoiec-27001-information-security.html"
             target="_blank"
-            rel="external nofollow noopener">ISO/IEC 27001</a
-          > requirements.
+            aria-label="ISO/IEC 27001 — official overview (opens in a new tab)"
+            rel="external nofollow noopener">ISO/IEC 27001 overview</a
+          >)
         </li>
-        <li>Demoed product features in sprint reviews; close collaboration with data and QA.</li>
-        <li>Close cooperation with data and QA teams.</li>
-        <li>Leading and coaching of team members.</li>
+        <li>Hired and onboarded 2 engineers; coach 3-person team; align cross-squad on IDM initiatives.</li>
       </ul>
 
-      <p>
-        <b>Stack:</b>
+      <!-- Progressive disclosure for long tech stack -->
+      <details>
+        <summary><strong>Full stack & tools</strong></summary>
+        <ul>
+          <li>TypeScript</li>
+          <li>Ruby · Ruby on Rails</li>
+          <li>PostgreSQL</li>
+          <li>GraphQL</li>
+          <li>RSpec · Jest · TDD</li>
+          <li>Git · GitHub · GitHub Actions</li>
+          <li>Docker · AWS</li>
+          <li>Scrum · JIRA · Confluence</li>
+          <li>ISO/IEC 27001</li>
+          <li>Angular · React · Cypress</li>
+          <li>HTML5</li>
+        </ul>
+      </details>
+    </article>
 
-        <small>
-          <span>TypeScript</span>,
-          <span>Ruby</span>,
-          <span>Ruby on Rails</span>,
-          <span>PostgreSQL</span>,
-          <span>Architecture</span>,
-          <span>GraphQL</span>,
-          <span>RSpec</span>,
-          <span>Jest</span>,
-          <span>Test Driven Development</span>,
-          <span>git</span>,
-          <span>Github</span>,
-          <span>Docker</span>,
-          <span>AWS</span>,
-          <span>Github Actions</span>,
-          <span>Scrum</span>,
-          <span>JIRA</span>,
-          <span>Confluence</span>,
-          <span>ISO/IEC 27001</span>,
-          <span>Angular</span>,
-          <span>React</span>,
-          <span>Cypress</span>,
-          <span>HTML5</span>,
-        </small>
-      </p>
-    </div>
+    <article aria-labelledby="ruby-dev">
+      <header>
+        <h3 id="ruby-dev">Ruby Developer</h3>
+        <p>
+          <time datetime="2022-05">May 2022</time>
+          <span aria-hidden="true">–</span>
+          <time datetime="2022-07">Jul 2022</time>
+          · Remote
+        </p>
+      </header>
 
-    <div>
-      <h3>Ruby Developer</h3>
-      <div>
-        2022-05
-        <span>–</span>
-        2022-07
-      </div>
-      <div>remote</div>
+      <p>Short-term engagement during probation period.</p>
 
-      <p>Short engagement (probation period); mutual fit issue.</p>
-
-      <p>
-        <b>Stack:</b>
-        <small>
-          <span>Ruby</span>,
-          <span>Ruby on Rails</span>,
-          <span>RSpec</span>,
-          <span>JavaScript</span>,
-          <span>TypeScript</span>,
-          <span>React</span>,
-          <span>PostgreSQL</span>,
-          <span>HTML5</span>,
-          <span>Linux</span>,
-          <span>nginx</span>,
-          <span>git</span>,
-          <span>Docker</span>,
-          <span>Cypress</span>,
-          <span>Agile / Scrum</span>,
-          <span>CI / CD</span>
-        </small>
-      </p>
-    </div>
+      <details>
+        <summary><strong>Stack</strong></summary>
+        <ul>
+          <li>Ruby · Ruby on Rails</li>
+          <li>RSpec</li>
+          <li>JavaScript · TypeScript · React</li>
+          <li>PostgreSQL · HTML5</li>
+          <li>Linux · nginx · Docker · git</li>
+          <li>Cypress</li>
+          <li>Agile/Scrum · CI/CD</li>
+        </ul>
+      </details>
+    </article>
 
     <div>
       <h3>Full Stack Developer</h3>
@@ -322,6 +314,16 @@ const title = "Résumé"
 
   <hr />
 
+  <section aria-labelledby="skills">
+    <h2 id="skills">Skills</h2>
+    <details>
+      <summary>Open skills matrix</summary>
+      <SkillsMatrix categories={skills} />
+    </details>
+  </section>
+
+  <hr />
+
   <section>
     <h2>Case study — Portal relaunch</h2>
     <p>
@@ -412,3 +414,40 @@ const title = "Résumé"
     </p>
   </aside>
 </BaseLayout>
+
+<style>
+  /* Always-visible, readable link underlines (dark & light) */
+  :where(main a) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Focus visibility without JS */
+  :where(a, button, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--pico-primary);
+    outline-offset: 2px;
+  }
+
+  /* Make <summary> clearly interactive */
+  :where(details > summary) {
+    cursor: pointer;
+  }
+
+  /* Improve skip-link usability when targeted */
+  :where(:target) {
+    scroll-margin-top: 2rem;
+  }
+
+  /* Prefer higher contrast when user asks for it */
+  @media (prefers-contrast: more) {
+    :where(main a) {
+      text-decoration-thickness: 0.12em;
+      text-underline-offset: 0.2em;
+    }
+    :where(a, button, summary, [tabindex]):focus-visible {
+      outline-width: 3px;
+    }
+  }
+</style>

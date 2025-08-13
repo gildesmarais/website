@@ -9,12 +9,10 @@ export interface Props {
   categories: Category[]
 }
 
-const { title = "Skills matrix", categories } = Astro.props
+const { categories } = Astro.props
 ---
 
 <section aria-labelledby="skills-heading">
-  <h2 id="skills-heading">{title}</h2>
-
   <dl>
     {
       categories.map(({ label, skills }) => (
