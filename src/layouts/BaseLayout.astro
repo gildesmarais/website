@@ -95,6 +95,21 @@ const isActive = (href: string) => {
         }
       }
 
+      @media print {
+        article {
+          break-inside: avoid;
+        }
+        details {
+          open: true;
+        } /* show stacks when printing */
+        a[href^="http"]::after {
+          content: " (" attr(href) ")";
+        }
+        .no-print {
+          display: none !important;
+        }
+      }
+
       /* --- Brand tokens (single source of truth) --- */
       :root {
         --brand-bg: #0b0b0b;
@@ -211,18 +226,6 @@ const isActive = (href: string) => {
 
         /* Selections & focus affordances in orange */
         --pico-text-selection-color: rgba(255, 136, 0, 0.2);
-      }
-
-      /* projects */
-      #html2rss > h2 {
-        span {
-          color: #ff9300;
-        }
-
-        span:first-child,
-        span:last-child {
-          color: #60b0f4;
-        }
       }
 
       .micro {
@@ -351,6 +354,15 @@ const isActive = (href: string) => {
           window.console.log("%c📧 If you like what you see, don't hesitate to contact me!", font)
         }
       })
+    </script>
+
+    <script>
+      function adjustBottomPadding() {
+        const longEnough = document.documentElement.scrollHeight > window.innerHeight
+        document.body.style.paddingBottom = longEnough ? "25vh" : "0"
+      }
+      adjustBottomPadding()
+      window.addEventListener("resize", adjustBottomPadding)
     </script>
   </body>
 </html>

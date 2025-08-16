@@ -4,7 +4,7 @@
 
 <a href="#top" id="back-to-top" aria-label="Back to top">↑</a>
 
-<style>
+<style is:global>
   #back-to-top {
     position: fixed;
     bottom: 2rem;
@@ -40,6 +40,8 @@
   const btn = document.getElementById("back-to-top")
 
   function toggle() {
+    if (!btn) return
+
     const longEnough = document.body.scrollHeight > window.innerHeight + 200
     if (!longEnough) {
       btn.style.display = "none" // hide completely on short pages
