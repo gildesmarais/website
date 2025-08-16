@@ -37,52 +37,71 @@ const title = "Résumé"
         <p>
           <time datetime="2022-10">Oct 2022</time>
           <span aria-hidden="true">–</span>
-          <time aria-current="date">Present</time>
+          <time>Present</time>
           · Berlin (hybrid, 99% remote)
         </p>
         <p>
-          Lead platform modernization and reliability. Revived stalled delivery, restored core systems, and
+          Lead platform modernization and reliability. Restarted stalled delivery, restored core systems, and
           embedded lasting service ownership.
         </p>
       </header>
+
+      <p>Joined as Senior Software Engineer; promoted to Engineering Team Lead (Platform) in July 2024.</p>
 
       <ul>
         <li>
           Restarted delivery after months of zero output; raised production deploys to ~15/month on regulated,
           QA-heavy services.
         </li>
-        <li>Reduced memory use from 10 GB to 3 GB via YJIT/jemalloc tuning and targeted allocation fixes.</li>
-        <li>Eliminated PostgreSQL scaling bottlenecks through in-depth production analysis and tuning.</li>
         <li>
-          Assigned clear service ownership in Shopify-style squad restructure, improving accountability.
+          Cut CI test suite time by 33% (wall‑clock) and 13% (billable), saving significant developer hours
+          and reducing compute cost.
         </li>
         <li>
-          Led engineering’s role in first ISO/IEC 27001 audit — certified with zero non-conformities; authored
+          Reduced memory usage in the core Rails app by ~70% via YJIT & jemalloc tuning and targeted
+          allocation fixes, allowing to save running-cost by resource downscale.
+        </li>
+        <li>
+          Removed scaling bottlenecks (SQL DML/DDL, read‑replica–safe patterns, PostgreSQL config) through
+          production profiling and query optimization; shipped efficient Ruby/Rails paths.
+        </li>
+        <li>
+          Scaled core platform services—identity & access (IDM), authentication/authorization, and HLS video
+          delivery—a revenue-critical capability—improving security posture and reliability.
+        </li>
+        <li>
+          Established clear service ownership via a squad ownership model, improving accountability and
+          on‑call clarity.
+        </li>
+        <li>
+          Led engineering inputs for first ISO/IEC 27001 audit—certified with zero non‑conformities; authored
           and refined SOPs. (<a
             href="https://www.iso.org/isoiec-27001-information-security.html"
             target="_blank"
-            aria-label="ISO/IEC 27001 — official overview (opens in a new tab)"
-            rel="external nofollow noopener">ISO/IEC 27001 overview</a
+            rel="external nofollow noopener"
+            aria-label="ISO/IEC 27001 — official overview (opens in a new tab)">ISO/IEC 27001 overview</a
           >)
         </li>
-        <li>Hired and onboarded 2 engineers; coach 3-person team; align cross-squad on IDM initiatives.</li>
+        <li>
+          Hired and onboarded 2 engineers; coach a 3‑person team; drive cross‑squad alignment on IDM and video
+          delivery initiatives.
+        </li>
+
+        <!-- TODO: Consider adding 1–2 org-scope bullets if accurate; fill metrics you have -->
+        <!-- <li>Defined platform “paved roads” (golden paths) for services, CI/CD, and observability; reduced time-to-first-deploy by X%.</li> -->
+        <!-- <li>Introduced service SLOs/error budgets and review cadence with product teams; lowered incident rate by X% and MTTR by Y%.</li> -->
       </ul>
 
-      <!-- Progressive disclosure for long tech stack -->
       <details>
         <summary><strong>Full stack & tools</strong></summary>
         <ul>
-          <li>TypeScript</li>
-          <li>Ruby · Ruby on Rails</li>
-          <li>PostgreSQL</li>
-          <li>GraphQL</li>
-          <li>RSpec · Jest · TDD</li>
-          <li>Git · GitHub · GitHub Actions</li>
-          <li>Docker · AWS</li>
-          <li>Scrum · JIRA · Confluence</li>
+          <li>Ruby · Ruby on Rails · RSpec · Sidekiq</li>
+          <li>PostgreSQL · Query optimization · PostGIS (if relevant)</li>
+          <li>TypeScript · Angular/React (as applicable) · Jest · Cypress</li>
+          <li>GraphQL · REST</li>
+          <li>Docker · AWS · GitHub Actions</li>
           <li>ISO/IEC 27001</li>
-          <li>Angular · React · Cypress</li>
-          <li>HTML5</li>
+          <li>Scrum · Jira · Confluence</li>
         </ul>
       </details>
     </article>
