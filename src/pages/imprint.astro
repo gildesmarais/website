@@ -1,0 +1,110 @@
+---
+export const prerender = true
+
+import BaseLayout from "../layouts/BaseLayout.astro"
+import legal from "../data/legal.json"
+
+const language = "de"
+const title = "Imprint & Privacy"
+const description = "Imprint and legal information."
+const robots = "noindex, noarchive, follow"
+---
+
+<BaseLayout language={language} title={title} description={description} robots={robots}>
+  <h1>{title}</h1>
+
+  <p><strong>Betreiber</strong>: {legal.operatorName}</p>
+  {
+    legal.legalForm && (
+      <p>
+        <strong>Rechtsform</strong>: {legal.legalForm}
+      </p>
+    )
+  }
+  <p>
+    <strong>Adresse</strong>:<br />
+
+    <span class="human-only">
+      {legal.operatorName}<br />
+      {legal.street}<br />
+      {legal.zip_city}<br />
+      {legal.country}<br />
+    </span>
+  </p>
+  <p>
+    <strong>Kontakt</strong>:<br />
+
+    <span class="human-only">{legal.email}</span>, <br />
+    Telefon: <span class="human-only">{legal.phone}</span>
+  </p>
+  {
+    legal.managingDirector && (
+      <p>
+        <strong>Geschäftsführer / vertretungsberechtigt</strong>: {legal.managingDirector}
+      </p>
+    )
+  }
+  {
+    legal.registerCourt && legal.registerNumber && (
+      <p>
+        <strong>Registergericht / Registernr.</strong>: {legal.registerCourt}, {legal.registerNumber}
+      </p>
+    )
+  }
+  {
+    legal.vatID && (
+      <p>
+        <strong>USt-ID</strong>: {legal.vatID}
+      </p>
+    )
+  }
+  {
+    legal.responsibleForContent && (
+      <p>
+        <strong>Verantwortlich für journalistisch-redaktionelle Inhalte</strong>:{" "}
+        {legal.responsibleForContent}
+      </p>
+    )
+  }
+
+  <h2 lang="de">Datenschutz</h2>
+
+  <p lang="de">
+    Durch den Besuch meiner Website werden Informationen über den Zugriff in Logfiles auf dem Server
+    gespeichert. Diese Informationen sind für die Bereitstellung dieser Website erforderlich. Es werden keine
+    weiteren Informationen gespeichert und keine Cookies gesetzt.
+  </p>
+
+  <h2 lang="en">Privacy</h2>
+  <p lang="en">
+    By visiting my site, information about the access is stored in log files on the server. These information
+    are required to deliver this website. No other information is stored and no cookies set.
+  </p>
+</BaseLayout>
+
+<style>
+  .human-only {
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: 0.05em; /* A bit more letter spacing */
+    display: inline-block;
+
+    /* Complex visual noise */
+    text-shadow:
+      0 0 1px currentColor,
+      0 0 0.5px currentColor,
+      1px 1px 2px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+
+    background:
+      repeating-linear-gradient(45deg, transparent 0 2px, rgba(0, 0, 0, 0.1) 2px 4px),
+      repeating-linear-gradient(-45deg, transparent 0 2px, rgba(0, 0, 0, 0.1) 2px 4px);
+
+    filter: blur(0.3px) contrast(1.2); /* Slightly more blur and contrast */
+    mix-blend-mode: difference;
+
+    /* Additional fine-tuning */
+    font-variant-ligatures: none;
+    -moz-font-feature-settings: "liga" 0;
+    -webkit-font-feature-settings: "liga" 0;
+  }
+</style>

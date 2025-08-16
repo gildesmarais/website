@@ -2,87 +2,49 @@
 export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
+import socials from "../data/socials.json"
+import legal from "../data/legal.json"
+
 const title = "Contact"
 const description = null
-
-const email = "contact@desmarais.de"
-
-import socials from "../data/socials.json"
+const robots = "noindex, noarchive, follow"
+const email = legal.email
 ---
 
 <meta name="referrer" content="no-referrer" />
 <meta name="robots" content="noindex, noarchive, follow" />
 
-<BaseLayout title={title} description={description} robots="noindex, noarchive, follow">
+<BaseLayout title={title} description={description} robots={robots}>
   <header>
     <h1>{title}</h1>
     <p>Prefer concise, async communication. Email works best.</p>
   </header>
 
-  <main>
-    <section aria-labelledby="contact-direct">
-      <h2 id="contact-direct">Direct</h2>
-      <p>
-        <strong>Email:</strong>
-        <a
-          href={`mailto:${email}contact@desmarais.de?body=Hi%10Gil%2C%0AI%20found%20your%20contact%20details%20on%20https%3A%2F%2Fgil.desmarais.de%2Fcontact%0A`}
-          class="human-only"
-          aria-hidden="true"
-          title="Human-readable only">{email}</a
-        >
-      </p>
-    </section>
+  <section aria-labelledby="contact-direct">
+    <p>
+      <strong>Email: </strong>
 
-    <section aria-labelledby="contact-profiles">
-      <h2 id="contact-profiles">Profiles</h2>
-      <ul>
-        {
-          socials.map((l) => (
-            <li>
-              <a href={l.url} rel={l.rel} target="_blank" rel="noopener noreferrer">
-                {l.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+      <a
+        href={`mailto:${email}?body=Hi%20Gil%2C%0AI%20found%20your%20contact%20details%20on%20https%3A%2F%2Fgil.desmarais.de%2Fcontact%0A`}
+        aria-hidden="true">{email}</a
+      >
+    </p>
+  </section>
 
-    <table>
-      <tbody>
-        <tr>
-          <th>phone</th>
-          <td>
-            <code class="human-only"> +49 30 12083041 </code>
-          </td>
-        </tr>
-        <tr>
-          <th>mailing address</th>
-          <td>
-            <address class="human-only">
-              Gil Desmarais<br />
-              Richard-Sorge-Str. 59<br />
-              10249 Berlin<br />
-              Germany
-            </address>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+  <hr />
+
+  <section aria-labelledby="contact-profiles">
+    <h2 id="contact-profiles">Profiles</h2>
+    <ul>
+      {
+        socials.map((l) => (
+          <li>
+            <a href={l.url} rel={l.rel} target="_blank" rel="noopener noreferrer">
+              {l.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>
-
-<style>
-  .human-only {
-    user-select: none;
-    pointer-events: none;
-    letter-spacing: 0.03em;
-    text-shadow:
-      0 0 1px currentColor,
-      0 0 0.5px currentColor;
-    background: repeating-linear-gradient(0deg, transparent 0 1px, rgba(0, 0, 0, 0.07) 1px 2px);
-    mix-blend-mode: difference;
-    padding: 0.25rem 0.5rem;
-    display: inline-block;
-  }
-</style>
