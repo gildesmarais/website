@@ -68,14 +68,17 @@ const isActive = (href: string) => {
         pointer-events: auto;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 640px) {
         #main-nav {
           flex-direction: column;
           align-items: flex-start;
         }
+
         #menu-toggle-label {
           display: flex;
+          justify-content: flex-start;
         }
+
         nav #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
           display: none;
           visibility: hidden;
@@ -84,12 +87,20 @@ const isActive = (href: string) => {
           text-align: left;
           list-style: none;
         }
+
         #main-nav-list {
-          flex-direction: column;
-          align-items: flex-start;
+          display: flex;
+          justify-content: space-between;
           width: 100%;
           text-align: left;
         }
+
+        #menu-toggle-checkbox:checked ~ #main-nav-list {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: unset;
+        }
+
         .mobile-toggle {
           list-style: none;
         }
