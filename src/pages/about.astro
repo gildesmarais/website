@@ -3,29 +3,11 @@ export const prerender = true
 import { Image } from "astro:assets"
 import speakerImage from "../assets/images/speaker.svg"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import socials from "../data/socials.json"
 
 const title = "About"
 const description =
   "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems."
-
-const socials = [
-  { name: "GitHub", url: "https://github.com/gildesmarais/", rel: "me" },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/gildesmarais/",
-    rel: "me",
-  },
-  {
-    name: "Soundcloud",
-    url: "https://soundcloud.com/admiralgiesse",
-    rel: "me",
-  },
-  {
-    name: "Bluesky",
-    url: "https://bsky.app/profile/gil.desmarais.de",
-    rel: "me",
-  },
-]
 
 const contactHref = "/contact"
 ---

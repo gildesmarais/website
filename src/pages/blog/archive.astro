@@ -24,8 +24,7 @@ function fmt(d: Date) {
       {
         posts.map(({ slug, data }) => (
           <li>
-            {" "}
-            <a href={`/blog/${slug}`}>{data.title}</a>
+            {data.showcase ? <span>★</span> : ""} <a href={`/blog/${slug}`}>{data.title}</a>
             {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
             {data.date && (
               <>

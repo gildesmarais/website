@@ -4,43 +4,72 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 const title = "Contact"
 const description = null
+
+const email = "contact@desmarais.de"
+
+import socials from "../data/socials.json"
 ---
 
 <meta name="referrer" content="no-referrer" />
 <meta name="robots" content="noindex, noarchive, follow" />
 
 <BaseLayout title={title} description={description} robots="noindex, noarchive, follow">
-  <h1>{title}</h1>
+  <header>
+    <h1>{title}</h1>
+    <p>Prefer concise, async communication. Email works best.</p>
+  </header>
 
-  <p>
-    Would you like to talk to me? Do you have a comment on my blog posts or do you want to work with me?
-    Great, send me an
-    <a href="mailto:spam@example.com" data-mail="contact@desmarais.de">email</a>!
-  </p>
+  <main>
+    <section aria-labelledby="contact-direct">
+      <h2 id="contact-direct">Direct</h2>
+      <p>
+        <strong>Email:</strong>
+        <a
+          href={`mailto:${email}contact@desmarais.de?body=Hi%10Gil%2C%0AI%20found%20your%20contact%20details%20on%20https%3A%2F%2Fgil.desmarais.de%2Fcontact%0A`}
+          class="human-only"
+          aria-hidden="true"
+          title="Human-readable only">{email}</a
+        >
+      </p>
+    </section>
 
-  <p>I look forward to hearing from you!</p>
+    <section aria-labelledby="contact-profiles">
+      <h2 id="contact-profiles">Profiles</h2>
+      <ul>
+        {
+          socials.map((l) => (
+            <li>
+              <a href={l.url} rel={l.rel} target="_blank" rel="noopener noreferrer">
+                {l.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-  <table>
-    <tbody>
-      <tr>
-        <th>phone</th>
-        <td>
-          <code class="human-only"> +49 30 12083041 </code>
-        </td>
-      </tr>
-      <tr>
-        <th>mailing address</th>
-        <td>
-          <address class="human-only">
-            Gil Desmarais<br />
-            Richard-Sorge-Str. 59<br />
-            10249 Berlin<br />
-            Germany
-          </address>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <th>phone</th>
+          <td>
+            <code class="human-only"> +49 30 12083041 </code>
+          </td>
+        </tr>
+        <tr>
+          <th>mailing address</th>
+          <td>
+            <address class="human-only">
+              Gil Desmarais<br />
+              Richard-Sorge-Str. 59<br />
+              10249 Berlin<br />
+              Germany
+            </address>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 </BaseLayout>
 
 <style>
