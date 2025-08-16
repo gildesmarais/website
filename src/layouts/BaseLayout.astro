@@ -1,4 +1,5 @@
 ---
+import BackToTop from "../components/BackToTop.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import "@picocss/pico/css/pico.min.css"
 
@@ -243,8 +244,13 @@ const isActive = (href: string) => {
     <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Gil Desmarais" />
   </head>
   <body>
+    <!-- InlineJS: mark that JS is available -->
+    <script is:inline>
+      document.documentElement.classList.add("js")
+    </script>
+
     <SpeedInsights />
-    <header class="container">
+    <header id="top" class="container">
       <nav id="main-nav">
         <input type="checkbox" id="menu-toggle-checkbox" />
         <ul id="main-nav-list">
@@ -298,6 +304,7 @@ const isActive = (href: string) => {
     <main class="container">
       <slot />
     </main>
+    <BackToTop />
     <footer>
       <section class="container">
         <nav class="micro">
