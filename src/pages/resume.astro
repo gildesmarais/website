@@ -342,6 +342,36 @@ const title = "Résumé"
 
   <hr />
 
+  <section aria-labelledby="service">
+    <h2 id="service">Service</h2>
+
+    <article aria-labelledby="military">
+      <h3 id="military">Military Service — IT & Network Support, German Air Force</h3>
+      <p>
+        <time datetime="2007-07">Jul 2007</time>
+        <span aria-hidden="true">–</span>
+        <time datetime="2009-02">Feb 2009</time>
+        · Luftwaffe, NATO Department 6 (Orga Division)
+      </p>
+      <ul>
+        <li>
+          Provided first-line IT support and asset management at division level, supporting high-ranking
+          officers and NATO staff.
+        </li>
+        <li>
+          Maintained Windows servers, Cisco switches, and rugged client devices; connected T9 lines at
+          multinational NATO exercise to link German HQ into joint networks.
+        </li>
+        <li>
+          Developed an automated infrastructure/asset-management login tool, reducing manual effort and
+          improving accuracy.
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <hr />
+
   <section aria-labelledby="skills">
     <h2 id="skills">Skills</h2>
     <details>
@@ -352,22 +382,40 @@ const title = "Résumé"
 
   <hr />
 
-  <section>
-    <h2>Case study — Portal relaunch</h2>
+  <section class="case-study" aria-labelledby="cs-portal">
+    <h2 id="cs-portal">
+      <span aria-hidden="true">📊</span> Case study — Portal relaunch
+    </h2>
+
     <p>
-      <strong>Context:</strong> Agency-owned portal based on interactive virtual tours; multiple target groups
-      (cities, businesses, consumers).
+      <strong>Context:</strong> Agency-owned city portal built around interactive virtual tours with three audiences:
+      municipalities, local businesses, and consumers. The product needed modernization to stay competitive and
+      win longer-term B2B contracts.
     </p>
+
     <p>
-      <strong>Actions:</strong> Led relaunch end-to-end; established monitoring dashboards; maintained legacy apps
-      while delivering new features; SEO measures; technical contact to management/customers; mentoring; supported
-      CRM migration; documentation.
+      <strong>What I did:</strong> Led the relaunch end-to-end as the sole engineer: rebuilt core features while
+      keeping legacy online; embedded SEO into feature design; introduced geospatial search (distance around POIs);
+      created monitoring dashboards; and guided a CRM migration (data rescue/transform, customized flows, staff
+      training).
     </p>
+
     <p>
-      <strong>Outcomes (qualitative):</strong> Modernized portal serving distinct audiences; improved operational
-      visibility; smoother processes; SEO improvements increased discoverability, securing additional multi-year
-      contracts and predictable revenue.
+      <strong>Outcomes:</strong> POI pages reached Google SERP #1 (often outranking official sites), improving
+      discoverability and strengthening the sales story—especially for small businesses without a web presence.
+      Operational dashboards increased visibility for management, and the renewed product secured multi-year B2B
+      contracts (4+ years), creating predictable revenue and financial stability.
     </p>
+
+    <ul>
+      <li>
+        <strong>Notable details:</strong> SVG floorplan linter improved tour reliability (no dead links; hotspot
+        reachability).
+      </li>
+      <li>
+        <strong>Role:</strong> concept → delivery → monitoring; client-facing demos; mentoring a working student.
+      </li>
+    </ul>
   </section>
 
   <hr />
@@ -449,5 +497,21 @@ const title = "Résumé"
     :where(a, button, summary, [tabindex]):focus-visible {
       outline-width: 3px;
     }
+  }
+
+  /* Subtle highlight without breaking Pico’s look */
+  .case-study {
+    border-left: 4px solid var(--pico-primary);
+    padding: 1rem 1rem 1rem 1.25rem;
+    margin-block: 1.5rem;
+    background-color: color-mix(in srgb, var(--pico-background-color) 92%, var(--pico-primary) 8%);
+  }
+
+  /* Keep headings tight inside the box */
+  .case-study h2 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 </style>
