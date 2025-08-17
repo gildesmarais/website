@@ -11,13 +11,11 @@ const description =
 <BaseLayout title={title} description={description}>
   <header class="hero">
     <h1>{title}</h1>
-    <p class="lede">{description}</p>
+    <p class="lead">{description}</p>
   </header>
 
-  <hr class="divider" aria-hidden="true" />
-
   <section aria-labelledby="how-i-work">
-    <h2 id="how-i-work">How I work</h2>
+    <h2 id="how-i-work" data-accent>How I work</h2>
     <ul class="poster poster--calm">
       <li><span class="verb">Design</span> systems that scale without drama</li>
       <li><span class="verb">Build</span> paths that speed teams up</li>
@@ -28,58 +26,57 @@ const description =
 </BaseLayout>
 
 <style>
-  /* Base styles: Mobile-first */
-  :root {
-    --accent: var(--brand-accent, #f80);
-  }
-
   /* --- Hero --------------------------------------------------------------- */
   .hero {
-    margin-block: 1.4rem 1.1rem;
+    margin-bottom: 4rem;
   }
+
   .hero h1 {
+    position: relative;
     display: inline-block;
-    padding: 0.3rem 0.5rem;
-    margin: 0 0 0.6rem 0;
-    border: 3px solid var(--accent);
-    box-shadow: 0 0 0 2px #000 inset;
-    border-radius: 0;
+    padding: 0.35rem 0.6rem;
+
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.01em;
     font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
     background: var(--pico-background-color);
-  }
-  .lede {
-    font-size: 1.05rem;
-    line-height: 1.55;
-    max-width: 60ch;
-    margin: 0 0 1.1rem 0;
-    font-weight: 500;
-    color: var(--brand-text);
+    text-wrap: balance; /* fixed */
+    margin-bottom: 2rem;
   }
 
-  /* --- Divider ------------------------------------------------------------ */
-  .divider {
-    margin: 1.25rem 0 1.8rem;
-    border: 0;
-    height: 2px;
-    background: linear-gradient(to right, var(--accent) 0 5rem, var(--pico-secondary-background) 5rem 100%);
+  /* Corner brackets */
+  .hero h1::before,
+  .hero h1::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    pointer-events: none;
   }
-  @media (prefers-contrast: more) {
-    .divider {
-      opacity: 0.75;
-    }
+  .hero h1::before {
+    left: -8px;
+    top: -8px;
+    border-left: 4px solid var(--brand-accent);
+    border-top: 4px solid var(--brand-accent);
+  }
+  .hero h1::after {
+    right: -8px;
+    bottom: -8px;
+    border-right: 4px solid var(--brand-accent);
+    border-bottom: 4px solid var(--brand-accent);
   }
 
   /* --- Section heading ---------------------------------------------------- */
-  h2#how-i-work {
-    margin-bottom: 1rem;
+  #how-i-work {
+    position: relative;
+    margin: 0 0 1rem 0;
     color: var(--pico-h2-color);
     font-size: 1.3rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    text-wrap: balance;
   }
 
   /* --- Poster list -------------------------------------------------------- */
@@ -87,8 +84,9 @@ const description =
     padding-left: 0;
     margin: 0.75rem 0 0;
     display: grid;
-    gap: 0.55rem;
+    gap: 0.7rem;
   }
+
   .poster--calm > li {
     list-style: none;
     font-weight: 600;
@@ -100,21 +98,22 @@ const description =
     column-gap: 0.5rem;
     align-items: start;
   }
+
   .poster--calm .verb {
-    background: var(--accent);
+    background: var(--brand-accent);
     color: #000;
-    padding: 0.1em 0.25em;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    border: 2px solid var(--accent);
+    border: 3px solid var(--brand-accent);
     border-radius: 0;
     white-space: nowrap;
     flex-shrink: 0;
     margin: 0;
+    padding: 0.14em 0.46em; /* heavier */
+    margin-right: 0.46em;
   }
 
-  /* Ensure no extra markers from Pico */
   ul.poster--calm li span.verb::after {
     content: none;
   }
@@ -122,19 +121,30 @@ const description =
   /* --- Desktop and larger (min-width: 640px) ------------------------------ */
   @media (min-width: 640px) {
     .hero {
-      margin-block: 2.25rem 1.75rem;
+      margin-bottom: 4.5rem;
     }
 
     .hero h1 {
-      padding: 0.44rem 0.7rem;
-      border-width: 4px;
-      box-shadow: 0 0 0 4px #000 inset;
+      padding: 0.35rem 0.6rem;
       font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
     }
 
-    .lede {
-      font-size: 1.12rem;
-      margin-bottom: 1.4rem;
+    .hero h1::before,
+    .hero h1::after {
+      width: 40px;
+      height: 26px;
+    }
+    .hero h1::before {
+      left: -12px;
+      top: -12px;
+      border-left-width: 6px;
+      border-top-width: 6px;
+    }
+    .hero h1::after {
+      right: -12px;
+      bottom: -12px;
+      border-right-width: 6px;
+      border-bottom-width: 6px;
     }
 
     .poster--calm > li {
@@ -145,14 +155,9 @@ const description =
       align-items: baseline;
     }
     .poster--calm .verb {
-      padding: 0.1em 0.38em;
-      margin-right: 0.38em;
-      border-width: 3px;
-    }
-
-    .divider {
-      margin: 1.75rem 0 2.5rem;
-      background: linear-gradient(to right, var(--accent) 0 7rem, var(--pico-secondary-background) 7rem 100%);
+      padding: 0.16em 0.5em;
+      margin-right: 0.5em;
+      border-width: 4px;
     }
   }
 </style>

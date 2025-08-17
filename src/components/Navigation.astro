@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import wordmark from "../assets/images/wordmark.svg"
-
+import logo from "../assets/images/logo.svg"
 const { siteName = "Gil Desmarais" } = Astro.props
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
 
@@ -13,9 +13,10 @@ const isActive = (href: string) => {
 
 <nav id="main-nav" aria-label="Main navigation">
   <div class="nav-header">
-    <a href={siteUrl} class="contrast" rel="me">
-      <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
+    <a href={siteUrl} rel="me">
+      <Image src={logo} alt={siteName} aria-hidden loading="eager" />
     </a>
+
     <button
       id="menu-toggle"
       aria-expanded="false"
@@ -86,7 +87,7 @@ const isActive = (href: string) => {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
   }
 
   .nav-header {
@@ -96,16 +97,29 @@ const isActive = (href: string) => {
     padding: 1rem 0;
   }
 
+  .nav-header img {
+    margin-left: -6px; /* Adjust margin to align logo */
+
+    height: 48px; /* Ensure logo is consistent */
+    width: auto; /* Maintain aspect ratio */
+  }
   #menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    color: var(--brand-text);
     border: none;
     background: none;
-    cursor: pointer;
+  }
+
+  /* The robust fix using class selectors for higher specificity */
+  #menu-toggle svg.icon-menu,
+  #menu-toggle svg.icon-close {
+    display: block;
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
   }
 
   #menu-toggle .icon-close {
@@ -136,8 +150,7 @@ const isActive = (href: string) => {
     #main-nav {
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
-      padding: 0;
+      justify-content: space-around;
     }
     .nav-header {
       padding: 0;

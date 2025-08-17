@@ -169,6 +169,8 @@ const isActive = (href: string) => {
 
       .lead {
         font-size: 1.05rem;
+        line-height: 1.55;
+        max-width: 60ch;
       }
 
       [data-accent] {
@@ -386,15 +388,24 @@ const isActive = (href: string) => {
     }
 
     <script is:inline>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (window.console && window.console.log) {
-          const font = "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61"
+      ;(() => {
+        // Gate to production only; remove this line if you also want it in dev
+        if (!("console" in window) || !console.log) return
 
-          window.console.log("%c👋🏽 Hey there!", `font-weight: 700;${font}`)
-          window.console.log("%c🧐 Looks like you are interested in my work. That's cool.", font)
-          window.console.log("%c📧 If you like what you see, don't hesitate to contact me!", font)
-        }
-      })
+        const contactUrl = `${location.origin}/contact#devtools`
+
+        const base =
+          "font-family: Ubuntu Mono, monospace; font-size: 0.95rem; line-height:1.6; color:#f80; background:#000; padding:2px 6px;"
+        const strong = `${base} font-weight:700; text-transform:uppercase;`
+        const sub = "font-family: Ubuntu Mono, monospace; font-size: 0.9rem; line-height:1.6; color:#f80;"
+
+        // Optional: comment out if you don't want to wipe prior logs
+        console.clear()
+
+        console.log("%cHEY. YOU OPENED DEVTOOLS.", strong)
+        console.log("%cYou care how things are built. So do I — identity, platform, reliability.", sub)
+        console.log("%c→ Contact: %s", strong, contactUrl)
+      })()
     </script>
 
     <script>

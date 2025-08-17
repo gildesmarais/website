@@ -21,6 +21,14 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
     <p class="lead">Prefer concise, async communication. Email works best.</p>
   </header>
 
+  <aside id="devtools" data-accent aria-label="Developer note" data-accent>
+    <strong>Hey, fellow builder.</strong>
+    <p>
+      If you found this via DevTools: nice. I care about boring reliability and clear interfaces. Tell me what
+      you're building and where it currently hurts.
+    </p>
+  </aside>
+
   <section aria-labelledby="contact-direct" data-accent>
     <h2 id="contact-direct">Direct</h2>
     <dl>
@@ -46,3 +54,15 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
     </ul>
   </section>
 </BaseLayout>
+
+<style>
+  #devtools {
+    display: none;
+  }
+  #devtools:target {
+    display: block;
+    margin-block: var(--pico-spacing);
+    padding: var(--pico-spacing);
+    border: 2px solid var(--pico-primary);
+  }
+</style>
