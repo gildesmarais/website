@@ -3,22 +3,69 @@ import BackToTop from "../components/BackToTop.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import "@picocss/pico/css/pico.min.css"
 
+export interface Props {
+  title?: string;                 // Page title without site suffix
+  siteName?: string;              // Used in <title> suffix + og:site_name
+  description: string;            // REQUIRED per your preference
+  language?: string;                  // Default "de"
+  robots?: string;                // You control this per page
+  canonical?: string;             // Defaults to Astro.url.href
+  image?: string;                 // Absolute URL (optional, when you have one)
+  imageAlt?: string;
+  twitterSite?: string;           // e.g. "@gildesmarais"
+  // Optional JSON-LD Person fields
+  personName?: string;            // e.g. "Gil Desmarais"
+  personUrl?: string;             // homepage url
+}
+
 const {
-  title: pageTitle = "Gil Desmarais",
+  siteName = "Gil Desmarais",
+  canonical,
+  image,
+  imageAlt = "",
+  twitterSite,
+  personName = "Gil Desmarais",
+  personUrl = (Astro.site ?? new URL("/", Astro.url)).toString(),
+  title = "Welcome",
   description = "",
   language,
   robots = "index, follow",
-} = Astro.props
-const brand = "Gil Desmarais"
+} = Astro.props as Props;
 
+const pageTitle = title ? `${title} — ${siteName}` : siteName;
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
+const canonicalUrl = canonical ?? Astro.url?.href ?? "";
 
+// Enforce required description
+if (!description) {
+  throw new Error("BaseLayout: 'description' is required for SEO.");
+}
+
+// Minimal JSON-LD: WebSite + Person (owner)
+const websiteLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteName,
+  "url": (Astro.site ?? new URL("/", Astro.url)).toString()
+});
+
+const personLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": personName,
+  "url": personUrl
+});
+
+// ---------------------------------------------------------------------------------------------------------------------
+// helpers
+// ---------------------------------------------------------------------------------------------------------------------
 /* Compute active link using pathname; handle root and section prefixes cleanly */
 const path = Astro.url.pathname
 const isActive = (href: string) => {
   if (href === "/") return path === "/"
   return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
 }
+
 ---
 
 <!doctype html>
@@ -28,11 +75,46 @@ const isActive = (href: string) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
     <meta name="color-scheme" content="dark" />
+
     <meta name="robots" content={robots} />
-    {description && <meta name="description" content={description} />}
+
+    <!-- Canonical -->
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Required description -->
+    <meta name="description" content={description} />
+
+    <!-- Title -->
     <title>{pageTitle}</title>
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1d1f21" />
+
+    <!-- Feed -->
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title={siteName} />
+
+    <!-- Open Graph (only when image is provided) -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:site_name" content={siteName} />
+    {description && <meta property="og:description" content={description} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {image && <meta property="og:image" content={image} />}
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+    <!-- Twitter Card (only when image is provided) -->
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+    <meta name="twitter:title" content={pageTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    {image && <meta name="twitter:image" content={image} />}
+    {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <style is:global>
       #menu-toggle-checkbox {
@@ -244,29 +326,25 @@ const isActive = (href: string) => {
         font-size: 0.95em;
       }
     </style>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <meta name="theme-color" content="#1d1f21" />
-    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Gil Desmarais" />
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={websiteLd}></script>
+    <script type="application/ld+json" set:html={personLd}></script>
   </head>
   <body>
+    <SpeedInsights />
+
     <!-- InlineJS: mark that JS is available -->
     <script is:inline>
       document.documentElement.classList.add("js")
     </script>
 
-    <SpeedInsights />
     <header id="top" class="container">
       <nav id="main-nav">
         <input type="checkbox" id="menu-toggle-checkbox" />
         <ul id="main-nav-list">
           <li>
             <a href={siteUrl} class="contrast" rel="me">
-              <strong>{brand}</strong>
+              <strong>{siteName}</strong>
             </a>
           </li>
           <li>
