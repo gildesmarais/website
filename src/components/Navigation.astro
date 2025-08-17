@@ -1,0 +1,186 @@
+---
+import { Image } from "astro:assets"
+import wordmark from "../assets/images/wordmark.svg"
+
+const { siteName = "Gil Desmarais" } = Astro.props
+const siteUrl = import.meta.env.PROD ? Astro.site : "/"
+
+/* Compute active link using pathname; handle root and section prefixes cleanly */
+const path = Astro.url.pathname
+const isActive = (href: string) => {
+  if (href === "/") return path === "/"
+  return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
+}
+---
+
+<style>
+  #menu-toggle-checkbox {
+    display: none;
+  }
+  #menu-toggle-label {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    color: var(--brand-text);
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-menu,
+  .icon-close {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: currentColor;
+  }
+  .icon-close {
+    display: none;
+  }
+  #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-menu {
+    display: none;
+  }
+  #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-close {
+    display: block;
+  }
+  #menu-toggle-checkbox:checked ~ #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
+    display: list-item;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  #main-nav-list {
+    display: flex;
+    width: 100%;
+  }
+
+  nav #main-nav-list > li > a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: var(--brand-accent);
+    text-underline-offset: 3px;
+  }
+
+  #main-nav-spacer {
+    flex-grow: 1;
+  }
+
+  .mobile-toggle {
+    display: none; /* Hide by default */
+  }
+
+  @media (max-width: 640px) {
+    #main-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #menu-toggle-label {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
+      display: none;
+      visibility: hidden;
+      pointer-events: none;
+      width: 100%;
+      text-align: left;
+      list-style: none;
+    }
+
+    #main-nav-list {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      text-align: left;
+    }
+
+    #menu-toggle-checkbox:checked ~ #main-nav-list {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+    }
+
+    #main-nav-spacer {
+      display: none !important;
+    }
+
+    .mobile-toggle {
+      list-style: none;
+      display: flex;
+      padding-right: 0;
+    }
+  }
+</style>
+
+<nav id="main-nav">
+  <input type="checkbox" id="menu-toggle-checkbox" />
+  <ul id="main-nav-list">
+    <li>
+      <a href={siteUrl} class="contrast" rel="me">
+        <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
+      </a>
+    </li>
+    <li aria-hidden id="main-nav-spacer"></li>
+    <li>
+      <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
+    </li>
+    <li>
+      <a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a>
+    </li>
+    <li>
+      <a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a>
+    </li>
+    <li>
+      <a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
+    </li>
+    <li>
+      <a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
+    </li>
+    <li class="mobile-toggle">
+      <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
+        <svg
+          class="icon-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Existing menu toggle logic
+    const checkbox = document.getElementById("menu-toggle-checkbox")
+    const label = document.getElementById("menu-toggle-label")
+    const navList = document.getElementById("main-nav-list")
+
+    if (checkbox && label && navList) {
+      label.setAttribute("aria-controls", "main-nav-list")
+      label.setAttribute("aria-expanded", checkbox.checked.toString())
+
+      checkbox.addEventListener("change", function () {
+        label.setAttribute("aria-expanded", this.checked.toString())
+      })
+    }
+  })
+</script>

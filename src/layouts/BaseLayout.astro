@@ -1,13 +1,11 @@
 ---
 import BackToTop from "../components/BackToTop.astro"
+import Navigation from "../components/Navigation.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import "@picocss/pico/css/pico.min.css"
 import "@fontsource/ibm-plex-sans/400.css"
 import "@fontsource/ibm-plex-sans/700.css"
 import "@fontsource/ubuntu-mono/400.css"
-import { Image } from "astro:assets"
-import wordmark from "../assets/images/wordmark.svg"
-import logo from "../assets/images/logo.svg"
 import ibmPlexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2"
 import ibmPlexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2"
 import ubuntuMono400 from "@fontsource/ubuntu-mono/files/ubuntu-mono-latin-400-normal.woff2"
@@ -65,10 +63,6 @@ const personLd = JSON.stringify({
   url: personUrl,
 })
 
-// ---------------------------------------------------------------------------------------------------------------------
-// helpers
-// ---------------------------------------------------------------------------------------------------------------------
-/* Compute active link using pathname; handle root and section prefixes cleanly */
 const path = Astro.url.pathname
 const isActive = (href: string) => {
   if (href === "/") return path === "/"
@@ -167,106 +161,13 @@ const isActive = (href: string) => {
         font-weight: 700;
         letter-spacing: -0.02em;
       }
+
+      .micro {
+        opacity: 0.8;
+        font-size: 0.95em;
+      }
     </style>
     <style is:global>
-      #menu-toggle-checkbox {
-        display: none;
-      }
-      #menu-toggle-label {
-        display: none; /* Hidden by default */
-        cursor: pointer;
-        color: var(--brand-text);
-        width: 2rem;
-        height: 2rem;
-        align-items: center;
-        justify-content: center;
-      }
-      .icon-menu,
-      .icon-close {
-        width: 1.5rem;
-        height: 1.5rem;
-        stroke: currentColor;
-      }
-      .icon-close {
-        display: none;
-      }
-      #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-menu {
-        display: none;
-      }
-      #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-close {
-        display: block;
-      }
-      #menu-toggle-checkbox:checked ~ #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
-        display: list-item;
-        visibility: visible;
-        pointer-events: auto;
-      }
-
-      #main-nav-list {
-        display: flex;
-        width: 100%;
-      }
-
-      nav #main-nav-list > li > a {
-        color: white;
-        text-decoration: underline;
-        text-decoration-thickness: 0.2rem;
-        text-decoration-color: var(--brand-accent);
-        text-underline-offset: 3px;
-      }
-
-      #main-nav-spacer {
-        flex-grow: 1;
-      }
-
-      .mobile-toggle {
-        display: none; /* Hide by default */
-      }
-
-      @media (max-width: 640px) {
-        #main-nav {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        #menu-toggle-label {
-          display: flex;
-          justify-content: flex-start;
-        }
-
-        nav #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
-          display: none;
-          visibility: hidden;
-          pointer-events: none;
-          width: 100%;
-          text-align: left;
-          list-style: none;
-        }
-
-        #main-nav-list {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          text-align: left;
-        }
-
-        #menu-toggle-checkbox:checked ~ #main-nav-list {
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: unset;
-        }
-
-        #main-nav-spacer {
-          display: none !important;
-        }
-
-        .mobile-toggle {
-          list-style: none;
-          display: flex;
-          padding-right: 0;
-        }
-      }
-
       @media print {
         article {
           break-inside: avoid;
@@ -280,8 +181,38 @@ const isActive = (href: string) => {
         .no-print {
           display: none !important;
         }
-      }
 
+        @page {
+          margin: 0;
+        }
+
+        body {
+          margin: 0;
+          padding: 1rem;
+          /* font-size: 0.95rem; */
+          /* line-height: 1.6; */
+        }
+
+        /* header,
+      footer {
+        display: none;
+      } */
+
+        main {
+          break-inside: avoid;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          page-break-after: avoid;
+        }
+      }
+    </style>
+    <style is:global>
       /* --- Brand tokens (single source of truth) --- */
       :root {
         --brand-bg: #0b0b0b;
@@ -399,11 +330,6 @@ const isActive = (href: string) => {
         /* Selections & focus affordances in orange */
         --pico-text-selection-color: rgba(255, 136, 0, 0.2);
       }
-
-      .micro {
-        opacity: 0.8;
-        font-size: 0.95em;
-      }
     </style>
     <!-- JSON-LD -->
     <script type="application/ld+json" set:html={websiteLd} />
@@ -418,59 +344,7 @@ const isActive = (href: string) => {
     </script>
 
     <header id="top" class="container">
-      <nav id="main-nav">
-        <input type="checkbox" id="menu-toggle-checkbox" />
-        <ul id="main-nav-list">
-          <li>
-            <a href={siteUrl} class="contrast" rel="me">
-              <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
-            </a>
-          </li>
-          <li aria-hidden id="main-nav-spacer"></li>
-          <li>
-            <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
-          </li>
-          <li>
-            <a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a>
-          </li>
-          <li>
-            <a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a>
-          </li>
-          <li>
-            <a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
-          </li>
-          <li>
-            <a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
-          </li>
-          <li class="mobile-toggle">
-            <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
-              <svg
-                class="icon-menu"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-              </svg>
-              <svg
-                class="icon-close"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </label>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
     </header>
 
     <main class="container">
@@ -502,20 +376,6 @@ const isActive = (href: string) => {
 
     <script is:inline>
       document.addEventListener("DOMContentLoaded", function () {
-        // Existing menu toggle logic
-        const checkbox = document.getElementById("menu-toggle-checkbox")
-        const label = document.getElementById("menu-toggle-label")
-        const navList = document.getElementById("main-nav-list")
-
-        if (checkbox && label && navList) {
-          label.setAttribute("aria-controls", "main-nav-list")
-          label.setAttribute("aria-expanded", checkbox.checked.toString())
-
-          checkbox.addEventListener("change", function () {
-            label.setAttribute("aria-expanded", this.checked.toString())
-          })
-        }
-
         if (window.console && window.console.log) {
           const font = "font-family: var(--font-mono); font-size: 1rem; line-height: 1.61"
 
