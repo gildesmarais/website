@@ -5,10 +5,12 @@ import "@picocss/pico/css/pico.min.css"
 import "@fontsource/ibm-plex-sans/400.css"
 import "@fontsource/ibm-plex-sans/700.css"
 import "@fontsource/ubuntu-mono/400.css"
-import "@fontsource/ubuntu-mono/700.css"
 import { Image } from "astro:assets"
 import wordmark from "../assets/images/wordmark.svg"
 import logo from "../assets/images/logo.svg"
+import ibmPlexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2"
+import ibmPlexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2"
+import ubuntuMono400 from "@fontsource/ubuntu-mono/files/ubuntu-mono-latin-400-normal.woff2"
 
 export interface Props {
   title?: string // Page title without site suffix
@@ -93,6 +95,11 @@ const isActive = (href: string) => {
 
     <!-- Title -->
     <title>{pageTitle}</title>
+
+    <!-- Preload Fonts -->
+    <link rel="preload" href={ibmPlexSans400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={ibmPlexSans700} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={ubuntuMono400} as="font" type="font/woff2" crossorigin />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -203,7 +210,7 @@ const isActive = (href: string) => {
       nav #main-nav-list > li > a {
         color: white;
         text-decoration: underline;
-        text-decoration-thickness: 0.125rem;
+        text-decoration-thickness: 0.2rem;
         text-decoration-color: var(--brand-accent);
         text-underline-offset: 3px;
       }
