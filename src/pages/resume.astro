@@ -17,7 +17,14 @@ const description = `
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <h1>{title}</h1>
+  <header class="hero">
+    <h1>{title}</h1>
+
+    <p class="lead">
+      Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default,
+      idiomatic systems that increase delivery velocity and reduce operating cost.
+    </p>
+  </header>
 
   <!-- Table of Contents -->
   <nav aria-label="Table of Contents">
@@ -31,10 +38,6 @@ const description = `
   </nav>
 
   <!-- One-liner -->
-  <p>
-    Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default, idiomatic
-    systems that increase delivery velocity and reduce operating cost.
-  </p>
 
   <ul>
     <li>Location: Berlin (hybrid, 99% remote)</li>
@@ -42,7 +45,7 @@ const description = `
     <li><strong>Languages:</strong> German (native) · English (fluent)</li>
   </ul>
 
-  <section>
+  <section data-accent>
     <h2 id="exp">Experience</h2>
 
     <!-- Current role -->
@@ -217,8 +220,8 @@ const description = `
 
     <details>
       <summary><h3>Earlier Experience</h3></summary>
-      <article aria-labelledby="freelance17">
-        <header>
+      <details>
+        <summary>
           <h3 id="freelance">Freelance Developer</h3>
           <p>
             <time datetime="2017-05">May 2017</time>
@@ -226,18 +229,18 @@ const description = `
             <time datetime="2017-08">Aug 2017</time>
             · Remote
           </p>
-        </header>
-
-        <ul>
-          <li>
-            <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
-            covering concept through deployment.
-          </li>
-        </ul>
-      </article>
-
-      <article aria-labelledby="backend">
-        <header>
+        </summary>
+        <article aria-labelledby="freelance17">
+          <ul>
+            <li>
+              <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
+              covering concept through deployment.
+            </li>
+          </ul>
+        </article>
+      </details>
+      <details>
+        <summary>
           <h3 id="backend">Backend Developer</h3>
           <p>
             <time datetime="2015-11">Nov 2015</time>
@@ -245,49 +248,48 @@ const description = `
             <time datetime="2017-04">Apr 2017</time>
             · Berlin
           </p>
+        </summary>
+        <article aria-labelledby="backend">
           <p>
             Developer in a VC-backed publishing startup focused on movies and TV series, with viral traffic
             and community-driven content.
           </p>
-        </header>
-
-        <ul>
-          <li>
-            <strong>Built</strong> an internal curation app for incoming articles, scaling content review and vertical
-            publishing across microservices.
-          </li>
-          <li>
-            <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
-            payments and analytics.
-          </li>
-          <li>
-            <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views), giving
-            editorial teams control and modern presentation features.
-          </li>
-          <li>
-            <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
-            enabling product adaptability.
-          </li>
-          <li class="hide-print">
-            <strong>Maintained</strong> and extended core web applications; provided internal technical support.
-          </li>
-        </ul>
-
-        <details>
-          <summary><strong>Stack</strong></summary>
           <ul>
-            <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
-            <li>JavaScript · HTML5 · SCSS</li>
-            <li>Docker · nginx · Puppet · RabbitMQ</li>
-            <li>CI/CD · Capistrano · git</li>
-            <li>Selenium/Capybara · Monitoring · SEO</li>
-            <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
+            <li>
+              <strong>Built</strong> an internal curation app for incoming articles, scaling content review and
+              vertical publishing across microservices.
+            </li>
+            <li>
+              <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
+              payments and analytics.
+            </li>
+            <li>
+              <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views),
+              giving editorial teams control and modern presentation features.
+            </li>
+            <li>
+              <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
+              enabling product adaptability.
+            </li>
+            <li class="hide-print">
+              <strong>Maintained</strong> and extended core web applications; provided internal technical support.
+            </li>
           </ul>
-        </details>
-      </article>
-
-      <article aria-labelledby="railsdev">
-        <header>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
+              <li>JavaScript · HTML5 · SCSS</li>
+              <li>Docker · nginx · Puppet · RabbitMQ</li>
+              <li>CI/CD · Capistrano · git</li>
+              <li>Selenium/Capybara · Monitoring · SEO</li>
+              <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
+            </ul>
+          </details>
+        </article>
+      </details>
+      <details>
+        <summary>
           <h3 id="railsdev">Rails Developer</h3>
           <p>
             <time datetime="2015-05">May 2015</time>
@@ -295,28 +297,27 @@ const description = `
             <time datetime="2015-11">Nov 2015</time>
             · Berlin
           </p>
-        </header>
-
-        <ul>
-          <li><strong>Developed</strong> a farm management MVP.</li>
-          <li>
-            <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
-          </li>
-        </ul>
-
-        <details>
-          <summary><strong>Stack</strong></summary>
+        </summary>
+        <article aria-labelledby="railsdev">
           <ul>
-            <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
-            <li>CI/CD · REST API</li>
-            <li>Heroku</li>
-            <li>Scrum</li>
+            <li><strong>Developed</strong> a farm management MVP.</li>
+            <li>
+              <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
+            </li>
           </ul>
-        </details>
-      </article>
-
-      <article aria-labelledby="developer">
-        <header>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
+              <li>CI/CD · REST API</li>
+              <li>Heroku</li>
+              <li>Scrum</li>
+            </ul>
+          </details>
+        </article>
+      </details>
+      <details>
+        <summary>
           <h3 id="developer">Developer</h3>
           <p>
             <time datetime="2011-09">Sep 2011</time>
@@ -324,57 +325,57 @@ const description = `
             <time datetime="2015-01">Jan 2015</time>
             · Oldenburg
           </p>
+        </summary>
+        <article aria-labelledby="developer">
           <p>
             Full-stack developer at a digital agency, delivering web platforms for energy and sports clients.
           </p>
-        </header>
-
-        <ul>
-          <li><strong>Built</strong> backend system and API for a major customer’s web and mobile apps.</li>
-          <li>
-            <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
-            Europe.
-          </li>
-          <li>
-            <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
-            processing, subscription handling, and payment integration.
-          </li>
-          <li>
-            <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
-            developer practices at the agency.
-          </li>
-          <li class="hide-print">
-            <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to business
-            development.
-          </li>
-          <li class="hide-print">
-            <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
-          </li>
-          <li class="hide-print">
-            <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
-          </li>
-        </ul>
-
-        <details>
-          <summary><strong>Stack</strong></summary>
           <ul>
-            <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
-            <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
-            <li>Objective-C · WebSockets</li>
-            <li>git · Subversion</li>
-            <li>CI/CD · Task runners</li>
-            <li>nginx · Scrum</li>
-            <li>WordPress · Joomla</li>
+            <li><strong>Built</strong> backend system and API for a major customer’s web and mobile apps.</li>
+            <li>
+              <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
+              Europe.
+            </li>
+            <li>
+              <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
+              processing, subscription handling, and payment integration.
+            </li>
+            <li>
+              <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
+              developer practices at the agency.
+            </li>
+            <li class="hide-print">
+              <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to business
+              development.
+            </li>
+            <li class="hide-print">
+              <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
+            </li>
+            <li class="hide-print">
+              <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
+            </li>
           </ul>
-        </details>
-      </article>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
+              <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
+              <li>Objective-C · WebSockets</li>
+              <li>git · Subversion</li>
+              <li>CI/CD · Task runners</li>
+              <li>nginx · Scrum</li>
+              <li>WordPress · Joomla</li>
+            </ul>
+          </details>
+        </article>
+      </details>
     </details>
   </section>
 
   <hr />
 
   <details>
-    <summary><h2 id="service">Service</h2></summary>
+    <summary><h2 id="service" data-accent>Service</h2></summary>
 
     <article aria-labelledby="military">
       <h3 id="military">Military Service — IT & Network Support, German Air Force</h3>
@@ -404,15 +405,12 @@ const description = `
 
   <hr />
 
-  <section aria-labelledby="skills" data-accent>
-    <details>
-      <summary>
-        <h2 id="skills">Skills</h2>
-      </summary>
-
+  <details>
+    <summary><h2 id="skills" data-accent>Skills</h2></summary>
+    <section aria-labelledby="skills">
       <SkillsMatrix categories={skills} />
-    </details>
-  </section>
+    </section>
+  </details>
 
   <hr />
 
@@ -455,43 +453,44 @@ const description = `
 
   <hr /> -->
 
-  <section aria-labelledby="education">
-    <h2 id="education">Education</h2>
-
-    <article aria-labelledby="edu1">
-      <header>
-        <h3 id="edu1">B.Sc. Wirtschaftsinformatik (Information Systems)</h3>
+  <details>
+    <summary><h2 id="education" data-accent>Education</h2></summary>
+    <section aria-labelledby="education">
+      <article aria-labelledby="edu1">
+        <header>
+          <h3 id="edu1">B.Sc. Wirtschaftsinformatik (Information Systems)</h3>
+          <p>
+            <time datetime="2009-03">Mar 2009</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2012-03">Mar 2012</time>
+            · Jade University of Applied Sciences, Wilhelmshaven
+          </p>
+        </header>
         <p>
-          <time datetime="2009-03">Mar 2009</time>
-          <span aria-hidden="true">–</span>
-          <time datetime="2012-03">Mar 2012</time>
-          · Jade University of Applied Sciences, Wilhelmshaven
+          Thesis: <q>Software Modularity in Smart Homes – OSGi as a Base for Future Products and Services</q>
         </p>
-      </header>
-      <p>
-        Thesis: <q>Software Modularity in Smart Homes – OSGi as a Base for Future Products and Services</q>
-      </p>
-      <ul>
-        <li>Completed Cisco CCNA Exploration 1–4 (Network Administration).</li>
-      </ul>
-    </article>
+        <ul>
+          <li>Completed Cisco CCNA Exploration 1–4 (Network Administration).</li>
+        </ul>
+      </article>
 
-    <article aria-labelledby="edu2">
-      <header>
-        <h3 id="edu2">Student Assistant</h3>
-        <p>
-          <time datetime="2009">2009</time>
-          <span aria-hidden="true">–</span>
-          <time datetime="2011">2011</time>
-          · Jade University of Applied Sciences, Wilhelmshaven
-        </p>
-      </header>
-      <ul>
-        <li><strong>Tutor</strong> for programming course (Winter 2009).</li>
-        <li><strong>Research assistant</strong> on <q>Mobile Smart Metering</q> project (Summer 2011).</li>
-      </ul>
-    </article>
-  </section>
+      <article aria-labelledby="edu2">
+        <header>
+          <h3 id="edu2">Student Assistant</h3>
+          <p>
+            <time datetime="2009">2009</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2011">2011</time>
+            · Jade University of Applied Sciences, Wilhelmshaven
+          </p>
+        </header>
+        <ul>
+          <li><strong>Tutor</strong> for programming course (Winter 2009).</li>
+          <li><strong>Research assistant</strong> on <q>Mobile Smart Metering</q> project (Summer 2011).</li>
+        </ul>
+      </article>
+    </section>
+  </details>
 
   <hr />
 
@@ -505,6 +504,8 @@ const description = `
 </BaseLayout>
 
 <style>
+  @import "../assets/hero.css";
+
   /* Always-visible, readable link underlines (dark & light) */
   :where(main a) {
     text-decoration-line: underline;

@@ -13,111 +13,108 @@ const contactHref = "/contact"
 ---
 
 <BaseLayout title={title} description={description}>
-  <header>
+  <header class="hero">
     <h1><abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais.</h1>
-    <p>
+    <p class="lead">
       I like understanding how things work and making them kinder to humans — and hearing how others see the
-      world. Professionally I'm an Engineering Team Lead; here, I'm someone who values clarity, good company,
-      and the occasional well‑timed joke. I tend to think things through before I speak, but I enjoy genuine
-      conversations and learning what excites other people.
+      world.
     </p>
   </header>
 
-  <main>
-    <section aria-labelledby="name-pronunciation">
-      <h2 id="name-pronunciation">Name pronunciation</h2>
-      <figure>
-        <figcaption>
-          <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh">/ʒɪl dɛsm ɐ ʁɛ/</span>
-          <button
-            type="button"
-            id="play-name"
-            aria-label="Play name pronunciation"
-            aria-controls="name-audio"
-            aria-pressed="false"
-          >
-            <Image src={speakerImage} alt="" width="16" height="16" />
-          </button>
-        </figcaption>
+  <section aria-labelledby="name-pronunciation">
+    <h2 id="name-pronunciation">Name pronunciation</h2>
+    <figure>
+      <figcaption>
+        <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh">/ʒɪl dɛsm ɐ ʁɛ/</span>
+        <button
+          type="button"
+          id="play-name"
+          aria-label="Play name pronunciation"
+          aria-controls="name-audio"
+          aria-pressed="false"
+        >
+          <Image src={speakerImage} alt="" width="16" height="16" />
+        </button>
+      </figcaption>
 
-        <audio id="name-audio" preload="metadata" controls>
-          <source src="/index.flac" type="audio/flac" />
-          Your browser can’t play the audio. <a href="/index.flac">Download audio</a>.
-        </audio>
-      </figure>
-    </section>
+      <audio id="name-audio" preload="metadata" controls>
+        <source src="/index.flac" type="audio/flac" />
+        Your browser can’t play the audio. <a href="/index.flac">Download audio</a>.
+      </audio>
+    </figure>
+  </section>
 
-    <section aria-labelledby="now">
-      <h2 id="now">What I'm like</h2>
-      <p>
-        Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans. I'm the friend who fixes the
-        wobbly table and then puts on a solid playlist.
-      </p>
-      <p>
-        Earlier in life, I served in the German Air Force, supporting IT and network operations for NATO
-        staff. It broadened my perspective beyond office work and showed how disciplined processes and
-        technical skills combine in high-responsibility settings.
-      </p>
-    </section>
+  <section aria-labelledby="now">
+    <h2 id="now">What I'm like</h2>
+    <p>
+      Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans. I'm the friend who fixes the
+      wobbly table and then puts on a solid playlist.
+    </p>
+    <p>
+      Earlier in life, I served in the German Air Force, supporting IT and network operations for NATO staff.
+      It broadened my perspective beyond office work and showed how disciplined processes and technical skills
+      combine in high-responsibility settings.
+    </p>
+  </section>
 
-    <section aria-labelledby="care" data-accent>
-      <h2 id="care">Things I care about</h2>
-      <ul>
-        <li><strong>Efficiency</strong></li>
-        <li>Understanding systems — from tech to culture</li>
-        <li>Making life easier, not more complicated</li>
-        <li>Sharing knowledge and helping others grow</li>
-        <li>Good experiences with minimal fuss</li>
-        <li>
-          Movies — a long-time passion, and even part of my work when I developed for a film & TV publishing
-          startup. I also log and <a href="/movies?isRecommendation=true&sort=year&dir=desc"
-            >recommend movies</a
-          >.
-        </li>
+  <section aria-labelledby="care" data-accent>
+    <h2 id="care">Things I care about</h2>
+    <ul>
+      <li><strong>Efficiency</strong></li>
+      <li>Understanding systems — from tech to culture</li>
+      <li>Making life easier, not more complicated</li>
+      <li>Sharing knowledge and helping others grow</li>
+      <li>Good experiences with minimal fuss</li>
+      <li>
+        Movies — a long-time passion, and even part of my work when I developed for a film & TV publishing
+        startup. I also log and <a href="/movies?isRecommendation=true&sort=year&dir=desc">recommend movies</a
+        >.
+      </li>
 
-        <li>Learning: music, cities, culture, aviation, food</li>
-        <li>
-          Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two
-        </li>
-        <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
-        <li>Movement: cycling, yoga, walks</li>
-      </ul>
-    </section>
+      <li>Learning: music, cities, culture, aviation, food</li>
+      <li>Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two</li>
+      <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
+      <li>Movement: cycling, yoga, walks</li>
+    </ul>
+  </section>
 
-    <section aria-labelledby="contact">
-      <h2 id="contact">Say hi</h2>
-      <p>
-        Best way: <a href={contactHref}>write an email</a>. Or find me on
-        {
-          socials.map(({ name, url, rel }, i) => (
-            <>
-              <a href={url} rel={rel}>
-                {name}
-              </a>
-              {i < socials.length - 1 ? " · " : ""}
-            </>
-          ))
-        }
-      </p>
-      <p class="micro">
-        If you're here for work specifics, my <a href="/resume">resume</a> has the details.
-      </p>
-    </section>
-  </main>
+  <section aria-labelledby="contact">
+    <h2 id="contact">Say hi</h2>
+    <p>
+      Best way: <a href={contactHref}>write an email</a>. Or find me on
+      {
+        socials.map(({ name, url, rel }, i) => (
+          <>
+            <a href={url} rel={rel}>
+              {name}
+            </a>
+            {i < socials.length - 1 ? " · " : ""}
+          </>
+        ))
+      }
+    </p>
+    <p class="micro">
+      If you're here for work specifics, my <a href="/resume">resume</a> has the details.
+    </p>
+  </section>
 </BaseLayout>
+
+<style>
+  @import "../assets/hero.css";
+</style>
 
 <script>
   ;(() => {
     const s = document.querySelector('section[aria-labelledby="name-pronunciation"]')
     if (!s) return
     const btn = s.querySelector("#play-name")
-    const audio = s.querySelector("#name-audio")
+    const audio = s.querySelector<HTMLAudioElement>("#name-audio")
     if (!btn || !audio) return
 
     // Enhance: hide native controls if JS is available
     audio.controls = false
 
-    const setPressed = (pressed) => {
+    const setPressed = (pressed: boolean) => {
       btn.setAttribute("aria-pressed", String(pressed))
       btn.setAttribute("aria-label", pressed ? "Stop name pronunciation" : "Play name pronunciation")
     }

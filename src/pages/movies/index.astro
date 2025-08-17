@@ -24,7 +24,9 @@ const moviesWithRatings = movies.map((movie) => {
 
 <MovieLayout title={title} description={description}>
   <section>
-    <h1>{title}</h1>
+    <header class="hero">
+      <h1>{title}</h1>
+    </header>
     <input id="movieFilter" type="search" placeholder="Filter…" />
     <div class="sort-buttons">
       <button data-filter-by="isRecommendation" data-filter-value="true"> Recommendations </button>
@@ -92,6 +94,8 @@ const moviesWithRatings = movies.map((movie) => {
 </MovieLayout>
 
 <style>
+  @import "../../assets/hero.css";
+
   .recommendations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

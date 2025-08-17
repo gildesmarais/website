@@ -16,7 +16,7 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <header>
+  <header class="hero">
     <h1>{title}</h1>
     <p class="lead">Prefer concise, async communication. Email works best.</p>
   </header>
@@ -65,4 +65,8 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
     padding: var(--pico-spacing);
     border: 2px solid var(--pico-primary);
   }
+</style>
+
+<style>
+  @import "../assets/hero.css";
 </style>

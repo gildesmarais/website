@@ -16,12 +16,12 @@ function fmt(d: Date) {
 ---
 
 <BaseLayout title={title} description={description}>
-  <section>
-    <header>
-      <h1>{title}</h1>
-      <p>All posts, including short notes and experiments.</p>
-    </header>
+  <header class="hero">
+    <h1>{title}</h1>
+    <p class="lead">All posts, including short notes and experiments.</p>
+  </header>
 
+  <section>
     <ul>
       {
         posts.map(({ slug, data }) => (
@@ -46,3 +46,7 @@ function fmt(d: Date) {
     </footer>
   </section>
 </BaseLayout>
+
+<style>
+  @import "../../assets/hero.css";
+</style>

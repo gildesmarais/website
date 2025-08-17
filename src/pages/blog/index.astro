@@ -9,14 +9,16 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
 ---
 
 <BaseLayout title={title} description={description}>
-  <section>
+  <header class="hero">
     <h1>{title}</h1>
-    <p>
+    <p class="lead">
       Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or <a
         href="/feed.xml">subscribe to the RSS feed</a
       >.
     </p>
+  </header>
 
+  <section>
     <ul>
       {
         posts.map(({ slug, data }) => (
@@ -43,3 +45,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
     </nav>
   </section>
 </BaseLayout>
+
+<style>
+  @import "../../assets/hero.css";
+</style>

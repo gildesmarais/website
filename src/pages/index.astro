@@ -26,46 +26,7 @@ const description =
 </BaseLayout>
 
 <style>
-  /* --- Hero --------------------------------------------------------------- */
-  .hero {
-    margin-bottom: 4rem;
-  }
-
-  .hero h1 {
-    position: relative;
-    display: inline-block;
-    padding: 0.35rem 0.6rem;
-
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
-    background: var(--pico-background-color);
-    text-wrap: balance; /* fixed */
-    margin-bottom: 2rem;
-  }
-
-  /* Corner brackets */
-  .hero h1::before,
-  .hero h1::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 20px;
-    pointer-events: none;
-  }
-  .hero h1::before {
-    left: -8px;
-    top: -8px;
-    border-left: 4px solid var(--brand-accent);
-    border-top: 4px solid var(--brand-accent);
-  }
-  .hero h1::after {
-    right: -8px;
-    bottom: -8px;
-    border-right: 4px solid var(--brand-accent);
-    border-bottom: 4px solid var(--brand-accent);
-  }
+  @import "../assets/hero.css";
 
   /* --- Section heading ---------------------------------------------------- */
   #how-i-work {

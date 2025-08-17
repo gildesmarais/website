@@ -9,7 +9,7 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <header>
+  <header class="hero">
     <h1>{title}</h1>
     <p class="lead">Small, sharp tools. Built to be useful. Maintained when they earn their keep.</p>
     <p>
@@ -121,6 +121,8 @@ const description =
 </BaseLayout>
 
 <style>
+  @import "../assets/hero.css";
+
   /* Map local --accent to BaseLayout token */
   :root {
     --accent: var(--brand-accent, #f80);
