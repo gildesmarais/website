@@ -8,6 +8,8 @@ import movies from "../../data/movies.json"
 import MoviePoster from "../../components/MoviePoster.astro"
 
 const title = "Movie Ratings"
+const description =
+  "Personal movie ratings and recommendations curated by Gil Desmarais. Explore films worth watching."
 
 const ratingsMap = new Map(ratings.map((r) => [`${r.title} (${r.year})`, r.rating]))
 const recommendationsSet = new Set(recommendations.map((r) => r.const))
@@ -20,7 +22,7 @@ const moviesWithRatings = movies.map((movie) => {
 })
 ---
 
-<MovieLayout title={title}>
+<MovieLayout title={title} description={description}>
   <section>
     <h1>{title}</h1>
     <input id="movieFilter" type="search" placeholder="Filter…" />

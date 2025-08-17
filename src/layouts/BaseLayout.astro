@@ -2,20 +2,23 @@
 import BackToTop from "../components/BackToTop.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import "@picocss/pico/css/pico.min.css"
+import { Image } from "astro:assets"
+import wordmark from "../assets/images/wordmark.svg"
+import logo from "../assets/images/logo.svg"
 
 export interface Props {
-  title?: string;                 // Page title without site suffix
-  siteName?: string;              // Used in <title> suffix + og:site_name
-  description: string;            // REQUIRED per your preference
-  language?: string;                  // Default "de"
-  robots?: string;                // You control this per page
-  canonical?: string;             // Defaults to Astro.url.href
-  image?: string;                 // Absolute URL (optional, when you have one)
-  imageAlt?: string;
-  twitterSite?: string;           // e.g. "@gildesmarais"
+  title?: string // Page title without site suffix
+  siteName?: string // Used in <title> suffix + og:site_name
+  description: string // REQUIRED per your preference
+  language?: string // Default "de"
+  robots?: string // You control this per page
+  canonical?: string // Defaults to Astro.url.href
+  image?: string // Absolute URL (optional, when you have one)
+  imageAlt?: string
+  twitterSite?: string // e.g. "@gildesmarais"
   // Optional JSON-LD Person fields
-  personName?: string;            // e.g. "Gil Desmarais"
-  personUrl?: string;             // homepage url
+  personName?: string // e.g. "Gil Desmarais"
+  personUrl?: string // homepage url
 }
 
 const {
@@ -30,31 +33,31 @@ const {
   description = "",
   language,
   robots = "index, follow",
-} = Astro.props as Props;
+} = Astro.props as Props
 
-const pageTitle = title ? `${title} — ${siteName}` : siteName;
+const pageTitle = title ? `${title} — ${siteName}` : siteName
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
-const canonicalUrl = canonical ?? Astro.url?.href ?? "";
+const canonicalUrl = canonical ?? Astro.url?.href ?? ""
 
 // Enforce required description
 if (!description) {
-  throw new Error("BaseLayout: 'description' is required for SEO.");
+  throw new Error("BaseLayout: 'description' is required for SEO.")
 }
 
 // Minimal JSON-LD: WebSite + Person (owner)
 const websiteLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": siteName,
-  "url": (Astro.site ?? new URL("/", Astro.url)).toString()
-});
+  name: siteName,
+  url: (Astro.site ?? new URL("/", Astro.url)).toString(),
+})
 
 const personLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": personName,
-  "url": personUrl
-});
+  name: personName,
+  url: personUrl,
+})
 
 // ---------------------------------------------------------------------------------------------------------------------
 // helpers
@@ -65,7 +68,6 @@ const isActive = (href: string) => {
   if (href === "/") return path === "/"
   return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
 }
-
 ---
 
 <!doctype html>
@@ -150,6 +152,19 @@ const isActive = (href: string) => {
         pointer-events: auto;
       }
 
+      #main-nav-list {
+        display: flex;
+        width: 100%;
+      }
+
+      #main-nav-spacer {
+        flex-grow: 1;
+      }
+
+      .mobile-toggle {
+        display: none; /* Hide by default */
+      }
+
       @media (max-width: 640px) {
         #main-nav {
           flex-direction: column;
@@ -183,8 +198,14 @@ const isActive = (href: string) => {
           justify-content: unset;
         }
 
+        #main-nav-spacer {
+          display: none !important;
+        }
+
         .mobile-toggle {
           list-style: none;
+          display: flex;
+          padding-right: 0;
         }
       }
 
@@ -327,8 +348,8 @@ const isActive = (href: string) => {
       }
     </style>
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={websiteLd}></script>
-    <script type="application/ld+json" set:html={personLd}></script>
+    <script type="application/ld+json" set:html={websiteLd} />
+    <script type="application/ld+json" set:html={personLd} />
   </head>
   <body>
     <SpeedInsights />
@@ -344,9 +365,10 @@ const isActive = (href: string) => {
         <ul id="main-nav-list">
           <li>
             <a href={siteUrl} class="contrast" rel="me">
-              <strong>{siteName}</strong>
+              <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
             </a>
           </li>
+          <li aria-hidden id="main-nav-spacer"></li>
           <li>
             <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
           </li>

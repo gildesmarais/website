@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 const title = "Blog Archive"
+const description = "Chronological archive of all published blog posts."
+
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
 )
@@ -13,7 +15,7 @@ function fmt(d: Date) {
 }
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <section>
     <header>
       <h1>{title}</h1>

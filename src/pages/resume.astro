@@ -6,9 +6,17 @@ import { skills } from "../data/skills"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 const title = "Résumé"
+const robots = "index, noarchive, follow"
+
+const description = `
+  Engineering Team Lead in Berlin.
+  Focused on platform and reliability —
+  building secure, scalable systems that
+  improve developer velocity and reduce operating cost.
+  `
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description} robots={robots}>
   <h1>{title}</h1>
 
   <!-- Table of Contents -->
