@@ -2,6 +2,10 @@
 import BackToTop from "../components/BackToTop.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import "@picocss/pico/css/pico.min.css"
+import "@fontsource/ibm-plex-sans/400.css"
+import "@fontsource/ibm-plex-sans/700.css"
+import "@fontsource/ubuntu-mono/400.css"
+import "@fontsource/ubuntu-mono/700.css"
 import { Image } from "astro:assets"
 import wordmark from "../assets/images/wordmark.svg"
 import logo from "../assets/images/logo.svg"
@@ -118,6 +122,45 @@ const isActive = (href: string) => {
     {image && <meta name="twitter:image" content={image} />}
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
+    <style is:global>
+      :root {
+        --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+        --font-mono: "Ubuntu Mono", ui-monospace, monospace;
+
+        --pico-font-family: var(--font-sans);
+        --pico-font-family-sans: var(--font-sans);
+        --pico-font-family-monospace: var(--font-mono);
+      }
+
+      body {
+        font-family: var(--font-sans);
+        font-weight: 400;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      code,
+      pre,
+      kbd,
+      samp {
+        font-family: var(--font-mono);
+      }
+
+      header nav .contrast {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+    </style>
     <style is:global>
       #menu-toggle-checkbox {
         display: none;
