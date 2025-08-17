@@ -2,132 +2,183 @@
 export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
+
 const title = "Projects"
 const description =
   "Selected projects by Gil Desmarais — tools and side projects. Explore maintained work and experiments."
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1>Projects</h1>
-
-  <p>
-    Selected side projects I build and maintain. Find more on
-    <a href="https://github.com/gildesmarais/" target="_blank" rel="noopener">my GitHub profile</a>.
-  </p>
-
-  <section id="html2rss">
-    <h2><span>HTML</span><span>2</span><span>RSS</span></h2>
+  <header>
+    <h1>{title}</h1>
+    <p class="lead">Small, sharp tools. Built to be useful. Maintained when they earn their keep.</p>
     <p>
-      <em>Generate RSS feeds from any site.</em>
+      More on
+      <a href="https://github.com/gildesmarais/" target="_blank" rel="external nofollow noopener">GitHub</a>.
     </p>
+  </header>
 
-    <p>
-      A set of tools that automatically discovers articles on a webpage and scrapes their content — including
-      JavaScript-rendered pages via headless browsers — to generate reliable RSS feeds.
-    </p>
+  <section aria-label="Selected projects">
+    <article class="project-card" data-accent>
+      <header>
+        <h2>HTML2RSS <small aria-label="project status">— maintained</small></h2>
+        <p class="lead"><em>Generate RSS feeds from sites that never shipped one.</em></p>
+      </header>
 
-    <h3>Capabilities</h3>
-    <ul>
-      <li>
-        <strong>Find articles automatically</strong> — detects and extracts items without manual selector setup.
-      </li>
-      <li>
-        <strong>Handle JavaScript-heavy sites</strong> — uses headless browsers to render and scrape dynamic content.
-      </li>
-      <li>
-        <strong>Normalize feed entries</strong> — unify titles, authors, dates, and images.
-      </li>
-      <li>
-        <strong>Fail gracefully</strong> — built-in error handling and monitoring hooks.
-      </li>
-      <li>
-        <strong>Publish automatically</strong> — rolling releases keep feeds updated without manual deploys.
-      </li>
-      <li>
-        <strong>Serve at scale</strong> — lightweight HTTP service delivers feeds on demand.
-      </li>
-    </ul>
+      <p>
+        Tooling to discover articles on a page and scrape their content — including JavaScript–rendered pages
+        via a headless browser — to produce reliable RSS feeds.
+      </p>
 
-    <p>
-      <strong>Who it’s for:</strong> Content teams, researchers, and OSS maintainers needing stable feeds from
-      sites without RSS or with dynamic frontends.
-    </p>
+      <h3>Highlights</h3>
+      <dl>
+        <dt>Discovery</dt>
+        <dd>Finds article lists automatically; no brittle selectors.</dd>
+        <dt>Dynamic sites</dt>
+        <dd>Headless rendering for SPA/JS-heavy pages.</dd>
+        <dt>Normalisation</dt>
+        <dd>Consistent titles, authors, dates, and images.</dd>
+        <dt>Ops</dt>
+        <dd>Error handling & hooks for monitoring; rolling releases.</dd>
+        <dt>Delivery</dt>
+        <dd>Lightweight HTTP service to serve feeds on demand.</dd>
+      </dl>
 
-    <p>
-      See the <a href="https://html2rss.github.io/" target="_blank" rel="external nofollow noopener"
-        >project website</a
-      >. Components:
-      <a href="https://github.com/html2rss/html2rss" target="_blank" rel="external nofollow noopener"
-        >Ruby gem</a
-      >,
-      <a href="https://github.com/html2rss/html2rss-web" target="_blank" rel="external nofollow noopener"
-        >web service</a
-      >,
-      <a href="https://github.com/html2rss/html2rss-configs" target="_blank" rel="external nofollow noopener"
-        >feed configs repository</a
-      >.
-    </p>
-  </section>
+      <h3>Links</h3>
+      <ul>
+        <li>
+          <a href="https://html2rss.github.io/" target="_blank" rel="external nofollow noopener"
+            >Project site</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/html2rss/html2rss" target="_blank" rel="external nofollow noopener"
+            >Ruby gem</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/html2rss/html2rss-web" target="_blank" rel="external nofollow noopener"
+            >Web service</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/html2rss/html2rss-configs"
+            target="_blank"
+            rel="external nofollow noopener">Feed configs</a
+          >
+        </li>
+      </ul>
+    </article>
 
-  <hr />
+    <hr role="presentation" />
 
-  <section id="jekyll-loading-lazy">
-    <h2>jekyll-loading-lazy</h2>
-    <p>
-      <em>Drop-in lazy loading for Jekyll sites — zero JS, instant performance gains.</em>
-    </p>
+    <article class="project-card" data-accent>
+      <header>
+        <h2>jekyll-loading-lazy <small aria-label="project status">— stable</small></h2>
+        <p class="lead"><em>Drop‑in lazy loading for Jekyll. Zero JS. Instant wins.</em></p>
+      </header>
 
-    <p>
-      Jekyll plugin that adds <code>loading="lazy"</code> to <code>&lt;img&gt;</code> and <code
-        >&lt;iframe&gt;</code
-      > at build time—no JavaScript required.
-    </p>
+      <p>
+        Adds <code>loading="lazy"</code> to <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> at build time
+        — no changes to templates, no extra scripts.
+      </p>
 
-    <h3>Capabilities</h3>
-    <ul>
-      <li>
-        <strong>Add lazy-loading automatically</strong> — injects attributes into every image and iframe.
-      </li>
-      <li>
-        <strong>Skip manual edits</strong> — works without touching templates or content files.
-      </li>
-      <li>
-        <strong>Drop JavaScript dependencies</strong> — removes the need for extra lazy-load scripts.
-      </li>
-      <li>
-        <strong>Boost performance & SEO</strong> — improve Core Web Vitals with optimized HTML.
-      </li>
-    </ul>
+      <h3>Highlights</h3>
+      <dl>
+        <dt>Automatic</dt>
+        <dd>Injects attributes into all images/iframes.</dd>
+        <dt>Low‑touch</dt>
+        <dd>Works without editing content files.</dd>
+        <dt>No JS</dt>
+        <dd>Removes third‑party lazy‑load scripts.</dd>
+        <dt>Performance</dt>
+        <dd>Better Core Web Vitals, better UX.</dd>
+      </dl>
 
-    <p>
-      <strong>Who it’s for:</strong> Developers running Jekyll sites who want effortless performance optimization
-      without touching templates or adding JavaScript.
-    </p>
-
-    <p>
-      Read the <a href="/posts/loading-images-lazily-with-jekyll/">introduction post</a>, browse the <a
-        href="https://github.com/gildesmarais/jekyll-loading-lazy"
-        target="_blank"
-        rel="external nofollow noopener">source code on GitHub</a
-      >, or install from <a
-        href="https://rubygems.org/gems/jekyll-loading-lazy"
-        target="_blank"
-        rel="external nofollow noopener">RubyGems</a
-      >.
-    </p>
+      <h3>Links</h3>
+      <ul>
+        <li>
+          <a href="/posts/loading-images-lazily-with-jekyll/">Intro post</a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/gildesmarais/jekyll-loading-lazy"
+            target="_blank"
+            rel="external nofollow noopener">Source</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://rubygems.org/gems/jekyll-loading-lazy"
+            target="_blank"
+            rel="external nofollow noopener">RubyGems</a
+          >
+        </li>
+      </ul>
+    </article>
   </section>
 </BaseLayout>
 
 <style>
-  /* projects */
-  #html2rss > h2 {
-    span {
-      color: #ff9300;
-    }
+  /* Map local --accent to BaseLayout token */
+  :root {
+    --accent: var(--brand-accent, #f80);
+  }
 
-    span:first-child,
-    span:last-child {
-      color: #60b0f4;
+  section[aria-label="Selected projects"] {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .project-card header > h2 {
+    line-height: 1.1;
+    font-weight: 700;
+    color: var(--pico-h2-color);
+  }
+
+  .project-card header > h2 small {
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  /* square, brutal bullets */
+  .project-card ul {
+    list-style: square;
+    padding-inline-start: 1.25rem;
+  }
+
+  /* compact definition list for highlights */
+  .project-card dl {
+    display: grid;
+    grid-template-columns: 10ch 1fr;
+    gap: 0.25rem 0.75rem;
+    margin: 1rem 0 1.25rem;
+  }
+  .project-card dt {
+    font-weight: 600;
+  }
+  .project-card dd {
+    margin: 0;
+  }
+
+  /* subtle divider spacing */
+  hr[role="presentation"] {
+    margin: 1rem 0;
+    opacity: 0.25;
+  }
+
+  /* optional: bump lead size without new classes (Pico supports .lead, but keep classless friendly) */
+  p.lead {
+    font-size: 1.05rem;
+  }
+
+  @media (min-width: 720px) {
+    section[aria-label="Selected projects"] {
+      gap: 3rem;
+    }
+    .project-card dl {
+      grid-template-columns: 12ch 1fr;
     }
   }
 </style>

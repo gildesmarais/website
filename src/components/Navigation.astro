@@ -5,125 +5,50 @@ import wordmark from "../assets/images/wordmark.svg"
 const { siteName = "Gil Desmarais" } = Astro.props
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
 
-/* Compute active link using pathname; handle root and section prefixes cleanly */
-const path = Astro.url.pathname
 const isActive = (href: string) => {
-  if (href === "/") return path === "/"
-  return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
+  if (href === "/") return Astro.url.pathname === "/"
+  return Astro.url.pathname.startsWith(href)
 }
 ---
 
-<style>
-  #menu-toggle-checkbox {
-    display: none;
-  }
-  #menu-toggle-label {
-    display: none; /* Hidden by default */
-    cursor: pointer;
-    color: var(--brand-text);
-    width: 2rem;
-    height: 2rem;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-menu,
-  .icon-close {
-    width: 1.5rem;
-    height: 1.5rem;
-    stroke: currentColor;
-  }
-  .icon-close {
-    display: none;
-  }
-  #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-menu {
-    display: none;
-  }
-  #menu-toggle-checkbox:checked ~ #main-nav-list #menu-toggle-label .icon-close {
-    display: block;
-  }
-  #menu-toggle-checkbox:checked ~ #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
-    display: list-item;
-    visibility: visible;
-    pointer-events: auto;
-  }
+<nav id="main-nav" aria-label="Main navigation">
+  <div class="nav-header">
+    <a href={siteUrl} class="contrast" rel="me">
+      <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
+    </a>
+    <button
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav-list"
+      aria-label="Open navigation menu"
+    >
+      <svg
+        class="icon-menu"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        ></path>
+      </svg>
+      <svg
+        class="icon-close"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
 
-  #main-nav-list {
-    display: flex;
-    width: 100%;
-  }
-
-  nav #main-nav-list > li > a {
-    color: white;
-    text-decoration: underline;
-    text-decoration-thickness: 0.2rem;
-    text-decoration-color: var(--brand-accent);
-    text-underline-offset: 3px;
-  }
-
-  #main-nav-spacer {
-    flex-grow: 1;
-  }
-
-  .mobile-toggle {
-    display: none; /* Hide by default */
-  }
-
-  @media (max-width: 640px) {
-    #main-nav {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    #menu-toggle-label {
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    nav #main-nav-list > li:not(:first-child):not(.mobile-toggle) {
-      display: none;
-      visibility: hidden;
-      pointer-events: none;
-      width: 100%;
-      text-align: left;
-      list-style: none;
-    }
-
-    #main-nav-list {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      text-align: left;
-    }
-
-    #menu-toggle-checkbox:checked ~ #main-nav-list {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: unset;
-    }
-
-    #main-nav-spacer {
-      display: none !important;
-    }
-
-    .mobile-toggle {
-      list-style: none;
-      display: flex;
-      padding-right: 0;
-    }
-  }
-</style>
-
-<nav id="main-nav">
-  <input type="checkbox" id="menu-toggle-checkbox" />
   <ul id="main-nav-list">
     <li>
-      <a href={siteUrl} class="contrast" rel="me">
-        <Image src={wordmark} alt={siteName} aria-hidden width={180} height={24} loading="eager" />
-      </a>
-    </li>
-    <li aria-hidden id="main-nav-spacer"></li>
-    <li>
-      <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
+      <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
     </li>
     <li>
       <a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a>
@@ -137,50 +62,123 @@ const isActive = (href: string) => {
     <li>
       <a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
     </li>
-    <li class="mobile-toggle">
-      <label id="menu-toggle-label" for="menu-toggle-checkbox" aria-label="Open navigation menu">
-        <svg
-          class="icon-menu"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
-        <svg
-          class="icon-close"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </label>
-    </li>
   </ul>
 </nav>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Existing menu toggle logic
-    const checkbox = document.getElementById("menu-toggle-checkbox")
-    const label = document.getElementById("menu-toggle-label")
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("menu-toggle")
     const navList = document.getElementById("main-nav-list")
 
-    if (checkbox && label && navList) {
-      label.setAttribute("aria-controls", "main-nav-list")
-      label.setAttribute("aria-expanded", checkbox.checked.toString())
-
-      checkbox.addEventListener("change", function () {
-        label.setAttribute("aria-expanded", this.checked.toString())
+    if (toggleButton && navList) {
+      toggleButton.addEventListener("click", () => {
+        const expanded = toggleButton.getAttribute("aria-expanded") === "true" || false
+        toggleButton.setAttribute("aria-expanded", String(!expanded))
+        navList.classList.toggle("is-open")
       })
     }
   })
 </script>
+
+<style>
+  /* --- Mobile-First Base Styles ------------------------------------------- */
+  #main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  #menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: var(--brand-text);
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  #menu-toggle .icon-close {
+    display: none;
+  }
+  #menu-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
+  #menu-toggle[aria-expanded="true"] .icon-menu {
+    display: none;
+  }
+
+  #main-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  #main-nav-list.is-open {
+    display: flex; /* Display when button is clicked */
+  }
+
+  /* --- Desktop and larger (min-width) ------------------------------------- */
+  @media (min-width: 641px) {
+    #main-nav {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+    }
+    .nav-header {
+      padding: 0;
+      justify-content: flex-start;
+    }
+    #menu-toggle {
+      display: none; /* Hide toggle button on desktop */
+    }
+    #main-nav-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      width: auto;
+      gap: 1.5rem;
+    }
+  }
+
+  /* --- General link and list item styles ---------------------------------- */
+  nav #main-nav-list > li > a {
+    color: var(--pico-text-color); /* Use a more appropriate Pico variable */
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  nav #main-nav-list > li > a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: var(--brand-accent);
+    transition: width 0.2s ease;
+  }
+  nav #main-nav-list > li > a:hover:after,
+  nav #main-nav-list > li > a[aria-current="page"]:after {
+    width: 100%;
+  }
+
+  nav #main-nav-list > li > a[aria-current="page"] {
+    font-weight: bold;
+  }
+</style>

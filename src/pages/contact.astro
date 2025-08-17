@@ -9,37 +9,35 @@ const title = "Contact"
 const description = "Get in touch — inquiries about collaboration, opportunities, or professional networking."
 const robots = "noindex, noarchive, follow"
 const email = legal.email
----
 
-<meta name="referrer" content="no-referrer" />
-<meta name="robots" content="noindex, noarchive, follow" />
+const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${encodeURIComponent(
+  "Hi Gil,\n\nFound your contact page and wanted to reach out about …\n\n— \n",
+)}`
+---
 
 <BaseLayout title={title} description={description} robots={robots}>
   <header>
     <h1>{title}</h1>
-    <p>Prefer concise, async communication. Email works best.</p>
+    <p class="lead">Prefer concise, async communication. Email works best.</p>
   </header>
 
-  <section aria-labelledby="contact-direct">
-    <p>
-      <strong>Email: </strong>
-
-      <a
-        href={`mailto:${email}?body=Hi%20Gil%2C%0AI%20found%20your%20contact%20details%20on%20https%3A%2F%2Fgil.desmarais.de%2Fcontact%0A`}
-        aria-hidden="true">{email}</a
-      >
-    </p>
+  <section aria-labelledby="contact-direct" data-accent>
+    <h2 id="contact-direct">Direct</h2>
+    <dl>
+      <dt>Email</dt>
+      <dd>
+        <a href={mailto}>{email}</a>
+      </dd>
+    </dl>
   </section>
 
-  <hr />
-
-  <section aria-labelledby="contact-profiles">
+  <section aria-labelledby="contact-profiles" data-accent>
     <h2 id="contact-profiles">Profiles</h2>
     <ul>
       {
         socials.map((l) => (
           <li>
-            <a href={l.url} rel={l.rel} target="_blank" rel="noopener noreferrer">
+            <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
               {l.name}
             </a>
           </li>

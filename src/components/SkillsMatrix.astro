@@ -9,10 +9,11 @@ export interface Props {
   categories: Category[]
 }
 
-const { categories } = Astro.props
+const { title, categories } = Astro.props
 ---
 
-<section aria-labelledby="skills-heading">
+<section class="skills-list">
+  {title && <h2 id="skills-heading">{title}</h2>}
   <dl>
     {
       categories.map(({ label, skills }) => (
@@ -32,32 +33,29 @@ const { categories } = Astro.props
 </section>
 
 <style>
-  section[aria-labelledby="skills-heading"] {
+  /* --- Mobile-First Base Styles ------------------------------------------- */
+  .skills-list {
     margin-block: var(--pico-spacing);
     max-width: 90rem;
   }
-
-  section[aria-labelledby="skills-heading"] > h2 {
+  .skills-list > h2 {
     margin-block-end: calc(var(--pico-spacing) * 0.25);
     letter-spacing: 0.015em;
   }
-
-  /* DL grid layout */
-  section[aria-labelledby="skills-heading"] > dl {
+  .skills-list > dl {
     display: grid;
-    grid-template-columns: minmax(14ch, 18ch) 1fr;
-    gap: 0.4rem 1rem;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 0.25rem 0;
     align-items: start;
     padding-block: 0.25rem;
     border-top: 1px solid var(--pico-muted-border-color);
     border-bottom: 1px solid var(--pico-muted-border-color);
   }
 
-  @media (max-width: 760px) {
-    section[aria-labelledby="skills-heading"] > dl {
-      grid-template-columns: 1fr;
-      gap: 0.25rem 0;
-    }
+  /* Alternating row tint for readability */
+  .skills-list dt:nth-of-type(odd),
+  .skills-list dd:nth-of-type(odd) {
+    background: color-mix(in oklab, var(--pico-background-color), white 2%);
   }
 
   /* Category labels */
@@ -69,13 +67,11 @@ const { categories } = Astro.props
     white-space: nowrap;
   }
 
-  /* Alternating row tint for readability */
-  dt:nth-of-type(odd),
-  dd:nth-of-type(odd) {
-    background: color-mix(in oklab, var(--pico-background-color), white 2%);
+  /* List of skills */
+  dd {
+    margin: 0;
+    padding-block: 0.25rem;
   }
-
-  /* Remove bullets inside dd */
   dd > ul[role="list"] {
     list-style: none !important;
     padding: 0 !important;
@@ -83,12 +79,6 @@ const { categories } = Astro.props
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem 0.55rem;
-  }
-
-  /* Tight dd layout */
-  dd {
-    margin: 0;
-    padding-block: 0.25rem;
   }
 
   /* Tokens */
@@ -105,5 +95,13 @@ const { categories } = Astro.props
       color-mix(in oklab, var(--pico-background-color))
     );
     box-shadow: inset 0 1px 0 color-mix(in oklab, var(--pico-background-color), white 8%);
+  }
+
+  /* --- Desktop (min-width) ------------------------------------------------ */
+  @media (min-width: 761px) {
+    .skills-list > dl {
+      grid-template-columns: minmax(14ch, 18ch) 1fr;
+      gap: 0.4rem 1rem;
+    }
   }
 </style>
