@@ -1,4 +1,4 @@
-[
+export const socials = [
   {
     "name": "GitHub",
     "url": "https://github.com/gildesmarais/",
@@ -17,6 +17,11 @@
   {
     "name": "Soundcloud",
     "url": "https://soundcloud.com/admiralgiesse",
-    "rel": "me"
+    // "rel": "me"
+  },{
+    "name": "Reddit",
+    "url": "https://www.reddit.com/user/der_gil",
+    // "rel": "me"
   }
+
 ]
