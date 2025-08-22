@@ -212,6 +212,77 @@ const isActive = (href: string) => {
         max-width: 60ch;
       }
 
+      /* --- Global spacing improvements --- */
+      section {
+        margin-bottom: 2rem; /* Consistent section spacing */
+      }
+
+      section + section {
+        margin-top: 2rem; /* Space between sections */
+      }
+
+      h2,
+      h3 {
+        margin-top: 1.5rem; /* Better heading spacing */
+        margin-bottom: 1rem;
+      }
+
+      h2:first-child {
+        margin-top: 0; /* No top margin for first heading */
+      }
+
+      p + p {
+        margin-top: 1rem; /* Better paragraph spacing */
+      }
+
+      ul,
+      ol {
+        margin-top: 1rem; /* Better list spacing */
+        margin-bottom: 1rem;
+      }
+
+      /* Improve spacing for specific elements */
+      article {
+        margin-bottom: 2.5rem; /* Better article separation */
+      }
+
+      details {
+        margin-bottom: 1.5rem; /* Better details spacing */
+      }
+
+      /* --- Minimal Button System (Namespaced) --- */
+      .minimal-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: transparent;
+        color: var(--pico-color);
+        border: 2px solid var(--pico-border-color);
+        border-radius: 0;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .minimal-btn:hover {
+        border-color: var(--brand-accent);
+        color: var(--brand-accent);
+        background: transparent;
+      }
+
+      .minimal-btn:active {
+        transform: translateY(1px);
+      }
+
+      .minimal-btn.primary {
+        background: var(--brand-accent);
+        border-color: var(--brand-accent);
+        color: #000;
+      }
+
       /* --- Brand tokens (single source of truth) --- */
       :root {
         --brand-bg: hsl(0, 0%, 4%);

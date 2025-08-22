@@ -42,33 +42,15 @@ export const skills: Category[] = [
   },
   {
     label: "Backend & Languages",
-    skills: [
-      "Ruby on Rails",
-      "Ruby",
-      "TypeScript",
-      "GraphQL",
-      "Sidekiq",
-    ],
+    skills: ["Ruby on Rails", "Ruby", "TypeScript", "GraphQL", "Sidekiq"],
   },
   {
     label: "Databases & Storage",
-    skills: [
-      "PostgreSQL",
-      "Redis",
-      "S3",
-      "PostGIS",
-    ],
+    skills: ["PostgreSQL", "Redis", "S3", "PostGIS"],
   },
   {
     label: "Frontend & UI",
-    skills: [
-      "React",
-      "Vue.js",
-      "Angular",
-      "Astro.js",
-      "Progressive Enhancement",
-      "Accessibility (a11y)",
-    ],
+    skills: ["React", "Vue.js", "Angular", "Astro.js", "Progressive Enhancement", "Accessibility (a11y)"],
   },
   {
     label: "Testing & Quality",

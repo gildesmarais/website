@@ -10,10 +10,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
 ---
 
 <BaseLayout title={title} description={description}>
-  <Hero
-    title={title}
-    description="Five recent posts, hand-picked. See the archive for all, or subscribe to the RSS feed."
-  >
+  <Hero title={title} description={description}>
     <p class="lead">
       Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or <a
         href="/feed.xml">subscribe to the RSS feed</a
@@ -44,7 +41,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
     </ul>
 
     <nav>
-      <a href="/blog/archive/">Archive ⇾</a>
+      <a href="/blog/archive/" class="minimal-btn">Archive ⇾</a>
     </nav>
   </section>
 </BaseLayout>

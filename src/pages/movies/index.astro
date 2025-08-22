@@ -29,12 +29,14 @@ const moviesWithRatings = movies.map((movie) => {
     <Hero title={title} />
     <input id="movieFilter" type="search" placeholder="Filter…" />
     <div class="sort-buttons">
-      <button data-filter-by="isRecommendation" data-filter-value="true"> Recommendations </button>
-      <button data-sort-by="title">Title</button>
-      <button data-sort-by="year">Year</button>
-      <button data-sort-by="yourRating">My Rating</button>
-      <button data-sort-by="imdbRating">IMDb Rating</button>
-      <button data-sort-by="runtimeMins">Runtime</button>
+      <button class="minimal-btn" data-filter-by="isRecommendation" data-filter-value="true">
+        Recommendations
+      </button>
+      <button class="minimal-btn" data-sort-by="title">Title</button>
+      <button class="minimal-btn" data-sort-by="year">Year</button>
+      <button class="minimal-btn" data-sort-by="yourRating">My Rating</button>
+      <button class="minimal-btn" data-sort-by="imdbRating">IMDb Rating</button>
+      <button class="minimal-btn" data-sort-by="runtimeMins">Runtime</button>
     </div>
     <div class="recommendations-grid" data-enhance-grid data-filter="#movieFilter">
       {

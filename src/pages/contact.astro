@@ -3,7 +3,7 @@ export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
-import { socials } from "../data/socials"
+import { professionalSocials } from "../data/socials"
 import legal from "../data/legal.json"
 
 const title = "Contact"
@@ -11,7 +11,7 @@ const description = "Get in touch — inquiries about collaboration, opportuniti
 const robots = "noindex, noarchive, follow"
 const email = legal.email
 
-const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${encodeURIComponent(
+const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a precise subject]")}&body=${encodeURIComponent(
   "Hi Gil,\n\nFound your contact page and wanted to reach out about …\n\n— \n",
 )}`
 ---
@@ -22,24 +22,65 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
   <aside id="devtools" data-accent aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you found this via DevTools: nice. I care about boring reliability and clear interfaces. Tell me what
-      you're building and where it currently hurts.
+      If you found this via DevTools: nice. I care about boring reliability and clear interfaces. What are you
+      building and where does it currently hurt? Let's talk about making it better.
+    </p>
+    <p class="micro">
+      <a href={mailto} class="button">Send me a note</a>
     </p>
   </aside>
 
-  <section>
-    <h2 id="contact-direct">Direct</h2>
-    <dl>
-      <dt>Email</dt>
-      <dd>
-        <a href={mailto}>{email}</a>
-      </dd>
-    </dl>
+  <section aria-labelledby="boundaries">
+    <h2 id="boundaries">What I'm not interested in</h2>
+    <p>To save us both time, I typically decline:</p>
+    <ul>
+      <li>Recruitment for roles that don't align with my expertise</li>
+      <li>Job Offers without essential contract specifics</li>
+      <li>Requests for free consulting or technical advice</li>
+      <li>Generic partnership proposals without specific value propositions</li>
+      <li>Marketing or promotional collaborations</li>
+    </ul>
+    <p class="micro">If you're unsure, just ask. I'm direct about what I can and can't help with.</p>
+  </section>
 
-    <h2 id="contact-socials">Socials</h2>
+  <section aria-labelledby="contact-methods">
+    <h2 id="contact-methods">How to reach me</h2>
+
+    <h3>Email</h3>
+    <p>
+      I prefer email for initial contact. It helps me manage my time and focus on what matters. If we need to
+      discuss further, we can schedule a call or meeting.
+
+      <br />
+
+      <a href={mailto}>{email}</a>
+
+      You're not permitted to store this email address in any database or use it for unsolicited marketing.
+    </p>
+
+    <h2 id="next-steps">What happens next</h2>
+    <p>I work incrementally, focusing on impact vs. effort. Here's how we'll move forward:</p>
+    <ol>
+      <li><strong>Discovery</strong> — I'll ask questions to understand your challenge and context</li>
+      <li>
+        <strong>Framing</strong> — We'll explore trade-offs and identify the highest-impact opportunities
+      </li>
+      <li><strong>Incremental approach</strong> — Start small, validate, then scale what works</li>
+    </ol>
+    <p class="micro">
+      No big promises or dramatic transformations. Just clear thinking and incremental progress toward your
+      goals.
+    </p>
+
+    <h3>Social Platforms</h3>
+    <p>
+      I keep my social media minimal. If you want to connect, here are the platforms I use for professional
+      networking. Please don't expect immediate responses; I check these periodically and have notifications
+      turned off.
+    </p>
     <ul>
       {
-        socials.map((l) => (
+        professionalSocials.map((l) => (
           <li>
             <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
               {l.name}

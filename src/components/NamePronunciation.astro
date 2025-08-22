@@ -8,35 +8,38 @@ const { pronunciation, audioSrc } = Astro.props
 ---
 
 <div class="pronunciation-button-wrapper">
-  <!-- Base functionality: works without JavaScript -->
-  <audio id="name-audio" controls preload="metadata">
-    <source src={audioSrc} type="audio/flac" />
-    Your browser can't play the audio. <a href={audioSrc}>Download audio</a>.
-  </audio>
+  <button
+    type="button"
+    class="minimal-btn pronunciation-button"
+    id="play-name"
+    aria-label="Play name pronunciation"
+    aria-controls="name-audio"
+    aria-pressed="false"
+  >
+    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+    <span class="button-text">Hear pronunciation</span>
+  </button>
 
-  <!-- Enhanced functionality: only shown when JavaScript enhances -->
-  <div class="enhanced-controls" hidden>
-    <button
-      type="button"
-      class="pronunciation-button"
-      id="play-name"
-      aria-label="Play name pronunciation"
-      aria-controls="name-audio"
-      aria-pressed="false"
-    >
-      <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8 5v14l11-7z"></path>
-      </svg>
-      <span class="button-text">Hear pronunciation</span>
-    </button>
+  <!-- Progressive enhancement: fallback for non-JS users -->
+  <noscript>
+    <small>
+      <a href={audioSrc} download>Download pronunciation audio</a>
+    </small>
+  </noscript>
 
-    <!-- IPA Display with Bouncing Ball -->
-    <div class="ipa-display" id="ipa-display" aria-hidden="true">
-      <div class="ipa-text" id="ipa-text">{pronunciation}</div>
-      <div class="bouncing-ball" id="bouncing-ball"></div>
-    </div>
+  <!-- IPA Display with Bouncing Ball -->
+  <div class="ipa-display" id="ipa-display" aria-hidden="true">
+    <div class="ipa-text" id="ipa-text">{pronunciation}</div>
+    <div class="bouncing-ball" id="bouncing-ball"></div>
   </div>
 </div>
+
+<audio id="name-audio" preload="auto">
+  <source src={audioSrc} type="audio/flac" />
+  Your browser can't play the audio. <a href={audioSrc}>Download audio</a>.
+</audio>
 
 <style>
   .pronunciation-button-wrapper {
@@ -44,24 +47,16 @@ const { pronunciation, audioSrc } = Astro.props
     display: inline-block;
   }
 
-  /* Hide enhanced controls by default, show when JS enhances */
-  .enhanced-controls {
-    display: none;
+  /* Specific styling for pronunciation button states */
+  .pronunciation-button[aria-pressed="true"] {
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: #000;
   }
 
-  .enhanced-controls.enhanced {
-    display: block;
-  }
-
-  /* Hide native audio controls when enhanced */
-  .enhanced-controls.enhanced ~ audio {
-    display: none;
-  }
-
-  .pronunciation-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  /* Fallback link styling for non-JS users */
+  .pronunciation-button-wrapper noscript a {
+    display: inline-block;
     padding: 0.5rem 1rem;
     background: transparent;
     color: var(--pico-color);
@@ -69,25 +64,13 @@ const { pronunciation, audioSrc } = Astro.props
     border-radius: 0;
     font-weight: 500;
     font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
     text-decoration: none;
+    transition: all 0.2s ease;
   }
 
-  .pronunciation-button:hover {
+  .pronunciation-button-wrapper noscript a:hover {
     border-color: var(--brand-accent);
     color: var(--brand-accent);
-    background: transparent;
-  }
-
-  .pronunciation-button:active {
-    transform: translateY(1px);
-  }
-
-  .pronunciation-button[aria-pressed="true"] {
-    background: var(--brand-accent);
-    border-color: var(--brand-accent);
-    color: #000;
   }
 
   .play-icon {
@@ -122,9 +105,8 @@ const { pronunciation, audioSrc } = Astro.props
   }
 
   .ipa-text {
-    font-family: "Georgia", serif;
+    font-family: var(--font-sans);
     font-size: 1.2rem;
-    font-weight: 700;
     color: var(--pico-color);
     letter-spacing: 0.1em;
     line-height: 1.4;
@@ -144,7 +126,7 @@ const { pronunciation, audioSrc } = Astro.props
     top: -4px;
     left: 0%;
     opacity: 0;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease-in-out;
     box-shadow: 0 0 8px var(--brand-accent);
   }
 
@@ -158,22 +140,11 @@ const { pronunciation, audioSrc } = Astro.props
     const section = document.querySelector(".pronunciation-button-wrapper")
     if (!section) return
 
-    const enhancedControls = section.querySelector(".enhanced-controls")
-    const audio = section.querySelector<HTMLAudioElement>("#name-audio")
-
-    if (!enhancedControls || !audio) {
-      console.warn("NamePronunciation: Enhanced controls or audio element not found")
-      return
-    }
-
-    // Progressive enhancement: show enhanced controls and hide native audio
-    ;(enhancedControls as HTMLElement).hidden = false
-    enhancedControls.classList.add("enhanced")
-    audio.controls = false
-
-    const btn = enhancedControls.querySelector(".pronunciation-button")
-    if (!btn) {
-      console.warn("NamePronunciation: Button element not found")
+    const btn = section.querySelector(".pronunciation-button")
+    // Audio element is a sibling, not a child of the wrapper
+    const audio = document.querySelector<HTMLAudioElement>("#name-audio")
+    if (!btn || !audio) {
+      console.warn("NamePronunciation: Button or audio element not found")
       return
     }
 
@@ -226,7 +197,7 @@ const { pronunciation, audioSrc } = Astro.props
 
     // Show IPA display with animation
     const showIpaDisplay = () => {
-      const ipaDisplay = enhancedControls.querySelector("#ipa-display")
+      const ipaDisplay = document.getElementById("ipa-display")
       if (ipaDisplay) {
         ipaDisplay.classList.add("show")
       }
@@ -234,7 +205,7 @@ const { pronunciation, audioSrc } = Astro.props
 
     // Hide IPA display
     const hideIpaDisplay = () => {
-      const ipaDisplay = enhancedControls.querySelector("#ipa-display")
+      const ipaDisplay = document.getElementById("ipa-display")
       if (ipaDisplay) {
         ipaDisplay.classList.remove("show")
       }
@@ -242,7 +213,7 @@ const { pronunciation, audioSrc } = Astro.props
 
     // Start bouncing ball animation
     const startBouncingBallAnimation = () => {
-      const ball = enhancedControls.querySelector("#bouncing-ball")
+      const ball = document.getElementById("bouncing-ball")
       if (!ball) return
 
       // Hardcoded cue points based on actual audio waveform
@@ -262,7 +233,7 @@ const { pronunciation, audioSrc } = Astro.props
       cuePoints.forEach((cue, index) => {
         setTimeout(() => {
           if (ball && ball.classList.contains("animate")) {
-            ;(ball as HTMLElement).style.left = `${cue.position}%`
+            ball.style.left = `${cue.position}%`
           }
         }, cue.time * 1000)
       })
@@ -271,7 +242,7 @@ const { pronunciation, audioSrc } = Astro.props
       setTimeout(() => {
         if (ball) {
           ball.classList.remove("animate")
-          ;(ball as HTMLElement).style.left = "0%"
+          ball.style.left = "0%"
         }
       }, 1200) // Slightly after 1.1s
     }

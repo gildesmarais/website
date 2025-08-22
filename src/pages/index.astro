@@ -7,22 +7,42 @@ import Highlights from "../components/Highlights.astro"
 
 const title = "Gil Desmarais — Engineering Team Lead"
 const description =
-  "I build identity and platform systems that make security effortless, scale a breeze, and engineering teams more productive."
+  "I create systemic clarity that removes hidden risks and lets teams move faster. When complexity blocks your business, I translate the mess into clear choices."
+
+const pageTitle = "Gil Desmarais — Engineering Team Lead"
 ---
 
-<BaseLayout title={title} description={description}>
-  <Hero title={title} description={description} />
+<BaseLayout title={pageTitle} description={description}>
+  <Hero title={title} description={description}>
+    <p class="hero-subtitle">
+      I don't optimize for efficiency's sake — I optimize because clarity and resilience create business
+      leverage. When systems become fragile or teams get blocked by complexity, I frame the trade-offs and
+      drive change incrementally. Let's make your business stronger.
+    </p>
+  </Hero>
 
   <section aria-labelledby="how-i-work">
     <h2 id="how-i-work" data-accent>How I work</h2>
     <Highlights
       highlights={[
-        { term: "Design", definition: "systems that scale without drama" },
-        { term: "Build", definition: "paths that speed teams up" },
-        { term: "Make", definition: "uptime boring and predictable" },
-        { term: "Expose", definition: "metrics that matter, not noise" },
+        {
+          term: "Clarify",
+          definition: "make hidden dependencies visible and create structures others can rely on",
+        },
+        { term: "Translate", definition: "bridge messy business demands with technical reality" },
+        { term: "Frame", definition: "show risks, opportunities, and trade-offs in business terms" },
+        { term: "Drive", definition: "change incrementally based on impact vs. effort" },
       ]}
     />
+  </section>
+
+  <section aria-labelledby="next-steps">
+    <h2 id="next-steps" data-accent>Ready to work together?</h2>
+    <p>Let's create systemic clarity that makes your business stronger. Start with a conversation.</p>
+    <div class="cta-buttons">
+      <a href="/contact" class="minimal-btn primary">Get in touch</a>
+      <a href="/projects" class="minimal-btn">See my work</a>
+    </div>
   </section>
 </BaseLayout>
 
@@ -37,5 +57,46 @@ const description =
     text-transform: uppercase;
     letter-spacing: 0.03em;
     text-wrap: balance;
+  }
+
+  /* --- CTA Section ------------------------------------------------------ */
+  #next-steps {
+    position: relative;
+    margin: 3rem 0 1rem 0;
+    color: var(--pico-h2-color);
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-wrap: balance;
+  }
+
+  #next-steps + p {
+    font-size: 1.1rem;
+    color: var(--pico-muted-color);
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* --- Hero Subtitle ---------------------------------------------------- */
+  .hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--pico-muted-color);
+    margin-top: 1rem;
+    max-width: 65ch;
+    text-wrap: balance;
+  }
+
+  @media (min-width: 640px) {
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
   }
 </style>

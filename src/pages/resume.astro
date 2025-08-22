@@ -11,17 +11,17 @@ const title = "Résumé"
 const robots = "index, noarchive, follow"
 
 const description = `
-  Engineering Team Lead in Berlin.
-  Focused on platform and reliability —
-  building secure, scalable systems that
-  improve developer velocity and reduce operating cost.
+  Engineering Team Lead in Berlin who creates systemic clarity.
+  I translate between messy business demands and technical reality,
+  frame trade-offs clearly, and drive change incrementally
+  based on impact vs. effort.
   `
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default, idiomatic systems that increase delivery velocity and reduce operating cost."
+    description="Engineering Team Lead who creates systemic clarity. I translate between messy business demands and technical reality, frame trade-offs clearly, and drive change incrementally based on impact vs. effort."
   />
 
   <Highlights
@@ -32,13 +32,29 @@ const description = `
     ]}
   />
 
+  <!-- Executive Summary -->
+  <section aria-labelledby="executive-summary">
+    <h2 id="executive-summary">Executive Summary</h2>
+    <p>
+      Engineering Team Lead who creates systemic clarity. I don't optimize for efficiency's sake — I optimize
+      because clarity, resilience, and simplicity create leverage for the business. My work removes hidden
+      risks and lets teams move faster with confidence.
+    </p>
+    <p>
+      <strong>How I work:</strong> I translate between messy business demands and technical reality, frame trade-offs
+      clearly, and drive change incrementally. <strong>Key results:</strong> 33% faster CI builds, 70% memory reduction,
+      ISO 27001 certification with zero non-conformities.
+    </p>
+  </section>
+
   <!-- Table of Contents -->
   <nav class="toc--sticky" aria-label="Table of Contents">
     <ul>
+      <li><a href="#executive-summary">Executive Summary</a></li>
       <li><a href="#exp">Experience</a></li>
       <li><a href="#service">Service</a></li>
       <li><a href="#skills">Skills</a></li>
-      <!-- <li><a href="#cs-portal">Case study — Portal relaunch</a></li> -->
+      <li><a href="#cs-portal">Case study</a></li>
       <li><a href="#education">Education</a></li>
     </ul>
   </nav>
@@ -60,8 +76,9 @@ const description = `
             · Berlin (hybrid, 99% remote)
           </p>
           <p>
-            Lead platform modernization and reliability. Restarted stalled delivery, restored core systems,
-            and embedded lasting service ownership.
+            Lead platform modernization and reliability. I focus on creating systemic clarity—making hidden
+            dependencies visible, translating complex technical challenges into business decisions, and
+            driving incremental change based on impact vs. effort.
           </p>
         </header>
 
@@ -90,10 +107,12 @@ const description = `
           </li>
           <li>
             <strong>Introduced</strong> a squad ownership model, clarifying accountability and on-call responsibilities.
+            Translated abstract "ownership" concept into concrete structures that teams could rely on.
           </li>
           <li>
             <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with
-            zero non-conformities and authored SOPs. (<a
+            zero non-conformities and authored SOPs. Translated complex compliance requirements into actionable
+            engineering practices that stakeholders could understand and implement. (<a
               href="https://www.iso.org/isoiec-27001-information-security.html"
               target="_blank"
               rel="external nofollow noopener"
@@ -423,7 +442,6 @@ const description = `
 
   <hr />
 
-  <!--
   <section class="case-study" aria-labelledby="cs-portal">
     <h2 id="cs-portal">
       <span aria-hidden="true">📊</span> Case study — Portal relaunch
@@ -436,14 +454,14 @@ const description = `
     </p>
 
     <p>
-      <strong>What I did:</strong> Led the relaunch end-to-end as the sole engineer: rebuilt core features while
-      keeping legacy online; embedded SEO into feature design; introduced geospatial search (distance around POIs);
-      created monitoring dashboards; and guided a CRM migration (data rescue/transform, customized flows, staff
-      training).
+      <strong>My approach:</strong> Rather than a big-bang rewrite, I analyzed impact vs. effort to frame trade-offs
+      clearly. Led the relaunch end-to-end: rebuilt core features while keeping legacy online; embedded SEO into
+      feature design; introduced geospatial search; created monitoring dashboards; and guided a CRM migration (data
+      rescue/transform, customized flows, staff training).
     </p>
 
     <p>
-      <strong>Outcomes:</strong> POI pages reached Google SERP #1 (often outranking official sites), improving
+      <strong>Business outcomes:</strong> POI pages reached Google SERP #1 (often outranking official sites), improving
       discoverability and strengthening the sales story—especially for small businesses without a web presence.
       Operational dashboards increased visibility for management, and the renewed product secured multi-year B2B
       contracts (4+ years), creating predictable revenue and financial stability.
@@ -451,16 +469,17 @@ const description = `
 
     <ul>
       <li>
-        <strong>Notable details:</strong> SVG floorplan linter improved tour reliability (no dead links; hotspot
-        reachability).
+        <strong>Systemic thinking:</strong> SVG floorplan linter improved tour reliability (no dead links; hotspot
+        reachability) — hidden dependency made visible.
       </li>
       <li>
-        <strong>Role:</strong> concept → delivery → monitoring; client-facing demos; mentoring a working student.
+        <strong>Pragmatic translation:</strong> concept → delivery → monitoring; client-facing demos; mentoring
+        a working student.
       </li>
     </ul>
   </section>
 
-  <hr /> -->
+  <hr />
 
   <details open>
     <summary><h2 id="education" data-accent>Education</h2></summary>
