@@ -156,12 +156,51 @@ const isActive = (href: string) => {
         font-family: var(--font-mono);
       }
 
+      abbr[title] {
+        border-bottom-color: var(--brand-accent);
+      }
+
+      details > summary::after {
+        background-size: 1.25rem auto;
+      }
+
+      @media (min-width: 640px) {
+        details > summary::after {
+          margin-top: -2em; /* Adjust for larger screens */
+        }
+      }
+
+      /* Always-visible, readable link underlines (dark & light) */
+      main a {
+        text-decoration-line: underline;
+        text-decoration-thickness: var(--accent-size);
+        text-underline-offset: 0.15em;
+        text-decoration-skip-ink: auto;
+      }
+      /* Focus visibility without JS */
+      :where(a, button, summary, [tabindex]):focus-visible {
+        outline: 2px solid var(--pico-primary);
+        outline-offset: 2px;
+      }
+
+      /* Make <summary> clearly interactive */
+      :where(details > summary) {
+        cursor: pointer;
+      }
+
+      /* Improve skip-link usability when targeted */
+      :where(:target) {
+        scroll-margin-top: 5rem;
+      }
+
       header nav .contrast {
         font-family: var(--font-mono);
         font-weight: 700;
         letter-spacing: -0.02em;
       }
-
+    </style>
+    <style is:global>
+      /* customizations */
       .micro {
         opacity: 0.8;
         font-size: 0.95em;
@@ -173,14 +212,31 @@ const isActive = (href: string) => {
         max-width: 60ch;
       }
 
+      /* --- Brand tokens (single source of truth) --- */
+      :root {
+        --brand-bg: hsl(0, 0%, 4%);
+        --brand-surface: #111111;
+        --brand-text: #e6e6e6;
+        --brand-muted: #a3a3a3;
+        --brand-border: #1f1f1f;
+
+        --brand-accent: hsl(32, 100%, 50%); /* primary */
+        --brand-accent-bg: hsl(33, 100%, 35%); /* pressed/filled bg */
+        --brand-accent-hover: hsl(30, 100%, 64%); /* hover text/links */
+        --brand-accent-focus: hsla(32, 100%, 50%, 0.35); /* focus ring */
+        --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
+
+        --accent-size: 0.2rem;
+      }
+
       [data-accent] {
-        border-inline-start: 0.5rem solid var(--brand-accent);
-        padding-inline-start: 1rem;
-        margin-block: 1.25rem 1.75rem;
+        border-inline-start: var(--accent-size) solid var(--brand-accent);
+        padding-inline-start: var(--pico-block-spacing-vertical);
         border-radius: 0;
       }
     </style>
     <style is:global>
+      /* print styles */
       @media print {
         article {
           break-inside: avoid;
@@ -229,21 +285,6 @@ const isActive = (href: string) => {
       }
     </style>
     <style is:global>
-      /* --- Brand tokens (single source of truth) --- */
-      :root {
-        --brand-bg: #0b0b0b;
-        --brand-surface: #111111;
-        --brand-text: #e6e6e6;
-        --brand-muted: #a3a3a3;
-        --brand-border: #1f1f1f;
-
-        --brand-accent: hsl(32, 100%, 50%); /* primary */
-        --brand-accent-bg: hsl(33, 100%, 35%); /* pressed/filled bg */
-        --brand-accent-hover: hsl(30, 100%, 64%); /* hover text/links */
-        --brand-accent-focus: hsla(32, 100%, 50%, 0.35); /* focus ring */
-        --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
-      }
-
       /* Apply with <html data-theme="dark"> */
       [data-theme="dark"] {
         color-scheme: dark;
@@ -330,7 +371,7 @@ const isActive = (href: string) => {
         --pico-range-active-border-color: #242a36;
 
         --pico-card-border-color: var(--pico-card-background-color);
-        --pico-card-sectioning-background-color: #171a21;
+        --pico-card-sectioning-background-color: hsl(215 12% 10% / 1);
 
         --pico-dropdown-background-color: var(--pico-card-background-color);
         --pico-dropdown-border-color: var(--pico-muted-border-color);
@@ -345,6 +386,9 @@ const isActive = (href: string) => {
 
         /* Selections & focus affordances in orange */
         --pico-text-selection-color: rgba(255, 136, 0, 0.2);
+
+        /* become edgy */
+        --pico-border-radius: 1px;
       }
     </style>
     <!-- JSON-LD -->
@@ -414,7 +458,7 @@ const isActive = (href: string) => {
     <script>
       function adjustBottomPadding() {
         const longEnough = document.documentElement.scrollHeight > window.innerHeight
-        document.body.style.paddingBottom = longEnough ? "25vh" : "0"
+        document.body.style.paddingBottom = longEnough ? "33vh" : "0"
       }
       adjustBottomPadding()
       window.addEventListener("resize", adjustBottomPadding)

@@ -24,10 +24,16 @@ const description = `
       Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default,
       idiomatic systems that increase delivery velocity and reduce operating cost.
     </p>
+
+    <ul>
+      <li>Location: Berlin (hybrid, 99% remote)</li>
+      <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
+      <li><strong>Languages:</strong> German (native) · English (fluent)</li>
+    </ul>
   </header>
 
   <!-- Table of Contents -->
-  <nav aria-label="Table of Contents">
+  <nav class="toc--sticky" aria-label="Table of Contents">
     <ul>
       <li><a href="#exp">Experience</a></li>
       <li><a href="#service">Service</a></li>
@@ -37,344 +43,347 @@ const description = `
     </ul>
   </nav>
 
-  <!-- One-liner -->
+  <section>
+    <details data-accent open>
+      <summary>
+        <h2 id="exp">Experience</h2>
+      </summary>
 
-  <ul>
-    <li>Location: Berlin (hybrid, 99% remote)</li>
-    <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
-    <li><strong>Languages:</strong> German (native) · English (fluent)</li>
-  </ul>
-
-  <section data-accent>
-    <h2 id="exp">Experience</h2>
-
-    <!-- Current role -->
-    <article aria-labelledby="etl-platform">
-      <header>
-        <h3 id="etl-platform">Engineering Team Lead (Platform)</h3>
-        <p>
-          <time datetime="2022-10">Oct 2022</time>
-          <span aria-hidden="true">–</span>
-          <time>Present</time>
-          · Berlin (hybrid, 99% remote)
-        </p>
-        <p>
-          Lead platform modernization and reliability. Restarted stalled delivery, restored core systems, and
-          embedded lasting service ownership.
-        </p>
-      </header>
-
-      <p data-accent>
-        Joined as Senior Software Engineer; promoted to Engineering Team Lead (Platform) in July 2024.
-      </p>
-
-      <ul>
-        <li>
-          <strong>Restarted</strong> delivery after months of zero output; raised production deploys to ~15/month
-          on regulated, QA-heavy services.
-        </li>
-        <li>
-          <strong>Cut</strong> CI test suite runtime by 33% (wall-clock) and 13% (billable), saving developer hours
-          and compute cost.
-        </li>
-        <li>
-          <strong>Reduced</strong> core Rails app memory usage by ~70% through YJIT, jemalloc tuning, and targeted
-          allocation fixes; enabled resource downscale and cost savings.
-        </li>
-        <li>
-          <strong>Removed</strong> scaling bottlenecks (SQL DML/DDL, replica-safe patterns, PostgreSQL config)
-          via profiling and query optimization.
-        </li>
-        <li>
-          <strong>Scaled</strong> revenue-critical services—identity & access (IDM), authentication/authorization,
-          and HLS video delivery—improving security posture and reliability.
-        </li>
-        <li>
-          <strong>Introduced</strong> a squad ownership model, clarifying accountability and on-call responsibilities.
-        </li>
-        <li>
-          <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with zero
-          non-conformities and authored SOPs. (<a
-            href="https://www.iso.org/isoiec-27001-information-security.html"
-            target="_blank"
-            rel="external nofollow noopener"
-            aria-label="ISO/IEC 27001 — official overview (opens in a new tab)">ISO/IEC 27001 overview</a
-          >)
-        </li>
-        <li>
-          <strong>Hired</strong> and onboarded 2 engineers; <strong>coach</strong> a 3-person team; drive cross-squad
-          alignment on IDM and video delivery initiatives.
-        </li>
-      </ul>
-
-      <details>
-        <summary><strong>Stack</strong></summary>
-        <ul>
-          <li>Ruby · Ruby on Rails · RSpec · Sidekiq</li>
-          <li>PostgreSQL · Query optimization · PostGIS (if relevant)</li>
-          <li>TypeScript · Angular/React (as applicable) · Jest · Cypress</li>
-          <li>GraphQL · REST</li>
-          <li>Docker · AWS · GitHub Actions</li>
-          <li>ISO/IEC 27001</li>
-          <li>Scrum · Jira · Confluence</li>
-        </ul>
-      </details>
-    </article>
-
-    <article aria-labelledby="ruby-dev">
-      <header>
-        <h3 id="ruby-dev">Ruby Developer</h3>
-        <p>
-          <time datetime="2022-05">May 2022</time>
-          <span aria-hidden="true">–</span>
-          <time datetime="2022-07">Jul 2022</time>
-          · Remote
-        </p>
-      </header>
-
-      <ul>
-        <li>
-          <strong>Delivered</strong> bug fixes and small features in a Rails codebase during probation; gained
-          exposure to team’s CI/CD and QA-heavy workflows.
-        </li>
-      </ul>
-
-      <details>
-        <summary><strong>Stack</strong></summary>
-        <ul>
-          <li>Ruby · Ruby on Rails</li>
-          <li>RSpec</li>
-          <li>JavaScript · TypeScript · React</li>
-          <li>PostgreSQL · HTML5</li>
-          <li>Linux · nginx · Docker · git</li>
-          <li>Cypress</li>
-          <li>Agile/Scrum · CI/CD</li>
-        </ul>
-      </details>
-    </article>
-
-    <article aria-labelledby="fsd">
-      <header>
-        <h3 id="fsd">Full Stack Developer</h3>
-        <p>
-          <time datetime="2017-09">Sep 2017</time>
-          <span aria-hidden="true">–</span>
-          <time datetime="2022-02">Feb 2022</time>
-          · Berlin
-        </p>
-        <p>
-          Sole engineer in &lt;10-person agency. Led the relaunch of an interactive city portal and supported
-          B2B and consumer clients end-to-end — from concept and sales meetings to delivery, monitoring, and
-          maintenance.
-        </p>
-      </header>
-
-      <ul>
-        <li>
-          <strong>Relaunched</strong> the agency’s tourism/events/retail portal, securing 4+ year B2B contracts
-          that stabilized revenue.
-        </li>
-        <li>
-          <strong>Built</strong> monitoring infrastructure and dashboards, giving management and clients operational
-          visibility.
-        </li>
-        <li>
-          <strong>Migrated</strong> to a new CRM by rescuing legacy data, customizing workflows, and training staff;
-          enabled transactional email and funnel features.
-        </li>
-        <li>
-          <strong>Improved</strong> SEO to reach Google SERP #1 for POI pages—often outranking official sites—strengthening
-          sales to small B2B clients without web presence.
-        </li>
-        <li>
-          <strong>Streamlined</strong> digital ordering and configuration of virtual tours; <strong
-            >increased</strong
-          > reliability with an SVG floorplan linter ensuring hotspot reachability; built staff-friendly backend
-          tools.
-        </li>
-        <li>
-          <strong>Introduced</strong> geospatial search (PostGIS) across ~50k records, enabling B2C users and B2B
-          clients to find POIs/events by distance.
-        </li>
-        <li>
-          <strong>Delivered</strong> custom Rails/CMS projects for city and state clients; acted as technical consultant
-          in sales demos.
-        </li>
-        <li><strong>Mentored</strong> a working student in development practices.</li>
-      </ul>
-
-      <details>
-        <summary><strong>Stack</strong></summary>
-        <ul>
-          <li>Ruby · Ruby on Rails · RSpec</li>
-          <li>JavaScript · TypeScript · Vue.js · Nuxt.js</li>
-          <li>PostgreSQL · PostGIS</li>
-          <li>HTML5 · SCSS · BEM</li>
-          <li>Linux · nginx · Docker · git</li>
-          <li>Ansible · Capistrano · CI/CD</li>
-          <li>Monitoring (TICK stack, Sentry.io, UptimeRobot)</li>
-          <li>SEO · Process optimization · Project/Product management</li>
-        </ul>
-      </details>
-    </article>
-
-    <details>
-      <summary><h3>Earlier Experience</h3></summary>
-      <details>
-        <summary>
-          <h3 id="freelance">Freelance Developer</h3>
+      <!-- Current role -->
+      <article aria-labelledby="etl-platform">
+        <header>
+          <h3 id="etl-platform">Engineering Team Lead (Platform)</h3>
           <p>
-            <time datetime="2017-05">May 2017</time>
+            <time datetime="2022-10">Oct 2022</time>
             <span aria-hidden="true">–</span>
-            <time datetime="2017-08">Aug 2017</time>
+            <time>Present</time>
+            · Berlin (hybrid, 99% remote)
+          </p>
+          <p>
+            Lead platform modernization and reliability. Restarted stalled delivery, restored core systems,
+            and embedded lasting service ownership.
+          </p>
+        </header>
+
+        <p>Joined as Senior Software Engineer; promoted to Engineering Team Lead (Platform) in July 2024.</p>
+
+        <ul>
+          <li>
+            <strong>Restarted</strong> delivery after months of zero output; raised production deploys to ~15/month
+            on regulated, QA-heavy services.
+          </li>
+          <li>
+            <strong>Cut</strong> CI test suite runtime by 33% (wall-clock) and 13% (billable), saving developer
+            hours and compute cost.
+          </li>
+          <li>
+            <strong>Reduced</strong> core Rails app memory usage by ~70% through YJIT, jemalloc tuning, and targeted
+            allocation fixes; enabled resource downscale and cost savings.
+          </li>
+          <li>
+            <strong>Removed</strong> scaling bottlenecks (SQL DML/DDL, replica-safe patterns, PostgreSQL config)
+            via profiling and query optimization.
+          </li>
+          <li>
+            <strong>Scaled</strong> revenue-critical services—identity & access (IDM), authentication/authorization,
+            and HLS video delivery—improving security posture and reliability.
+          </li>
+          <li>
+            <strong>Introduced</strong> a squad ownership model, clarifying accountability and on-call responsibilities.
+          </li>
+          <li>
+            <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with
+            zero non-conformities and authored SOPs. (<a
+              href="https://www.iso.org/isoiec-27001-information-security.html"
+              target="_blank"
+              rel="external nofollow noopener"
+              aria-label="ISO/IEC 27001 — official overview (opens in a new tab)">ISO/IEC 27001 overview</a
+            >)
+          </li>
+          <li>
+            <strong>Hired</strong> and onboarded 2 engineers; <strong>coach</strong> a 3-person team; drive cross-squad
+            alignment on IDM and video delivery initiatives.
+          </li>
+        </ul>
+        <footer>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>Ruby · Ruby on Rails · RSpec · Sidekiq</li>
+              <li>PostgreSQL · Query optimization · PostGIS (if relevant)</li>
+              <li>TypeScript · Angular/React (as applicable) · Jest · Cypress</li>
+              <li>GraphQL · REST</li>
+              <li>Docker · AWS · GitHub Actions</li>
+              <li>ISO/IEC 27001</li>
+              <li>Scrum · Jira · Confluence</li>
+            </ul>
+          </details>
+        </footer>
+      </article>
+
+      <article aria-labelledby="ruby-dev">
+        <header>
+          <h3 id="ruby-dev">Ruby Developer</h3>
+          <p>
+            <time datetime="2022-05">May 2022</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2022-07">Jul 2022</time>
             · Remote
           </p>
-        </summary>
-        <article aria-labelledby="freelance17">
-          <ul>
-            <li>
-              <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
-              covering concept through deployment.
-            </li>
-          </ul>
-        </article>
-      </details>
-      <details>
-        <summary>
-          <h3 id="backend">Backend Developer</h3>
+        </header>
+
+        <ul>
+          <li>
+            <strong>Delivered</strong> bug fixes and small features in a Rails codebase during probation; gained
+            exposure to team’s CI/CD and QA-heavy workflows.
+          </li>
+        </ul>
+        <footer>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>Ruby · Ruby on Rails</li>
+              <li>RSpec</li>
+              <li>JavaScript · TypeScript · React</li>
+              <li>PostgreSQL · HTML5</li>
+              <li>Linux · nginx · Docker · git</li>
+              <li>Cypress</li>
+              <li>Agile/Scrum · CI/CD</li>
+            </ul>
+          </details>
+        </footer>
+      </article>
+
+      <article aria-labelledby="fsd">
+        <header>
+          <h3 id="fsd">Full Stack Developer</h3>
           <p>
-            <time datetime="2015-11">Nov 2015</time>
+            <time datetime="2017-09">Sep 2017</time>
             <span aria-hidden="true">–</span>
-            <time datetime="2017-04">Apr 2017</time>
+            <time datetime="2022-02">Feb 2022</time>
             · Berlin
           </p>
-        </summary>
-        <article aria-labelledby="backend">
           <p>
-            Developer in a VC-backed publishing startup focused on movies and TV series, with viral traffic
-            and community-driven content.
+            Sole engineer in &lt;10-person agency. Led the relaunch of an interactive city portal and
+            supported B2B and consumer clients end-to-end — from concept and sales meetings to delivery,
+            monitoring, and maintenance.
           </p>
-          <ul>
-            <li>
-              <strong>Built</strong> an internal curation app for incoming articles, scaling content review and
-              vertical publishing across microservices.
-            </li>
-            <li>
-              <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
-              payments and analytics.
-            </li>
-            <li>
-              <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views),
-              giving editorial teams control and modern presentation features.
-            </li>
-            <li>
-              <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
-              enabling product adaptability.
-            </li>
-            <li class="hide-print">
-              <strong>Maintained</strong> and extended core web applications; provided internal technical support.
-            </li>
-          </ul>
+        </header>
+
+        <ul>
+          <li>
+            <strong>Relaunched</strong> the agency’s tourism/events/retail portal, securing 4+ year B2B contracts
+            that stabilized revenue.
+          </li>
+          <li>
+            <strong>Built</strong> monitoring infrastructure and dashboards, giving management and clients operational
+            visibility.
+          </li>
+          <li>
+            <strong>Migrated</strong> to a new CRM by rescuing legacy data, customizing workflows, and training
+            staff; enabled transactional email and funnel features.
+          </li>
+          <li>
+            <strong>Improved</strong> SEO to reach Google SERP #1 for POI pages—often outranking official sites—strengthening
+            sales to small B2B clients without web presence.
+          </li>
+          <li>
+            <strong>Streamlined</strong> digital ordering and configuration of virtual tours; <strong
+              >increased</strong
+            > reliability with an SVG floorplan linter ensuring hotspot reachability; built staff-friendly backend
+            tools.
+          </li>
+          <li>
+            <strong>Introduced</strong> geospatial search (PostGIS) across ~50k records, enabling B2C users and
+            B2B clients to find POIs/events by distance.
+          </li>
+          <li>
+            <strong>Delivered</strong> custom Rails/CMS projects for city and state clients; acted as technical
+            consultant in sales demos.
+          </li>
+          <li><strong>Mentored</strong> a working student in development practices.</li>
+        </ul>
+        <footer>
           <details>
             <summary><strong>Stack</strong></summary>
             <ul>
-              <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
-              <li>JavaScript · HTML5 · SCSS</li>
-              <li>Docker · nginx · Puppet · RabbitMQ</li>
-              <li>CI/CD · Capistrano · git</li>
-              <li>Selenium/Capybara · Monitoring · SEO</li>
-              <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
+              <li>Ruby · Ruby on Rails · RSpec</li>
+              <li>JavaScript · TypeScript · Vue.js · Nuxt.js</li>
+              <li>PostgreSQL · PostGIS</li>
+              <li>HTML5 · SCSS · BEM</li>
+              <li>Linux · nginx · Docker · git</li>
+              <li>Ansible · Capistrano · CI/CD</li>
+              <li>Monitoring (TICK stack, Sentry.io, UptimeRobot)</li>
+              <li>SEO · Process optimization · Project/Product management</li>
             </ul>
           </details>
-        </article>
-      </details>
+        </footer>
+      </article>
+
       <details>
-        <summary>
-          <h3 id="railsdev">Rails Developer</h3>
-          <p>
-            <time datetime="2015-05">May 2015</time>
-            <span aria-hidden="true">–</span>
-            <time datetime="2015-11">Nov 2015</time>
-            · Berlin
-          </p>
-        </summary>
-        <article aria-labelledby="railsdev">
-          <ul>
-            <li><strong>Developed</strong> a farm management MVP.</li>
-            <li>
-              <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
-            </li>
-          </ul>
-          <details>
-            <summary><strong>Stack</strong></summary>
+        <summary><h3>Earlier Experience</h3></summary>
+        <details>
+          <summary>
+            <h4 id="freelance">Freelance Developer</h4>
+            <p>
+              <time datetime="2017-05">May 2017</time>
+              <span aria-hidden="true">–</span>
+              <time datetime="2017-08">Aug 2017</time>
+              · Remote
+            </p>
+          </summary>
+          <article aria-labelledby="freelance17">
             <ul>
-              <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
-              <li>CI/CD · REST API</li>
-              <li>Heroku</li>
-              <li>Scrum</li>
+              <li>
+                <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
+                covering concept through deployment.
+              </li>
             </ul>
-          </details>
-        </article>
-      </details>
-      <details>
-        <summary>
-          <h3 id="developer">Developer</h3>
-          <p>
-            <time datetime="2011-09">Sep 2011</time>
-            <span aria-hidden="true">–</span>
-            <time datetime="2015-01">Jan 2015</time>
-            · Oldenburg
-          </p>
-        </summary>
-        <article aria-labelledby="developer">
-          <p>
-            Full-stack developer at a digital agency, delivering web platforms for energy and sports clients.
-          </p>
-          <ul>
-            <li><strong>Built</strong> backend system and API for a major customer’s web and mobile apps.</li>
-            <li>
-              <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
-              Europe.
-            </li>
-            <li>
-              <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
-              processing, subscription handling, and payment integration.
-            </li>
-            <li>
-              <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
-              developer practices at the agency.
-            </li>
-            <li class="hide-print">
-              <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to business
-              development.
-            </li>
-            <li class="hide-print">
-              <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
-            </li>
-            <li class="hide-print">
-              <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
-            </li>
-          </ul>
-          <details>
-            <summary><strong>Stack</strong></summary>
+          </article>
+        </details>
+
+        <details>
+          <summary>
+            <h4 id="backend">Backend Developer</h4>
+            <p>
+              <time datetime="2015-11">Nov 2015</time>
+              <span aria-hidden="true">–</span>
+              <time datetime="2017-04">Apr 2017</time>
+              · Berlin
+            </p>
+          </summary>
+          <article aria-labelledby="backend">
+            <p>
+              Developer in a VC-backed publishing startup focused on movies and TV series, with viral traffic
+              and community-driven content.
+            </p>
             <ul>
-              <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
-              <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
-              <li>Objective-C · WebSockets</li>
-              <li>git · Subversion</li>
-              <li>CI/CD · Task runners</li>
-              <li>nginx · Scrum</li>
-              <li>WordPress · Joomla</li>
+              <li>
+                <strong>Built</strong> an internal curation app for incoming articles, scaling content review and
+                vertical publishing across microservices.
+              </li>
+              <li>
+                <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
+                payments and analytics.
+              </li>
+              <li>
+                <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views),
+                giving editorial teams control and modern presentation features.
+              </li>
+              <li>
+                <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
+                enabling product adaptability.
+              </li>
+              <li class="hide-print">
+                <strong>Maintained</strong> and extended core web applications; provided internal technical support.
+              </li>
             </ul>
-          </details>
-        </article>
+            <details>
+              <summary><strong>Stack</strong></summary>
+              <ul>
+                <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
+                <li>JavaScript · HTML5 · SCSS</li>
+                <li>Docker · nginx · Puppet · RabbitMQ</li>
+                <li>CI/CD · Capistrano · git</li>
+                <li>Selenium/Capybara · Monitoring · SEO</li>
+                <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
+              </ul>
+            </details>
+          </article>
+        </details>
+        <details>
+          <summary>
+            <h4 id="railsdev">Rails Developer</h4>
+            <p>
+              <time datetime="2015-05">May 2015</time>
+              <span aria-hidden="true">–</span>
+              <time datetime="2015-11">Nov 2015</time>
+              · Berlin
+            </p>
+          </summary>
+
+          <article aria-labelledby="railsdev">
+            <ul>
+              <li><strong>Developed</strong> a farm management MVP.</li>
+              <li>
+                <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
+              </li>
+            </ul>
+            <details>
+              <summary><strong>Stack</strong></summary>
+              <ul>
+                <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
+                <li>CI/CD · REST API</li>
+                <li>Heroku</li>
+                <li>Scrum</li>
+              </ul>
+            </details>
+          </article>
+        </details>
+
+        <details>
+          <summary>
+            <h4 id="developer">Developer</h4>
+            <p>
+              <time datetime="2011-09">Sep 2011</time>
+              <span aria-hidden="true">–</span>
+              <time datetime="2015-01">Jan 2015</time>
+              · Oldenburg
+            </p>
+          </summary>
+          <article aria-labelledby="developer">
+            <p>
+              Full-stack developer at a digital agency, delivering web platforms for energy and sports
+              clients.
+            </p>
+            <ul>
+              <li>
+                <strong>Built</strong> backend system and API for a major customer’s web and mobile apps.
+              </li>
+              <li>
+                <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
+                Europe.
+              </li>
+              <li>
+                <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
+                processing, subscription handling, and payment integration.
+              </li>
+              <li>
+                <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
+                developer practices at the agency.
+              </li>
+              <li class="hide-print">
+                <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to
+                business development.
+              </li>
+              <li class="hide-print">
+                <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
+              </li>
+              <li class="hide-print">
+                <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
+              </li>
+            </ul>
+            <details>
+              <summary><strong>Stack</strong></summary>
+              <ul>
+                <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
+                <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
+                <li>Objective-C · WebSockets</li>
+                <li>git · Subversion</li>
+                <li>CI/CD · Task runners</li>
+                <li>nginx · Scrum</li>
+                <li>WordPress · Joomla</li>
+              </ul>
+            </details>
+          </article>
+        </details>
       </details>
     </details>
   </section>
 
   <hr />
 
-  <details>
+  <details open>
     <summary><h2 id="service" data-accent>Service</h2></summary>
 
     <article aria-labelledby="military">
@@ -405,7 +414,7 @@ const description = `
 
   <hr />
 
-  <details>
+  <details open>
     <summary><h2 id="skills" data-accent>Skills</h2></summary>
     <section aria-labelledby="skills">
       <SkillsMatrix categories={skills} />
@@ -453,7 +462,7 @@ const description = `
 
   <hr /> -->
 
-  <details>
+  <details open>
     <summary><h2 id="education" data-accent>Education</h2></summary>
     <section aria-labelledby="education">
       <article aria-labelledby="edu1">
@@ -506,39 +515,17 @@ const description = `
 <style>
   @import "../assets/hero.css";
 
-  /* Always-visible, readable link underlines (dark & light) */
-  :where(main a) {
-    text-decoration-line: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.15em;
-    text-decoration-skip-ink: auto;
+  .toc--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--pico-background-color);
+    padding: 0.5em 0;
   }
 
-  /* Focus visibility without JS */
-  :where(a, button, summary, [tabindex]):focus-visible {
-    outline: 2px solid var(--pico-primary);
-    outline-offset: 2px;
-  }
-
-  /* Make <summary> clearly interactive */
-  :where(details > summary) {
-    cursor: pointer;
-  }
-
-  /* Improve skip-link usability when targeted */
-  :where(:target) {
-    scroll-margin-top: 2rem;
-  }
-
-  /* Prefer higher contrast when user asks for it */
-  @media (prefers-contrast: more) {
-    :where(main a) {
-      text-decoration-thickness: 0.12em;
-      text-underline-offset: 0.2em;
-    }
-    :where(a, button, summary, [tabindex]):focus-visible {
-      outline-width: 3px;
-    }
+  .toc--sticky ul {
+    width: 100%;
+    display: flex;
   }
 
   /* Subtle highlight without breaking Pico’s look */
@@ -562,13 +549,39 @@ const description = `
     margin-bottom: 2rem;
   }
 
+  /* monospace for time + location */
+  p:has(time) {
+    font-family: var(--font-mono);
+    letter-spacing: -0.01em;
+  }
+
   /* Bolder summary for better hierarchy */
   details > summary {
     font-weight: bold;
   }
 
+  details > summary > h4,
   details > summary > h3,
   details > summary > h2 {
     display: inline;
+    flex: 1 1;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 640px) {
+    details > summary {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    details > summary > * {
+      flex: 1 1;
+    }
+
+    details > summary > p {
+      text-wrap: nowrap;
+      width: 100%;
+    }
   }
 </style>
