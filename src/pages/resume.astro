@@ -4,6 +4,7 @@ export const prerender = true
 import SkillsMatrix from "../components/SkillsMatrix.astro"
 import { skills } from "../data/skills"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
 
 const title = "Résumé"
 const robots = "index, noarchive, follow"
@@ -17,20 +18,16 @@ const description = `
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
+  <Hero
+    title={title}
+    description="Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default, idiomatic systems that increase delivery velocity and reduce operating cost."
+  />
 
-    <p class="lead">
-      Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default,
-      idiomatic systems that increase delivery velocity and reduce operating cost.
-    </p>
-
-    <ul>
-      <li><strong>Location:</strong> Berlin (hybrid, 99% remote)</li>
-      <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
-      <li><strong>Languages:</strong> German (native) · English (fluent)</li>
-    </ul>
-  </header>
+  <ul>
+    <li><strong>Location:</strong> Berlin (hybrid, 99% remote)</li>
+    <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
+    <li><strong>Languages:</strong> German (native) · English (fluent)</li>
+  </ul>
 
   <!-- Table of Contents -->
   <nav class="toc--sticky" aria-label="Table of Contents">
@@ -513,8 +510,6 @@ const description = `
 </BaseLayout>
 
 <style>
-  @import "../assets/hero.css";
-
   .toc--sticky {
     position: sticky;
     top: 0;

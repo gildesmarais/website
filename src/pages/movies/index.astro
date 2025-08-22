@@ -2,6 +2,7 @@
 export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
+import Hero from "../../components/Hero.astro"
 import ratings from "../../data/ratings.json"
 import recommendations from "../../data/recommendations.json"
 import movies from "../../data/movies.json"
@@ -24,9 +25,7 @@ const moviesWithRatings = movies.map((movie) => {
 
 <MovieLayout title={title} description={description}>
   <section>
-    <header class="hero">
-      <h1 data-corners>{title}</h1>
-    </header>
+    <Hero title={title} />
     <input id="movieFilter" type="search" placeholder="Filter…" />
     <div class="sort-buttons">
       <button data-filter-by="isRecommendation" data-filter-value="true"> Recommendations </button>
@@ -94,8 +93,6 @@ const moviesWithRatings = movies.map((movie) => {
 </MovieLayout>
 
 <style>
-  @import "../../assets/hero.css";
-
   .recommendations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

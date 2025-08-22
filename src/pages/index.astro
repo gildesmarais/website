@@ -2,6 +2,7 @@
 export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
 
 const title = "Gil Desmarais — Engineering Team Lead"
 const description =
@@ -9,10 +10,7 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
-    <p class="lead">{description}</p>
-  </header>
+  <Hero title={title} description={description} />
 
   <section aria-labelledby="how-i-work">
     <h2 id="how-i-work" data-accent>How I work</h2>
@@ -26,8 +24,6 @@ const description =
 </BaseLayout>
 
 <style>
-  @import "../assets/hero.css";
-
   /* --- Section heading ---------------------------------------------------- */
   #how-i-work {
     position: relative;
@@ -81,33 +77,6 @@ const description =
 
   /* --- Desktop and larger (min-width: 640px) ------------------------------ */
   @media (min-width: 640px) {
-    .hero {
-      margin-bottom: 4.5rem;
-    }
-
-    .hero h1 {
-      padding: 0.35rem 0.6rem;
-      font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
-    }
-
-    .hero h1::before,
-    .hero h1::after {
-      width: 40px;
-      height: 26px;
-    }
-    .hero h1::before {
-      left: -12px;
-      top: -12px;
-      border-left-width: 6px;
-      border-top-width: 6px;
-    }
-    .hero h1::after {
-      right: -12px;
-      bottom: -12px;
-      border-right-width: 6px;
-      border-bottom-width: 6px;
-    }
-
     .poster--calm > li {
       font-weight: 600;
       line-height: 1.15;

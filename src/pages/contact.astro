@@ -2,6 +2,7 @@
 export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
 import { socials } from "../data/socials"
 import legal from "../data/legal.json"
 
@@ -16,12 +17,9 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
-    <p class="lead">Prefer concise, async communication. Email works best.</p>
-  </header>
+  <Hero title={title} description="Prefer concise, async communication. Email works best." />
 
-  <aside id="devtools" data-accent aria-label="Developer note" data-accent>
+  <aside id="devtools" data-accent aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
       If you found this via DevTools: nice. I care about boring reliability and clear interfaces. Tell me what
@@ -63,8 +61,4 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
     padding: var(--pico-spacing);
     border: 2px solid var(--pico-primary);
   }
-</style>
-
-<style>
-  @import "../assets/hero.css";
 </style>

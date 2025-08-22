@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
 const title = "Blog"
 const description = "Five recent posts, hand-picked. Subscribe via RSS feed."
@@ -9,14 +10,16 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
+  <Hero
+    title={title}
+    description="Five recent posts, hand-picked. See the archive for all, or subscribe to the RSS feed."
+  >
     <p class="lead">
       Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or <a
         href="/feed.xml">subscribe to the RSS feed</a
       >.
     </p>
-  </header>
+  </Hero>
 
   <section>
     <ul>
@@ -46,6 +49,4 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
   </section>
 </BaseLayout>
 
-<style>
-  @import "../../assets/hero.css";
-</style>
+<style></style>

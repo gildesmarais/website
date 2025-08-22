@@ -3,6 +3,7 @@ export const prerender = true
 import { Image } from "astro:assets"
 import speakerImage from "../assets/images/speaker.svg"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
 import { socials } from "../data/socials"
 
 const title = "About"
@@ -13,13 +14,10 @@ const contactHref = "/contact"
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="hero">
-    <h1 data-corners><abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais.</h1>
-    <p class="lead">
-      I like understanding how things work and making them kinder to humans — and hearing how others see the
-      world.
-    </p>
-  </header>
+  <Hero
+    title={`<abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais.`}
+    description="I like understanding how things work and making them kinder to humans — and hearing how others see the world."
+  />
 
   <section aria-labelledby="name-pronunciation">
     <h2 id="name-pronunciation">Name pronunciation</h2>
@@ -99,9 +97,7 @@ const contactHref = "/contact"
   </section>
 </BaseLayout>
 
-<style>
-  @import "../assets/hero.css";
-</style>
+<style></style>
 
 <script>
   ;(() => {

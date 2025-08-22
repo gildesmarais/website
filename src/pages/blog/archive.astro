@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
 const title = "Blog Archive"
 const description = "Chronological archive of all published blog posts."
@@ -16,10 +17,7 @@ function fmt(d: Date) {
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
-    <p class="lead">All posts, including short notes and experiments.</p>
-  </header>
+  <Hero title={title} description="All posts, including short notes and experiments." />
 
   <section>
     <ul>
@@ -46,7 +44,3 @@ function fmt(d: Date) {
     </footer>
   </section>
 </BaseLayout>
-
-<style>
-  @import "../../assets/hero.css";
-</style>

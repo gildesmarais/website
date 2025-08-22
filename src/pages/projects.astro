@@ -2,6 +2,7 @@
 export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
 
 const title = "Projects"
 const description =
@@ -9,14 +10,15 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="hero">
-    <h1 data-corners>{title}</h1>
-    <p class="lead">Small, sharp tools. Built to be useful. Maintained when they earn their keep.</p>
+  <Hero
+    title={title}
+    description="Small, sharp tools. Built to be useful. Maintained when they earn their keep."
+  >
     <p>
       More on
       <a href="https://github.com/gildesmarais/" target="_blank" rel="external nofollow noopener">GitHub</a>.
     </p>
-  </header>
+  </Hero>
 
   <section aria-label="Selected projects">
     <article class="project-card" data-accent>
@@ -121,8 +123,6 @@ const description =
 </BaseLayout>
 
 <style>
-  @import "../assets/hero.css";
-
   /* Map local --accent to BaseLayout token */
   :root {
     --accent: var(--brand-accent, #f80);
