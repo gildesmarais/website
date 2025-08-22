@@ -1,9 +1,9 @@
 ---
 export const prerender = true
 import { Image } from "astro:assets"
-import speakerImage from "../assets/images/speaker.svg"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
+import NamePronunciation from "../components/NamePronunciation.astro"
 import { socials } from "../data/socials"
 
 const title = "About"
@@ -16,34 +16,11 @@ const contactHref = "/contact"
 <BaseLayout title={title} description={description}>
   <Hero
     title={`<abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais.`}
-    description="I like understanding how things work and making them kinder to humans — and hearing how others see the world."
+    description="Engineering Team Lead who bridges the gap between business needs and technical solutions. I like understanding how things work and making them kinder to humans."
   />
 
-  <section aria-labelledby="name-pronunciation">
-    <h2 id="name-pronunciation">Name pronunciation</h2>
-    <figure>
-      <figcaption>
-        <span class="ipa" aria-label="Pronounced: Zheel Dez-mah-reh">/ʒɪl dɛsm ɐ ʁɛ/</span>
-        <button
-          type="button"
-          id="play-name"
-          aria-label="Play name pronunciation"
-          aria-controls="name-audio"
-          aria-pressed="false"
-        >
-          <Image src={speakerImage} alt="" width="16" height="16" />
-        </button>
-      </figcaption>
-
-      <audio id="name-audio" preload="metadata" controls>
-        <source src="/index.flac" type="audio/flac" />
-        Your browser can’t play the audio. <a href="/index.flac">Download audio</a>.
-      </audio>
-    </figure>
-  </section>
-
-  <section aria-labelledby="now">
-    <h2 id="now">What I'm like</h2>
+  <section aria-labelledby="identity">
+    <h2 id="identity">Who I am</h2>
     <p>
       Quietly curious. I enjoy clear thinking, dry humor, and low‑drama plans. I'm the friend who fixes the
       wobbly table and then puts on a solid playlist.
@@ -53,27 +30,63 @@ const contactHref = "/contact"
       It broadened my perspective beyond office work and showed how disciplined processes and technical skills
       combine in high-responsibility settings.
     </p>
+    <p>
+      My background in Business Computer Science taught me to see technology through both technical and
+      business lenses. I enjoy translating complex technical concepts into business value, and business
+      requirements into elegant technical solutions.
+    </p>
+
+    <p>
+      My name is French in origin, short for "Gilbert" — meaning "from the swamps" (like the quarter in
+      Paris).
+      <NamePronunciation pronunciation="/ʒɪl dɛsm ɐ ʁɛ/" audioSrc="/index.flac" />
+    </p>
   </section>
 
-  <section aria-labelledby="care" data-accent>
-    <h2 id="care">Things I care about</h2>
+  <section aria-labelledby="care">
+    <h2 id="care">What drives me</h2>
     <ul>
-      <li><strong>Efficiency</strong></li>
+      <li><strong>Efficiency</strong> — in code, processes, and communication</li>
       <li>Understanding systems — from tech to culture</li>
       <li>Making life easier, not more complicated</li>
       <li>Sharing knowledge and helping others grow</li>
       <li>Good experiences with minimal fuss</li>
+    </ul>
+
+    <h3>Personal passions</h3>
+    <ul>
       <li>
-        Movies — a long-time passion, and even part of my work when I developed for a film & TV publishing
-        startup. I also log and <a href="/movies?isRecommendation=true&sort=year&dir=desc">recommend movies</a
+        <strong>Movies</strong> — a long-time passion, and even part of my work when I developed for a film & TV
+        publishing startup. I also log and <a href="/movies?isRecommendation=true&sort=year&dir=desc"
+          >recommend movies</a
         >.
       </li>
-
-      <li>Learning: music, cities, culture, aviation, food</li>
-      <li>Music: passionate listener of electronic music for over three decades; bedroom vinyl DJ for two</li>
-      <li>DJing: selecting vinyl records, layering elements of techno tracks digitally</li>
-      <li>Movement: cycling, yoga, walks</li>
+      <li>
+        <strong>Music</strong> — passionate listener of electronic music for over three decades; bedroom vinyl
+        DJ for two
+      </li>
+      <li><strong>Movement</strong> — cycling, yoga, walks</li>
+      <li><strong>Learning</strong> — music, cities, culture, aviation, food</li>
     </ul>
+  </section>
+
+  <section aria-labelledby="approach">
+    <h2 id="approach">How I think about work</h2>
+    <p>
+      I'm the kind of engineer who asks 'why' before asking 'how.' I want to understand what problem we're
+      really solving, not just how to solve it. Maybe it's the military background, or maybe it's just how I'm
+      wired, but I believe good solutions come from good questions.
+    </p>
+    <p>
+      My love for movies isn't just entertainment — it taught me about storytelling, user experience, and how
+      to make complex systems feel simple. When I built systems for a film publishing startup, I thought about
+      how to make editors' lives easier, not just how to make the code work.
+    </p>
+    <p>
+      Whether I'm leading a team, architecting a system, or optimizing a process, I focus on creating
+      solutions that serve people first. Technology should make work easier, not harder. That means building
+      systems that are maintainable, scalable, and actually solve real business problems.
+    </p>
   </section>
 
   <section aria-labelledby="contact">
