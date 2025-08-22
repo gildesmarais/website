@@ -440,7 +440,7 @@ const description = `
   <hr />
 
   <!-- Case Study - Always visible -->
-  <section class="case-study" aria-labelledby="cs-portal">
+  <section class="case-study" aria-labelledby="cs-portal" data-corners>
     <h2 id="cs-portal">
       <span aria-hidden="true">📊</span> Case study — Portal relaunch
     </h2>
@@ -591,59 +591,14 @@ const description = `
 
   /* Subtle highlight without breaking Pico's look */
   .case-study {
-    border-left: 4px solid var(--pico-primary);
     padding: 1rem 1rem 1rem 1.25rem;
     margin-block: 1.5rem;
-    background-color: color-mix(in srgb, var(--pico-background-color) 92%, var(--pico-primary) 8%);
-  }
-
-  /* Keep headings tight inside the box */
-  .case-study h2 {
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  /* Improve spacing between articles */
-  article {
-    margin-bottom: 2rem;
   }
 
   /* monospace for time + location */
   p:has(time) {
     font-family: var(--font-mono);
     letter-spacing: -0.01em;
-  }
-
-  /* Bolder summary for better hierarchy */
-  details > summary {
-    font-weight: bold;
-  }
-
-  details > summary > h4,
-  details > summary > h3,
-  details > summary > h2 {
-    display: inline;
-    flex: 1 1;
-    margin-bottom: 0;
-  }
-
-  @media (min-width: 640px) {
-    details > summary {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-    }
-
-    details > summary > * {
-      flex: 1 1;
-    }
-
-    details > summary > p {
-      text-wrap: nowrap;
-      width: 100%;
-    }
   }
 </style>
 

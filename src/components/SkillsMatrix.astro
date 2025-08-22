@@ -65,29 +65,23 @@ const { title, categories } = Astro.props
   .skill-category dt.category-label {
     background: var(--brand-accent);
     color: #000;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    border: 3px solid var(--brand-accent);
-    border-radius: 0;
     white-space: nowrap;
     margin: 0;
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1em;
     line-height: 1;
-    display: inline-block;
     width: fit-content;
   }
 
   /* Skills list within each category (dd) */
   .skill-category dd {
     margin: 0;
-    padding: 0;
-    border: none;
   }
 
   .skill-category dd .skills-list {
-    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -101,12 +95,9 @@ const { title, categories } = Astro.props
     border: 2px solid var(--brand-accent);
     border-radius: 0;
     padding: 0.5rem 1rem;
-    line-height: 1.35;
-    font-size: 0.8rem;
-    font-weight: 600;
+    line-height: 1;
+    font-size: 0.9em;
     background: var(--pico-card-background-color);
-    box-shadow: none;
-    color: var(--pico-color);
     transition: all 0.2s ease;
   }
 
@@ -127,11 +118,6 @@ const { title, categories } = Astro.props
     .skill-category {
       break-inside: avoid;
       margin-bottom: 2rem;
-    }
-
-    .category-label {
-      font-size: 1rem;
-      padding: 1rem 2rem;
     }
 
     .skill-category .skills-list {

@@ -76,15 +76,10 @@ const moviesWithRatings = movies.map((movie) => {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--pico-spacing);
-    padding: var(--pico-spacing) 0;
   }
 
   .sort-buttons {
-    margin-bottom: var(--pico-spacing);
-  }
-
-  .sort-buttons button {
-    margin-right: var(--pico-spacing-sm);
+    margin-bottom: 1rem;
   }
 
   .sort-buttons button[data-sort-by][data-sort-dir="asc"]::after {

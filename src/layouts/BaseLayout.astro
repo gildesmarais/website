@@ -160,16 +160,6 @@ const isActive = (href: string) => {
         border-bottom-color: var(--brand-accent);
       }
 
-      details > summary::after {
-        background-size: 1.25rem auto;
-      }
-
-      @media (min-width: 640px) {
-        details > summary::after {
-          margin-top: -2em; /* Adjust for larger screens */
-        }
-      }
-
       /* Always-visible, readable link underlines (dark & light) */
       main a {
         text-decoration-line: underline;
@@ -210,6 +200,7 @@ const isActive = (href: string) => {
         font-size: 1.05rem;
         line-height: 1.55;
         max-width: 60ch;
+        color: var(--pico-muted-color);
       }
 
       /* --- Global spacing improvements --- */
@@ -490,7 +481,7 @@ const isActive = (href: string) => {
         --pico-range-active-border-color: #242a36;
 
         --pico-card-border-color: var(--pico-card-background-color);
-        --pico-card-sectioning-background-color: hsl(215 12% 10% / 1);
+        --pico-card-sectioning-background-color: #ff880002;
 
         --pico-dropdown-background-color: var(--pico-card-background-color);
         --pico-dropdown-border-color: var(--pico-muted-border-color);

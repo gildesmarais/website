@@ -12,7 +12,7 @@ export interface Props {
 const { title, status, description, highlights, links } = Astro.props
 ---
 
-<article class="project-card" data-accent>
+<article class="project-card">
   <header>
     <h2>{title} <small aria-label="project status">— {status}</small></h2>
     <p class="lead"><em>{description}</em></p>
@@ -52,74 +52,20 @@ const { title, status, description, highlights, links } = Astro.props
 </article>
 
 <style>
-  .project-card {
-    position: relative;
-    background: var(--pico-card-background-color);
-    border: 3px solid var(--pico-border-color);
-    border-radius: 0;
-    padding: 2rem;
-    transition: border-color 0.2s ease;
-
-    /* Brutalist: sharp, geometric, no shadows */
-    box-shadow: none;
-  }
-
-  .project-card:hover {
-    border-color: var(--brand-accent);
-    transform: none;
-  }
-
-  .project-card header > h2 {
-    line-height: 1.1;
-    font-weight: 700;
-    color: var(--pico-h2-color);
-    margin-bottom: 0.75rem;
-  }
-
   .project-card header > h2 small {
     font-weight: 500;
     opacity: 0.7;
-    font-size: 0.85em;
-  }
-
-  .project-card .lead {
-    font-size: 1.05rem;
-    line-height: 1.5;
-    color: var(--pico-muted-color);
-    margin-bottom: 1.5rem;
   }
 
   .project-card h3 {
-    color: var(--pico-h3-color);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 1.5rem 0 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 2px solid var(--pico-border-color);
-    padding-bottom: 0.5rem;
-  }
-
-  /* Modern list styling */
-  .project-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 1.5rem;
-  }
-
-  .project-card li {
-    margin-bottom: 0.5rem;
   }
 
   .project-card a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: var(--pico-background-color);
-    border: 2px solid var(--pico-border-color);
     border-radius: 0;
     color: var(--pico-color);
     text-decoration: none;
-    transition: all 0.2s ease;
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -127,17 +73,6 @@ const { title, status, description, highlights, links } = Astro.props
   }
 
   .project-card a:hover {
-    background: var(--brand-accent);
-    border-color: var(--brand-accent);
-    color: #000;
-    transform: none;
-    box-shadow: none;
-  }
-
-  /* Responsive adjustments */
-  @media (min-width: 720px) {
-    .project-card {
-      padding: 2.5rem;
-    }
+    text-decoration: underline;
   }
 </style>
