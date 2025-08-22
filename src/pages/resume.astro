@@ -32,9 +32,21 @@ const description = `
     ]}
   />
 
+  <!-- Table of Contents - Moved before first section -->
+  <nav class="toc--sticky" aria-label="Table of Contents">
+    <ul>
+      <li><a href="#executive-summary" data-toc-link>Executive Summary</a></li>
+      <li><a href="#exp" data-toc-link>Experience</a></li>
+      <li><a href="#service" data-toc-link>Service</a></li>
+      <li><a href="#skills" data-toc-link>Skills</a></li>
+      <li><a href="#cs-portal" data-toc-link>Case study</a></li>
+      <li><a href="#education" data-toc-link>Education</a></li>
+    </ul>
+  </nav>
+
   <!-- Executive Summary -->
   <section aria-labelledby="executive-summary">
-    <h2 id="executive-summary">Executive Summary</h2>
+    <h2 id="executive-summary" data-accent>Executive Summary</h2>
     <p>
       Engineering Team Lead who creates systemic clarity. I don't optimize for efficiency's sake — I optimize
       because clarity, resilience, and simplicity create leverage for the business. My work removes hidden
@@ -47,98 +59,88 @@ const description = `
     </p>
   </section>
 
-  <!-- Table of Contents -->
-  <nav class="toc--sticky" aria-label="Table of Contents">
-    <ul>
-      <li><a href="#executive-summary">Executive Summary</a></li>
-      <li><a href="#exp">Experience</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#cs-portal">Case study</a></li>
-      <li><a href="#education">Education</a></li>
-    </ul>
-  </nav>
+  <!-- Experience Section -->
+  <section aria-labelledby="exp">
+    <h2 id="exp" data-accent>Experience</h2>
 
-  <section>
-    <details data-accent open>
-      <summary>
-        <h2 id="exp">Experience</h2>
-      </summary>
+    <!-- Current role - Always visible -->
+    <article aria-labelledby="etl-platform">
+      <header>
+        <h3 id="etl-platform">Engineering Team Lead (Platform)</h3>
+        <p>
+          <time datetime="2022-10">Oct 2022</time>
+          <span aria-hidden="true">–</span>
+          <time>Present</time>
+          · Berlin (hybrid, 99% remote)
+        </p>
+        <p>
+          Lead platform modernization and reliability. I focus on creating systemic clarity—making hidden
+          dependencies visible, translating complex technical challenges into business decisions, and driving
+          incremental change based on impact vs. effort.
+        </p>
+      </header>
 
-      <!-- Current role -->
-      <article aria-labelledby="etl-platform">
-        <header>
-          <h3 id="etl-platform">Engineering Team Lead (Platform)</h3>
-          <p>
-            <time datetime="2022-10">Oct 2022</time>
-            <span aria-hidden="true">–</span>
-            <time>Present</time>
-            · Berlin (hybrid, 99% remote)
-          </p>
-          <p>
-            Lead platform modernization and reliability. I focus on creating systemic clarity—making hidden
-            dependencies visible, translating complex technical challenges into business decisions, and
-            driving incremental change based on impact vs. effort.
-          </p>
-        </header>
+      <p>Joined as Senior Software Engineer; promoted to Engineering Team Lead (Platform) in July 2024.</p>
 
-        <p>Joined as Senior Software Engineer; promoted to Engineering Team Lead (Platform) in July 2024.</p>
+      <ul>
+        <li>
+          <strong>Restarted</strong> delivery after months of zero output; raised production deploys to ~15/month
+          on regulated, QA-heavy services.
+        </li>
+        <li>
+          <strong>Cut</strong> CI test suite runtime by 33% (wall-clock) and 13% (billable), saving developer hours
+          and compute cost.
+        </li>
+        <li>
+          <strong>Reduced</strong> core Rails app memory usage by ~70% through YJIT, jemalloc tuning, and targeted
+          allocation fixes; enabled resource downscale and cost savings.
+        </li>
+        <li>
+          <strong>Removed</strong> scaling bottlenecks (SQL DML/DDL, replica-safe patterns, PostgreSQL config)
+          via profiling and query optimization.
+        </li>
+        <li>
+          <strong>Scaled</strong> revenue-critical services—identity & access (IDM), authentication/authorization,
+          and HLS video delivery—improving security posture and reliability.
+        </li>
+        <li>
+          <strong>Introduced</strong> a squad ownership model, clarifying accountability and on-call responsibilities.
+          Translated abstract "ownership" concept into concrete structures that teams could rely on.
+        </li>
+        <li>
+          <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with zero
+          non-conformities and authored SOPs. Translated complex compliance requirements into actionable engineering
+          practices that stakeholders could understand and implement. (<a
+            href="https://www.iso.org/isoiec-27001-information-security.html"
+            target="_blank"
+            rel="external nofollow noopener"
+            aria-label="ISO/IEC 27001 — official overview (opens in a new tab)">ISO/IEC 27001 overview</a
+          >)
+        </li>
+        <li>
+          <strong>Hired</strong> and onboarded 2 engineers; <strong>coach</strong> a 3-person team; drive cross-squad
+          alignment on IDM and video delivery initiatives.
+        </li>
+      </ul>
+      <footer>
+        <details>
+          <summary><strong>Stack</strong></summary>
+          <ul>
+            <li>Ruby · Ruby on Rails · RSpec · Sidekiq</li>
+            <li>PostgreSQL · Query optimization · PostGIS (if relevant)</li>
+            <li>TypeScript · Angular/React (as applicable) · Jest · Cypress</li>
+            <li>GraphQL · REST</li>
+            <li>Docker · AWS · GitHub Actions</li>
+            <li>ISO/IEC 27001</li>
+            <li>Scrum · Jira · Confluence</li>
+          </ul>
+        </details>
+      </footer>
+    </article>
 
-        <ul>
-          <li>
-            <strong>Restarted</strong> delivery after months of zero output; raised production deploys to ~15/month
-            on regulated, QA-heavy services.
-          </li>
-          <li>
-            <strong>Cut</strong> CI test suite runtime by 33% (wall-clock) and 13% (billable), saving developer
-            hours and compute cost.
-          </li>
-          <li>
-            <strong>Reduced</strong> core Rails app memory usage by ~70% through YJIT, jemalloc tuning, and targeted
-            allocation fixes; enabled resource downscale and cost savings.
-          </li>
-          <li>
-            <strong>Removed</strong> scaling bottlenecks (SQL DML/DDL, replica-safe patterns, PostgreSQL config)
-            via profiling and query optimization.
-          </li>
-          <li>
-            <strong>Scaled</strong> revenue-critical services—identity & access (IDM), authentication/authorization,
-            and HLS video delivery—improving security posture and reliability.
-          </li>
-          <li>
-            <strong>Introduced</strong> a squad ownership model, clarifying accountability and on-call responsibilities.
-            Translated abstract "ownership" concept into concrete structures that teams could rely on.
-          </li>
-          <li>
-            <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with
-            zero non-conformities and authored SOPs. Translated complex compliance requirements into actionable
-            engineering practices that stakeholders could understand and implement. (<a
-              href="https://www.iso.org/isoiec-27001-information-security.html"
-              target="_blank"
-              rel="external nofollow noopener"
-              aria-label="ISO/IEC 27001 — official overview (opens in a new tab)">ISO/IEC 27001 overview</a
-            >)
-          </li>
-          <li>
-            <strong>Hired</strong> and onboarded 2 engineers; <strong>coach</strong> a 3-person team; drive cross-squad
-            alignment on IDM and video delivery initiatives.
-          </li>
-        </ul>
-        <footer>
-          <details>
-            <summary><strong>Stack</strong></summary>
-            <ul>
-              <li>Ruby · Ruby on Rails · RSpec · Sidekiq</li>
-              <li>PostgreSQL · Query optimization · PostGIS (if relevant)</li>
-              <li>TypeScript · Angular/React (as applicable) · Jest · Cypress</li>
-              <li>GraphQL · REST</li>
-              <li>Docker · AWS · GitHub Actions</li>
-              <li>ISO/IEC 27001</li>
-              <li>Scrum · Jira · Confluence</li>
-            </ul>
-          </details>
-        </footer>
-      </article>
+    <!-- Earlier experience - Collapsible -->
+    <details>
+      <summary><h3>Earlier Experience</h3></summary>
 
       <article aria-labelledby="ruby-dev">
         <header>
@@ -154,7 +156,7 @@ const description = `
         <ul>
           <li>
             <strong>Delivered</strong> bug fixes and small features in a Rails codebase during probation; gained
-            exposure to team’s CI/CD and QA-heavy workflows.
+            exposure to team's CI/CD and QA-heavy workflows.
           </li>
         </ul>
         <footer>
@@ -191,7 +193,7 @@ const description = `
 
         <ul>
           <li>
-            <strong>Relaunched</strong> the agency’s tourism/events/retail portal, securing 4+ year B2B contracts
+            <strong>Relaunched</strong> the agency's tourism/events/retail portal, securing 4+ year B2B contracts
             that stabilized revenue.
           </li>
           <li>
@@ -239,171 +241,167 @@ const description = `
         </footer>
       </article>
 
-      <details>
-        <summary><h3>Earlier Experience</h3></summary>
-        <details>
-          <summary>
-            <h4 id="freelance">Freelance Developer</h4>
-            <p>
-              <time datetime="2017-05">May 2017</time>
-              <span aria-hidden="true">–</span>
-              <time datetime="2017-08">Aug 2017</time>
-              · Remote
-            </p>
-          </summary>
-          <article aria-labelledby="freelance17">
-            <ul>
-              <li>
-                <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
-                covering concept through deployment.
-              </li>
-            </ul>
-          </article>
-        </details>
+      <article aria-labelledby="freelance">
+        <header>
+          <h3 id="freelance">Freelance Developer</h3>
+          <p>
+            <time datetime="2017-05">May 2017</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2017-08">Aug 2017</time>
+            · Remote
+          </p>
+        </header>
+        <ul>
+          <li>
+            <strong>Delivered</strong> independent Ruby and JavaScript web projects for small business clients,
+            covering concept through deployment.
+          </li>
+        </ul>
+      </article>
 
-        <details>
-          <summary>
-            <h4 id="backend">Backend Developer</h4>
-            <p>
-              <time datetime="2015-11">Nov 2015</time>
-              <span aria-hidden="true">–</span>
-              <time datetime="2017-04">Apr 2017</time>
-              · Berlin
-            </p>
-          </summary>
-          <article aria-labelledby="backend">
-            <p>
-              Developer in a VC-backed publishing startup focused on movies and TV series, with viral traffic
-              and community-driven content.
-            </p>
+      <article aria-labelledby="backend">
+        <header>
+          <h3 id="backend">Backend Developer</h3>
+          <p>
+            <time datetime="2015-11">Nov 2015</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2017-04">Apr 2017</time>
+            · Berlin
+          </p>
+        </header>
+        <p>
+          Developer in a VC-backed publishing startup focused on movies and TV series, with viral traffic and
+          community-driven content.
+        </p>
+        <ul>
+          <li>
+            <strong>Built</strong> an internal curation app for incoming articles, scaling content review and vertical
+            publishing across microservices.
+          </li>
+          <li>
+            <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
+            payments and analytics.
+          </li>
+          <li>
+            <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views), giving
+            editorial teams control and modern presentation features.
+          </li>
+          <li>
+            <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
+            enabling product adaptability.
+          </li>
+          <li class="hide-print">
+            <strong>Maintained</strong> and extended core web applications; provided internal technical support.
+          </li>
+        </ul>
+        <footer>
+          <details>
+            <summary><strong>Stack</strong></summary>
             <ul>
-              <li>
-                <strong>Built</strong> an internal curation app for incoming articles, scaling content review and
-                vertical publishing across microservices.
-              </li>
-              <li>
-                <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
-                payments and analytics.
-              </li>
-              <li>
-                <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views),
-                giving editorial teams control and modern presentation features.
-              </li>
-              <li>
-                <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
-                enabling product adaptability.
-              </li>
-              <li class="hide-print">
-                <strong>Maintained</strong> and extended core web applications; provided internal technical support.
-              </li>
+              <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
+              <li>JavaScript · HTML5 · SCSS</li>
+              <li>Docker · nginx · Puppet · RabbitMQ</li>
+              <li>CI/CD · Capistrano · git</li>
+              <li>Selenium/Capybara · Monitoring · SEO</li>
+              <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
             </ul>
-            <details>
-              <summary><strong>Stack</strong></summary>
-              <ul>
-                <li>Ruby on Rails · PostgreSQL · Elasticsearch</li>
-                <li>JavaScript · HTML5 · SCSS</li>
-                <li>Docker · nginx · Puppet · RabbitMQ</li>
-                <li>CI/CD · Capistrano · git</li>
-                <li>Selenium/Capybara · Monitoring · SEO</li>
-                <li>Scrivito CMS · PayPal · DocuSign · Scrum</li>
-              </ul>
-            </details>
-          </article>
-        </details>
-        <details>
-          <summary>
-            <h4 id="railsdev">Rails Developer</h4>
-            <p>
-              <time datetime="2015-05">May 2015</time>
-              <span aria-hidden="true">–</span>
-              <time datetime="2015-11">Nov 2015</time>
-              · Berlin
-            </p>
-          </summary>
+          </details>
+        </footer>
+      </article>
 
-          <article aria-labelledby="railsdev">
-            <ul>
-              <li><strong>Developed</strong> a farm management MVP.</li>
-              <li>
-                <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
-              </li>
-            </ul>
-            <details>
-              <summary><strong>Stack</strong></summary>
-              <ul>
-                <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
-                <li>CI/CD · REST API</li>
-                <li>Heroku</li>
-                <li>Scrum</li>
-              </ul>
-            </details>
-          </article>
-        </details>
+      <article aria-labelledby="railsdev">
+        <header>
+          <h3 id="railsdev">Rails Developer</h3>
+          <p>
+            <time datetime="2015-05">May 2015</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2015-11">Nov 2015</time>
+            · Berlin
+          </p>
+        </header>
 
-        <details>
-          <summary>
-            <h4 id="developer">Developer</h4>
-            <p>
-              <time datetime="2011-09">Sep 2011</time>
-              <span aria-hidden="true">–</span>
-              <time datetime="2015-01">Jan 2015</time>
-              · Oldenburg
-            </p>
-          </summary>
-          <article aria-labelledby="developer">
-            <p>
-              Full-stack developer at a digital agency, delivering web platforms for energy and sports
-              clients.
-            </p>
+        <ul>
+          <li><strong>Developed</strong> a farm management MVP.</li>
+          <li>
+            <strong>Specified</strong> and <strong>implemented</strong> REST API endpoints for mobile apps.
+          </li>
+        </ul>
+        <footer>
+          <details>
+            <summary><strong>Stack</strong></summary>
             <ul>
-              <li>
-                <strong>Built</strong> backend system and API for a major customer’s web and mobile apps.
-              </li>
-              <li>
-                <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
-                Europe.
-              </li>
-              <li>
-                <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
-                processing, subscription handling, and payment integration.
-              </li>
-              <li>
-                <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
-                developer practices at the agency.
-              </li>
-              <li class="hide-print">
-                <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to
-                business development.
-              </li>
-              <li class="hide-print">
-                <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
-              </li>
-              <li class="hide-print">
-                <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
-              </li>
+              <li>Ruby on Rails · PostgreSQL/PostGIS · RSpec</li>
+              <li>CI/CD · REST API</li>
+              <li>Heroku</li>
+              <li>Scrum</li>
             </ul>
-            <details>
-              <summary><strong>Stack</strong></summary>
-              <ul>
-                <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
-                <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
-                <li>Objective-C · WebSockets</li>
-                <li>git · Subversion</li>
-                <li>CI/CD · Task runners</li>
-                <li>nginx · Scrum</li>
-                <li>WordPress · Joomla</li>
-              </ul>
-            </details>
-          </article>
-        </details>
-      </details>
+          </details>
+        </footer>
+      </article>
+
+      <article aria-labelledby="developer">
+        <header>
+          <h3 id="developer">Developer</h3>
+          <p>
+            <time datetime="2011-09">Sep 2011</time>
+            <span aria-hidden="true">–</span>
+            <time datetime="2015-01">Jan 2015</time>
+            · Oldenburg
+          </p>
+        </header>
+        <p>
+          Full-stack developer at a digital agency, delivering web platforms for energy and sports clients.
+        </p>
+        <ul>
+          <li>
+            <strong>Built</strong> backend system and API for a major customer's web and mobile apps.
+          </li>
+          <li>
+            <strong>Developed</strong> B2B smart-meter dashboards and solar-plant monitoring tools used across
+            Europe.
+          </li>
+          <li>
+            <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
+            processing, subscription handling, and payment integration.
+          </li>
+          <li>
+            <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
+            developer practices at the agency.
+          </li>
+          <li class="hide-print">
+            <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to business
+            development.
+          </li>
+          <li class="hide-print">
+            <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
+          </li>
+          <li class="hide-print">
+            <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
+          </li>
+        </ul>
+        <footer>
+          <details>
+            <summary><strong>Stack</strong></summary>
+            <ul>
+              <li>HTML5 · JavaScript · SCSS · jQuery · AngularJS 1.x</li>
+              <li>PHP5 · MySQL · Java · Spring · Hibernate ORM · OSGi</li>
+              <li>Objective-C · WebSockets</li>
+              <li>git · Subversion</li>
+              <li>CI/CD · Task runners</li>
+              <li>nginx · Scrum</li>
+              <li>WordPress · Joomla</li>
+            </ul>
+          </details>
+        </footer>
+      </article>
     </details>
   </section>
 
   <hr />
 
-  <details open>
-    <summary><h2 id="service" data-accent>Service</h2></summary>
+  <!-- Service Section - Always visible -->
+  <section aria-labelledby="service">
+    <h2 id="service" data-accent>Service</h2>
 
     <article aria-labelledby="military">
       <h3 id="military">Military Service — IT & Network Support, German Air Force</h3>
@@ -429,19 +427,19 @@ const description = `
         </li>
       </ul>
     </article>
-  </details>
+  </section>
 
   <hr />
 
-  <details open>
-    <summary><h2 id="skills" data-accent>Skills</h2></summary>
-    <section aria-labelledby="skills">
-      <SkillsMatrix categories={skills} />
-    </section>
-  </details>
+  <!-- Skills Section - Always visible -->
+  <section aria-labelledby="skills">
+    <h2 id="skills" data-accent>Skills</h2>
+    <SkillsMatrix categories={skills} />
+  </section>
 
   <hr />
 
+  <!-- Case Study - Always visible -->
   <section class="case-study" aria-labelledby="cs-portal">
     <h2 id="cs-portal">
       <span aria-hidden="true">📊</span> Case study — Portal relaunch
@@ -481,44 +479,44 @@ const description = `
 
   <hr />
 
-  <details open>
-    <summary><h2 id="education" data-accent>Education</h2></summary>
-    <section aria-labelledby="education">
-      <article aria-labelledby="edu1">
-        <header>
-          <h3 id="edu1">B.Sc. Wirtschaftsinformatik (Information Systems)</h3>
-          <p>
-            <time datetime="2009-03">Mar 2009</time>
-            <span aria-hidden="true">–</span>
-            <time datetime="2012-03">Mar 2012</time>
-            · Jade University of Applied Sciences, Wilhelmshaven
-          </p>
-        </header>
-        <p>
-          Thesis: <q>Software Modularity in Smart Homes – OSGi as a Base for Future Products and Services</q>
-        </p>
-        <ul>
-          <li>Completed Cisco CCNA Exploration 1–4 (Network Administration).</li>
-        </ul>
-      </article>
+  <!-- Education Section - Always visible -->
+  <section aria-labelledby="education">
+    <h2 id="education" data-accent>Education</h2>
 
-      <article aria-labelledby="edu2">
-        <header>
-          <h3 id="edu2">Student Assistant</h3>
-          <p>
-            <time datetime="2009">2009</time>
-            <span aria-hidden="true">–</span>
-            <time datetime="2011">2011</time>
-            · Jade University of Applied Sciences, Wilhelmshaven
-          </p>
-        </header>
-        <ul>
-          <li><strong>Tutor</strong> for programming course (Winter 2009).</li>
-          <li><strong>Research assistant</strong> on <q>Mobile Smart Metering</q> project (Summer 2011).</li>
-        </ul>
-      </article>
-    </section>
-  </details>
+    <article aria-labelledby="edu1">
+      <header>
+        <h3 id="edu1">B.Sc. Wirtschaftsinformatik (Information Systems)</h3>
+        <p>
+          <time datetime="2009-03">Mar 2009</time>
+          <span aria-hidden="true">–</span>
+          <time datetime="2012-03">Mar 2012</time>
+          · Jade University of Applied Sciences, Wilhelmshaven
+        </p>
+      </header>
+      <p>
+        Thesis: <q>Software Modularity in Smart Homes – OSGi as a Base for Future Products and Services</q>
+      </p>
+      <ul>
+        <li>Completed Cisco CCNA Exploration 1–4 (Network Administration).</li>
+      </ul>
+    </article>
+
+    <article aria-labelledby="edu2">
+      <header>
+        <h3 id="edu2">Student Assistant</h3>
+        <p>
+          <time datetime="2009">2009</time>
+          <span aria-hidden="true">–</span>
+          <time datetime="2011">2011</time>
+          · Jade University of Applied Sciences, Wilhelmshaven
+        </p>
+      </header>
+      <ul>
+        <li><strong>Tutor</strong> for programming course (Winter 2009).</li>
+        <li><strong>Research assistant</strong> on <q>Mobile Smart Metering</q> project (Summer 2011).</li>
+      </ul>
+    </article>
+  </section>
 
   <hr />
 
@@ -537,15 +535,61 @@ const description = `
     top: 0;
     z-index: 10;
     background-color: var(--pico-background-color);
-    padding: 0.5em 0;
+    padding: 0.125em 0 0;
+    border-bottom: 1px solid var(--pico-border-color);
+    margin-top: 1em;
   }
 
   .toc--sticky ul {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    margin: 0;
   }
 
-  /* Subtle highlight without breaking Pico’s look */
+  .toc--sticky a {
+    text-decoration: none;
+    padding: 0.125rem 0.25rem;
+    font-weight: 700;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    font-size: 0.8em;
+    border: 2px solid transparent; /* Prevent jumping */
+  }
+
+  .toc--sticky a:hover {
+    background-color: var(--pico-card-background-color);
+    border-color: var(--pico-border-color);
+  }
+
+  .toc--sticky a[aria-current="page"] {
+    background-color: var(--brand-accent);
+    color: #000;
+    border-color: var(--brand-accent); /* Use accent color for active border */
+  }
+
+  @media (max-width: 640px) {
+    .toc--sticky ul {
+      width: 100%;
+    }
+
+    .toc--sticky ul > li {
+      display: none;
+    }
+    .toc--sticky ul > li:has(a[aria-current="page"]) {
+      display: block;
+      width: 100%;
+    }
+
+    .toc--sticky a[aria-current="page"] {
+      background-color: var(--brand-accent);
+      color: #000;
+      border-color: var(--brand-accent); /* Use accent color for active border */
+      /* width 100%; */
+    }
+  }
+
+  /* Subtle highlight without breaking Pico's look */
   .case-study {
     border-left: 4px solid var(--pico-primary);
     padding: 1rem 1rem 1rem 1.25rem;
@@ -602,3 +646,59 @@ const description = `
     }
   }
 </style>
+
+<script>
+  // Active section highlighting using Intersection Observer
+  function setupSectionHighlighting() {
+    const tocLinks = document.querySelectorAll("[data-toc-link]")
+
+    // Update TOC active state
+    function updateTocActive(sectionId: string) {
+      tocLinks.forEach((link) => {
+        const href = link.getAttribute("href")
+
+        if (!href || !href.startsWith("#")) return
+
+        const linkSectionId = href.replace("#", "")
+
+        if (linkSectionId === sectionId) {
+          link.setAttribute("aria-current", "page")
+        } else {
+          link.removeAttribute("aria-current")
+        }
+      })
+    }
+
+    // Intersection Observer to watch h2 elements
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id
+            // Update URL without jumping content
+            history.pushState(null, "", `#${id}`)
+            // Update TOC active state
+            updateTocActive(id)
+          }
+        })
+      },
+      {
+        rootMargin: "-100px 0px -90% 0px", // Trigger when h2 is near top of viewport
+      },
+    )
+
+    // Watch all h2 elements with IDs
+    document.querySelectorAll("h2[id]").forEach((h2) => {
+      observer.observe(h2)
+    })
+
+    // Handle initial state (if page loads with hash)
+    const initialHash = window.location.hash.replace("#", "")
+    if (initialHash) {
+      updateTocActive(initialHash)
+    }
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", setupSectionHighlighting)
+</script>

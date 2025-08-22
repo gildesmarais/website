@@ -2,7 +2,7 @@
 
 ---
 
-<a href="#top" id="back-to-top" aria-label="Back to top">↑</a>
+<a href="#top" id="back-to-top" aria-label="Back to top">▲</a>
 
 <style is:global>
   #back-to-top {
@@ -27,12 +27,25 @@
     transition:
       opacity 0.3s ease-out,
       transform 0.3s ease-out;
+
+    /* Subtle glow effects - not overwhelming */
+    box-shadow:
+      0 0 5px rgba(255, 136, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   #back-to-top.visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  /* Subtle hover effects */
+  #back-to-top:hover {
+    box-shadow:
+      0 0 8px rgba(255, 136, 0, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
   }
 </style>
 

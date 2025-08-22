@@ -21,78 +21,57 @@ const description =
     </p>
   </Hero>
 
-  <section aria-label="Selected projects">
-    <ProjectCard
-      title="HTML2RSS"
-      status="maintained"
-      description="Generate RSS feeds from sites that never shipped one."
-      highlights={[
-        { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
-        { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
-        { term: "Normalisation", definition: "Consistent titles, authors, dates, and images." },
-        { term: "Ops", definition: "Error handling & hooks for monitoring; rolling releases." },
-        { term: "Delivery", definition: "Lightweight HTTP service to serve feeds on demand." },
-      ]}
-      links={[
-        { text: "Project site", url: "https://html2rss.github.io/", external: true },
-        { text: "Ruby gem", url: "https://github.com/html2rss/html2rss", external: true },
-        { text: "Web service", url: "https://github.com/html2rss/html2rss-web", external: true },
-        { text: "Feed configs", url: "https://github.com/html2rss/html2rss-configs", external: true },
-      ]}
-    >
-      <p>
-        <strong>Problem solved:</strong> I struggle to follow sites which don't provide RSS feeds.<br />
-        <strong>Solution:</strong> Tooling that discovers articles and produces reliable RSS feeds — including
-        JavaScript–rendered pages via headless browsers.<br />
-        <strong>Impact:</strong> Enables content discovery and reader retention for sites without RSS.
-      </p>
-    </ProjectCard>
+  <ProjectCard
+    title="HTML2RSS"
+    status="maintained"
+    description="Generate RSS feeds from sites that never shipped one."
+    highlights={[
+      { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
+      { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
+      { term: "Normalisation", definition: "Consistent titles, authors, dates, and images." },
+      { term: "Ops", definition: "Error handling & hooks for monitoring; rolling releases." },
+      { term: "Delivery", definition: "Lightweight HTTP service to serve feeds on demand." },
+    ]}
+    links={[
+      { text: "Project site", url: "https://html2rss.github.io/", external: true },
+      { text: "Ruby gem", url: "https://github.com/html2rss/html2rss", external: true },
+      { text: "Web service", url: "https://github.com/html2rss/html2rss-web", external: true },
+      { text: "Feed configs", url: "https://github.com/html2rss/html2rss-configs", external: true },
+    ]}
+  >
+    <p>
+      <strong>Problem solved:</strong> I struggle to follow sites which don't provide RSS feeds.<br />
+      <strong>Solution:</strong> Tooling that discovers articles and produces reliable RSS feeds — including JavaScript–rendered
+      pages via headless browsers.<br />
+      <strong>Impact:</strong> Enables content discovery and reader retention for sites without RSS.
+    </p>
+  </ProjectCard>
 
-    <hr role="presentation" />
+  <hr />
 
-    <ProjectCard
-      title="jekyll-loading-lazy"
-      status="stable"
-      description="Drop‑in lazy loading for Jekyll. Zero JS. Instant wins."
-      highlights={[
-        { term: "Automatic", definition: "Injects attributes into all images/iframes." },
-        { term: "Low‑touch", definition: "Works without editing content files." },
-        { term: "No JS", definition: "Removes third‑party lazy‑load scripts." },
-        { term: "Performance", definition: "Better Core Web Vitals, better UX." },
-      ]}
-      links={[
-        { text: "Intro post", url: "/posts/loading-images-lazily-with-jekyll/" },
-        { text: "Source", url: "https://github.com/gildesmarais/jekyll-loading-lazy", external: true },
-        { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
-      ]}
-    >
-      <p>
-        <strong>Problem solved:</strong> Jekyll sites load slowly due to unoptimized images, hurting SEO and user
-        experience.<br />
-        <strong>Solution:</strong> Adds <code>loading="lazy"</code> to all images and iframes at build time — no
-        template changes or extra scripts needed.<br />
-        <strong>Impact:</strong> Improves Core Web Vitals, SEO rankings, and user engagement through faster page
-        loads.
-      </p>
-    </ProjectCard>
-  </section>
+  <ProjectCard
+    title="jekyll-loading-lazy"
+    status="stable"
+    description="Drop‑in lazy loading for Jekyll. Zero JS. Instant wins."
+    highlights={[
+      { term: "Automatic", definition: "Injects attributes into all images/iframes." },
+      { term: "Low‑touch", definition: "Works without editing content files." },
+      { term: "No JS", definition: "Removes third‑party lazy‑load scripts." },
+      { term: "Performance", definition: "Better Core Web Vitals, better UX." },
+    ]}
+    links={[
+      { text: "Intro post", url: "/posts/loading-images-lazily-with-jekyll/" },
+      { text: "Source", url: "https://github.com/gildesmarais/jekyll-loading-lazy", external: true },
+      { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
+    ]}
+  >
+    <p>
+      <strong>Problem solved:</strong> Jekyll sites load slowly due to unoptimized images, hurting SEO and user
+      experience.<br />
+      <strong>Solution:</strong> Adds <code>loading="lazy"</code> to all images and iframes at build time — no
+      template changes or extra scripts needed.<br />
+      <strong>Impact:</strong> Improves Core Web Vitals, SEO rankings, and user engagement through faster page
+      loads.
+    </p>
+  </ProjectCard>
 </BaseLayout>
-
-<style>
-  section[aria-label="Selected projects"] {
-    display: grid;
-    gap: 2.5rem;
-  }
-
-  /* subtle divider spacing */
-  hr[role="presentation"] {
-    margin: 1rem 0;
-    opacity: 0.25;
-  }
-
-  @media (min-width: 720px) {
-    section[aria-label="Selected projects"] {
-      gap: 3rem;
-    }
-  }
-</style>
