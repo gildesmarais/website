@@ -303,8 +303,7 @@ const isActive = (href: string) => {
         padding: 0.35rem 0.6rem;
       }
 
-      [data-corners]::before,
-      [data-corners]::after {
+      [data-corners]::before {
         content: "";
         position: absolute;
         width: 30px;
@@ -319,17 +318,9 @@ const isActive = (href: string) => {
         border-top: var(--accent-size) solid var(--brand-accent);
       }
 
-      [data-corners]::after {
-        right: -8px;
-        bottom: -8px;
-        border-right: var(--accent-size) solid var(--brand-accent);
-        border-bottom: var(--accent-size) solid var(--brand-accent);
-      }
-
       /* --- Desktop and larger (min-width: 640px) ------------------------------ */
       @media (min-width: 640px) {
-        [data-corners]::before,
-        [data-corners]::after {
+        [data-corners]::before {
           width: 40px;
           height: 26px;
         }
@@ -337,11 +328,6 @@ const isActive = (href: string) => {
         [data-corners]::before {
           left: -12px;
           top: -12px;
-        }
-
-        [data-corners]::after {
-          right: -12px;
-          bottom: -12px;
         }
       }
     </style>
