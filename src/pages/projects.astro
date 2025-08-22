@@ -3,6 +3,7 @@ export const prerender = true
 
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
+import ProjectCard from "../components/ProjectCard.astro"
 
 const title = "Projects"
 const description =
@@ -21,147 +22,60 @@ const description =
   </Hero>
 
   <section aria-label="Selected projects">
-    <article class="project-card" data-accent>
-      <header>
-        <h2>HTML2RSS <small aria-label="project status">— maintained</small></h2>
-        <p class="lead"><em>Generate RSS feeds from sites that never shipped one.</em></p>
-      </header>
-
+    <ProjectCard
+      title="HTML2RSS"
+      status="maintained"
+      description="Generate RSS feeds from sites that never shipped one."
+      highlights={[
+        { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
+        { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
+        { term: "Normalisation", definition: "Consistent titles, authors, dates, and images." },
+        { term: "Ops", definition: "Error handling & hooks for monitoring; rolling releases." },
+        { term: "Delivery", definition: "Lightweight HTTP service to serve feeds on demand." },
+      ]}
+      links={[
+        { text: "Project site", url: "https://html2rss.github.io/", external: true },
+        { text: "Ruby gem", url: "https://github.com/html2rss/html2rss", external: true },
+        { text: "Web service", url: "https://github.com/html2rss/html2rss-web", external: true },
+        { text: "Feed configs", url: "https://github.com/html2rss/html2rss-configs", external: true },
+      ]}
+    >
       <p>
         Tooling to discover articles on a page and scrape their content — including JavaScript–rendered pages
         via a headless browser — to produce reliable RSS feeds.
       </p>
-
-      <h3>Highlights</h3>
-      <dl>
-        <dt>Discovery</dt>
-        <dd>Finds article lists automatically; no brittle selectors.</dd>
-        <dt>Dynamic sites</dt>
-        <dd>Headless rendering for SPA/JS-heavy pages.</dd>
-        <dt>Normalisation</dt>
-        <dd>Consistent titles, authors, dates, and images.</dd>
-        <dt>Ops</dt>
-        <dd>Error handling & hooks for monitoring; rolling releases.</dd>
-        <dt>Delivery</dt>
-        <dd>Lightweight HTTP service to serve feeds on demand.</dd>
-      </dl>
-
-      <h3>Links</h3>
-      <ul>
-        <li>
-          <a href="https://html2rss.github.io/" target="_blank" rel="external nofollow noopener"
-            >Project site</a
-          >
-        </li>
-        <li>
-          <a href="https://github.com/html2rss/html2rss" target="_blank" rel="external nofollow noopener"
-            >Ruby gem</a
-          >
-        </li>
-        <li>
-          <a href="https://github.com/html2rss/html2rss-web" target="_blank" rel="external nofollow noopener"
-            >Web service</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://github.com/html2rss/html2rss-configs"
-            target="_blank"
-            rel="external nofollow noopener">Feed configs</a
-          >
-        </li>
-      </ul>
-    </article>
+    </ProjectCard>
 
     <hr role="presentation" />
 
-    <article class="project-card" data-accent>
-      <header>
-        <h2>jekyll-loading-lazy <small aria-label="project status">— stable</small></h2>
-        <p class="lead"><em>Drop‑in lazy loading for Jekyll. Zero JS. Instant wins.</em></p>
-      </header>
-
+    <ProjectCard
+      title="jekyll-loading-lazy"
+      status="stable"
+      description="Drop‑in lazy loading for Jekyll. Zero JS. Instant wins."
+      highlights={[
+        { term: "Automatic", definition: "Injects attributes into all images/iframes." },
+        { term: "Low‑touch", definition: "Works without editing content files." },
+        { term: "No JS", definition: "Removes third‑party lazy‑load scripts." },
+        { term: "Performance", definition: "Better Core Web Vitals, better UX." },
+      ]}
+      links={[
+        { text: "Intro post", url: "/posts/loading-images-lazily-with-jekyll/" },
+        { text: "Source", url: "https://github.com/gildesmarais/jekyll-loading-lazy", external: true },
+        { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
+      ]}
+    >
       <p>
         Adds <code>loading="lazy"</code> to <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> at build time
         — no changes to templates, no extra scripts.
       </p>
-
-      <h3>Highlights</h3>
-      <dl>
-        <dt>Automatic</dt>
-        <dd>Injects attributes into all images/iframes.</dd>
-        <dt>Low‑touch</dt>
-        <dd>Works without editing content files.</dd>
-        <dt>No JS</dt>
-        <dd>Removes third‑party lazy‑load scripts.</dd>
-        <dt>Performance</dt>
-        <dd>Better Core Web Vitals, better UX.</dd>
-      </dl>
-
-      <h3>Links</h3>
-      <ul>
-        <li>
-          <a href="/posts/loading-images-lazily-with-jekyll/">Intro post</a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/gildesmarais/jekyll-loading-lazy"
-            target="_blank"
-            rel="external nofollow noopener">Source</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://rubygems.org/gems/jekyll-loading-lazy"
-            target="_blank"
-            rel="external nofollow noopener">RubyGems</a
-          >
-        </li>
-      </ul>
-    </article>
+    </ProjectCard>
   </section>
 </BaseLayout>
 
 <style>
-  /* Map local --accent to BaseLayout token */
-  :root {
-    --accent: var(--brand-accent, #f80);
-  }
-
   section[aria-label="Selected projects"] {
     display: grid;
     gap: 2.5rem;
-  }
-
-  .project-card header > h2 {
-    line-height: 1.1;
-    font-weight: 700;
-    color: var(--pico-h2-color);
-  }
-
-  .project-card header > h2 small {
-    font-weight: 500;
-    opacity: 0.7;
-  }
-
-  /* square, brutal bullets */
-  .project-card ul {
-    list-style: square;
-    padding-inline-start: 1.25rem;
-  }
-
-  /* compact definition list for highlights */
-  .project-card dl {
-    display: grid;
-    grid-template-columns: 10ch 1fr;
-    gap: 0.25rem 0.75rem;
-    margin: 1rem 0 1.25rem;
-  }
-  .project-card dt {
-    font-weight: 600;
-  }
-  .project-card dd {
-    margin: 0;
   }
 
   /* subtle divider spacing */
@@ -170,17 +84,9 @@ const description =
     opacity: 0.25;
   }
 
-  /* optional: bump lead size without new classes (Pico supports .lead, but keep classless friendly) */
-  p.lead {
-    font-size: 1.05rem;
-  }
-
   @media (min-width: 720px) {
     section[aria-label="Selected projects"] {
       gap: 3rem;
-    }
-    .project-card dl {
-      grid-template-columns: 12ch 1fr;
     }
   }
 </style>

@@ -3,6 +3,7 @@ export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import Hero from "../../components/Hero.astro"
+import MovieCard from "../../components/MovieCard.astro"
 import ratings from "../../data/ratings.json"
 import recommendations from "../../data/recommendations.json"
 import movies from "../../data/movies.json"
@@ -41,44 +42,20 @@ const moviesWithRatings = movies.map((movie) => {
           const isRecommendation = recommendationsSet.has(movie.const)
           const note = recommendationNotes.get(movie.const)
           return (
-            <article
-              class="movie-card"
-              data-imdb-id={movie.const}
-              data-title={movie.title}
-              data-year={movie.year}
-              data-your-rating={movie.your_rating}
-              data-imdb-rating={movie.imdb_rating}
-              data-runtime-mins={movie.runtime_mins}
-              data-is-recommendation={isRecommendation ? "true" : "false"}
+            <MovieCard
+              imdbId={movie.const}
+              title={movie.title}
+              year={movie.year}
+              yourRating={movie.your_rating || 0}
+              imdbRating={movie.imdb_rating || 0}
+              runtimeMins={movie.runtime_mins || 0}
+              genres={movie.genres || ""}
+              directors={movie.directors || ""}
+              isRecommendation={isRecommendation}
+              note={note || undefined}
             >
-              <MoviePoster imdbId={movie.const} />
-              <header>
-                <h2>
-                  <button class="imdb-link-button">
-                    {movie.title} ({movie.year})
-                  </button>
-                </h2>
-              </header>
-              <p class="ratings">
-                <span class="your-rating">My Rating: {movie.your_rating}/10</span>
-                <span class="imdb-rating">IMDb: {movie.imdb_rating}/10</span>
-              </p>
-              <div class="grid metadata-grid">
-                <p>
-                  <strong>Genre:</strong>
-                </p>
-                <p>{movie.genres}</p>
-                <p>
-                  <strong>Runtime:</strong>
-                </p>
-                <p>{movie.runtime_mins} mins</p>
-                <p>
-                  <strong>Director:</strong>
-                </p>
-                <p>{movie.directors}</p>
-              </div>
-              {isRecommendation && note && <p class="note">{note}</p>}
-            </article>
+              <MoviePoster slot="poster" imdbId={movie.const} />
+            </MovieCard>
           )
         })
       }
@@ -100,83 +77,6 @@ const moviesWithRatings = movies.map((movie) => {
     padding: var(--pico-spacing) 0;
   }
 
-  .recommendations-grid article {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: var(--pico-card-background-color); /* Add a background to the card */
-    border: 1px solid var(--pico-border-color);
-    border-radius: var(--pico-border-radius);
-    padding: var(--pico-spacing); /* Add padding inside the card */
-  }
-
-  .recommendations-grid article h2 {
-    margin-top: 0;
-    margin-bottom: var(--pico-spacing-sm);
-    font-size: 1.5em;
-    color: var(--pico-h2-color);
-  }
-
-  .recommendations-grid article h2 button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: inherit;
-    font-family: inherit;
-    color: var(--pico-color);
-    text-align: left;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline */
-  }
-
-  .recommendations-grid article h2 button:hover {
-    color: var(--pico-primary-hover);
-    text-decoration: underline; /* Add underline on hover for button */
-  }
-
-  .recommendations-grid article p {
-    margin-bottom: var(--pico-spacing-xs);
-    line-height: 1.4;
-    color: var(--pico-color);
-  }
-
-  .recommendations-grid article p strong {
-    color: var(--pico-muted-color);
-  }
-
-  .recommendations-grid article p:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .recommendations-grid article p:not(.note) {
-    font-size: 0.9em;
-  }
-
-  .recommendations-grid article .ratings {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.1em;
-    font-weight: bold;
-    margin-bottom: var(--pico-spacing-sm);
-  }
-
-  .recommendations-grid article .your-rating {
-    color: var(--pico-primary);
-  }
-
-  .recommendations-grid article .imdb-rating {
-    color: var(--pico-secondary);
-  }
-
-  .recommendations-grid article .note {
-    font-style: italic;
-    color: var(--pico-muted-color);
-    margin-top: auto; /* Pushes the note to the bottom */
-    border-top: 1px solid var(--pico-muted-border-color);
-    padding-top: var(--pico-spacing-sm);
-  }
-
   .sort-buttons {
     margin-bottom: var(--pico-spacing);
   }
@@ -195,17 +95,5 @@ const moviesWithRatings = movies.map((movie) => {
 
   .sort-buttons button[data-filter-by][data-sort-dir="asc"]::after {
     content: " ✓";
-  }
-
-  /* Adjust grid for metadata within the card */
-  .recommendations-grid article .metadata-grid {
-    grid-template-columns: auto 1fr; /* Labels take minimal space, values fill rest */
-    gap: var(--pico-spacing-xs) var(--pico-spacing-sm);
-    margin-bottom: var(--pico-spacing-sm);
-  }
-
-  .recommendations-grid article .metadata-grid p {
-    margin-bottom: 0; /* Remove default paragraph margin within grid */
-    font-size: 0.9em; /* Keep consistent with other non-note paragraphs */
   }
 </style>

@@ -14,19 +14,19 @@ const { title, categories } = Astro.props
 
 <section class="skills-list">
   {title && <h2 id="skills-heading">{title}</h2>}
-  <dl>
+  <dl class="skills-grid">
     {
       categories.map(({ label, skills }) => (
-        <>
-          <dt>{label}</dt>
+        <div class="skill-category">
+          <dt class="category-label">{label}</dt>
           <dd>
-            <ul role="list">
+            <ul class="skills-list">
               {skills.map((s) => (
                 <li>{s}</li>
               ))}
             </ul>
           </dd>
-        </>
+        </div>
       ))
     }
   </dl>
@@ -38,70 +38,112 @@ const { title, categories } = Astro.props
     margin-block: var(--pico-spacing);
     max-width: 90rem;
   }
+
   .skills-list > h2 {
     margin-block-end: calc(var(--pico-spacing) * 0.25);
     letter-spacing: 0.015em;
   }
-  .skills-list > dl {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 0.25rem 0;
-    align-items: start;
-    padding-block: 0.25rem;
-    border-top: 1px solid var(--pico-muted-border-color);
-    border-bottom: 1px solid var(--pico-muted-border-color);
+
+  /* Skills grid container */
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 1rem;
+    border-top: 3px solid var(--pico-border-color);
+    border-bottom: 3px solid var(--pico-border-color);
   }
 
-  /* Alternating row tint for readability */
-  .skills-list dt:nth-of-type(odd),
-  .skills-list dd:nth-of-type(odd) {
-    background: color-mix(in oklab, var(--pico-background-color), white 2%);
+  /* Individual skill category */
+  .skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  /* Category labels */
-  dt {
-    color: var(--pico-muted-color);
-    font-weight: 600;
-    line-height: 1.2;
-    padding-block: 0.35rem;
+  /* Category label (dt) - brutalist styling to match Highlights component */
+  .skill-category dt.category-label {
+    background: var(--brand-accent);
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border: 3px solid var(--brand-accent);
+    border-radius: 0;
     white-space: nowrap;
+    margin: 0;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-block;
+    width: fit-content;
   }
 
-  /* List of skills */
-  dd {
+  /* Skills list within each category (dd) */
+  .skill-category dd {
     margin: 0;
-    padding-block: 0.25rem;
+    padding: 0;
+    border: none;
   }
-  dd > ul[role="list"] {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+
+  .skill-category dd .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem 0.55rem;
+    gap: 0.75rem 1rem;
   }
 
-  /* Tokens */
-  dd > ul[role="list"] > li {
+  /* Individual skill tokens - brutalist styling */
+  .skill-category dd .skills-list li {
     list-style: none;
-    border: 1px solid var(--pico-muted-border-color);
-    border-radius: var(--pico-border-radius);
-    padding: 0.18rem 0.5rem;
+    border: 2px solid var(--brand-accent);
+    border-radius: 0;
+    padding: 0.5rem 1rem;
     line-height: 1.35;
-    font-size: 0.9em;
-    background: linear-gradient(
-      to bottom,
-      color-mix(in oklab, var(--pico-card-background-color)),
-      color-mix(in oklab, var(--pico-background-color))
-    );
-    box-shadow: inset 0 1px 0 color-mix(in oklab, var(--pico-background-color), white 8%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--pico-card-background-color);
+    box-shadow: none;
+    color: var(--pico-color);
+    transition: all 0.2s ease;
   }
 
-  /* --- Desktop (min-width) ------------------------------------------------ */
+  .skill-category dd .skills-list li:hover {
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: #000;
+  }
+
+  /* --- Desktop (min-width: 761px) ------------------------------------------------ */
   @media (min-width: 761px) {
-    .skills-list > dl {
-      grid-template-columns: minmax(14ch, 18ch) 1fr;
-      gap: 0.4rem 1rem;
+    .skills-grid {
+      column-count: 2;
+      column-gap: 3rem;
+      gap: 0;
+    }
+
+    .skill-category {
+      break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+
+    .category-label {
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+
+    .skill-category .skills-list {
+      gap: 0.75rem 1rem;
+    }
+  }
+
+  /* --- Large Desktop (min-width: 1200px) ------------------------------------------------ */
+  @media (min-width: 1200px) {
+    .skills-grid {
+      column-count: 3;
+      column-gap: 4rem;
     }
   }
 </style>

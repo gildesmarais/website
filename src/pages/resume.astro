@@ -5,6 +5,7 @@ import SkillsMatrix from "../components/SkillsMatrix.astro"
 import { skills } from "../data/skills"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
+import Highlights from "../components/Highlights.astro"
 
 const title = "Résumé"
 const robots = "index, noarchive, follow"
@@ -23,11 +24,13 @@ const description = `
     description="Engineering Team Lead focused on platform, identity, and reliability. I ship boring-by-default, idiomatic systems that increase delivery velocity and reduce operating cost."
   />
 
-  <ul>
-    <li><strong>Location:</strong> Berlin (hybrid, 99% remote)</li>
-    <li><strong>Focus:</strong> Identity & Platform · Reliability · Security</li>
-    <li><strong>Languages:</strong> German (native) · English (fluent)</li>
-  </ul>
+  <Highlights
+    highlights={[
+      { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
+      { term: "Focus", definition: "Identity & Platform · Reliability · Security" },
+      { term: "Languages", definition: "German (native) · English (fluent)" },
+    ]}
+  />
 
   <!-- Table of Contents -->
   <nav class="toc--sticky" aria-label="Table of Contents">

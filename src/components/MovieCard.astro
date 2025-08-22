@@ -1,0 +1,191 @@
+---
+export interface Props {
+  imdbId: string
+  title: string
+  year: number
+  yourRating: number
+  imdbRating: number
+  runtimeMins: number
+  genres: string
+  directors: string
+  isRecommendation: boolean
+  note?: string
+}
+
+const {
+  imdbId,
+  title,
+  year,
+  yourRating,
+  imdbRating,
+  runtimeMins,
+  genres,
+  directors,
+  isRecommendation,
+  note,
+} = Astro.props
+---
+
+<article
+  class="movie-card"
+  data-imdb-id={imdbId}
+  data-title={title}
+  data-year={year}
+  data-your-rating={yourRating}
+  data-imdb-rating={imdbRating}
+  data-runtime-mins={runtimeMins}
+  data-is-recommendation={isRecommendation ? "true" : "false"}
+>
+  <div class="poster-container">
+    <slot name="poster" />
+    {isRecommendation && <div class="recommendation-badge">★</div>}
+  </div>
+
+  <header>
+    <h2>
+      <button class="imdb-link-button">
+        {title} ({year})
+      </button>
+    </h2>
+  </header>
+
+  <div class="ratings">
+    <span class="your-rating">My Rating: {yourRating}/10</span>
+    <span class="imdb-rating">IMDb: {imdbRating}/10</span>
+  </div>
+
+  <div class="metadata">
+    <div class="metadata-row">
+      <strong>Genre:</strong>
+      <span>{genres}</span>
+    </div>
+    <div class="metadata-row">
+      <strong>Runtime:</strong>
+      <span>{runtimeMins} mins</span>
+    </div>
+    <div class="metadata-row">
+      <strong>Director:</strong>
+      <span>{directors}</span>
+    </div>
+  </div>
+
+  {isRecommendation && note && <p class="note">{note}</p>}
+</article>
+
+<style>
+  .movie-card {
+    background: var(--pico-card-background-color);
+    border: 3px solid var(--pico-border-color);
+    border-radius: 0;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .movie-card:hover {
+    border-color: var(--brand-accent);
+  }
+
+  .poster-container {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .recommendation-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: var(--brand-accent);
+    color: #000;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 2px solid var(--pico-background-color);
+  }
+
+  .movie-card header h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .imdb-link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: var(--pico-color);
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
+  .imdb-link-button:hover {
+    color: var(--brand-accent);
+    text-decoration: underline;
+  }
+
+  .ratings {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .your-rating {
+    color: var(--brand-accent);
+    font-weight: 600;
+  }
+
+  .imdb-rating {
+    color: var(--pico-muted-color);
+  }
+
+  .metadata {
+    margin-bottom: 1rem;
+  }
+
+  .metadata-row {
+    display: grid;
+    grid-template-columns: 6ch 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .metadata-row strong {
+    color: var(--pico-muted-color);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+  }
+
+  .note {
+    margin-top: auto;
+    padding: 1rem;
+    background: var(--pico-background-color);
+    border-left: 4px solid var(--brand-accent);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 640px) {
+    .movie-card {
+      padding: 2rem;
+    }
+
+    .metadata-row {
+      grid-template-columns: 8ch 1fr;
+    }
+  }
+</style>
