@@ -6,9 +6,7 @@
 }
 
 .hero h1 {
-  position: relative;
   display: inline-block;
-  padding: 0.35rem 0.6rem;
 
   font-weight: 900;
   line-height: 1.05;
@@ -19,30 +17,6 @@
   margin-bottom: 2rem;
 }
 
-/* Corner brackets */
-.hero h1::before,
-.hero h1::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 20px;
-  pointer-events: none;
-}
-
-.hero h1::before {
-  left: -8px;
-  top: -8px;
-  border-left: var(--accent-size) solid var(--brand-accent);
-  border-top: var(--accent-size) solid var(--brand-accent);
-}
-
-.hero h1::after {
-  right: -8px;
-  bottom: -8px;
-  border-right: var(--accent-size) solid var(--brand-accent);
-  border-bottom: var(--accent-size) solid var(--brand-accent);
-}
-
 /* --- Desktop and larger (min-width: 640px) ------------------------------ */
 @media (min-width: 640px) {
   .hero {
@@ -51,21 +25,5 @@
 
   .hero h1 {
     font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
-  }
-
-  .hero h1::before,
-  .hero h1::after {
-    width: 40px;
-    height: 26px;
-  }
-
-  .hero h1::before {
-    left: -12px;
-    top: -12px;
-  }
-
-  .hero h1::after {
-    right: -12px;
-    bottom: -12px;
   }
 }

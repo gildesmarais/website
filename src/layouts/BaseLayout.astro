@@ -173,7 +173,7 @@ const isActive = (href: string) => {
       /* Always-visible, readable link underlines (dark & light) */
       main a {
         text-decoration-line: underline;
-        text-decoration-thickness: var(--accent-size);
+        text-decoration-thickness: 3px;
         text-underline-offset: 0.15em;
         text-decoration-skip-ink: auto;
       }
@@ -233,6 +233,54 @@ const isActive = (href: string) => {
         border-inline-start: var(--accent-size) solid var(--brand-accent);
         padding-inline-start: var(--pico-block-spacing-vertical);
         border-radius: 0;
+      }
+
+      /* Corner brackets */
+      [data-corners] {
+        position: relative;
+        padding: 0.35rem 0.6rem;
+      }
+
+      [data-corners]::before,
+      [data-corners]::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        pointer-events: none;
+      }
+
+      [data-corners]::before {
+        left: -8px;
+        top: -8px;
+        border-left: var(--accent-size) solid var(--brand-accent);
+        border-top: var(--accent-size) solid var(--brand-accent);
+      }
+
+      [data-corners]::after {
+        right: -8px;
+        bottom: -8px;
+        border-right: var(--accent-size) solid var(--brand-accent);
+        border-bottom: var(--accent-size) solid var(--brand-accent);
+      }
+
+      /* --- Desktop and larger (min-width: 640px) ------------------------------ */
+      @media (min-width: 640px) {
+        [data-corners]::before,
+        [data-corners]::after {
+          width: 40px;
+          height: 26px;
+        }
+
+        [data-corners]::before {
+          left: -12px;
+          top: -12px;
+        }
+
+        [data-corners]::after {
+          right: -12px;
+          bottom: -12px;
+        }
       }
     </style>
     <style is:global>

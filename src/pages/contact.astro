@@ -17,7 +17,7 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
 
 <BaseLayout title={title} description={description} robots={robots}>
   <header class="hero">
-    <h1>{title}</h1>
+    <h1 data-corners>{title}</h1>
     <p class="lead">Prefer concise, async communication. Email works best.</p>
   </header>
 
@@ -29,7 +29,7 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
     </p>
   </aside>
 
-  <section aria-labelledby="contact-direct" data-accent>
+  <section>
     <h2 id="contact-direct">Direct</h2>
     <dl>
       <dt>Email</dt>
@@ -37,10 +37,8 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("Hi Gil")}&body=${e
         <a href={mailto}>{email}</a>
       </dd>
     </dl>
-  </section>
 
-  <section aria-labelledby="contact-profiles" data-accent>
-    <h2 id="contact-profiles">Profiles</h2>
+    <h2 id="contact-socials">Socials</h2>
     <ul>
       {
         socials.map((l) => (

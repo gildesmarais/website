@@ -10,7 +10,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft && data.sho
 
 <BaseLayout title={title} description={description}>
   <header class="hero">
-    <h1>{title}</h1>
+    <h1 data-corners>{title}</h1>
     <p class="lead">
       Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or <a
         href="/feed.xml">subscribe to the RSS feed</a

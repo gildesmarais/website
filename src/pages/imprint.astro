@@ -11,9 +11,7 @@ const robots = "noindex, noarchive, follow"
 ---
 
 <BaseLayout language={language} title={title} description={description} robots={robots}>
-  <header class="hero">
-    <h1>{title}</h1>
-  </header>
+  <h1>{title}</h1>
 
   <p><strong>Betreiber</strong>: {legal.operatorName}</p>
   {
@@ -85,8 +83,6 @@ const robots = "noindex, noarchive, follow"
 </BaseLayout>
 
 <style>
-  @import "../assets/hero.css";
-
   .human-only {
     user-select: none;
     pointer-events: none;
