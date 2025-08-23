@@ -5,9 +5,6 @@ description: The ratings of the fourth round are in.
 tags:
   - movie
   - reference
-  - ---
-  -
-  - The question <q>What do we watch?</q> is a tough one to answer.
 ---
 
 The question <q>What do we watch?</q> is a tough one to answer.
