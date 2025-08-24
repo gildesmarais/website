@@ -3,14 +3,32 @@ import BaseLayout from "./BaseLayout.astro"
 const { title, date, description, language } = Astro.props
 ---
 
+<BaseLayout title={title} description={description} language={language}>
+  <article data-corners>
+    <div class="width">
+      <header>
+        <hgroup>
+          <h1>{title}</h1>
+          {
+            date && (
+              <p>
+                <time datetime={new Date(date).toISOString()}>
+                  {new Date(date).toISOString().split("T")[0]}
+                </time>
+              </p>
+            )
+          }
+        </hgroup>
+        {description && <p>{description}</p>}
+      </header>
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
 <style>
-  /* Long-read improvements for Pico */
   article {
-    max-width: 70ch; /* Ideal reading measure */
-    margin-inline: auto; /* Center column */
-    line-height: 1.6; /* Comfortable paragraph spacing */
-    font-size: 1.125rem; /* Slightly larger text */
-    padding-inline: 1rem; /* Breathing room on mobile */
+    background-color: transparent;
   }
 
   article p + p {
@@ -19,9 +37,20 @@ const { title, date, description, language } = Astro.props
 
   article h1,
   article h2,
-  article h3 {
-    margin-top: 2em; /* Distinct section spacing */
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    text-align: left;
+    hyphens: manual;
+    margin-top: 2em;
     margin-bottom: 0.6em;
+    line-height: 1.16;
+  }
+
+  article h1 {
+    margin-top: 0;
+    font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
   }
 
   article blockquote {
@@ -35,25 +64,11 @@ const { title, date, description, language } = Astro.props
     border-radius: var(--pico-border-radius);
     padding: 0.2rem 0.4rem;
   }
-</style>
 
-<BaseLayout title={title} description={description} language={language}>
-  <article>
-    <header>
-      <hgroup>
-        <h1 data-corners>{title}</h1>
-        {
-          date && (
-            <p>
-              <time datetime={new Date(date).toISOString()}>
-                {new Date(date).toISOString().split("T")[0]}
-              </time>
-            </p>
-          )
-        }
-      </hgroup>
-      {description && <p>{description}</p>}
-    </header>
-    <slot />
-  </article>
-</BaseLayout>
+  .width {
+    max-width: 60ch;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+  }
+</style>

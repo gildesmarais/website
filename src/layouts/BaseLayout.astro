@@ -167,7 +167,7 @@ const isActive = (href: string) => {
       }
 
       abbr[title] {
-        border-bottom-color: var(--brand-accent);
+        border-bottom: 1px solid var(--brand-accent);
       }
 
       /* Always-visible, readable link underlines (dark & light) */
@@ -259,19 +259,13 @@ const isActive = (href: string) => {
         padding: 0.5rem 1rem;
         background: transparent;
         color: var(--pico-color);
-        border: 2px solid var(--pico-border-color);
+        border: 2px solid var(--brand-accent);
         border-radius: 0;
         font-weight: 500;
         font-size: 0.9rem;
         cursor: pointer;
         transition: all 0.2s ease;
         text-decoration: none;
-      }
-
-      .minimal-btn:hover {
-        border-color: var(--brand-accent);
-        color: var(--brand-accent);
-        background: transparent;
       }
 
       .minimal-btn:active {
@@ -298,47 +292,35 @@ const isActive = (href: string) => {
         --brand-accent-focus: hsla(32, 100%, 50%, 0.35); /* focus ring */
         --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
 
-        --accent-size: 0.2rem;
+        --accent-size: 0.25rem;
       }
 
       [data-accent] {
         border-inline-start: var(--accent-size) solid var(--brand-accent);
-        padding-inline-start: var(--pico-block-spacing-vertical);
+        padding-inline-start: 0.7rem;
         border-radius: 0;
       }
 
       /* Corner brackets */
       [data-corners] {
         position: relative;
-        padding: 0.35rem 0.6rem;
+        padding-top: 0.3rem;
+        padding-left: 0.7rem;
       }
 
       [data-corners]::before {
         content: "";
         position: absolute;
-        width: 30px;
-        height: 20px;
+        width: 1rem;
+        height: 1.05rem;
         pointer-events: none;
+        left: 0;
+        top: 0;
       }
 
       [data-corners]::before {
-        left: -8px;
-        top: -8px;
         border-left: var(--accent-size) solid var(--brand-accent);
         border-top: var(--accent-size) solid var(--brand-accent);
-      }
-
-      /* --- Desktop and larger (min-width: 640px) ------------------------------ */
-      @media (min-width: 640px) {
-        [data-corners]::before {
-          width: 40px;
-          height: 26px;
-        }
-
-        [data-corners]::before {
-          left: -12px;
-          top: -12px;
-        }
       }
     </style>
     <style is:global>
@@ -522,8 +504,11 @@ const isActive = (href: string) => {
     <footer>
       <section class="container">
         <small>
-          <a href="/imprint" aria-current={isActive("/imprint") ? "page" : undefined} class="secondary"
-            >Imprint & Privacy</a
+          <a
+            href="/imprint"
+            aria-current={isActive("/imprint") ? "page" : undefined}
+            class="secondary"
+            lang="de">Imprint & Privacy</a
           >
         </small>
       </section>

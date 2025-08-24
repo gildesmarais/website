@@ -442,9 +442,7 @@ const description = `
 
   <!-- Case Study - Always visible -->
   <section aria-labelledby="cs-portal">
-    <h2 id="cs-portal" class="section-headline" data-accent>
-      Case study: Portal relaunch
-    </h2>
+    <h2 id="cs-portal" class="section-headline" data-accent>Case study: Portal relaunch</h2>
 
     <p>
       <strong>Context:</strong> Agency-owned city portal built around interactive virtual tours with three audiences:
@@ -545,11 +543,12 @@ const description = `
     color: var(--pico-muted-color);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin: 0 0 0.5em 0;
+    padding-left: 0.6rem;
   }
 
   .toc-list {
-    /* letter-spacing: -.1px; */
+    letter-spacing: -0.01rem;
+    line-height: 1.25;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -590,7 +589,7 @@ const description = `
     top: 0;
     z-index: 10;
     background-color: var(--pico-background-color);
-    padding: var(--pico-spacing);
+    padding: 0 var(--pico-spacing) 0 0.7rem;
     border-bottom: 1px solid var(--pico-border-color);
     /* margin-bottom: var(--pico-spacing); */
     margin-bottom: 0;

@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import wordmark from "../assets/images/wordmark.svg"
-import logo from "../assets/images/logo.svg"
+import logo from "../assets/images/logo-borderless.svg"
 const { siteName = "Gil Desmarais" } = Astro.props
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
 
@@ -93,15 +92,13 @@ const isActive = (href: string) => {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem 0;
   }
 
   .nav-header img {
-    margin-left: -12px; /* Adjust margin to align logo */
-
-    height: 48px; /* Ensure logo is consistent */
+    height: 3rem; /* Ensure logo is consistent */
     width: auto; /* Maintain aspect ratio */
   }
+
   #menu-toggle {
     display: flex;
     align-items: center;
@@ -124,9 +121,11 @@ const isActive = (href: string) => {
   #menu-toggle .icon-close {
     display: none;
   }
+
   #menu-toggle[aria-expanded="true"] .icon-close {
     display: block;
   }
+
   #menu-toggle[aria-expanded="true"] .icon-menu {
     display: none;
   }
@@ -140,6 +139,7 @@ const isActive = (href: string) => {
     width: 100%;
     gap: 0.5rem;
   }
+
   #main-nav-list.is-open {
     display: flex; /* Display when button is clicked */
   }
@@ -151,31 +151,38 @@ const isActive = (href: string) => {
       align-items: center;
       justify-content: space-around;
     }
+
     .nav-header {
       padding: 0;
       justify-content: flex-start;
     }
+
     #menu-toggle {
       display: none; /* Hide toggle button on desktop */
     }
+
     #main-nav-list {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
       width: auto;
-      gap: 1.5rem;
+      margin-bottom: -5px; /* align items on bottom */
     }
   }
 
   /* --- General link and list item styles ---------------------------------- */
-  nav #main-nav-list > li > a {
+  #main-nav-list > li {
+    padding-bottom: 0;
+  }
+
+  #main-nav-list > li > a {
     color: var(--pico-text-color); /* Use a more appropriate Pico variable */
     text-decoration: none;
     position: relative;
     padding-bottom: 2px;
   }
-  nav #main-nav-list > li > a:after {
+  #main-nav-list > li > a:after {
     content: "";
     position: absolute;
     left: 0;
@@ -185,12 +192,12 @@ const isActive = (href: string) => {
     background: var(--brand-accent);
     transition: width 0.2s ease;
   }
-  nav #main-nav-list > li > a:hover:after,
-  nav #main-nav-list > li > a[aria-current="page"]:after {
+  #main-nav-list > li > a:hover:after,
+  #main-nav-list > li > a[aria-current="page"]:after {
     width: 100%;
   }
 
-  nav #main-nav-list > li > a[aria-current="page"] {
+  #main-nav-list > li > a[aria-current="page"] {
     font-weight: bold;
   }
 </style>
