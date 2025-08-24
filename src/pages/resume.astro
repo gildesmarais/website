@@ -32,21 +32,22 @@ const description = `
     ]}
   />
 
-  <!-- Table of Contents - Moved before first section -->
-  <nav class="toc--sticky" aria-label="Table of Contents">
-    <ul>
-      <li><a href="#executive-summary" data-toc-link>Executive Summary</a></li>
-      <li><a href="#exp" data-toc-link>Experience</a></li>
-      <li><a href="#service" data-toc-link>Service</a></li>
-      <li><a href="#skills" data-toc-link>Skills</a></li>
-      <li><a href="#cs-portal" data-toc-link>Case study</a></li>
-      <li><a href="#education" data-toc-link>Education</a></li>
+  <!-- Table of Contents - Mobile-friendly for recruiters -->
+  <nav class="toc" aria-label="Resume Sections">
+    <h3 class="toc-title" data-accent>Table of Contents</h3>
+    <ul class="toc-list">
+      <li><a href="#executive-summary">Executive Summary</a></li>
+      <li><a href="#exp">Professional Experience</a></li>
+      <li><a href="#service">Military Service</a></li>
+      <li><a href="#skills">Technical Skills</a></li>
+      <li><a href="#cs-portal">Case Study</a></li>
+      <li><a href="#education">Education</a></li>
     </ul>
   </nav>
 
   <!-- Executive Summary -->
   <section aria-labelledby="executive-summary">
-    <h2 id="executive-summary" data-accent>Executive Summary</h2>
+    <h2 id="executive-summary" data-accent class="section-headline">Executive Summary</h2>
     <p>
       Engineering Team Lead who creates systemic clarity. I don't optimize for efficiency's sake — I optimize
       because clarity, resilience, and simplicity create leverage for the business. My work removes hidden
@@ -61,7 +62,7 @@ const description = `
 
   <!-- Experience Section -->
   <section aria-labelledby="exp">
-    <h2 id="exp" data-accent>Experience</h2>
+    <h2 id="exp" data-accent class="section-headline">Experience</h2>
 
     <!-- Current role - Always visible -->
     <article aria-labelledby="etl-platform">
@@ -401,7 +402,7 @@ const description = `
 
   <!-- Service Section - Always visible -->
   <section aria-labelledby="service">
-    <h2 id="service" data-accent>Service</h2>
+    <h2 id="service" data-accent class="section-headline">Service</h2>
 
     <article aria-labelledby="military">
       <h3 id="military">Military Service — IT & Network Support, German Air Force</h3>
@@ -433,16 +434,16 @@ const description = `
 
   <!-- Skills Section - Always visible -->
   <section aria-labelledby="skills">
-    <h2 id="skills" data-accent>Skills</h2>
+    <h2 id="skills" data-accent class="section-headline">Skills</h2>
     <SkillsMatrix categories={skills} />
   </section>
 
   <hr />
 
   <!-- Case Study - Always visible -->
-  <section class="case-study" aria-labelledby="cs-portal" data-corners>
-    <h2 id="cs-portal">
-      <span aria-hidden="true">📊</span> Case study — Portal relaunch
+  <section aria-labelledby="cs-portal">
+    <h2 id="cs-portal" class="section-headline" data-accent>
+      Case study: Portal relaunch
     </h2>
 
     <p>
@@ -481,7 +482,7 @@ const description = `
 
   <!-- Education Section - Always visible -->
   <section aria-labelledby="education">
-    <h2 id="education" data-accent>Education</h2>
+    <h2 id="education" data-accent class="section-headline">Education</h2>
 
     <article aria-labelledby="edu1">
       <header>
@@ -530,69 +531,73 @@ const description = `
 </BaseLayout>
 
 <style>
-  .toc--sticky {
+  /* Table of Contents Styling */
+  .toc {
+    margin: 5rem 0 2.5rem 0;
+    padding: 0;
+    /* Override Pico's nav defaults */
+    display: block !important;
+    justify-content: unset !important;
+  }
+
+  .toc-title {
+    font-size: 0.9em;
+    color: var(--pico-muted-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5em 0;
+  }
+
+  .toc-list {
+    /* letter-spacing: -.1px; */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toc-list li {
+    padding: 0 0 0.25em 0;
+    font-size: 0.9em;
+  }
+
+  .toc-list a {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .toc-list a:hover {
+    color: var(--pico-primary-color);
+  }
+
+  .toc-list a:focus {
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    .toc-title {
+      font-size: 0.85em;
+    }
+
+    .toc-list a {
+      font-size: 0.95em;
+    }
+  }
+
+  /* Sticky section headlines */
+  .section-headline {
     position: sticky;
     top: 0;
     z-index: 10;
     background-color: var(--pico-background-color);
-    padding: 0.125em 0 0;
+    padding: var(--pico-spacing);
     border-bottom: 1px solid var(--pico-border-color);
-    margin-top: 1em;
+    /* margin-bottom: var(--pico-spacing); */
+    margin-bottom: 0;
   }
 
-  .toc--sticky ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-  }
-
-  .toc--sticky a {
-    text-decoration: none;
-    padding: 0.125rem 0.25rem;
-    font-weight: 700;
-    border-radius: 0;
-    transition: all 0.2s ease;
-    font-size: 0.8em;
-    border: 2px solid transparent; /* Prevent jumping */
-  }
-
-  .toc--sticky a:hover {
-    background-color: var(--pico-card-background-color);
-    border-color: var(--pico-border-color);
-  }
-
-  .toc--sticky a[aria-current="page"] {
-    background-color: var(--brand-accent);
-    color: #000;
-    border-color: var(--brand-accent); /* Use accent color for active border */
-  }
-
-  @media (max-width: 640px) {
-    .toc--sticky ul {
-      width: 100%;
-    }
-
-    .toc--sticky ul > li {
-      display: none;
-    }
-    .toc--sticky ul > li:has(a[aria-current="page"]) {
-      display: block;
-      width: 100%;
-    }
-
-    .toc--sticky a[aria-current="page"] {
-      background-color: var(--brand-accent);
-      color: #000;
-      border-color: var(--brand-accent); /* Use accent color for active border */
-      /* width 100%; */
-    }
-  }
-
-  /* Subtle highlight without breaking Pico's look */
-  .case-study {
-    padding: 1rem 1rem 1rem 1.25rem;
-    margin-block: 1.5rem;
+  .section-headline + * {
+    margin-top: var(--pico-spacing);
   }
 
   /* monospace for time + location */
@@ -601,59 +606,3 @@ const description = `
     letter-spacing: -0.01em;
   }
 </style>
-
-<script>
-  // Active section highlighting using Intersection Observer
-  function setupSectionHighlighting() {
-    const tocLinks = document.querySelectorAll("[data-toc-link]")
-
-    // Update TOC active state
-    function updateTocActive(sectionId: string) {
-      tocLinks.forEach((link) => {
-        const href = link.getAttribute("href")
-
-        if (!href || !href.startsWith("#")) return
-
-        const linkSectionId = href.replace("#", "")
-
-        if (linkSectionId === sectionId) {
-          link.setAttribute("aria-current", "page")
-        } else {
-          link.removeAttribute("aria-current")
-        }
-      })
-    }
-
-    // Intersection Observer to watch h2 elements
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id
-            // Update URL without jumping content
-            history.pushState(null, "", `#${id}`)
-            // Update TOC active state
-            updateTocActive(id)
-          }
-        })
-      },
-      {
-        rootMargin: "-100px 0px -90% 0px", // Trigger when h2 is near top of viewport
-      },
-    )
-
-    // Watch all h2 elements with IDs
-    document.querySelectorAll("h2[id]").forEach((h2) => {
-      observer.observe(h2)
-    })
-
-    // Handle initial state (if page loads with hash)
-    const initialHash = window.location.hash.replace("#", "")
-    if (initialHash) {
-      updateTocActive(initialHash)
-    }
-  }
-
-  // Initialize when DOM is ready
-  document.addEventListener("DOMContentLoaded", setupSectionHighlighting)
-</script>
