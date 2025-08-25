@@ -3,3 +3,4 @@ npm-debug.log
 .astro
 dist/
 .vercel
+.env
