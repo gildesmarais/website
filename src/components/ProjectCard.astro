@@ -14,8 +14,8 @@ const { title, status, description, highlights, links } = Astro.props
 
 <article class="project-card">
   <header>
-    <h2>{title} <small aria-label="project status">— {status}</small></h2>
-    <p class="lead"><em>{description}</em></p>
+    <h2 data-accent>{title} <small aria-label="project status">— {status}</small></h2>
+    <p class="lead">{description}</p>
   </header>
 
   <slot />
@@ -52,6 +52,10 @@ const { title, status, description, highlights, links } = Astro.props
 </article>
 
 <style>
+  .project-card {
+    padding: 0;
+  }
+
   .project-card header > h2 small {
     font-weight: 500;
     opacity: 0.7;
@@ -63,16 +67,9 @@ const { title, status, description, highlights, links } = Astro.props
   }
 
   .project-card a {
-    border-radius: 0;
     color: var(--pico-color);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-  }
-
-  .project-card a:hover {
-    text-decoration: underline;
   }
 </style>
