@@ -1,5 +1,6 @@
 ---
 import PostLayout from "../../layouts/PostLayout.astro"
+import TableOfContents from "../../components/TableOfContents.astro"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content, headings } = await post.render()
 ---
 
 <PostLayout
@@ -20,5 +21,6 @@ const { Content } = await post.render()
   date={post.data.date}
   language={post.data.language}
 >
+  <TableOfContents headings={headings} />
   <Content />
 </PostLayout>

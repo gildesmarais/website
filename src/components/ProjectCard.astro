@@ -10,11 +10,20 @@ export interface Props {
 }
 
 const { title, status, description, highlights, links } = Astro.props
+
+if (title.includes(" ")) {
+  throw new Error(
+    "Project title must be a single word (for slug/ID purposes). TODO: Improve heading id generation.",
+  )
+}
 ---
 
 <article class="project-card">
   <header>
-    <h2 data-accent>{title} <small aria-label="project status">— {status}</small></h2>
+    <h2 data-accent id={title.toLowerCase()}>
+      {title}
+      <small aria-label="project status">— {status}</small>
+    </h2>
     <p class="lead">{description}</p>
   </header>
 

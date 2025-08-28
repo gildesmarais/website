@@ -2,6 +2,7 @@
 export const prerender = true
 
 import SkillsMatrix from "../components/SkillsMatrix.astro"
+import TableOfContents from "../components/TableOfContents.astro"
 import { skills } from "../data/skills"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
@@ -16,6 +17,16 @@ const description = `
   frame trade-offs clearly, and drive change incrementally
   based on impact vs. effort.
   `
+
+// Define headings for the TOC
+const resumeHeadings = [
+  { depth: 2, slug: "executive-summary", text: "Executive Summary" },
+  { depth: 2, slug: "exp", text: "Professional Experience" },
+  { depth: 2, slug: "service", text: "Military Service" },
+  { depth: 2, slug: "skills", text: "Technical Skills" },
+  { depth: 2, slug: "cs-portal", text: "Case Study" },
+  { depth: 2, slug: "education", text: "Education" },
+]
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
@@ -33,17 +44,7 @@ const description = `
   />
 
   <!-- Table of Contents - Mobile-friendly for recruiters -->
-  <nav class="toc" aria-label="Resume Sections">
-    <h3 class="toc-title" data-accent>Table of Contents</h3>
-    <ul class="toc-list">
-      <li><a href="#executive-summary">Executive Summary</a></li>
-      <li><a href="#exp">Professional Experience</a></li>
-      <li><a href="#service">Military Service</a></li>
-      <li><a href="#skills">Technical Skills</a></li>
-      <li><a href="#cs-portal">Case Study</a></li>
-      <li><a href="#education">Education</a></li>
-    </ul>
-  </nav>
+  <TableOfContents headings={resumeHeadings} />
 
   <!-- Executive Summary -->
   <section aria-labelledby="executive-summary">
@@ -529,60 +530,6 @@ const description = `
 </BaseLayout>
 
 <style>
-  /* Table of Contents Styling */
-  .toc {
-    margin: 5rem 0 2.5rem 0;
-    padding: 0;
-    /* Override Pico's nav defaults */
-    display: block !important;
-    justify-content: unset !important;
-  }
-
-  .toc-title {
-    font-size: 0.9em;
-    color: var(--pico-muted-color);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding-left: 0.6rem;
-  }
-
-  .toc-list {
-    letter-spacing: -0.01rem;
-    line-height: 1.25;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .toc-list li {
-    padding: 0 0 0.25em 0;
-    font-size: 0.9em;
-  }
-
-  .toc-list a {
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .toc-list a:hover {
-    color: var(--pico-primary-color);
-  }
-
-  .toc-list a:focus {
-    outline: none;
-  }
-
-  @media (max-width: 768px) {
-    .toc-title {
-      font-size: 0.85em;
-    }
-
-    .toc-list a {
-      font-size: 0.95em;
-    }
-  }
-
   /* Sticky section headlines */
   .section-headline {
     position: sticky;

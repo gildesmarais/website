@@ -4,10 +4,17 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import ProjectCard from "../components/ProjectCard.astro"
+import TableOfContents from "../components/TableOfContents.astro"
 
 const title = "Projects"
 const description =
   "Tools and experiments I've built for myself that others might find useful. Open source playground for exploring ideas and solving personal needs."
+
+// Define headings for the TOC
+const projectHeadings = [
+  { depth: 2, slug: "html2rss", text: "HTML2RSS" },
+  { depth: 2, slug: "jekyll-loading-lazy", text: "jekyll-loading-lazy" },
+]
 ---
 
 <BaseLayout title={title} description={description}>
@@ -21,6 +28,7 @@ const description =
     </p>
   </Hero>
 
+  <TableOfContents headings={projectHeadings} />
   <ProjectCard
     title="HTML2RSS"
     status="maintained"

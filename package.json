@@ -17,7 +17,9 @@
     "@fontsource/ubuntu-mono": "^5.2.6",
     "@picocss/pico": "^2.1.1",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.12.9"
+    "astro": "^5.12.9",
+    "remark": "^15.0.1",
+    "remark-toc": "^9.0.0"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
