@@ -2,6 +2,7 @@
 title: Deleting Whatsapp (finally)
 date: 2020-04-20
 description: Bye bye, Whatsapp.
+toc: false
 tags:
   - reference
 ---

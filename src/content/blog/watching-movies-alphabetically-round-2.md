@@ -2,6 +2,7 @@
 title: Watching movies alphabetically, round II
 date: 2020-10-26
 description: The ratings of the second round are in.
+toc: false
 tags:
   - movie
   - reference

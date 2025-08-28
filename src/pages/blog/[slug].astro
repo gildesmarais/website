@@ -21,6 +21,6 @@ const { Content, headings } = await post.render()
   date={post.data.date}
   language={post.data.language}
 >
-  <TableOfContents headings={headings} />
+  {post.data.toc && <TableOfContents headings={headings} />}
   <Content />
 </PostLayout>

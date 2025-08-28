@@ -2,6 +2,7 @@
 title: The impossible RollerCoaster Tycoon 2 maze
 date: 2020-08-06
 description: Someone who's using the Internet uploaded a video.
+toc: false
 tags:
   - recommendation
 ---

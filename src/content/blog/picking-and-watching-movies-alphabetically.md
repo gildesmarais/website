@@ -2,6 +2,7 @@
 title: Picking and watching movies alphabetically
 date: 2020-04-01
 description: "Moving out of the comfortable filter bubble and explore art."
+toc: false
 tags:
   - movie
   - reference

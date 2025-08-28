@@ -2,6 +2,7 @@
 title: Installing LineageOS on a new phone
 date: 2020-05-12
 description: Pal was once again very kind and kept clicking through the updates.
+toc: false
 tags:
   - project
 ---

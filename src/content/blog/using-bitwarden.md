@@ -2,6 +2,7 @@
 title: "Using Bitwarden"
 date: 2020-04-24
 description: A new password manager, self-hosted.
+toc: false
 tags:
   - linux
   - decentralize
