@@ -6,8 +6,7 @@ import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
 
 const title = "Gil Desmarais — Engineering Team Lead"
-const description =
-  "I create systemic clarity that removes hidden risks and lets teams move faster. When complexity blocks your business, I translate the mess into clear choices."
+const description = "Turning complexity into clarity. Helping teams move faster, safer, and with impact."
 
 const pageTitle = "Gil Desmarais — Engineering Team Lead"
 ---
@@ -15,71 +14,76 @@ const pageTitle = "Gil Desmarais — Engineering Team Lead"
 <BaseLayout title={pageTitle} description={description}>
   <Hero title={title} description={description}>
     <p class="hero-subtitle">
-      I don't optimize for efficiency's sake — I optimize because clarity and resilience create business
-      leverage. When systems become fragile or teams get blocked by complexity, I frame the trade-offs and
-      drive change incrementally. Let's make your business stronger.
+      I build systems and teams that enable business growth.<br />
+      When uncertainty blocks progress, I make it visible.<br />
+      When strategy meets technical limits, I translate both sides.<br />
+      When priorities compete, I align decisions around impact.<br />
     </p>
   </Hero>
 
-  <section aria-labelledby="how-i-work">
-    <h2 id="how-i-work" class="accent">How I work</h2>
+  <section id="how-i-work" aria-labelledby="how-i-work-title">
+    <h2 id="how-i-work-title" class="accent">How I Work</h2>
+    <p class="section-intro">I work by a few principles that guide how I lead, decide, and build.</p>
     <Highlights
       highlights={[
-        {
-          term: "Clarify",
-          definition: "make hidden dependencies visible and create structures others can rely on",
-        },
-        { term: "Translate", definition: "bridge messy business demands with technical reality" },
-        { term: "Frame", definition: "show risks, opportunities, and trade-offs in business terms" },
-        { term: "Drive", definition: "change incrementally based on impact vs. effort" },
+        { term: "Honesty", definition: "risks named early" },
+        { term: "Integrity", definition: "right over easy" },
+        { term: "Curiosity", definition: "better answers through learning" },
       ]}
     />
   </section>
 
-  <section aria-labelledby="next-steps">
-    <h2 id="next-steps" class="accent">Ready to work together?</h2>
-    <p>Let's create systemic clarity that makes your business stronger. Start with a conversation.</p>
-    <div class="cta-buttons">
-      <a href="/contact" class="minimal-btn primary">Get in touch</a>
-      <a href="/projects" class="minimal-btn">See my work</a>
-    </div>
+  <section id="next" aria-labelledby="next-title">
+    <h2 id="next-title" class="accent">What's Next</h2>
+    <p class="section-intro">Find what you need:</p>
+    <ul>
+      <li><a class="minimal-btn" href="/about">Get to know me</a></li>
+      <li><a class="minimal-btn" href="/projects">See my work</a></li>
+      <li><a class="minimal-btn" href="/resume">View résumé</a></li>
+      <li><a class="minimal-btn" href="/contact">Get in touch</a></li>
+    </ul>
   </section>
 </BaseLayout>
 
 <style>
-  /* --- CTA Section ------------------------------------------------------ */
-  #next-steps + p {
-    font-size: 1.1rem;
-    color: var(--pico-muted-color);
-    margin-bottom: 2rem;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .cta-buttons a {
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 0.9rem;
-  }
-
   /* --- Hero Subtitle ---------------------------------------------------- */
   .hero-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    max-width: 60ch;
+    letter-spacing: -0.01em;
     color: var(--pico-muted-color);
-    margin-top: 1rem;
-    max-width: 65ch;
-    text-wrap: balance;
   }
 
   @media (min-width: 640px) {
     .hero-subtitle {
-      font-size: 1.2rem;
       margin-top: 1.5rem;
     }
+  }
+
+  /* --- CTA Section ------------------------------------------------------ */
+  #next {
+    margin-top: 4rem;
+  }
+
+  #next ul {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 15ch;
+    gap: 0.5rem;
+  }
+
+  #next ul li {
+    list-style: none;
+  }
+
+  #next a {
+    display: inline-block;
+    border: 1px solid var(--pico-primary);
+    padding: 0.5rem 1rem;
+    width: 100%; /* or a fixed width if you prefer alignment */
+    text-align: center;
   }
 </style>

@@ -12,6 +12,7 @@ const { title, description, children } = Astro.props
   <h1 data-corners set:html={title} />
   {description && <p class="lead">{description}</p>}
   {children}
+  <slot />
 </header>
 
 <style>
@@ -28,14 +29,7 @@ const { title, description, children } = Astro.props
     font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
     background: var(--pico-background-color);
     text-wrap: balance;
-    margin-bottom: 2rem;
-  }
-
-  .hero .lead {
-    font-size: 1.2rem;
-    line-height: 1.4;
-    color: var(--pico-muted-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   /* --- Desktop and larger (min-width: 640px) ------------------------------ */
