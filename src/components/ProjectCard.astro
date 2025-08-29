@@ -63,6 +63,7 @@ if (title.includes(" ")) {
 <style>
   .project-card {
     padding: 0;
+    background-color: unset;
   }
 
   .project-card header > h2 small {
@@ -71,14 +72,16 @@ if (title.includes(" ")) {
   }
 
   .project-card h3 {
+    font-size: 0.9em;
+    color: var(--pico-muted-color);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    padding-left: 0;
   }
 
   .project-card a {
     color: var(--pico-color);
     text-decoration: none;
-    text-transform: uppercase;
     letter-spacing: 0.02em;
   }
 </style>
