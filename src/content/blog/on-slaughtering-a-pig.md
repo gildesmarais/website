@@ -164,7 +164,7 @@ I recommend anyone who has the chance to witness a home slaughtering of an anima
 
 It won't be a joyful day, but a day full of physical work, in your life. One you will remember and it might change your opinion on some things (in whatever way).
 
-<Image src="/src/assets/images/posts/2020-04-11_pigs.webp" alt="picture of pigs in a sty" />
+![picture of pigs in a sty](../../assets/images/posts/2020-04-11_pigs.webp)
 
 [^1]: It's important to not cut the trachae, as that would allow blood to fill the lungs.
 

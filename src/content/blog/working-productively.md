@@ -32,7 +32,7 @@ For the wireless devices I have a box of fully charged AA and AAA rechargeable b
 
 To keep my thoughts or prototype a UI, I rely on a DIN A5 sketchbook (with at least 150g/m<sup>2</sup> paper) and a mechanical pencil with 0.5mm B lead.[^3]
 
-<Image src="/src/assets/images/posts/2020-04-05-minimal-setup.webp" alt="minimum working setup" />
+![minimum working setup](../../assets/images/posts/2020-04-05-minimal-setup.webp)
 
 Sometimes I (prefer to) work offside a desk. Then I need my headphones, the sketchbook and the computer as a minimal setup.
 Staying hydrated and reducing waste is important. I have a reusable water bottle with me most of the time.

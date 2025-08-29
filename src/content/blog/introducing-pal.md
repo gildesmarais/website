@@ -12,7 +12,7 @@ It would be foolish and not pragmatic for a developer to not have (something lik
 
 Let me introduce Pal:
 
-<Image src="/src/assets/images/posts/2020-04-16-pal.webp" alt="picture of a pet toy alligator" />
+![picture of a pet toy alligator](../../assets/images/posts/2020-04-16-pal.webp)
 
 _Pal_ is short for **p**rogramming **al**ligator.
 

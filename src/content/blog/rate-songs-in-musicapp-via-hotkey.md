@@ -17,4 +17,4 @@ The maintainer, [@MainasuK](https://github.com/MainasuK), merged the pull reques
 
 In case you need such a rating utility which works with macOS Catalina (Big Sur is apparently supported, too), I recommend Song Rating.
 
-<Image src="/src/assets/images/posts/2020-09-13-song-rating.webp" alt="Screenshot of Star-Rating" />
+![Screenshot of Star-Rating](../../assets/images/posts/2020-09-13-song-rating.webp)
