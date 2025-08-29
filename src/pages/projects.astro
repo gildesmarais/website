@@ -4,7 +4,7 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import ProjectCard from "../components/ProjectCard.astro"
-import TableOfContents from "../components/TableOfContents.astro"
+import TableOfContents, { slugify } from "../components/TableOfContents.astro"
 
 const title = "Projects"
 const description =
@@ -12,9 +12,14 @@ const description =
 
 // Define headings for the TOC
 const projectHeadings = [
-  { depth: 2, slug: "html2rss", text: "HTML2RSS" },
-  { depth: 2, slug: "jekyll-loading-lazy", text: "jekyll-loading-lazy" },
-]
+  { depth: 2, text: "html2rss" },
+  { depth: 2, text: "jekyll-loading-lazy" },
+  { depth: 2, text: ".dotfiles & Scripts" },
+].map(({ depth, text }) => ({
+  depth,
+  text,
+  slug: slugify(text),
+}))
 ---
 
 <BaseLayout title={title} description={description}>
@@ -29,29 +34,33 @@ const projectHeadings = [
   </Hero>
 
   <TableOfContents headings={projectHeadings} />
+
   <ProjectCard
-    title="HTML2RSS"
+    title="html2rss"
+    slug={slugify("html2rss")}
     status="maintained"
-    description="Generate RSS feeds from sites that have none."
+    description="Infrastructure to bring RSS back to any website — even those without native feeds."
     highlights={[
       { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
       { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
       { term: "Normalisation", definition: "Consistent titles, authors, dates, and images." },
-      { term: "Ops", definition: "Error handling & hooks for monitoring; rolling releases." },
-      { term: "Delivery", definition: "Lightweight HTTP service to serve feeds on demand." },
+      { term: "Ops", definition: "Error handling, monitoring hooks, rolling releases." },
+      { term: "Delivery", definition: "Lightweight HTTP service with caching." },
+      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker, health checks & metrics." },
     ]}
     links={[
-      { text: "Project site", url: "https://html2rss.github.io/", external: true },
-      { text: "Ruby gem", url: "https://github.com/html2rss/html2rss", external: true },
-      { text: "Web service", url: "https://github.com/html2rss/html2rss-web", external: true },
-      { text: "Feed configs", url: "https://github.com/html2rss/html2rss-configs", external: true },
+      { text: "Project website", url: "https://html2rss.github.io/", external: true },
+      { text: "GitHub Organization", url: "https://github.com/html2rss", external: true },
+      { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
     ]}
   >
     <p>
-      <strong>Problem solved:</strong> I struggle to follow sites which don't provide RSS feeds.<br />
-      <strong>Solution:</strong> Tooling that discovers articles and produces reliable RSS feeds — including JavaScript–rendered
-      pages via headless browsers.<br />
-      <strong>Impact:</strong> Enables content discovery and reader retention for sites without RSS.
+      <strong>Problem solved:</strong> Most websites have abandoned RSS, leaving users without control over their
+      content consumption.<br />
+      <strong>Solution:</strong> html2rss discovers articles, normalises metadata, and produces reliable RSS feeds
+      — even from JavaScript-rendered pages via headless browsers.<br />
+      <strong>Impact:</strong> Brings RSS back to the modern web, enabling content discovery and reader retention
+      for sites without feeds.
     </p>
   </ProjectCard>
 
@@ -59,27 +68,52 @@ const projectHeadings = [
 
   <ProjectCard
     title="jekyll-loading-lazy"
+    slug={slugify("jekyll-loading-lazy")}
     status="stable"
-    description="Drop‑in lazy loading for Jekyll. Zero JS. Instant wins."
+    description="Drop-in lazy loading for Jekyll (img/iframe). Zero JS. Instant performance wins."
     highlights={[
-      { term: "Automatic", definition: "Injects attributes into all images/iframes." },
-      { term: "Low‑touch", definition: "Works without editing content files." },
-      { term: "No JS", definition: "Removes third‑party lazy‑load scripts." },
-      { term: "Performance", definition: "Better Core Web Vitals, better UX." },
+      { term: "Automatic", definition: "Injects loading attributes into images/iframes at build time." },
+      { term: "Low-touch", definition: "Works without editing content files or templates." },
+      {
+        term: "No JS",
+        definition: "Native lazy-load via the loading attribute; removes third-party scripts.",
+      },
+      { term: "Adoption", definition: "59k+ RubyGems downloads; more than 420 GitHub repos depend on it." },
     ]}
     links={[
-      { text: "Intro post", url: "/posts/loading-images-lazily-with-jekyll/" },
-      { text: "Source", url: "https://github.com/gildesmarais/jekyll-loading-lazy", external: true },
       { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
+      {
+        text: "Github Repository",
+        url: "https://github.com/gildesmarais/jekyll-loading-lazy",
+        external: true,
+      },
+      { text: "Introducation blog post", url: "/posts/loading-images-lazily-with-jekyll/" },
     ]}
   >
     <p>
-      <strong>Problem solved:</strong> Jekyll sites load slowly due to unoptimized images, hurting SEO and user
-      experience.<br />
-      <strong>Solution:</strong> Adds <code>loading="lazy"</code> to all images and iframes at build time — no
-      template changes or extra scripts needed.<br />
-      <strong>Impact:</strong> Improves Core Web Vitals, SEO rankings, and user engagement through faster page
-      loads.
+      <strong>Problem solved:</strong> Jekyll sites suffer from slow loads due to unoptimized images and embeds.<br
+      />
+      <strong>Solution:</strong> Adds <code>loading="lazy"</code> to images/iframes during the build — no template
+      changes, no JavaScript.<br />
+      <strong>Impact:</strong> Better Core Web Vitals and UX through faster perceived page loads.
+    </p>
+  </ProjectCard>
+
+  <hr />
+  <ProjectCard
+    title=".dotfiles & Scripts"
+    slug={slugify(".dotfiles & Scripts")}
+    status="evergreen"
+    description="My personal macOS & CLI setup, with a scripts/ directory for automation: interactive macOS defaults, portable shell utilities, and repeatable system setup. A living repository of the tools I use daily."
+    links={[{ text: "GitHub Repo", url: "https://github.com/yourusername/dotfiles", external: true }]}
+  >
+    <p>
+      <strong>Problem solved:</strong> Keeping macOS environments and shell setups consistent across machines is
+      tedious and error-prone.<br />
+      <strong>Solution:</strong> A living macOS & CLI setup with a <code>scripts/</code> directory for automation:
+      system defaults, setup scripts, and small but powerful shell utilities.<br />
+      <strong>Impact:</strong> Reliable environment syncing, less manual tweaking, and reusable scripts that speed
+      up everyday tasks.
     </p>
   </ProjectCard>
 </BaseLayout>

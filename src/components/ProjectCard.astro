@@ -3,24 +3,19 @@ import Highlights from "./Highlights.astro"
 
 export interface Props {
   title: string
+  slug: string
   status: string
   description: string
   highlights?: Array<{ term: string; definition: string }>
   links?: Array<{ text: string; url: string; external?: boolean }>
 }
 
-const { title, status, description, highlights, links } = Astro.props
-
-if (title.includes(" ")) {
-  throw new Error(
-    "Project title must be a single word (for slug/ID purposes). TODO: Improve heading id generation.",
-  )
-}
+const { title, slug, status, description, highlights, links } = Astro.props
 ---
 
 <article class="project-card">
   <header>
-    <h2 class="accent" id={title.toLowerCase()}>
+    <h2 class="accent" id={slug}>
       {title}
       <small aria-label="project status">— {status}</small>
     </h2>
