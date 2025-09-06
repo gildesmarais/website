@@ -1,4 +1,3 @@
-// Movie data processing utilities
 export interface Movie {
   const: string
   title: string
@@ -29,34 +28,27 @@ export interface ProcessedMovies {
   movies: Movie[]
 }
 
-/**
- * Creates a map of movie ratings for quick lookup
- */
 export function createRatingsMap(
   ratings: Array<{ title: string; year: number; rating: number }>,
 ): Map<string, number> {
   return new Map(ratings.map((r) => [`${r.title} (${r.year})`, r.rating]))
 }
 
-/**
- * Creates a set of recommendation constants for quick lookup
- */
 export function createRecommendationsSet(recommendations: Array<{ const: string }>): Set<string> {
   return new Set(recommendations.map((r) => r.const))
 }
 
-/**
- * Creates a map of recommendation notes for quick lookup
- */
 export function createRecommendationNotesMap(
   recommendations: Array<{ const: string; note?: string | null }>,
 ): Map<string, string> {
   return new Map(recommendations.map((r) => [r.const, r.note || ""]).filter(([, note]) => note))
 }
 
-/**
- * Processes movies by adding ratings from the ratings data
- */
+// Filter out TV series, shorts, and other non-movie content
+export function filterMoviesOnly(movies: Movie[]): Movie[] {
+  return movies.filter((movie) => movie.title_type === "movie")
+}
+
 export function processMoviesWithRatings(movies: Movie[], ratingsMap: Map<string, number>): Movie[] {
   return movies.map((movie) => {
     const key = `${movie.title} (${movie.year})`
@@ -65,13 +57,9 @@ export function processMoviesWithRatings(movies: Movie[], ratingsMap: Map<string
   })
 }
 
-/**
- * Filters movies based on search query
- */
 export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   let filtered = movies
 
-  // Apply search filter
   if (filters.searchQuery) {
     const query = filters.searchQuery.toLowerCase()
     filtered = filtered.filter((movie) => {
@@ -83,9 +71,6 @@ export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   return filtered
 }
 
-/**
- * Sorts movies based on the specified criteria
- */
 export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movie[] {
   return [...movies].sort((a, b) => {
     let aVal: string | number
@@ -123,9 +108,6 @@ export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movi
   })
 }
 
-/**
- * Main function to process movies with all filters and sorting
- */
 export function processMovies(
   movies: Movie[],
   ratings: Array<{ title: string; year: number; rating: number }>,
@@ -136,14 +118,13 @@ export function processMovies(
   const ratingsMap = createRatingsMap(ratings)
   const recommendationsSet = createRecommendationsSet(recommendations)
 
-  let processedMovies = processMoviesWithRatings(movies, ratingsMap)
+  let processedMovies = filterMoviesOnly(movies)
+  processedMovies = processMoviesWithRatings(processedMovies, ratingsMap)
 
-  // Apply recommendation filter if needed
   if (filters.isRecommendation) {
     processedMovies = processedMovies.filter((movie) => recommendationsSet.has(movie.const))
   }
 
-  // Apply search filter
   const filteredMovies = filterMovies(processedMovies, filters)
   const sortedMovies = sortMovies(filteredMovies, sortOptions)
 
@@ -152,9 +133,6 @@ export function processMovies(
   }
 }
 
-/**
- * Parses URL search parameters into typed objects
- */
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
   const searchQuery = url.searchParams.get("q") || ""
   const isRecommendation = url.searchParams.get("isRecommendation") === "true"

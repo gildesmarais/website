@@ -1,9 +1,8 @@
 import type { APIRoute } from "astro"
 import { subtle } from "crypto"
 
-export const prerender = false // Ensure this API route is never pre-rendered
+export const prerender = false
 
-// Helper to generate a SHA-1 ETag
 async function generateETag(data: string): Promise<string> {
   const hashBuffer = await subtle.digest("SHA-1", new TextEncoder().encode(data))
   const hashArray = Array.from(new Uint8Array(hashBuffer))
@@ -49,7 +48,7 @@ export const GET: APIRoute = async ({ params, request }) => {
         status: 200,
         headers: {
           "Content-Type": "application/json",
-          "Cache-Control": "public, max-age=86400", // Cache for 1 day
+          "Cache-Control": "public, max-age=86400",
           ETag: etag,
         },
       })

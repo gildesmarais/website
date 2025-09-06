@@ -1,9 +1,7 @@
-// /public/enhance-movies.js — Progressive enhancement for movies page
+// Progressive enhancement for movies page
 ;(() => {
-  // Only enhance if JavaScript is available
   if (!window.fetch) return
 
-  // Configuration
   const CONFIG = {
     searchDebounceMs: 300,
     selectors: {
@@ -15,20 +13,16 @@
     },
   }
 
-  // State management
   const state = {
     forms: [],
     searchInput: null,
     isProcessing: false,
   }
 
-  // Initialize DOM elements
   const initializeElements = () => {
     state.forms = Array.from(document.querySelectorAll(CONFIG.selectors.forms))
     state.searchInput = document.querySelector(CONFIG.selectors.searchInput)
   }
-
-  // Loading state management
   const LoadingState = {
     add(form) {
       const button = form.querySelector('button[type="submit"]')
@@ -43,7 +37,6 @@
       if (button) {
         button.disabled = false
         const text = button.textContent.replace(" ⏳", "")
-        // Restore original text with appropriate arrow
         if (text.includes("Title")) button.textContent = text + " ▲"
         else if (text.includes("Year")) button.textContent = text + " ▲"
         else if (text.includes("My Rating")) button.textContent = text + " ▲"
@@ -53,8 +46,6 @@
       }
     },
   }
-
-  // Content update utilities
   const ContentUpdater = {
     async updateFromResponse(url) {
       const response = await fetch(url)
@@ -93,7 +84,6 @@
     },
   }
 
-  // Form submission handler
   const handleFormSubmit = async (form) => {
     if (state.isProcessing) return
     state.isProcessing = true
@@ -108,7 +98,6 @@
       const doc = await ContentUpdater.updateFromResponse(url)
       ContentUpdater.updatePageContent(doc)
 
-      // Update URL without page reload
       history.pushState(null, "", url)
     } catch (error) {
       console.warn("Enhancement failed, falling back to page reload:", error)
@@ -118,8 +107,6 @@
       state.isProcessing = false
     }
   }
-
-  // Search input handler with debouncing
   const SearchHandler = {
     timeout: null,
 
@@ -136,7 +123,6 @@
     },
   }
 
-  // Form listener management
   const FormManager = {
     attachListeners(forms) {
       forms.forEach((form) => {
@@ -156,7 +142,6 @@
     },
   }
 
-  // Browser navigation handler
   const NavigationHandler = {
     async handlePopState() {
       try {
@@ -169,16 +154,12 @@
     },
   }
 
-  // Initialize the enhancement
   const init = () => {
     initializeElements()
     FormManager.attachListeners(state.forms)
     SearchHandler.init()
-
-    // Handle browser back/forward
     window.addEventListener("popstate", NavigationHandler.handlePopState)
   }
 
-  // Start the enhancement
   init()
 })()
