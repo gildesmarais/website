@@ -1,46 +1,52 @@
 ---
-export const prerender = true
+export const prerender = false
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
+import MovieFilters from "../../components/MovieFilters.astro"
 import ratings from "../../data/ratings.json"
 import recommendations from "../../data/recommendations.json"
 import movies from "../../data/movies.json"
 import MoviePoster from "../../components/MoviePoster.astro"
+import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
 
 const title = "Movie Ratings"
 const description =
   "Personal movie ratings and recommendations curated by Gil Desmarais. Explore films worth watching."
 
-const ratingsMap = new Map(ratings.map((r) => [`${r.title} (${r.year})`, r.rating]))
+// Parse URL parameters using utility function
+const url = new URL(Astro.request.url)
+const { filters, sortOptions } = parseUrlParams(url)
+
+// Process movies using utility functions
+const { movies: processedMovies } = processMovies(
+  movies as Movie[],
+  ratings,
+  recommendations,
+  filters,
+  sortOptions,
+)
+
+// Create lookup maps for recommendations
 const recommendationsSet = new Set(recommendations.map((r) => r.const))
 const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]))
-
-const moviesWithRatings = movies.map((movie) => {
-  const key = `${movie.title} (${movie.year})`
-  const your_rating = ratingsMap.get(key) || movie.your_rating
-  return { ...movie, your_rating }
-})
 ---
 
 <MovieLayout title={title} description={description}>
   <section>
     <Hero title={title} />
-    <input id="movieFilter" type="search" placeholder="Filter…" />
-    <div class="sort-buttons">
-      <button class="minimal-btn" data-filter-by="isRecommendation" data-filter-value="true">
-        Recommendations
-      </button>
-      <button class="minimal-btn" data-sort-by="title">Title</button>
-      <button class="minimal-btn" data-sort-by="year">Year</button>
-      <button class="minimal-btn" data-sort-by="yourRating">My Rating</button>
-      <button class="minimal-btn" data-sort-by="imdbRating">IMDb Rating</button>
-      <button class="minimal-btn" data-sort-by="runtimeMins">Runtime</button>
-    </div>
-    <div class="recommendations-grid" data-enhance-grid data-filter="#movieFilter">
+
+    <!-- Movie filters and sorting controls -->
+    <MovieFilters
+      searchQuery={filters.searchQuery || ""}
+      isRecommendation={filters.isRecommendation || false}
+      sortBy={sortOptions.sortBy}
+      sortDir={sortOptions.sortDir}
+    />
+    <div class="recommendations-grid">
       {
-        moviesWithRatings.map((movie) => {
+        processedMovies.map((movie) => {
           const isRecommendation = recommendationsSet.has(movie.const)
           const note = recommendationNotes.get(movie.const)
           return (
@@ -48,11 +54,11 @@ const moviesWithRatings = movies.map((movie) => {
               imdbId={movie.const}
               title={movie.title}
               year={movie.year}
-              yourRating={movie.your_rating || 0}
-              imdbRating={movie.imdb_rating || 0}
-              runtimeMins={movie.runtime_mins || 0}
-              genres={movie.genres || ""}
-              directors={movie.directors || ""}
+              yourRating={movie.your_rating}
+              imdbRating={movie.imdb_rating}
+              runtimeMins={movie.runtime_mins}
+              genres={movie.genres}
+              directors={movie.directors}
               isRecommendation={isRecommendation}
               note={note || undefined}
             >
@@ -63,7 +69,7 @@ const moviesWithRatings = movies.map((movie) => {
       }
     </div>
   </section>
-  <script src="/enhance-grid.js" type="module"></script>
+  <script src="/enhance-movies.js" type="module"></script>
   <aside class="micro">
     Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer"
       >OMDb API for providing the movie posters</a
@@ -76,21 +82,5 @@ const moviesWithRatings = movies.map((movie) => {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--pico-spacing);
-  }
-
-  .sort-buttons {
-    margin-bottom: 1rem;
-  }
-
-  .sort-buttons button[data-sort-by][data-sort-dir="asc"]::after {
-    content: " ▲";
-  }
-
-  .sort-buttons button[data-sort-by][data-sort-dir="desc"]::after {
-    content: " ▼";
-  }
-
-  .sort-buttons button[data-filter-by][data-sort-dir="asc"]::after {
-    content: " ✓";
   }
 </style>

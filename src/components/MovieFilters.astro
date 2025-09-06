@@ -1,0 +1,122 @@
+---
+export interface Props {
+  searchQuery: string
+  isRecommendation: boolean
+  sortBy: string
+  sortDir: string
+}
+
+const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
+---
+
+<!-- Search form -->
+<form method="GET" class="search-form">
+  <input
+    id="movieFilter"
+    name="q"
+    type="search"
+    placeholder="Filter…"
+    value={searchQuery}
+    class="movie-search-input"
+  />
+  {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+  {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
+  {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+</form>
+
+<!-- Filter and sort controls -->
+<div class="filter-sort-controls">
+  <!-- Recommendation filter -->
+  <form method="GET" class="filter-form">
+    {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+    {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
+    {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+    {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
+    <button type="submit" class={`minimal-btn ${isRecommendation ? "active" : ""}`}>
+      Recommendations {isRecommendation ? "✓" : ""}
+    </button>
+  </form>
+
+  <!-- Sort buttons -->
+  <div class="sort-buttons">
+    <form method="GET" class="sort-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+      <input type="hidden" name="sort" value="title" />
+      <input type="hidden" name="dir" value={sortBy === "title" && sortDir === "asc" ? "desc" : "asc"} />
+      <button type="submit" class={`minimal-btn ${sortBy === "title" ? "active" : ""}`}>
+        Title {sortBy === "title" && (sortDir === "asc" ? "▲" : "▼")}
+      </button>
+    </form>
+
+    <form method="GET" class="sort-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+      <input type="hidden" name="sort" value="year" />
+      <input type="hidden" name="dir" value={sortBy === "year" && sortDir === "asc" ? "desc" : "asc"} />
+      <button type="submit" class={`minimal-btn ${sortBy === "year" ? "active" : ""}`}>
+        Year {sortBy === "year" && (sortDir === "asc" ? "▲" : "▼")}
+      </button>
+    </form>
+
+    <form method="GET" class="sort-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+      <input type="hidden" name="sort" value="yourRating" />
+      <input type="hidden" name="dir" value={sortBy === "yourRating" && sortDir === "asc" ? "desc" : "asc"} />
+      <button type="submit" class={`minimal-btn ${sortBy === "yourRating" ? "active" : ""}`}>
+        My Rating {sortBy === "yourRating" && (sortDir === "asc" ? "▲" : "▼")}
+      </button>
+    </form>
+
+    <form method="GET" class="sort-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+      <input type="hidden" name="sort" value="imdbRating" />
+      <input type="hidden" name="dir" value={sortBy === "imdbRating" && sortDir === "asc" ? "desc" : "asc"} />
+      <button type="submit" class={`minimal-btn ${sortBy === "imdbRating" ? "active" : ""}`}>
+        IMDb Rating {sortBy === "imdbRating" && (sortDir === "asc" ? "▲" : "▼")}
+      </button>
+    </form>
+
+    <form method="GET" class="sort-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+      <input type="hidden" name="sort" value="runtimeMins" />
+      <input
+        type="hidden"
+        name="dir"
+        value={sortBy === "runtimeMins" && sortDir === "asc" ? "desc" : "asc"}
+      />
+      <button type="submit" class={`minimal-btn ${sortBy === "runtimeMins" ? "active" : ""}`}>
+        Runtime {sortBy === "runtimeMins" && (sortDir === "asc" ? "▲" : "▼")}
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .movie-search-input {
+    max-width: 400px;
+  }
+
+  .filter-sort-controls {
+    margin-bottom: 1rem;
+  }
+
+  .filter-form {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sort-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sort-form {
+    display: inline-block;
+  }
+</style>
