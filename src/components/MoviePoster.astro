@@ -10,7 +10,8 @@ const { imdbId } = Astro.props
   <img
     id={`poster-${imdbId}`}
     src="/placeholder-poster.svg"
-    alt="Movie Poster"
+    aria-hidden
+    alt="Loading Movie Poster for {imdbId}"
     class="movie-poster"
     loading="lazy"
   />

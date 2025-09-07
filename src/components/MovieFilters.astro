@@ -9,114 +9,126 @@ export interface Props {
 const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
 ---
 
-<!-- Search form -->
-<form method="GET" class="search-form">
-  <input
-    id="movieFilter"
-    name="q"
-    type="search"
-    placeholder="Filter…"
-    value={searchQuery}
-    class="movie-search-input"
-  />
-  {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-  {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
-  {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
-</form>
+<!-- Movie controls -->
+<div class="movie-controls">
+  <!-- Filter and sort controls -->
+  <div class="controls-group">
+    <!-- Recommendation toggle -->
+    <form method="GET" class="control-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
+      {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+      {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
+      <button type="submit" class={`minimal-btn ${isRecommendation ? "active" : ""}`}>
+        Recommendations {isRecommendation ? "✓" : ""}
+      </button>
+    </form>
 
-<!-- Filter and sort controls -->
-<div class="filter-sort-controls">
-  <!-- Recommendation filter -->
-  <form method="GET" class="filter-form">
-    {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+    <!-- Sort buttons -->
+    <div class="sort-group">
+      {
+        [
+          { key: "yourRating", label: "My Rating" },
+          { key: "title", label: "Title" },
+          { key: "year", label: "Year" },
+          { key: "imdbRating", label: "IMDb" },
+          { key: "runtimeMins", label: "Runtime" },
+        ].map(({ key, label }) => (
+          <form method="GET" class="control-form">
+            {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+            {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+            <input type="hidden" name="sort" value={key} />
+            <input type="hidden" name="dir" value={sortBy === key && sortDir === "asc" ? "desc" : "asc"} />
+            <button type="submit" class={`minimal-btn ${sortBy === key ? "active" : ""}`}>
+              {label} {sortBy === key && (sortDir === "asc" ? "▲" : "▼")}
+            </button>
+          </form>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Search -->
+  <form method="GET" class="search-form">
+    <input
+      id="movieFilter"
+      name="q"
+      type="search"
+      placeholder="Filter…"
+      value={searchQuery}
+      class="movie-search-input"
+    />
+    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
     {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
     {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
-    {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
-    <button type="submit" class={`minimal-btn ${isRecommendation ? "active" : ""}`}>
-      Recommendations {isRecommendation ? "✓" : ""}
-    </button>
   </form>
-
-  <!-- Sort buttons -->
-  <div class="sort-buttons">
-    <form method="GET" class="sort-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-      <input type="hidden" name="sort" value="title" />
-      <input type="hidden" name="dir" value={sortBy === "title" && sortDir === "asc" ? "desc" : "asc"} />
-      <button type="submit" class={`minimal-btn ${sortBy === "title" ? "active" : ""}`}>
-        Title {sortBy === "title" && (sortDir === "asc" ? "▲" : "▼")}
-      </button>
-    </form>
-
-    <form method="GET" class="sort-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-      <input type="hidden" name="sort" value="year" />
-      <input type="hidden" name="dir" value={sortBy === "year" && sortDir === "asc" ? "desc" : "asc"} />
-      <button type="submit" class={`minimal-btn ${sortBy === "year" ? "active" : ""}`}>
-        Year {sortBy === "year" && (sortDir === "asc" ? "▲" : "▼")}
-      </button>
-    </form>
-
-    <form method="GET" class="sort-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-      <input type="hidden" name="sort" value="yourRating" />
-      <input type="hidden" name="dir" value={sortBy === "yourRating" && sortDir === "asc" ? "desc" : "asc"} />
-      <button type="submit" class={`minimal-btn ${sortBy === "yourRating" ? "active" : ""}`}>
-        My Rating {sortBy === "yourRating" && (sortDir === "asc" ? "▲" : "▼")}
-      </button>
-    </form>
-
-    <form method="GET" class="sort-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-      <input type="hidden" name="sort" value="imdbRating" />
-      <input type="hidden" name="dir" value={sortBy === "imdbRating" && sortDir === "asc" ? "desc" : "asc"} />
-      <button type="submit" class={`minimal-btn ${sortBy === "imdbRating" ? "active" : ""}`}>
-        IMDb Rating {sortBy === "imdbRating" && (sortDir === "asc" ? "▲" : "▼")}
-      </button>
-    </form>
-
-    <form method="GET" class="sort-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-      <input type="hidden" name="sort" value="runtimeMins" />
-      <input
-        type="hidden"
-        name="dir"
-        value={sortBy === "runtimeMins" && sortDir === "asc" ? "desc" : "asc"}
-      />
-      <button type="submit" class={`minimal-btn ${sortBy === "runtimeMins" ? "active" : ""}`}>
-        Runtime {sortBy === "runtimeMins" && (sortDir === "asc" ? "▲" : "▼")}
-      </button>
-    </form>
-  </div>
 </div>
 
 <style>
-  .movie-search-input {
-    max-width: 400px;
+  .movie-controls {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-border-color);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pico-spacing);
   }
 
-  .filter-sort-controls {
-    margin-bottom: 1rem;
+  .controls-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pico-spacing);
   }
 
-  .filter-form {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .sort-buttons {
+  .sort-group {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  .sort-form {
+  .control-form {
     display: inline-block;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  [type="submit"] {
+    margin-bottom: 0;
+  }
+
+  .movie-search-input {
+    height: 2.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0;
+    border-width: 2px;
+    border-color: var(--brand-accent);
+    background-color: var(--brand-surface);
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .movie-controls {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .controls-group {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--pico-spacing);
+      flex: 1;
+    }
+
+    .search-form {
+      flex: 0 0 auto;
+    }
   }
 </style>

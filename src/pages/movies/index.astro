@@ -12,8 +12,7 @@ import MoviePoster from "../../components/MoviePoster.astro"
 import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
 
 const title = "Movie Ratings"
-const description =
-  "Personal movie ratings and recommendations curated by Gil Desmarais. Explore films worth watching."
+const description = "Personal movie ratings and recommendations. Explore films worth watching."
 
 // Parse URL parameters using utility function
 const url = new URL(Astro.request.url)
@@ -35,7 +34,7 @@ const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]
 
 <MovieLayout title={title} description={description}>
   <section>
-    <Hero title={title} />
+    <Hero title={title} description={description} />
 
     <!-- Movie filters and sorting controls -->
     <MovieFilters
@@ -78,20 +77,20 @@ const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]
 <style>
   .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
   }
 
   @media (min-width: 768px) {
     .recommendations-grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
     }
   }
 
   @media (min-width: 1200px) {
     .recommendations-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
   }
 </style>
