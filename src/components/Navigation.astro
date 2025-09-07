@@ -18,49 +18,62 @@ const isActive = (href: string) => {
 
     <button
       id="menu-toggle"
+      type="button"
       aria-expanded="false"
       aria-controls="main-nav-list"
-      aria-label="Open navigation menu"
+      aria-label="Toggle navigation menu"
     >
       <svg
         class="icon-menu"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
+        width="28"
+        height="28"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
+        fill="none"
+        stroke="var(--brand-accent)"
+        stroke-width="3"
+        stroke-linecap="square"
+        stroke-linejoin="miter"
+        aria-hidden="true"
       >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        ></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
       <svg
         class="icon-close"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
+        width="28"
+        height="28"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
+        fill="none"
+        stroke="var(--brand-accent)"
+        stroke-width="3"
+        stroke-linecap="square"
+        stroke-linejoin="miter"
+        aria-hidden="true"
       >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
       </svg>
     </button>
   </div>
 
   <ul id="main-nav-list">
-    <li>
-      <a href="/resume" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
+    <li class="nav-item">
+      <a href="/resume" class="nav-link" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
     </li>
-    <li>
-      <a href="/projects" aria-current={isActive("/projects") ? "page" : undefined}>Projects</a>
+    <li class="nav-item">
+      <a href="/projects" class="nav-link" aria-current={isActive("/projects") ? "page" : undefined}
+        >Projects</a
+      >
     </li>
-    <li>
-      <a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a>
+    <li class="nav-item">
+      <a href="/about" class="nav-link" aria-current={isActive("/about") ? "page" : undefined}>About</a>
     </li>
-    <li>
-      <a href="/blog" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
+    <li class="nav-item">
+      <a href="/blog" class="nav-link" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
     </li>
-    <li>
-      <a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
+    <li class="nav-item">
+      <a href="/contact" class="nav-link" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
     </li>
   </ul>
 </nav>
@@ -73,7 +86,13 @@ const isActive = (href: string) => {
     if (toggleButton && navList) {
       toggleButton.addEventListener("click", () => {
         const expanded = toggleButton.getAttribute("aria-expanded") === "true" || false
-        toggleButton.setAttribute("aria-expanded", String(!expanded))
+        const newExpanded = !expanded
+
+        toggleButton.setAttribute("aria-expanded", String(newExpanded))
+        toggleButton.setAttribute(
+          "aria-label",
+          newExpanded ? "Close navigation menu" : "Open navigation menu",
+        )
         navList.classList.toggle("is-open")
       })
     }
@@ -81,7 +100,22 @@ const isActive = (href: string) => {
 </script>
 
 <style>
-  /* --- Mobile-First Base Styles ------------------------------------------- */
+  /* ==========================================================================
+     NAVIGATION COMPONENT STYLES
+     ========================================================================== */
+
+  /* --- CSS Custom Properties --- */
+  :root {
+    --nav-link-padding: 0.5rem 0.75rem;
+    --nav-underline-height: 3px;
+    --nav-underline-offset: 2px;
+    --nav-underline-left: 0.75rem;
+    --nav-underline-width: calc(100% - 1.5rem);
+    --nav-transition-duration: 0.2s;
+    --nav-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* --- Base Layout --- */
   #main-nav {
     display: flex;
     flex-direction: column;
@@ -91,31 +125,60 @@ const isActive = (href: string) => {
   .nav-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
+    height: 3rem;
   }
 
   .nav-header img {
-    height: 3rem; /* Ensure logo is consistent */
-    width: auto; /* Maintain aspect ratio */
+    height: 3rem;
+    width: auto;
   }
 
+  /* --- Hamburger Menu Button --- */
   #menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    background: none;
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid var(--brand-accent);
+    background: transparent;
+    color: var(--brand-accent);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
   }
 
-  /* The robust fix using class selectors for higher specificity */
-  #menu-toggle svg.icon-menu,
-  #menu-toggle svg.icon-close {
+  #menu-toggle:hover {
+    background: var(--brand-accent);
+    color: #000;
+  }
+
+  #menu-toggle:hover .icon-menu,
+  #menu-toggle:hover .icon-close {
+    stroke: #000;
+  }
+
+  #menu-toggle:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 2px;
+  }
+
+  #menu-toggle:active {
+    transform: translateY(1px);
+  }
+
+  /* --- Hamburger Icons --- */
+  #menu-toggle .icon-menu,
+  #menu-toggle .icon-close {
+    width: 28px;
+    height: 28px;
     display: block;
-    width: 24px;
-    height: 24px;
-    stroke: currentColor;
   }
 
   #menu-toggle .icon-close {
@@ -130,35 +193,81 @@ const isActive = (href: string) => {
     display: none;
   }
 
+  /* --- Mobile Menu List --- */
   #main-nav-list {
     list-style: none;
-    margin: 0;
+    margin: 1rem 0 0 0;
     padding: 0;
-    display: none; /* Hidden by default on mobile */
+    display: none;
     flex-direction: column;
     width: 100%;
-    gap: 0.5rem;
+    align-items: stretch;
   }
 
   #main-nav-list.is-open {
-    display: flex; /* Display when button is clicked */
+    display: flex;
   }
 
-  /* --- Desktop and larger (min-width) ------------------------------------- */
+  /* ==========================================================================
+     MOBILE STYLES (default)
+     ========================================================================== */
+
+  /* --- Mobile Menu Items --- */
+  .nav-item {
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* --- Mobile Link Styles --- */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 2.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--pico-text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all var(--nav-transition-duration) ease;
+  }
+
+  .nav-link:hover {
+    background: var(--brand-accent);
+    color: #000;
+  }
+
+  .nav-link[aria-current="page"] {
+    background: var(--brand-accent);
+    color: #000;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-link[aria-current="page"]:hover {
+    background: var(--pico-primary);
+  }
+
+  /* ==========================================================================
+     DESKTOP STYLES (min-width: 641px)
+     ========================================================================== */
+
   @media (min-width: 641px) {
+    /* --- Desktop Layout --- */
     #main-nav {
       flex-direction: row;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
     }
 
     .nav-header {
-      padding: 0;
       justify-content: flex-start;
     }
 
     #menu-toggle {
-      display: none; /* Hide toggle button on desktop */
+      display: none;
     }
 
     #main-nav-list {
@@ -167,37 +276,67 @@ const isActive = (href: string) => {
       align-items: center;
       justify-content: flex-end;
       width: auto;
-      margin-bottom: -5px; /* align items on bottom */
+      margin: 0;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
-  }
 
-  /* --- General link and list item styles ---------------------------------- */
-  #main-nav-list > li {
-    padding-bottom: 0;
-  }
+    /* --- Desktop Menu Items - Complete Override --- */
+    .nav-item {
+      margin: 0;
+      display: block;
+      flex-shrink: 0;
+    }
 
-  #main-nav-list > li > a {
-    color: var(--pico-text-color); /* Use a more appropriate Pico variable */
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 2px;
-  }
-  #main-nav-list > li > a:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;
-    background: var(--brand-accent);
-    transition: width 0.2s ease;
-  }
-  #main-nav-list > li > a:hover:after,
-  #main-nav-list > li > a[aria-current="page"]:after {
-    width: 100%;
-  }
+    /* --- Desktop Link Styles --- */
+    .nav-link {
+      display: inline-block;
+      padding: var(--nav-link-padding);
+      color: var(--pico-text-color);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      position: relative;
+      transition: color var(--nav-transition-duration) ease;
+      white-space: nowrap;
+      min-width: fit-content;
+    }
 
-  #main-nav-list > li > a[aria-current="page"] {
-    font-weight: bold;
+    /* --- Desktop Underline Effect --- */
+    .nav-link:after {
+      content: "";
+      position: absolute;
+      left: var(--nav-underline-left);
+      bottom: var(--nav-underline-offset);
+      width: 0;
+      height: var(--nav-underline-height);
+      background: var(--brand-accent);
+      transition: width 0.3s var(--nav-transition-easing);
+    }
+
+    .nav-link:hover {
+      color: var(--pico-text-color);
+      background: transparent;
+    }
+
+    .nav-link:hover:after {
+      width: var(--nav-underline-width);
+    }
+
+    /* --- Desktop Active Page State --- */
+    .nav-link[aria-current="page"] {
+      color: var(--pico-text-color);
+      background: transparent;
+      font-weight: bold;
+    }
+
+    .nav-link[aria-current="page"]:after {
+      width: var(--nav-underline-width);
+    }
+
+    .nav-link[aria-current="page"]:hover {
+      color: var(--pico-text-color);
+      background: transparent;
+    }
   }
 </style>
