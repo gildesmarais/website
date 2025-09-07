@@ -1,0 +1,197 @@
+---
+export const prerender = false
+
+import MovieLayout from "../../layouts/MovieLayout.astro"
+import MovieModalContent from "../../components/MovieModalContent.astro"
+import MoviePoster from "../../components/MoviePoster.astro"
+import { processMovies } from "../../utils/movieUtils"
+import movies from "../../data/movies.json"
+import ratings from "../../data/ratings.json"
+import recommendations from "../../data/recommendations.json"
+import type { Movie } from "../../utils/movieUtils"
+
+const { imdbId } = Astro.params
+
+// Process movies to find the specific one
+const { movies: processedMovies } = processMovies(
+  movies as Movie[],
+  ratings,
+  recommendations,
+  { searchQuery: "", isRecommendation: false },
+  { sortBy: "title", sortDir: "asc" },
+)
+
+const movie = processedMovies.find((m) => m.const === imdbId)
+
+if (!movie) {
+  return Astro.redirect("/movies/")
+}
+
+// Check if it's a recommendation
+const recommendationsSet = new Set(recommendations.map((r) => r.const))
+const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]))
+const isRecommendation = recommendationsSet.has(movie.const)
+const note = recommendationNotes.get(movie.const)
+---
+
+<MovieLayout
+  title={`${movie.title} (${movie.year})`}
+  description={`Movie details for ${movie.title}`}
+  robots="noindex"
+>
+  <div class="modal-backdrop">
+    <a href="/movies/" class="modal-backdrop-link" aria-label="Close modal"></a>
+    <div class="modal-container">
+      <article class="modal-content">
+        <header class="modal-header">
+          <h2>{movie.title} ({movie.year})</h2>
+          <button class="modal-close" aria-label="Close modal">×</button>
+        </header>
+
+        <div class="modal-body">
+          <MovieModalContent
+            imdbId={movie.const}
+            title={movie.title}
+            year={movie.year}
+            yourRating={movie.your_rating}
+            imdbRating={movie.imdb_rating}
+            runtimeMins={movie.runtime_mins}
+            genres={movie.genres}
+            directors={movie.directors}
+            isRecommendation={isRecommendation}
+            note={note || undefined}
+          />
+        </div>
+      </article>
+    </div>
+  </div>
+</MovieLayout>
+
+<script is:inline>
+  // Clean modal close functionality
+  const closeModal = () => {
+    if (window.history.length > 1) {
+      window.history.back()
+    } else {
+      window.location.href = "/movies/"
+    }
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModal)
+  } else {
+    initModal()
+  }
+
+  function initModal() {
+    // Close button
+    const closeButton = document.querySelector(".modal-close")
+    if (closeButton) {
+      closeButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        closeModal()
+      })
+    }
+
+    // Backdrop click
+    const backdropLink = document.querySelector(".modal-backdrop-link")
+    if (backdropLink) {
+      backdropLink.addEventListener("click", (e) => {
+        e.preventDefault()
+        closeModal()
+      })
+    }
+
+    // ESC key - global listener
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal()
+      }
+    })
+  }
+</script>
+
+<style>
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .modal-backdrop-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .modal-container {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 2;
+  }
+
+  .modal-content {
+    background: var(--pico-card-background-color);
+    border: 2px solid var(--pico-border-color);
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--pico-border-color);
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+  }
+
+  .modal-close {
+    background: none;
+    border: 2px solid var(--pico-border-color);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--pico-muted-color);
+    cursor: pointer;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .modal-close:hover {
+    color: #000;
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+  }
+
+  @media (max-width: 768px) {
+    .modal-backdrop {
+      padding: 0.5rem;
+    }
+
+    .modal-header {
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>

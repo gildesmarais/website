@@ -1,0 +1,114 @@
+---
+import Highlights from "./Highlights.astro"
+import MoviePoster from "./MoviePoster.astro"
+
+export interface Props {
+  imdbId: string
+  title: string
+  year: number
+  yourRating: number
+  imdbRating: number
+  runtimeMins: number
+  genres: string
+  directors: string
+  isRecommendation?: boolean
+  note?: string
+}
+
+const {
+  imdbId,
+  title,
+  year,
+  yourRating,
+  imdbRating,
+  runtimeMins,
+  genres,
+  directors,
+  isRecommendation = false,
+  note,
+} = Astro.props
+
+const highlights = [
+  { term: "My Rating", definition: `${yourRating}/10` },
+  { term: "IMDb Rating", definition: `${imdbRating}/10` },
+  { term: "Director", definition: directors },
+  { term: "Runtime", definition: `${runtimeMins} minutes` },
+  { term: "Genres", definition: genres },
+]
+---
+
+<div class="movie-modal-content" data-imdb-id={imdbId}>
+  <div class="poster-section">
+    <MoviePoster imdbId={imdbId} />
+  </div>
+
+  <div class="info-section">
+    <div class="movie-details">
+      <Highlights highlights={highlights} />
+      {isRecommendation && note && <p class="note">{note}</p>}
+    </div>
+
+    <div class="movie-links">
+      <a href={`https://www.imdb.com/title/${imdbId}/`} target="_blank" rel="noopener" class="minimal-btn"
+        >IMDb</a
+      >
+      <a href={`https://letterboxd.com/imdb/${imdbId}/`} target="_blank" rel="noopener" class="minimal-btn"
+        >Letterboxd</a
+      >
+      <a href={`https://trakt.tv/search/imdb/${imdbId}`} target="_blank" rel="noopener" class="minimal-btn"
+        >Trakt.tv</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .movie-modal-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+  }
+
+  .poster-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .poster-section :global(img) {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border: 2px solid var(--pico-border-color);
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .note {
+    margin: 0;
+    font-style: italic;
+    color: var(--pico-muted-color);
+  }
+
+  .movie-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .movie-modal-content {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .poster-section {
+      justify-self: center;
+      max-width: 200px;
+    }
+  }
+</style>

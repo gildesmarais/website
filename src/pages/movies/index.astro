@@ -69,18 +69,29 @@ const recommendationNotes = new Map(recommendations.map((r) => [r.const, r.note]
       }
     </div>
   </section>
-  <script src="/enhance-movies.js" type="module"></script>
   <aside class="micro">
     Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer"
       >OMDb API for providing the movie posters</a
     > used in this page. 🧡
   </aside>
 </MovieLayout>
-
 <style>
   .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--pico-spacing);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .recommendations-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .recommendations-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
   }
 </style>
