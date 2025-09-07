@@ -30,6 +30,7 @@ all_movies = csv_movies.map do |movie|
   movie['runtime_mins'] = movie['runtime_mins'].to_i if movie['runtime_mins']
   movie['year'] = movie['year'].to_i if movie['year']
   movie['num_votes'] = movie['num_votes'].to_i if movie['num_votes']
+  movie  # Return the modified movie hash
 end
 
 # Remove duplicates from all_movies and recommendations_only_const_and_note based on 'const'

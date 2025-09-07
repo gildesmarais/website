@@ -1,6 +1,7 @@
 export interface Movie {
   const: string
   title: string
+  original_title?: string
   year: number
   your_rating: number
   date_rated: string
@@ -28,42 +29,19 @@ export interface ProcessedMovies {
   movies: Movie[]
 }
 
-export function createRatingsMap(
-  ratings: Array<{ title: string; year: number; rating: number }>,
-): Map<string, number> {
-  return new Map(ratings.map((r) => [`${r.title} (${r.year})`, r.rating]))
-}
-
-export function createRecommendationsSet(recommendations: Array<{ const: string }>): Set<string> {
-  return new Set(recommendations.map((r) => r.const))
-}
-
-export function createRecommendationNotesMap(
-  recommendations: Array<{ const: string; note?: string | null }>,
-): Map<string, string> {
-  return new Map(recommendations.map((r) => [r.const, r.note || ""]).filter(([, note]) => note))
-}
 
 // Filter out TV series, shorts, and other non-movie content
 export function filterMoviesOnly(movies: Movie[]): Movie[] {
-  return movies.filter((movie) => movie.title_type === "movie")
-}
-
-export function processMoviesWithRatings(movies: Movie[], ratingsMap: Map<string, number>): Movie[] {
-  return movies.map((movie) => {
-    const key = `${movie.title} (${movie.year})`
-    const your_rating = ratingsMap.get(key) || movie.your_rating
-    return { ...movie, your_rating }
-  })
+  return movies.filter((movie) => movie.title_type === "Movie")
 }
 
 export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   let filtered = movies
 
-  if (filters.searchQuery) {
-    const query = filters.searchQuery.toLowerCase()
+  if (filters.searchQuery?.trim()) {
+    const query = filters.searchQuery.trim().toLowerCase()
     filtered = filtered.filter((movie) => {
-      const searchText = `${movie.title} ${movie.directors} ${movie.genres}`.toLowerCase()
+      const searchText = `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
       return searchText.includes(query)
     })
   }
@@ -78,28 +56,28 @@ export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movi
 
     switch (sortOptions.sortBy) {
       case "title":
-        aVal = a.title.toLowerCase()
-        bVal = b.title.toLowerCase()
+        aVal = (a.title || "").toLowerCase()
+        bVal = (b.title || "").toLowerCase()
         break
       case "year":
-        aVal = a.year
-        bVal = b.year
+        aVal = a.year || 0
+        bVal = b.year || 0
         break
       case "yourRating":
-        aVal = a.your_rating
-        bVal = b.your_rating
+        aVal = a.your_rating || 0
+        bVal = b.your_rating || 0
         break
       case "imdbRating":
-        aVal = a.imdb_rating
-        bVal = b.imdb_rating
+        aVal = a.imdb_rating || 0
+        bVal = b.imdb_rating || 0
         break
       case "runtimeMins":
-        aVal = a.runtime_mins
-        bVal = b.runtime_mins
+        aVal = a.runtime_mins || 0
+        bVal = b.runtime_mins || 0
         break
       default:
-        aVal = a.title.toLowerCase()
-        bVal = b.title.toLowerCase()
+        aVal = (a.title || "").toLowerCase()
+        bVal = (b.title || "").toLowerCase()
     }
 
     if (aVal < bVal) return sortOptions.sortDir === "asc" ? -1 : 1
@@ -110,16 +88,11 @@ export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movi
 
 export function processMovies(
   movies: Movie[],
-  ratings: Array<{ title: string; year: number; rating: number }>,
-  recommendations: Array<{ const: string; note?: string | null }>,
+  recommendationsSet: Set<string>,
   filters: MovieFilters,
   sortOptions: MovieSortOptions,
 ): ProcessedMovies {
-  const ratingsMap = createRatingsMap(ratings)
-  const recommendationsSet = createRecommendationsSet(recommendations)
-
   let processedMovies = filterMoviesOnly(movies)
-  processedMovies = processMoviesWithRatings(processedMovies, ratingsMap)
 
   if (filters.isRecommendation) {
     processedMovies = processedMovies.filter((movie) => recommendationsSet.has(movie.const))
