@@ -6,7 +6,7 @@ import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
 
 const title = "Gil Desmarais — Engineering Team Lead"
-const description = "Turning complexity into clarity. Helping teams move faster, safer, and with impact."
+const description = "Turning complexity into clarity so teams move faster with less risk."
 
 const pageTitle = "Gil Desmarais — Engineering Team Lead"
 ---
@@ -14,20 +14,20 @@ const pageTitle = "Gil Desmarais — Engineering Team Lead"
 <BaseLayout title={pageTitle} description={description}>
   <Hero title={title} description={description}>
     <p class="hero-subtitle">
-      I build systems and teams that enable business growth. When uncertainty blocks progress, I make it
-      visible. When strategy meets technical limits, I translate both sides. When priorities compete, I align
-      decisions around impact.
+      I make ambiguous systems legible and guide teams through change. When strategy collides with technical
+      limits, I translate both sides. When priorities compete, I anchor decisions in business outcomes and
+      disciplined execution.
     </p>
   </Hero>
 
   <section id="how-i-work" aria-labelledby="how-i-work-title">
     <h2 id="how-i-work-title" class="accent">How I Work</h2>
-    <p class="section-intro">I work by a few principles that guide how I lead, decide, and build.</p>
+    <p class="section-intro">A few principles guide how I lead, decide, and build.</p>
     <Highlights
       highlights={[
-        { term: "Honesty", definition: "risks named early" },
-        { term: "Integrity", definition: "right over easy" },
-        { term: "Curiosity", definition: "better answers through learning" },
+        { term: "Honesty", definition: "surface constraints before they surprise us" },
+        { term: "Integrity", definition: "choose durable solutions over quick wins" },
+        { term: "Curiosity", definition: "ask better questions to reach better outcomes" },
       ]}
     />
   </section>

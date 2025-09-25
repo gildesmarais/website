@@ -7,7 +7,7 @@ import { professionalSocials } from "../data/socials"
 import legal from "../data/legal.json"
 
 const title = "Contact"
-const description = "Get in touch — inquiries about collaboration, opportunities, or professional networking."
+const description = "Get in touch for collaboration, leadership opportunities, or thoughtful introductions."
 const robots = "noindex, noarchive, follow"
 const email = legal.email
 
@@ -17,13 +17,13 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <Hero title={title} description="Prefer concise, async communication. Email works best." />
+  <Hero title={title} description="I default to concise, async communication. Email works best." />
 
   <aside id="devtools" class="accent" aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you found this via DevTools: nice. I care about boring reliability and clear interfaces. What are you
-      building and where does it currently hurt? Let's talk about making it better.
+      If you found this via DevTools: nice. I'm into boring reliability and clear interfaces. Tell me what
+      you're building and where it currently hurts; maybe we can untangle it together.
     </p>
     <p class="micro">
       <a href={mailto} class="button">Send me a note</a>
@@ -31,13 +31,13 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
   </aside>
 
   <section aria-labelledby="boundaries">
-    <h2 id="boundaries" class="accent">What I'm not interested in</h2>
+    <h2 id="boundaries" class="accent">Before you reach out</h2>
     <p>To save us both time, I typically decline:</p>
     <ul>
-      <li>Recruitment for roles that don't align with my expertise</li>
-      <li>Job Offers without essential contract specifics</li>
-      <li>Requests for free consulting or technical advice</li>
-      <li>Generic partnership proposals without specific value propositions</li>
+      <li>Recruiting for roles outside engineering leadership or platform work</li>
+      <li>Job offers without essential contract specifics</li>
+      <li>Requests for unpaid consulting or technical advice</li>
+      <li>Generic partnership pitches without a clear value exchange</li>
       <li>Marketing or promotional collaborations</li>
     </ul>
     <p class="micro">If you're unsure, just ask. I'm direct about what I can and can't help with.</p>
@@ -48,8 +48,8 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
 
     <h3>Email</h3>
     <p>
-      I prefer email for initial contact. It helps me manage my time and focus on what matters. If we need to
-      discuss further, we can schedule a call or meeting.
+      Email is best for first contact. It gives me context and helps me protect focus time. If a call makes
+      sense, we can set one up after an initial async exchange.
 
       <br />
 
@@ -59,13 +59,13 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
     </p>
 
     <h2 id="next-steps" class="accent">What happens next</h2>
-    <p>I work incrementally, focusing on impact vs. effort. Here's how we'll move forward:</p>
+    <p>I work incrementally, focusing on impact vs. effort. If we collaborate, expect:</p>
     <ol>
-      <li><strong>Discovery</strong> — I'll ask questions to understand your challenge and context</li>
+      <li><strong>Discovery</strong> — I ask precise questions to understand your challenge and context</li>
       <li>
-        <strong>Framing</strong> — We'll explore trade-offs and identify the highest-impact opportunities
+        <strong>Framing</strong> — We explore trade-offs together and identify the highest-impact opportunities
       </li>
-      <li><strong>Incremental approach</strong> — Start small, validate, then scale what works</li>
+      <li><strong>Incremental build</strong> — Start small, validate early, and scale what works</li>
     </ol>
     <p class="micro">
       No big promises or dramatic transformations. Just clear thinking and incremental progress toward your
@@ -74,9 +74,8 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
 
     <h3 class="accent">Social Platforms</h3>
     <p>
-      I keep my social media minimal. If you want to connect, here are the platforms I use for professional
-      networking. Please don't expect immediate responses; I check these periodically and have notifications
-      turned off.
+      I keep social media minimal. These platforms work for professional networking, but I check them
+      periodically and keep notifications off. Email remains the fastest path.
     </p>
     <ul>
       {

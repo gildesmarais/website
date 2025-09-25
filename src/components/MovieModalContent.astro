@@ -38,10 +38,6 @@ const highlights = [
 ---
 
 <div class="movie-modal-content" data-imdb-id={imdbId}>
-  <div class="poster-section">
-    <MoviePoster imdbId={imdbId} />
-  </div>
-
   <div class="info-section">
     <div class="movie-details">
       <Highlights highlights={highlights} />
@@ -60,12 +56,16 @@ const highlights = [
       >
     </div>
   </div>
+
+  <div class="poster-section">
+    <MoviePoster imdbId={imdbId} />
+  </div>
 </div>
 
 <style>
   .movie-modal-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
   }
 
@@ -104,11 +104,17 @@ const highlights = [
     .movie-modal-content {
       grid-template-columns: 1fr;
       gap: 1rem;
+      grid-template-rows: auto auto;
+    }
+
+    .info-section {
+      order: 1;
     }
 
     .poster-section {
+      order: 2;
       justify-self: center;
-      max-width: 200px;
+      margin-top: 1rem;
     }
   }
 </style>

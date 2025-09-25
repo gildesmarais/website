@@ -8,7 +8,7 @@ import TableOfContents, { slugify } from "../components/TableOfContents.astro"
 
 const title = "Projects"
 const description =
-  "Tools and experiments I've built for myself that others might find useful. Open source playground for exploring ideas and solving personal needs."
+  "Selective open-source experiments that remove friction for me and, hopefully, for you too."
 
 // Define headings for the TOC
 const projectHeadings = [
@@ -25,10 +25,10 @@ const projectHeadings = [
 <BaseLayout title={title} description={description}>
   <Hero
     title={title}
-    description="Tools I built for myself that others might find useful. Open source playground for exploring ideas and solving personal needs."
+    description="Pragmatic tools I built for myself. If they make your life easier too, even better."
   >
     <p>
-      These are my experiments and tools. If you find them useful, I'm happy to share! More on
+      I prefer purposeful tools with small footprints. Everything here is open source; more lives on
       <a href="https://github.com/gildesmarais/" target="_blank" rel="external nofollow noopener">GitHub</a>.
     </p>
   </Hero>
@@ -43,7 +43,7 @@ const projectHeadings = [
     highlights={[
       { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
       { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
-      { term: "Normalisation", definition: "Consistent titles, authors, dates, and images." },
+      { term: "Normalization", definition: "Consistent titles, authors, dates, and images." },
       { term: "Ops", definition: "Error handling, monitoring hooks, rolling releases." },
       { term: "Delivery", definition: "Lightweight HTTP service with caching." },
       { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker, health checks & metrics." },
@@ -55,12 +55,9 @@ const projectHeadings = [
     ]}
   >
     <p>
-      <strong>Problem solved:</strong> Most websites have abandoned RSS, leaving users without control over their
-      content consumption.<br />
-      <strong>Solution:</strong> html2rss discovers articles, normalises metadata, and produces reliable RSS feeds
-      — even from JavaScript-rendered pages via headless browsers.<br />
-      <strong>Impact:</strong> Brings RSS back to the modern web, enabling content discovery and reader retention
-      for sites without feeds.
+      Most sites abandoned RSS, which removed control from readers. html2rss discovers article lists,
+      normalizes metadata, and produces reliable feeds—even for JavaScript-heavy pages via headless browsers.
+      Teams use it to regain distribution and let audiences follow along on their own terms.
     </p>
   </ProjectCard>
 
@@ -83,19 +80,17 @@ const projectHeadings = [
     links={[
       { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
       {
-        text: "Github Repository",
+        text: "GitHub Repository",
         url: "https://github.com/gildesmarais/jekyll-loading-lazy",
         external: true,
       },
-      { text: "Introducation blog post", url: "/posts/loading-images-lazily-with-jekyll/" },
+      { text: "Introduction blog post", url: "/posts/loading-images-lazily-with-jekyll/" },
     ]}
   >
     <p>
-      <strong>Problem solved:</strong> Jekyll sites suffer from slow loads due to unoptimized images and embeds.<br
-      />
-      <strong>Solution:</strong> Adds <code>loading="lazy"</code> to images/iframes during the build — no template
-      changes, no JavaScript.<br />
-      <strong>Impact:</strong> Better Core Web Vitals and UX through faster perceived page loads.
+      Static sites deserve to be fast without extra chores. This plugin adds the native
+      <code>loading="lazy"</code> attribute to images and iframes during the build, no template changes needed.
+      Maintainers get Core Web Vitals improvements and one less script to ship.
     </p>
   </ProjectCard>
 
@@ -105,15 +100,12 @@ const projectHeadings = [
     slug={slugify(".dotfiles & Scripts")}
     status="evergreen"
     description="My personal macOS & CLI setup, with a scripts/ directory for automation: interactive macOS defaults, portable shell utilities, and repeatable system setup. A living repository of the tools I use daily."
-    links={[{ text: "GitHub Repo", url: "https://github.com/yourusername/dotfiles", external: true }]}
+    links={[{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }]}
   >
     <p>
-      <strong>Problem solved:</strong> Keeping macOS environments and shell setups consistent across machines is
-      tedious and error-prone.<br />
-      <strong>Solution:</strong> A living macOS & CLI setup with a <code>scripts/</code> directory for automation:
-      system defaults, setup scripts, and small but powerful shell utilities.<br />
-      <strong>Impact:</strong> Reliable environment syncing, less manual tweaking, and reusable scripts that speed
-      up everyday tasks.
+      Keeping macOS environments consistent is tedious. This living repository automates defaults, documents
+      shell utilities, and keeps repeatable setup scripts in one place so new machines feel familiar within an
+      hour.
     </p>
   </ProjectCard>
 </BaseLayout>
