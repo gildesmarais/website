@@ -7,77 +7,127 @@ import { professionalSocials } from "../data/socials"
 import legal from "../data/legal.json"
 
 const title = "Contact"
-const description = "Get in touch for collaboration, leadership opportunities, or thoughtful introductions."
+const description = "Connect with Gil Desmarais for engineering leadership, platform strategy, and steady delivery."
 const robots = "noindex, noarchive, follow"
 const email = legal.email
-
-const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a precise subject]")}&body=${encodeURIComponent(
-  "Hi Gil,\n\nFound your contact page and wanted to reach out about …\n\n— \n",
-)}`
+const mailtoSubject = "Let's connect"
+const mailtoBody = "Hi Gil,\\n\\nI found your site and wanted to connect about …\\n\\n—\\n"
+const mailtoTemplate = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`
+const emailEncoded = Buffer.from(email).toString("base64")
+const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 ---
 
 <BaseLayout title={title} description={description} robots={robots}>
-  <Hero title={title} description="I default to concise, async communication. Email works best." />
+  <Hero
+    title={title}
+    description="Thoughtful collaboration starts with context. I prefer concise, async conversation so we can both stay focused."
+  />
 
   <aside id="devtools" class="accent" aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you found this via DevTools: nice. I'm into boring reliability and clear interfaces. Tell me what
+      If you found this via DevTools: good eye. I'm into boring reliability and clear interfaces. Tell me what
       you're building and where it currently hurts; maybe we can untangle it together.
     </p>
     <p class="micro">
-      <a href={mailto} class="button">Send me a note</a>
+      <button type="button" class="button" data-action="open-email-modal">Start an email</button>
     </p>
   </aside>
 
-  <section aria-labelledby="boundaries">
-    <h2 id="boundaries" class="accent">Before you reach out</h2>
-    <p>To save us both time, I typically decline:</p>
-    <ul>
-      <li>Recruiting for roles outside engineering leadership or platform work</li>
-      <li>Job offers without essential contract specifics</li>
-      <li>Requests for unpaid consulting or technical advice</li>
-      <li>Generic partnership pitches without a clear value exchange</li>
-      <li>Marketing or promotional collaborations</li>
+  <section aria-labelledby="focus">
+    <h2 id="focus" class="accent">Where I add the most value</h2>
+    <p>I help engineering organisations stay calm under load and deliver outcomes that compound.</p>
+    <ul class="focus-list">
+      <li>
+        <strong>Engineering leadership</strong> — steady guidance for platform and product teams through
+        growth, re-orgs, and reliability work.
+      </li>
+      <li>
+        <strong>Architecture clarity</strong> — map systems, surface trade-offs, and align decisions to the
+        business problems we're actually solving.
+      </li>
+      <li>
+        <strong>Delivery habits</strong> — shape rituals, documentation, and feedback loops so teams move with
+        confidence.
+      </li>
     </ul>
-    <p class="micro">If you're unsure, just ask. I'm direct about what I can and can't help with.</p>
+  </section>
+
+  <section aria-labelledby="fit">
+    <h2 id="fit" class="accent">A quick note on fit</h2>
+    <p>
+      I protect deep work and focus on opportunities that match my craft. To keep things respectful, I usually
+      decline:
+    </p>
+    <ul>
+      <li>Roles outside engineering leadership or platform strategy</li>
+      <li>Requests without scope, budget, or decision context</li>
+      <li>Unpaid consulting or "pick your brain" sessions</li>
+      <li>Mass marketing or promotional outreach</li>
+    </ul>
+    <p class="micro">If you're unsure, share the context anyway. I'll reply with a clear yes or no.</p>
   </section>
 
   <section aria-labelledby="contact-methods">
     <h2 id="contact-methods" class="accent">How to reach me</h2>
-
-    <h3>Email</h3>
     <p>
-      Email is best for first contact. It gives me context and helps me protect focus time. If a call makes
-      sense, we can set one up after an initial async exchange.
-
-      <br />
-
-      <a href={mailto}>{email}</a>
-
-      You're not permitted to store this email address in any database or use it for unsolicited marketing.
+      Start with a short async brief so I can respond thoughtfully. Include what you're working on, the change
+      you're driving, who will be involved, and any timelines that matter.
     </p>
+    <div class="contact-cta">
+      <button type="button" class="button" data-action="open-email-modal">Start an email</button>
+      <p class="micro">Prefer another channel? LinkedIn DMs work for quick introductions.</p>
+    </div>
+    <noscript>
+      <p class="micro">
+        Enable JavaScript to reveal my email or reach me via
+        <a href="https://www.linkedin.com/in/gildesmarais/" rel="noopener noreferrer">LinkedIn</a>.
+      </p>
+    </noscript>
 
+    <dialog
+      id="email-modal"
+      data-email={emailEncoded}
+      data-mailto={mailtoEncoded}
+      aria-labelledby="email-modal-title"
+    >
+      <form method="dialog">
+        <header>
+          <h3 id="email-modal-title" class="accent">Email works best</h3>
+        </header>
+        <p>
+          Share a concise brief — where you're based, the decision you're trying to make, and any deadlines.
+          I reply within two business days.
+        </p>
+        <p class="micro">I only use your details to respond. No lists, no surprises.</p>
+        <div class="modal-actions">
+          <button type="button" class="secondary" data-action="close-email-modal">Keep browsing</button>
+          <button type="button" class="secondary" data-action="copy-email">Copy address</button>
+          <button type="button" data-action="launch-email">Open mail app</button>
+        </div>
+        <p id="email-modal-feedback" class="micro" role="status" aria-live="polite"></p>
+      </form>
+    </dialog>
+  </section>
+
+  <section aria-labelledby="next-steps">
     <h2 id="next-steps" class="accent">What happens next</h2>
-    <p>I work incrementally, focusing on impact vs. effort. If we collaborate, expect:</p>
+    <p>I work incrementally, focusing on impact versus effort. If we collaborate, expect:</p>
     <ol>
-      <li><strong>Discovery</strong> — I ask precise questions to understand your challenge and context</li>
-      <li>
-        <strong>Framing</strong> — We explore trade-offs together and identify the highest-impact opportunities
-      </li>
-      <li><strong>Incremental build</strong> — Start small, validate early, and scale what works</li>
+      <li><strong>Discovery</strong> — precise questions to understand the problem, context, and constraints</li>
+      <li><strong>Framing</strong> — mapping trade-offs and choosing the first win that unlocks the rest</li>
+      <li><strong>Incremental build</strong> — deliver, validate, and iterate so we ship with confidence</li>
     </ol>
-    <p class="micro">
-      No big promises or dramatic transformations. Just clear thinking and incremental progress toward your
-      goals.
-    </p>
+    <p class="micro">No theatrics. Just calm execution and clear communication.</p>
+  </section>
 
-    <h3 class="accent">Social Platforms</h3>
+  <section aria-labelledby="social-platforms">
+    <h2 id="social-platforms" class="accent">Social touchpoints</h2>
     <p>
-      I keep social media minimal. These platforms work for professional networking, but I check them
-      periodically and keep notifications off. Email remains the fastest path.
+      I keep social media minimal. These channels are monitored, just not daily. If it’s time-sensitive, use
+      email.
     </p>
-    <ul>
+    <ul class="social-list">
       {
         professionalSocials.map((l) => (
           <li>
@@ -91,14 +141,187 @@ const mailto = `mailto:${email}?subject=${encodeURIComponent("[Please craft a pr
   </section>
 </BaseLayout>
 
+<script>
+  ;(() => {
+    const decode = (encoded: string | undefined | null) => {
+      if (!encoded) return ""
+      try {
+        return atob(encoded)
+      } catch (error) {
+        console.error("Failed to decode email payload", error)
+        return ""
+      }
+    }
+
+    const modal = document.querySelector<HTMLDialogElement>("#email-modal")
+    if (!modal) return
+
+    const openButtons = document.querySelectorAll<HTMLButtonElement>('[data-action="open-email-modal"]')
+    const closeButton = modal.querySelector<HTMLButtonElement>('[data-action="close-email-modal"]')
+    const copyButton = modal.querySelector<HTMLButtonElement>('[data-action="copy-email"]')
+    const launchButton = modal.querySelector<HTMLButtonElement>('[data-action="launch-email"]')
+    const feedback = modal.querySelector<HTMLElement>("#email-modal-feedback")
+
+    const email = decode(modal.dataset.email)
+    const mailto = decode(modal.dataset.mailto)
+
+    const closeModal = () => {
+      if (modal.open) {
+        modal.close()
+      }
+    }
+
+    const openModal = () => {
+      if (!modal.showModal) {
+        if (mailto) {
+          window.location.href = mailto
+        }
+        return
+      }
+
+      modal.showModal()
+      if (feedback) {
+        feedback.textContent = ""
+      }
+    }
+
+    openButtons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault()
+        openModal()
+      })
+    })
+
+    closeButton?.addEventListener("click", () => {
+      closeModal()
+    })
+
+    launchButton?.addEventListener("click", () => {
+      if (!mailto) return
+      window.location.href = mailto
+      if (feedback) {
+        feedback.textContent = "Opening your email app…"
+      }
+      closeModal()
+    })
+
+    copyButton?.addEventListener("click", async () => {
+      if (!email) return
+      if (!navigator.clipboard) {
+        if (feedback) {
+          feedback.textContent = "Copy isn't available in this browser. Use the email button instead."
+        }
+        return
+      }
+
+      try {
+        await navigator.clipboard.writeText(email)
+        if (feedback) {
+          feedback.textContent = "Email address copied."
+        }
+      } catch (error) {
+        console.error("Clipboard write failed", error)
+        if (feedback) {
+          feedback.textContent = "Copy didn't work. Try the email button instead."
+        }
+      }
+    })
+
+    modal.addEventListener("cancel", (event) => {
+      event.preventDefault()
+      closeModal()
+    })
+  })()
+</script>
+
 <style>
   #devtools {
     display: none;
   }
+
   #devtools:target {
     display: block;
     margin-block: var(--pico-spacing);
     padding: var(--pico-spacing);
     border: 2px solid var(--pico-primary);
+  }
+
+  .focus-list {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .focus-list li {
+    max-width: 60ch;
+    letter-spacing: -0.005em;
+  }
+
+  .contact-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-block: 1rem 1.5rem;
+  }
+
+  .contact-cta .button {
+    min-width: 12rem;
+  }
+
+  .social-list {
+    padding-left: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+
+  dialog {
+    border: 1px solid var(--pico-primary);
+    padding: var(--pico-spacing);
+    border-radius: 0;
+    max-width: min(28rem, 90vw);
+    background: var(--pico-background-color);
+  }
+
+  dialog form {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  dialog header {
+    margin-bottom: 0.25rem;
+  }
+
+  dialog::backdrop {
+    background: color-mix(in srgb, var(--pico-primary) 18%, transparent);
+  }
+
+  .modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block: 0.5rem;
+  }
+
+  .modal-actions .secondary {
+    background: transparent;
+    border: 1px solid var(--pico-muted-border-color);
+  }
+
+  #email-modal-feedback {
+    min-height: 1.25em;
+  }
+
+  @media (min-width: 768px) {
+    .focus-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .focus-list li {
+      max-width: none;
+    }
   }
 </style>
