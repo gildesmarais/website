@@ -12,7 +12,7 @@ const robots = "noindex, noarchive, follow"
 const email = legal.email
 const mailtoSubject = "Let's connect"
 const mailtoBody = `Hi Gil,
-I found your site and wanted to connect about …"
+I found your site and wanted to connect about …`
 const mailtoTemplate = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`
 const emailEncoded = Buffer.from(email).toString("base64")
 const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
