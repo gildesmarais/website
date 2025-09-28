@@ -11,7 +11,8 @@ const description = "Connect with Gil Desmarais for engineering leadership, plat
 const robots = "noindex, noarchive, follow"
 const email = legal.email
 const mailtoSubject = "Let's connect"
-const mailtoBody = "Hi Gil,\\n\\nI found your site and wanted to connect about …\\n\\n—\\n"
+const mailtoBody = "Hi Gil,
+I found your site and wanted to connect about …"
 const mailtoTemplate = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`
 const emailEncoded = Buffer.from(email).toString("base64")
 const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
