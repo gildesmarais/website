@@ -7,7 +7,7 @@ import { professionalSocials } from "../data/socials"
 import legal from "../data/legal.json"
 
 const title = "Contact"
-const description = "Connect with Gil Desmarais for engineering leadership, platform strategy, and steady delivery."
+const description = "Reach Gil Desmarais for focused engineering leadership and platform support."
 const robots = "noindex, noarchive, follow"
 const email = legal.email
 const mailtoSubject = "Let's connect"
@@ -21,48 +21,20 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Thoughtful collaboration starts with context. I prefer concise, async conversation so we can both stay focused."
+    description="Fastest replies come from crisp, async notes. Share the problem, who’s involved, and the decision on the table."
   />
 
   <aside id="devtools" class="accent" aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you found this via DevTools: good eye. I'm into boring reliability and clear interfaces. Tell me what
-      you're building and where it currently hurts; maybe we can untangle it together.
-    </p>
-    <p class="micro">
-      <button type="button" class="button" data-action="open-email-modal">Start an email</button>
+      If you unearthed this via DevTools: 👋 I care about reliable platforms and tidy interfaces. Tell me what
+      you’re shipping and where it hurts — maybe we can untangle it together.
     </p>
   </aside>
 
-  <section aria-labelledby="focus">
-    <h2 id="focus" class="accent">Where I add the most value</h2>
-    <p>I help engineering organisations stay calm under load and deliver outcomes that compound.</p>
-    <ul class="focus-list">
-      <li>
-        <strong>Engineering leadership</strong> — steady guidance for platform and product teams through
-        growth, re-orgs, and reliability work.
-      </li>
-      <li>
-        <strong>Architecture clarity</strong> — map systems, surface trade-offs, and align decisions to the
-        business problems we're actually solving.
-      </li>
-      <li>
-        <strong>Delivery habits</strong> — shape rituals, documentation, and feedback loops so teams move with
-        confidence.
-      </li>
-    </ul>
-  </section>
-
   <section aria-labelledby="contact-methods">
-    <h2 id="contact-methods" class="accent">How to reach me</h2>
-    <p>
-      Start with a short async brief so I can respond thoughtfully. Include what you're working on, the change
-      you're driving, who will be involved, and any timelines that matter.
-    </p>
     <div class="contact-cta">
-      <button type="button" class="button" data-action="open-email-modal">Start an email</button>
-      <p class="micro">Prefer another channel? LinkedIn DMs work for quick introductions.</p>
+      <button type="button" class="button" data-action="open-email-modal">Email Gil</button>
     </div>
 
     <dialog
@@ -73,19 +45,18 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     >
       <form method="dialog">
         <header>
-          <h3 id="email-modal-title" class="accent">Email works best</h3>
+          <h3 id="email-modal-title" class="accent">Email is the priority lane</h3>
         </header>
         <p>
-          Share a concise brief — where you're based, the decision you're trying to make, and any deadlines.
-          I usually reply to legit emails within two business days.
+          Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.
         </p>
-        <p class="micro">I only use your details to respond. No lists, no surprises.</p>
-        <details class="micro">
-          <summary>What not to send</summary>
+        <p class="micro">Details are only used to respond. No lists, no marketing.</p>
+        <details class="micro" open>
+          <summary>Not a fit:</summary>
           <ul>
             <li>Roles outside engineering leadership or platform strategy</li>
             <li>Requests without scope, budget, or decision context</li>
-            <li>Unpaid consulting or "pick your brain" sessions</li>
+            <li>Unpaid consulting or “pick your brain” chats</li>
             <li>Mass marketing or promotional outreach</li>
           </ul>
         </details>
@@ -99,34 +70,19 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     </dialog>
   </section>
 
-  <section aria-labelledby="next-steps">
-    <h2 id="next-steps" class="accent">What happens next</h2>
-    <p>I work incrementally, focusing on impact versus effort. If we collaborate, expect:</p>
-    <ol>
-      <li><strong>Discovery</strong> — precise questions to understand the problem, context, and constraints</li>
-      <li><strong>Framing</strong> — mapping trade-offs and choosing the first win that unlocks the rest</li>
-      <li><strong>Incremental build</strong> — deliver, validate, and iterate so we ship with confidence</li>
-    </ol>
-    <p class="micro">No theatrics. Just calm execution and clear communication.</p>
-  </section>
-
   <section aria-labelledby="social-platforms">
-    <h2 id="social-platforms" class="accent">Social touchpoints</h2>
-    <p>
-      I keep social media minimal. These channels are monitored, just not daily. If it’s time-sensitive, use
-      email.
-    </p>
-    <ul class="social-list">
-      {
-        professionalSocials.map((l) => (
-          <li>
-            <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
-              {l.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <h2 id="social-platforms" class="accent">Other touchpoints</h2>
+    <p class="intro">Social channels are checked monthly. For urgent needs, email wins.</p>
+
+    {
+      professionalSocials.map((l) => (
+        <p>
+          <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
+            {l.name}
+          </a>
+        </p>
+      ))
+    }
   </section>
 </BaseLayout>
 
@@ -235,17 +191,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     border: 2px solid var(--pico-primary);
   }
 
-  .focus-list {
-    padding-left: 1.2rem;
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .focus-list li {
-    max-width: 60ch;
-    letter-spacing: -0.005em;
-  }
-
   .contact-cta {
     display: flex;
     flex-direction: column;
@@ -258,11 +203,25 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     min-width: 12rem;
   }
 
+  .intro {
+    max-width: 60ch;
+  }
+
   .social-list {
     padding-left: 1.2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
+  }
+
+  .steps {
+    display: grid;
+    gap: 1rem;
+    padding-left: 1.2rem;
+  }
+
+  .steps p {
+    margin-block: 0.35rem 0 0;
   }
 
   dialog {
@@ -305,12 +264,11 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   }
 
   @media (min-width: 768px) {
-    .focus-list {
+    .steps {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .focus-list li {
-      max-width: none;
+      gap: 1.5rem;
+      padding-left: 0;
+      list-style-position: inside;
     }
   }
 </style>
