@@ -12,10 +12,8 @@ const title = "Résumé"
 const robots = "index, noarchive, follow"
 
 const description = `
-  Engineering Team Lead in Berlin who turns complexity into clarity.
-  I translate between business intent and technical reality,
-  frame trade-offs precisely, and drive incremental change
-  anchored in impact versus effort.
+  Engineering Team Lead in Berlin translating between business goals and technical execution.
+  I align teams on the next confident step and ship change without drama.
   `
 
 // Define headings for the TOC
@@ -32,7 +30,7 @@ const resumeHeadings = [
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Engineering Team Lead who turns complexity into clarity. I translate between business intent and technical reality, frame trade-offs precisely, and drive change incrementally based on impact versus effort."
+    description="Engineering Team Lead translating business intent into calm, incremental delivery."
   />
 
   <Highlights
@@ -43,6 +41,24 @@ const resumeHeadings = [
     ]}
   />
 
+  <section aria-labelledby="snapshot">
+    <h2 id="snapshot" class="accent section-headline">Snapshot</h2>
+    <ul class="snapshot-list">
+      <li>
+        <strong>Leadership</strong>
+        <p>Guide platform and product teams through scale, audits, and reorganisations.</p>
+      </li>
+      <li>
+        <strong>Systems</strong>
+        <p>Diagnose bottlenecks across Rails, Postgres, and cloud infrastructure.</p>
+      </li>
+      <li>
+        <strong>Delivery</strong>
+        <p>Ship measurable wins — faster CI, leaner workloads, and clear rituals.</p>
+      </li>
+    </ul>
+  </section>
+
   <!-- Table of Contents - Mobile-friendly for recruiters -->
   <TableOfContents headings={resumeHeadings} />
 
@@ -50,14 +66,12 @@ const resumeHeadings = [
   <section aria-labelledby="executive-summary">
     <h2 id="executive-summary" class="accent section-headline">Executive Summary</h2>
     <p>
-      Engineering Team Lead focused on systemic clarity. I optimize for clarity, resilience, and simplicity
-      because they create leverage for the business. The outcome: hidden risks surface early, and teams move
-      faster with confidence.
+      I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces risk
+      early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental.
     </p>
     <p>
-      <strong>How I work:</strong> translate between business intent and technical reality, frame trade-offs with
-      data, and deliver change incrementally. <strong>Selected results:</strong> 33% faster CI builds, ~70%
-      memory reduction in the core Rails app, ISO 27001 certification with zero non-conformities.
+      <strong>Recent wins:</strong> 33% faster CI pipelines, ~70% less memory in the core Rails app, and ISO 27001
+      certification with zero non-conformities.
     </p>
   </section>
 
@@ -76,9 +90,8 @@ const resumeHeadings = [
           · Berlin (hybrid, 99% remote)
         </p>
         <p>
-          Lead platform modernization and reliability. I focus on creating systemic clarity—making hidden
-          dependencies visible, translating complex technical challenges into business decisions, and driving
-          incremental change based on impact vs. effort.
+          Lead platform modernization and reliability with a focus on revealing hidden dependencies and turning
+          technical trade-offs into business decisions.
         </p>
       </header>
 
@@ -86,32 +99,20 @@ const resumeHeadings = [
 
       <ul>
         <li>
-          <strong>Restarted</strong> delivery after months of zero output; raised production deploys to ~15/month on
-          regulated, QA-heavy services.
+          <strong>Restarted</strong> delivery after a stalled quarter; platform teams now ship ~15 production deploys
+          per month across regulated services.
         </li>
         <li>
-          <strong>Cut</strong> CI test runtime by 33% (wall-clock) and 13% (billable), saving developer hours and
-          compute cost.
+          <strong>Accelerated</strong> CI by 33% (wall-clock) and 13% (billable), freeing developer focus and compute
+          budget.
         </li>
         <li>
-          <strong>Reduced</strong> core Rails app memory usage by ~70% via YJIT, jemalloc tuning, and targeted
-          allocation fixes; enabled resource downscale and cost savings.
+          <strong>Stabilised</strong> the core Rails app with ~70% lower memory use via YJIT, jemalloc tuning, and
+          targeted allocation fixes.
         </li>
         <li>
-          <strong>Removed</strong> scaling bottlenecks (SQL DML/DDL, replica-safe patterns, PostgreSQL config)
-          through profiling and query optimization.
-        </li>
-        <li>
-          <strong>Scaled</strong> revenue-critical services—identity & access (IDM), authentication/authorization,
-          and HLS video delivery—improving reliability and security posture.
-        </li>
-        <li>
-          <strong>Introduced</strong> a squad ownership model clarifying accountability and on-call scope; turned an
-          abstract "ownership" idea into concrete rhythms teams rely on.
-        </li>
-        <li>
-          <strong>Led</strong> engineering inputs for first ISO/IEC 27001 audit; achieved certification with zero
-          non-conformities and authored SOPs translating compliance into actionable engineering practices. (<a
+          <strong>Prepared</strong> the organisation for ISO/IEC 27001, delivering zero non-conformities and practical
+          SOPs that engineers actually use. (<a
             href="https://www.iso.org/isoiec-27001-information-security.html"
             target="_blank"
             rel="external nofollow noopener"
@@ -119,8 +120,8 @@ const resumeHeadings = [
           >)
         </li>
         <li>
-          <strong>Hired</strong> and onboarded two engineers; <strong>coach</strong> a three-person team; drive
-          cross-squad alignment on IDM and video delivery initiatives.
+          <strong>Scaled</strong> identity, access, and video delivery systems while coaching a three-person team and
+          leading cross-squad alignment.
         </li>
       </ul>
       <footer>
@@ -186,9 +187,8 @@ const resumeHeadings = [
             · Berlin
           </p>
           <p>
-            Sole engineer in a sub-10-person agency. Led the relaunch of an interactive city portal and
-            supported B2B and consumer clients end-to-end—from concept and sales meetings to delivery,
-            monitoring, and maintenance.
+            Sole engineer in a sub-10-person agency. Led the relaunch of an interactive city portal and supported
+            B2B and consumer clients end-to-end.
           </p>
         </header>
 
@@ -198,26 +198,19 @@ const resumeHeadings = [
             that stabilized revenue.
           </li>
           <li>
-            <strong>Built</strong> monitoring infrastructure and dashboards, giving management and clients operational
-            visibility.
+            <strong>Built</strong> monitoring dashboards that gave management and clients live operational visibility.
           </li>
           <li>
-            <strong>Migrated</strong> to a new CRM by rescuing legacy data, customizing workflows, and training
-            staff; enabled transactional email and funnel features.
+            <strong>Migrated</strong> to a new CRM by rescuing legacy data, customizing workflows, and training staff.
           </li>
           <li>
-            <strong>Improved</strong> SEO to reach Google SERP #1 for POI pages—often outranking official sites—strengthening
-            sales to small B2B clients without web presence.
+            <strong>Improved</strong> SEO to reach Google SERP #1 for POI pages, strengthening sales to small B2B clients.
           </li>
           <li>
-            <strong>Streamlined</strong> digital ordering and configuration of virtual tours; <strong
-              >increased</strong
-            > reliability with an SVG floorplan linter ensuring hotspot reachability; built staff-friendly backend
-            tools.
+            <strong>Streamlined</strong> digital tour creation with an SVG floorplan linter and staff-friendly backend tools.
           </li>
           <li>
-            <strong>Introduced</strong> geospatial search (PostGIS) across ~50k records, enabling B2C users and
-            B2B clients to find POIs/events by distance.
+            <strong>Introduced</strong> geospatial search across ~50k records so users could find POIs and events by distance.
           </li>
           <li>
             <strong>Delivered</strong> custom Rails/CMS projects for city and state clients; acted as technical
@@ -276,23 +269,19 @@ const resumeHeadings = [
         </p>
         <ul>
           <li>
-            <strong>Built</strong> an internal curation app for incoming articles, scaling content review and vertical
-            publishing across microservices.
+            <strong>Built</strong> an internal curation app for incoming articles, scaling content review across
+            microservices.
           </li>
           <li>
-            <strong>Developed</strong> the revenue-share application distributing >$200k to contributors, integrating
+            <strong>Developed</strong> the revenue-share platform distributing >$200k to contributors with integrated
             payments and analytics.
           </li>
           <li>
-            <strong>Delivered</strong> new homepage and article templates (serving >30M monthly page views), giving
-            editorial teams control and modern presentation features.
+            <strong>Delivered</strong> new homepage and article templates for >30M monthly page views, restoring
+            editorial control.
           </li>
           <li>
-            <strong>Supported</strong> migration from monolith to microservices and multiple vertical platforms,
-            enabling product adaptability.
-          </li>
-          <li class="hide-print">
-            <strong>Maintained</strong> and extended core web applications; provided internal technical support.
+            <strong>Supported</strong> the migration from monolith to microservices, enabling new vertical launches.
           </li>
         </ul>
         <footer>
@@ -362,23 +351,14 @@ const resumeHeadings = [
             Europe.
           </li>
           <li>
-            <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga, including video
-            processing, subscription handling, and payment integration.
+            <strong>Delivered</strong> a new sports portal for the German Handball Bundesliga with video processing,
+            subscriptions, and payments.
           </li>
           <li>
-            <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernized
+            <strong>Introduced</strong> task runners, CI, and git workflows — laying the foundation for modernised
             developer practices at the agency.
           </li>
-          <li class="hide-print">
-            <strong>Forwarded</strong> use cases to sales/distribution, linking technical possibilities to business
-            development.
-          </li>
-          <li class="hide-print">
-            <strong>Shipped</strong> static websites; maintained WordPress and Joomla instances.
-          </li>
-          <li class="hide-print">
-            <strong>Relocated</strong> to Berlin to leave comfort zone and grow professionally.
-          </li>
+          <li><strong>Forwarded</strong> use cases to sales, linking technical possibilities to business development.</li>
         </ul>
         <footer>
           <details>
@@ -445,33 +425,26 @@ const resumeHeadings = [
     <h2 id="cs-portal" class="accent section-headline">Case study: Portal relaunch</h2>
 
     <p>
-      <strong>Context:</strong> Agency-owned city portal built around interactive virtual tours with three audiences:
-      municipalities, local businesses, and consumers. The product needed modernization to stay competitive and
-      win longer-term B2B contracts.
+      <strong>Context:</strong> Agency-owned city portal with municipalities, local businesses, and consumers. The
+      product needed a refresh to stay competitive and lock in longer-term B2B contracts.
     </p>
 
     <p>
-      <strong>My approach:</strong> Rather than a big-bang rewrite, I analyzed impact vs. effort to frame trade-offs
-      clearly. Led the relaunch end-to-end: rebuilt core features while keeping legacy online; embedded SEO into
-      feature design; introduced geospatial search; created monitoring dashboards; and guided a CRM migration (data
-      rescue/transform, customized flows, staff training).
-    </p>
-
-    <p>
-      <strong>Business outcomes:</strong> POI pages reached Google SERP #1 (often outranking official sites), improving
-      discoverability and strengthening the sales story—especially for small businesses without a web presence.
-      Operational dashboards increased visibility for management, and the renewed product secured multi-year B2B
-      contracts (4+ years), creating predictable revenue and financial stability.
+      <strong>Approach:</strong> Framed options by impact vs. effort, then rebuilt core features while the legacy site
+      stayed online. Embedded SEO into feature design, introduced geospatial search, built monitoring dashboards,
+      and led a CRM migration (data rescue, customised workflows, staff training).
     </p>
 
     <ul>
       <li>
-        <strong>Systemic thinking:</strong> SVG floorplan linter improved tour reliability (no dead links; hotspot
-        reachability) — hidden dependency made visible.
+        <strong>Outcomes:</strong> POI pages reached Google SERP #1, dashboards gave leadership live visibility, and the
+        refreshed product secured multi-year B2B contracts (4+ years).
       </li>
       <li>
-        <strong>Pragmatic translation:</strong> concept → delivery → monitoring; client-facing demos; mentoring
-        a working student.
+        <strong>Systemic thinking:</strong> SVG floorplan linter eliminated dead hotspots and made reliability checks automatic.
+      </li>
+      <li>
+        <strong>Pragmatic translation:</strong> Concept → delivery → monitoring, client demos, and mentoring a working student.
       </li>
     </ul>
   </section>
@@ -549,5 +522,28 @@ const resumeHeadings = [
   p:has(time) {
     font-family: var(--font-mono);
     letter-spacing: -0.01em;
+  }
+
+  .snapshot-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .snapshot-list li {
+    border: 1px solid var(--pico-muted-border-color);
+    padding: 1rem;
+    background: color-mix(in srgb, var(--pico-muted-border-color) 12%, transparent);
+  }
+
+  .snapshot-list p {
+    margin-block: 0.35rem 0 0;
+  }
+
+  @media (min-width: 768px) {
+    .snapshot-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 </style>
