@@ -27,43 +27,14 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   <aside id="devtools" class="accent" aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you unearthed this via DevTools: 👋 I care about reliable platforms and tidy interfaces. Tell me what you’re
-      shipping and where it hurts — maybe we can untangle it together.
-    </p>
-    <p class="micro">
-      <button type="button" class="button" data-action="open-email-modal">Email Gil</button>
+      If you unearthed this via DevTools: 👋 I care about reliable platforms and tidy interfaces. Tell me what
+      you’re shipping and where it hurts — maybe we can untangle it together.
     </p>
   </aside>
 
-  <section aria-labelledby="focus">
-    <h2 id="focus" class="accent">How I help</h2>
-    <ul class="focus-grid">
-      <li>
-        <strong>Engineering leadership</strong>
-        <p>Steady guidance for platform &amp; product teams during growth, incidents, and audits.</p>
-      </li>
-      <li>
-        <strong>System clarity</strong>
-        <p>Expose trade-offs, map dependencies, and align roadmaps to measurable outcomes.</p>
-      </li>
-      <li>
-        <strong>Delivery habits</strong>
-        <p>Lean rituals, docs, and feedback loops so teams ship without drama.</p>
-      </li>
-    </ul>
-  </section>
-
   <section aria-labelledby="contact-methods">
-    <h2 id="contact-methods" class="accent">Start the conversation</h2>
-    <p class="intro">Reply time is within two business days. Your note should cover:</p>
-    <ul class="micro intro-list">
-      <li>The challenge and desired outcome</li>
-      <li>Who’s involved and key dates</li>
-      <li>Why now</li>
-    </ul>
     <div class="contact-cta">
       <button type="button" class="button" data-action="open-email-modal">Email Gil</button>
-      <p class="micro">Need a quick intro? LinkedIn DMs are checked a few times a week.</p>
     </div>
 
     <dialog
@@ -76,10 +47,12 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
         <header>
           <h3 id="email-modal-title" class="accent">Email is the priority lane</h3>
         </header>
-        <p>Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.</p>
+        <p>
+          Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.
+        </p>
         <p class="micro">Details are only used to respond. No lists, no marketing.</p>
-        <details class="micro">
-          <summary>Not a fit</summary>
+        <details class="micro" open>
+          <summary>Not a fit:</summary>
           <ul>
             <li>Roles outside engineering leadership or platform strategy</li>
             <li>Requests without scope, budget, or decision context</li>
@@ -97,39 +70,19 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     </dialog>
   </section>
 
-  <section aria-labelledby="next-steps">
-    <h2 id="next-steps" class="accent">If we work together</h2>
-    <ol class="steps">
-      <li>
-        <strong>Context first</strong>
-        <p>We align on constraints, stakeholders, and what “better” means.</p>
-      </li>
-      <li>
-        <strong>Pick leverage</strong>
-        <p>I surface options, risks, and quick wins to choose the highest-impact move.</p>
-      </li>
-      <li>
-        <strong>Deliver calmly</strong>
-        <p>Short iterations, steady comms, measurable outcomes.</p>
-      </li>
-    </ol>
-    <p class="micro">No theatrics — just candid feedback and reliable execution.</p>
-  </section>
-
   <section aria-labelledby="social-platforms">
     <h2 id="social-platforms" class="accent">Other touchpoints</h2>
-    <p class="intro">Social channels are checked weekly. For urgent needs, email wins.</p>
-    <ul class="social-list">
-      {
-        professionalSocials.map((l) => (
-          <li>
-            <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
-              {l.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <p class="intro">Social channels are checked monthly. For urgent needs, email wins.</p>
+
+    {
+      professionalSocials.map((l) => (
+        <p>
+          <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
+            {l.name}
+          </a>
+        </p>
+      ))
+    }
   </section>
 </BaseLayout>
 
@@ -238,28 +191,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     border: 2px solid var(--pico-primary);
   }
 
-  .intro-list {
-    margin: 0 0 var(--pico-spacing);
-    padding-left: 1.2rem;
-  }
-
-  .focus-grid {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .focus-grid li {
-    border: 1px solid var(--pico-muted-border-color);
-    padding: 1rem;
-    background: color-mix(in srgb, var(--pico-muted-border-color) 10%, transparent);
-  }
-
-  .focus-grid p {
-    margin-block: 0.35rem 0 0;
-  }
-
   .contact-cta {
     display: flex;
     flex-direction: column;
@@ -333,10 +264,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   }
 
   @media (min-width: 768px) {
-    .focus-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
     .steps {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;

@@ -15,7 +15,7 @@ export const socials = [
     name: "Bluesky",
     url: "https://bsky.app/profile/gil.desmarais.de",
     rel: "me",
-    category: "professional",
+    category: "personal",
   },
   {
     name: "Soundcloud",
