@@ -131,4 +131,42 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       flex: 0 0 auto;
     }
   }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .movie-controls {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.35rem 0;
+      gap: 0.5rem;
+    }
+
+    .controls-group {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      margin-bottom: -0.25rem;
+      scrollbar-width: none;
+    }
+
+    .controls-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sort-group {
+      flex-wrap: nowrap;
+      gap: 0.4rem;
+    }
+
+    .control-form {
+      flex: 0 0 auto;
+    }
+
+    .search-form {
+      flex: 0 0 auto;
+    }
+  }
 </style>

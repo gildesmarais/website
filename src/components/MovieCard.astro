@@ -107,17 +107,22 @@ const {
     gap: 0.25rem;
   }
 
-  .card-rating {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: auto;
-  }
-
   .card-title {
     margin: 0;
     font-size: 0.85rem;
     font-weight: 700;
     line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-rating {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
   }
 
   .card-rating .your-rating {
@@ -137,5 +142,48 @@ const {
     font-size: 0.7rem;
     font-weight: 400;
     opacity: 0.6;
+  }
+
+  @media (max-width: 600px) {
+    .movie-card {
+      border-width: 1px;
+    }
+
+    .movie-card-link {
+      display: grid;
+      grid-template-columns: minmax(82px, 28vw) 1fr;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.6rem;
+    }
+
+    .poster-container {
+      max-width: 120px;
+      margin: 0;
+      align-self: start;
+    }
+
+    .card-content {
+      padding: 0;
+      gap: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .card-rating {
+      justify-content: flex-start;
+      margin-top: 0.25rem;
+    }
+
+    .card-rating .your-rating {
+      font-size: 1.2rem;
+    }
+
+    .rating-number {
+      font-size: 1.2rem;
+    }
   }
 </style>
