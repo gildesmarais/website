@@ -19,8 +19,16 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
       {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
       {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
-      <button type="submit" class={`minimal-btn ${isRecommendation ? "active" : ""}`}>
-        Recommendations {isRecommendation ? "✓" : ""}
+      <button
+        type="submit"
+        class={`minimal-btn ${isRecommendation ? "active" : ""}`}
+        aria-pressed={isRecommendation}
+        aria-label={
+          isRecommendation ? "Show all movies" : "Show only recommended movies"
+        }
+        title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+      >
+        <span aria-hidden="true">{isRecommendation ? "★" : "☆"}</span>
       </button>
     </form>
 
@@ -150,6 +158,8 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       padding-bottom: 0.25rem;
       margin-bottom: -0.25rem;
       scrollbar-width: none;
+      flex-wrap: nowrap;
+      min-width: 0;
     }
 
     .controls-group::-webkit-scrollbar {
@@ -159,6 +169,7 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
     .sort-group {
       flex-wrap: nowrap;
       gap: 0.4rem;
+      min-width: max-content;
     }
 
     .control-form {
