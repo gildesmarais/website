@@ -271,9 +271,14 @@ const isActive = (href: string) => {
       .minimal-btn.active,
       .minimal-btn:active {
         background: var(--brand-accent);
-        color: #000;
-        border-color: var(--brand-accent);
+        color: #111;
+        border-color: transparent;
+        box-shadow: 0 0 0 1px var(--brand-accent-hover), 0 0 0 5px var(--brand-accent-focus);
         transform: translateY(1px);
+      }
+
+      .minimal-btn.active {
+        font-weight: 600;
       }
 
       .minimal-btn.primary {
