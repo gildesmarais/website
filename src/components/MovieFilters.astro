@@ -21,14 +21,16 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
       <button
         type="submit"
-        class={`minimal-btn ${isRecommendation ? "active" : ""}`}
+        class={`minimal-btn recommendation-toggle ${
+          isRecommendation ? "active" : ""
+        }`}
         aria-pressed={isRecommendation}
         aria-label={
           isRecommendation ? "Show all movies" : "Show only recommended movies"
         }
         title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
       >
-        <span aria-hidden="true">{isRecommendation ? "★" : "☆"}</span>
+        <span class="recommendation-icon" aria-hidden="true">★</span>
       </button>
     </form>
 
@@ -99,6 +101,34 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
 
   .control-form {
     display: inline-block;
+  }
+
+  .recommendation-toggle {
+    padding: 0.35rem;
+    min-width: auto;
+    line-height: 1;
+  }
+
+  .recommendation-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    color: var(--brand-accent);
+    text-shadow: 0 0 6px var(--brand-accent-focus);
+  }
+
+  .recommendation-toggle:not(.active) .recommendation-icon {
+    opacity: 0.35;
+    text-shadow: none;
+  }
+
+  .recommendation-toggle:focus-visible .recommendation-icon {
+    transform: scale(1.1);
   }
 
   .search-form {
