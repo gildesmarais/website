@@ -15,44 +15,55 @@ const contactHref = "/contact"
 <BaseLayout title={title} description={description}>
   <Hero
     title={`<abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais.`}
-    description="Engineering Team Lead translating business intent into resilient systems. I like understanding how things work and making them kinder to humans."
+    description="How curiosity, systems thinking, and experience shaped the way I build and lead."
   />
 
-  <section aria-labelledby="identity">
-    <h2 id="identity" class="accent">Who I am</h2>
+  <section aria-labelledby="identity" class="width">
     <p>
-      Quietly curious, steady in execution. I enjoy clear thinking, dry humor, and plans that reduce drama.
-      I'm the colleague who fixes the wobbly table, tunes the process, and then shares a playlist.
+      I first connected to the Internet through a 28.8k modem and built my first website in Notepad, following
+      a tutorial from a computer magazine explaining <code>&lt;frames&gt;</code>
+      <span class="smiley">:D</span>. It was the early web — curiosity was the only roadmap.
     </p>
 
     <p>
-      My name is French in origin — first name short for "Gilbert", last name meaning "from the swamps" (like
-      the Paris quartier). <NamePronunciation pronunciation="/ʒɪl dɛsmɐʁɛ/" audioSrc="/index.flac" /> And yes,
-      I'll still answer if your first guess is "Jill".
+      From there, I began experimenting with JavaScript, Perl, PHP, and MySQL. Writing scripts for IRC clients
+      sparked an interest in how systems communicate beneath the surface. Discovering Linux pushed that
+      further — bootstrapping Gentoo on my only computer taught me how operating systems actually manage
+      complexity. That experience still shapes my engineering mindset today.
     </p>
 
     <p>
-      Earlier in life, I served in the German Air Force supporting IT and network operations for NATO staff.
-      That setting taught me how disciplined processes, trust, and technical skill intersect when the stakes
-      are high.
+      During vocational training, I bridged hardware and software — soldering circuits, programming
+      microcontrollers, and exploring signal processing with Assembler and Delphi.
+      <br />
+      Serving in the German Air Force added structure and accountability: supporting IT operations for NATO staff
+      showed how trust, process, and technical skill align when uptime isn't optional.
     </p>
+
     <p>
-      Business Computer Science gave me the dual lenses I still use today. I translate complex technical
-      reality into business value, and turn business constraints into pragmatic technical decisions.
+      Studying Business Computer Science gave me the dual lenses I rely on today — translating technical
+      reality into business value, and turning business constraints into pragmatic engineering decisions. That
+      balance between architecture and outcome defines how I lead, build, and deliver.
+    </p>
+
+    <p>
+      The curiosity that started with a Commodore 64 now drives how I design systems, teams, and decisions —
+      with an eye for clarity, longevity, and real-world impact.
     </p>
   </section>
 
-  <section aria-labelledby="care">
+  <section aria-labelledby="care" class="width">
     <h2 id="care" class="accent">What drives me</h2>
     <ul>
       <li>
-        <strong>Efficiency</strong> — make root causes visible; remove friction, not just symptoms.
+        <strong>Efficiency</strong> — surface root causes and remove friction, not just symptoms.
       </li>
       <li>
-        <strong>Systems thinking</strong> — map dependencies across tech and culture so decisions age well.
+        <strong>Systems thinking</strong> — connect dependencies across technology and culture so decisions age
+        well.
       </li>
       <li>
-        <strong>Ease of use</strong> — deliver outcomes that make work simpler for teams and customers.
+        <strong>Ease of use</strong> — deliver outcomes that make work simpler for teams and customers alike.
       </li>
       <li>
         <strong>Knowledge sharing</strong> — teach, document, and invite questions so the whole team levels up.
@@ -65,37 +76,41 @@ const contactHref = "/contact"
     <h3 class="accent">Personal passions</h3>
     <ul>
       <li>
-        <strong>Movies</strong> — a long-time passion, and part of my work when I built for a film and TV publishing
-        startup. I log and <a href="/movies?isRecommendation=true&sort=year&dir=desc">recommend films</a>.
+        <strong>Film</strong> — long-time passion and part of my career; I still
+        <a href="/movies?isRecommendation=true&sort=year&dir=desc">log and recommend</a> what I watch.
       </li>
       <li>
-        <strong>Music</strong> — electronic music for three decades; bedroom vinyl DJ for two decades.
+        <strong>Music</strong> — electronic for decades; vinyl DJing taught rhythm, flow, and focus.
       </li>
-      <li><strong>Movement</strong> — cycling, yoga, long walks.</li>
-      <li><strong>Learning</strong> — cities, culture, aviation, food, and how systems shape them.</li>
+      <li>
+        <strong>Movement</strong> — cycling, yoga, and long walks to keep systems balanced.
+      </li>
+      <li>
+        <strong>Learning</strong> — cities, culture, aviation, food; how systems evolve and connect.
+      </li>
     </ul>
   </section>
 
-  <section aria-labelledby="approach">
+  <section aria-labelledby="approach" class="width">
     <h2 id="approach" class="accent">How I think about work</h2>
     <p>
-      I start with "why" before "how". Understanding the system, the incentives, and the risks sets up better
-      answers. I map dependencies, frame trade-offs, and keep communication crisp so teams can act with
+      I start with <q>why</q> before <q>how</q>. Understanding the system, incentives, and risks leads to
+      better answers. I map dependencies, frame trade-offs, and keep communication crisp so teams can act with
       confidence.
     </p>
+
     <p>
-      Storytelling habits from film work show up in my engineering leadership. They remind me to design
-      experiences that feel intuitive, to leave space for feedback, and to keep the protagonists — customers,
-      editors, or engineers — in mind.
+      My background in film taught me storytelling discipline — designing experiences that feel intuitive,
+      leaving room for feedback, and keeping the protagonists in focus: customers, editors, or engineers.
     </p>
+
     <p>
-      Whether I'm leading a team, architecting a system, or improving a process, the goal stays the same: make
-      technology serve people. Build systems that are maintainable, scalable, and grounded in real business
-      outcomes.
+      Whether leading a team, architecting a system, or refining a process, the goal is consistent: make
+      technology serve people. Build systems that are maintainable, scalable, and grounded in real outcomes.
     </p>
   </section>
 
-  <section aria-labelledby="contact">
+  <section aria-labelledby="contact" class="width">
     <h2 id="contact" class="accent">Say hi</h2>
 
     <p>When I'm not working on systems, you might find me exploring these spaces:</p>
@@ -112,7 +127,14 @@ const contactHref = "/contact"
     </ul>
 
     <p>
-      Head over to my <a href="/contact">contact page</a> for all the ways to reach me.<br />
+      Head over to my <a href="/contact">contact page</a> for all the ways to reach me.
+    </p>
+
+    <p>
+      <NamePronunciation pronunciation="/ʒɪl dɛsmɐʁɛ/" audioSrc="/index.flac" /><br />
+      And yes, I'll still respond if your first guess is <q>Jill</q>. <span class="smiley">:-)</span>
+    </p>
+    <p>
       <span class="micro"
         >If you're here for work specifics, my <a href="/resume">resume</a> has the details.</span
       >
@@ -120,37 +142,13 @@ const contactHref = "/contact"
   </section>
 </BaseLayout>
 
-<script>
-  ;(() => {
-    const s = document.querySelector('section[aria-labelledby="name-pronunciation"]')
-    if (!s) return
-    const btn = s.querySelector("#play-name")
-    const audio = s.querySelector<HTMLAudioElement>("#name-audio")
-    if (!btn || !audio) return
-
-    // Enhance: hide native controls if JS is available
-    audio.controls = false
-
-    const setPressed = (pressed: boolean) => {
-      btn.setAttribute("aria-pressed", String(pressed))
-      btn.setAttribute("aria-label", pressed ? "Stop name pronunciation" : "Play name pronunciation")
-    }
-
-    btn.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.currentTime = 0
-        audio.play()
-        setPressed(true)
-      } else {
-        audio.pause()
-        audio.currentTime = 0
-        setPressed(false)
-      }
-    })
-
-    audio.addEventListener("ended", () => {
-      audio.currentTime = 0
-      setPressed(false)
-    })
-  })()
-</script>
+<style>
+  .smiley {
+    color: var(--brand-accent);
+    letter-spacing: -2px;
+    transform: rotate(90deg);
+    display: inline-block;
+    margin-left: 0.2em;
+    user-select: none;
+  }
+</style>

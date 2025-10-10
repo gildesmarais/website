@@ -213,6 +213,13 @@ const isActive = (href: string) => {
         color: var(--pico-muted-color);
       }
 
+      .width {
+        max-width: 60ch;
+        text-align: justify;
+        text-align-last: left;
+        hyphens: auto;
+      }
+
       /* --- Global spacing improvements --- */
       section {
         margin-bottom: 2rem; /* Consistent section spacing */
@@ -273,7 +280,9 @@ const isActive = (href: string) => {
         background: var(--brand-accent);
         color: #111;
         border-color: transparent;
-        box-shadow: 0 0 0 1px var(--brand-accent-hover), 0 0 0 5px var(--brand-accent-focus);
+        box-shadow:
+          0 0 0 1px var(--brand-accent-hover),
+          0 0 0 5px var(--brand-accent-focus);
         transform: translateY(1px);
       }
 
