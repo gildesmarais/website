@@ -12,7 +12,7 @@ const isActive = (href: string) => {
 
 <nav id="main-nav" aria-label="Main navigation">
   <div class="nav-header">
-    <a href={siteUrl} rel="me" aria-label={siteName}>
+    <a href="/" rel="me" aria-label={siteName}>
       <Image src={logo} alt={siteName} aria-hidden loading="eager" />
     </a>
 
@@ -62,15 +62,15 @@ const isActive = (href: string) => {
       <a href="/resume" class="nav-link" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
     </li>
     <li class="nav-item">
-      <a href="/projects" class="nav-link" aria-current={isActive("/projects") ? "page" : undefined}
-        >Projects</a
-      >
-    </li>
-    <li class="nav-item">
       <a href="/about" class="nav-link" aria-current={isActive("/about") ? "page" : undefined}>About</a>
     </li>
     <li class="nav-item">
       <a href="/blog" class="nav-link" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
+    </li>
+    <li class="nav-item">
+      <a href="/projects" class="nav-link" aria-current={isActive("/projects") ? "page" : undefined}
+        >Projects</a
+      >
     </li>
     <li class="nav-item">
       <a href="/contact" class="nav-link" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>

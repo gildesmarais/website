@@ -29,7 +29,6 @@ export interface ProcessedMovies {
   movies: Movie[]
 }
 
-
 // Filter out TV series, shorts, and other non-movie content
 export function filterMoviesOnly(movies: Movie[]): Movie[] {
   return movies.filter((movie) => movie.title_type === "Movie")

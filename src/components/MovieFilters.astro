@@ -21,13 +21,9 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
       <button
         type="submit"
-        class={`minimal-btn recommendation-toggle ${
-          isRecommendation ? "active" : ""
-        }`}
+        class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
         aria-pressed={isRecommendation}
-        aria-label={
-          isRecommendation ? "Show all movies" : "Show only recommended movies"
-        }
+        aria-label={isRecommendation ? "Show all movies" : "Show only recommended movies"}
         title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
       >
         <span class="recommendation-icon" aria-hidden="true">★</span>
@@ -124,8 +120,13 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
     height: 1.5rem;
     font-size: 1.1rem;
     font-weight: 900;
-    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease,
-      color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
     background: rgba(255, 255, 255, 0.05);
     color: var(--brand-muted);
     border: 1px solid hsla(32, 100%, 50%, 0.4);
@@ -154,7 +155,9 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
     background: var(--brand-accent);
     color: #111;
     border-color: var(--brand-accent);
-    box-shadow: 0 0 0 1px var(--brand-accent-hover), 0 0 10px var(--brand-accent-focus);
+    box-shadow:
+      0 0 0 1px var(--brand-accent-hover),
+      0 0 10px var(--brand-accent-focus);
   }
 
   .search-form {

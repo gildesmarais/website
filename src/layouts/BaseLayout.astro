@@ -248,7 +248,15 @@ const isActive = (href: string) => {
         margin-top: 1rem; /* Better list spacing */
         margin-bottom: 1rem;
       }
+      ul ::marker,
+      ol ::marker {
+        color: var(--brand-accent);
+      }
 
+      ul li,
+      ol li {
+        list-style-type: "- ";
+      }
       /* Improve spacing for specific elements */
       article {
         margin-bottom: 2.5rem; /* Better article separation */

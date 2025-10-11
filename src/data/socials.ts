@@ -16,7 +16,7 @@ export const socials = [
     url: "https://soundcloud.com/admiralgiesse",
     rel: "me",
     category: "personal",
-  }
+  },
 ].sort((a, b) => a.name.localeCompare(b.name))
 
 // Helper functions for filtering
