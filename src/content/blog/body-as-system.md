@@ -1,9 +1,10 @@
 ---
 title: Body as System
 description: A reflection on noticing the body like a system — learning its feedback loops, safe modes, and background jobs.
-publishDate: 2025-10-11
+date: 2025-10-11
 showcase: true
 draft: false
+tags: []
 ---
 
 For me, maybe one of the most unexpected discoveries this year has been yoga.  
