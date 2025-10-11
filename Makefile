@@ -1,6 +1,9 @@
-default: clean fix
+default: clean lintfix
 
-fix:
+lint:
+	npm exec prettier -- . --check
+
+lintfix:
 	npm exec prettier -- . --write
 
 clean:
