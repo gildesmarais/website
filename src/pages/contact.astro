@@ -34,7 +34,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 
   <section aria-labelledby="contact-methods">
     <div class="contact-cta">
-      <button type="button" class="button" data-action="open-email-modal">Email Gil</button>
+      <button type="button" class="minimal-btn" data-action="open-email-modal">Email Gil</button>
     </div>
 
     <dialog
@@ -72,7 +72,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 
   <section aria-labelledby="social-platforms">
     <h2 id="social-platforms" class="accent">Other touchpoints</h2>
-    <p class="intro">Social channels are checked monthly. For urgent needs, email wins.</p>
+    <p class="lead">Social channels are checked monthly. For urgent needs, email wins.</p>
 
     {
       professionalSocials.map((l) => (
@@ -199,31 +199,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     margin-block: 1rem 1.5rem;
   }
 
-  .contact-cta .button {
-    min-width: 12rem;
-  }
-
-  .intro {
-    max-width: 60ch;
-  }
-
-  .social-list {
-    padding-left: 1.2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-  }
-
-  .steps {
-    display: grid;
-    gap: 1rem;
-    padding-left: 1.2rem;
-  }
-
-  .steps p {
-    margin-block: 0.35rem 0 0;
-  }
-
   dialog {
     border: 1px solid var(--pico-primary);
     padding: var(--pico-spacing);
@@ -263,12 +238,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     min-height: 1.25em;
   }
 
-  @media (min-width: 768px) {
-    .steps {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-      padding-left: 0;
-      list-style-position: inside;
-    }
+  #social-platforms {
+    display: none;
   }
 </style>
