@@ -9,7 +9,7 @@ tags:
 
 [Rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) is an essential method to solve problems by yourself. The idea is that you explain your problem to a rubber duck and, while explaining it, you come (closer) to a solution.
 
-The practice made its way into the mainstream through Andrew Hunt and David Thomas' book, [_The Pragmatic Programmer_](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/), which championed the habit of articulating your work to an inanimate companion. Their guidance emphasized how speaking your thoughts out loud forces you to slow down, clarify fuzzy assumptions, and notice inconsistencies you might otherwise gloss over. Those same principles—structured self-dialogue, deliberate reflection, and gentle accountability—are what make time with Pal so valuable; our grinning alligator gives the technique a friendly face and a purpose beyond desk décor.
+The practice made its way into the mainstream through Andrew Hunt and David Thomas' book, [_The Pragmatic Programmer_](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/), which championed the habit of articulating your work to an inanimate companion. Their guidance emphasized how speaking your thoughts out loud forces you to slow down, clarify fuzzy assumptions, and notice inconsistencies you might otherwise gloss over. Those same principles (structured self-dialogue, deliberate reflection, and gentle accountability) are what make time with Pal so valuable. The grinning alligator gives the technique a friendly face and a purpose.
 
 It would be foolish and impractical for a developer to go without something like a rubber duck.
 
