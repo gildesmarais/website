@@ -99,19 +99,24 @@ const projectHeadings = [
     title=".dotfiles & Scripts"
     slug={slugify(".dotfiles & Scripts")}
     status="evergreen"
-    description="My personal macOS & CLI setup, with a scripts/ directory for automation: interactive macOS defaults, portable shell utilities, and repeatable system setup. A living repository of the tools I use daily."
+    description="My personal macOS & CLI setup. A living repository of the tools I use daily."
     links={[{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }]}
+    highlights={[
+      {
+        term: "Guided setup",
+        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
+      },
+      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
+      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
+    ]}
   >
     <p>
-      Keeping macOS environments consistent is tedious. This living repository automates defaults, documents
-      shell utilities, and keeps repeatable setup scripts in one place so new machines feel familiar within an
-      hour.
+      A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes.
+      It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS
+      defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for
+      audio workflows. Beyond automation, it documents the unscriptable bits—like Touch ID sudo or Apple Watch
+      unlock—and includes a curated Brew bundle plus Prezto-ready Zsh setup for a consistent shell experience
+      across machines.
     </p>
   </ProjectCard>
 </BaseLayout>
-
-<style>
-  hr {
-    margin: 2rem 0 3rem;
-  }
-</style>
