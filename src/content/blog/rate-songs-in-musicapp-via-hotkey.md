@@ -2,6 +2,7 @@
 title: "Rate songs in Music.app via Hotkey with Song Rating"
 date: 2020-09-13
 description: "Song Rating now supports rating with a specific amount of stars directly."
+listed: false
 tags:
   - macos
   - programming

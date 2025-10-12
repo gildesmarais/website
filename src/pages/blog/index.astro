@@ -4,7 +4,12 @@ import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
 const title = "Blog"
 const description = "Five recent posts, hand-picked. Subscribe via RSS feed."
-const posts = (await getCollection("blog", ({ data }) => !data.draft && data.showcase))
+const posts = (
+  await getCollection(
+    "blog",
+    ({ data }) => !data.draft && data.showcase && data.listed !== false,
+  )
+)
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 5)
 ---

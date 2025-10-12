@@ -3,6 +3,7 @@ title: "Große Gruppe Radfahrender auf der Straße in Oldenburg?!"
 date: 2014-03-04
 description: Eine internationale Bewegung, die für Rechte der Radfahrenden eintritt.
 language: de
+listed: false
 tags:
   - bicycle
   - oldenburg
