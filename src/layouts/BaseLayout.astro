@@ -131,6 +131,8 @@ const isActive = (href: string) => {
         --pico-font-family: var(--font-sans);
         --pico-font-family-sans: var(--font-sans);
         --pico-font-family-monospace: var(--font-mono);
+
+        --lead-width: 60ch;
       }
 
       /* Smooth scrolling for anchor links */
@@ -209,7 +211,7 @@ const isActive = (href: string) => {
       .lead {
         font-size: 1.05rem;
         line-height: 1.55;
-        max-width: 60ch;
+        max-width: var(--lead-width);
         color: var(--pico-muted-color);
       }
 
@@ -247,7 +249,9 @@ const isActive = (href: string) => {
       ol {
         margin-top: 1rem; /* Better list spacing */
         margin-bottom: 1rem;
+        padding-left: 1ch;
       }
+
       ul ::marker,
       ol ::marker {
         color: var(--brand-accent);
@@ -257,6 +261,15 @@ const isActive = (href: string) => {
       ol li {
         list-style-type: "- ";
       }
+
+      ul:has(strong) > li {
+        color: var(--pico-secondary);
+      }
+
+      ul:has(strong) > li > strong {
+        color: var(--pico-color);
+      }
+
       /* Improve spacing for specific elements */
       article {
         margin-bottom: 2.5rem; /* Better article separation */

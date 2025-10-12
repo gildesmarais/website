@@ -52,18 +52,18 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
         </p>
         <p class="micro">Details are only used to respond. No lists, no marketing.</p>
         <details class="micro" open>
-          <summary>Not a fit:</summary>
+          <summary>Do not expect an answer for:</summary>
           <ul>
             <li>Roles outside engineering leadership or platform strategy</li>
             <li>Requests without scope, budget, or decision context</li>
-            <li>Unpaid consulting or “pick your brain” chats</li>
+            <li>Unpaid consulting or <q>pick your brain</q> chats</li>
             <li>Mass marketing or promotional outreach</li>
           </ul>
         </details>
         <div class="modal-actions">
           <button type="button" class="secondary" data-action="close-email-modal">Keep browsing</button>
           <button type="button" class="secondary" data-action="copy-email">Copy address</button>
-          <button type="button" data-action="launch-email">Open mail app</button>
+          <button type="button" class="minimal-btn" data-action="launch-email">Open mail app</button>
         </div>
         <p id="email-modal-feedback" class="micro" role="status" aria-live="polite"></p>
       </form>

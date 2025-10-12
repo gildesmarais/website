@@ -21,44 +21,23 @@ const pageTitle = "Gil Desmarais — Engineering Team Lead"
   </Hero>
 
   <section id="next" aria-labelledby="next-title">
-    <ul>
-      <li><a class="minimal-btn" href="/resume">View résumé</a></li>
-      <li><a class="minimal-btn" href="/about">Get to know me</a></li>
-      <li><a class="minimal-btn" href="/contact">Get in touch</a></li>
-    </ul>
+    <p>
+      What next?
+      <a class="" href="/resume">View résumé</a>,
+      <a class="" href="/blog">read my blog</a>,
+      <a class="" href="/about">get to know me</a>, and
+      <a class="" href="/contact">get in touch</a>!
+    </p>
   </section>
 </BaseLayout>
 
 <style>
-  /* --- Hero Subtitle ---------------------------------------------------- */
   .hero-subtitle {
-    max-width: 60ch;
+    max-width: var(--lead-width);
     letter-spacing: -0.015em;
   }
 
-  /* --- CTA Section ------------------------------------------------------ */
   #next {
     margin-top: 4rem;
-  }
-
-  #next ul {
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 15ch;
-    gap: 0.5rem;
-  }
-
-  #next ul li {
-    list-style: none;
-  }
-
-  #next a {
-    display: inline-block;
-    border: 1px solid var(--pico-primary);
-    padding: 0.5rem 1rem;
-    width: 100%; /* or a fixed width if you prefer alignment */
-    text-align: center;
   }
 </style>
