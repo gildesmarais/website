@@ -4,7 +4,7 @@ import { getCollection } from "astro:content"
 export async function GET(context) {
   const posts = await getCollection(
     "blog",
-    ({ data }) => !data.draft && data.showcase && data.listed !== false,
+    ({ data }) => !data.draft && data.listed !== false,
   )
   return rss({
     title: "Gil Desmarais's Blog",
