@@ -9,23 +9,15 @@ export default defineConfig({
   adapter: vercel(),
   prefetch: true,
   redirects: {
-    "/blog/watching-movies-alphabetically-round-2": "/blog/watching-movies-alphabetically",
-    "/blog/watching-movies-alphabetically-round-3": "/blog/watching-movies-alphabetically",
-    "/blog/watching-movies-alphabetically-round-4": "/blog/watching-movies-alphabetically",
+    "/posts/watching-movies-alphabetically/": "/blog/watching-movies-alphabetically",
+    "/posts/watching-movies-alphabetically-round-2/": "/blog/watching-movies-alphabetically",
+    "/posts/watching-movies-alphabetically-round-4/": "/blog/watching-movies-alphabetically",
     "/blog/picking-and-watching-movies-alphabetically": "/blog/watching-movies-alphabetically",
     "/posts/:slug": {
       status: 301,
       destination: "/blog/:slug",
     },
-    "/posts/:slug/": {
-      status: 301,
-      destination: "/blog/:slug",
-    },
     "/posts/:slug/index.html": {
-      status: 301,
-      destination: "/blog/:slug",
-    },
-    "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug": {
       status: 301,
       destination: "/blog/:slug",
     },

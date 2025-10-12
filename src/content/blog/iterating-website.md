@@ -1,52 +1,48 @@
 ---
 title: "Iterating the Website"
-description: "Refining my portfolio/blog: from Jekyll to Astro, content and UX improvements, and small but notable extras."
-date: 2025-08-16
+description: "A quiet rebuild of my personal site: migrating from Jekyll to Astro, improving UX, accessibility, and long-term maintainability."
+date: 2025-10-12
 showcase: true
+tags: ["astro", "jekyll", "web development", "portfolio", "accessibility", "progressive enhancement"]
 ---
 
-<!-- TODO:
+This isn’t a just relaunch — it’s an iteration. Each cycle refines the foundation: simpler content, leaner structure, more flexibility for what’s next. Small step, meaningful impact.
 
-mention: design language: Brutalism, Digital Minimalism
-progressive website / no js required
--->
+## Leaving Jekyll Behind
 
-# Iterating the Website
+Jekyll served me well, but I’d outgrown it. Simple tweaks meant hunting through templates or writing custom Liquid helpers. Plugins added friction, and the toolchain felt dated in modern workflows. It’s still a solid static site generator, but for a lightweight, living portfolio it became too rigid and slow. I wanted less ceremony, more flow.
 
-My site keeps evolving. This isn’t a grand relaunch, more a steady iteration — tuning the foundation, simplifying where it makes sense, and keeping things flexible for the future. A small step, but a meaningful one.
+## Why Astro.js
 
-## Why I Left Jekyll
+Astro.js gave me that flow. Modern, component-based, and static-first — with room for interactivity when needed. Components can be written once and reused without friction. Combined with semantic HTML and Pico.css, it’s a clean, future-proof base that stays out of the way while supporting growth.
 
-Jekyll served me well for years, but I increasingly found myself working against it. A simple change, like adding a new component to every blog post, required me to hunt through multiple files, and any simple customization meant fighting the Liquid templating engine or writing custom Liquid helpers. Plugins added overhead, content updates felt rigid, and the whole setup didn’t play nicely with modern coding tools or AI-assisted workflows. Jekyll remains a stable, trustworthy static site generator—and I still recommend it for many projects—but for my portfolio it had grown a little stale. In the end, it was too slow for a developer experience, and too heavy for what’s essentially a minimal portfolio/blog.
+## Refining Content and UX
 
-## Why I Chose Astro
+This iteration wasn’t only technical. I reworked structure and copy to read cleaner and serve visitors better:
 
-Astro offered the clean foundation I was missing. It’s modern, component-based, and static-first — but it also makes it simple to add interactivity when needed. Writing components or experimenting with WebAssembly is straightforward, without the friction I had before. Astro's component-based system means I can finally write a component once and reuse it without that friction. Combined with Pico.css and semantic HTML, it gives me a framework that stays out of the way while leaving room to grow.
+- A focused [Résumé](/resume) page for professional context and recent [projects](/projects).
+- A more personal [About](/about) page as the main entry point for personal stuff.
+- Simplified pages for clarity.
+- Blog highlights up front
+- Tuned headings and layout for better scan-ability.
 
-## Content and UX Refinements
+## Extras That Matter
 
-Alongside the technical shift, I refined the content and structure with the user in mind and with a focus on showcasing what I do professionally:
+Quiet improvements that add polish and principle:
 
-- Pages were simplified to reduce clutter.
-- The resume now lives on its own page, allowing me to focus its content on my professional experience while highlighting recent projects and tooling expertise.
-- The About page became a more personal, approachable entry point, allowing me to share my interests and values beyond my professional skills.
-- The blog index now shows highlights, with a dedicated archive for the rest, so readers can find the most relevant content immediately without getting lost.
-- Layout and headings were tuned for better scannability.
-
-## Notable Extras
-
-These small but important details reflect a continued commitment to creating a user-first experience and a developer who cares about the craft end to end:
-
-- RSS feed, with the previous URL kept alive.
-- Archive page as a long-term home for older posts.
-- Back-to-top button with a subtle fade-in.
-- Accessibility tweaks: improved contrast and keyboard navigation.
-- Privacy-friendly analytics via Goatcounter, no cookies.
+- RSS feed preserved with redirects.
+- Long-term archive for older posts.
+- Better contrast and keyboard navigation.
+- Privacy-friendly analytics via Goatcounter — no cookies, no tracking.
 
 ## Skills in Motion
 
-Behind the scenes, this iteration became a playground for the skills I bring to my day job. I mapped the migration, designed and implemented the component architecture, automated build previews, and tuned performance budgets. Astro's flexibility let me lean on TypeScript, automated tests, and documentation-driven workflows—all habits I’ve honed across product teams. This post is my way of showing that I don’t just talk about progressive web development; I design systems, ship them, and keep iterating.
+This rebuild doubled as a small-scale systems project: planning the migration, designing a component architecture, automating build previews, and enforcing performance budgets. Astro’s flexibility let me lean on TypeScript, tests, and documentation-driven workflows — the same habits I apply in platform and enablement work.
+
+This site isn’t just a portfolio — it’s a living example of progressive, maintainable web design.
 
 ## Closing
 
-If you’re curious, you can look back at [a post I wrote seven years ago on earlier changes to the site](/blog/recent-changes-on-my-website/). Feel free to explore around, click on a link, or check out the archive. The progress is often in the details. And if you’re building something that needs thoughtful front-end architecture, progressive enhancement, or a pragmatic approach to shipping, let’s talk.
+If you’re curious, revisit [a post from seven years ago](/blog/recent-changes-on-my-website/) about earlier changes. The progress since then reflects the same mindset: deliberate, iterative, built to last.
+
+If you value thoughtful front-end architecture, progressive enhancement, or pragmatic delivery — [let’s talk](/contact).
