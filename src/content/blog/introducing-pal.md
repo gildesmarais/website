@@ -7,16 +7,14 @@ tags:
   - programming
 ---
 
-[Rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) is an essential method to solve problems by yourself. The idea is that you explain your problem to a rubber duck and, while explaining it, you come (closer) to a solution.
+[Rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) is an essential method for solving problems on your own: you explain what is going wrong to an inanimate helper and, while talking it through, the path to a solution becomes clearer.
 
-The practice made its way into the mainstream through Andrew Hunt and David Thomas' book, [_The Pragmatic Programmer_](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/), which championed the habit of articulating your work to an inanimate companion. Their guidance emphasized how speaking your thoughts out loud forces you to slow down, clarify fuzzy assumptions, and notice inconsistencies you might otherwise gloss over. Those same principles (structured self-dialogue, deliberate reflection, and gentle accountability) are what make time with Pal so valuable. The grinning alligator gives the technique a friendly face and a purpose.
+The practice found a wider audience through Andrew Hunt and David Thomas' book, [_The Pragmatic Programmer_](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/). Speaking your thoughts out loud slows you down just enough to spot fuzzy assumptions, clarify your intentions, and reveal contradictions that are easy to gloss over in your head.
 
-It would be foolish and impractical for a developer to go without something like a rubber duck.
-
-Let me introduce Pal:
+Meet my companion for this ritual, Pal:
 
 ![picture of a pet toy alligator](../../assets/images/posts/2020-04-16-pal.webp)
 
-_Pal_ is short for **p**rogramming **al**ligator.
+Pal gives the technique a friendly face and a bit of purpose. The name is short for **p**rogramming **al**ligator, and I like to imagine that grin cheering me on while I untangle a problem.
 
 You can tell it's an alligator by its smiling face. A crocodile would not smile at you, but [its teeth would frighten you](https://en.wikipedia.org/wiki/Alligatoridae#Differences_from_crocodiles).
