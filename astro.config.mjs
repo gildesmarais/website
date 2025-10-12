@@ -11,6 +11,8 @@ export default defineConfig({
   redirects: {
     "/blog/watching-movies-alphabetically-round-2": "/blog/watching-movies-alphabetically",
     "/blog/watching-movies-alphabetically-round-4": "/blog/watching-movies-alphabetically",
+    "/blog/picking-and-watching-movies-alphabetically": "/blog/watching-movies-alphabetically",
+    "/blog/picking-and-watching-movies-alphabetically.de": "/blog/watching-movies-alphabetically",
   },
   markdown: {
     rehypePlugins: [

@@ -13,7 +13,6 @@ into a loose tradition that we revisited a couple of times. Here is how each rou
 
 ## Round I – establishing the rules
 
-We explained the idea in detail in [Picking and watching movies alphabetically](/blog/picking-and-watching-movies-alphabetically).
 The first run-through set the tone: pick a letter, find a movie, and stick with the choice. The novelty of the format made it
 easy to keep going, even though some letters (hello, X) required compromises.
 
