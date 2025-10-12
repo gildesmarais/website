@@ -1,5 +1,5 @@
 ---
-title: Body as System
+title: Human Body as System
 description: A reflection on noticing the body like a system — learning its feedback loops, safe modes, and background jobs.
 date: 2025-10-11
 showcase: true

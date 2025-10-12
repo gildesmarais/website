@@ -2,7 +2,7 @@
 title: "Iterating the Website"
 description: "A quiet rebuild of my personal site: migrating from Jekyll to Astro, improving UX, accessibility, and long-term maintainability."
 date: 2025-10-12
-showcase: true
+showcase: false
 tags: ["astro", "jekyll", "web development", "portfolio", "accessibility", "progressive enhancement"]
 ---
 

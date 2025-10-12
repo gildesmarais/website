@@ -2,6 +2,7 @@
 title: Watching movies alphabetically
 date: 2021-10-24
 description: How our alphabetical movie nights evolved over four rounds.
+showcase: true
 tags:
   - movie
   - reference
