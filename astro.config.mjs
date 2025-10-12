@@ -10,6 +10,7 @@ export default defineConfig({
   prefetch: true,
   redirects: {
     "/blog/watching-movies-alphabetically-round-2": "/blog/watching-movies-alphabetically",
+    "/blog/watching-movies-alphabetically-round-3": "/blog/watching-movies-alphabetically",
     "/blog/watching-movies-alphabetically-round-4": "/blog/watching-movies-alphabetically",
     "/blog/picking-and-watching-movies-alphabetically": "/blog/watching-movies-alphabetically",
     "/posts/:slug": {
