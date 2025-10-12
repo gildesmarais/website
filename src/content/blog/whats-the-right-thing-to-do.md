@@ -36,6 +36,7 @@ And now, <q>you've got to do what you've got to do</q>: start watching. :)
 
 ## Why it stays with me
 
-Every revisit to this series nudges me to slow down before defaulting to gut feelings. I still grapple with questions like: when does pursuing the greatest good disrespect someone’s dignity, and how much of my character is shaped by the communities that raised me? Wrestling with Sandel’s prompts makes it easier to spot the assumptions behind my own arguments, and it sharpens the way I listen to others. If you commit to working through the lecture, try pausing after each scenario to articulate what principle you are really defending—you might be surprised at how your answers evolve and how that reflection spills over into ordinary choices about fairness, loyalty, and responsibility.
+Every revisit to this series nudges me to slow down before defaulting to gut feelings. I still grapple with questions like: when does pursuing the greatest good disrespect someone’s dignity, and how much of my character is shaped by the communities that raised me? Wrestling with Sandel’s prompts makes it easier to spot the assumptions behind my own arguments, and it sharpens the way I listen to others. If you commit to working through the lecture, try pausing after each scenario to articulate what principle you are really defending. 
+You might be surprised at how your answers evolve and how that reflection spills over into ordinary choices about fairness, loyalty, and responsibility.
 
 [^1]: To be honest, I found it weird when the lecturers started to remember the student's names.
