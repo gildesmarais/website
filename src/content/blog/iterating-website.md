@@ -21,7 +21,7 @@ Jekyll served me well for years, but I increasingly found myself working against
 
 ## Why I Chose Astro
 
-Astro offered the clean foundation I was missing. It’s modern, component-based, and static-first — but it also makes it simple to add interactivity when needed. Writing components or experimenting with WebAssembly is straightforward, without the friction I had before. Astro's component-based system meant I could finally write that component once and reuse it without the friction I had before. Combined with Pico.css and semantic HTML, it gives me a framework that stays out of the way while leaving room to grow.
+Astro offered the clean foundation I was missing. It’s modern, component-based, and static-first — but it also makes it simple to add interactivity when needed. Writing components or experimenting with WebAssembly is straightforward, without the friction I had before. Astro's component-based system means I can finally write a component once and reuse it without that friction. Combined with Pico.css and semantic HTML, it gives me a framework that stays out of the way while leaving room to grow.
 
 ## Content and UX Refinements
 

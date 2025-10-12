@@ -21,7 +21,7 @@ Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig au
 
      00:1D:6E:BC:xx:xx Gil
 
-Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zwei mal gebraucht (wird nachfolgend `<mac>` genannt).
+Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zweimal gebraucht (wird nachfolgend `<mac>` genannt).
 Jetzt soll Ubuntu das Handy nach den via Bluetooth angebotenen Services durchsuchen. Hierfür kann das Handy schon wieder unsichtbar gemacht werden, da die MAC-Adresse zum Verbinden vollkommen ausreicht.
 
     $ sdptool browse <mac>
@@ -39,7 +39,7 @@ Service angeboten wird. Bei meinem E51 ist das der Channel 2.
      "RFCOMM" (0x0003)
      **Channel: 2**
 
-Ein letztes Mal wird die MAC Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit: `sudo gedit /etc/bluetooth/rfcomm.conf`) und folgendes hineinschreiben.
+Ein letztes Mal wird die MAC-Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit: `sudo gedit /etc/bluetooth/rfcomm.conf`) und folgendes hineinschreiben.
 
      rfcomm0 {
        bind yes;
@@ -64,7 +64,7 @@ Zum Konfigurieren der Verbindung einfach die Sektion
 
 kopieren und ans Ende der Datei einfügen. Sektionname ändern, bspw. in
 
-`[Dialer bluetooth]`, und als Modem _/dev/rfcomm0_ setzen. Wer die USB Datenkabel Verbindung nicht einrichten will, kann diesen Abschnitt dennoch so kopieren und nutzen, wenn* wvdial* installiert ist.
+`[Dialer bluetooth]`, und als Modem _/dev/rfcomm0_ setzen. Wer die USB-Datenkabel-Verbindung nicht einrichten will, kann diesen Abschnitt dennoch so kopieren und nutzen, wenn _wvdial_ installiert ist.
 
     [Dialer bluetooth]
     Modem = /dev/rfcomm0
