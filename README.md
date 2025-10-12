@@ -15,7 +15,7 @@ https://vercel.com/gils-projects-950b2ab6/website
 ## Resources
 
 - site generator: https://docs.astro.build/
-- css: https://picocss.com/docs
+- styling: Custom design tokens, no CSS framework
 
 ## TODOs:
 

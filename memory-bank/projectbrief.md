@@ -9,7 +9,7 @@ Improving the UX of the resume page (src/pages/resume.astro) because it is too l
 - Minimal, fast, professional presence
 - Pages must work without JavaScript (progressive enhancement)
 - Accessible (a11y) by design
-- Use modern HTML and pico.css with minimal custom CSS
+- Use modern HTML with a lightweight custom design system
 - Low maintenance and evergreen content
 - Target audience: tech professionals, recruiters, general public
 

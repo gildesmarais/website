@@ -2,7 +2,6 @@
 import BackToTop from "../components/BackToTop.astro"
 import Navigation from "../components/Navigation.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
-import "@picocss/pico/css/pico.min.css"
 import "@fontsource/ibm-plex-sans/400.css"
 import "@fontsource/ibm-plex-sans/700.css"
 import "@fontsource/ubuntu-mono/400.css"
@@ -124,13 +123,35 @@ const isActive = (href: string) => {
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <style is:global>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       :root {
         --font-sans: "IBM Plex Sans", system-ui, sans-serif;
         --font-mono: "Ubuntu Mono", ui-monospace, monospace;
 
+        --brand-bg: hsl(0, 0%, 4%);
+        --brand-surface: #111111;
+        --brand-text: #e6e6e6;
+        --brand-muted: #a3a3a3;
+        --brand-border: #1f1f1f;
+
+        --brand-accent: hsl(32, 100%, 50%);
+        --brand-accent-bg: hsl(33, 100%, 35%);
+        --brand-accent-hover: hsl(30, 100%, 64%);
+        --brand-accent-focus: hsla(32, 100%, 50%, 0.35);
+        --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
+
+        --accent-size: 0.25rem;
+
         --pico-font-family: var(--font-sans);
         --pico-font-family-sans: var(--font-sans);
         --pico-font-family-monospace: var(--font-mono);
+        --pico-spacing: 1.25rem;
+        --pico-border-radius: 1px;
       }
 
       /* Smooth scrolling for anchor links */
@@ -144,8 +165,17 @@ const isActive = (href: string) => {
       }
 
       body {
+        margin: 0;
         font-family: var(--font-sans);
         font-weight: 400;
+        line-height: 1.6;
+        min-height: 100vh;
+        background: var(--brand-bg);
+        color: var(--brand-text);
+      }
+
+      main {
+        display: block;
       }
 
       h1,
@@ -157,6 +187,41 @@ const isActive = (href: string) => {
         font-family: var(--font-sans);
         font-weight: 700;
         letter-spacing: -0.01em;
+        line-height: 1.25;
+        margin-block: 1.5rem 1rem;
+      }
+
+      h1 {
+        color: var(--pico-h1-color);
+      }
+
+      h2 {
+        color: var(--pico-h2-color);
+      }
+
+      h3 {
+        color: var(--pico-h3-color);
+      }
+
+      h4 {
+        color: var(--pico-h4-color);
+      }
+
+      h5 {
+        color: var(--pico-h5-color);
+      }
+
+      h6 {
+        color: var(--pico-h6-color);
+      }
+
+      p,
+      ul,
+      ol,
+      dl,
+      blockquote,
+      pre {
+        margin-block: 1rem;
       }
 
       code,
@@ -166,8 +231,40 @@ const isActive = (href: string) => {
         font-family: var(--font-mono);
       }
 
+      pre,
+      code {
+        background: var(--pico-code-background-color);
+        color: var(--pico-code-color);
+      }
+
+      pre {
+        padding: 1rem;
+        border: 1px solid var(--brand-border);
+        overflow-x: auto;
+      }
+
+      code {
+        padding: 0.15em 0.35em;
+        border-radius: var(--pico-border-radius);
+      }
+
       abbr[title] {
         border-bottom: 1px solid var(--brand-accent);
+        cursor: help;
+      }
+
+      a {
+        color: var(--pico-primary);
+        text-decoration-color: var(--pico-primary-underline);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.18em;
+        transition: color 0.2s ease, text-decoration-color 0.2s ease;
+      }
+
+      a:hover,
+      a:focus-visible {
+        color: var(--pico-primary-hover);
+        text-decoration-color: var(--pico-primary-hover-underline);
       }
 
       /* Always-visible, readable link underlines (dark & light) */
@@ -177,6 +274,165 @@ const isActive = (href: string) => {
         text-underline-offset: 0.15em;
         text-decoration-skip-ink: auto;
       }
+
+      img,
+      svg,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      button,
+      input[type="submit"],
+      input[type="button"],
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.25rem;
+        background: var(--pico-primary);
+        color: var(--pico-primary-inverse);
+        border: 2px solid var(--pico-primary);
+        border-radius: var(--pico-border-radius);
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+          box-shadow 0.2s ease;
+        text-decoration: none;
+      }
+
+      button:hover,
+      input[type="submit"]:hover,
+      input[type="button"]:hover,
+      .button:hover {
+        background: var(--pico-primary-hover-background);
+        border-color: var(--pico-primary-hover-border);
+        color: var(--pico-primary-inverse);
+      }
+
+      button:active,
+      input[type="submit"]:active,
+      input[type="button"]:active,
+      .button:active {
+        transform: translateY(1px);
+      }
+
+      button.secondary,
+      .button.secondary {
+        background: transparent;
+        color: var(--pico-secondary);
+        border: 1px solid var(--pico-secondary-border);
+      }
+
+      button.secondary:hover,
+      .button.secondary:hover {
+        background: var(--pico-secondary-hover-background);
+        border-color: var(--pico-secondary-hover-border);
+        color: var(--pico-secondary-inverse);
+      }
+
+      button.secondary:focus-visible,
+      .button.secondary:focus-visible {
+        outline: 2px solid var(--pico-secondary-focus);
+        outline-offset: 2px;
+      }
+
+      button.secondary:active,
+      .button.secondary:active {
+        transform: translateY(1px);
+      }
+
+      a.secondary {
+        color: var(--pico-secondary);
+      }
+
+      a.secondary:hover,
+      a.secondary:focus-visible {
+        color: var(--pico-secondary-hover);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border: 1px solid var(--pico-form-element-border-color);
+        border-radius: var(--pico-border-radius);
+        background: var(--pico-form-element-background-color);
+        color: var(--pico-form-element-color);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        border-color: var(--pico-form-element-focus-color);
+        box-shadow: 0 0 0 3px var(--pico-primary-focus);
+        outline: none;
+      }
+
+      input:disabled,
+      select:disabled,
+      textarea:disabled,
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid var(--pico-table-border-color);
+      }
+
+      th,
+      td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--pico-table-border-color);
+        text-align: left;
+      }
+
+      tbody tr:nth-child(even) {
+        background: var(--pico-table-row-stripped-background-color);
+      }
+
+      blockquote {
+        border-left: 4px solid var(--brand-accent);
+        padding-left: 1rem;
+        margin-inline: 0;
+        color: var(--pico-muted-color);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--brand-border);
+        margin-block: 2rem;
+      }
+
+      .container {
+        width: min(68rem, 100% - 2.5rem);
+        margin-inline: auto;
+      }
+
+      header,
+      main,
+      footer {
+        padding-block: 2.5rem;
+      }
+
+      footer {
+        margin-top: 4rem;
+        border-top: 1px solid var(--brand-border);
+        background: color-mix(in srgb, var(--brand-surface) 92%, #000 8%);
+      }
+
       /* Focus visibility without JS */
       :where(a, button, summary, [tabindex]):focus-visible {
         outline: 2px solid var(--pico-primary);
@@ -304,23 +560,6 @@ const isActive = (href: string) => {
         color: #000;
       }
 
-      /* --- Brand tokens (single source of truth) --- */
-      :root {
-        --brand-bg: hsl(0, 0%, 4%);
-        --brand-surface: #111111;
-        --brand-text: #e6e6e6;
-        --brand-muted: #a3a3a3;
-        --brand-border: #1f1f1f;
-
-        --brand-accent: hsl(32, 100%, 50%); /* primary */
-        --brand-accent-bg: hsl(33, 100%, 35%); /* pressed/filled bg */
-        --brand-accent-hover: hsl(30, 100%, 64%); /* hover text/links */
-        --brand-accent-focus: hsla(32, 100%, 50%, 0.35); /* focus ring */
-        --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
-
-        --accent-size: 0.25rem;
-      }
-
       .accent {
         border-inline-start: var(--accent-size) solid var(--brand-accent);
         padding-inline-start: 0.7rem;
@@ -406,16 +645,20 @@ const isActive = (href: string) => {
         /* Base & typography */
         --pico-background-color: var(--brand-bg);
         --pico-card-background-color: var(--brand-surface);
+        --pico-background-color-tertiary: color-mix(in srgb, var(--brand-surface) 85%, #000 15%);
 
         --pico-color: var(--brand-text);
+        --pico-text-color: var(--brand-text);
         --pico-muted-color: var(--brand-muted);
         --pico-muted-border-color: var(--brand-border);
+        --pico-border-color: var(--brand-border);
 
         /* Primary (your orange) */
         --pico-primary: var(--brand-accent);
         --pico-primary-background: var(--brand-accent-bg);
         --pico-primary-border: var(--pico-primary-background);
         --pico-primary-underline: var(--brand-accent-underline);
+        --pico-primary-color: var(--brand-accent);
         --pico-primary-hover: var(--brand-accent-hover);
         --pico-primary-hover-background: #c66e00; /* slightly brighter than bg */
         --pico-primary-hover-border: var(--pico-primary-hover-background);
@@ -500,9 +743,6 @@ const isActive = (href: string) => {
 
         /* Selections & focus affordances in orange */
         --pico-text-selection-color: rgba(255, 136, 0, 0.2);
-
-        /* become edgy */
-        --pico-border-radius: 1px;
       }
     </style>
     <!-- JSON-LD -->
