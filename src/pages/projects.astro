@@ -39,14 +39,14 @@ const projectHeadings = [
     title="html2rss"
     slug={slugify("html2rss")}
     status="maintained"
-    description="Infrastructure to bring RSS back to any website — even those without native feeds."
+    description="A production-ready toolkit that turns arbitrary HTML into clean, structured RSS or Atom feeds."
     highlights={[
-      { term: "Discovery", definition: "Finds article lists automatically; no brittle selectors." },
-      { term: "Dynamic sites", definition: "Headless rendering for SPA/JS-heavy pages." },
-      { term: "Normalization", definition: "Consistent titles, authors, dates, and images." },
-      { term: "Ops", definition: "Error handling, monitoring hooks, rolling releases." },
-      { term: "Delivery", definition: "Lightweight HTTP service with caching." },
-      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker, health checks & metrics." },
+      { term: "Discovery", definition: "Extracts article lists declaratively; minimal brittle selectors." },
+      { term: "Dynamic sites", definition: "Optional headless rendering for SPA and JS-heavy pages." },
+      { term: "Normalization", definition: "Consistent titles, authors, dates, and images across sources." },
+      { term: "Ops", definition: "Error handling, monitoring hooks, and rolling releases for stability." },
+      { term: "Delivery", definition: "Lightweight HTTP service with caching and health checks." },
+      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker; portable and easy to self-host." },
     ]}
     links={[
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
@@ -55,9 +55,10 @@ const projectHeadings = [
     ]}
   >
     <p>
-      Most sites abandoned RSS, which removed control from readers. html2rss discovers article lists,
-      normalizes metadata, and produces reliable feeds—even for JavaScript-heavy pages via headless browsers.
-      Teams use it to regain distribution and let audiences follow along on their own terms.
+      html2rss restores open web syndication by converting any website—static or dynamic—into a reliable feed.
+      It uses declarative extractors in YAML, supports optional headless rendering, and outputs standards-compliant XML
+      ready for any reader or aggregator. Built for maintainers who prefer simplicity over scraping frameworks, it runs
+      well in cron jobs or containers and brings RSS back to sites that never had it (or quietly killed it).
     </p>
   </ProjectCard>
 
