@@ -48,11 +48,11 @@ Another “hack,” which I read in Andrew Hunt’s _Pragmatic Thinking and Lear
 > “If you have a problem to solve, get away from the computer.”
 
 It’s counterintuitive, but it works. Why?  
-Because most hard problems aren’t blocked by missing information; they’re blocked by narrow bandwidth.   When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.  
+Because most hard problems aren’t blocked by missing information; they’re blocked by narrow bandwidth. When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.  
 Stepping away lets the background processes — memory association, pattern recognition, intuition — run their own threads.  
-Movement, sensory change, even mild distraction help the brain switch context and access other networks. It’s the mental equivalent of releasing a lock file so another process can complete its job.  
+Movement, sensory change, even mild distraction help the brain switch context and access other networks. It’s the mental equivalent of releasing a lock file so another process can complete its job.
 
-In practice, I suggest taking a short walk (ideally without new inputs: no music, no podcasts, just fresh air, birds and sunlight). When you return, the insight is often waiting in the cache. 
+In practice, I suggest taking a short walk (ideally without new inputs: no music, no podcasts, just fresh air, birds and sunlight). When you return, the insight is often waiting in the cache.
 
 ## Background tasks are processed during sleep
 
