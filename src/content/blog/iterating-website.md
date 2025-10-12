@@ -49,4 +49,4 @@ Behind the scenes, this iteration became a playground for the skills I bring to 
 
 ## Closing
 
-This update continues a pattern of small, deliberate iterations rather than big relaunches. If you’re curious, you can also look back at a post I wrote seven years ago on earlier changes to the site. Feel free to explore around, click on a link, or check out the archive—the progress is often in the details. And if you’re building something that needs thoughtful front-end architecture, progressive enhancement, or a pragmatic approach to shipping, let’s talk.
+If you’re curious, you can look back at a post I wrote seven years ago on earlier changes to the site. Feel free to explore around, click on a link, or check out the archive. The progress is often in the details. And if you’re building something that needs thoughtful front-end architecture, progressive enhancement, or a pragmatic approach to shipping, let’s talk.
