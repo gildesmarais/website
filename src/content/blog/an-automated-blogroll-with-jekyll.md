@@ -2,6 +2,7 @@
 title: An automated blogroll with Jekyll, Newsblur and Github Actions
 date: 2020-09-22
 description: This blog's blogroll is updated automatically and this post explains how it works.
+listed: false
 tags:
   - programming
   - ruby
