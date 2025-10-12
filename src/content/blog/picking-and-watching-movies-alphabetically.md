@@ -23,11 +23,7 @@ We started on 15th February 2020 and made it through the alphabet by end of Marc
 <sup>26</sup>∕<sub>7</sub> = 3.714285714 movies per week.
 
 Movies are a form of art. Let's keep it alive and diverse by watching movies which aren't edited to drive business metrics to new heights.
-
-{% for rating in site.data.movie_ratings.round1 %}
-{% assign imdb = site.data.ratings | where: "Const", rating['const'] | first %}
-{% include movie-rating.html %}
-{% endfor %}
+Instead of embedding every rating in this post, you can now browse the evolving list in the [movie ratings section](/movies/).
 
 I'm in for a repetition.
 
