@@ -12,7 +12,7 @@ const title = "Résumé"
 const robots = "index, noarchive, follow"
 
 const description = `
-  Engineering Team Lead in Berlin translating between business goals and technical execution.
+  Engineering leader and full-stack product partner in Berlin translating between business goals and hands-on delivery.
   I align teams on the next confident step and ship change without drama.
   `
 
@@ -30,14 +30,21 @@ const resumeHeadings = [
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Engineering Team Lead translating business intent into calm, incremental delivery."
+    description="Engineering Team Lead and full-stack product builder translating intent into calm, incremental delivery."
   />
 
   <Highlights
     highlights={[
       { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
-      { term: "Focus", definition: "Identity & Platform · Reliability · Security" },
+      {
+        term: "Focus",
+        definition: "Product Platforms · Full-Stack Delivery · Reliability · Security",
+      },
       { term: "Languages", definition: "German (native) · English (fluent)" },
+      {
+        term: "Open To",
+        definition: "Engineering leadership with hands-on product mandates",
+      },
     ]}
   />
 
@@ -50,6 +57,11 @@ const resumeHeadings = [
     <p>
       I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
       risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental.
+    </p>
+    <p>
+      While I lead platform modernization today, I stay close to product discovery and end-to-end feature
+      delivery—pairing with engineers, shipping UI changes, and validating outcomes in production. That
+      continuity keeps strategy and execution connected without losing the craft of shipping software.
     </p>
   </section>
 
@@ -79,6 +91,10 @@ const resumeHeadings = [
         <li>
           <strong>Scaled platforms:</strong> identity, access, and video systems. Reduced customer complaints by
           more than 80%, resulting in increased revenue per patient.
+        </li>
+        <li>
+          <strong>Full-stack delivery:</strong> pair with product squads on UI, API, and data changes so platform
+          upgrades ship alongside customer-facing value.
         </li>
         <li>
           <strong>Faster CI:</strong> 33% wall-clock and 13% billable time gains keep engineers focused and budgets
