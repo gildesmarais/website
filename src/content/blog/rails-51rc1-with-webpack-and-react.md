@@ -7,24 +7,23 @@ tags:
   - ruby
 ---
 
-My side project turned into a playground for new technologies. Today I’ve set it up
-to use `rails-5.1rc1` and [react](https://facebook.github.io/react/).
+My side project turned into a playground for new technologies. Today I set it up
+to use `rails-5.1rc1` and [React](https://facebook.github.io/react/).
 
-I’ve been using [yarn](https://yarnpkg.com/) to manage frontend dependencies
-already. You’ll need to install yarn on your
-machine if you haven’t already. Also keep in mind, depending on how you’re
-deploying your app, your build server might need to have yarn installed, too.
+I’ve been using [yarn](https://yarnpkg.com/) to manage frontend dependencies.
+Install yarn on your machine if you haven’t already. Depending on how you’re
+deploying your app, your build server might need yarn installed, too.
 This article leaves out how to install yarn. Follow the setup instructions on the
 project's website and it _should be easy™_.
 
-While I was updating, I kept some notes in this post. They can possibly help or
-totally confuse you. Remember, this post is about Rails 5.1 RC1. Probably
-something will change in later released versions.
+While I was updating, I kept some notes in this post. They might help—or
+totally confuse you. Remember, this post is about Rails 5.1 RC1. Something will
+likely change in later releases.
 
 ## Installation of ruby dependencies
 
-In your `Gemfile`, change the line with `gem ’rails’ …` to get bundler to
-lock the version to the latest unstable 5.1 version. Also, you want to
+In your `Gemfile`, change the line with `gem 'rails'` to get bundler to
+lock the version to the latest unstable 5.1 release. Also, you want to
 install the new [webpacker gem](https://github.com/rails/webpacker).
 
 ```ruby
@@ -33,26 +32,26 @@ gem 'rails', '~> 5.1.0.rc1'
 gem 'webpacker'
 ```
 
-Afterwards `bundle update`. You’re on rails `5.1.0rcX` now.
+Afterwards run `bundle update`. You’re on Rails `5.1.0rcX` now.
 
-The setup of the Webpack is still missing. Thankfully there are tasks to set
+The setup of Webpack is still missing. Thankfully there are tasks to set
 everything up.
 
 ## Installation of Webpack with webpacker
 
-Now it’s time for: `rails webpacker:install`
+Now it’s time for `rails webpacker:install`.
 
-When that’s done, you’ve setup the Webpack installation. Have a look at the
+When that’s done, you’ve set up the Webpack installation. Have a look at the
 newly created files (there are quite a few of them).
 
-I found the additional webpacker tasks really handy. With their help, you can
+The additional webpacker tasks are handy. With their help, you can
 install your preferred JS framework without much hassle.
 
 ## Installing React with webpacker
 
-React is sticking on the top of my ’to learn’ list for quite a while.
+React has been on top of my “to learn” list for quite a while.
 
-To install it, do `rails webpacker:install:react` and … voilà: react
+To install it, run `rails webpacker:install:react` and … voilà: React
 (with JSX) set up.
 
 OK, but how to use React now?
@@ -71,7 +70,7 @@ webpack development server. That’s new and you need to get used to it
 
 The webpack server will build/transpile/_apply the magic_ to
 your JS code and serve these files. It runs on its own port, defaulting to 8080.
-No need to worry about ports now, just start the webpack development server by
+No need to worry about ports now; just start the webpack development server with
 `bin/webpack-dev-server`.
 
 Start your rails server (`rails s`) and open your app in your browser.
@@ -98,13 +97,13 @@ at the end of your page now.
 
 ## Conclusion
 
-It’s really easy to setup Webpack in a Rails 5.1 project and use React.
-I haven’t tested it, but install helpers for Vue.js, Angular and some other
+It’s really easy to set up Webpack in a Rails 5.1 project and use React.
+I haven’t tested it, but install helpers for Vue.js, Angular, and other
 popular frameworks exist. It should be just as easy.
 
 Such an easy setup is possible due to great efforts by the webpacker gem.
 Kudos to everyone involved!
 
-On a larger scale, I’m very pleased to see Rails jumping on the yarn
-and “modern Javascript” train. If you haven’t already,
+On a larger scale, I’m pleased to see Rails jumping on the yarn
+and “modern JavaScript” train. If you haven’t already,
 [read the Rails 5.1 Release Notes](https://edgeguides.rubyonrails.org/5_1_release_notes.html).

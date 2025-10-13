@@ -7,75 +7,78 @@ draft: false
 tags: [reflection, systems, mindfulness]
 ---
 
-For me, perhaps one of the most unexpected discoveries this year has been yoga.  
-I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I actually look forward to. It feels like maintenance, not performance.
+One of the most unexpected discoveries this year has been yoga.
+I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I look forward to. It feels like maintenance, not performance.
 
-Maybe it's just how my mind works, but I often try to make sense of things through systems. **I picture my body as a kind of computer:**
+It's strange how long I treated my body as just a physical support system for my head.
+Maybe it's simply how my mind works, but I often make sense of things through systems.
+
+**I picture my body as a kind of computer.**
 
 Skeleton, muscles, organs: the hardware.  
 The brain: CPU and storage.
 
-The best hardware also needs an operating system (OS). That's what the nervous system[^5] is in this analogy: an OS that integrates all the signals, updates the state, sends commands to its actors and keeps the system operating stably.
+The best hardware also needs an operating system (OS). That's what the nervous system[^5] is in this analogy: an OS that integrates signals, updates the state, sends commands to its actors, and keeps the system stable.
 
 ## The OS protects the hardware from failures
 
-Without experience of how the body feels when it's actually in balance, one doesn't notice when it drifts off. The OS just normalizes the noise.  
+Without experience of how the body feels when it's in balance, you don't notice when it drifts off. The OS just normalizes the noise.
 Learning to sense the baseline (pulse, breath, posture, tone) is like turning on debug logging for the human system.
 
-But: <q>I know that I know nothing.</q>[^4] You can't efficiently debug what you can't (or haven't) observed.
+But: <q>I know that I know nothing.</q>[^4] You can't debug what you can't (or haven't) observed.
 
-When the OS receives confusing or incomplete input, it does what any system would do: switch into safe mode, limit movement, conserve resources. It's protective. It wants to keep you to survive by default.  
-Sometimes it forgets to reset once the _perceived_ threat is gone, or it doesn't know where to send the commands.
+When the OS receives confusing or incomplete input, it does what any system would do: switch into safe mode, limit movement, and conserve resources. It's protective. It wants you to survive by default.
+Sometimes it forgets to reset once the _perceived_ threat is gone, or it no longer knows where to send the commands.
 
-As a result, residual <q>safe mode</q> can show up in different ways:  
-stiff or tight muscles, shallow breathing, clenched jaw, headaches, low energy, trouble focusing, or a general sense of restlessness.  
-The system keeps allocating resources to defense routines instead of normal operation… and over time, that baseline just starts to feel <q>normal</q>.
+As a result, residual <q>safe mode</q> can show up in different ways:
+stiff or tight muscles, shallow breathing, clenched jaw, headaches, low energy, trouble focusing, or a general sense of restlessness.
+The system keeps allocating resources to defense routines instead of normal operation, and over time that baseline starts to feel <q>normal</q>.
 
 ## Resetting the System
 
 When the OS is overloaded, feedback loops tighten, attention narrows, and creative threads get starved.
 Stepping back, breathing, walking, or simply being quiet opens bandwidth again. The system recovers.
 
-How can you intentionally trigger a signal that prompts the OS to update its state assumptions?  
-One reliable method: take a deliberate breath, lift the shoulders on the inhale (about four seconds), then let them drop on a slow exhale (about six seconds). The OS receives these signals and releases some of its emergency handling.
+How can you intentionally trigger a signal that prompts the OS to update its state assumptions?
+One reliable method: take a deliberate breath, lift the shoulders on the inhale (about four seconds), then let them drop on a slow exhale (about six seconds). The OS reads these signals and releases some emergency handling.
 
 Another <q>hack</q> mentioned in _Pragmatic Thinking and Learning_[^3]:
 
 > <q>If you have a problem to solve, get away from the computer.</q>
 
-It's counterintuitive. And it works. Why?  
-Because most hard problems aren't blocked by missing information: they're blocked by narrow bandwidth. When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.
+It's counterintuitive. And it works. Why?
+Because most hard problems aren't blocked by missing information; they're blocked by narrow bandwidth. When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.
 
-Stepping away lets background processes (memory association, pattern recognition, intuition) run their own threads. Movement, sensory change, even mild distraction help the brain switch context and access other networks. The mental equivalent of releasing a lock file so another process can complete its job.
+Stepping away lets background processes (memory association, pattern recognition, intuition) run their own threads. Movement, sensory change, and even mild distraction help the brain switch context and access other networks. It's the mental equivalent of releasing a lock file so another process can complete its job.
 
-In practice, I suggest taking a short walk, ideally without new inputs (no music, no podcasts, just fresh air, birds, and sunlight), and stop thinking about it. When you return, the insight is often waiting in the cache.[^6]
+In practice, take a short walk, ideally without new inputs (no music, no podcasts, just fresh air, birds, and sunlight), and stop thinking about it. When you return, the insight is often waiting in the cache.[^6]
 
 ## Reestablishing communication between hardware and OS
 
-Yoga intentionally leaves room for sensations to appear and bubble up.  
-It's about listening to your body and inner self — feedback from the hardware that the OS can learn from.  
+Yoga intentionally leaves room for sensations to appear and bubble up.
+It's about listening to your body and inner self — feedback from the hardware that the OS can learn from.
 Through that feedback, your system gradually rebuilds a more accurate model of its hardware and its capabilities.
 
-Mindfulness, breath, and gentle movement act as regular sync operations: they feed the OS new data and context so it can update outdated assumptions and safely return to normal operation.  
+Mindfulness, breath, and gentle movement act as regular sync operations: they feed the OS new data and context so it can update outdated assumptions and safely return to normal operation.
 Over time, these inputs improve calibration. Stability increases, error handling becomes smoother, and you start noticing subtle signals long before they escalate into warnings.
 
 ## Background tasks are processed during sleep
 
 Like many systems, the brain runs background jobs even when we're not paying attention.
-At night there's a lot of async processing going on: background tasks that reconcile signals, clean up logs, and archive what's no longer needed.
+At night there's a lot of async processing: background tasks that reconcile signals, clean up logs, and archive what's no longer needed.
 
 Sleep is when the OS defragments memory, runs diagnostics, and recalibrates thresholds. If those background tasks get interrupted, the queue piles up. Slow at first, then laggy, then unstable.[^1]
 
-To let that queue run empty, I've had to learn some boring but powerful things.  
+To let that queue run empty, I've had to learn some boring but powerful things.
 Blue light after dark keeps the system in _day mode_, delaying those maintenance jobs. Constant context switching (checking messages, feeds, short videos) fragments attention and floods the event loop with low-priority interrupts.
 
-Letting the queue finish overnight is the simplest optimization I know.  
+Letting the queue finish overnight is the simplest optimization I know.
 No new tasks before sleep, no reloading the feed one last time: just idle mode.
 The system thanks you in the morning with a cleaner state and an empty queue.
 
 ## Unsustainable performance tweaks
 
-And then there are the socially accepted performance tweaks: sugar spikes and coffee push the turbo button[^2], and alcohol sends the shutdown command (with the side effect of less deep sleep, causing background jobs to remain in the queue).
+And then there are the socially accepted performance tweaks: sugar spikes and coffee push the turbo button,[^2] and alcohol sends the shutdown command (with the side effect of less deep sleep, causing background jobs to remain in the queue).
 
 These tweaks all work (briefly) but have long-term side effects without addressing the root cause.
 I still use some of them, just more consciously now.
