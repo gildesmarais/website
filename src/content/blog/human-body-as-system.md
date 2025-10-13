@@ -7,13 +7,10 @@ draft: false
 tags: [reflection, systems, mindfulness]
 ---
 
-For me, maybe one of the most unexpected discoveries this year has been yoga.  
+For me, perhaps one of the most unexpected discoveries this year has been yoga.  
 I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I actually look forward to. It feels like maintenance, not performance.
 
-It's strange how long I treated my body as just a physical support system for my head.  
-Maybe it's just how my mind works, but I often try to make sense of things through systems.
-
-**I picture my body as a kind of computer.**
+Maybe it's just how my mind works, but I often try to make sense of things through systems. **I picture my body as a kind of computer:**
 
 Skeleton, muscles, organs: the hardware.  
 The brain: CPU and storage.
@@ -85,6 +82,7 @@ I still use some of them, just more consciously now.
 
 ## Maintain your own system well
 
+It's strange how long I treated my body as just a physical support system for my head.
 As engineers, we maintain systems constantly; resilience starts when we maintain the one we live in.
 
 It works for me.  
