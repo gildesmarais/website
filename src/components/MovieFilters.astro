@@ -1,0 +1,245 @@
+---
+export interface Props {
+  searchQuery: string
+  isRecommendation: boolean
+  sortBy: string
+  sortDir: string
+}
+
+const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
+---
+
+<!-- Movie controls -->
+<div class="movie-controls">
+  <!-- Filter and sort controls -->
+  <div class="controls-group">
+    <!-- Recommendation toggle -->
+    <form method="GET" class="control-form">
+      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+      {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
+      {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+      {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
+      <button
+        type="submit"
+        class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
+        aria-pressed={isRecommendation}
+        aria-label={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+        title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+      >
+        <span class="recommendation-icon" aria-hidden="true">★</span>
+      </button>
+    </form>
+
+    <!-- Sort buttons -->
+    <div class="sort-group">
+      {
+        [
+          { key: "yourRating", label: "My Rating" },
+          { key: "title", label: "Title" },
+          { key: "year", label: "Year" },
+          { key: "runtimeMins", label: "Runtime" },
+        ].map(({ key, label }) => (
+          <form method="GET" class="control-form">
+            {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
+            {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+            <input type="hidden" name="sort" value={key} />
+            <input
+              type="hidden"
+              name="dir"
+              value={sortBy === key ? (sortDir === "asc" ? "desc" : "asc") : "desc"}
+            />
+            <button type="submit" class={`minimal-btn ${sortBy === key ? "active" : ""}`}>
+              {label} {sortBy === key && (sortDir === "asc" ? "▲" : "▼")}
+            </button>
+          </form>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Search -->
+  <form method="GET" class="search-form">
+    <input
+      id="movieFilter"
+      name="q"
+      type="search"
+      placeholder="Filter…"
+      value={searchQuery}
+      class="movie-search-input"
+    />
+    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+    {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
+    {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+  </form>
+</div>
+
+<style>
+  .movie-controls {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-border-color);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pico-spacing);
+  }
+
+  .controls-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pico-spacing);
+  }
+
+  .sort-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .control-form {
+    display: inline-block;
+  }
+
+  .recommendation-toggle {
+    padding: 0.5rem;
+    min-width: 2.5rem;
+    line-height: 1;
+    border-color: transparent;
+    background: transparent;
+    justify-content: center;
+  }
+
+  .recommendation-toggle:focus-visible {
+    box-shadow: none;
+  }
+
+  .recommendation-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--brand-muted);
+    border: 1px solid hsla(32, 100%, 50%, 0.4);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .recommendation-toggle:not(.active) .recommendation-icon {
+    opacity: 0.85;
+  }
+
+  .recommendation-toggle:focus-visible .recommendation-icon {
+    transform: scale(1.08);
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 2px var(--brand-accent-focus);
+  }
+
+  .recommendation-toggle.active,
+  .recommendation-toggle:active {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .recommendation-toggle.active .recommendation-icon {
+    opacity: 1;
+    background: var(--brand-accent);
+    color: #111;
+    border-color: var(--brand-accent);
+    box-shadow:
+      0 0 0 1px var(--brand-accent-hover),
+      0 0 10px var(--brand-accent-focus);
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  [type="submit"] {
+    margin-bottom: 0;
+  }
+
+  .movie-search-input {
+    height: 2.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0;
+    border-width: 2px;
+    border-color: var(--brand-accent);
+    background-color: var(--brand-surface);
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .movie-controls {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .controls-group {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--pico-spacing);
+      flex: 1;
+    }
+
+    .search-form {
+      flex: 0 0 auto;
+    }
+  }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .movie-controls {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.35rem 0;
+      gap: 0.5rem;
+    }
+
+    .controls-group {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      margin-bottom: -0.25rem;
+      scrollbar-width: none;
+      flex-wrap: nowrap;
+      min-width: 0;
+    }
+
+    .controls-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sort-group {
+      flex-wrap: nowrap;
+      gap: 0.4rem;
+      min-width: max-content;
+    }
+
+    .control-form {
+      flex: 0 0 auto;
+    }
+
+    .search-form {
+      flex: 0 0 auto;
+    }
+  }
+</style>

@@ -1,13 +1,29 @@
 {
   "name": "website",
-  "version": "1.0.0",
-  "repository": "git@github.com:gildesmarais/website.git",
-  "author": "Gil Desmarais <git@desmarais.de>",
-  "license": "UNLICENSED",
+  "description": "Gil's personal website / portfolio. Built with Astro.",
   "private": true,
+  "type": "module",
+  "version": "3.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
   "dependencies": {
-    "@glidejs/glide": "3.5.2",
-    "headroom.js": "0.12.0",
-    "instant.page": "5.1.0"
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.2",
+    "@astrojs/vercel": "^8.2.5",
+    "@fontsource/ibm-plex-sans": "^5.2.6",
+    "@fontsource/ubuntu-mono": "^5.2.6",
+    "@picocss/pico": "^2.1.1",
+    "@vercel/speed-insights": "^1.2.0",
+    "astro": "^5.12.9",
+    "rehype-add-classes": "^1.0.0",
+    "remark": "^15.0.1",
+    "remark-toc": "^9.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

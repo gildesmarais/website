@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="256" viewBox="0 0 256 256" width="256" xmlns="http://www.w3.org/2000/svg">
+  <g shape-rendering="crispEdges" style="transform-origin: 32px 128px;" transform="matrix(1.333333, 0, 0, 1.333333, -32.000009, -0.000042)">
+    <g fill="#f80">
+      <path d="m32 32h16v192h-16z"/>
+      <path d="m32 32h48v16h-48z"/>
+      <path d="m32 208h48v16h-48z"/>
+      <path d="m208 32h16v192h-16z"/>
+      <path d="m176 32h48v16h-48z"/>
+      <path d="m176 208h48v16h-48z"/>
+    </g>
+    <g fill="#fff">
+      <path d="m88 76h80v20h-80z"/>
+      <path d="m88 160h80v20h-80z"/>
+      <path d="m88 76h20v104h-20z"/>
+      <path d="m128 118h20v20h-20z"/>
+      <path d="m148 118h20v62h-20z"/>
+    </g>
+  </g>
+</svg>

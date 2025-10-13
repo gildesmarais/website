@@ -1,0 +1,16 @@
+---
+import BaseLayout from "./BaseLayout.astro"
+
+const { title: pageTitle, description, language, robots } = Astro.props
+---
+
+<BaseLayout title={pageTitle} description={description} language={language} robots={robots}>
+  <slot />
+</BaseLayout>
+
+<style>
+  html {
+    /* when navigating from modal, prevent slow/smoother scrolling */
+    scroll-behavior: unset;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+export interface Props {
+  highlights: Array<{ term: string; definition: string }>
+}
+
+const { highlights } = Astro.props
+---
+
+<dl class="highlights">
+  {
+    highlights.map(({ term, definition }) => (
+      <>
+        <dt>{term}</dt>
+        <dd>{definition}</dd>
+      </>
+    ))
+  }
+</dl>
+
+<style is:global>
+  .highlights {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 0.5rem;
+  }
+
+  .highlights dt {
+    background: var(--brand-accent);
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    border: 3px solid var(--brand-accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin: 0 0.25rem 0 0;
+    padding: 0.14em 0.46em;
+    font-size: 0.9rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .highlights dd {
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.006em;
+    font-size: 0.9rem;
+    margin: 0;
+    align-self: center;
+  }
+
+  @media (min-width: 640px) {
+    .highlights dt {
+      padding: 0.16em 0.5em;
+      margin-right: 0.5em;
+      border-width: 4px;
+    }
+
+    .highlights dd {
+      font-size: 0.95rem;
+      line-height: 1.15;
+    }
+  }
+</style>

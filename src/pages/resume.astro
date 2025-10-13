@@ -1,0 +1,226 @@
+---
+export const prerender = true
+
+import SkillsMatrix from "../components/SkillsMatrix.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
+import Highlights from "../components/Highlights.astro"
+import { skills } from "../data/skills"
+import TableOfContents from "src/components/TableOfContents.astro"
+
+const title = "Résumé"
+const robots = "index, noarchive, follow"
+
+const description = `
+  Engineering leader and full-stack product partner in Berlin translating between business goals and hands-on delivery.
+  I align teams on the next confident step and ship change without drama.
+  `
+
+// Define headings for the TOC
+const resumeHeadings = [
+  { depth: 2, slug: "executive-summary", text: "Executive Summary" },
+  { depth: 2, slug: "current", text: "Current Work" },
+  { depth: 2, slug: "earlier", text: "Earlier Work" },
+
+  { depth: 2, slug: "capabilities", text: "Capabilities" },
+  { depth: 2, slug: "skills", text: "Skills Matrix" },
+
+  { depth: 2, slug: "education", text: "Education" },
+  { depth: 2, slug: "service", text: "Service" },
+]
+---
+
+<BaseLayout title={title} description={description} robots={robots}>
+  <Hero
+    title={title}
+    description="Engineering Team Lead and full-stack product builder translating intent into calm, incremental delivery."
+  />
+
+  <Highlights
+    highlights={[
+      { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
+      {
+        term: "Focus",
+        definition: "Product Platforms · Full-Stack Delivery · Reliability · Security",
+      },
+      { term: "Languages", definition: "German (native) · English (fluent)" },
+      {
+        term: "Open To",
+        definition: "Engineering leadership with hands-on product mandates",
+      },
+    ]}
+  />
+
+  <!-- Table of Contents - Mobile-friendly for recruiters -->
+  <TableOfContents headings={resumeHeadings} />
+
+  <!-- Executive Summary -->
+  <section aria-labelledby="executive-summary">
+    <h2 id="executive-summary" class="accent section-headline">Executive Summary</h2>
+    <p>
+      I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
+      risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental.
+    </p>
+    <p>
+      While I lead platform modernization today, I stay close to product discovery and end-to-end feature
+      delivery: pairing with engineers, shipping UI changes, and validating outcomes in production. That
+      continuity keeps strategy and execution connected without losing the craft of shipping software.
+    </p>
+  </section>
+
+  <!-- Work -->
+  <section aria-labelledby="work">
+    <h2 id="current" class="accent section-headline">Current Work</h2>
+
+    <section aria-labelledby="etl">
+      <h3 id="etl">Engineering Team Lead — Platform</h3>
+      <p>
+        <time datetime="2022-10">Oct 2022</time>
+        <span aria-hidden="true">–</span>
+        <time>Present</time>
+        · Berlin (remote‑first)
+      </p>
+      <p>Translate business intent into platform roadmaps for identity, reliability, and compliance.</p>
+      <ul>
+        <li>
+          <strong>Scaled platforms:</strong> identity, access, and video systems. Reduced customer complaints by
+          more than 80%, resulting in increased revenue per patient.
+        </li>
+        <li>
+          <strong>Full-stack delivery:</strong> hands-on work with product squads on UI, API, and data changes
+          so platform upgrades ship alongside customer-facing value.
+        </li>
+        <li>
+          <strong>Faster CI:</strong> 33% wall-clock and 13% billable time gains keep engineers focused and budgets
+          steady.
+        </li>
+        <li>
+          <strong>People:</strong> mentor three direct reports; grow skills in performance, observability, and
+          pragmatic design.
+        </li>
+        <li>
+          <strong>Alignment:</strong> partnered with Security, Product, and Ops to shape platform roadmap and shared
+          risk appetite.
+        </li>
+      </ul>
+      <p class="lead">Joined as Senior Software Engineer; promoted to Team Lead in July 2024.</p>
+    </section>
+
+    <section aria-labelledby="earlier">
+      <h3 id="earlier" class="accent">Earlier Work</h3>
+      <p>
+        Before leading platform teams, I spent a decade building and modernizing full-stack systems across
+        publishing, civic, and energy domains.
+      </p>
+      <ul>
+        <li>
+          <strong>Ruby Developer</strong> (05–07/2022, Remote)
+          <br />
+          Left during probation after company stack pivot.
+        </li>
+        <li>
+          <strong>Full‑Stack Developer</strong> (2017–2022, Berlin)
+          <br />
+          City portal relaunch; ~50k‑POI search; SERP #1s; CRM migration, ops dashboards.
+        </li>
+        <li>
+          <strong>Freelance Developer</strong> (2017, Remote)
+          <br />
+          Delivered small Ruby/JS projects end‑to‑end.
+        </li>
+        <li>
+          <strong>Backend Developer</strong> (2015–2017, Berlin)
+          <br />
+          Editorial workflow; &gt;$200k creator payouts; high‑traffic templates.
+        </li>
+        <li>
+          <strong>Rails Developer</strong> (2015, Berlin)
+          <br />
+          Farm MVP; mobile‑ready APIs.
+        </li>
+        <li>
+          <strong>Developer</strong> (2011–2015, Oldenburg)
+          <br />
+          Energy dashboards; Handball Bundesliga portal; introduced CI & git flows.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <hr />
+
+  <!-- Capabilities -->
+  <section aria-labelledby="capabilities">
+    <h2 id="capabilities" class="accent section-headline">Capabilities</h2>
+    <ol>
+      <li>Team mentoring & technical coaching</li>
+      <li>Stakeholder alignment & roadmap facilitation</li>
+      <li>Full-stack development</li>
+      <li>Security & compliance readiness (ISO 27001, GDPR)</li>
+      <li>Observability, CI/CD, performance tuning</li>
+    </ol>
+  </section>
+
+  <!-- Skills -->
+  <section aria-labelledby="skills">
+    <h2 id="skills" class="accent section-headline">Skills Matrix</h2>
+    <SkillsMatrix categories={skills} />
+  </section>
+
+  <hr />
+
+  <!-- Education & Service -->
+  <section aria-labelledby="education">
+    <h2 id="education" class="accent section-headline">Education</h2>
+    <p>
+      <strong>B.Sc. Wirtschaftsinformatik (Information Systems)</strong> — Jade University (2009–2012).
+      <br />
+      Thesis on modular smart-home software (OSGi). CCNA 1–4.
+    </p>
+  </section>
+
+  <section aria-labelledby="service">
+    <h2 id="service" class="accent section-headline">Service</h2>
+    <p>
+      <strong>German Air Force</strong> (2007–2009) — IT & Network Support, NATO Quick Response Force.
+      <br />
+      Asset inventory automation (project Herkules), network ops.
+    </p>
+  </section>
+
+  <hr />
+
+  <section>
+    <p>Does that sound like a fit? <a href="/contact">Let's talk</a>!</p>
+  </section>
+</BaseLayout>
+
+<style>
+  #executive-summary ~ p {
+    max-width: var(--lead-width);
+    text-align: justify;
+  }
+
+  #current + section > h3 {
+    margin-bottom: 0.25em;
+  }
+
+  .section-headline {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--pico-background-color);
+    padding: 0 var(--pico-spacing) 0 0.7rem;
+    border-bottom: 1px solid var(--pico-border-color);
+    margin-bottom: 0;
+  }
+
+  .section-headline + * {
+    margin-top: var(--pico-spacing);
+  }
+
+  p:has(time) {
+    letter-spacing: -0.01em;
+    color: var(--pico-muted-color);
+  }
+</style>

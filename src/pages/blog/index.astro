@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Hero from "../../components/Hero.astro"
+import { getCollection } from "astro:content"
+const title = "Blog"
+const description = "Five recent posts, hand-picked. Subscribe via RSS feed."
+const posts = (
+  await getCollection("blog", ({ data }) => !data.draft && data.showcase && data.listed !== false)
+)
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .slice(0, 5)
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero title={title}>
+    <p class="lead">
+      Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or<br />
+      <a href="/feed.xml">subscribe to the RSS feed</a>.
+    </p>
+  </Hero>
+
+  <section>
+    <ul>
+      {
+        posts.map(({ slug, data }) => (
+          <li>
+            <a href={`/blog/${slug}`}>{data.title}</a>
+            {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
+            {data.date && (
+              <>
+                {" "}
+                <time datetime={data.date.toISOString()} class="micro">
+                  {data.date.toISOString().split("T")[0]}
+                </time>
+              </>
+            )}
+            <br />
+            {data.description && <small>{data.description}</small>}
+          </li>
+        ))
+      }
+    </ul>
+
+    <nav>
+      <a href="/blog/archive/" class="minimal-btn">Archive ⇾</a>
+    </nav>
+  </section>
+</BaseLayout>

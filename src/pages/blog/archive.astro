@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Hero from "../../components/Hero.astro"
+import { getCollection } from "astro:content"
+const title = "Blog Archive"
+const description = "Chronological archive of all published blog posts."
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft && data.listed !== false)).sort(
+  (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
+)
+
+function fmt(d: Date) {
+  return new Intl.DateTimeFormat("en", { month: "long", year: "2-digit" })
+    .format(d)
+    .replace(/(\d{2})$/, "'$1")
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero title={title} description="All published posts and experiments." />
+
+  <section>
+    <ul>
+      {
+        posts.map(({ slug, data }) => (
+          <li>
+            <a href={`/blog/${slug}`}>{data.title}</a>
+            {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
+            {data.date && (
+              <>
+                {" "}
+                <time datetime={new Date(data.date).toISOString()} class="micro">
+                  {fmt(data.date)}
+                </time>
+              </>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <footer>
+      <p><a href="/blog" class="minimal-btn">⇽ Back to Blog</a></p>
+    </footer>
+  </section>
+</BaseLayout>

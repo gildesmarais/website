@@ -1,0 +1,5 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="300" fill="#282828"/>
+  <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="20" fill="#666" text-anchor="middle" dy=".3em">Poster</text>
+  <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" dy=".3em">Loading...</text>
+</svg>

@@ -1,0 +1,125 @@
+---
+export const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]/g, "")
+    .trim()
+    .replace(/^-+|-+$/g, "")
+
+interface Props {
+  headings: Array<{
+    depth: number
+    slug: string
+    text: string
+  }>
+  title?: string
+}
+
+const { headings, title = "Table of Contents" } = Astro.props
+
+// Filter out h1 headings and only show h2-h6
+const filteredHeadings = headings.filter((heading) => heading.depth > 1)
+
+// Don't render if no headings
+if (filteredHeadings.length === 0) return null
+---
+
+<nav class="toc" aria-label="Table of contents">
+  <h3 class="toc-title accent">{title}</h3>
+  <ul class="toc-list">
+    {
+      filteredHeadings.map((heading) => (
+        <li class={`toc-item toc-depth-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .toc {
+    margin: 5rem 0 2.5rem 0;
+    padding: 0;
+
+    /* Override Pico's nav defaults */
+    display: block !important;
+    justify-content: unset !important;
+  }
+
+  .toc-title {
+    font-size: 0.9em;
+    color: var(--pico-muted-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-left: 0.6rem;
+  }
+
+  .toc-list {
+    letter-spacing: -0.01rem;
+    line-height: 1.25;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toc-list li {
+    padding: 0 0 0.25em 0;
+    font-size: 0.9em;
+  }
+
+  .toc-list a {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .toc-list a:hover {
+    color: var(--pico-primary-color);
+  }
+
+  .toc-list a:focus {
+    outline: none;
+  }
+
+  /* Indent based on heading depth */
+  .toc-depth-2 {
+    margin-left: 0;
+  }
+  .toc-depth-3 {
+    margin-left: 1.5rem;
+  }
+  .toc-depth-4 {
+    margin-left: 3rem;
+  }
+  .toc-depth-5 {
+    margin-left: 4.5rem;
+  }
+  .toc-depth-6 {
+    margin-left: 6rem;
+  }
+
+  @media (max-width: 768px) {
+    .toc-title {
+      font-size: 0.85em;
+    }
+
+    .toc-list a {
+      font-size: 0.95em;
+    }
+
+    .toc-depth-3 {
+      margin-left: 1rem;
+    }
+    .toc-depth-4 {
+      margin-left: 2rem;
+    }
+    .toc-depth-5 {
+      margin-left: 3rem;
+    }
+    .toc-depth-6 {
+      margin-left: 4rem;
+    }
+  }
+</style>

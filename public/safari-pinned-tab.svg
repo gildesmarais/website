@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title" shape-rendering="crispEdges" viewBox="0 0 256 256">
+  <title>Bracket G — raster-perfect, centered</title>
+  <path d="M -1.009 -0.028 L 254.991 -0.028 L 254.991 255.972 L -1.009 255.972 L -1.009 -0.028 Z"/>
+  <path fill="var(--accent,#f80)" d="M32 32h16v192H32z"/>
+  <path fill="var(--accent,#f80)" d="M32 32h48v16H32zM32 208h48v16H32zM208 32h16v192h-16z"/>
+  <path fill="var(--accent,#f80)" d="M176 32h48v16h-48zM176 208h48v16h-48z"/>
+  <path fill="#fff" d="M88 76h80v20H88zM88 160h80v20H88z"/>
+  <path fill="#fff" d="M88 76h20v104H88zM148 117.963h20V180h-20z"/>
+  <path fill="#fff" d="M 128 118 L 148 118 L 148 138 L 128 138 L 128 118 Z" style=""/>
+</svg>
