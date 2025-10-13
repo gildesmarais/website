@@ -11,16 +11,16 @@ tags:
 Quick info: this website now supports a dark color scheme, more commonly called
 'dark mode'.
 
-To use it, you need to use Safari Technology Preview Release 68 (or later),
-since at this time it's the only browser supporting the media query. The media
-query is so fresh, even [caniuse.com](https://caniuse.com/#search=color-scheme)
-does not know of it, yet.
+To try it, use Safari Technology Preview Release 68 (or later), since at this
+time it's the only browser supporting the media query. The media query is so
+fresh that even [caniuse.com](https://caniuse.com/#search=color-scheme) does not
+list it yet.
 
-The migration was straightforward: changing some colors here and there,
-but most of the time a `filter: invert(100%);` yielded a perfect result.
+The migration was straightforward: I changed a few colors, and in most places a
+simple `filter: invert(100%);` delivered a solid result.
 
-I'd love to see your website supporting dark mode, too!
+I'd love to see your website support dark mode, too.
 
 **Update 2018-11-10:**
-On OLED displays black pixels save energy, because the pixels are turned off.
-I changed the dark colors to true black to profit from that.
+On OLED displays, black pixels save energy because the pixels are turned off. I
+changed the dark colors to true black to benefit from that.

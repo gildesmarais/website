@@ -11,16 +11,16 @@ tags:
   - ruby
 ---
 
-An important metric in today's websites is performance. Loading images lazily — meaning they are only loaded when they'd become visible — is one of the big wins to implement.
+An important metric in today's websites is performance. Loading images lazily — meaning they load only when they become visible — is one of the big wins to implement.
 
-Over time the methods to achieve it changed.  
-Traditionally it involved JavaScript to detect a good moment when the user scrolls to set the `src` attribute of an image. The browser then requested and rendered it.
-Scroll listeners, when setup without an IntersectionObserver, are bad for the perceived performance. Sure, there's a library for doing things correctly, but it takes a hit on the website's weight.
+Over time the methods to achieve it changed.
+Traditionally it involved JavaScript to detect the right moment when the user scrolls to set the `src` attribute of an image. The browser then requested and rendered it.
+Scroll listeners, when set up without an IntersectionObserver, are bad for perceived performance. Sure, there's a library for doing things correctly, but it adds to the website's weight.
 
-But rejoice, browsers support this out of the box by now.[^1] No more JavaScript. `\o/`  
+But rejoice, browsers support this out of the box now.[^1] No more JavaScript. `\o/`
 You just need to add the `loading` attribute to all your `<img>` and `<iframe>` tags. The browser then natively loads them lazily.
 
-As a Jekyll user your website probably contains plenty of images. You could start changing the code and add the required attributes to all images. And let's hope you do not forget adding them when you write content in a few days from now…
+As a Jekyll user your website probably contains plenty of images. You could start changing the code and add the required attributes to all images. Let's just hope you do not forget to add them when you write content in a few days…
 
 ## Introducing `jekyll-loading-lazy`
 

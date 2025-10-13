@@ -19,7 +19,7 @@ To make those frameworks tangible, each episode anchors the theory in real-world
 
 A warning in advance: you cannot unlearn what you have learned. This lecture will change your way of thinking and consequently your reasoning.
 
-You can find it on the well-known centralized video platform by that North-American company. The mobile application of the video platform clips the episode titles unfavorably, which makes it hard to navigate. Here are the episodes in order:
+You can find it on the well-known centralized video platform by that North American company. The mobile application clips the episode titles unfavorably, which makes it hard to navigate. Here are the episodes in order:
 
 - [Episode 01 "The Moral Side Of Murder"](https://www.youtube.com/watch?v=kBdfcR-8hEY)
 - [Episode 02: "Putting A Price Tag On Life"](https://www.youtube.com/watch?v=0O2Rq4HJBxw)
@@ -34,7 +34,7 @@ You can find it on the well-known centralized video platform by that North-Ameri
 - [Episode 11: "The Claims Of Community"](https://www.youtube.com/watch?v=iOotE9_OGGs)
 - [Episode 12: "Debating Same-Sex Marriage"](https://www.youtube.com/watch?v=EzD9P-9sj4M)
 
-I wish I would have experienced such a lecture format during my studies. The interactivity and open discussions are impressive.[^1] The audience does not shy away from hard questions and is striving to keep discussions on the "high level".
+I wish I had experienced such a lecture format during my studies. The interactivity and open discussions are impressive.[^1] The audience does not shy away from hard questions and strives to keep discussions on the "high level".
 
 And now, <q>you've got to do what you've got to do</q>: start watching. :)
 

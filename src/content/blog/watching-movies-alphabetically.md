@@ -19,7 +19,7 @@ easy to keep going, even though some letters (hello, X) required compromises.
 
 ## Round II – refining the approach
 
-For the second round we kept the rules but allowed ourselves to skip Q and X because we simply could not find something we
+For the second round, we kept the rules but allowed ourselves to skip Q and X because we simply could not find something we
 wanted to watch for those letters. Only a few films left a lasting impression, yet the overall exercise remained entertaining
 enough to plan another round.
 
