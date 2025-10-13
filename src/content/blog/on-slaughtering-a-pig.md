@@ -166,6 +166,8 @@ It won't be a joyful day, but a day full of physical work, in your life. One you
 
 ![picture of pigs in a sty](../../assets/images/posts/2020-04-11_pigs.webp)
 
+---
+
 [^1]: It's important to not cut the trachae, as that would allow blood to fill the lungs.
 
 [^2]: We caught all the blood and mixed it in a bowl to make [blood sausage](https://en.wikipedia.org/wiki/Blood_sausage) out of it. In some religions consuming the blood is forbidden and is thus wasted.
