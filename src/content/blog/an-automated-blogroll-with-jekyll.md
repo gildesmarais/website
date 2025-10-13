@@ -8,16 +8,16 @@ tags:
   - ruby
 ---
 
-A Blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000s, the time when many people had a blog. Nowadays most people just dump their thoughts into a handful of social networks and writing a blog seems outdated.
+A blogroll is a list of links to blogs and their RSS feed. It was popular in the early 2000s when many people still had a blog. Nowadays most people post their thoughts to a handful of social networks, and writing a blog can feel outdated.
 
 Anyway, I've automated the updating of my [blogroll](/blogroll) to link to blogs I subscribe to and recommend others to do the same.
 
-Every night a Github Action workflow builds and deploys this website.
-Before building the website, a ruby script fetches all my blog subscriptions from Newsblur (my feed reader).
-The script then outputs a YAML file which Jekyll reads as a data.
-The blogroll itself is then build as a regular HTML page in Jekyll.
+Every night a GitHub Actions workflow builds and deploys this website.
+Before the build starts, a Ruby script fetches all my blog subscriptions from Newsblur, my feed reader.
+The script outputs a YAML file that Jekyll reads as data.
+The blogroll itself is then built as a regular HTML page in Jekyll.
 
-This post explain how it works.
+This post explains how it works.
 
 ## The Ruby script
 
@@ -97,11 +97,11 @@ Test run the script:
 bin/blogroll USERNAME PASSWORD FOLDER
 ```
 
-For `USERNAME` and `PASSWORD` write your Newsblur credentials. `FOLDER` is the name of the folder containing your blog subscriptions, e.g. <q>Cool Blogs</q>. If any of these strings contain a space or special characters, you must wrap them in quotes.
+For `USERNAME` and `PASSWORD`, provide your Newsblur credentials. `FOLDER` is the name of the folder containing your blog subscriptions, for example <q>Cool Blogs</q>. If any of these strings contain a space or special characters, wrap them in quotes.
 
-The script creates a `blogroll.yml` file in `_data`. The `_data` directory is the place where Jekyll looks for [data files](https://jekyllrb.com/docs/datafiles/). Jekyll automatically reads and populates the contents of the files there to the global site variable. `site.data.blogroll`.
+The script creates a `blogroll.yml` file in `_data`. The `_data` directory is where Jekyll looks for [data files](https://jekyllrb.com/docs/datafiles/). Jekyll reads each file there and exposes the contents on the global `site` object as `site.data.blogroll`.
 
-Finally, exclude the `bin/` folder from the build in the `_config.yml`
+Finally, exclude the `bin/` folder from the build in `_config.yml`.
 
 ```yml
 exclude:
@@ -167,13 +167,13 @@ jobs:
       # clipped: the usual build and deploy stuff{% endraw %}
 ```
 
-And lastly, add the required secrets (`NB_*`) to your website's repository settings.
+Add the required secrets (`NB_*`) to your website's repository settings.
 
 ## Conclusion
 
-Blogrolls are valuable to the independent world wide web. Let's not forget them.
-There are still plenty of blogs out there. It just hard to find them… a blogroll can mitigate the problematic discovery. If you write a blog, why not add a blogroll to your blog? It doesn't have to be automated; you can update the blogroll manually…
+Blogrolls are valuable to the independent web. Let's not forget them.
+There are still plenty of blogs out there, but they can be hard to find. A blogroll makes discovery easier. If you write a blog, why not add one? It does not have to be automated; you can update it manually.
 
-Jekyll's support for data files is super powerful. In conjunction with scheduled deployments you can even display _not so static_ content easily.
+Jekyll's support for data files is powerful. In conjunction with scheduled deployments you can display _not so static_ content with little effort.
 
-If you're familiar with Ruby, the script is straightforward. But don't worry, the data exchange format is YAML which probably every programming language can create. Use whatever language you like and runs on your continuous deployment service.
+If you're familiar with Ruby, the script is straightforward. If not, adapt the idea. YAML is a common data format, so you can use whatever language runs on your continuous deployment service.
