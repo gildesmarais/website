@@ -26,5 +26,4 @@ Luckily, [Pal was around](/blog/introducing_pal) and he did the tiresome work of
 
 As you can see in the last photo, Pal was really tired afterwards. But he did a good job, and LineageOS has run smoothly since then.
 
-
 [^1]: Remember when you installed Windows XP? In the middle of the process it always stopped and asked for information to enter. Imagine it being like this. Rinse and repeat several times.
