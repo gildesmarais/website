@@ -10,7 +10,7 @@ tags: [reflection, systems, mindfulness]
 For me, maybe one of the most unexpected discoveries this year has been yoga.  
 I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I actually look forward to. It feels like maintenance, not performance.
 
-It's strange how long I treated my body as just a support system for my head.  
+It's strange how long I treated my body as just a physical support system for my head.  
 Maybe it's just how my mind works, but I often try to make sense of things through systems.
 
 **I picture my body as a kind of computer.**
@@ -36,38 +36,37 @@ The system keeps allocating resources to defense routines instead of normal oper
 
 ## Resetting the System
 
-When the OS is overloaded, feedback loops tighten, attention narrows, and creative threads get starved.  
-Stepping back, breathing, walking, or simply being quiet opens bandwidth again. The system rebalances, and suddenly, the background jobs deliver fresh insight.
+When the OS is overloaded, feedback loops tighten, attention narrows, and creative threads get starved.
+Stepping back, breathing, walking, or simply being quiet opens bandwidth again. The system recovers.
 
-How can you trigger a signal that prompts the OS to update its state assumptions?  
+How can you intentionally trigger a signal that prompts the OS to update its state assumptions?  
 One reliable method: take a deliberate breath, lift the shoulders on the inhale (about four seconds), then let them drop on a slow exhale (about six seconds). The OS receives these signals and releases some of its emergency handling.
 
 Another <q>hack</q> mentioned in _Pragmatic Thinking and Learning_[^3]:
 
 > <q>If you have a problem to solve, get away from the computer.</q>
 
-It's counterintuitive, but it works.  
-Why? Because most hard problems aren't blocked by missing information: they're blocked by narrow bandwidth.  
-When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.  
-Stepping away lets background processes (memory association, pattern recognition, intuition) run their own threads.  
-Movement, sensory change, even mild distraction help the brain switch context and access other networks. The mental equivalent of releasing a lock file so another process can complete its job.
+It's counterintuitive. And it works. Why?  
+Because most hard problems aren't blocked by missing information: they're blocked by narrow bandwidth. When you stare at a screen, you stay in the same cognitive mode that created the stuck state: linear, focused, local.
 
-In practice, I suggest taking a short walk, ideally without new inputs (no music, no podcasts, just fresh air, birds, and sunlight).  
-When you return, the insight is often waiting in the cache.
+Stepping away lets background processes (memory association, pattern recognition, intuition) run their own threads. Movement, sensory change, even mild distraction help the brain switch context and access other networks. The mental equivalent of releasing a lock file so another process can complete its job.
+
+In practice, I suggest taking a short walk, ideally without new inputs (no music, no podcasts, just fresh air, birds, and sunlight), and stop thinking about it. When you return, the insight is often waiting in the cache.[^6]
 
 ## Reestablishing communication between hardware and OS
 
 Yoga intentionally leaves room for sensations to appear and bubble up.  
 It's about listening to your body and inner self — feedback from the hardware that the OS can learn from.  
-Through that feedback, your system gradually rebuilds a more accurate model of its own state and capabilities.
+Through that feedback, your system gradually rebuilds a more accurate model of its hardware and its capabilities.
 
 Mindfulness, breath, and gentle movement act as regular sync operations: they feed the OS new data and context so it can update outdated assumptions and safely return to normal operation.  
 Over time, these inputs improve calibration. Stability increases, error handling becomes smoother, and you start noticing subtle signals long before they escalate into warnings.
 
 ## Background tasks are processed during sleep
 
-Like many systems, the brain runs background jobs even when we're not paying attention.  
-At night there's a lot of async processing going on: background tasks that reconcile signals, clean up logs, and archive what's no longer needed.  
+Like many systems, the brain runs background jobs even when we're not paying attention.
+At night there's a lot of async processing going on: background tasks that reconcile signals, clean up logs, and archive what's no longer needed.
+
 Sleep is when the OS defragments memory, runs diagnostics, and recalibrates thresholds. If those background tasks get interrupted, the queue piles up. Slow at first, then laggy, then unstable.[^1]
 
 To let that queue run empty, I've had to learn some boring but powerful things.  
@@ -75,14 +74,13 @@ Blue light after dark keeps the system in _day mode_, delaying those maintenance
 
 Letting the queue finish overnight is the simplest optimization I know.  
 No new tasks before sleep, no reloading the feed one last time: just idle mode.
-
 The system thanks you in the morning with a cleaner state and an empty queue.
 
 ## Unsustainable performance tweaks
 
 And then there are the socially accepted performance tweaks: sugar spikes and coffee push the turbo button[^2], and alcohol sends the shutdown command (with the side effect of less deep sleep, causing background jobs to remain in the queue).
 
-These tweaks all work (briefly) but have long-term side effects without addressing the root cause.  
+These tweaks all work (briefly) but have long-term side effects without addressing the root cause.
 I still use some of them, just more consciously now.
 
 ## Maintain your own system well
@@ -106,3 +104,5 @@ This analogy is just **good enough** to start thinking, not medical advice.
 [^4]: Paraphrased from Socrates, as reported by Plato in the dialogue Apology. The phrase “I know that I know nothing” summarizes Socrates' recognition of the limits of his own knowledge. <https://en.wikipedia.org/wiki/I_know_that_I_know_nothing>
 
 [^5]: "The central \[nervous\] system is the primary command center for the body, and is comprised of the brain and spinal cord. The peripheral nervous system consists of a network of nerves ..." https://www.healthline.com/health/human-body-maps/nervous-system
+
+[^6]: Showering also works, but it lacks some of the benefits of walking.
