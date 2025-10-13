@@ -85,6 +85,7 @@ I still use some of them, just more consciously now.
 
 ## Maintain your own system well
 
+It's strange how long I treated my body as just a physical support system for my head.
 As engineers, we maintain systems constantly; resilience starts when we maintain the one we live in.
 
 It works for me.  
