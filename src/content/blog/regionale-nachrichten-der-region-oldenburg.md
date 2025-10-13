@@ -9,13 +9,13 @@ tags:
 
 Dieser Post ist eine lange Liste mit Links zu Webseiten. Ganz bewusst wurden auf Links zu den Webseiten politischer Parteien verzichtet. Die werdet ihr schon durch eine Suchmaschine selbst herausfinden.
 
-Tipp: Diese Seiten jeden Tag manuell anzusurfen und auf Neuigkeiten zu prüfen ist ganzschön mühseelig. Fast alle verlinkten Seiten besitzen daher einen [RSS-Feed](https://de.wikipedia.org/wiki/RSS), den man mit einem [Feedreader](https://de.wikipedia.org/wiki/Feedreader) abonnieren kann. Ich habe die Adresse zu dem jeweiligen RSS-Feed angegeben. Auch [dieses Blog bietet einen RSS-Feed an](https://gil.desmarais.de/feed.xml), der natürlich auch abonniert werden darf.
+Tipp: Diese Seiten jeden Tag manuell anzusurfen und auf Neuigkeiten zu prüfen ist ganz schön mühsam. Fast alle verlinkten Seiten besitzen daher einen [RSS-Feed](https://de.wikipedia.org/wiki/RSS), den man mit einem [Feedreader](https://de.wikipedia.org/wiki/Feedreader) abonnieren kann. Ich habe die Adresse zum jeweiligen RSS-Feed angegeben. Auch [dieses Blog bietet einen RSS-Feed an](https://gil.desmarais.de/feed.xml), der natürlich auch abonniert werden darf.
 
 Also, los geht’s!
 
 ## Polizei und Feuerwehr
 
-Pressemitteilungen über Vorkommnise der Polizei und Feuerwehr gibt es in der entsprechenden Pressemappe beim Presseportal.de:
+Pressemitteilungen über Vorkommnisse der Polizei und Feuerwehr gibt es in der entsprechenden Pressemappe beim Presseportal.de:
 
 - [Landesbereitschaftspolizei Oldenburg](https://www.presseportal.de/polizeipresse/pm/71299/landesbereitschaftspolizei-oldenburg) ([RSS](https://www.presseportal.de/rss/dienststelle_71299.rss2))
 - [Zentrale Kriminalinspektion Oldenburg](https://www.presseportal.de/polizeipresse/pm/68443/zentrale-kriminalinspektion-oldenburg) ([RSS](https://www.presseportal.de/rss/dienststelle_68443.rss2))

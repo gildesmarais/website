@@ -6,15 +6,15 @@ showcase: false
 tags: ["astro", "jekyll", "web development", "portfolio", "accessibility", "progressive enhancement"]
 ---
 
-This isn’t a just relaunch — it’s an iteration. Each cycle refines the foundation: simpler content, leaner structure, more flexibility for what’s next. Small step, meaningful impact.
+This isn’t just a relaunch — it’s an iteration. Each cycle refines the foundation: simpler content, leaner structure, more flexibility for what’s next. Small step, meaningful impact.
 
 ## Leaving Jekyll Behind
 
 Jekyll served me well, but I’d outgrown it. Simple tweaks meant hunting through templates or writing custom Liquid helpers. Plugins added friction, and the toolchain felt dated in modern workflows. It’s still a solid static site generator, but for a lightweight, living portfolio it became too rigid and slow. I wanted less ceremony, more flow.
 
-## Why Astro.js
+## Why Astro
 
-Astro.js gave me that flow. Modern, component-based, and static-first — with room for interactivity when needed. Components can be written once and reused without friction. Combined with semantic HTML and Pico.css, it’s a clean, future-proof base that stays out of the way while supporting growth.
+Astro gave me that flow. Modern, component-based, and static-first — with room for interactivity when needed. Components can be written once and reused without friction. Combined with semantic HTML and Pico.css, it’s a clean, future-proof base that stays out of the way while supporting growth.
 
 ## Refining Content and UX
 
@@ -23,7 +23,7 @@ This iteration wasn’t only technical. I reworked structure and copy to read cl
 - A focused [Résumé](/resume) page for professional context and recent [projects](/projects).
 - A more personal [About](/about) page as the main entry point for personal stuff.
 - Simplified pages for clarity.
-- Blog highlights up front
+- Blog highlights up front.
 - Tuned headings and layout for better scan-ability.
 
 ## Extras That Matter

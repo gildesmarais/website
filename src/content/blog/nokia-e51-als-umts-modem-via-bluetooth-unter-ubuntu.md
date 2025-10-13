@@ -11,9 +11,9 @@ tags:
 
 Nichts ist unmöglich. Nachdem ich gestern ein wenig Zeit hatte, beschreibe ich heute, wie man kabellos unter Ubuntu via Bluetooth per UMTS surft.
 
-Sofern noch nicht geschehen, muss das Handy mit Ubuntu “gepaired" werden. Dazu Ubuntu kurzzeitig auffindbar machen und vom Handy aus den Pairing-Vorgang starten (andersrum geht’s auch). Grundsätzlich sind meine Bluetoothgeräte versteckt und nicht auffindbar, was ich auch jedem empfehle. Leider gibt es viele, die gar nicht wissen, dass sie es bösartigen Hackern extrem einfach machen, ihr Handy aufzufinden und anzugreifen. Besonders an belebten Plätzen wie Bahnhöfen sind viele BT-Geräte auffindbar.
+Sofern noch nicht geschehen, muss das Handy mit Ubuntu „gepairt" werden. Dazu Ubuntu kurzzeitig auffindbar machen und vom Handy aus den Pairing-Vorgang starten (andersrum geht’s auch). Grundsätzlich sind meine Bluetoothgeräte versteckt und nicht auffindbar, was ich auch jedem empfehle. Viele wissen gar nicht, wie einfach sie es Angreifenden machen, ihr Handy aufzufinden und anzugreifen. Besonders an belebten Plätzen wie Bahnhöfen sind viele BT-Geräte auffindbar.
 
-Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig auffindbar machen und vom Ubuntu aus mit _hcitool scan_ die BT-Umgebung scannen lassen.
+Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig auffindbar machen und von Ubuntu aus mit _hcitool scan_ die BT-Umgebung scannen lassen.
 
     $ hcitool scan
 
@@ -21,7 +21,7 @@ Wenn die beiden Geräte gekoppelt sind, geht’s weiter: Das Handy kurzzeitig au
 
      00:1D:6E:BC:xx:xx Gil
 
-Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zweimal gebraucht (wird nachfolgend `<mac>` genannt).
+Die MAC-Adresse (`00:1D:6E:BC:xx:xx`) vom eigenen Handy merken. Die wird noch zweimal gebraucht (nachfolgend `<mac>` genannt).
 Jetzt soll Ubuntu das Handy nach den via Bluetooth angebotenen Services durchsuchen. Hierfür kann das Handy schon wieder unsichtbar gemacht werden, da die MAC-Adresse zum Verbinden vollkommen ausreicht.
 
     $ sdptool browse <mac>
@@ -39,7 +39,7 @@ Service angeboten wird. Bei meinem E51 ist das der Channel 2.
      "RFCOMM" (0x0003)
      **Channel: 2**
 
-Ein letztes Mal wird die MAC-Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit: `sudo gedit /etc/bluetooth/rfcomm.conf`) und folgendes hineinschreiben.
+Ein letztes Mal wird die MAC-Adresse gebraucht, um die virtuelle serielle Schnittstelle anzulegen. Dazu die `/etc/bluetooth/rfcomm.conf` bearbeiten (bspw. mit `sudo gedit /etc/bluetooth/rfcomm.conf`) und Folgendes hineinschreiben.
 
      rfcomm0 {
        bind yes;
@@ -52,7 +52,7 @@ Speichern und danach mit
 
     sudo /etc/init.d/bluetooth restart
 
-den Bluetooth Dienst neustarten. Jetzt sollte unter `/dev/` ein Gerät (= Datei) namens `rfcomm0` vorhanden sein.
+den Bluetooth-Dienst neu starten. Jetzt sollte unter `/dev/` ein Gerät (= Datei) namens `rfcomm0` vorhanden sein.
 
 Nun _wvdial_ installieren.
 

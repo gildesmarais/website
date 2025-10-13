@@ -7,14 +7,14 @@ tags:
   - macos
 ---
 
-Recently a weird problem started occurring to me when browsing the web with Safari or Chrome[^1].
-These browsers refused to load some sites like stackoverflow.com or letsencrypt.org. Safari complained about the certificate not being standards compliant, while Chromium based browser showed a completely valid certificate chain.
+Recently a weird problem started occurring for me when browsing the web with Safari or Chrome.[^1]
+These browsers refused to load some sites like stackoverflow.com or letsencrypt.org. Safari complained about the certificate not being standards compliant, while Chromium-based browsers showed a completely valid certificate chain.
 
 ![Safari complaining about a not standards compliant cert](/src/assets/images/posts/2020-04-01-safari-ssl-cert-invalid.webp)
 
-I keep my macOS up to date, scanned it with _ClamAV_ etc, but there was nothing suspicious. So the problem lays somewhere else.
-There's a [thread on the Let's Encrpyt community forum](https://community.letsencrypt.org/t/letsencrypt-org-frontpage-net-err-cert-invalid/116707) with someone having the same problem.
-While the thread is more a investigation of causes, I just wanted my browsers to work as intended.
+I keep my macOS up to date, scanned it with _ClamAV_, etc., but there was nothing suspicious. So the problem lies somewhere else.
+There's a [thread on the Let's Encrypt community forum](https://community.letsencrypt.org/t/letsencrypt-org-frontpage-net-err-cert-invalid/116707) with someone having the same problem.
+While the thread is more an investigation of causes, I just wanted my browsers to work as intended.
 
 ## The workaround
 
@@ -23,7 +23,7 @@ While the thread is more a investigation of causes, I just wanted my browsers to
 3. Open _Keychain Access_ (from `/Applications/Utilities`)
 4. Select _Login_ in the upper left
 5. Select _Certificates_ in the bottom left
-6. Drag and drop the certificate in the right-hand side of the Keychain Access window.
+6. Drag and drop the certificate into the right-hand side of the Keychain Access window.
    ![Keychain access](/src/assets/images/posts/2020-04-01-keychain-access.webp)
 7. Right click on the newly added <q>Let’s Encrypt Authority X3</q> and _Get Info_ (Select and <kbd>⌘</kbd>+<kbd>i</kbd> works fine here, too)
 8. Open the _Trust_ part of the certificate
@@ -33,7 +33,7 @@ While the thread is more a investigation of causes, I just wanted my browsers to
 
 ## What's the problem?
 
-I'm not 100% sure why macOS renders the system-provided cert invalid.
+I'm not 100 % sure why macOS renders the system-provided cert invalid.
 
 I assume it has something to do with [Apple's upcoming changes in _Extended KeyUsage_](https://support.apple.com/en-us/HT210176). However, that change is due with macOS 10.15 (macOS Mojave is 10.14).
 
