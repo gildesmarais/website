@@ -8,16 +8,12 @@ tags: [reflection, systems, mindfulness]
 ---
 
 One of the most unexpected discoveries this year has been yoga.
-I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I look forward to. It feels like maintenance, not performance.
+I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I look forward to. It feels like maintenance, not performance.  
 
-It's strange how long I treated my body as just a physical support system for my head.
-Maybe it's simply how my mind works, but I often make sense of things through systems.
-
-**I picture my body as a kind of computer.**
+Maybe it's simply how my mind works, but I often make sense of things through systems. **I picture my body as a kind of computer.**
 
 Skeleton, muscles, organs: the hardware.  
-The brain: CPU and storage.
-
+The brain: CPU and storage.  
 The best hardware also needs an operating system (OS). That's what the nervous system[^5] is in this analogy: an OS that integrates signals, updates the state, sends commands to its actors, and keeps the system stable.
 
 ## The OS protects the hardware from failures
