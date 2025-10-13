@@ -1,0 +1,605 @@
+---
+import BackToTop from "../components/BackToTop.astro"
+import Navigation from "../components/Navigation.astro"
+import SpeedInsights from "@vercel/speed-insights/astro"
+import "@picocss/pico/css/pico.min.css"
+import "@fontsource/ibm-plex-sans/400.css"
+import "@fontsource/ibm-plex-sans/700.css"
+import "@fontsource/ubuntu-mono/400.css"
+import ibmPlexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2"
+import ibmPlexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2"
+import ubuntuMono400 from "@fontsource/ubuntu-mono/files/ubuntu-mono-latin-400-normal.woff2"
+
+export interface Props {
+  title?: string // Page title without site suffix
+  siteName?: string // Used in <title> suffix + og:site_name
+  description: string // REQUIRED per your preference
+  language?: string // Default "de"
+  robots?: string // You control this per page
+  canonical?: string // Defaults to Astro.url.href
+  image?: string // Absolute URL (optional, when you have one)
+  imageAlt?: string
+  twitterSite?: string // e.g. "@gildesmarais"
+  // Optional JSON-LD Person fields
+  personName?: string // e.g. "Gil Desmarais"
+  personUrl?: string // homepage url
+}
+
+const {
+  siteName = "Gil Desmarais",
+  canonical,
+  image,
+  imageAlt = "",
+  twitterSite,
+  personName = "Gil Desmarais",
+  personUrl = (Astro.site ?? new URL("/", Astro.url)).toString(),
+  title = "Welcome",
+  description = "",
+  language,
+  robots = "index, follow",
+} = Astro.props as Props
+
+const pageTitle = title ? `${title} — ${siteName}` : siteName
+const siteUrl = import.meta.env.PROD ? Astro.site : "/"
+const canonicalUrl = canonical ?? Astro.url?.href ?? ""
+
+// Enforce required description
+if (!description) {
+  throw new Error("BaseLayout: 'description' is required for SEO.")
+}
+
+// Minimal JSON-LD: WebSite + Person (owner)
+const websiteLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: (Astro.site ?? new URL("/", Astro.url)).toString(),
+})
+
+const personLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: personName,
+  url: personUrl,
+})
+
+const path = Astro.url.pathname
+const isActive = (href: string) => {
+  if (href === "/") return path === "/"
+  return path === href || path.startsWith(href.endsWith("/") ? href : href + "/")
+}
+---
+
+<!doctype html>
+<html lang={language || "en"} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta name="robots" content={robots} />
+
+    <!-- Canonical -->
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Required description -->
+    <meta name="description" content={description} />
+
+    <!-- Title -->
+    <title>{pageTitle}</title>
+
+    <!-- Preload Fonts -->
+    <link rel="preload" href={ibmPlexSans400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={ibmPlexSans700} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={ubuntuMono400} as="font" type="font/woff2" crossorigin />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1d1f21" />
+
+    <!-- Feed -->
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title={siteName} />
+
+    <!-- Open Graph (only when image is provided) -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:site_name" content={siteName} />
+    {description && <meta property="og:description" content={description} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {image && <meta property="og:image" content={image} />}
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+    <!-- Twitter Card (only when image is provided) -->
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+    <meta name="twitter:title" content={pageTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    {image && <meta name="twitter:image" content={image} />}
+    {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+
+    <style is:global>
+      :root {
+        --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+        --font-mono: "Ubuntu Mono", ui-monospace, monospace;
+
+        --pico-font-family: var(--font-sans);
+        --pico-font-family-sans: var(--font-sans);
+        --pico-font-family-monospace: var(--font-mono);
+
+        --lead-width: 60ch;
+      }
+
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Ensure proper scroll positioning with sticky headers */
+      :target {
+        scroll-margin-top: 4rem;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        font-weight: 400;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      code,
+      pre,
+      kbd,
+      samp {
+        font-family: var(--font-mono);
+      }
+
+      hr {
+        margin: 2rem 0 3rem;
+      }
+
+      abbr[title] {
+        border-bottom: 1px solid var(--brand-accent);
+      }
+
+      /* Always-visible, readable link underlines (dark & light) */
+      main a {
+        text-decoration-line: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 0.15em;
+        text-decoration-skip-ink: auto;
+      }
+      /* Focus visibility without JS */
+      :where(a, button, summary, [tabindex]):focus-visible {
+        outline: 2px solid var(--pico-primary);
+        outline-offset: 2px;
+      }
+
+      /* Make <summary> clearly interactive */
+      :where(details > summary) {
+        cursor: pointer;
+      }
+
+      /* Improve skip-link usability when targeted */
+      :where(:target) {
+        scroll-margin-top: 5rem;
+      }
+
+      header nav .contrast {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+    </style>
+    <style is:global>
+      /* customizations */
+      .micro {
+        opacity: 0.8;
+        font-size: 0.95em;
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        line-height: 1.55;
+        max-width: var(--lead-width);
+        color: var(--pico-muted-color);
+      }
+
+      .width {
+        max-width: 60ch;
+        text-align: justify;
+        text-align-last: left;
+        hyphens: auto;
+      }
+
+      /* --- Global spacing improvements --- */
+      section {
+        margin-bottom: 2rem; /* Consistent section spacing */
+      }
+
+      section + section {
+        margin-top: 2rem; /* Space between sections */
+      }
+
+      h2,
+      h3 {
+        margin-top: 1.5rem; /* Better heading spacing */
+        margin-bottom: 1rem;
+      }
+
+      h2:first-child {
+        margin-top: 0; /* No top margin for first heading */
+      }
+
+      p + p {
+        margin-top: 1rem; /* Better paragraph spacing */
+      }
+
+      ul,
+      ol {
+        margin-top: 1rem; /* Better list spacing */
+        margin-bottom: 1rem;
+        padding-left: 1ch;
+      }
+
+      ul ::marker,
+      ol ::marker {
+        color: var(--brand-accent);
+      }
+
+      ul li,
+      ol li {
+        list-style-type: "- ";
+      }
+
+      ul:has(strong) > li {
+        color: var(--pico-secondary);
+      }
+
+      ul:has(strong) > li > strong {
+        color: var(--pico-color);
+      }
+
+      .footnotes ol li {
+        list-style-type: decimal;
+      }
+
+      /* Improve spacing for specific elements */
+      article {
+        margin-bottom: 2.5rem; /* Better article separation */
+      }
+
+      details {
+        margin-bottom: 1.5rem; /* Better details spacing */
+      }
+
+      /* --- Minimal Button System (Namespaced) --- */
+      .minimal-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: transparent;
+        color: var(--pico-color);
+        border: 2px solid var(--brand-accent);
+        border-radius: 0;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .minimal-btn.active,
+      .minimal-btn:active {
+        background: var(--brand-accent);
+        color: #111;
+        border-color: transparent;
+        box-shadow:
+          0 0 0 1px var(--brand-accent-hover),
+          0 0 0 5px var(--brand-accent-focus);
+        transform: translateY(1px);
+      }
+
+      .minimal-btn.active {
+        font-weight: 600;
+      }
+
+      .minimal-btn.primary {
+        background: var(--brand-accent);
+        border-color: var(--brand-accent);
+        color: #000;
+      }
+
+      /* --- Brand tokens (single source of truth) --- */
+      :root {
+        --brand-bg: hsl(0, 0%, 4%);
+        --brand-surface: #111111;
+        --brand-text: #e6e6e6;
+        --brand-muted: #a3a3a3;
+        --brand-border: #1f1f1f;
+
+        --brand-accent: hsl(32, 100%, 50%); /* primary */
+        --brand-accent-bg: hsl(33, 100%, 35%); /* pressed/filled bg */
+        --brand-accent-hover: hsl(30, 100%, 64%); /* hover text/links */
+        --brand-accent-focus: hsla(32, 100%, 50%, 0.35); /* focus ring */
+        --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
+
+        --accent-size: 0.25rem;
+      }
+
+      .accent {
+        border-inline-start: var(--accent-size) solid var(--brand-accent);
+        padding-inline-start: 0.7rem;
+        border-radius: 0;
+      }
+
+      /* Corner brackets */
+      [data-corners] {
+        position: relative;
+        padding-top: 0.3rem;
+        padding-left: 0.7rem;
+      }
+
+      [data-corners]::before {
+        content: "";
+        position: absolute;
+        width: 0.75rem;
+        height: 1.05rem;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+      }
+
+      [data-corners]::before {
+        border-left: var(--accent-size) solid var(--brand-accent);
+        border-top: var(--accent-size) solid var(--brand-accent);
+      }
+    </style>
+    <style is:global>
+      /* print styles */
+      @media print {
+        article {
+          break-inside: avoid;
+        }
+        details {
+          open: true;
+        } /* show stacks when printing */
+        a[href^="http"]::after {
+          content: " (" attr(href) ")";
+        }
+        .no-print,
+        header#top,
+        footer,
+        [aria-label="Table of Contents"] {
+          display: none !important;
+        }
+
+        @page {
+          margin: 0.5in;
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+          background: none;
+          color: #000;
+        }
+
+        main {
+          break-inside: avoid;
+        }
+
+        .accent {
+          border: none;
+          padding-inline-start: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          page-break-after: avoid;
+        }
+      }
+    </style>
+    <style is:global>
+      /* Apply with <html data-theme="dark"> */
+      [data-theme="dark"] {
+        color-scheme: dark;
+
+        /* Base & typography */
+        --pico-background-color: var(--brand-bg);
+        --pico-card-background-color: var(--brand-surface);
+
+        --pico-color: var(--brand-text);
+        --pico-muted-color: var(--brand-muted);
+        --pico-muted-border-color: var(--brand-border);
+
+        /* Primary (your orange) */
+        --pico-primary: var(--brand-accent);
+        --pico-primary-background: var(--brand-accent-bg);
+        --pico-primary-border: var(--pico-primary-background);
+        --pico-primary-underline: var(--brand-accent-underline);
+        --pico-primary-hover: var(--brand-accent-hover);
+        --pico-primary-hover-background: #c66e00; /* slightly brighter than bg */
+        --pico-primary-hover-border: var(--pico-primary-hover-background);
+        --pico-primary-hover-underline: var(--pico-primary-hover);
+        --pico-primary-focus: var(--brand-accent-focus);
+        --pico-primary-inverse: #fff;
+
+        /* Secondary (neutral greys; keep subtle) */
+        --pico-secondary: #9aa0aa;
+        --pico-secondary-background: #3a3f4a;
+        --pico-secondary-border: var(--pico-secondary-background);
+        --pico-secondary-underline: rgba(154, 160, 170, 0.5);
+        --pico-secondary-hover: #b7bbc3;
+        --pico-secondary-hover-background: #474c57;
+        --pico-secondary-hover-border: var(--pico-secondary-hover-background);
+        --pico-secondary-hover-underline: var(--pico-secondary-hover);
+        --pico-secondary-focus: rgba(154, 160, 170, 0.25);
+        --pico-secondary-inverse: #fff;
+
+        /* High contrast (for badges/tooltips on dark) */
+        --pico-contrast: #e7eaf0;
+        --pico-contrast-background: #f5f6f8;
+        --pico-contrast-border: var(--pico-contrast-background);
+        --pico-contrast-underline: rgba(231, 234, 240, 0.5);
+        --pico-contrast-hover: #fff;
+        --pico-contrast-hover-background: #fff;
+        --pico-contrast-hover-border: var(--pico-contrast-hover-background);
+        --pico-contrast-hover-underline: var(--pico-contrast-hover);
+        --pico-contrast-focus: rgba(207, 213, 226, 0.25);
+        --pico-contrast-inverse: #000;
+
+        /* Headings tuned for dark */
+        --pico-h1-color: #f2f3f5;
+        --pico-h2-color: #e6e8eb;
+        --pico-h3-color: #d3d7de;
+        --pico-h4-color: #c2c7d0;
+        --pico-h5-color: #aeb5c0;
+        --pico-h6-color: #98a0ae;
+
+        /* Code, forms, misc surfaces */
+        --pico-code-background-color: #171a21;
+        --pico-code-color: #98a0ae;
+        --pico-form-element-background-color: #1b1f27;
+        --pico-form-element-selected-background-color: #242a36;
+        --pico-form-element-border-color: #242a36;
+        --pico-form-element-color: #e6e8eb;
+        --pico-form-element-placeholder-color: #98a0ae;
+        --pico-form-element-active-background-color: #171a21;
+        --pico-form-element-active-border-color: var(--pico-primary-border);
+        --pico-form-element-focus-color: var(--pico-primary-border);
+
+        /* Valid/invalid colors kept neutral; not christmas-tree */
+        --pico-form-element-invalid-border-color: #8a3a2f;
+        --pico-form-element-invalid-active-border-color: #a23d2c;
+        --pico-form-element-invalid-focus-color: var(--pico-form-element-invalid-active-border-color);
+        --pico-form-element-valid-border-color: #2a7b6f;
+        --pico-form-element-valid-active-border-color: #188969;
+        --pico-form-element-valid-focus-color: var(--pico-form-element-valid-active-border-color);
+
+        /* Accents & components */
+        --pico-blockquote-border-color: var(--pico-muted-border-color);
+        --pico-table-border-color: var(--pico-muted-border-color);
+        --pico-table-row-stripped-background-color: rgba(255, 255, 255, 0.03);
+        --pico-switch-background-color: #343a46;
+        --pico-switch-checked-background-color: var(--pico-primary-background);
+        --pico-range-border-color: var(--brand-border);
+        --pico-range-active-border-color: #242a36;
+
+        --pico-card-border-color: var(--pico-card-background-color);
+        --pico-card-sectioning-background-color: #ff880002;
+
+        --pico-dropdown-background-color: var(--pico-card-background-color);
+        --pico-dropdown-border-color: var(--pico-muted-border-color);
+        --pico-dropdown-color: var(--pico-color);
+        --pico-dropdown-hover-background-color: #20242c;
+
+        --pico-progress-background-color: #20242c;
+        --pico-progress-color: var(--pico-primary-background);
+
+        --pico-tooltip-background-color: var(--pico-contrast-background);
+        --pico-tooltip-color: var(--pico-contrast-inverse);
+
+        /* Selections & focus affordances in orange */
+        --pico-text-selection-color: rgba(255, 136, 0, 0.2);
+
+        /* become edgy */
+        --pico-border-radius: 1px;
+      }
+    </style>
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={websiteLd} />
+    <script type="application/ld+json" set:html={personLd} />
+  </head>
+  <body>
+    <SpeedInsights />
+
+    <!-- InlineJS: mark that JS is available -->
+    <script is:inline>
+      document.documentElement.classList.add("js")
+    </script>
+
+    <header id="top" class="container">
+      <Navigation />
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <BackToTop />
+
+    <footer>
+      <section class="container">
+        <small>
+          <a
+            href="/imprint"
+            aria-current={isActive("/imprint") ? "page" : undefined}
+            class="secondary"
+            lang="de">Imprint & Privacy</a
+          >
+        </small>
+      </section>
+    </footer>
+
+    {
+      import.meta.env.PROD && (
+        <>
+          <noscript>
+            <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
+          </noscript>
+          <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js" />
+        </>
+      )
+    }
+
+    <script is:inline>
+      ;(() => {
+        // Gate to production only; remove this line if you also want it in dev
+        if (!("console" in window) || !console.log) return
+
+        const contactUrl = `${location.origin}/contact#devtools`
+
+        const base =
+          "font-family: Ubuntu Mono, monospace; font-size: 0.95rem; line-height:1.6; color:#f80; background:#000; padding:2px 6px;"
+        const strong = `${base} font-weight:700; text-transform:uppercase;`
+        const sub = "font-family: Ubuntu Mono, monospace; font-size: 0.9rem; line-height:1.6; color:#f80;"
+
+        // Optional: comment out if you don't want to wipe prior logs
+        console.clear()
+
+        console.log("%cHEY. YOU OPENED DEVTOOLS.", strong)
+        console.log("%cYou care how things are built. So do I — identity, platform, reliability.", sub)
+        console.log("%c→ Contact: %s", strong, contactUrl)
+      })()
+    </script>
+
+    <script>
+      function adjustBottomPadding() {
+        const longEnough = document.documentElement.scrollHeight > window.innerHeight
+        document.body.style.paddingBottom = longEnough ? "33vh" : "0"
+      }
+      adjustBottomPadding()
+      window.addEventListener("resize", adjustBottomPadding)
+    </script>
+  </body>
+</html>

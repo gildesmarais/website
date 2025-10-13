@@ -1,0 +1,71 @@
+import type { APIRoute } from "astro"
+import { subtle } from "crypto"
+
+export const prerender = false
+
+async function generateETag(data: string): Promise<string> {
+  const hashBuffer = await subtle.digest("SHA-1", new TextEncoder().encode(data))
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  return `"${hashArray.map((b) => b.toString(16).padStart(2, "0")).join("")}"`
+}
+
+export const GET: APIRoute = async ({ params, request }) => {
+  const imdbId = params.imdbId
+  const API_KEY = import.meta.env.OMDB_API_KEY
+
+  if (!imdbId) {
+    return new Response(JSON.stringify({ error: "IMDb ID is required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
+  if (!API_KEY) {
+    console.error("OMDB_API_KEY is not set in environment variables.")
+    return new Response(JSON.stringify({ error: "Server configuration error: API key missing" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
+  try {
+    const response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=${API_KEY}`)
+    const data = await response.json()
+
+    if (data.Response === "True" && data.Poster && data.Poster !== "N/A") {
+      const payload = JSON.stringify({
+        poster: data.Poster,
+        title: data.Title,
+      })
+      const etag = await generateETag(payload)
+
+      const ifNoneMatch = request.headers.get("if-none-match")
+      if (ifNoneMatch === etag) {
+        return new Response(null, { status: 304 })
+      }
+
+      return new Response(payload, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "public, max-age=86400",
+          ETag: etag,
+        },
+      })
+    } else {
+      console.warn(
+        `OMDb API: No poster found for IMDb ID: ${imdbId}. Reason: ${data.Error || "Unknown error"}`,
+      )
+      return new Response(JSON.stringify({ error: data.Error || "No poster found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+  } catch (error) {
+    console.error(`Error fetching from OMDb API for IMDb ID: ${imdbId}`, error)
+    return new Response(JSON.stringify({ error: "Failed to fetch movie data" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+}

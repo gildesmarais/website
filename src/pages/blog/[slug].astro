@@ -1,0 +1,26 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro"
+import TableOfContents from "../../components/TableOfContents.astro"
+import { getCollection } from "astro:content"
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft)
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { Content, headings } = await post.render()
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  language={post.data.language}
+>
+  {post.data.toc && <TableOfContents headings={headings} />}
+  <Content />
+</PostLayout>

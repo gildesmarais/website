@@ -1,0 +1,43 @@
+---
+export const prerender = true
+
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
+import Highlights from "../components/Highlights.astro"
+
+const title = "Gil Desmarais — Engineering Team Lead"
+const description = "Turning complexity into clarity so teams move faster with less risk."
+
+const pageTitle = "Gil Desmarais — Engineering Team Lead"
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <Hero title={title} description={description}>
+    <p class="hero-subtitle">
+      I make ambiguous systems legible and guide teams through change. When strategy collides with technical
+      limits, I translate both sides. When priorities compete, I anchor decisions in business outcomes and
+      disciplined execution.
+    </p>
+  </Hero>
+
+  <section id="next" aria-labelledby="next-title">
+    <p>
+      What next?
+      <a href="/about">Get to know me</a>,
+      <a href="/resume">view résumé</a>,
+      <a href="/blog">read my blog</a>, and
+      <a href="/contact">connect</a>!
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-subtitle {
+    max-width: var(--lead-width);
+    letter-spacing: -0.015em;
+  }
+
+  #next {
+    margin-top: 4rem;
+  }
+</style>

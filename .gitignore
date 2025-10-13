@@ -1,10 +1,6 @@
-.asset-cache
-.jekyll-metadata
-.sass-cache
-_site
 node_modules/
 npm-debug.log
-.jekyll-cache
-_fleamarket/*.md
-_data/blogroll.yml
-.vscode
+.astro
+dist/
+.vercel
+.env

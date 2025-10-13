@@ -1,19 +1,44 @@
+# .github/dependabot.yml
 version: 2
 updates:
-  - package-ecosystem: bundler
+  - package-ecosystem: npm
     directory: "/"
     schedule:
       interval: monthly
       day: friday
-    open-pull-requests-limit: 5
-    assignees:
-      - gildesmarais
-    reviewers:  # Optional: include reviewers for more oversight
-      - gildesmarais
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    groups:
+      astro:
+        patterns: ["astro", "@astrojs/*"]
+      formatting:
+        patterns: ["prettier*", "prettier-plugin-astro"]
+    versioning-strategy: increase-if-necessary
+    rebase-strategy: auto
+    open-pull-requests-limit: 2
+    target-branch: master
+    assignees: [gildesmarais]
+    reviewers: [gildesmarais]
+    labels: [dependencies, javascript]
     commit-message:
       prefix: "deps"
-      include: scope  # Helps identify the specific gem or context
-    labels:
-      - dependencies
-      - ruby
-    rebase-strategy: "auto"  # Keeps PRs up to date automatically
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+      day: friday
+      time: "09:15"
+      timezone: "Europe/Berlin"
+    groups:
+      all:
+        patterns: ["*"]
+    rebase-strategy: auto
+    open-pull-requests-limit: 1
+    assignees: [gildesmarais]
+    reviewers: [gildesmarais]
+    labels: [dependencies, ci]
+    commit-message:
+      prefix: "deps"
+      include: scope

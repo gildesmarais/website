@@ -1,0 +1,45 @@
+---
+export interface Props {
+  title: string
+  description?: string
+  children?: any
+}
+
+const { title, description, children } = Astro.props
+---
+
+<header class="hero">
+  <h1 data-corners set:html={title} />
+  {description && <p class="lead">{description}</p>}
+  {children}
+  <slot />
+</header>
+
+<style>
+  /* --- Hero --------------------------------------------------------------- */
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    display: inline-block;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
+    background: var(--pico-background-color);
+    text-wrap: balance;
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- Desktop and larger (min-width: 640px) ------------------------------ */
+  @media (min-width: 640px) {
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+    }
+  }
+</style>
