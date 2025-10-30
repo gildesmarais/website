@@ -2,6 +2,7 @@
 export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
+import AboutTimeline from "../components/AboutTimeline.astro"
 import NamePronunciation from "../components/NamePronunciation.astro"
 import { allSocials } from "../data/socials"
 
@@ -19,6 +20,7 @@ const contactHref = "/contact"
   />
 
   <section aria-labelledby="identity" class="width">
+    <h2 id="identity" class="sr-only accent">Background</h2>
     <p>
       I first connected to the Internet through a 28.8k modem and built my first website in Notepad, following
       a tutorial from a computer magazine explaining <code>&lt;frames&gt;</code>
@@ -26,29 +28,25 @@ const contactHref = "/contact"
     </p>
 
     <p>
-      From there, I began experimenting with JavaScript, Perl, PHP, and MySQL. Writing scripts for IRC clients
-      sparked an interest in how systems communicate beneath the surface. Discovering Linux pushed that
-      further. Bootstrapping Gentoo Linux on my only computer taught me how operating systems actually manage
-      complexity. That experience still shapes my engineering mindset today.<sup><a href="#foot-1">1</a></sup>
+      That curiosity kept compounding. Here are the moments that shaped how I think about technology and leadership today.
+    </p>
+
+    <AboutTimeline heading="Curiosity in practice" headingId="about-timeline" />
+
+    <p>
+      Studying Business Computer Science gave me the dual lenses I rely on today. Translating technical reality into business
+      value, and turning business constraints into pragmatic engineering decisions. That balance between architecture and
+      outcome defines how I lead, build, and deliver.
     </p>
 
     <p>
-      During vocational training, I bridged hardware and software: soldering circuits, programming
-      microcontrollers, and exploring signal processing with Assembler and Delphi.
-      <br />
-      Serving in the German Air Force added structure and accountability: supporting IT operations for NATO staff
-      showed how trust, process, and technical skill align when uptime isn't optional.
+      Those experiments — from bootstrapping Gentoo Linux on my only computer to wiring a Nokia E51 into a Bluetooth UMTS modem
+      so I could stay online on the move — still shape how I design resilient systems.<sup><a href="#foot-1">1</a></sup>
     </p>
 
     <p>
-      Studying Business Computer Science gave me the dual lenses I rely on today.<br />
-      Translating technical reality into business value, and turning business constraints into pragmatic engineering
-      decisions. That balance between architecture and outcome defines how I lead, build, and deliver.
-    </p>
-
-    <p>
-      The curiosity that started with a Commodore 64 now drives how I design systems, teams, and decisions:
-      With an eye for clarity, longevity, and real-world impact.
+      The curiosity that started with a Commodore 64 now drives how I design systems, teams, and decisions: With an eye for
+      clarity, longevity, and real-world impact.
     </p>
   </section>
 

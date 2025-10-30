@@ -1,0 +1,99 @@
+---
+import type { AboutTimelineEntry } from "../data/about-timeline";
+import { aboutTimeline } from "../data/about-timeline";
+
+interface Props {
+  heading?: string;
+  headingId?: string;
+  items?: AboutTimelineEntry[];
+}
+
+const {
+  heading = "Milestones",
+  headingId = "about-timeline-heading",
+  items = aboutTimeline,
+} = Astro.props;
+---
+<section class="timeline width" aria-labelledby={headingId}>
+  <h3 id={headingId} class="accent">
+    {heading}
+  </h3>
+  <ol class="timeline__list">
+    {items.map((entry) => (
+      <li class="timeline__item">
+        <article class="timeline__card">
+          <p class="timeline__year" aria-label={`Milestone year ${entry.year}`}>
+            {entry.year}
+          </p>
+          <h4 class="timeline__title">{entry.title}</h4>
+          <p class="timeline__summary">{entry.summary}</p>
+        </article>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .timeline {
+    display: grid;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+
+  .timeline__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .timeline__item {
+    position: relative;
+  }
+
+  .timeline__card {
+    background: var(--surface-raised, var(--color-surface));
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+    border-radius: 1rem;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    display: grid;
+    gap: 0.75rem;
+    box-shadow: var(--shadow-md, 0 0.5rem 1.5rem rgba(15, 15, 30, 0.15));
+  }
+
+  .timeline__year {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted, rgba(255, 255, 255, 0.72));
+    margin: 0;
+  }
+
+  .timeline__title {
+    margin: 0;
+    font-size: clamp(1.125rem, 1.8vw, 1.35rem);
+  }
+
+  .timeline__summary {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 48rem) {
+    .timeline__list {
+      grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .timeline__card {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .timeline__card:focus-within,
+    .timeline__card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg, 0 0.75rem 2rem rgba(15, 15, 30, 0.22));
+    }
+  }
+</style>
