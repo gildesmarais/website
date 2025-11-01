@@ -1,7 +1,10 @@
 ---
+export type SkillSegment = "leadership" | "delivery"
+
 export interface Category {
   label: string
   skills: string[]
+  segment: SkillSegment
 }
 
 export interface Props {
@@ -10,6 +13,19 @@ export interface Props {
 }
 
 const { title, categories } = Astro.props
+
+const segmentLabels: Record<SkillSegment, string> = {
+  leadership: "Leadership",
+  delivery: "Delivery",
+}
+
+const filters = [
+  { value: "all", label: "All Skills" },
+  ...Array.from(new Set(categories.map((category) => category.segment))).map((segment) => ({
+    value: segment,
+    label: segmentLabels[segment as SkillSegment] ?? segment,
+  })),
+]
 
 // Calculate the maximum number of skills per row (assuming 6 columns)
 const maxSkillsPerRow = 6
@@ -47,27 +63,72 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
 <section class="skills-matrix">
   {title && <h2 id="skills-heading">{title}</h2>}
 
+  <div class="matrix-filters" role="group" aria-label="Filter skills by focus">
+    {filters.map(({ value, label }) => (
+      <button
+        type="button"
+        class={`matrix-filter ${value === "all" ? "is-active" : ""}`}
+        data-filter-button
+        data-filter-value={value}
+        aria-pressed={value === "all"}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+
   <div class="matrix-container">
     <div class="matrix-content">
-      {
-        categories.map(({ label, skills }) => {
-          const skillRows = organizeSkillsIntoRows(skills)
-          return skillRows.map((rowSkills, rowIndex) => (
-            <div class="matrix-row">
-              {rowIndex === 0 && <div class="row-label">{label}</div>}
-              {rowIndex > 0 && <div class="row-label empty-label" />}
-              <div class="skills-grid">
-                {rowSkills.map((skill) => (
-                  <div class={`skill-cell ${!skill ? "empty" : ""}`}>{skill}</div>
-                ))}
+      {categories.map(({ label, skills, segment }) => {
+        const skillRows = organizeSkillsIntoRows(skills)
+        return (
+          <div class="matrix-category" data-segment={segment}>
+            {skillRows.map((rowSkills, rowIndex) => (
+              <div class="matrix-row">
+                {rowIndex === 0 && <div class="row-label">{label}</div>}
+                {rowIndex > 0 && <div class="row-label empty-label" />}
+                <div class="skills-grid">
+                  {rowSkills.map((skill) => (
+                    <div class={`skill-cell ${!skill ? "empty" : ""}`}>{skill}</div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))
-        })
-      }
+            ))}
+          </div>
+        )
+      })}
     </div>
   </div>
 </section>
+
+<script>
+  const filterButtons = document.querySelectorAll("[data-filter-button]")
+  const categories = document.querySelectorAll("[data-segment]")
+
+  function setActiveFilter(filter) {
+    filterButtons.forEach((button) => {
+      const filterValue = button.getAttribute("data-filter-value")
+      const isActive = filterValue === filter
+      button.classList.toggle("is-active", isActive)
+      button.setAttribute("aria-pressed", String(isActive))
+    })
+
+    categories.forEach((category) => {
+      const segment = category.getAttribute("data-segment")
+      const shouldShow = filter === "all" || segment === filter
+      category.toggleAttribute("hidden", !shouldShow)
+    })
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter-value") ?? "all"
+      setActiveFilter(filter)
+    })
+  })
+
+  setActiveFilter("all")
+</script>
 
 <style>
   .skills-matrix {
@@ -78,6 +139,46 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   .skills-matrix > h2 {
     margin-block-end: calc(var(--pico-spacing) * 0.5);
     letter-spacing: 0.015em;
+  }
+
+  .matrix-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block: 1.5rem;
+  }
+
+  .matrix-filter {
+    border: 2px solid var(--brand-accent);
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    box-shadow: 4px 4px 0 var(--brand-accent);
+  }
+
+  .matrix-filter:hover,
+  .matrix-filter:focus-visible {
+    background: var(--brand-accent);
+    color: #000;
+  }
+
+  .matrix-filter.is-active {
+    background: var(--brand-accent);
+    color: #000;
+  }
+
+  .matrix-category {
+    display: contents;
+  }
+
+  .matrix-category[hidden] {
+    display: none;
   }
 
   .matrix-container {
@@ -173,6 +274,11 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
       flex-direction: column;
       gap: 0;
       border-left: 2px solid var(--brand-accent);
+    }
+
+    .matrix-filter {
+      flex: 1 1 45%;
+      text-align: center;
     }
 
     .matrix-content {

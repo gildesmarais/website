@@ -14,6 +14,7 @@ export const skills: Category[] = [
       "Legacy System Modernization",
       "SEO",
     ],
+    segment: "leadership",
   },
   {
     label: "Infrastructure & DevOps",
@@ -29,6 +30,7 @@ export const skills: Category[] = [
       "AWS Cognito",
       "ffmpeg",
     ],
+    segment: "delivery",
   },
   {
     label: "Security & Compliance",
@@ -39,18 +41,22 @@ export const skills: Category[] = [
       "GDPR Compliance",
       "Risk Assessment",
     ],
+    segment: "leadership",
   },
   {
     label: "Backend & Languages",
     skills: ["Ruby on Rails", "Ruby", "TypeScript", "GraphQL", "Sidekiq"],
+    segment: "delivery",
   },
   {
     label: "Databases & Storage",
     skills: ["PostgreSQL", "Redis", "S3", "PostGIS"],
+    segment: "delivery",
   },
   {
     label: "Frontend & UI",
     skills: ["React", "Vue.js", "Angular", "Astro.js", "Progressive Enhancement", "Accessibility (a11y)"],
+    segment: "delivery",
   },
   {
     label: "Testing & Quality",
@@ -62,6 +68,7 @@ export const skills: Category[] = [
       "Selenium & Capybara",
       "Performance Optimization",
     ],
+    segment: "delivery",
   },
   {
     label: "Monitoring & Observability",
@@ -73,5 +80,6 @@ export const skills: Category[] = [
       "Cloudflare Workers",
       "UptimeRobot",
     ],
+    segment: "delivery",
   },
 ]
