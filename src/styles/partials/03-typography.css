@@ -1,0 +1,180 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ui-color);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  color: var(--ui-h1-color);
+  font-size: 2rem;
+  line-height: 1.125;
+}
+
+h2 {
+  color: var(--ui-h2-color);
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+h3 {
+  color: var(--ui-h3-color);
+  font-size: 1.5rem;
+  line-height: 1.175;
+}
+
+h4 {
+  color: var(--ui-h4-color);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+h5 {
+  color: var(--ui-h5-color);
+  font-size: 1.125rem;
+  line-height: 1.225;
+}
+
+h6 {
+  color: var(--ui-h6-color);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+pre {
+  overflow-x: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+:where(
+  input:not(
+    [type="checkbox"],
+    [type="radio"],
+    [type="file"],
+    [type="submit"],
+    [type="button"],
+    [type="reset"]
+  ),
+  textarea,
+  select
+) {
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--ui-form-element-border-color);
+  border-radius: var(--ui-border-radius);
+  padding: 0.5rem 0.75rem;
+  background: var(--ui-form-element-background-color);
+  color: var(--ui-form-element-color);
+}
+
+:where(input::placeholder, textarea::placeholder) {
+  color: var(--ui-form-element-placeholder-color);
+}
+
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]) {
+  display: inline-block;
+  margin: 0;
+  border: 2px solid var(--brand-accent);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--ui-color);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
+  background: var(--brand-accent);
+  color: #000;
+}
+
+.secondary {
+  color: var(--ui-muted-color);
+  border-color: var(--ui-muted-border-color);
+}
+
+small {
+  font-size: 0.875em;
+}
+
+hgroup {
+  margin: 0;
+}
+
+hgroup > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+hgroup > * + * {
+  margin-top: 0.5rem;
+}
+
+hr {
+  margin: 2rem 0 3rem;
+}
+
+abbr[title] {
+  border-bottom: 1px solid var(--brand-accent);
+}
+
+a {
+  color: var(--ui-primary);
+  text-decoration-color: var(--ui-primary-underline);
+  text-underline-offset: 0.1rem;
+}
+
+a:visited {
+  color: var(--ui-primary);
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: var(--ui-primary-hover);
+  text-decoration-color: var(--ui-primary-hover-underline);
+}
+
+main a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.15em;
+  text-decoration-skip-ink: auto;
+}
+
+a.secondary {
+  text-decoration: underline;
+}
+
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+
+:where(details > summary) {
+  cursor: pointer;
+}
+
+:where(:target) {
+  scroll-margin-top: 5rem;
+}

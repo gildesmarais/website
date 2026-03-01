@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--ui-font-size);
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --ui-font-size: 106.25%;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ui-font-size: 112.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --ui-font-size: 118.75%;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --ui-font-size: 125%;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --ui-font-size: 131.25%;
+  }
+}
+
+:target {
+  scroll-margin-top: 4rem;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: var(--ui-line-height);
+  background: var(--ui-background-color);
+  color: var(--ui-color);
+}
+
+body > header,
+body > main,
+body > footer {
+  padding-block: var(--ui-spacing);
+}
+
+main {
+  display: block;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}

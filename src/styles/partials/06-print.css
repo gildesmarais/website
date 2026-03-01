@@ -1,0 +1,49 @@
+@media print {
+  article {
+    break-inside: avoid;
+  }
+
+  details {
+    open: true;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+  }
+
+  .no-print,
+  header#top,
+  footer,
+  [aria-label="Table of Contents"] {
+    display: none !important;
+  }
+
+  @page {
+    margin: 0.5in;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: #000;
+  }
+
+  main {
+    break-inside: avoid;
+  }
+
+  .accent {
+    border: none;
+    padding-inline-start: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+  }
+}

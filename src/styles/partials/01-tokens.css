@@ -1,0 +1,124 @@
+:root {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "Ubuntu Mono", ui-monospace, monospace;
+
+  --lead-width: 60ch;
+
+  --ui-font-family: var(--font-sans);
+  --ui-font-family-sans: var(--font-sans);
+  --ui-font-family-monospace: var(--font-mono);
+
+  --brand-bg: hsl(0, 0%, 4%);
+  --brand-surface: #111111;
+  --brand-text: #e6e6e6;
+  --brand-muted: #a3a3a3;
+  --brand-border: #1f1f1f;
+
+  --brand-accent: hsl(32, 100%, 50%);
+  --brand-accent-bg: hsl(33, 100%, 35%);
+  --brand-accent-hover: hsl(30, 100%, 64%);
+  --brand-accent-focus: hsla(32, 100%, 50%, 0.35);
+  --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
+
+  --accent-size: 0.25rem;
+
+  --ui-spacing: 1rem;
+  --ui-border-radius: 1px;
+  --ui-line-height: 1.5;
+  --ui-font-size: 100%;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ui-background-color: var(--brand-bg);
+  --ui-background-color-tertiary: #171a21;
+  --ui-card-background-color: var(--brand-surface);
+  --ui-border-color: var(--brand-border);
+
+  --ui-color: var(--brand-text);
+  --ui-text-color: var(--brand-text);
+  --ui-muted-color: var(--brand-muted);
+  --ui-muted-border-color: var(--brand-border);
+
+  --ui-primary: var(--brand-accent);
+  --ui-primary-color: var(--brand-accent);
+  --ui-primary-background: var(--brand-accent-bg);
+  --ui-primary-border: var(--ui-primary-background);
+  --ui-primary-underline: var(--brand-accent-underline);
+  --ui-primary-hover: var(--brand-accent-hover);
+  --ui-primary-hover-background: #c66e00;
+  --ui-primary-hover-border: var(--ui-primary-hover-background);
+  --ui-primary-hover-underline: var(--ui-primary-hover);
+  --ui-primary-focus: var(--brand-accent-focus);
+  --ui-primary-inverse: #fff;
+
+  --ui-secondary: #9aa0aa;
+  --ui-secondary-background: #3a3f4a;
+  --ui-secondary-border: var(--ui-secondary-background);
+  --ui-secondary-underline: rgba(154, 160, 170, 0.5);
+  --ui-secondary-hover: #b7bbc3;
+  --ui-secondary-hover-background: #474c57;
+  --ui-secondary-hover-border: var(--ui-secondary-hover-background);
+  --ui-secondary-hover-underline: var(--ui-secondary-hover);
+  --ui-secondary-focus: rgba(154, 160, 170, 0.25);
+  --ui-secondary-inverse: #fff;
+
+  --ui-contrast: #e7eaf0;
+  --ui-contrast-background: #f5f6f8;
+  --ui-contrast-border: var(--ui-contrast-background);
+  --ui-contrast-underline: rgba(231, 234, 240, 0.5);
+  --ui-contrast-hover: #fff;
+  --ui-contrast-hover-background: #fff;
+  --ui-contrast-hover-border: var(--ui-contrast-hover-background);
+  --ui-contrast-hover-underline: var(--ui-contrast-hover);
+  --ui-contrast-focus: rgba(207, 213, 226, 0.25);
+  --ui-contrast-inverse: #000;
+
+  --ui-h1-color: #f2f3f5;
+  --ui-h2-color: #e6e8eb;
+  --ui-h3-color: #d3d7de;
+  --ui-h4-color: #c2c7d0;
+  --ui-h5-color: #aeb5c0;
+  --ui-h6-color: #98a0ae;
+
+  --ui-code-background-color: #171a21;
+  --ui-code-color: #98a0ae;
+  --ui-form-element-background-color: #1b1f27;
+  --ui-form-element-selected-background-color: #242a36;
+  --ui-form-element-border-color: #242a36;
+  --ui-form-element-color: #e6e8eb;
+  --ui-form-element-placeholder-color: #98a0ae;
+  --ui-form-element-active-background-color: #171a21;
+  --ui-form-element-active-border-color: var(--ui-primary-border);
+  --ui-form-element-focus-color: var(--ui-primary-border);
+  --ui-form-element-invalid-border-color: #8a3a2f;
+  --ui-form-element-invalid-active-border-color: #a23d2c;
+  --ui-form-element-invalid-focus-color: var(--ui-form-element-invalid-active-border-color);
+  --ui-form-element-valid-border-color: #2a7b6f;
+  --ui-form-element-valid-active-border-color: #188969;
+  --ui-form-element-valid-focus-color: var(--ui-form-element-valid-active-border-color);
+
+  --ui-blockquote-border-color: var(--ui-muted-border-color);
+  --ui-table-border-color: var(--ui-muted-border-color);
+  --ui-table-row-stripped-background-color: rgba(255, 255, 255, 0.03);
+  --ui-switch-background-color: #343a46;
+  --ui-switch-checked-background-color: var(--ui-primary-background);
+  --ui-range-border-color: var(--brand-border);
+  --ui-range-active-border-color: #242a36;
+
+  --ui-card-border-color: var(--ui-card-background-color);
+  --ui-card-sectioning-background-color: #ff880002;
+  --ui-dropdown-background-color: var(--ui-card-background-color);
+  --ui-dropdown-border-color: var(--ui-muted-border-color);
+  --ui-dropdown-color: var(--ui-color);
+  --ui-dropdown-hover-background-color: #20242c;
+
+  --ui-progress-background-color: #20242c;
+  --ui-progress-color: var(--ui-primary-background);
+
+  --ui-tooltip-background-color: var(--ui-contrast-background);
+  --ui-tooltip-color: var(--ui-contrast-inverse);
+
+  --ui-text-selection-color: rgba(255, 136, 0, 0.2);
+}
