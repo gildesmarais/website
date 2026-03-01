@@ -1,0 +1,151 @@
+section {
+  margin-bottom: 2rem;
+}
+
+section + section {
+  margin-top: 2rem;
+}
+
+h2,
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+ul,
+ol {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1ch;
+}
+
+ul ::marker,
+ol ::marker {
+  color: var(--brand-accent);
+}
+
+ul li,
+ol li {
+  list-style-type: "- ";
+}
+
+ul:has(strong) > li {
+  color: var(--ui-secondary);
+}
+
+ul:has(strong) > li > strong {
+  color: var(--ui-color);
+}
+
+.footnotes ol li {
+  list-style-type: decimal;
+}
+
+article {
+  margin-bottom: 2.5rem;
+}
+
+details {
+  margin-bottom: 1.5rem;
+}
+
+blockquote {
+  margin: 0 0 var(--ui-spacing);
+  border-left: 3px solid var(--ui-blockquote-border-color);
+  padding: 0.75rem 0 0.75rem 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--ui-spacing);
+}
+
+td,
+th {
+  border-bottom: 1px solid var(--ui-table-border-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.micro {
+  opacity: 0.8;
+  font-size: 0.95em;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: var(--lead-width);
+  color: var(--ui-muted-color);
+}
+
+.width {
+  max-width: 60ch;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
+.minimal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--ui-color);
+  border: 2px solid var(--brand-accent);
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.minimal-btn.active,
+.minimal-btn:active {
+  background: var(--brand-accent);
+  color: #111;
+  border-color: transparent;
+  box-shadow:
+    0 0 0 1px var(--brand-accent-hover),
+    0 0 0 5px var(--brand-accent-focus);
+  transform: translateY(1px);
+}
+
+.minimal-btn.active {
+  font-weight: 600;
+}
+
+.accent {
+  border-inline-start: var(--accent-size) solid var(--brand-accent);
+  padding-inline-start: 0.7rem;
+  border-radius: 0;
+}
+
+[data-corners] {
+  position: relative;
+  padding-top: 0.3rem;
+  padding-left: 0.7rem;
+}
+
+[data-corners]::before {
+  content: "";
+  position: absolute;
+  width: 0.75rem;
+  height: 1.05rem;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  border-left: var(--accent-size) solid var(--brand-accent);
+  border-top: var(--accent-size) solid var(--brand-accent);
+}
