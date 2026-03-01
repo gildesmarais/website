@@ -15,7 +15,6 @@
     "@astrojs/vercel": "^9.0.0",
     "@fontsource/ibm-plex-sans": "^5.2.6",
     "@fontsource/ubuntu-mono": "^5.2.6",
-    "@picocss/pico": "^2.1.1",
     "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.16.11",
     "rehype-add-classes": "^1.0.0",
