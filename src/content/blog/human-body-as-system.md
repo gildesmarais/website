@@ -8,7 +8,7 @@ tags: [reflection, systems, mindfulness]
 ---
 
 One of the most unexpected discoveries this year has been yoga.
-I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I look forward to. It feels like maintenance, not performance.  
+I started mostly for the physical practice, but what kept me going was the quiet part: the few minutes of meditation that come with every session. One 90-minute class a week turned into a rhythm I look forward to. It feels like maintenance, not performance.
 
 Maybe it's simply how my mind works, but I often make sense of things through systems. **I picture my body as a kind of computer.**
 
