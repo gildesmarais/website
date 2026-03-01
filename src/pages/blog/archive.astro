@@ -20,10 +20,19 @@ function fmt(d: Date) {
   <Hero title={title} description="All published posts and experiments." />
 
   <section>
+    <div class="archive-toolbar">
+      <p class="micro toolbar-label">Filter by language</p>
+      <nav class="language-filters" aria-label="Filter posts by language">
+        <a href="/blog/archive/" class="minimal-btn filter-btn active" data-language-filter="all">All</a>
+        <a href="/blog/archive/?lang=en" class="minimal-btn filter-btn" data-language-filter="en">English</a>
+        <a href="/blog/archive/?lang=de" class="minimal-btn filter-btn" data-language-filter="de">Deutsch</a>
+      </nav>
+    </div>
+
     <ul>
       {
         posts.map(({ slug, data }) => (
-          <li>
+          <li data-language={data.language ?? "en"}>
             <a href={`/blog/${slug}`}>{data.title}</a>
             {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
             {data.date && (
@@ -43,4 +52,95 @@ function fmt(d: Date) {
       <p><a href="/blog" class="minimal-btn">⇽ Back to Blog</a></p>
     </footer>
   </section>
+
+  <script>
+    const applyLanguageFilter = () => {
+      const requestedLanguage = new URLSearchParams(window.location.search).get("lang")
+      const selectedLanguage =
+        requestedLanguage === "en" || requestedLanguage === "de" ? requestedLanguage : "all"
+      const items = document.querySelectorAll("[data-language]")
+      const filterButtons = document.querySelectorAll("[data-language-filter]")
+
+      items.forEach((item) => {
+        const itemLanguage = item.getAttribute("data-language") ?? "en"
+        item.hidden = selectedLanguage !== "all" && itemLanguage !== selectedLanguage
+      })
+
+      filterButtons.forEach((button) => {
+        const buttonLanguage = button.getAttribute("data-language-filter")
+        button.classList.toggle("active", buttonLanguage === selectedLanguage)
+      })
+    }
+
+    applyLanguageFilter()
+  </script>
 </BaseLayout>
+
+<style>
+  .archive-toolbar {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0.65rem 0 1.15rem;
+  }
+
+  .toolbar-label {
+    margin: 0 0 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    opacity: 0.7;
+  }
+
+  nav.language-filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .language-filters .filter-btn {
+    justify-content: center;
+    min-width: 0;
+    text-decoration: none;
+    line-height: 1;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.5rem;
+    border-width: 1px;
+    color: var(--pico-muted-color);
+    background: transparent;
+  }
+
+  .language-filters .filter-btn:hover {
+    color: var(--pico-color);
+    border-color: var(--brand-accent);
+  }
+
+  .language-filters .filter-btn.active,
+  .language-filters .filter-btn:active {
+    background: transparent;
+    border-color: var(--brand-accent);
+    color: var(--pico-color);
+    box-shadow: none;
+    transform: none;
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    .language-filters .filter-btn {
+      flex: 0 0 auto;
+    }
+  }
+
+  section > ul {
+    margin-top: 0;
+  }
+</style>

@@ -143,7 +143,7 @@ To automatically update the blogroll, [schedule](https://docs.github.com/en/acti
 
 Example:
 
-```yml
+```text
 {% raw %}name: jekyll build and publish artifact with rsync
 
 on:

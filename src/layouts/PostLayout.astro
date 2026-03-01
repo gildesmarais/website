@@ -19,6 +19,13 @@ const { title, date, description, language } = Astro.props
             )
           }
         </hgroup>
+        {
+          language && language !== "en" && (
+            <p class="micro" lang={language}>
+              Dieser Artikel ist auf Deutsch verfasst.
+            </p>
+          )
+        }
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />
