@@ -1,0 +1,6 @@
+@import "./partials/01-tokens.css";
+@import "./partials/02-base.css";
+@import "./partials/03-typography.css";
+@import "./partials/04-layout.css";
+@import "./partials/05-content.css";
+@import "./partials/06-print.css";
