@@ -13,6 +13,7 @@ const description =
 // Define headings for the TOC
 const projectHeadings = [
   { depth: 2, text: "html2rss" },
+  { depth: 2, text: "moodbar.rs" },
   { depth: 2, text: "jekyll-loading-lazy" },
   { depth: 2, text: ".dotfiles & Scripts" },
 ].map(({ depth, text }) => ({
@@ -60,6 +61,44 @@ const projectHeadings = [
       standards-compliant XML ready for any reader or aggregator. Built for maintainers who prefer simplicity
       over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that
       never had it (or quietly killed it).
+    </p>
+  </ProjectCard>
+
+  <hr />
+
+  <ProjectCard
+    title="moodbar.rs"
+    slug={slugify("moodbar.rs")}
+    status="maintained"
+    description="Cross-platform Rust toolkit for generating moodbars from audio (CLI + WASM)."
+    highlights={[
+      { term: "Rust core", definition: "Pure-Rust stack powered by Symphonia + RustFFT." },
+      { term: "WASM", definition: "Browser-ready WebAssembly bindings with a live demo." },
+      { term: "Platforms", definition: "Linux and macOS are first-class release targets." },
+      { term: "Legacy output", definition: "Supports legacy-compatible raw moodbar byte generation." },
+      {
+        term: "Batch workflows",
+        definition: "Batch generation pipeline for processing whole music folders.",
+      },
+    ]}
+    links={[
+      {
+        text: "Project website",
+        url: "https://gildesmarais.github.io/moodbar.rs/index.html",
+        external: true,
+      },
+      { text: "GitHub Repository", url: "https://github.com/gildesmarais/moodbar.rs", external: true },
+      {
+        text: "Browser demo",
+        url: "https://gildesmarais.github.io/moodbar.rs/wasm-demo.html",
+        external: true,
+      },
+    ]}
+  >
+    <p>
+      moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer
+      tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose
+      tracks with more confidence.
     </p>
   </ProjectCard>
 
