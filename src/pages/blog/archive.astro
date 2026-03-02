@@ -21,11 +21,11 @@ function fmt(d: Date) {
 
   <section>
     <div class="archive-toolbar">
-      <p class="section-kicker toolbar-label">Filter by language</p>
+      <p class="section-kicker toolbar-label">Language:</p>
       <nav class="language-filters" aria-label="Filter posts by language">
-        <a href="/blog/archive/" class="minimal-btn filter-btn active" data-language-filter="all">All</a>
-        <a href="/blog/archive/?lang=en" class="minimal-btn filter-btn" data-language-filter="en">English</a>
-        <a href="/blog/archive/?lang=de" class="minimal-btn filter-btn" data-language-filter="de">Deutsch</a>
+        <a href="/blog/archive/" class="filter-link active" data-language-filter="all">All</a>
+        <a href="/blog/archive/?lang=en" class="filter-link" data-language-filter="en">EN</a>
+        <a href="/blog/archive/?lang=de" class="filter-link" data-language-filter="de">DE</a>
       </nav>
     </div>
 
@@ -78,62 +78,75 @@ function fmt(d: Date) {
 
 <style>
   .archive-toolbar {
-    display: grid;
-    gap: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
     margin: 0.65rem 0 1.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .archive-toolbar::-webkit-scrollbar {
+    display: none;
   }
 
   .toolbar-label {
-    margin-bottom: 0.2rem;
+    margin: 0;
+    flex: 0 0 auto;
   }
 
   nav.language-filters {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.35rem;
+    justify-content: flex-start !important;
+    gap: 0.3rem;
     margin: 0;
     padding: 0;
     border: 0;
-    width: auto;
-    max-width: 100%;
+    width: auto !important;
+    max-width: none;
+    overflow: visible;
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
 
-  .language-filters .filter-btn {
-    justify-content: center;
+  .language-filters .filter-link {
     min-width: 0;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
-    line-height: 1;
-    font-size: 0.78rem;
-    font-weight: 600;
+    line-height: 1.2;
+    font-size: 0.82rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    padding: 0.3rem 0.5rem;
-    border-width: 1px;
+    letter-spacing: 0.06em;
+    padding: 0.24rem 0.44rem;
+    border: 1px solid var(--ui-muted-border-color);
     color: var(--ui-muted-color);
     background: transparent;
   }
 
-  .language-filters .filter-btn:hover {
+  .language-filters .filter-link::before {
+    content: "[";
+    margin-right: 0.08rem;
+  }
+
+  .language-filters .filter-link::after {
+    content: "]";
+    margin-left: 0.08rem;
+  }
+
+  .language-filters .filter-link:hover {
     color: var(--ui-color);
     border-color: var(--brand-accent);
   }
 
-  .language-filters .filter-btn.active,
-  .language-filters .filter-btn:active {
-    background: transparent;
+  .language-filters .filter-link.active,
+  .language-filters .filter-link:active {
+    color: #000;
+    background: var(--brand-accent);
     border-color: var(--brand-accent);
-    color: var(--ui-color);
-    box-shadow: none;
-    transform: none;
-    font-weight: 700;
-  }
-
-  @media (max-width: 600px) {
-    .language-filters .filter-btn {
-      flex: 0 0 auto;
-    }
   }
 
   section > ul {

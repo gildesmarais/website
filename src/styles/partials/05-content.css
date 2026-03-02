@@ -112,9 +112,8 @@ th {
 
 .width {
   max-width: 60ch;
-  text-align: justify;
-  text-align-last: left;
-  hyphens: auto;
+  text-align: left;
+  hyphens: manual;
 }
 
 .minimal-btn {
