@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import NamePronunciation from "../components/NamePronunciation.astro"
 import { allSocials } from "../data/socials"
+import { externalRel } from "../utils/linkRel"
 
 const title = "About"
 const description =
@@ -117,7 +118,7 @@ const contactHref = "/contact"
       {
         allSocials.map((l) => (
           <li>
-            <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
+            <a href={l.url} target="_blank" rel={externalRel(l.rel)}>
               {l.name}
             </a>
           </li>

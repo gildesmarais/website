@@ -5,6 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import ProjectCard from "../components/ProjectCard.astro"
 import TableOfContents, { slugify } from "../components/TableOfContents.astro"
+import { externalRel } from "../utils/linkRel"
 
 const title = "Projects"
 const description =
@@ -30,7 +31,9 @@ const projectHeadings = [
   >
     <p>
       I prefer purposeful tools with small footprints. Everything here is open source; more lives on
-      <a href="https://github.com/gildesmarais/" target="_blank" rel="external nofollow noopener">GitHub</a>.
+      <a href="https://github.com/gildesmarais/" target="_blank" rel={externalRel("external nofollow")}
+        >GitHub</a
+      >.
     </p>
   </Hero>
 

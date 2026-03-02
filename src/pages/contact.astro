@@ -5,6 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import { professionalSocials } from "../data/socials"
 import legal from "../data/legal.json"
+import { externalRel } from "../utils/linkRel"
 
 const title = "Contact"
 const description = "Reach Gil Desmarais for focused engineering leadership and platform support."
@@ -77,7 +78,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     {
       professionalSocials.map((l) => (
         <p>
-          <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
+          <a href={l.url} target="_blank" rel={externalRel(l.rel)}>
             {l.name}
           </a>
         </p>

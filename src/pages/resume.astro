@@ -56,7 +56,7 @@ const resumeHeadings = [
 
   <!-- Executive Summary -->
   <section aria-labelledby="executive-summary">
-    <h2 id="executive-summary" class="accent section-headline">Executive Summary</h2>
+    <h2 id="executive-summary" class="accent section-heading-sticky">Executive Summary</h2>
     <p>
       I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
       risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental.
@@ -70,7 +70,7 @@ const resumeHeadings = [
 
   <!-- Work -->
   <section aria-labelledby="work">
-    <h2 id="current" class="accent section-headline">Current Work</h2>
+    <h2 id="current" class="accent section-heading-sticky">Current Work</h2>
 
     <section aria-labelledby="etl">
       <h3 id="etl">Engineering Team Lead — Platform</h3>
@@ -146,7 +146,7 @@ const resumeHeadings = [
 
   <!-- Capabilities -->
   <section aria-labelledby="capabilities">
-    <h2 id="capabilities" class="accent section-headline">Capabilities</h2>
+    <h2 id="capabilities" class="accent section-heading-sticky">Capabilities</h2>
     <ol>
       <li>Team mentoring & technical coaching</li>
       <li>Stakeholder alignment & roadmap facilitation</li>
@@ -158,7 +158,7 @@ const resumeHeadings = [
 
   <!-- Skills -->
   <section aria-labelledby="skills">
-    <h2 id="skills" class="accent section-headline">Skills Matrix</h2>
+    <h2 id="skills" class="accent section-heading-sticky">Skills Matrix</h2>
     <SkillsMatrix categories={skills} />
   </section>
 
@@ -166,7 +166,7 @@ const resumeHeadings = [
 
   <!-- Education & Service -->
   <section aria-labelledby="education">
-    <h2 id="education" class="accent section-headline">Education</h2>
+    <h2 id="education" class="accent section-heading-sticky">Education</h2>
     <p>
       <strong>B.Sc. Wirtschaftsinformatik (Business Informatics)</strong> — Jade University (2009–2012).
       <br />
@@ -175,7 +175,7 @@ const resumeHeadings = [
   </section>
 
   <section aria-labelledby="service">
-    <h2 id="service" class="accent section-headline">Service</h2>
+    <h2 id="service" class="accent section-heading-sticky">Service</h2>
     <p>
       <strong>German Air Force</strong> (2007–2009) — IT & Network Support, NATO Quick Response Force.
       <br />
@@ -198,20 +198,6 @@ const resumeHeadings = [
 
   #current + section > h3 {
     margin-bottom: 0.25em;
-  }
-
-  .section-headline {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: var(--ui-background-color);
-    padding: 0 var(--ui-spacing) 0 0.7rem;
-    border-bottom: 1px solid var(--ui-border-color);
-    margin-bottom: 0;
-  }
-
-  .section-headline + * {
-    margin-top: var(--ui-spacing);
   }
 
   p:has(time) {

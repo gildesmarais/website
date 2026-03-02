@@ -21,7 +21,7 @@ function fmt(d: Date) {
 
   <section>
     <div class="archive-toolbar">
-      <p class="micro toolbar-label">Filter by language</p>
+      <p class="section-kicker toolbar-label">Filter by language</p>
       <nav class="language-filters" aria-label="Filter posts by language">
         <a href="/blog/archive/" class="minimal-btn filter-btn active" data-language-filter="all">All</a>
         <a href="/blog/archive/?lang=en" class="minimal-btn filter-btn" data-language-filter="en">English</a>
@@ -84,11 +84,7 @@ function fmt(d: Date) {
   }
 
   .toolbar-label {
-    margin: 0 0 0.2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.72rem;
-    opacity: 0.7;
+    margin-bottom: 0.2rem;
   }
 
   nav.language-filters {

@@ -9,6 +9,7 @@ import movies from "../../data/movies.json"
 import MoviePoster from "../../components/MoviePoster.astro"
 import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
 import { getRecommendationsCache } from "../../utils/movieCache"
+import { externalRel } from "../../utils/linkRel"
 
 // Validate data integrity
 if (!Array.isArray(movies) || movies.length === 0) {
@@ -66,7 +67,7 @@ const { movies: processedMovies } = processMovies(movies as Movie[], recommendat
     </div>
   </section>
   <aside class="micro">
-    Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer"
+    Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel={externalRel()}
       >OMDb API for providing the movie posters</a
     > used in this page. 🧡
   </aside>
