@@ -1,6 +1,7 @@
 ---
 import Highlights from "./Highlights.astro"
 import MoviePoster from "./MoviePoster.astro"
+import { externalRel } from "../utils/linkRel"
 
 export interface Props {
   imdbId: string
@@ -45,14 +46,23 @@ const highlights = [
     </div>
 
     <div class="movie-links">
-      <a href={`https://www.imdb.com/title/${imdbId}/`} target="_blank" rel="noopener" class="minimal-btn"
-        >IMDb</a
+      <a
+        href={`https://www.imdb.com/title/${imdbId}/`}
+        target="_blank"
+        rel={externalRel()}
+        class="minimal-btn">IMDb</a
       >
-      <a href={`https://letterboxd.com/imdb/${imdbId}/`} target="_blank" rel="noopener" class="minimal-btn"
-        >Letterboxd</a
+      <a
+        href={`https://letterboxd.com/imdb/${imdbId}/`}
+        target="_blank"
+        rel={externalRel()}
+        class="minimal-btn">Letterboxd</a
       >
-      <a href={`https://trakt.tv/search/imdb/${imdbId}`} target="_blank" rel="noopener" class="minimal-btn"
-        >Trakt.tv</a
+      <a
+        href={`https://trakt.tv/search/imdb/${imdbId}`}
+        target="_blank"
+        rel={externalRel()}
+        class="minimal-btn">Trakt.tv</a
       >
     </div>
   </div>
