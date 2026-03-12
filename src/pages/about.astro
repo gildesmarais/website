@@ -4,47 +4,53 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import NamePronunciation from "../components/NamePronunciation.astro"
 import { allSocials } from "../data/socials"
+import { externalRel } from "../utils/linkRel"
 
 const title = "About"
 const description =
   "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems."
-
-const contactHref = "/contact"
 ---
 
 <BaseLayout title={title} description={description}>
   <Hero
     title={`<abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais`}
     description="How curiosity, systems thinking, and experience shaped the way I build and lead."
-  />
+  >
+    <p>
+      I help teams turn complexity into clear, reliable delivery by combining systems thinking, hands-on
+      engineering, and pragmatic leadership.
+    </p>
+  </Hero>
 
   <section aria-labelledby="identity" class="width">
+    <p class="section-kicker">Background</p>
+    <h2 id="identity" class="accent">How it started</h2>
     <p>
-      I first connected to the Internet through a 28.8k modem and built my first website in Notepad, following
-      a tutorial from a computer magazine explaining <code>&lt;frames&gt;</code>
-      <span class="smiley">:D</span>. It was the early web. Curiosity was the only roadmap.
+      I came online through a 28.8k modem and built my first website in Notepad, following a magazine tutorial
+      about <code>&lt;frames&gt;</code><span class="smiley">:D</span>. Curiosity was the constant from day
+      one.
     </p>
 
     <p>
-      From there, I began experimenting with JavaScript, Perl, PHP, and MySQL. Writing scripts for IRC clients
-      sparked an interest in how systems communicate beneath the surface. Discovering Linux pushed that
-      further. Bootstrapping Gentoo Linux on my only computer taught me how operating systems actually manage
-      complexity. That experience still shapes my engineering mindset today.<sup><a href="#foot-1">1</a></sup>
+      I explored JavaScript, Perl, PHP, and MySQL early, then Linux and systems internals. Writing automation
+      for IRC and bootstrapping Gentoo on my only computer taught me to understand systems end-to-end, not
+      just frameworks.<sup><a href="#foot-1">1</a></sup>
     </p>
 
     <p>
       During vocational training, I bridged hardware and software: soldering circuits, programming
       microcontrollers, and exploring signal processing with Assembler and Delphi.
-      <br />
-      Serving in the German Air Force added structure and accountability: supporting IT operations for NATO staff
-      showed how trust, process, and technical skill align when uptime isn't optional.
+    </p>
+    <p>
+      Serving in the German Air Force added structure and accountability: supporting IT operations for NATO
+      staff showed how trust, process, and technical skill align when uptime isn't optional.
     </p>
 
     <p>
-      Studying Business Computer Science gave me the dual lenses I rely on today.<br />
-      Translating technical reality into business value, and turning business constraints into pragmatic engineering
-      decisions. That balance between architecture and outcome defines how I lead, build, and deliver.
+      Studying Business Computer Science gave me the dual lenses I rely on today: translating technical
+      reality into business value, and turning business constraints into pragmatic engineering decisions.
     </p>
+    <p>That balance between architecture and outcome defines how I lead, build, and deliver.</p>
 
     <p>
       The curiosity that started with a Commodore 64 now drives how I design systems, teams, and decisions:
@@ -56,16 +62,16 @@ const contactHref = "/contact"
     <h2 id="care" class="accent">What drives me</h2>
     <ul>
       <li>
-        <strong>Efficiency:</strong> surface root causes and remove friction, not just symptoms.
+        <strong>Efficiency:</strong> fix root causes, not symptoms.
       </li>
       <li>
-        <strong>Systems thinking:</strong> connect dependencies across technology and culture so decisions age well.
+        <strong>Systems thinking:</strong> connect technical and organizational dependencies so decisions age well.
       </li>
       <li>
-        <strong>Ease of use:</strong> deliver outcomes that make work simpler for teams and customers alike.
+        <strong>Ease of use:</strong> make outcomes simpler for teams and customers.
       </li>
       <li>
-        <strong>Knowledge sharing:</strong> teach, document, and invite questions so the whole team levels up.
+        <strong>Knowledge sharing:</strong> teach, document, and invite questions so teams level up together.
       </li>
       <li>
         <strong>Delight in the details:</strong> keep experiences calm, reliable, and quietly excellent.
@@ -75,7 +81,7 @@ const contactHref = "/contact"
     <h3 class="accent">Personal passions</h3>
     <ul>
       <li>
-        <strong>Music:</strong> electronic for decades; vinyl DJing taught rhythm, flow, and focus.
+        <strong>Music:</strong> electronic for decades; vinyl DJing sharpened rhythm, flow, and focus.
       </li>
       <li>
         <strong>Movement:</strong> cycling, yoga, and long walks to keep systems balanced.
@@ -93,19 +99,9 @@ const contactHref = "/contact"
   <section aria-labelledby="approach" class="width">
     <h2 id="approach" class="accent">How I think about work</h2>
     <p>
-      I start with <q>why</q> before <q>how</q>. Understanding the system, incentives, and risks leads to
-      better answers. I map dependencies, frame trade-offs, and keep communication crisp so teams can act with
-      confidence.
-    </p>
-
-    <p>
-      My background in film taught me storytelling discipline. Designing experiences that feel intuitive,
-      leaving room for feedback, and keeping the protagonists in focus: customers, editors, or engineers.
-    </p>
-
-    <p>
-      Whether leading a team, architecting a system, or refining a process, the goal is consistent: make
-      technology serve people. Build systems that are maintainable, scalable, and grounded in real outcomes.
+      I start with <q>why</q> before <q>how</q>: understand incentives, constraints, and risk, then align
+      trade-offs so teams can move with confidence. My background across engineering and film keeps me focused
+      on communication, feedback loops, and outcomes that are both maintainable and genuinely useful.
     </p>
   </section>
 
@@ -117,7 +113,7 @@ const contactHref = "/contact"
       {
         allSocials.map((l) => (
           <li>
-            <a href={l.url} target="_blank" rel={`${l.rel} noopener noreferrer`}>
+            <a href={l.url} target="_blank" rel={externalRel(l.rel)}>
               {l.name}
             </a>
           </li>
@@ -134,9 +130,7 @@ const contactHref = "/contact"
       And yes, I'll still respond if your first guess is <q>Jill</q>. <span class="smiley">:-)</span>
     </p>
     <p>
-      <span class="micro"
-        >If you're here for work specifics, my <a href="/resume">Résumé</a> has the details.</span
-      >
+      <span class="micro">For timeline, roles, and technologies, see my <a href="/resume">Résumé</a>.</span>
     </p>
   </section>
 
@@ -144,7 +138,7 @@ const contactHref = "/contact"
 
   <section>
     <h2 class="sr-only accent" id="footnote-label">Footnotes</h2>
-    <ul class="lead">
+    <ul class="micro">
       <li>
         <a id="foot-1">[1]</a>: Staying connected became a bit of a mission too. By 2008 I even rigged my
         Nokia E51 as a UMTS modem over Bluetooth so I could stay

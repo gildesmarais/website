@@ -81,6 +81,28 @@ th {
   font-size: 0.95em;
 }
 
+.section-kicker {
+  margin: 0 0 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  color: var(--ui-muted-color);
+}
+
+.section-heading-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--ui-background-color);
+  padding: 0 var(--ui-spacing) 0 0.7rem;
+  border-bottom: 1px solid var(--ui-border-color);
+  margin-bottom: 0;
+}
+
+.section-heading-sticky + * {
+  margin-top: var(--ui-spacing);
+}
+
 .lead {
   font-size: 1.05rem;
   line-height: 1.55;

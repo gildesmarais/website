@@ -26,7 +26,7 @@ if (filteredHeadings.length === 0) return null
 ---
 
 <nav class="toc" aria-label="Table of contents">
-  <h3 class="toc-title accent">{title}</h3>
+  <h3 class="toc-title section-kicker accent">{title}</h3>
   <ul class="toc-list">
     {
       filteredHeadings.map((heading) => (
@@ -49,10 +49,6 @@ if (filteredHeadings.length === 0) return null
   }
 
   .toc-title {
-    font-size: 0.9em;
-    color: var(--ui-muted-color);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     padding-left: 0.6rem;
   }
 
