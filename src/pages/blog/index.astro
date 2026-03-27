@@ -2,11 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
+import { isVisibleShowcasePost } from "../../content/blog"
 const title = "Blog"
 const description = "Five recent posts, hand-picked. Subscribe via RSS feed."
-const posts = (
-  await getCollection("blog", ({ data }) => !data.draft && data.showcase && data.listed !== false)
-)
+const posts = (await getCollection("blog", isVisibleShowcasePost))
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 5)
 ---

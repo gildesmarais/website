@@ -1,11 +1,9 @@
 import rss from "@astrojs/rss"
 import { getCollection } from "astro:content"
+import { isVisibleEnglishBlogPost } from "../content/blog"
 
 export async function GET(context) {
-  const posts = await getCollection(
-    "blog",
-    ({ data }) => !data.draft && data.listed !== false && (data.language ?? "en") === "en",
-  )
+  const posts = await getCollection("blog", isVisibleEnglishBlogPost)
   return rss({
     title: "Gil Desmarais's Blog",
     description: "The latest posts from Gil Desmarais's blog.",
