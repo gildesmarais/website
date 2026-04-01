@@ -31,15 +31,17 @@ function fmt(d: Date) {
 
     <ul>
       {
-        posts.map(({ slug, data }) => (
-          <li data-language={data.language ?? "en"}>
-            <a href={`/blog/${slug}`}>{data.title}</a>
-            {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
-            {data.date && (
+        posts.map((post) => (
+          <li data-language={post.data.language ?? "en"}>
+            <a href={`/blog/${post.slug ?? post.id}`}>{post.data.title}</a>
+            {post.data.language && post.data.language != "en" && (
+              <sup>[{post.data.language.toUpperCase()}]</sup>
+            )}
+            {post.data.date && (
               <>
                 {" "}
-                <time datetime={new Date(data.date).toISOString()} class="micro">
-                  {fmt(data.date)}
+                <time datetime={new Date(post.data.date).toISOString()} class="micro">
+                  {fmt(post.data.date)}
                 </time>
               </>
             )}
