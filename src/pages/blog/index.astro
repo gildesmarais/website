@@ -22,20 +22,22 @@ const posts = (
   <section>
     <ul>
       {
-        posts.map(({ slug, data }) => (
+        posts.map((post) => (
           <li>
-            <a href={`/blog/${slug}`}>{data.title}</a>
-            {data.language && data.language != "en" && <sup>[{data.language.toUpperCase()}]</sup>}
-            {data.date && (
+            <a href={`/blog/${post.slug ?? post.id}`}>{post.data.title}</a>
+            {post.data.language && post.data.language != "en" && (
+              <sup>[{post.data.language.toUpperCase()}]</sup>
+            )}
+            {post.data.date && (
               <>
                 {" "}
-                <time datetime={data.date.toISOString()} class="micro">
-                  {data.date.toISOString().split("T")[0]}
+                <time datetime={post.data.date.toISOString()} class="micro">
+                  {post.data.date.toISOString().split("T")[0]}
                 </time>
               </>
             )}
             <br />
-            {data.description && <small>{data.description}</small>}
+            {post.data.description && <small>{post.data.description}</small>}
           </li>
         ))
       }
