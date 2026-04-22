@@ -20,7 +20,7 @@
     "@fontsource/ibm-plex-sans": "^5.2.6",
     "@fontsource/ubuntu-mono": "^5.2.6",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^6.1.2",
+    "astro": "^6.1.8",
     "rehype-add-classes": "^1.0.0",
     "remark": "^15.0.1",
     "remark-toc": "^9.0.0"
