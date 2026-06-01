@@ -2,11 +2,12 @@
 import PostLayout from "../../layouts/PostLayout.astro"
 import TableOfContents from "../../components/TableOfContents.astro"
 import { getCollection, render } from "astro:content"
+import { isVisibleBlogPost } from "../../content/blog"
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft)
+  const posts = await getCollection("blog", isVisibleBlogPost)
   return posts.map((post) => ({
-    params: { slug: post.slug ?? post.id },
+    params: { slug: post.id },
     props: { post },
   }))
 }

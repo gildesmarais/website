@@ -2,10 +2,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
+import { isVisibleBlogPost } from "../../content/blog"
 const title = "Blog Archive"
 const description = "Chronological archive of all published blog posts."
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft && data.listed !== false)).sort(
+const posts = (await getCollection("blog", isVisibleBlogPost)).sort(
   (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
 )
 
@@ -33,7 +34,7 @@ function fmt(d: Date) {
       {
         posts.map((post) => (
           <li data-language={post.data.language ?? "en"}>
-            <a href={`/blog/${post.slug ?? post.id}`}>{post.data.title}</a>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
             {post.data.language && post.data.language != "en" && (
               <sup>[{post.data.language.toUpperCase()}]</sup>
             )}
@@ -64,6 +65,7 @@ function fmt(d: Date) {
       const filterButtons = document.querySelectorAll("[data-language-filter]")
 
       items.forEach((item) => {
+        if (!(item instanceof HTMLElement)) return
         const itemLanguage = item.getAttribute("data-language") ?? "en"
         item.hidden = selectedLanguage !== "all" && itemLanguage !== selectedLanguage
       })
