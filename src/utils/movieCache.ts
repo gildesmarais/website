@@ -1,18 +1,41 @@
-import recommendations from "../data/recommendations.json"
+import moviesData from "../data/movies.json"
+import recommendationsData from "../data/recommendations.json"
+import type { Movie } from "./movieUtils"
 
-let recommendationsCache: { set: Set<string>; notes: Map<string, string> } | null = null
+export interface MovieCache {
+  movies: Movie[]
+  moviesMap: Map<string, Movie>
+  recommendationsSet: Set<string>
+  recommendationNotes: Map<string, string>
+}
 
-export function getRecommendationsCache(): { set: Set<string>; notes: Map<string, string> } {
-  if (!recommendationsCache) {
-    recommendationsCache = {
-      set: new Set(recommendations.map((r) => r.const).filter(Boolean)),
-      notes: new Map(
-        recommendations
-          .map((r) => [r.const, r.note])
-          .filter(([constId, note]) => constId && note)
-          .map(([constId, note]) => [constId as string, note as string]),
+let movieCache: MovieCache | null = null
+
+/**
+ * Returns the centralized movie and recommendation data.
+ * The cache is initialized once and persists in memory for the lifetime of the process/lambda.
+ * This ensures high performance while centralizing the data source of truth.
+ */
+export function getMovieCache(): MovieCache {
+  if (!movieCache) {
+    // Pre-filter and pre-compute data once
+    const processedMovies = (moviesData as Movie[])
+      .filter((movie) => movie.title_type === "Movie")
+      .map((movie) => ({
+        ...movie,
+        _searchString: `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase(),
+      }))
+
+    movieCache = {
+      movies: processedMovies,
+      moviesMap: new Map(processedMovies.map((m) => [m.const, m])),
+      recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter((c): c is string => !!c)),
+      recommendationNotes: new Map(
+        recommendationsData
+          .filter((r) => r.const && r.note)
+          .map((r) => [r.const as string, r.note as string]),
       ),
     }
   }
-  return recommendationsCache!
+  return movieCache!
 }
