@@ -7,7 +7,7 @@ import { isVisibleBlogPost } from "../../content/blog"
 export async function getStaticPaths() {
   const posts = await getCollection("blog", isVisibleBlogPost)
   return posts.map((post) => ({
-    params: { slug: post.slug ?? post.id },
+    params: { slug: post.id },
     props: { post },
   }))
 }

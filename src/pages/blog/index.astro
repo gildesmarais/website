@@ -23,7 +23,7 @@ const posts = (await getCollection("blog", isVisibleShowcasePost))
       {
         posts.map((post) => (
           <li>
-            <a href={`/blog/${post.slug ?? post.id}`}>{post.data.title}</a>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
             {post.data.language && post.data.language != "en" && (
               <sup>[{post.data.language.toUpperCase()}]</sup>
             )}

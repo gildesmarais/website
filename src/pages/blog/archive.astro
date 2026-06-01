@@ -34,7 +34,7 @@ function fmt(d: Date) {
       {
         posts.map((post) => (
           <li data-language={post.data.language ?? "en"}>
-            <a href={`/blog/${post.slug ?? post.id}`}>{post.data.title}</a>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
             {post.data.language && post.data.language != "en" && (
               <sup>[{post.data.language.toUpperCase()}]</sup>
             )}
@@ -65,6 +65,7 @@ function fmt(d: Date) {
       const filterButtons = document.querySelectorAll("[data-language-filter]")
 
       items.forEach((item) => {
+        if (!(item instanceof HTMLElement)) return
         const itemLanguage = item.getAttribute("data-language") ?? "en"
         item.hidden = selectedLanguage !== "all" && itemLanguage !== selectedLanguage
       })
