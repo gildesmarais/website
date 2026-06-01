@@ -26,7 +26,16 @@ const {
 } = Astro.props
 ---
 
-<article class="movie-card" data-accent={isRecommendation}>
+<article
+  class="movie-card"
+  data-accent={isRecommendation}
+  data-search={`${title} ${directors} ${genres}`.toLowerCase()}
+  data-recommendation={isRecommendation}
+  data-rating={yourRating}
+  data-year={year}
+  data-title={title.toLowerCase()}
+  data-runtime={runtimeMins}
+>
   <a href={`/movies/${imdbId}`} class="movie-card-link">
     <div class="poster-container">
       <slot name="poster" />

@@ -1,29 +1,36 @@
 ---
-export const prerender = false
+export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import MovieModalContent from "../../components/MovieModalContent.astro"
 import MoviePoster from "../../components/MoviePoster.astro"
-import movies from "../../data/movies.json"
 import type { Movie } from "../../utils/movieUtils"
-import { getRecommendationsCache } from "../../utils/movieCache"
+import { getMovieCache } from "../../utils/movieCache"
+
+export async function getStaticPaths() {
+  const { movies } = getMovieCache()
+  return movies.map((movie) => ({
+    params: { imdbId: movie.const },
+  }))
+}
+
+// Get centralized movie data
+const { moviesMap, recommendationsSet, recommendationNotes } = getMovieCache()
 
 // Validate data integrity
-if (!Array.isArray(movies) || movies.length === 0) {
+if (moviesMap.size === 0) {
   throw new Error("Invalid or empty movies data")
 }
 
 const { imdbId } = Astro.params
 
-// Find the specific movie directly (more efficient than processing all movies)
-const movie = (movies as Movie[]).find((m) => m.const === imdbId)
+// Find the specific movie directly using O(1) Map lookup
+const movie = moviesMap.get(imdbId!)
 
 if (!movie) {
   return Astro.redirect("/movies/")
 }
 
-// Check if it's a recommendation (using cache)
-const { set: recommendationsSet, notes: recommendationNotes } = getRecommendationsCache()
 const isRecommendation = recommendationsSet.has(movie.const)
 const note = recommendationNotes.get(movie.const)
 ---
