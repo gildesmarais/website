@@ -29,14 +29,3 @@ export function getMovieCache(): MovieCache {
   }
   return movieCache!
 }
-
-/**
- * Legacy wrapper for backward compatibility with existing code.
- */
-export function getRecommendationsCache() {
-  const cache = getMovieCache()
-  return {
-    set: cache.recommendationsSet,
-    notes: cache.recommendationNotes,
-  }
-}
