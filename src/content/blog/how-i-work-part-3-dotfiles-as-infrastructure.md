@@ -8,108 +8,119 @@ language: "en"
 
 This is the third part of my "How I work" series. If you missed the earlier posts, start with [part 1](/blog/working-productively) and [part 2](/blog/how-i-work-part-2-the-command-line).
 
-In the second part I described the command line tools I use. That was the visible layer: shell, package managers, search tools, and editors. This post is about the layer underneath: the part that makes a machine feel like _my_ machine within minutes instead of weeks.
+While the second part described the visible layer of my command line environment, this post covers the automation underneath: the system that makes a fresh machine feel like _my_ machine in minutes.
 
-The core idea is simple: if a setup matters repeatedly, I do not want it to live in memory. I want it encoded in a repository.
+The core idea is straightforward: if a setup matters repeatedly, it shouldn't live in memory. It should be encoded in a repository.
 
-My [dotfiles repository](https://github.com/gildesmarais/dotfiles) is that encoded system. It contains shell configuration, helper scripts, package installation, and macOS defaults. Over time it stopped being a bag of tweaks and became infrastructure for my own work.
-
-That distinction matters. Many people start by collecting aliases, snippets, and one-off fixes. That is normal. The important next step is to notice when those fragments have become part of your operating model. At that point they deserve structure, names, and maintenance.
-
-This post is intentionally about the framing, not every implementation detail. Shell configuration, custom scripts, and machine setup are each large enough topics on their own.
+My [dotfiles repository](https://github.com/gildesmarais/dotfiles) is that encoded system. Over time, it stopped being a bag of aliases and became infrastructure. Most people start by collecting snippets and one-off fixes. The critical transition is recognizing when these fragments become part of your daily operating model. At that point, they deserve the same structure and maintenance as production code.
 
 ## Dotfiles are not decoration
 
-Dotfiles are often presented as personality: fancy prompts, exotic aliases, a terminal screenshot with nice colors.
+Dotfiles are often presented as aesthetic customization—fancy prompts or terminal colors.
 
-That is not how I think about them.
+To me, they are operational code. They define how quickly I can move, how reliably I can rebuild an environment, and how much recurring friction I allow to remain manual.
 
-To me, dotfiles are operational code for a personal machine. They define how quickly I can move, how reliably I can rebuild a setup, and how much recurring friction I allow to remain manual.
-
-That changes the standard. Once something is operational code, I care less about novelty and more about these questions:
+Once you treat setup as operational code, novelty matters less than stability. I evaluate my configuration against four questions:
 
 - Can I rebuild it on a new machine?
 - Can I understand it under time pressure?
 - Can I rerun it safely?
 - Can I tell which parts are still active?
 
-These are mundane questions. They are also the ones that keep a setup useful over time.
+These are mundane questions, but they are what keep a setup useful over years.
 
 ## The progression matters more than the tools
 
-I do not think people should start by building an elaborate dotfiles repository. That usually produces borrowed setups and cargo cult complexity.
+You don't need an elaborate dotfiles setup from day one. In fact, starting with a massive, borrowed configuration usually leads to cargo-cult complexity.
 
-The useful progression is much simpler:
+The progression should be organic:
 
-1. You repeat a command often enough to feel friction.
-2. You stop relying on memory or shell history.
-3. You put the command behind a stable name.
+1. You feel recurring friction from a repeated command.
+2. You stop relying on shell history or memory.
+3. You put the command behind a stable name (an alias or function).
 4. You commit it to version control.
-5. You document how it fits into the wider setup.
+5. You document how it fits into your workflow.
 
-That progression is why dotfiles are a good training ground. The scope is small, but the engineering questions are real: what should stay explicit, what deserves abstraction, what makes a safe default, and when a shortcut becomes an interface.
-
-You can practice that locally before you have to make the same decisions in a production system with much higher stakes.
+This progression makes local configuration a perfect low-stakes training ground. The scope is small, but the design questions are real: what should remain explicit, what deserves abstraction, what makes a safe default, and when a shortcut becomes a formal interface.
 
 ## Shell configuration is the first layer
 
-The first layer is usually the shell. In my case that means [`zshrc`](https://github.com/gildesmarais/dotfiles/blob/master/zshrc).
+A dependable shell configuration should be legible and boring. In my [`zshrc`](https://github.com/gildesmarais/dotfiles/blob/master/zshrc), I focus on defensive loading—sourcing external tools only if they are actually present on the system.
 
-The goal is not to make the shell impressive. It is to make it dependable. My configuration loads tools only when they exist, keeps `PATH` and completion behavior predictable, and defines a small number of aliases and functions for recurring work.
+For example, instead of unconditionally evaluating tool initializations, I wrap them in checks:
 
-That sounds basic, which is exactly right. A good shell configuration should be legible and boring enough that you can trust it.
+```zsh
+function command_exists {
+  type "$1" >/dev/null 2>&1
+}
 
-One example is `fzf_git_switch()`. It wraps recurring branch-switching work into a named action. Its value is not that it saves a few keystrokes. Its value is that it encodes intent. I no longer need to remember a sequence. I need to remember what I want done.
+# setup fzf
+if command_exists fzf; then
+  eval "$(fzf --zsh)"
+fi
+```
 
-That is a good rule for abstractions in general: do not optimize for cleverness, optimize for clear intent.
+This prevents the shell from throwing noise or slow-down errors if I haven't bootstrapped a tool yet.
+
+When an alias is no longer sufficient because it needs interactive logic, I use zsh functions. The `fzf_git_switch()` function in my configuration wraps branch-switching into a named action:
+
+```zsh
+fzf_git_switch() {
+  if [ $# -eq 0 ]; then
+    local ref
+    ref="$(
+      git for-each-ref --format='%(refname:short)' refs/heads refs/remotes |
+        rg -v '^origin/HEAD$' |
+        fzf
+    )" || return 1
+
+    case "$ref" in
+      origin/*)
+        git switch --track "${ref#origin/}" 2>/dev/null || \
+          git switch "${ref#origin/}" 2>/dev/null || \
+          git switch -c "${ref#origin/}" --track "$ref"
+        ;;
+      *)
+        git switch "$ref"
+        ;;
+    esac
+  else
+    git switch "$@"
+  fi
+}
+alias gco='fzf_git_switch'
+```
+
+If run with no arguments, it provides a fuzzy-search interface over local and remote branches. If arguments are passed, it falls back to standard `git switch $@`.
+
+This highlights a key rule for workflow abstractions: do not optimize for cleverness; optimize to preserve consistent, predictable interfaces.
 
 ## A `scripts/` directory is where operational knowledge hardens
 
-Aliases save typing. Scripts save thought.
+Aliases save typing; scripts save thought.
 
-Once something needs arguments, conditionals, prerequisites, or a sequence of steps, it usually no longer belongs in an alias. It belongs in a script with a name.
+Once a task requires arguments, conditional logic, or multiple steps, it belongs in a standalone script in a versioned `scripts/` directory. My repository contains utility scripts for media backups, local servers, and environment configuration:
 
-That is why my dotfiles repository has a `scripts/` directory. It contains utilities such as:
+- `macos-defaults-apply`: machine setup automation.
+- `skill`: managing developer environment skills across projects.
+- `serve`: quick, zero-config local HTTP serving.
+- `find-env-vars-ruby`: parsing codebase variables.
 
-- `macos-defaults-apply` for machine setup
-- `skill` for managing Codex skills across projects
-- `serve` for quick local serving
-- `find-env-vars-ruby` for focused inspection work
-
-There are also media and backup utilities in there. I like that. A personal tools repository should reflect real work, not an artificially pure software-only world.
-
-The common property is not the domain. It is the threshold: each script exists because a repeated task deserved a stable entry point.
-
-Early in your career, this is a useful threshold to watch for. Whenever you copy the same command out of a note for the third or fourth time, ask whether you are maintaining an undocumented interface by hand.
-
-If the answer is yes, give it a name and move it into code.
+Every script in this directory represents a moment where I stopped copying a command sequence from a notes app and committed it to code. Watching for this threshold prevents you from running an undocumented, manual pipeline by hand.
 
 ## System settings count as code
 
-macOS defaults are a good example of a category many engineers underestimate. They live behind toggles and checkboxes, so they look less serious than shell configuration or scripts. In practice they still affect speed, accuracy, and daily ergonomics.
+System settings are code that happen to live behind checkboxes. Dock behavior, key repeat rates, and Finder preferences directly impact your daily speed and ergonomics.
 
-My `macos-defaults-apply` script captures settings such as Finder visibility, Dock behavior, key repeat, screenshot handling, and trackpad preferences. The important part is not any single setting. It is that these decisions are encoded, reviewable, and safe to apply again.
-
-If a setting affects how I work every day, I do not want to rediscover it manually during the next migration.
-
-That is another transferable lesson. Environment setup is not separate from engineering work. It is part of the system that produces the work. If it affects throughput or cognitive load, it deserves the same questions as any other maintained system:
-
-- Is it reproducible?
-- Is it documented?
-- Is it safe to rerun?
-- Is the current state visible?
+My `macos-defaults-apply` script encodes these settings via macOS `defaults` commands. This makes environment preferences reviewable, version-controlled, and safe to rerun during a machine migration. Treating system settings as code ensures your workstation is defined by explicit choices rather than default drifts.
 
 ## Reproducibility is the real payoff
 
-One of the most important files in the repository is the README.
+The most important file in a dotfiles repository is the `README.md` containing the bootstrap path. It should define the complete flow from a clean OS install to a fully operational system: installing the package manager, cloning the repository, symlinking configurations, and running package bundles.
 
-That is where a private setup turns into a rebuildable system. It defines the bootstrap path: install the package manager, install a few core tools, clone the repository, apply the symlinks, run the package bundle, and follow the remaining manual steps.
+Customization is convenient, but reproducibility is the real payoff. It turns a machine failure from a stressful memory test into a routine, automated restoration.
 
-This is the real payoff of dotfiles. Customization is nice, but reproducibility is what changes the game. A broken machine becomes an inconvenience instead of a disaster. A new machine becomes a setup exercise instead of a memory test.
-
-For software engineers this should feel familiar. Reliable systems are easier to change than improvised ones. The same is true for a workstation.
-
-But this isn't just about avoiding a memory test during a migration. It sits at the intersection of convenience and discipline:
+This practice sits at the intersection of developer convenience and systems discipline:
 
 - reduce recurring friction
 - name the interface
@@ -117,12 +128,8 @@ But this isn't just about avoiding a memory test during a migration. It sits at 
 - document the bootstrap path
 - remove stale complexity
 
-Treating your workstation as a maintained system minimizes daily friction. At the same time, it naturally aligns your local habits with broader software delivery standards. Whether you are automating a personal script or designing a deployment pipeline for a team, the core questions are identical: is the setup versioned, is the bootstrap path clear, and can you run it safely from a clean state?
-
-By practicing that discipline locally on a system you use every single day, you build the habits that make shared production systems easier to trust and run.
+Treating your workstation as a maintained system naturally aligns your local habits with production delivery standards. Whether automating a local workflow or writing a deployment pipeline, the core questions are identical: the system must be versioned, the bootstrap path must be documented, and it must run safely from a clean state.
 
 ## Outlook
 
-The first two parts of this series focused on tools and environment. This part focused on why I keep dotfiles at all. If the earlier posts described _what_ I use, this one describes why I treat my setup as a maintained system.
-
-That is enough for one post. The concrete details are better handled only when they are worth writing down precisely.
+The first two parts of this series focused on the tools I use. This part covers the system that keeps those tools reproducible and maintainable. By treating your local setup as operational infrastructure, you build the habits that make larger, shared systems easier to trust and run.
