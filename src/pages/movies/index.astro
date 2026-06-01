@@ -5,11 +5,13 @@ import MovieLayout from "../../layouts/MovieLayout.astro"
 import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
 import MovieFilters from "../../components/MovieFilters.astro"
-import movies from "../../data/movies.json"
 import MoviePoster from "../../components/MoviePoster.astro"
 import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
-import { getRecommendationsCache } from "../../utils/movieCache"
+import { getMovieCache } from "../../utils/movieCache"
 import { externalRel } from "../../utils/linkRel"
+
+// Get centralized movie data
+const { movies, recommendationsSet, recommendationNotes } = getMovieCache()
 
 // Validate data integrity
 if (!Array.isArray(movies) || movies.length === 0) {
@@ -23,11 +25,8 @@ const description = "Personal movie ratings and recommendations. Explore films w
 const url = new URL(Astro.request.url)
 const { filters, sortOptions } = parseUrlParams(url)
 
-// Get cached recommendation data
-const { set: recommendationsSet, notes: recommendationNotes } = getRecommendationsCache()
-
 // Process movies using utility functions
-const { movies: processedMovies } = processMovies(movies as Movie[], recommendationsSet, filters, sortOptions)
+const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
 ---
 
 <MovieLayout title={title} description={description}>

@@ -19,12 +19,11 @@ export function getMovieCache(): MovieCache {
   if (!movieCache) {
     movieCache = {
       movies: moviesData as Movie[],
-      recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter(Boolean)),
+      recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter((c): c is string => !!c)),
       recommendationNotes: new Map(
         recommendationsData
-          .map((r) => [r.const, r.note])
-          .filter(([constId, note]) => constId && note)
-          .map(([constId, note]) => [constId as string, note as string]),
+          .filter((r) => r.const && r.note)
+          .map((r) => [r.const as string, r.note as string]),
       ),
     }
   }
