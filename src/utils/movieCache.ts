@@ -4,6 +4,7 @@ import type { Movie } from "./movieUtils"
 
 export interface MovieCache {
   movies: Movie[]
+  moviesMap: Map<string, Movie>
   recommendationsSet: Set<string>
   recommendationNotes: Map<string, string>
 }
@@ -27,6 +28,7 @@ export function getMovieCache(): MovieCache {
 
     movieCache = {
       movies: processedMovies,
+      moviesMap: new Map(processedMovies.map((m) => [m.const, m])),
       recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter((c): c is string => !!c)),
       recommendationNotes: new Map(
         recommendationsData

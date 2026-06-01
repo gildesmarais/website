@@ -1,12 +1,12 @@
 ---
-export const prerender = false
+export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
 import MovieFilters from "../../components/MovieFilters.astro"
 import MoviePoster from "../../components/MoviePoster.astro"
-import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
+import { processMovies, type Movie } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 import { externalRel } from "../../utils/linkRel"
 
@@ -21,12 +21,10 @@ if (!Array.isArray(movies) || movies.length === 0) {
 const title = "Movie Ratings"
 const description = "Personal movie ratings and recommendations. Explore films worth watching."
 
-// Parse URL parameters using utility function
-const url = new URL(Astro.request.url)
-const { filters, sortOptions } = parseUrlParams(url)
-
-// Process movies using utility functions
-const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
+// Initial render: show all movies sorted by title (default)
+// At build time, we don't have URL params, so we render the default state.
+// On the client, the search/filter script will take over.
+const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}, { sortBy: "title", sortDir: "asc" })
 ---
 
 <MovieLayout title={title} description={description}>
@@ -71,6 +69,123 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, fi
     > used in this page. 🧡
   </aside>
 </MovieLayout>
+
+<script>
+  // Client-side search and filter logic for "instant" performance
+  const grid = document.querySelector(".recommendations-grid") as HTMLElement
+  const cards = Array.from(grid.querySelectorAll(".movie-card")) as HTMLElement[]
+  const searchInput = document.getElementById("movieFilter") as HTMLInputElement
+  const forms = document.querySelectorAll(".control-form, .search-form")
+
+  let currentSearch = ""
+  let currentSort = "title"
+  let currentDir = "asc"
+  let showOnlyRecommendations = false
+
+  // Initialize from URL
+  const url = new URL(window.location.href)
+  currentSearch = url.searchParams.get("q") || ""
+  currentSort = url.searchParams.get("sort") || "title"
+  currentDir = url.searchParams.get("dir") || "asc"
+  showOnlyRecommendations = url.searchParams.get("isRecommendation") === "true"
+
+  if (searchInput) searchInput.value = currentSearch
+
+  const updateList = () => {
+    const tokens = currentSearch.toLowerCase().split(/\s+/).filter(Boolean)
+
+    // Filter and Sort
+    const filtered = cards.filter((card) => {
+      const searchBase = card.dataset.search || ""
+      const isRec = card.dataset.recommendation === "true"
+      
+      const matchesSearch = tokens.every((token) => searchBase.includes(token))
+      const matchesRec = !showOnlyRecommendations || isRec
+
+      return matchesSearch && matchesRec
+    })
+
+    // Sort cards
+    filtered.sort((a, b) => {
+      const sortKeyMap: Record<string, string> = {
+        yourRating: "rating",
+        runtimeMins: "runtime",
+        title: "title",
+        year: "year",
+      }
+      const key = sortKeyMap[currentSort] || currentSort
+      let aVal: string | number = a.dataset[key] || ""
+      let bVal: string | number = b.dataset[key] || ""
+
+      if (currentSort !== "title") {
+        aVal = parseFloat(aVal as string) || 0
+        bVal = parseFloat(bVal as string) || 0
+      }
+
+      if (aVal < bVal) return currentDir === "asc" ? -1 : 1
+      if (aVal > bVal) return currentDir === "asc" ? 1 : -1
+      return 0
+    })
+
+    // Batch DOM updates
+    requestAnimationFrame(() => {
+      cards.forEach((card) => {
+        card.style.display = filtered.includes(card) ? "" : "none"
+      })
+      filtered.forEach((card) => grid.appendChild(card))
+    })
+
+    // Update URL without reload
+    const newUrl = new URL(window.location.href)
+    if (currentSearch) newUrl.searchParams.set("q", currentSearch)
+    else newUrl.searchParams.delete("q")
+    
+    if (currentSort !== "title") newUrl.searchParams.set("sort", currentSort)
+    else newUrl.searchParams.delete("sort")
+    
+    if (currentDir !== "desc" && currentSort !== "title") newUrl.searchParams.set("dir", currentDir)
+    else if (currentSort === "title" && currentDir === "asc") newUrl.searchParams.delete("dir")
+    
+    if (showOnlyRecommendations) newUrl.searchParams.set("isRecommendation", "true")
+    else newUrl.searchParams.delete("isRecommendation")
+
+    window.history.replaceState({}, "", newUrl.toString())
+  }
+
+  // Intercept all forms
+  forms.forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault()
+      const formData = new FormData(form as HTMLFormElement)
+      
+      // Update state from form
+      if (form.classList.contains("control-form")) {
+        const sort = formData.get("sort") as string
+        const dir = formData.get("dir") as string
+        const isRec = formData.get("isRecommendation") === "true"
+        
+        if (sort) {
+          currentSort = sort
+          currentDir = dir
+        } else {
+          // It's the recommendation toggle
+          showOnlyRecommendations = !showOnlyRecommendations
+        }
+      }
+      
+      updateList()
+    })
+  })
+
+  // Live search
+  searchInput?.addEventListener("input", (e) => {
+    currentSearch = (e.target as HTMLInputElement).value
+    updateList()
+  })
+
+  // Initial update if URL has params
+  if (window.location.search) updateList()
+</script>
 <style>
   .recommendations-grid {
     display: grid;

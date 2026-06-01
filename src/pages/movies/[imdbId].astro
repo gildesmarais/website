@@ -16,17 +16,17 @@ export async function getStaticPaths() {
 }
 
 // Get centralized movie data
-const { movies, recommendationsSet, recommendationNotes } = getMovieCache()
+const { moviesMap, recommendationsSet, recommendationNotes } = getMovieCache()
 
 // Validate data integrity
-if (!Array.isArray(movies) || movies.length === 0) {
+if (moviesMap.size === 0) {
   throw new Error("Invalid or empty movies data")
 }
 
 const { imdbId } = Astro.params
 
-// Find the specific movie directly
-const movie = movies.find((m) => m.const === imdbId)
+// Find the specific movie directly using O(1) Map lookup
+const movie = moviesMap.get(imdbId!)
 
 if (!movie) {
   return Astro.redirect("/movies/")
