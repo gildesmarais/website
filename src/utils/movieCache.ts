@@ -1,18 +1,43 @@
-import recommendations from "../data/recommendations.json"
+import moviesData from "../data/movies.json"
+import recommendationsData from "../data/recommendations.json"
+import type { Movie } from "./movieUtils"
 
-let recommendationsCache: { set: Set<string>; notes: Map<string, string> } | null = null
+export interface MovieCache {
+  movies: Movie[]
+  recommendationsSet: Set<string>
+  recommendationNotes: Map<string, string>
+}
 
-export function getRecommendationsCache(): { set: Set<string>; notes: Map<string, string> } {
-  if (!recommendationsCache) {
-    recommendationsCache = {
-      set: new Set(recommendations.map((r) => r.const).filter(Boolean)),
-      notes: new Map(
-        recommendations
+let movieCache: MovieCache | null = null
+
+/**
+ * Returns the centralized movie and recommendation data.
+ * The cache is initialized once and persists in memory for the lifetime of the process/lambda.
+ * This ensures high performance while centralizing the data source of truth.
+ */
+export function getMovieCache(): MovieCache {
+  if (!movieCache) {
+    movieCache = {
+      movies: moviesData as Movie[],
+      recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter(Boolean)),
+      recommendationNotes: new Map(
+        recommendationsData
           .map((r) => [r.const, r.note])
           .filter(([constId, note]) => constId && note)
           .map(([constId, note]) => [constId as string, note as string]),
       ),
     }
   }
-  return recommendationsCache!
+  return movieCache!
+}
+
+/**
+ * Legacy wrapper for backward compatibility with existing code.
+ */
+export function getRecommendationsCache() {
+  const cache = getMovieCache()
+  return {
+    set: cache.recommendationsSet,
+    notes: cache.recommendationNotes,
+  }
 }
