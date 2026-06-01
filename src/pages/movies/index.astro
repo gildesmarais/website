@@ -26,7 +26,7 @@ const url = new URL(Astro.request.url)
 const { filters, sortOptions } = parseUrlParams(url)
 
 // Process movies using utility functions
-const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions, true)
+const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
 ---
 
 <MovieLayout title={title} description={description}>

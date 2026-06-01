@@ -30,22 +30,16 @@ export interface ProcessedMovies {
   movies: Movie[]
 }
 
-// Filter out TV series, shorts, and other non-movie content
-export function filterMoviesOnly(movies: Movie[]): Movie[] {
-  return movies.filter((movie) => movie.title_type === "Movie")
-}
-
 export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   let filtered = movies
 
   if (filters.searchQuery?.trim()) {
-    const query = filters.searchQuery.trim().toLowerCase()
+    const tokens = filters.searchQuery.trim().toLowerCase().split(/\s+/)
     filtered = filtered.filter((movie) => {
-      if (movie._searchString) {
-        return movie._searchString.includes(query)
-      }
-      const searchText = `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
-      return searchText.includes(query)
+      const searchBase =
+        movie._searchString ||
+        `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
+      return tokens.every((token) => searchBase.includes(token))
     })
   }
 
@@ -89,24 +83,27 @@ export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movi
   })
 }
 
+/**
+ * Processes movies by applying filters and sorting.
+ * Assumes input movies are already pre-filtered for type (e.g., from movieCache).
+ */
 export function processMovies(
   movies: Movie[],
   recommendationsSet: Set<string>,
   filters: MovieFilters,
   sortOptions: MovieSortOptions,
-  skipTypeFilter = false,
 ): ProcessedMovies {
-  let processedMovies = skipTypeFilter ? movies : filterMoviesOnly(movies)
+  let processed = movies
 
   if (filters.isRecommendation) {
-    processedMovies = processedMovies.filter((movie) => recommendationsSet.has(movie.const))
+    processed = processed.filter((movie) => recommendationsSet.has(movie.const))
   }
 
-  const filteredMovies = filterMovies(processedMovies, filters)
-  const sortedMovies = sortMovies(filteredMovies, sortOptions)
+  const filtered = filterMovies(processed, filters)
+  const sorted = sortMovies(filtered, sortOptions)
 
   return {
-    movies: sortedMovies,
+    movies: sorted,
   }
 }
 
