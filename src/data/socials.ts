@@ -13,7 +13,7 @@ export const socials = [
   },
   {
     name: "Soundcloud",
-    url: "https://soundcloud.com/admiralgiesse",
+    url: "https://soundcloud.com/gildesmarais",
     rel: "me",
     category: "personal",
   },

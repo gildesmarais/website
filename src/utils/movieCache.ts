@@ -10,9 +10,9 @@ export function getRecommendationsCache(): { set: Set<string>; notes: Map<string
         recommendations
           .map((r) => [r.const, r.note])
           .filter(([constId, note]) => constId && note)
-          .map(([constId, note]) => [constId, note as string]),
+          .map(([constId, note]) => [constId as string, note as string]),
       ),
     }
   }
-  return recommendationsCache
+  return recommendationsCache!
 }
