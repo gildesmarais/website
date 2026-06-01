@@ -84,18 +84,6 @@ Early in your career, this is a useful threshold to watch for. Whenever you copy
 
 If the answer is yes, give it a name and move it into code.
 
-## Reproducibility is the real payoff
-
-One of the most important files in the repository is the README.
-
-That is where a private setup turns into a rebuildable system. It defines the bootstrap path: install the package manager, install a few core tools, clone the repository, apply the symlinks, run the package bundle, and follow the remaining manual steps.
-
-This is the real payoff of dotfiles.
-
-Customization is nice, but reproducibility is what changes the game. A broken machine becomes an inconvenience instead of a disaster. A new machine becomes a setup exercise instead of a memory test.
-
-For software engineers this should feel familiar. Reliable systems are easier to change than improvised ones. The same is true for a workstation.
-
 ## System settings count as code
 
 macOS defaults are a good example of a category many engineers underestimate. They live behind toggles and checkboxes, so they look less serious than shell configuration or scripts. In practice they still affect speed, accuracy, and daily ergonomics.
@@ -111,11 +99,17 @@ That is another transferable lesson. Environment setup is not separate from engi
 - Is it safe to rerun?
 - Is the current state visible?
 
-## Why this is worth learning early
+## Reproducibility is the real payoff
 
-I think dotfiles are a useful training ground because they sit at the intersection of convenience and discipline.
+One of the most important files in the repository is the README.
 
-They are small enough to experiment with, but structured enough to teach good habits:
+That is where a private setup turns into a rebuildable system. It defines the bootstrap path: install the package manager, install a few core tools, clone the repository, apply the symlinks, run the package bundle, and follow the remaining manual steps.
+
+This is the real payoff of dotfiles. Customization is nice, but reproducibility is what changes the game. A broken machine becomes an inconvenience instead of a disaster. A new machine becomes a setup exercise instead of a memory test.
+
+For software engineers this should feel familiar. Reliable systems are easier to change than improvised ones. The same is true for a workstation.
+
+But this isn't just about avoiding a memory test during a migration. It sits at the intersection of convenience and discipline:
 
 - reduce recurring friction
 - name the interface
@@ -123,7 +117,9 @@ They are small enough to experiment with, but structured enough to teach good ha
 - document the bootstrap path
 - remove stale complexity
 
-That progression transfers well to team systems. Teams also accumulate tribal knowledge, undocumented commands, and manual rituals. Engineers who learn to see those problems locally usually recognize them earlier in shared systems too.
+Treating your workstation as a maintained system minimizes daily friction. At the same time, it naturally aligns your local habits with broader software delivery standards. Whether you are automating a personal script or designing a deployment pipeline for a team, the core questions are identical: is the setup versioned, is the bootstrap path clear, and can you run it safely from a clean state?
+
+By practicing that discipline locally on a system you use every single day, you build the habits that make shared production systems easier to trust and run.
 
 ## Outlook
 
