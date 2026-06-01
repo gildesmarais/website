@@ -21,22 +21,22 @@ if (!Array.isArray(movies) || movies.length === 0) {
 const title = "Movie Ratings"
 const description = "Personal movie ratings and recommendations. Explore films worth watching."
 
-// Initial render: show all movies sorted by title (default)
+// Initial render: show all movies in original JSON order (default)
 // At build time, we don't have URL params, so we render the default state.
 // On the client, the search/filter script will take over.
-const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}, { sortBy: "title", sortDir: "asc" })
+const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}, { sortBy: "default", sortDir: "asc" })
 ---
 
 <MovieLayout title={title} description={description}>
   <section>
     <Hero title={title} description={description} />
 
-    <!-- Movie filters and sorting controls -->
+    <!-- Movie filters and sorting controls (initial state for static render) -->
     <MovieFilters
-      searchQuery={filters.searchQuery || ""}
-      isRecommendation={filters.isRecommendation || false}
-      sortBy={sortOptions.sortBy}
-      sortDir={sortOptions.sortDir}
+      searchQuery=""
+      isRecommendation={false}
+      sortBy="default"
+      sortDir="asc"
     />
     <div class="recommendations-grid">
       {
@@ -78,14 +78,14 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
   const forms = document.querySelectorAll(".control-form, .search-form")
 
   let currentSearch = ""
-  let currentSort = "title"
+  let currentSort = "default"
   let currentDir = "asc"
   let showOnlyRecommendations = false
 
   // Initialize from URL
   const url = new URL(window.location.href)
   currentSearch = url.searchParams.get("q") || ""
-  currentSort = url.searchParams.get("sort") || "title"
+  currentSort = url.searchParams.get("sort") || "default"
   currentDir = url.searchParams.get("dir") || "asc"
   showOnlyRecommendations = url.searchParams.get("isRecommendation") === "true"
 
@@ -106,26 +106,36 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
     })
 
     // Sort cards
-    filtered.sort((a, b) => {
-      const sortKeyMap: Record<string, string> = {
-        yourRating: "rating",
-        runtimeMins: "runtime",
-        title: "title",
-        year: "year",
-      }
-      const key = sortKeyMap[currentSort] || currentSort
-      let aVal: string | number = a.dataset[key] || ""
-      let bVal: string | number = b.dataset[key] || ""
+    if (currentSort === "default") {
+      // Re-order based on original DOM order or data attribute if we added index
+      // Since we appended them in order, the original array 'cards' is in JSON order
+      filtered.sort((a, b) => {
+        const aIdx = cards.indexOf(a)
+        const bIdx = cards.indexOf(b)
+        return currentDir === "asc" ? aIdx - bIdx : bIdx - aIdx
+      })
+    } else {
+      filtered.sort((a, b) => {
+        const sortKeyMap: Record<string, string> = {
+          yourRating: "rating",
+          runtimeMins: "runtime",
+          title: "title",
+          year: "year",
+        }
+        const key = sortKeyMap[currentSort] || currentSort
+        let aVal: string | number = a.dataset[key] || ""
+        let bVal: string | number = b.dataset[key] || ""
 
-      if (currentSort !== "title") {
-        aVal = parseFloat(aVal as string) || 0
-        bVal = parseFloat(bVal as string) || 0
-      }
+        if (currentSort !== "title") {
+          aVal = parseFloat(aVal as string) || 0
+          bVal = parseFloat(bVal as string) || 0
+        }
 
-      if (aVal < bVal) return currentDir === "asc" ? -1 : 1
-      if (aVal > bVal) return currentDir === "asc" ? 1 : -1
-      return 0
-    })
+        if (aVal < bVal) return currentDir === "asc" ? -1 : 1
+        if (aVal > bVal) return currentDir === "asc" ? 1 : -1
+        return 0
+      })
+    }
 
     // Batch DOM updates
     requestAnimationFrame(() => {
@@ -140,11 +150,11 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
     if (currentSearch) newUrl.searchParams.set("q", currentSearch)
     else newUrl.searchParams.delete("q")
     
-    if (currentSort !== "title") newUrl.searchParams.set("sort", currentSort)
+    if (currentSort !== "default") newUrl.searchParams.set("sort", currentSort)
     else newUrl.searchParams.delete("sort")
     
-    if (currentDir !== "desc" && currentSort !== "title") newUrl.searchParams.set("dir", currentDir)
-    else if (currentSort === "title" && currentDir === "asc") newUrl.searchParams.delete("dir")
+    if (currentDir !== "desc" && currentSort !== "default") newUrl.searchParams.set("dir", currentDir)
+    else if (currentSort === "default" && currentDir === "asc") newUrl.searchParams.delete("dir")
     
     if (showOnlyRecommendations) newUrl.searchParams.set("isRecommendation", "true")
     else newUrl.searchParams.delete("isRecommendation")

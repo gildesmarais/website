@@ -22,7 +22,7 @@ export interface MovieFilters {
 }
 
 export interface MovieSortOptions {
-  sortBy: "title" | "year" | "yourRating" | "imdbRating" | "runtimeMins"
+  sortBy: "default" | "title" | "year" | "yourRating" | "imdbRating" | "runtimeMins"
   sortDir: "asc" | "desc"
 }
 
@@ -47,6 +47,10 @@ export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
 }
 
 export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movie[] {
+  if (sortOptions.sortBy === "default") {
+    return sortOptions.sortDir === "asc" ? [...movies] : [...movies].reverse()
+  }
+
   return [...movies].sort((a, b) => {
     let aVal: string | number
     let bVal: string | number
