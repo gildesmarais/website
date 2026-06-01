@@ -17,8 +17,16 @@ let movieCache: MovieCache | null = null
  */
 export function getMovieCache(): MovieCache {
   if (!movieCache) {
+    // Pre-filter and pre-compute data once
+    const processedMovies = (moviesData as Movie[])
+      .filter((movie) => movie.title_type === "Movie")
+      .map((movie) => ({
+        ...movie,
+        _searchString: `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase(),
+      }))
+
     movieCache = {
-      movies: moviesData as Movie[],
+      movies: processedMovies,
       recommendationsSet: new Set(recommendationsData.map((r) => r.const).filter((c): c is string => !!c)),
       recommendationNotes: new Map(
         recommendationsData

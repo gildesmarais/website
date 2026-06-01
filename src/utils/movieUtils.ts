@@ -13,6 +13,7 @@ export interface Movie {
   num_votes: number
   release_date: string
   directors: string
+  _searchString?: string // Pre-computed for performance
 }
 
 export interface MovieFilters {
@@ -40,6 +41,9 @@ export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   if (filters.searchQuery?.trim()) {
     const query = filters.searchQuery.trim().toLowerCase()
     filtered = filtered.filter((movie) => {
+      if (movie._searchString) {
+        return movie._searchString.includes(query)
+      }
       const searchText = `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
       return searchText.includes(query)
     })
@@ -90,8 +94,9 @@ export function processMovies(
   recommendationsSet: Set<string>,
   filters: MovieFilters,
   sortOptions: MovieSortOptions,
+  skipTypeFilter = false,
 ): ProcessedMovies {
-  let processedMovies = filterMoviesOnly(movies)
+  let processedMovies = skipTypeFilter ? movies : filterMoviesOnly(movies)
 
   if (filters.isRecommendation) {
     processedMovies = processedMovies.filter((movie) => recommendationsSet.has(movie.const))
