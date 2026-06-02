@@ -75,7 +75,9 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
   const grid = document.querySelector(".recommendations-grid") as HTMLElement
   const cards = Array.from(grid.querySelectorAll(".movie-card")) as HTMLElement[]
   const searchInput = document.getElementById("movieFilter") as HTMLInputElement
-  const forms = document.querySelectorAll(".control-form, .search-form")
+  const searchForm = document.getElementById("searchForm") as HTMLFormElement
+  const recToggle = document.getElementById("recommendationToggle") as HTMLButtonElement
+  const sortBtns = document.querySelectorAll(".sort-btn") as NodeListOf<HTMLButtonElement>
 
   let currentSearch = ""
   let currentSort = "default"
@@ -90,6 +92,34 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
   showOnlyRecommendations = url.searchParams.get("isRecommendation") === "true"
 
   if (searchInput) searchInput.value = currentSearch
+
+  const updateUI = () => {
+    // Update Recommendation Toggle
+    if (showOnlyRecommendations) {
+      recToggle?.classList.add("active")
+      recToggle?.setAttribute("aria-pressed", "true")
+      recToggle?.setAttribute("aria-label", "Show all movies")
+      if (recToggle) recToggle.title = "Show all movies"
+    } else {
+      recToggle?.classList.remove("active")
+      recToggle?.setAttribute("aria-pressed", "false")
+      recToggle?.setAttribute("aria-label", "Show only recommended movies")
+      if (recToggle) recToggle.title = "Show only recommended movies"
+    }
+
+    // Update Sort Buttons
+    sortBtns.forEach((btn) => {
+      const sortKey = btn.dataset.sort
+      const iconSpan = btn.querySelector(".sort-icon") as HTMLElement
+      if (sortKey === currentSort) {
+        btn.classList.add("active")
+        if (iconSpan) iconSpan.textContent = currentDir === "asc" ? " ▲" : " ▼"
+      } else {
+        btn.classList.remove("active")
+        if (iconSpan) iconSpan.textContent = ""
+      }
+    })
+  }
 
   const updateList = () => {
     const tokens = currentSearch.toLowerCase().split(/\s+/).filter(Boolean)
@@ -107,8 +137,7 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
 
     // Sort cards
     if (currentSort === "default") {
-      // Re-order based on original DOM order or data attribute if we added index
-      // Since we appended them in order, the original array 'cards' is in JSON order
+      // Re-order based on original DOM order
       filtered.sort((a, b) => {
         const aIdx = cards.indexOf(a)
         const bIdx = cards.indexOf(b)
@@ -160,31 +189,31 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
     else newUrl.searchParams.delete("isRecommendation")
 
     window.history.replaceState({}, "", newUrl.toString())
+    
+    updateUI()
   }
 
-  // Intercept all forms
-  forms.forEach((form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault()
-      const formData = new FormData(form as HTMLFormElement)
-      
-      // Update state from form
-      if (form.classList.contains("control-form")) {
-        const sort = formData.get("sort") as string
-        const dir = formData.get("dir") as string
-        const isRec = formData.get("isRecommendation") === "true"
-        
-        if (sort) {
-          currentSort = sort
-          currentDir = dir
-        } else {
-          // It's the recommendation toggle
-          showOnlyRecommendations = !showOnlyRecommendations
-        }
+  // Event Listeners
+  recToggle?.addEventListener("click", () => {
+    showOnlyRecommendations = !showOnlyRecommendations
+    updateList()
+  })
+
+  sortBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const sort = btn.dataset.sort as string
+      if (currentSort === sort) {
+        currentDir = currentDir === "asc" ? "desc" : "asc"
+      } else {
+        currentSort = sort
+        currentDir = sort === "title" ? "asc" : "desc" // Default to desc for rating/year/runtime, asc for title
       }
-      
       updateList()
     })
+  })
+
+  searchForm?.addEventListener("submit", (e) => {
+    e.preventDefault()
   })
 
   // Live search
@@ -193,7 +222,8 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
     updateList()
   })
 
-  // Initial update if URL has params
+  // Initial update
+  updateUI()
   if (window.location.search) updateList()
 </script>
 <style>
