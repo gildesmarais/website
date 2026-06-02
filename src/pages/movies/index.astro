@@ -1,12 +1,12 @@
 ---
-export const prerender = true
+export const prerender = false
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
 import MovieFilters from "../../components/MovieFilters.astro"
 import MoviePoster from "../../components/MoviePoster.astro"
-import { processMovies, type Movie } from "../../utils/movieUtils"
+import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 import { externalRel } from "../../utils/linkRel"
 
@@ -21,22 +21,22 @@ if (!Array.isArray(movies) || movies.length === 0) {
 const title = "Movie Ratings"
 const description = "Personal movie ratings and recommendations. Explore films worth watching."
 
-// Initial render: show all movies in original JSON order (default)
-// At build time, we don't have URL params, so we render the default state.
-// On the client, the search/filter script will take over.
-const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}, { sortBy: "default", sortDir: "asc" })
+// Parse URL parameters for Server-Side Rendering (No-JS support)
+const url = new URL(Astro.request.url)
+const { filters, sortOptions } = parseUrlParams(url)
+
+const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
 ---
 
 <MovieLayout title={title} description={description}>
   <section>
     <Hero title={title} description={description} />
 
-    <!-- Movie filters and sorting controls (initial state for static render) -->
     <MovieFilters
-      searchQuery=""
-      isRecommendation={false}
-      sortBy="default"
-      sortDir="asc"
+      searchQuery={filters.searchQuery || ""}
+      isRecommendation={filters.isRecommendation || false}
+      sortBy={sortOptions.sortBy}
+      sortDir={sortOptions.sortDir}
     />
     <div class="recommendations-grid">
       {
@@ -76,8 +76,8 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
   const cards = Array.from(grid.querySelectorAll(".movie-card")) as HTMLElement[]
   const searchInput = document.getElementById("movieFilter") as HTMLInputElement
   const searchForm = document.getElementById("searchForm") as HTMLFormElement
-  const recToggle = document.getElementById("recommendationToggle") as HTMLButtonElement
-  const sortBtns = document.querySelectorAll(".sort-btn") as NodeListOf<HTMLButtonElement>
+  const recToggle = document.getElementById("recommendationToggle") as HTMLAnchorElement
+  const sortBtns = document.querySelectorAll(".sort-btn") as NodeListOf<HTMLAnchorElement>
 
   let currentSearch = ""
   let currentSort = "default"
@@ -194,13 +194,15 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
   }
 
   // Event Listeners
-  recToggle?.addEventListener("click", () => {
+  recToggle?.addEventListener("click", (e) => {
+    e.preventDefault()
     showOnlyRecommendations = !showOnlyRecommendations
     updateList()
   })
 
   sortBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault()
       const sort = btn.dataset.sort as string
       if (currentSort === sort) {
         currentDir = currentDir === "asc" ? "desc" : "asc"
@@ -224,7 +226,6 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, {}
 
   // Initial update
   updateUI()
-  if (window.location.search) updateList()
 </script>
 <style>
   .recommendations-grid {
