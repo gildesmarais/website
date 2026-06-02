@@ -114,7 +114,7 @@ export function processMovies(
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
   const searchQuery = url.searchParams.get("q") || ""
   const isRecommendation = url.searchParams.get("isRecommendation") === "true"
-  const sortBy = (url.searchParams.get("sort") || "title") as MovieSortOptions["sortBy"]
+  const sortBy = (url.searchParams.get("sort") || "default") as MovieSortOptions["sortBy"]
   const sortDir = (url.searchParams.get("dir") || "asc") as MovieSortOptions["sortDir"]
 
   return {

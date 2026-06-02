@@ -7,6 +7,26 @@ export interface Props {
 }
 
 const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
+
+// Helper to generate URLs for links
+function buildUrl(updates: Record<string, string | boolean | undefined>) {
+  const params = new URLSearchParams()
+  if (searchQuery) params.set("q", searchQuery)
+  if (isRecommendation) params.set("isRecommendation", "true")
+  if (sortBy !== "default") params.set("sort", sortBy)
+  if (sortDir !== "asc") params.set("dir", sortDir)
+
+  for (const [key, value] of Object.entries(updates)) {
+    if (value === undefined || value === false || value === "") {
+      params.delete(key)
+    } else {
+      params.set(key, String(value))
+    }
+  }
+  
+  const query = params.toString()
+  return query ? `/movies/?${query}` : `/movies/`
+}
 ---
 
 <!-- Movie controls -->
@@ -14,21 +34,16 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
   <!-- Filter and sort controls -->
   <div class="controls-group">
     <!-- Recommendation toggle -->
-    <form method="GET" class="control-form">
-      {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-      {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
-      {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
-      {isRecommendation ? null : <input type="hidden" name="isRecommendation" value="true" />}
-      <button
-        type="submit"
-        class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
-        aria-pressed={isRecommendation}
-        aria-label={isRecommendation ? "Show all movies" : "Show only recommended movies"}
-        title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
-      >
-        <span class="recommendation-icon" aria-hidden="true">★</span>
-      </button>
-    </form>
+    <a
+      href={buildUrl({ isRecommendation: !isRecommendation })}
+      id="recommendationToggle"
+      class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
+      aria-pressed={isRecommendation}
+      aria-label={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+      title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+    >
+      <span class="recommendation-icon" aria-hidden="true">★</span>
+    </a>
 
     <!-- Sort buttons -->
     <div class="sort-group">
@@ -38,27 +53,31 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
           { key: "title", label: "Title" },
           { key: "year", label: "Year" },
           { key: "runtimeMins", label: "Runtime" },
-        ].map(({ key, label }) => (
-          <form method="GET" class="control-form">
-            {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-            {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-            <input type="hidden" name="sort" value={key} />
-            <input
-              type="hidden"
-              name="dir"
-              value={sortBy === key ? (sortDir === "asc" ? "desc" : "asc") : "desc"}
-            />
-            <button type="submit" class={`minimal-btn ${sortBy === key ? "active" : ""}`}>
-              {label} {sortBy === key && (sortDir === "asc" ? "▲" : "▼")}
-            </button>
-          </form>
-        ))
+        ].map(({ key, label }) => {
+          const isActive = sortBy === key
+          const nextDir = isActive && sortDir === "asc" ? "desc" : "asc"
+          const defaultDir = key === "title" ? "asc" : "desc"
+          const targetDir = isActive ? nextDir : defaultDir
+          
+          return (
+            <a 
+              href={buildUrl({ sort: key, dir: targetDir })}
+              class={`minimal-btn sort-btn ${isActive ? "active" : ""}`} 
+              data-sort={key}
+            >
+              {label} <span class="sort-icon">{isActive ? (sortDir === "asc" ? "▲" : "▼") : ""}</span>
+            </a>
+          )
+        })
       }
     </div>
   </div>
 
   <!-- Search -->
-  <form method="GET" class="search-form">
+  <form id="searchForm" class="search-form" action="/movies/" method="get">
+    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+    {sortBy !== "default" && <input type="hidden" name="sort" value={sortBy} />}
+    {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
     <input
       id="movieFilter"
       name="q"
@@ -67,9 +86,7 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       value={searchQuery}
       class="movie-search-input"
     />
-    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
-    {sortBy !== "title" && <input type="hidden" name="sort" value={sortBy} />}
-    {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+    <noscript><button type="submit" class="sr-only">Search</button></noscript>
   </form>
 </div>
 
@@ -98,10 +115,6 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
     gap: 0.5rem;
   }
 
-  .control-form {
-    display: inline-block;
-  }
-
   .recommendation-toggle {
     padding: 0.5rem;
     min-width: 2.5rem;
@@ -109,6 +122,11 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
     border-color: transparent;
     background: transparent;
     justify-content: center;
+    text-decoration: none;
+  }
+
+  .sort-btn {
+    text-decoration: none;
   }
 
   .recommendation-toggle:focus-visible {
@@ -166,6 +184,8 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
   .search-form {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   [type="submit"] {
@@ -232,10 +252,6 @@ const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
       flex-wrap: nowrap;
       gap: 0.4rem;
       min-width: max-content;
-    }
-
-    .control-form {
-      flex: 0 0 auto;
     }
 
     .search-form {
