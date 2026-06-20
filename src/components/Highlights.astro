@@ -1,6 +1,8 @@
 ---
+import { externalRel } from "../utils/linkRel"
+
 export interface Props {
-  highlights: Array<{ term: string; definition: string }>
+  highlights: Array<{ term: string; definition: string; href?: string; external?: boolean }>
 }
 
 const { highlights } = Astro.props
@@ -8,9 +10,23 @@ const { highlights } = Astro.props
 
 <dl class="highlights">
   {
-    highlights.map(({ term, definition }) => (
+    highlights.map(({ term, definition, href, external }) => (
       <>
-        <dt>{term}</dt>
+        <dt>
+          {
+            href ? (
+              <a
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? externalRel("external") : undefined}
+              >
+                {term}
+              </a>
+            ) : (
+              term
+            )
+          }
+        </dt>
         <dd>{definition}</dd>
       </>
     ))
@@ -39,6 +55,15 @@ const { highlights } = Astro.props
     line-height: 1;
     display: flex;
     align-items: center;
+  }
+
+  .highlights dt a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .highlights dt a:hover {
+    text-decoration: underline;
   }
 
   .highlights dd {

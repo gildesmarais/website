@@ -13,6 +13,9 @@ clean:
 ci-install:
 	npm ci
 
+dev:
+	make serve
+
 serve:
 	npm run dev
 
