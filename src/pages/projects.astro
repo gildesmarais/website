@@ -11,12 +11,11 @@ const title = "Projects"
 const description =
   "Selective open-source experiments that remove friction for me and, hopefully, for you too."
 
-// Define headings for the TOC
 const projectHeadings = [
   { depth: 2, text: "html2rss" },
   { depth: 2, text: "moodbar.rs" },
-  { depth: 2, text: "jekyll-loading-lazy" },
   { depth: 2, text: ".dotfiles & Scripts" },
+  { depth: 2, text: "jekyll-loading-lazy" },
 ].map(({ depth, text }) => ({
   depth,
   text,
@@ -35,6 +34,9 @@ const projectHeadings = [
         >GitHub</a
       >.
     </p>
+    <p>
+      Open-source releases use trusted publishing — supply-chain security is part of how I ship.
+    </p>
   </Hero>
 
   <TableOfContents headings={projectHeadings} />
@@ -43,7 +45,7 @@ const projectHeadings = [
     title="html2rss"
     slug={slugify("html2rss")}
     status="maintained"
-    description="A production-ready toolkit that turns arbitrary HTML into clean, structured RSS 2.0 feeds."
+    description="The html2rss open-source organization — a production-ready toolkit that turns arbitrary HTML into clean, structured RSS 2.0 feeds."
     highlights={[
       { term: "Discovery", definition: "Extracts article lists declaratively; minimal brittle selectors." },
       { term: "Dynamic sites", definition: "Optional headless rendering for SPA and JS-heavy pages." },
@@ -55,6 +57,8 @@ const projectHeadings = [
     links={[
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
       { text: "GitHub Organization", url: "https://github.com/html2rss", external: true },
+      { text: "RubyGems", url: "https://rubygems.org/gems/html2rss/", external: true },
+      { text: "Docker Hub", url: "https://hub.docker.com/r/html2rss/web", external: true },
       { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
     ]}
   >
@@ -65,6 +69,10 @@ const projectHeadings = [
       over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that
       never had it (or quietly killed it).
     </p>
+    <p>
+      The <a href="https://github.com/html2rss" target="_blank" rel={externalRel("external")}>html2rss organization</a>
+      spans the Ruby gem, web app, config library, docs site, and scrape API bridge.
+    </p>
   </ProjectCard>
 
   <hr />
@@ -73,10 +81,11 @@ const projectHeadings = [
     title="moodbar.rs"
     slug={slugify("moodbar.rs")}
     status="maintained"
-    description="Cross-platform Rust toolkit for generating moodbars from audio (CLI + WASM)."
+    description="Cross-platform Rust toolkit — CLI, native iOS/Android, WASM."
     highlights={[
       { term: "Rust core", definition: "Pure-Rust stack powered by Symphonia + RustFFT." },
       { term: "WASM", definition: "Browser-ready WebAssembly bindings with a live demo." },
+      { term: "Native", definition: "iOS and Android bindings alongside CLI releases." },
       { term: "Platforms", definition: "Linux and macOS are first-class release targets." },
       { term: "Legacy output", definition: "Supports legacy-compatible raw moodbar byte generation." },
       {
@@ -86,16 +95,12 @@ const projectHeadings = [
     ]}
     links={[
       {
-        text: "Project website",
-        url: "https://gildesmarais.github.io/moodbar.rs/index.html",
+        text: "Project site + demo",
+        url: "https://gildesmarais.github.io/moodbar.rs/",
         external: true,
       },
       { text: "GitHub Repository", url: "https://github.com/gildesmarais/moodbar.rs", external: true },
-      {
-        text: "Browser demo",
-        url: "https://gildesmarais.github.io/moodbar.rs/wasm-demo.html",
-        external: true,
-      },
+      { text: "crates.io", url: "https://crates.io/crates/moodbar", external: true },
     ]}
   >
     <p>
@@ -108,9 +113,38 @@ const projectHeadings = [
   <hr />
 
   <ProjectCard
+    title=".dotfiles & Scripts"
+    slug={slugify(".dotfiles & Scripts")}
+    status="evergreen"
+    description="My personal macOS & CLI setup. A living repository of the tools I use daily."
+    links={[{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }]}
+    highlights={[
+      {
+        term: "Guided setup",
+        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
+      },
+      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
+      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
+      { term: "AI skills", definition: "Developer environment skills synced across machines." },
+    ]}
+  >
+    <p>
+      A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes.
+      It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS
+      defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for
+      audio workflows.
+      <br />
+      Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes
+      a Zsh setup for a consistent shell experience across machines.
+    </p>
+  </ProjectCard>
+
+  <hr />
+
+  <ProjectCard
     title="jekyll-loading-lazy"
     slug={slugify("jekyll-loading-lazy")}
-    status="stable"
+    status="legacy"
     description="Drop-in lazy loading for Jekyll (img/iframe). Zero JS. Instant performance wins."
     highlights={[
       { term: "Automatic", definition: "Injects loading attributes into images/iframes at build time." },
@@ -135,33 +169,6 @@ const projectHeadings = [
       Static sites deserve to be fast without extra chores. This plugin adds the native
       <code>loading="lazy"</code> attribute to images and iframes during the build, no template changes needed.
       Maintainers get Core Web Vitals improvements and one less script to ship.
-    </p>
-  </ProjectCard>
-
-  <hr />
-  <ProjectCard
-    title=".dotfiles & Scripts"
-    slug={slugify(".dotfiles & Scripts")}
-    status="evergreen"
-    description="My personal macOS & CLI setup. A living repository of the tools I use daily."
-    links={[{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }]}
-    highlights={[
-      {
-        term: "Guided setup",
-        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
-      },
-      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
-      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
-    ]}
-  >
-    <p>
-      A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes.
-      It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS
-      defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for
-      audio workflows.
-      <br />
-      Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes
-      a Zsh setup for a consistent shell experience across machines.
     </p>
   </ProjectCard>
 </BaseLayout>
