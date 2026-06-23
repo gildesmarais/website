@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro"
+import { OMDB_API_KEY } from "astro:env/server"
 import { subtle } from "crypto"
 
 export const prerender = false
@@ -11,7 +12,7 @@ async function generateETag(data: string): Promise<string> {
 
 export const GET: APIRoute = async ({ params, request }) => {
   const imdbId = params.imdbId
-  const API_KEY = import.meta.env.OMDB_API_KEY
+  const API_KEY = OMDB_API_KEY
 
   if (!imdbId) {
     return new Response(JSON.stringify({ error: "IMDb ID is required" }), {
