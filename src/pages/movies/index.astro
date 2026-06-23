@@ -6,12 +6,12 @@ import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
 import MovieFilters from "../../components/MovieFilters.astro"
 import MoviePoster from "../../components/MoviePoster.astro"
-import { processMovies, parseUrlParams, type Movie } from "../../utils/movieUtils"
+import { processMovies, parseUrlParams } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 import { externalRel } from "../../utils/linkRel"
 
 // Get centralized movie data
-const { movies, recommendationsSet, recommendationNotes } = getMovieCache()
+const { movies, recommendationsSet } = getMovieCache()
 
 // Validate data integrity
 if (!Array.isArray(movies) || movies.length === 0) {
@@ -26,9 +26,40 @@ const url = new URL(Astro.request.url)
 const { filters, sortOptions } = parseUrlParams(url)
 
 const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
+
+const catalog = movies.map(
+  ({
+    const: imdbId,
+    title,
+    year,
+    your_rating,
+    imdb_rating,
+    runtime_mins,
+    genres,
+    directors,
+    _searchString,
+  }) => ({
+    const: imdbId,
+    title,
+    year,
+    your_rating,
+    imdb_rating,
+    runtime_mins,
+    genres,
+    directors,
+    _searchString,
+  }),
+)
+const recommendationIds = [...recommendationsSet]
 ---
 
 <MovieLayout title={title} description={description}>
+  <script
+    type="application/json"
+    id="movie-catalog"
+    set:html={JSON.stringify({ catalog, recommendations: recommendationIds })}
+  />
+
   <section>
     <Hero title={title} description={description} />
 
@@ -42,19 +73,16 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, fi
       {
         processedMovies.map((movie) => {
           const isRecommendation = recommendationsSet.has(movie.const)
-          const note = recommendationNotes.get(movie.const)
           return (
             <MovieCard
               imdbId={movie.const}
               title={movie.title}
               year={movie.year}
               yourRating={movie.your_rating}
-              imdbRating={movie.imdb_rating}
               runtimeMins={movie.runtime_mins}
               genres={movie.genres}
               directors={movie.directors}
               isRecommendation={isRecommendation}
-              note={note || undefined}
             >
               <MoviePoster slot="poster" imdbId={movie.const} />
             </MovieCard>
@@ -71,162 +99,10 @@ const { movies: processedMovies } = processMovies(movies, recommendationsSet, fi
 </MovieLayout>
 
 <script>
-  // Client-side search and filter logic for "instant" performance
-  const grid = document.querySelector(".recommendations-grid") as HTMLElement
-  const cards = Array.from(grid.querySelectorAll(".movie-card")) as HTMLElement[]
-  const searchInput = document.getElementById("movieFilter") as HTMLInputElement
-  const searchForm = document.getElementById("searchForm") as HTMLFormElement
-  const recToggle = document.getElementById("recommendationToggle") as HTMLAnchorElement
-  const sortBtns = document.querySelectorAll(".sort-btn") as NodeListOf<HTMLAnchorElement>
-
-  let currentSearch = ""
-  let currentSort = "default"
-  let currentDir = "asc"
-  let showOnlyRecommendations = false
-
-  // Initialize from URL
-  const url = new URL(window.location.href)
-  currentSearch = url.searchParams.get("q") || ""
-  currentSort = url.searchParams.get("sort") || "default"
-  currentDir = url.searchParams.get("dir") || "asc"
-  showOnlyRecommendations = url.searchParams.get("isRecommendation") === "true"
-
-  if (searchInput) searchInput.value = currentSearch
-
-  const updateUI = () => {
-    // Update Recommendation Toggle
-    if (showOnlyRecommendations) {
-      recToggle?.classList.add("active")
-      recToggle?.setAttribute("aria-pressed", "true")
-      recToggle?.setAttribute("aria-label", "Show all movies")
-      if (recToggle) recToggle.title = "Show all movies"
-    } else {
-      recToggle?.classList.remove("active")
-      recToggle?.setAttribute("aria-pressed", "false")
-      recToggle?.setAttribute("aria-label", "Show only recommended movies")
-      if (recToggle) recToggle.title = "Show only recommended movies"
-    }
-
-    // Update Sort Buttons
-    sortBtns.forEach((btn) => {
-      const sortKey = btn.dataset.sort
-      const iconSpan = btn.querySelector(".sort-icon") as HTMLElement
-      if (sortKey === currentSort) {
-        btn.classList.add("active")
-        if (iconSpan) iconSpan.textContent = currentDir === "asc" ? " ▲" : " ▼"
-      } else {
-        btn.classList.remove("active")
-        if (iconSpan) iconSpan.textContent = ""
-      }
-    })
-  }
-
-  const updateList = () => {
-    const tokens = currentSearch.toLowerCase().split(/\s+/).filter(Boolean)
-
-    // Filter and Sort
-    const filtered = cards.filter((card) => {
-      const searchBase = card.dataset.search || ""
-      const isRec = card.dataset.recommendation === "true"
-      
-      const matchesSearch = tokens.every((token) => searchBase.includes(token))
-      const matchesRec = !showOnlyRecommendations || isRec
-
-      return matchesSearch && matchesRec
-    })
-
-    // Sort cards
-    if (currentSort === "default") {
-      // Re-order based on original DOM order
-      filtered.sort((a, b) => {
-        const aIdx = cards.indexOf(a)
-        const bIdx = cards.indexOf(b)
-        return currentDir === "asc" ? aIdx - bIdx : bIdx - aIdx
-      })
-    } else {
-      filtered.sort((a, b) => {
-        const sortKeyMap: Record<string, string> = {
-          yourRating: "rating",
-          runtimeMins: "runtime",
-          title: "title",
-          year: "year",
-        }
-        const key = sortKeyMap[currentSort] || currentSort
-        let aVal: string | number = a.dataset[key] || ""
-        let bVal: string | number = b.dataset[key] || ""
-
-        if (currentSort !== "title") {
-          aVal = parseFloat(aVal as string) || 0
-          bVal = parseFloat(bVal as string) || 0
-        }
-
-        if (aVal < bVal) return currentDir === "asc" ? -1 : 1
-        if (aVal > bVal) return currentDir === "asc" ? 1 : -1
-        return 0
-      })
-    }
-
-    // Batch DOM updates
-    requestAnimationFrame(() => {
-      cards.forEach((card) => {
-        card.style.display = filtered.includes(card) ? "" : "none"
-      })
-      filtered.forEach((card) => grid.appendChild(card))
-    })
-
-    // Update URL without reload
-    const newUrl = new URL(window.location.href)
-    if (currentSearch) newUrl.searchParams.set("q", currentSearch)
-    else newUrl.searchParams.delete("q")
-    
-    if (currentSort !== "default") newUrl.searchParams.set("sort", currentSort)
-    else newUrl.searchParams.delete("sort")
-    
-    if (currentDir !== "desc" && currentSort !== "default") newUrl.searchParams.set("dir", currentDir)
-    else if (currentSort === "default" && currentDir === "asc") newUrl.searchParams.delete("dir")
-    
-    if (showOnlyRecommendations) newUrl.searchParams.set("isRecommendation", "true")
-    else newUrl.searchParams.delete("isRecommendation")
-
-    window.history.replaceState({}, "", newUrl.toString())
-    
-    updateUI()
-  }
-
-  // Event Listeners
-  recToggle?.addEventListener("click", (e) => {
-    e.preventDefault()
-    showOnlyRecommendations = !showOnlyRecommendations
-    updateList()
-  })
-
-  sortBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault()
-      const sort = btn.dataset.sort as string
-      if (currentSort === sort) {
-        currentDir = currentDir === "asc" ? "desc" : "asc"
-      } else {
-        currentSort = sort
-        currentDir = sort === "title" ? "asc" : "desc" // Default to desc for rating/year/runtime, asc for title
-      }
-      updateList()
-    })
-  })
-
-  searchForm?.addEventListener("submit", (e) => {
-    e.preventDefault()
-  })
-
-  // Live search
-  searchInput?.addEventListener("input", (e) => {
-    currentSearch = (e.target as HTMLInputElement).value
-    updateList()
-  })
-
-  // Initial update
-  updateUI()
+  import { initMovieList } from "../../utils/movieListClient"
+  initMovieList()
 </script>
+
 <style>
   .recommendations-grid {
     display: grid;

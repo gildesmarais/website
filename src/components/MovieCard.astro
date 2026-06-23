@@ -4,30 +4,18 @@ export interface Props {
   title: string
   year: number
   yourRating: number
-  imdbRating: number
   runtimeMins: number
   genres: string
   directors: string
   isRecommendation: boolean
-  note?: string
 }
 
-const {
-  imdbId,
-  title,
-  year,
-  yourRating,
-  imdbRating,
-  runtimeMins,
-  genres,
-  directors,
-  isRecommendation,
-  note,
-} = Astro.props
+const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecommendation } = Astro.props
 ---
 
 <article
   class="movie-card"
+  data-imdb-id={imdbId}
   data-accent={isRecommendation}
   data-search={`${title} ${directors} ${genres}`.toLowerCase()}
   data-recommendation={isRecommendation}

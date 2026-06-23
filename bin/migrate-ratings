@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'csv'
-require 'yaml'
 require 'json'
 
 # Load the CSV data
@@ -33,7 +32,7 @@ all_movies = csv_movies.map do |movie|
   movie  # Return the modified movie hash
 end
 
-# Remove duplicates from all_movies and recommendations_only_const_and_note based on 'const'
+# Deduplicate movies by IMDb ID
 all_movies_unique = all_movies.uniq { |m| m['const'] }
 
 # Write to movies.json

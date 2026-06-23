@@ -3,8 +3,6 @@ export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import MovieModalContent from "../../components/MovieModalContent.astro"
-import MoviePoster from "../../components/MoviePoster.astro"
-import type { Movie } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 
 export async function getStaticPaths() {

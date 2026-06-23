@@ -1,13 +1,11 @@
 ---
 import { Image } from "astro:assets"
 import logo from "../assets/images/logo-borderless.svg"
+import { isActivePath } from "../utils/navigation"
+
 const { siteName = "Gil Desmarais" } = Astro.props
 const siteUrl = import.meta.env.PROD ? Astro.site : "/"
-
-const isActive = (href: string) => {
-  if (href === "/") return Astro.url.pathname === "/"
-  return Astro.url.pathname.startsWith(href)
-}
+const pathname = Astro.url.pathname
 ---
 
 <nav id="main-nav" aria-label="Main navigation">
@@ -59,21 +57,33 @@ const isActive = (href: string) => {
 
   <ul id="main-nav-list">
     <li class="nav-item">
-      <a href="/about" class="nav-link" aria-current={isActive("/about") ? "page" : undefined}>About</a>
-    </li>
-    <li class="nav-item">
-      <a href="/resume" class="nav-link" aria-current={isActive("/resume") ? "page" : undefined}>Résumé</a>
-    </li>
-    <li class="nav-item">
-      <a href="/blog" class="nav-link" aria-current={isActive("/blog") ? "page" : undefined}>Blog</a>
-    </li>
-    <li class="nav-item">
-      <a href="/projects" class="nav-link" aria-current={isActive("/projects") ? "page" : undefined}
-        >Projects</a
+      <a href="/about" class="nav-link" aria-current={isActivePath(pathname, "/about") ? "page" : undefined}
+        >About</a
       >
     </li>
     <li class="nav-item">
-      <a href="/contact" class="nav-link" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a>
+      <a href="/resume" class="nav-link" aria-current={isActivePath(pathname, "/resume") ? "page" : undefined}
+        >Résumé</a
+      >
+    </li>
+    <li class="nav-item">
+      <a href="/blog" class="nav-link" aria-current={isActivePath(pathname, "/blog") ? "page" : undefined}
+        >Blog</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="/projects"
+        class="nav-link"
+        aria-current={isActivePath(pathname, "/projects") ? "page" : undefined}>Projects</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="/contact"
+        class="nav-link"
+        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}>Contact</a
+      >
     </li>
   </ul>
 </nav>

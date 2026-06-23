@@ -8,7 +8,7 @@ const { imdbId } = Astro.props
 
 <div class="movie-poster-container">
   <img
-    id={`poster-${imdbId}`}
+    data-poster-imdb={imdbId}
     src="/placeholder-poster.svg"
     aria-hidden
     alt="Loading Movie Poster for {imdbId}"
@@ -16,43 +16,6 @@ const { imdbId } = Astro.props
     loading="lazy"
   />
 </div>
-
-<script define:vars={{ imdbId }}>
-  const posterElement = document.getElementById(`poster-${imdbId}`)
-
-  if (posterElement) {
-    const fetchPoster = async () => {
-      try {
-        const response = await fetch(`/api/movie/${imdbId}`)
-        const data = await response.json()
-
-        if (response.ok && data.poster && data.poster !== "N/A") {
-          posterElement.src = data.poster
-          posterElement.alt = `${data.title} Poster`
-        } else {
-          console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || "Unknown error"}`)
-          posterElement.src = "/no-poster-available.svg"
-          posterElement.alt = "No poster available"
-        }
-      } catch (error) {
-        console.error(`Error fetching poster for IMDb ID: ${imdbId}`, error)
-        posterElement.src = "/error-poster.svg"
-        posterElement.alt = "Error loading poster"
-      }
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          fetchPoster()
-          observer.unobserve(entry.target)
-        }
-      })
-    })
-
-    observer.observe(posterElement)
-  }
-</script>
 
 <style>
   .movie-poster-container {
