@@ -417,12 +417,12 @@ const pathname = Astro.url.pathname
     }
 
     .nav-link:hover {
-      color: #fff4de;
-      background: transparent;
+      color: #000;
+      background: var(--brand-accent);
     }
 
     .nav-link:hover:after {
-      width: var(--nav-underline-width);
+      display: none;
     }
 
     /* --- Desktop Active Page State --- */
@@ -437,8 +437,12 @@ const pathname = Astro.url.pathname
     }
 
     .nav-link[aria-current="page"]:hover {
-      color: #fff8eb;
-      background: transparent;
+      color: #000;
+      background: var(--brand-accent);
+    }
+
+    .nav-link[aria-current="page"]:hover:after {
+      display: none;
     }
 
     .nav-link:focus-visible {

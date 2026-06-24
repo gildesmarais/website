@@ -133,6 +133,12 @@ th {
   text-decoration: none;
 }
 
+.minimal-btn:hover {
+  background: var(--brand-accent);
+  color: #000;
+  border-color: var(--brand-accent);
+}
+
 .minimal-btn.active,
 .minimal-btn:active {
   background: var(--brand-accent);
@@ -177,4 +183,26 @@ th {
   top: 0;
   border-left: var(--accent-size) solid var(--brand-accent);
   border-top: var(--accent-size) solid var(--brand-accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes entry-reveal {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card,
+    section > ul > li {
+      animation: entry-reveal auto linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 30%;
+    }
+  }
 }

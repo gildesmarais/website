@@ -65,6 +65,7 @@ const personLd = JSON.stringify({
 })
 
 const path = Astro.url.pathname
+const showScrollProgress = path === "/resume" || path === "/resume/" || path.startsWith("/blog")
 ---
 
 <!doctype html>
@@ -126,11 +127,36 @@ const path = Astro.url.pathname
     <script type="application/ld+json" set:html={personLd} />
   </head>
   <body>
+    {showScrollProgress && <div id="scroll-progress" aria-hidden="true" />}
     <SpeedInsights />
 
     <!-- InlineJS: mark that JS is available -->
     <script is:inline>
       document.documentElement.classList.add("js")
+    </script>
+
+    <script is:inline>
+      ;(() => {
+        const progress = document.querySelector("#scroll-progress")
+        if (!progress) return
+
+        if (!CSS.supports("animation-timeline", "scroll()")) {
+          const updateProgress = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight
+            if (scrollable <= 0) {
+              progress.style.transform = "scaleX(0)"
+              return
+            }
+            const scrolled = window.scrollY
+            const progressPercentage = scrolled / scrollable
+            progress.style.transform = `scaleX(${progressPercentage})`
+          }
+
+          window.addEventListener("scroll", updateProgress)
+          window.addEventListener("resize", updateProgress)
+          updateProgress()
+        }
+      })()
     </script>
 
     <header id="top" class="container">
