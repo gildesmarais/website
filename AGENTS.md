@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 
 - **Astro app:** Core pages live in `src/pages` (e.g., `index.astro`, route folders), layouts in `src/layouts`, reusable UI in `src/components`, and global styles in `src/styles`.
-- **Content layers:** Markdown-driven sections stay in `src/content`; media and fonts belong in `src/assets` and `public` for static delivery.
+- **Content layers:** Markdown-driven sections stay in `src/content`; media and fonts belong in `src/assets` and `public` for static delivery. Poster placeholders live in `public/poster-*.svg` — keep palette aligned with `01-tokens.css`, no Arial, prefer geometry over `<text>` for img-loaded SVGs.
 - **Data sources:** Dynamic copy and movie metadata reside in `src/data`. Regenerate `movies.json` from `ratings.csv` via `bin/migrate-ratings` whenever ratings change.
 
 ## Build, Test & Development Commands
@@ -19,6 +19,7 @@
 - **Formatting:** Prettier + `prettier-plugin-astro` enforce two-space indentation, semicolonless JavaScript, and consistent attribute ordering. Always run `make fix` before review.
 - **Components vs. routes:** Astro/TSX components use PascalCase filenames (`MovieCard.astro`); routes and API handlers use kebab-case (`src/pages/blog`, `feed.xml.ts`).
 - **Imports:** Prefer relative aliases within `src` and keep side-effect imports (styles, fonts) near the file top.
+- **Inline prose + links:** Astro compresses HTML whitespace at build time (`compressHTML` defaults to `true`). When plain text and `<a>` (or `</a>`) sit on adjacent lines, the space between them is dropped — use `{" "}` or keep the space on the same line as the tag (e.g. `> spans` not `>\nspans`).
 
 ## Testing Guidelines
 

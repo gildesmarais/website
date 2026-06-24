@@ -22,6 +22,10 @@ serve:
 build:
 	npm run build
 
+check: build
+	npm run check:visual
+	npm run check
+
 post-deploy:
 	curl -fsS http://www.google.com/webmasters/sitemaps/ping?sitemap=https://gil.desmarais.de/sitemap.xml;
 	curl -fsS http://www.bing.com/webmaster/ping.aspx?siteMap=https://gil.desmarais.de/sitemap.xml;

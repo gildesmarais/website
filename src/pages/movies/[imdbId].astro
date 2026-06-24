@@ -3,8 +3,6 @@ export const prerender = true
 
 import MovieLayout from "../../layouts/MovieLayout.astro"
 import MovieModalContent from "../../components/MovieModalContent.astro"
-import MoviePoster from "../../components/MoviePoster.astro"
-import type { Movie } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 
 export async function getStaticPaths() {
@@ -69,9 +67,19 @@ const note = recommendationNotes.get(movie.const)
 </MovieLayout>
 
 <script is:inline>
-  // Clean modal close functionality
   const closeModal = () => {
-    if (window.history.length > 1) {
+    let fromMovies = false
+    try {
+      const ref = document.referrer
+      if (ref) {
+        const refUrl = new URL(ref)
+        fromMovies =
+          refUrl.origin === window.location.origin &&
+          (refUrl.pathname === "/movies/" || refUrl.pathname === "/movies")
+      }
+    } catch {}
+
+    if (fromMovies && window.history.length > 1) {
       window.history.back()
     } else {
       window.location.href = "/movies/"
@@ -172,12 +180,15 @@ const note = recommendationNotes.get(movie.const)
     color: var(--ui-muted-color);
     cursor: pointer;
     padding: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 44px;
+    min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
+    flex-shrink: 0;
   }
 
   .modal-close:hover {
@@ -186,13 +197,48 @@ const note = recommendationNotes.get(movie.const)
     border-color: var(--brand-accent);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     .modal-backdrop {
-      padding: 0.5rem;
+      align-items: flex-end;
+      padding: 0;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-container {
+      max-height: 92dvh;
+      border-radius: 0;
+    }
+
+    .modal-content {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+      position: relative;
+    }
+
+    .modal-content::before {
+      content: "";
+      display: block;
+      width: 2.5rem;
+      height: 0.25rem;
+      background: var(--ui-muted-color);
+      opacity: 0.4;
+      border-radius: 2px;
+      margin: 0.5rem auto 0;
     }
 
     .modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--ui-card-background-color);
       padding: 0.75rem 1rem;
+    }
+
+    .modal-body {
+      padding: 0 1rem 1rem;
     }
   }
 </style>

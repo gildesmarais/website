@@ -67,20 +67,6 @@ export default defineConfig({
       destination: "/",
     },
   },
-  markdown: {
-    rehypePlugins: [
-      [
-        "rehype-add-classes",
-        {
-          h2: "accent",
-          h3: "accent",
-          h4: "accent",
-          h5: "accent",
-          h6: "accent",
-        },
-      ],
-    ],
-  },
   image: {
     formats: ["avif", "webp", "jpg", "jpeg", "png", "gif"],
     layout: "constrained",

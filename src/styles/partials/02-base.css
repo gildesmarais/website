@@ -9,6 +9,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media (min-width: 576px) {
   :root {
     --ui-font-size: 106.25%;

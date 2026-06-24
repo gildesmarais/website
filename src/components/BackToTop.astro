@@ -7,7 +7,7 @@
 <style is:global>
   #back-to-top {
     position: fixed;
-    bottom: 2rem;
+    bottom: max(2rem, env(safe-area-inset-bottom, 0px));
     right: 2rem;
     background: var(--ui-primary);
     color: var(--ui-contrast-inverse);
@@ -46,6 +46,18 @@
       0 0 8px rgba(255, 136, 0, 0.4),
       0 4px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #back-to-top {
+      transition: opacity 0.01ms;
+    }
+
+    #back-to-top,
+    #back-to-top.visible,
+    #back-to-top:hover {
+      transform: none;
+    }
   }
 </style>
 

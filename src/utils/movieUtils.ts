@@ -30,6 +30,19 @@ export interface ProcessedMovies {
   movies: Movie[]
 }
 
+export type MovieCatalogEntry = Pick<
+  Movie,
+  | "const"
+  | "title"
+  | "year"
+  | "your_rating"
+  | "imdb_rating"
+  | "runtime_mins"
+  | "genres"
+  | "directors"
+  | "_searchString"
+>
+
 export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   let filtered = movies
 
@@ -109,6 +122,36 @@ export function processMovies(
   return {
     movies: sorted,
   }
+}
+
+export function buildMoviesPageUrl(
+  current: { filters: MovieFilters; sortOptions: MovieSortOptions },
+  updates: Partial<MovieFilters & MovieSortOptions>,
+): string {
+  const filters: MovieFilters = { ...current.filters }
+  const sortOptions: MovieSortOptions = { ...current.sortOptions }
+
+  if ("searchQuery" in updates) {
+    filters.searchQuery = updates.searchQuery || undefined
+  }
+  if ("isRecommendation" in updates) {
+    filters.isRecommendation = updates.isRecommendation || undefined
+  }
+  if ("sortBy" in updates && updates.sortBy !== undefined) {
+    sortOptions.sortBy = updates.sortBy
+  }
+  if ("sortDir" in updates && updates.sortDir !== undefined) {
+    sortOptions.sortDir = updates.sortDir
+  }
+
+  const params = new URLSearchParams()
+  if (filters.searchQuery) params.set("q", filters.searchQuery)
+  if (filters.isRecommendation) params.set("isRecommendation", "true")
+  if (sortOptions.sortBy !== "default") params.set("sort", sortOptions.sortBy)
+  if (sortOptions.sortDir !== "asc") params.set("dir", sortOptions.sortDir)
+
+  const query = params.toString()
+  return query ? `/movies/?${query}` : `/movies/`
 }
 
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
