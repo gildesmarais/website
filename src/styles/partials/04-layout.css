@@ -83,3 +83,13 @@ nav li :where(a, [role="link"]) {
 nav li :where(a, [role="link"]):not(:hover) {
   text-decoration: none;
 }
+
+body > footer small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  line-height: 1.6;
+  opacity: 0.6;
+}

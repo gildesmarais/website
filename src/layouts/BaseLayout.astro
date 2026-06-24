@@ -145,7 +145,15 @@ const path = Astro.url.pathname
 
     <footer>
       <section class="container">
-        <small>
+        <small class="secondary">
+          <span>
+            &copy; 2026 Gil Desmarais. All content is licensed under a <a
+              href="https://creativecommons.org/licenses/by-nd/4.0/"
+              target="_blank"
+              rel="noopener"
+              class="secondary">Creative Commons Attribution-NoDerivatives 4.0 International License</a
+            >.
+          </span>
           <a
             href="/imprint"
             aria-current={isActivePath(path, "/imprint") ? "page" : undefined}

@@ -9,6 +9,7 @@ export async function GET(context: APIContext) {
     title: "Gil Desmarais's Blog",
     description: "The latest posts from Gil Desmarais's blog.",
     site: context.site!,
+    customData: `<copyright>© 2026 Gil Desmarais. All content is licensed under CC BY-ND 4.0.</copyright>`,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
