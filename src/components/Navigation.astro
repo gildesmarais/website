@@ -94,17 +94,25 @@ const pathname = Astro.url.pathname
     const navList = document.getElementById("main-nav-list")
     const navLinks = Array.from(document.querySelectorAll("#main-nav .nav-link"))
 
+    const setMenuOpen = (open: boolean) => {
+      if (!toggleButton || !navList) return
+
+      toggleButton.setAttribute("aria-expanded", String(open))
+      toggleButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu")
+      navList.classList.toggle("is-open", open)
+      document.body.style.overflow = open ? "hidden" : ""
+    }
+
     if (toggleButton && navList) {
       toggleButton.addEventListener("click", () => {
-        const expanded = toggleButton.getAttribute("aria-expanded") === "true" || false
-        const newExpanded = !expanded
+        const expanded = toggleButton.getAttribute("aria-expanded") === "true"
+        setMenuOpen(!expanded)
+      })
 
-        toggleButton.setAttribute("aria-expanded", String(newExpanded))
-        toggleButton.setAttribute(
-          "aria-label",
-          newExpanded ? "Close navigation menu" : "Open navigation menu",
-        )
-        navList.classList.toggle("is-open")
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navList.classList.contains("is-open")) {
+          setMenuOpen(false)
+        }
       })
     }
 
@@ -130,9 +138,7 @@ const pathname = Astro.url.pathname
         link.classList.add("is-loading")
 
         if (toggleButton && navList && navList.classList.contains("is-open")) {
-          toggleButton.setAttribute("aria-expanded", "false")
-          toggleButton.setAttribute("aria-label", "Open navigation menu")
-          navList.classList.remove("is-open")
+          setMenuOpen(false)
         }
       })
     })

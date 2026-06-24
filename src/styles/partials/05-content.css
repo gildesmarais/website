@@ -148,6 +148,13 @@ th {
   font-weight: 600;
 }
 
+@media (pointer: coarse) {
+  .minimal-btn {
+    min-height: 44px;
+    padding: 0.6rem 1.15rem;
+  }
+}
+
 .accent {
   border-inline-start: var(--accent-size) solid var(--brand-accent);
   padding-inline-start: 0.7rem;

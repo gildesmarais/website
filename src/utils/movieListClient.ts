@@ -83,6 +83,18 @@ export function initMovieList(): void {
         const card = cardMap.get(movie.const)
         if (card) grid.appendChild(card)
       })
+
+      let emptyEl = grid.querySelector(".movies-empty")
+      if (movies.length === 0) {
+        if (!emptyEl) {
+          emptyEl = document.createElement("p")
+          emptyEl.className = "movies-empty"
+          emptyEl.textContent = "No matches"
+          grid.appendChild(emptyEl)
+        }
+      } else {
+        emptyEl?.remove()
+      }
     })
 
     window.history.replaceState({}, "", buildMoviesPageUrl(state, {}))
