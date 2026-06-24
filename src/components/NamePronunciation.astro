@@ -146,10 +146,7 @@ const { pronunciation, audioSrc } = Astro.props
       return
     }
 
-    let isPlaying = false
-
     const setPressed = (pressed: boolean) => {
-      isPlaying = pressed
       btn.setAttribute("aria-pressed", String(pressed))
       btn.setAttribute("aria-label", pressed ? "Stop name pronunciation" : "Play name pronunciation")
 
@@ -228,7 +225,7 @@ const { pronunciation, audioSrc } = Astro.props
       ball.classList.add("animate")
 
       // Animate ball through cue points
-      cuePoints.forEach((cue, index) => {
+      cuePoints.forEach((cue) => {
         setTimeout(() => {
           if (ball && ball.classList.contains("animate")) {
             ball.style.left = `${cue.position}%`
