@@ -191,9 +191,14 @@ const resumeHeadings = [
 </BaseLayout>
 
 <style>
-  #executive-summary ~ p {
+  #executive-summary ~ p,
+  section > p,
+  section > ul,
+  section > ol {
     max-width: var(--lead-width);
     text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
   }
 
   #current + section > h3 {

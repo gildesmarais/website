@@ -6,6 +6,7 @@ import type { APIContext } from "astro"
 export async function GET(context: APIContext) {
   const posts = await getCollection("blog", isVisibleEnglishBlogPost)
   return rss({
+    stylesheet: "/rss-styles.xsl",
     title: "Gil Desmarais's Blog",
     description: "The latest posts from Gil Desmarais's blog.",
     site: context.site!,

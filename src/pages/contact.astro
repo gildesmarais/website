@@ -43,6 +43,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
       data-email={emailEncoded}
       data-mailto={mailtoEncoded}
       aria-labelledby="email-modal-title"
+      closedby="any"
     >
       <form method="dialog">
         <header>
@@ -72,7 +73,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   </section>
 
   <section aria-labelledby="social-platforms">
-    <h2 id="social-platforms" class="accent">Other touchpoints</h2>
+    <h2 id="social-platforms" class="accent sr-only">Other touchpoints</h2>
     <p class="lead">Social channels are checked monthly. For urgent needs, email wins.</p>
 
     {
@@ -115,6 +116,22 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
       if (modal.open) {
         modal.close()
       }
+    }
+
+    // Fallback for browsers without closedby support (Safari)
+    if (modal && !("closedBy" in HTMLDialogElement.prototype)) {
+      modal.addEventListener("click", (event) => {
+        if (event.target !== modal) return
+        const rect = modal.getBoundingClientRect()
+        const isDialogContent =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        if (!isDialogContent) {
+          closeModal()
+        }
+      })
     }
 
     const openModal = () => {
@@ -206,6 +223,23 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     border-radius: 0;
     max-width: min(28rem, 90vw);
     background: var(--ui-background-color);
+    opacity: 0;
+    transform: scale(0.95);
+    transition:
+      opacity 0.2s ease-out,
+      transform 0.2s ease-out,
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    transform: scale(1);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.95);
+    }
   }
 
   dialog form {
@@ -220,7 +254,31 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   }
 
   dialog::backdrop {
-    background: color-mix(in srgb, var(--ui-primary) 18%, transparent);
+    background-color: rgba(0, 0, 0, 0);
+    transition:
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete,
+      background-color 0.2s ease-out;
+  }
+
+  dialog[open]::backdrop {
+    background-color: color-mix(in srgb, var(--ui-primary) 18%, transparent);
+
+    @starting-style {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    dialog {
+      transform: none;
+      transition-duration: 0.1s;
+    }
+    @starting-style {
+      dialog[open] {
+        transform: none;
+      }
+    }
   }
 
   .modal-actions {
@@ -237,9 +295,5 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 
   #email-modal-feedback {
     min-height: 1.25em;
-  }
-
-  #social-platforms {
-    display: none;
   }
 </style>

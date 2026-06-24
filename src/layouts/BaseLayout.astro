@@ -41,7 +41,6 @@ const {
 } = Astro.props as Props
 
 const pageTitle = title ? `${title} — ${siteName}` : siteName
-const siteUrl = import.meta.env.PROD ? Astro.site : "/"
 const canonicalUrl = canonical ?? Astro.url?.href ?? ""
 
 // Enforce required description
@@ -65,6 +64,7 @@ const personLd = JSON.stringify({
 })
 
 const path = Astro.url.pathname
+const showScrollProgress = path === "/resume" || path === "/resume/" || path.startsWith("/blog")
 ---
 
 <!doctype html>
@@ -87,6 +87,9 @@ const path = Astro.url.pathname
 
     <!-- Title -->
     <title>{pageTitle}</title>
+
+    <!-- Render Blocking for View Transitions -->
+    <link rel="expect" href="#main-content" blocking="render" />
 
     <!-- Preload Fonts -->
     <link rel="preload" href={ibmPlexSans400} as="font" type="font/woff2" crossorigin />
@@ -122,10 +125,11 @@ const path = Astro.url.pathname
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={websiteLd} />
-    <script type="application/ld+json" set:html={personLd} />
+    <script is:inline type="application/ld+json" set:html={websiteLd} />
+    <script is:inline type="application/ld+json" set:html={personLd} />
   </head>
   <body>
+    {showScrollProgress && <div id="scroll-progress" aria-hidden="true" />}
     <SpeedInsights />
 
     <!-- InlineJS: mark that JS is available -->
@@ -133,11 +137,35 @@ const path = Astro.url.pathname
       document.documentElement.classList.add("js")
     </script>
 
+    <script is:inline>
+      ;(() => {
+        const progress = document.querySelector("#scroll-progress")
+        if (!progress) return
+
+        if (!CSS.supports("animation-timeline", "scroll()")) {
+          const updateProgress = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight
+            if (scrollable <= 0) {
+              progress.style.transform = "scaleX(0)"
+              return
+            }
+            const scrolled = window.scrollY
+            const progressPercentage = scrolled / scrollable
+            progress.style.transform = `scaleX(${progressPercentage})`
+          }
+
+          window.addEventListener("scroll", updateProgress)
+          window.addEventListener("resize", updateProgress)
+          updateProgress()
+        }
+      })()
+    </script>
+
     <header id="top" class="container">
       <Navigation />
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
       <slot />
     </main>
 
@@ -170,7 +198,12 @@ const path = Astro.url.pathname
           <noscript>
             <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
           </noscript>
-          <script data-goatcounter="https://gil.goatcounter.com/count" async src="//gc.zgo.at/count.js" />
+          <script
+            is:inline
+            data-goatcounter="https://gil.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"
+          />
         </>
       )
     }
