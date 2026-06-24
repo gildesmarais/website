@@ -91,12 +91,10 @@ const highlights = [
     grid-row: 1;
   }
 
-  .poster-section :global(img) {
+  .poster-section :global(.movie-poster-container) {
     width: 100%;
     max-width: 300px;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    border: 2px solid var(--ui-border-color);
+    border-width: 2px;
   }
 
   .info-section {
@@ -133,11 +131,13 @@ const highlights = [
     }
 
     .poster-section {
-      justify-content: flex-start;
+      justify-content: center;
+      width: 100%;
     }
 
-    .poster-section :global(img) {
-      max-width: 120px;
+    .poster-section :global(.movie-poster-container) {
+      width: min(240px, 70vw);
+      max-width: none;
     }
 
     .info-section {
