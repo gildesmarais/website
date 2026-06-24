@@ -72,4 +72,11 @@ const { title, slug, status, description, highlights, links } = Astro.props
     text-decoration: none;
     letter-spacing: 0.02em;
   }
+
+  .project-card :global(p) {
+    max-width: var(--lead-width);
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+  }
 </style>

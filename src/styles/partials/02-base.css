@@ -107,7 +107,7 @@ body {
 body > header,
 body > main,
 body > footer {
-  padding-block: var(--ui-spacing);
+  padding-block: clamp(1.5rem, 3vw, 3rem);
 }
 
 main {

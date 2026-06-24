@@ -136,7 +136,7 @@ hgroup > * + * {
 }
 
 hr {
-  margin: 2rem 0 3rem;
+  margin: 3rem 0;
 }
 
 abbr[title] {
@@ -170,7 +170,7 @@ main a {
     color 0.15s ease;
 }
 
-main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link) {
+main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link):not(.toc-list a) {
   background: var(--brand-accent);
   color: #000;
   text-decoration: none;

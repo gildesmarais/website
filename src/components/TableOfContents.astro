@@ -68,11 +68,14 @@ if (filteredHeadings.length === 0) return null
 
   .toc-list a {
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.15s ease;
   }
 
   .toc-list a:hover {
-    color: var(--ui-primary-color);
+    color: var(--brand-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
   }
 
   .toc-list a:focus {
