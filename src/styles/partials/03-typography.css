@@ -185,6 +185,11 @@ a.secondary {
   outline-offset: 3px;
 }
 
+:where(input, textarea, select):focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 0;
+}
+
 :where(details > summary) {
   cursor: pointer;
 }
