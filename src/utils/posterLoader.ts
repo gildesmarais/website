@@ -10,12 +10,12 @@ async function fetchPoster(imdbId: string, img: HTMLImageElement): Promise<void>
       img.alt = `${data.title} Poster`
     } else {
       console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || "Unknown error"}`)
-      img.src = "/no-poster-available.svg"
+      img.src = "/poster-missing.svg"
       img.alt = "No poster available"
     }
   } catch (error) {
     console.error(`Error fetching poster for IMDb ID: ${imdbId}`, error)
-    img.src = "/error-poster.svg"
+    img.src = "/poster-error.svg"
     img.alt = "Error loading poster"
   }
 }
