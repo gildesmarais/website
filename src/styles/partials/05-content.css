@@ -71,7 +71,7 @@ table {
 
 td,
 th {
-  border-bottom: 1px solid var(--ui-table-border-color);
+  border-bottom: var(--ui-stroke-thin) solid var(--ui-table-border-color);
   padding: 0.5rem;
   text-align: left;
 }
@@ -130,7 +130,7 @@ th {
   color: var(--ui-color);
   border: var(--ui-stroke) solid var(--brand-accent);
   border-radius: 0;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.9rem;
   cursor: pointer;
   transition:
@@ -160,7 +160,7 @@ th {
 }
 
 .minimal-btn.active {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @media (pointer: coarse) {

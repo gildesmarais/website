@@ -37,53 +37,6 @@
     max-width: 1450px;
   }
 }
-
-nav,
-nav ul,
-nav ol {
-  display: flex;
-}
-
-nav {
-  justify-content: space-between;
-  overflow: visible;
-}
-
-nav ul,
-nav ol {
-  align-items: center;
-  margin-bottom: 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav ul:first-of-type,
-nav ol:first-of-type {
-  margin-left: calc(var(--ui-spacing) * -0.5);
-}
-
-nav ul:last-of-type,
-nav ol:last-of-type {
-  margin-right: calc(var(--ui-spacing) * -0.5);
-}
-
-nav li {
-  display: inline-block;
-  margin: 0;
-  padding: var(--ui-spacing) 0.5rem;
-}
-
-nav li :where(a, [role="link"]) {
-  display: inline-block;
-  margin: -0.5rem;
-  padding: 0.5rem;
-  border-radius: var(--ui-border-radius);
-}
-
-nav li :where(a, [role="link"]):not(:hover) {
-  text-decoration: none;
-}
-
 body > footer small {
   display: flex;
   justify-content: space-between;

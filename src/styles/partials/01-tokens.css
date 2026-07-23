@@ -21,12 +21,20 @@
   --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
 
   --ui-stroke: 2px;
+  --ui-stroke-thin: 1px;
   --accent-size: 4px;
   --ui-accent-padding: 0.7rem;
   --ui-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ui-motion: 0.2s;
 
   --ui-spacing: 1rem;
+  --space-xxs: calc(var(--ui-spacing) * 0.25); /* 4px  / 0.25rem - Micro elements */
+  --space-xs: calc(var(--ui-spacing) * 0.5); /* 8px  / 0.5rem  - Badges, small gaps */
+  --space-sm: calc(var(--ui-spacing) * 0.75); /* 12px / 0.75rem - card gaps */
+  --space-md: var(--ui-spacing); /* 16px / 1rem   - Standard page flow */
+  --space-lg: calc(var(--ui-spacing) * 1.5); /* 24px / 1.5rem - Section headers */
+  --space-xl: calc(var(--ui-spacing) * 2); /* 32px / 2rem   - Section block margins */
+  --space-xxl: calc(var(--ui-spacing) * 3); /* 48px / 3rem   - Large hero/footer separations */
   --ui-border-radius: 1px;
   --ui-line-height: 1.5;
   --ui-font-size: 100%;
