@@ -8,6 +8,20 @@ const language = "de"
 const title = "Imprint & Privacy"
 const description = "Imprint and legal information."
 const robots = "noindex, noarchive, follow"
+
+function rot18(str: string): string {
+  return str.replace(/[a-zA-Z0-9]/g, (c) => {
+    const code = c.charCodeAt(0)
+    if (code >= 48 && code <= 57) {
+      return String.fromCharCode(48 + ((code - 48 + 5) % 10))
+    } else if (code >= 65 && code <= 90) {
+      return String.fromCharCode(65 + ((code - 65 + 13) % 26))
+    } else if (code >= 97 && code <= 122) {
+      return String.fromCharCode(97 + ((code - 97 + 13) % 26))
+    }
+    return c
+  })
+}
 ---
 
 <BaseLayout language={language} title={title} description={description} robots={robots}>
@@ -25,18 +39,16 @@ const robots = "noindex, noarchive, follow"
     <p>
       <strong>Adresse</strong>:<br />
 
-      <span class="human-only">
-        {legal.operatorName}<br />
-        {legal.street}<br />
-        {legal.zip_city}<br />
-        {legal.country}<br />
-      </span>
+      <span class="human-only" data-rot18={rot18(legal.operatorName)}></span><br />
+      <span class="human-only" data-rot18={rot18(legal.street)}></span><br />
+      <span class="human-only" data-rot18={rot18(legal.zip_city)}></span><br />
+      <span class="human-only" data-rot18={rot18(legal.country)}></span>
     </p>
     <p>
       <strong>Kontakt</strong>:<br />
 
-      <span class="human-only">{legal.email}</span>, <br />
-      Telefon: <span class="human-only">{legal.phone}</span>
+      <span class="human-only" data-rot18={rot18(legal.email)}></span>, <br />
+      Telefon: <span class="human-only" data-rot18={rot18(legal.phone)}></span>
     </p>
     {
       legal.managingDirector && (
@@ -81,6 +93,30 @@ const robots = "noindex, noarchive, follow"
       By visiting my site, information about the access is stored in log files on the server. These
       information are required to deliver this website. No other information is stored and no cookies set.
     </p>
+    <script is:inline>
+      ;(() => {
+        function rot18(str) {
+          return str.replace(/[a-zA-Z0-9]/g, (c) => {
+            const code = c.charCodeAt(0)
+            if (code >= 48 && code <= 57) {
+              return String.fromCharCode(48 + ((code - 48 + 5) % 10))
+            } else if (code >= 65 && code <= 90) {
+              return String.fromCharCode(65 + ((code - 65 + 13) % 26))
+            } else if (code >= 97 && code <= 122) {
+              return String.fromCharCode(97 + ((code - 97 + 13) % 26))
+            }
+            return c
+          })
+        }
+
+        document.querySelectorAll("[data-rot18]").forEach((el) => {
+          const encoded = el.getAttribute("data-rot18")
+          if (encoded) {
+            el.textContent = rot18(encoded)
+          }
+        })
+      })()
+    </script>
   </div>
 </BaseLayout>
 
