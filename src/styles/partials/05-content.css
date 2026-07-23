@@ -79,6 +79,7 @@ th {
 .micro {
   opacity: 0.8;
   font-size: 0.95em;
+  font-family: var(--font-mono);
 }
 
 .section-kicker {
@@ -87,6 +88,7 @@ th {
   letter-spacing: 0.06em;
   font-size: 0.78rem;
   color: var(--ui-muted-color);
+  font-family: var(--font-mono);
 }
 
 .section-heading-sticky {
