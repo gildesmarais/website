@@ -11,6 +11,9 @@ import ibmPlexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-
 import ibmPlexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2"
 import ubuntuMono400 from "@fontsource/ubuntu-mono/files/ubuntu-mono-latin-400-normal.woff2"
 
+// IBM Plex Sans has no real 900; alias bold as 900 so font-weight:900 uses a real face (no faux-bold).
+const ibmPlexSans900 = ibmPlexSans700
+
 export interface Props {
   title?: string // Page title without site suffix
   siteName?: string // Used in <title> suffix + og:site_name
@@ -95,6 +98,18 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
     <link rel="preload" href={ibmPlexSans400} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={ibmPlexSans700} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={ubuntuMono400} as="font" type="font/woff2" crossorigin />
+    <style
+      is:inline
+      set:html={`
+      @font-face {
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 900;
+        src: url(${ibmPlexSans900}) format("woff2");
+      }
+    `}
+    ></style>
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
