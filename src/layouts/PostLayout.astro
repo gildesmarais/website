@@ -39,7 +39,7 @@ const { title, date, description, language } = Astro.props
   }
 
   article p + p {
-    margin-top: 1.5rem; /* Extra space between paragraphs */
+    margin-top: var(--flow-space-prose); /* roomier long-form paragraph rhythm */
   }
 
   article h1,
@@ -50,8 +50,8 @@ const { title, date, description, language } = Astro.props
   article h6 {
     text-align: left;
     hyphens: manual;
-    margin-top: 2em;
-    margin-bottom: 0.6em;
+    margin-top: var(--region-space);
+    margin-bottom: var(--heading-space-bottom);
     line-height: 1.16;
   }
 

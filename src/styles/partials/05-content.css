@@ -1,15 +1,15 @@
 section {
-  margin-bottom: 2rem;
+  margin-bottom: var(--block-space);
 }
 
 section + section {
-  margin-top: 2rem;
+  margin-top: var(--block-space);
 }
 
 h2,
 h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: var(--heading-space-top);
+  margin-bottom: var(--heading-space-bottom);
 }
 
 h2:first-child {
@@ -17,13 +17,13 @@ h2:first-child {
 }
 
 p + p {
-  margin-top: 1rem;
+  margin-top: var(--flow-space);
 }
 
 ul,
 ol {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: var(--flow-space);
+  margin-bottom: var(--flow-space);
   padding-left: 1ch;
 }
 
@@ -50,17 +50,17 @@ ul:has(strong) > li > strong {
 }
 
 article {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--block-space);
 }
 
 details {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-lg);
 }
 
 blockquote {
-  margin: 0 0 var(--ui-spacing);
+  margin: 0 0 var(--flow-space);
   border-left: var(--accent-size) solid var(--ui-blockquote-border-color);
-  padding: 0.5rem 0 0.5rem 1rem;
+  padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
 }
 
 table {
@@ -83,7 +83,7 @@ th {
 }
 
 .section-kicker {
-  margin: 0 0 0.2rem;
+  margin: 0 0 var(--space-xxs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.78rem;
@@ -115,10 +115,11 @@ th {
 }
 
 .width {
-  max-width: 60ch;
-  text-align: justify;
-  text-align-last: left;
-  hyphens: auto;
+  max-width: var(--lead-width);
+  /* Ragged-right (left-aligned) keeps word spacing even and horizontal
+     rhythm natural; justification on a ~60ch measure created rivers. */
+  text-align: left;
+  hyphens: manual;
 }
 
 .minimal-btn {

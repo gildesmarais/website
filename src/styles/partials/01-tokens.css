@@ -35,6 +35,19 @@
   --space-lg: calc(var(--ui-spacing) * 1.5); /* 24px / 1.5rem - Section headers */
   --space-xl: calc(var(--ui-spacing) * 2); /* 32px / 2rem   - Section block margins */
   --space-xxl: calc(var(--ui-spacing) * 3); /* 48px / 3rem   - Large hero/footer separations */
+
+  /* Vertical rhythm — semantic flow spacing built on the --space scale.
+     Use these for block flow so every page shares one rhythm. */
+  --flow-space: var(--space-md); /* 1rem   - gap between prose blocks (p, ul, ol) */
+  --flow-space-prose: var(--space-lg); /* 1.5rem - long-form paragraph rhythm */
+  --heading-space-top: var(--space-lg); /* 1.5rem - space above section headings */
+  --heading-space-bottom: var(--space-md); /* 1rem   - space below section headings */
+  --block-space: var(--space-xl); /* 2rem   - between sections / articles */
+  --region-space: var(--space-xxl); /* 3rem   - hero → content, major region gaps */
+  --scroll-offset: calc(
+    var(--space-xxl) + var(--space-md)
+  ); /* 4rem - :target offset clearing sticky header */
+
   --ui-border-radius: 1px;
   --ui-line-height: 1.5;
   --ui-font-size: 100%;

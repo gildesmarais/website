@@ -196,13 +196,12 @@ const resumeHeadings = [
   section > ul,
   section > ol {
     max-width: var(--lead-width);
-    text-align: justify;
-    text-align-last: left;
-    hyphens: auto;
+    text-align: left;
+    hyphens: manual;
   }
 
   #current + section > h3 {
-    margin-bottom: 0.25em;
+    margin-bottom: var(--space-xxs);
   }
 
   p:has(time) {

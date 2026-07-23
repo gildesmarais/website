@@ -69,11 +69,13 @@ const openSourceHighlights = [
     letter-spacing: -0.015em;
   }
 
+  /* Sits directly under the hero — let the hero's bottom margin own the
+     gap so the hero→content rhythm matches every other page. */
   #next {
-    margin-top: 4rem;
+    margin-top: 0;
   }
 
   #next p + p {
-    margin-top: 0.75rem;
+    margin-top: var(--space-sm);
   }
 </style>

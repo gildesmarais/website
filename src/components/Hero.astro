@@ -18,7 +18,7 @@ const { title, description, children } = Astro.props
 <style>
   /* --- Hero --------------------------------------------------------------- */
   .hero {
-    margin-bottom: 2rem;
+    margin-bottom: var(--block-space);
   }
 
   .hero h1 {
@@ -29,13 +29,13 @@ const { title, description, children } = Astro.props
     font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
     background: var(--ui-background-color);
     text-wrap: balance;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-lg);
   }
 
   /* --- Desktop and larger (min-width: 640px) ------------------------------ */
   @media (min-width: 640px) {
     .hero {
-      margin-bottom: 2.5rem;
+      margin-bottom: var(--region-space);
     }
 
     .hero h1 {

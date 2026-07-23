@@ -40,7 +40,7 @@ if (filteredHeadings.length === 0) return null
 
 <style>
   .toc {
-    margin: 5rem 0 2.5rem 0;
+    margin: var(--region-space) 0 var(--block-space) 0;
     padding: 0;
 
     /* Override Pico's nav defaults */
@@ -62,7 +62,7 @@ if (filteredHeadings.length === 0) return null
   }
 
   .toc-list li {
-    padding: 0 0 0.25em 0;
+    padding: 0 0 var(--space-xxs) 0;
     font-size: 0.9em;
   }
 
@@ -87,16 +87,16 @@ if (filteredHeadings.length === 0) return null
     margin-left: 0;
   }
   .toc-depth-3 {
-    margin-left: 1.5rem;
+    margin-left: var(--space-lg);
   }
   .toc-depth-4 {
-    margin-left: 3rem;
+    margin-left: calc(var(--space-lg) * 2);
   }
   .toc-depth-5 {
-    margin-left: 4.5rem;
+    margin-left: calc(var(--space-lg) * 3);
   }
   .toc-depth-6 {
-    margin-left: 6rem;
+    margin-left: calc(var(--space-lg) * 4);
   }
 
   @media (max-width: 768px) {
@@ -109,16 +109,16 @@ if (filteredHeadings.length === 0) return null
     }
 
     .toc-depth-3 {
-      margin-left: 1rem;
+      margin-left: var(--space-md);
     }
     .toc-depth-4 {
-      margin-left: 2rem;
+      margin-left: calc(var(--space-md) * 2);
     }
     .toc-depth-5 {
-      margin-left: 3rem;
+      margin-left: calc(var(--space-md) * 3);
     }
     .toc-depth-6 {
-      margin-left: 4rem;
+      margin-left: calc(var(--space-md) * 4);
     }
   }
 </style>

@@ -138,7 +138,7 @@ hgroup > * {
 }
 
 hgroup > * + * {
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
 }
 
 hr {
@@ -214,5 +214,5 @@ a.secondary:focus {
 }
 
 :where(:target) {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: var(--scroll-offset);
 }

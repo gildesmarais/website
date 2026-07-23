@@ -95,7 +95,7 @@ html:active-view-transition {
 }
 
 :target {
-  scroll-margin-top: 4rem;
+  scroll-margin-top: var(--scroll-offset);
 }
 
 body {
@@ -133,7 +133,7 @@ body::after {
 body > header,
 body > main,
 body > footer {
-  padding-block: clamp(1.5rem, 3vw, 3rem);
+  padding-block: clamp(var(--space-lg), 3vw, var(--space-xxl));
 }
 
 main {
