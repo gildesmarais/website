@@ -61,7 +61,7 @@ const { title, date, description, language } = Astro.props
   article h5,
   article h6 {
     border-inline-start: var(--accent-size) solid var(--brand-accent);
-    padding-inline-start: 0.7rem;
+    padding-inline-start: var(--ui-accent-padding);
     border-radius: 0;
   }
 
@@ -75,8 +75,6 @@ const { title, date, description, language } = Astro.props
   }
 
   article blockquote {
-    border-left: 4px solid var(--ui-secondary);
-    padding-left: 1.5rem;
     font-style: italic;
   }
 

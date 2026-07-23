@@ -59,8 +59,8 @@ details {
 
 blockquote {
   margin: 0 0 var(--ui-spacing);
-  border-left: 3px solid var(--ui-blockquote-border-color);
-  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: var(--accent-size) solid var(--ui-blockquote-border-color);
+  padding: 0.5rem 0 0.5rem 1rem;
 }
 
 table {
@@ -98,7 +98,7 @@ th {
   background-color: var(--ui-glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 0 var(--ui-spacing) 0 0.7rem;
+  padding: 0 var(--ui-spacing) 0 var(--ui-accent-padding);
   border-bottom: var(--ui-stroke) solid var(--ui-border-color);
   margin-bottom: 0;
 }
@@ -172,14 +172,14 @@ th {
 
 .accent {
   border-inline-start: var(--accent-size) solid var(--brand-accent);
-  padding-inline-start: 0.7rem;
+  padding-inline-start: var(--ui-accent-padding);
   border-radius: 0;
 }
 
 [data-corners] {
   position: relative;
   padding-top: 0.3rem;
-  padding-left: 0.7rem;
+  padding-left: var(--ui-accent-padding);
 }
 
 [data-corners]::before {
