@@ -8,26 +8,26 @@
   --ui-font-family-sans: var(--font-sans);
   --ui-font-family-monospace: var(--font-mono);
 
-  --brand-bg: hsl(0, 0%, 4%);
-  --brand-surface: #111111;
+  --brand-bg: hsl(0deg 0% 4%);
+  --brand-surface: #111;
   --brand-text: #e6e6e6;
   --brand-muted: #a3a3a3;
   --brand-border: #2a2a2a;
 
-  --brand-accent: hsl(32, 100%, 50%);
-  --brand-accent-bg: hsl(33, 100%, 35%);
-  --brand-accent-hover: hsl(30, 100%, 64%);
-  --brand-accent-focus: hsla(32, 100%, 50%, 0.35);
-  --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
+  --brand-accent: hsl(32deg 100% 50%);
+  --brand-accent-bg: hsl(33deg 100% 35%);
+  --brand-accent-hover: hsl(30deg 100% 64%);
+  --brand-accent-focus: hsl(32deg 100% 50% / 35%);
+  --brand-accent-underline: hsl(32deg 100% 50% / 50%);
 
   /* Accent alpha ladder — snap near-duplicates to these rungs. */
-  --accent-a08: hsla(32, 100%, 50%, 0.08);
-  --accent-a12: hsla(32, 100%, 50%, 0.12);
-  --accent-a20: hsla(32, 100%, 50%, 0.2);
-  --accent-a45: hsla(32, 100%, 50%, 0.45);
-  --accent-a80: hsla(32, 100%, 50%, 0.8);
+  --accent-a08: hsl(32deg 100% 50% / 8%);
+  --accent-a12: hsl(32deg 100% 50% / 12%);
+  --accent-a20: hsl(32deg 100% 50% / 20%);
+  --accent-a45: hsl(32deg 100% 50% / 45%);
+  --accent-a80: hsl(32deg 100% 50% / 80%);
   /* Loading shimmer peak — snapping .95→.80 washed out the nav gradient. */
-  --accent-a95: hsla(32, 100%, 50%, 0.95);
+  --accent-a95: hsl(32deg 100% 50% / 95%);
 
   --ui-primary-wash: var(--accent-a08);
   --ui-primary-glow: var(--accent-a20);
@@ -114,8 +114,8 @@
   --ui-muted-color: var(--brand-muted);
   --ui-muted-border-color: var(--brand-border);
 
-  --ui-glass-bg: hsla(0, 0%, 4%, 0.82);
-  --ui-glass-card-bg: rgba(17, 17, 17, 0.82);
+  --ui-glass-bg: hsl(0deg 0% 4% / 82%);
+  --ui-glass-card-bg: rgb(17 17 17 / 82%);
 
   --ui-primary: var(--brand-accent);
   --ui-primary-color: var(--brand-accent);
@@ -132,23 +132,23 @@
   --ui-secondary: #9aa0aa;
   --ui-secondary-background: #3a3f4a;
   --ui-secondary-border: var(--ui-secondary-background);
-  --ui-secondary-underline: rgba(154, 160, 170, 0.5);
+  --ui-secondary-underline: rgb(154 160 170 / 50%);
   --ui-secondary-hover: #b7bbc3;
   --ui-secondary-hover-background: #474c57;
   --ui-secondary-hover-border: var(--ui-secondary-hover-background);
   --ui-secondary-hover-underline: var(--ui-secondary-hover);
-  --ui-secondary-focus: rgba(154, 160, 170, 0.25);
+  --ui-secondary-focus: rgb(154 160 170 / 25%);
   --ui-secondary-inverse: #fff;
 
   --ui-contrast: #e7eaf0;
   --ui-contrast-background: #f5f6f8;
   --ui-contrast-border: var(--ui-contrast-background);
-  --ui-contrast-underline: rgba(231, 234, 240, 0.5);
+  --ui-contrast-underline: rgb(231 234 240 / 50%);
   --ui-contrast-hover: #fff;
   --ui-contrast-hover-background: #fff;
   --ui-contrast-hover-border: var(--ui-contrast-hover-background);
   --ui-contrast-hover-underline: var(--ui-contrast-hover);
-  --ui-contrast-focus: rgba(207, 213, 226, 0.25);
+  --ui-contrast-focus: rgb(207 213 226 / 25%);
   --ui-contrast-inverse: #000;
 
   --ui-h1-color: #f2f3f5;
@@ -178,7 +178,7 @@
   --ui-active-nav-color: #fff8eb;
   --ui-blockquote-border-color: var(--ui-secondary);
   --ui-table-border-color: var(--ui-muted-border-color);
-  --ui-table-row-stripped-background-color: rgba(255, 255, 255, 0.03);
+  --ui-table-row-stripped-background-color: rgb(255 255 255 / 3%);
   --ui-switch-background-color: #343a46;
   --ui-switch-checked-background-color: var(--ui-primary-background);
   --ui-range-border-color: var(--brand-border);
@@ -186,7 +186,7 @@
 
   --ui-card-border-color: var(--ui-card-background-color);
   --ui-card-sectioning-background-color: #ff880002;
-  --ui-card-hover-bg: rgba(255, 255, 255, 0.03);
+  --ui-card-hover-bg: rgb(255 255 255 / 3%);
   --ui-dropdown-background-color: var(--ui-card-background-color);
   --ui-dropdown-border-color: var(--ui-muted-border-color);
   --ui-dropdown-color: var(--ui-color);

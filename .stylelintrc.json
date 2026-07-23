@@ -6,8 +6,8 @@
     "color-no-hex": true,
     "declaration-property-value-disallowed-list": {
       "/.*/": [
-        "/rgba?\\(\\s*255\\s*,\\s*136\\s*,\\s*0/",
-        "/hsla?\\(\\s*32\\s*,\\s*100%\\s*,\\s*50%/",
+        "/rgba?\\(\\s*255[\\s,]+136[\\s,]+0/",
+        "/hsla?\\(\\s*32(?:deg)?[\\s,]+100%[\\s,]+50%/",
         "/#ff8800/i",
         "/#fff4de/i"
       ]
@@ -15,10 +15,6 @@
     "no-descending-specificity": null,
     "import-notation": null,
     "media-feature-range-notation": null,
-    "alpha-value-notation": null,
-    "color-function-notation": null,
-    "color-function-alias-notation": null,
-    "hue-degree-notation": null,
     "value-keyword-case": null,
     "declaration-empty-line-before": null,
     "rule-empty-line-before": null,
@@ -35,7 +31,6 @@
     "property-no-deprecated": null,
     "declaration-block-no-redundant-longhand-properties": null,
     "selector-not-notation": null,
-    "color-hex-length": null,
     "selector-pseudo-element-colon-notation": null,
     "declaration-property-value-keyword-no-deprecated": null,
     "property-no-unknown": [
