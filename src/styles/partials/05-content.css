@@ -116,6 +116,7 @@ th {
 
 .width {
   max-width: var(--lead-width);
+
   /* Ragged-right (left-aligned) keeps word spacing even and horizontal
      rhythm natural; justification on a ~60ch measure created rivers. */
   text-align: left;
@@ -202,6 +203,7 @@ th {
         opacity: 0;
         transform: translateY(6px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);

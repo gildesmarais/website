@@ -7,8 +7,10 @@
 html {
   font-size: var(--ui-font-size);
   scroll-behavior: smooth;
+
   --scrollbar-thumb: var(--brand-accent);
   --scrollbar-track: var(--brand-bg);
+
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   scrollbar-width: thin;
 }

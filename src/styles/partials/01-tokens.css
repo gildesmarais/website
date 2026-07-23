@@ -1,19 +1,15 @@
 :root {
   --font-sans: "IBM Plex Sans", system-ui, sans-serif;
   --font-mono: "Ubuntu Mono", ui-monospace, monospace;
-
   --lead-width: 60ch;
-
   --ui-font-family: var(--font-sans);
   --ui-font-family-sans: var(--font-sans);
   --ui-font-family-monospace: var(--font-mono);
-
   --brand-bg: hsl(0deg 0% 4%);
   --brand-surface: #111;
   --brand-text: #e6e6e6;
   --brand-muted: #a3a3a3;
   --brand-border: #2a2a2a;
-
   --brand-accent: hsl(32deg 100% 50%);
   --brand-accent-bg: hsl(33deg 100% 35%);
   --brand-accent-hover: hsl(30deg 100% 64%);
@@ -26,13 +22,12 @@
   --accent-a20: hsl(32deg 100% 50% / 20%);
   --accent-a45: hsl(32deg 100% 50% / 45%);
   --accent-a80: hsl(32deg 100% 50% / 80%);
+
   /* Loading shimmer peak — snapping .95→.80 washed out the nav gradient. */
   --accent-a95: hsl(32deg 100% 50% / 95%);
-
   --ui-primary-wash: var(--accent-a08);
   --ui-primary-glow: var(--accent-a20);
   --ui-primary-border-soft: var(--accent-a45);
-
   --ui-stroke: 2px;
   --ui-stroke-thin: 1px;
   --accent-size: 4px;
@@ -93,7 +88,6 @@
   --text-md: 1rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
-
   --leading-none: 1;
   --leading-tight: 1.2;
   --leading-snug: 1.35;
@@ -108,15 +102,12 @@
   --ui-background-color-tertiary: #171a21;
   --ui-card-background-color: var(--brand-surface);
   --ui-border-color: var(--brand-border);
-
   --ui-color: var(--brand-text);
   --ui-text-color: var(--brand-text);
   --ui-muted-color: var(--brand-muted);
   --ui-muted-border-color: var(--brand-border);
-
   --ui-glass-bg: hsl(0deg 0% 4% / 82%);
   --ui-glass-card-bg: rgb(17 17 17 / 82%);
-
   --ui-primary: var(--brand-accent);
   --ui-primary-color: var(--brand-accent);
   --ui-primary-background: var(--brand-accent-bg);
@@ -128,7 +119,6 @@
   --ui-primary-hover-underline: var(--ui-primary-hover);
   --ui-primary-focus: var(--brand-accent-focus);
   --ui-primary-inverse: #fff;
-
   --ui-secondary: #9aa0aa;
   --ui-secondary-background: #3a3f4a;
   --ui-secondary-border: var(--ui-secondary-background);
@@ -139,7 +129,6 @@
   --ui-secondary-hover-underline: var(--ui-secondary-hover);
   --ui-secondary-focus: rgb(154 160 170 / 25%);
   --ui-secondary-inverse: #fff;
-
   --ui-contrast: #e7eaf0;
   --ui-contrast-background: #f5f6f8;
   --ui-contrast-border: var(--ui-contrast-background);
@@ -150,14 +139,12 @@
   --ui-contrast-hover-underline: var(--ui-contrast-hover);
   --ui-contrast-focus: rgb(207 213 226 / 25%);
   --ui-contrast-inverse: #000;
-
   --ui-h1-color: #f2f3f5;
   --ui-h2-color: #e6e8eb;
   --ui-h3-color: #d3d7de;
   --ui-h4-color: #c2c7d0;
   --ui-h5-color: #aeb5c0;
   --ui-h6-color: #98a0ae;
-
   --ui-code-background-color: #171a21;
   --ui-code-color: #98a0ae;
   --ui-form-element-background-color: #1b1f27;
@@ -174,7 +161,6 @@
   --ui-form-element-valid-border-color: #2a7b6f;
   --ui-form-element-valid-active-border-color: #188969;
   --ui-form-element-valid-focus-color: var(--ui-form-element-valid-active-border-color);
-
   --ui-active-nav-color: #fff8eb;
   --ui-blockquote-border-color: var(--ui-secondary);
   --ui-table-border-color: var(--ui-muted-border-color);
@@ -183,7 +169,6 @@
   --ui-switch-checked-background-color: var(--ui-primary-background);
   --ui-range-border-color: var(--brand-border);
   --ui-range-active-border-color: #242a36;
-
   --ui-card-border-color: var(--ui-card-background-color);
   --ui-card-sectioning-background-color: #ff880002;
   --ui-card-hover-bg: rgb(255 255 255 / 3%);
@@ -191,12 +176,9 @@
   --ui-dropdown-border-color: var(--ui-muted-border-color);
   --ui-dropdown-color: var(--ui-color);
   --ui-dropdown-hover-background-color: #20242c;
-
   --ui-progress-background-color: #20242c;
   --ui-progress-color: var(--ui-primary-background);
-
   --ui-tooltip-background-color: var(--ui-contrast-background);
   --ui-tooltip-color: var(--ui-contrast-inverse);
-
   --ui-text-selection-color: var(--ui-primary-glow);
 }

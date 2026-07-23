@@ -37,6 +37,7 @@
     max-width: 1450px;
   }
 }
+
 body > footer small {
   display: flex;
   justify-content: space-between;
@@ -71,6 +72,7 @@ body > footer small {
       from {
         transform: scaleX(0);
       }
+
       to {
         transform: scaleX(1);
       }
