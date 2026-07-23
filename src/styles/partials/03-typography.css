@@ -177,7 +177,20 @@ main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link):n
 }
 
 a.secondary {
+  color: var(--ui-muted-color);
   text-decoration: underline;
+  text-decoration-color: var(--ui-secondary-underline);
+}
+
+a.secondary:visited {
+  color: var(--ui-muted-color);
+}
+
+a.secondary:hover,
+a.secondary:active,
+a.secondary:focus {
+  color: var(--ui-secondary-hover);
+  text-decoration-color: var(--ui-secondary-hover-underline);
 }
 
 :where(a, button, summary, [tabindex]):focus-visible {
