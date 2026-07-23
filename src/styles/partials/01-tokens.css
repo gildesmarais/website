@@ -115,6 +115,7 @@
 
   --ui-card-border-color: var(--ui-card-background-color);
   --ui-card-sectioning-background-color: #ff880002;
+  --ui-card-hover-bg: rgba(255, 255, 255, 0.03);
   --ui-dropdown-background-color: var(--ui-card-background-color);
   --ui-dropdown-border-color: var(--ui-muted-border-color);
   --ui-dropdown-color: var(--ui-color);

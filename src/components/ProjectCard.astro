@@ -58,8 +58,28 @@ const { title, slug, status, description, highlights, links } = Astro.props
 
 <style>
   .project-card {
-    padding: 0;
-    background-color: unset;
+    padding: 1rem;
+    margin-inline: -1rem;
+    background-color: transparent;
+    transition:
+      background-color var(--ui-motion) var(--ui-ease),
+      box-shadow var(--ui-motion) var(--ui-ease);
+    border-radius: var(--ui-border-radius);
+  }
+
+  .project-card:hover {
+    background-color: var(--ui-card-hover-bg);
+  }
+
+  .project-card .accent {
+    transition:
+      border-left-width var(--ui-motion) var(--ui-ease),
+      padding-left var(--ui-motion) var(--ui-ease);
+  }
+
+  .project-card:hover .accent {
+    border-left-width: 8px;
+    padding-left: 1rem;
   }
 
   .project-card header > h2 small {
