@@ -5,13 +5,14 @@ import type { APIContext } from "astro"
 
 export async function GET(context: APIContext) {
   const posts = await getCollection("blog", isVisibleEnglishBlogPost)
+  const sortedPosts = [...posts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   return rss({
     stylesheet: "/rss-styles.xsl",
     title: "Gil Desmarais's Blog",
     description: "The latest posts from Gil Desmarais's blog.",
     site: context.site!,
     customData: `<copyright>© 2026 Gil Desmarais. All content is licensed under CC BY-ND 4.0.</copyright>`,
-    items: posts.map((post) => ({
+    items: sortedPosts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.date,
