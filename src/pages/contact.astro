@@ -218,7 +218,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   }
 
   dialog {
-    border: 1px solid var(--ui-primary);
+    border: var(--ui-stroke) solid var(--ui-primary);
     padding: var(--ui-spacing);
     border-radius: 0;
     max-width: min(28rem, 90vw);
@@ -226,10 +226,10 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     opacity: 0;
     transform: scale(0.95);
     transition:
-      opacity 0.2s ease-out,
-      transform 0.2s ease-out,
-      display 0.2s allow-discrete,
-      overlay 0.2s allow-discrete;
+      opacity var(--ui-motion) var(--ui-ease),
+      transform var(--ui-motion) var(--ui-ease),
+      display var(--ui-motion) allow-discrete,
+      overlay var(--ui-motion) allow-discrete;
   }
 
   dialog[open] {
@@ -256,9 +256,9 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   dialog::backdrop {
     background-color: rgba(0, 0, 0, 0);
     transition:
-      display 0.2s allow-discrete,
-      overlay 0.2s allow-discrete,
-      background-color 0.2s ease-out;
+      display var(--ui-motion) allow-discrete,
+      overlay var(--ui-motion) allow-discrete,
+      background-color var(--ui-motion) var(--ui-ease);
   }
 
   dialog[open]::backdrop {
