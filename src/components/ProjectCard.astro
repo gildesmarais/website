@@ -17,8 +17,7 @@ const { title, slug, status, description, highlights, links } = Astro.props
 <article class="project-card">
   <header>
     <h2 class="accent" id={slug}>
-      {title}
-      <small aria-label="project status">— {status}</small>
+      {title}{" "}<small aria-label="project status">— {status}</small>
     </h2>
     <p class="lead">{description}</p>
   </header>
