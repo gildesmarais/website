@@ -1,10 +1,17 @@
 default: clean lintfix
 
-lint:
+lint: lint-prettier lint-css
+
+lint-prettier:
 	npm exec prettier -- . --check
+
+lint-css:
+	npm exec stylelint -- "src/**/*.{css,astro}" --allow-empty-input
 
 lintfix:
 	npm exec prettier -- . --write
+
+fix: lintfix
 
 clean:
 	find . -type d -empty -delete

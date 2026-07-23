@@ -13,6 +13,8 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - run: make lint-prettier
+      - run: make lint-css
       - run: npm run build
       - run: npm run check:visual
       - run: npx astro check
