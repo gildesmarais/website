@@ -20,6 +20,19 @@
   --brand-accent-focus: hsla(32, 100%, 50%, 0.35);
   --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
 
+  /* Accent alpha ladder — snap near-duplicates to these rungs. */
+  --accent-a08: hsla(32, 100%, 50%, 0.08);
+  --accent-a12: hsla(32, 100%, 50%, 0.12);
+  --accent-a20: hsla(32, 100%, 50%, 0.2);
+  --accent-a45: hsla(32, 100%, 50%, 0.45);
+  --accent-a80: hsla(32, 100%, 50%, 0.8);
+  /* Loading shimmer peak — snapping .95→.80 washed out the nav gradient. */
+  --accent-a95: hsla(32, 100%, 50%, 0.95);
+
+  --ui-primary-wash: var(--accent-a08);
+  --ui-primary-glow: var(--accent-a20);
+  --ui-primary-border-soft: var(--accent-a45);
+
   --ui-stroke: 2px;
   --ui-stroke-thin: 1px;
   --accent-size: 4px;
@@ -150,5 +163,5 @@
   --ui-tooltip-background-color: var(--ui-contrast-background);
   --ui-tooltip-color: var(--ui-contrast-inverse);
 
-  --ui-text-selection-color: rgba(255, 136, 0, 0.2);
+  --ui-text-selection-color: var(--ui-primary-glow);
 }

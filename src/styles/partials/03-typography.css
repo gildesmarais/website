@@ -115,7 +115,7 @@ textarea {
 
 :where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
   background: var(--brand-accent);
-  color: #000;
+  color: var(--ui-contrast-inverse);
   transform: translateY(1px);
 }
 
@@ -178,7 +178,7 @@ main a {
 
 main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link):not(.toc-list a) {
   background: var(--brand-accent);
-  color: #000;
+  color: var(--ui-contrast-inverse);
   text-decoration: none;
 }
 

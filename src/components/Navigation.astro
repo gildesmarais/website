@@ -163,7 +163,7 @@ const pathname = Astro.url.pathname
       rgba(255, 244, 226, 0.72) 0%,
       rgba(255, 186, 92, 0.88) 22%,
       rgba(255, 246, 233, 1) 50%,
-      rgba(255, 136, 0, 0.95) 78%,
+      var(--accent-a95) 78%,
       rgba(255, 230, 193, 0.76) 100%
     );
   }
@@ -212,13 +212,13 @@ const pathname = Astro.url.pathname
 
   #menu-toggle:hover {
     background: var(--brand-accent);
-    color: #000;
+    color: var(--ui-contrast-inverse);
     transform: translateY(1px);
   }
 
   #menu-toggle:hover .icon-menu,
   #menu-toggle:hover .icon-close {
-    stroke: #000;
+    stroke: var(--ui-contrast-inverse);
   }
 
   #menu-toggle:focus-visible {
@@ -290,7 +290,7 @@ const pathname = Astro.url.pathname
     line-height: 1.2;
     border-left: var(--ui-stroke) solid transparent;
     background:
-      linear-gradient(90deg, rgba(255, 136, 0, 0.16), rgba(255, 136, 0, 0)) left center / 0 100% no-repeat,
+      linear-gradient(90deg, var(--ui-primary-glow), transparent) left center / 0 100% no-repeat,
       transparent;
     transition:
       color var(--nav-transition-duration) ease,
@@ -304,8 +304,8 @@ const pathname = Astro.url.pathname
     background-size:
       100% 100%,
       auto;
-    background-color: rgba(255, 136, 0, 0.06);
-    border-color: rgba(255, 136, 0, 0.45);
+    background-color: var(--ui-primary-wash);
+    border-color: var(--ui-primary-border-soft);
   }
 
   .nav-link:focus-visible {
@@ -313,8 +313,8 @@ const pathname = Astro.url.pathname
     background-size:
       100% 100%,
       auto;
-    background-color: rgba(255, 136, 0, 0.08);
-    border-color: rgba(255, 136, 0, 0.8);
+    background-color: var(--ui-primary-wash);
+    border-color: var(--accent-a80);
     outline: none;
   }
 
@@ -326,17 +326,17 @@ const pathname = Astro.url.pathname
     background-size:
       100% 100%,
       auto;
-    background-color: rgba(255, 136, 0, 0.08);
+    background-color: var(--ui-primary-wash);
   }
 
   .nav-link[aria-current="page"]:hover {
-    background-color: rgba(255, 136, 0, 0.12);
+    background-color: var(--accent-a12);
   }
 
   .nav-link.is-loading {
     color: transparent;
     background-image:
-      var(--nav-loading-gradient), linear-gradient(90deg, rgba(255, 136, 0, 0.2), rgba(255, 136, 0, 0.02));
+      var(--nav-loading-gradient), linear-gradient(90deg, var(--ui-primary-glow), transparent);
     background-size:
       220% 100%,
       100% 100%;
@@ -347,8 +347,8 @@ const pathname = Astro.url.pathname
     -webkit-background-clip: text, padding-box;
     -webkit-text-fill-color: transparent;
     animation: nav-link-loading 1s linear infinite;
-    border-color: rgba(255, 136, 0, 0.85);
-    background-color: rgba(255, 136, 0, 0.08);
+    border-color: var(--accent-a80);
+    background-color: var(--ui-primary-wash);
   }
 
   /* ==========================================================================
@@ -406,7 +406,7 @@ const pathname = Astro.url.pathname
       min-width: fit-content;
       border-left: 0;
       background:
-        linear-gradient(90deg, rgba(255, 136, 0, 0.18), rgba(255, 136, 0, 0)) left bottom / 0 100% no-repeat,
+        linear-gradient(90deg, var(--ui-primary-glow), transparent) left bottom / 0 100% no-repeat,
         transparent;
     }
 
@@ -423,7 +423,7 @@ const pathname = Astro.url.pathname
     }
 
     .nav-link:hover {
-      color: #000;
+      color: var(--ui-contrast-inverse);
       background: var(--brand-accent);
       transform: translateY(1px);
     }
@@ -444,7 +444,7 @@ const pathname = Astro.url.pathname
     }
 
     .nav-link[aria-current="page"]:hover {
-      color: #000;
+      color: var(--ui-contrast-inverse);
       background: var(--brand-accent);
       transform: translateY(1px);
     }
@@ -455,7 +455,7 @@ const pathname = Astro.url.pathname
 
     .nav-link:focus-visible {
       background: transparent;
-      color: #fff4de;
+      color: var(--ui-active-nav-color);
       border-color: transparent;
     }
 
