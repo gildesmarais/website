@@ -34,7 +34,11 @@ export function initMovieList(): void {
   const searchInput = document.getElementById("movieFilter") as HTMLInputElement | null
   const searchForm = document.getElementById("searchForm") as HTMLFormElement | null
   const recToggle = document.getElementById("recommendationToggle") as HTMLAnchorElement | null
+  const recStateLabel = document.getElementById("recommendationStateLabel") as HTMLElement | null
+  const resultCount = document.getElementById("movieResultCount") as HTMLElement | null
+  const resultAnnouncement = document.getElementById("movieResultAnnouncement") as HTMLElement | null
   const sortBtns = document.querySelectorAll<HTMLAnchorElement>(".sort-btn")
+  let announceCountTimeout: number | undefined
 
   let state = parseUrlParams(new URL(window.location.href))
 
@@ -48,11 +52,13 @@ export function initMovieList(): void {
       recToggle?.setAttribute("aria-pressed", "true")
       recToggle?.setAttribute("aria-label", "Show all movies")
       if (recToggle) recToggle.title = "Show all movies"
+      if (recStateLabel) recStateLabel.textContent = "Recommended"
     } else {
       recToggle?.classList.remove("active")
       recToggle?.setAttribute("aria-pressed", "false")
       recToggle?.setAttribute("aria-label", "Show only recommended movies")
       if (recToggle) recToggle.title = "Show only recommended movies"
+      if (recStateLabel) recStateLabel.textContent = "All movies"
     }
 
     sortBtns.forEach((btn) => {
@@ -95,6 +101,16 @@ export function initMovieList(): void {
       } else {
         emptyEl?.remove()
       }
+
+      if (resultCount) {
+        resultCount.textContent = `${movies.length} films`
+      }
+      if (resultAnnouncement) {
+        window.clearTimeout(announceCountTimeout)
+        announceCountTimeout = window.setTimeout(() => {
+          if (resultAnnouncement) resultAnnouncement.textContent = `${movies.length} films`
+        }, 250)
+      }
     })
 
     window.history.replaceState({}, "", buildMoviesPageUrl(state, {}))
@@ -106,7 +122,7 @@ export function initMovieList(): void {
     const isRec = !state.filters.isRecommendation
     state = {
       ...state,
-      filters: { ...state.filters, isRecommendation: isRec ? true : undefined },
+      filters: { ...state.filters, isRecommendation: isRec },
     }
     updateList()
   })

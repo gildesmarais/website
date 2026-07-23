@@ -26,6 +26,7 @@ const url = new URL(Astro.request.url)
 const { filters, sortOptions } = parseUrlParams(url)
 
 const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
+const visibleMovieIds = new Set(processedMovies.map((movie) => movie.const))
 
 const catalog = movies.map(
   ({
@@ -66,14 +67,16 @@ const recommendationIds = [...recommendationsSet]
 
     <MovieFilters
       searchQuery={filters.searchQuery || ""}
-      isRecommendation={filters.isRecommendation || false}
+      isRecommendation={filters.isRecommendation}
       sortBy={sortOptions.sortBy}
       sortDir={sortOptions.sortDir}
+      resultCount={processedMovies.length}
     />
     <div class="recommendations-grid">
       {
-        processedMovies.map((movie) => {
+        movies.map((movie) => {
           const isRecommendation = recommendationsSet.has(movie.const)
+          const isVisible = visibleMovieIds.has(movie.const)
           return (
             <MovieCard
               imdbId={movie.const}
@@ -84,6 +87,7 @@ const recommendationIds = [...recommendationsSet]
               genres={movie.genres}
               directors={movie.directors}
               isRecommendation={isRecommendation}
+              style={isVisible ? undefined : "display: none"}
             >
               <MoviePoster slot="poster" imdbId={movie.const} />
             </MovieCard>

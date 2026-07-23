@@ -18,7 +18,7 @@ export interface Movie {
 
 export interface MovieFilters {
   searchQuery?: string
-  isRecommendation?: boolean
+  isRecommendation: boolean
 }
 
 export interface MovieSortOptions {
@@ -135,7 +135,7 @@ export function buildMoviesPageUrl(
     filters.searchQuery = updates.searchQuery || undefined
   }
   if ("isRecommendation" in updates) {
-    filters.isRecommendation = updates.isRecommendation || undefined
+    filters.isRecommendation = updates.isRecommendation ?? filters.isRecommendation
   }
   if ("sortBy" in updates && updates.sortBy !== undefined) {
     sortOptions.sortBy = updates.sortBy
@@ -146,7 +146,7 @@ export function buildMoviesPageUrl(
 
   const params = new URLSearchParams()
   if (filters.searchQuery) params.set("q", filters.searchQuery)
-  if (filters.isRecommendation) params.set("isRecommendation", "true")
+  if (!filters.isRecommendation) params.set("isRecommendation", "false")
   if (sortOptions.sortBy !== "default") params.set("sort", sortOptions.sortBy)
   if (sortOptions.sortDir !== "asc") params.set("dir", sortOptions.sortDir)
 
@@ -156,14 +156,14 @@ export function buildMoviesPageUrl(
 
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
   const searchQuery = url.searchParams.get("q") || ""
-  const isRecommendation = url.searchParams.get("isRecommendation") === "true"
+  const isRecommendation = url.searchParams.get("isRecommendation") !== "false"
   const sortBy = (url.searchParams.get("sort") || "default") as MovieSortOptions["sortBy"]
   const sortDir = (url.searchParams.get("dir") || "asc") as MovieSortOptions["sortDir"]
 
   return {
     filters: {
       searchQuery: searchQuery || undefined,
-      isRecommendation: isRecommendation || undefined,
+      isRecommendation,
     },
     sortOptions: { sortBy, sortDir },
   }
