@@ -12,7 +12,7 @@
   --brand-surface: #111111;
   --brand-text: #e6e6e6;
   --brand-muted: #a3a3a3;
-  --brand-border: #1f1f1f;
+  --brand-border: #2a2a2a;
 
   --brand-accent: hsl(32, 100%, 50%);
   --brand-accent-bg: hsl(33, 100%, 35%);
@@ -20,7 +20,10 @@
   --brand-accent-focus: hsla(32, 100%, 50%, 0.35);
   --brand-accent-underline: hsla(32, 100%, 50%, 0.5);
 
-  --accent-size: 0.25rem;
+  --ui-stroke: 2px;
+  --accent-size: 4px;
+  --ui-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ui-motion: 0.2s;
 
   --ui-spacing: 1rem;
   --ui-border-radius: 1px;
