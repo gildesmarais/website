@@ -112,20 +112,20 @@ const recommendationIds = [...recommendationsSet]
   .recommendations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.5rem;
+    gap: var(--space-sm);
   }
 
   @media (max-width: 600px) {
     .recommendations-grid {
       grid-template-columns: minmax(0, 1fr);
-      gap: 0.75rem;
+      gap: var(--space-sm);
     }
   }
 
   @media (min-width: 768px) {
     .recommendations-grid {
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.75rem;
+      gap: var(--space-sm);
     }
   }
 

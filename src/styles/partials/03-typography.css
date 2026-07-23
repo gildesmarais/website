@@ -84,7 +84,7 @@ textarea {
 ) {
   width: 100%;
   margin: 0;
-  border: 1px solid var(--ui-form-element-border-color);
+  border: var(--ui-stroke-thin) solid var(--ui-form-element-border-color);
   border-radius: var(--ui-border-radius);
   padding: 0.5rem 0.75rem;
   background: var(--ui-form-element-background-color);
@@ -142,11 +142,11 @@ hgroup > * + * {
 }
 
 hr {
-  margin: 3rem 0;
+  margin: var(--space-xl) 0;
 }
 
 abbr[title] {
-  border-bottom: 1px solid var(--brand-accent);
+  border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
 }
 
 a {
