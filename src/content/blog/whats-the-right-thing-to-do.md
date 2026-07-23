@@ -2,7 +2,6 @@
 title: A Harvard Primer on Moral Reasoning
 date: 2020-07-28
 description: Recommendation for an enjoyable lecture ‒ freely available ‒ on moral reasoning.
-showcase: true
 tags:
   - recommendation
 ---

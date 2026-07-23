@@ -2,7 +2,6 @@
 title: Meet Pal
 date: 2020-04-16
 description: A small ritual for clearer thinking — and an alligator with a purpose.
-showcase: true
 tags:
   - programming
 ---

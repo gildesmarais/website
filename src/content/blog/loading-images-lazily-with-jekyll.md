@@ -4,7 +4,6 @@ date: 2020-05-03
 description: My plugin improves your Jekyll website's performance.
 listed: false
 toc: false
-showcase: false
 tags:
   - project
   - programming

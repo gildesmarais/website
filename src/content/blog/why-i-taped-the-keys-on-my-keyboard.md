@@ -3,7 +3,6 @@ title: Why I taped the keys on my keyboard
 date: 2020-03-27
 description: "Observations while becoming better at typing blindly."
 toc: false
-showcase: true
 tags:
   - keyboard
 ---

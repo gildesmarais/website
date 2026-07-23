@@ -4,16 +4,16 @@ import Hero from "../../components/Hero.astro"
 import { getCollection } from "astro:content"
 import { isVisibleShowcasePost } from "../../content/blog"
 const title = "Blog"
-const description = "Five recent posts, hand-picked. Subscribe via RSS feed."
-const posts = (await getCollection("blog", isVisibleShowcasePost))
-  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-  .slice(0, 5)
+const description = "Five hand-picked posts. Subscribe via RSS feed."
+const posts = (await getCollection("blog", isVisibleShowcasePost)).sort(
+  (a, b) => a.data.showcaseOrder! - b.data.showcaseOrder!,
+)
 ---
 
 <BaseLayout title={title} description={description}>
   <Hero title={title}>
     <p class="lead">
-      Five recent posts, hand-picked. See the <a href="/blog/archive/">archive</a> for all, or<br />
+      Five hand-picked posts. See the <a href="/blog/archive/">archive</a> for all, or<br />
       <a href="/feed.xml">subscribe to the RSS feed</a> (English posts only).
     </p>
   </Hero>
