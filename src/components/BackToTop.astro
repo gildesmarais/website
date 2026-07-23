@@ -26,8 +26,8 @@
     transform: translateY(100%);
     pointer-events: none;
     transition:
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out,
+      opacity var(--motion-slow) ease-out,
+      transform var(--motion-slow) ease-out,
       background var(--ui-motion) var(--ui-ease),
       color var(--ui-motion) var(--ui-ease);
   }
@@ -47,7 +47,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     #back-to-top {
-      transition: opacity 0.01ms;
+      transition: opacity var(--motion-instant);
     }
 
     #back-to-top,

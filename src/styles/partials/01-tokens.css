@@ -40,6 +40,27 @@
   --ui-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ui-motion: 0.2s;
 
+  /* Elevation, focus ring, stacking, motion */
+  --shadow-sm: 0 1px 8px var(--brand-accent-focus);
+  --shadow-md: 0 6px 20px var(--brand-accent-focus);
+  --ring-focus: 0 0 0 2px var(--brand-accent-focus);
+  --z-sticky: 10;
+  --z-scroll-progress: 1000;
+  --z-modal: 1100;
+  --z-vignette: 9999;
+  --z-grain: 10000;
+  --motion-fast: 0.15s;
+  --motion-base: var(--ui-motion);
+  --motion-slow: 0.3s;
+  --motion-instant: 0.01ms; /* prefers-reduced-motion near-instant */
+
+  /*
+   * Canonical breakpoints (preferred scale):
+   *   576 / 768 / 1024 / 1280 / 1536
+   * Legacy outliers kept as-is (do not snap): 640, 641, 1200.
+   * No postcss-custom-media — media queries stay literal.
+   */
+
   --ui-spacing: 1rem;
   --space-xxs: calc(var(--ui-spacing) * 0.25); /* 4px  / 0.25rem - Micro elements */
   --space-xs: calc(var(--ui-spacing) * 0.5); /* 8px  / 0.5rem  - Badges, small gaps */

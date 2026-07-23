@@ -272,7 +272,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   @media (prefers-reduced-motion: reduce) {
     dialog {
       transform: none;
-      transition-duration: 0.1s;
+      transition-duration: var(--motion-instant);
     }
     @starting-style {
       dialog[open] {

@@ -156,7 +156,7 @@ const pathname = Astro.url.pathname
     --nav-underline-offset: 2px;
     --nav-underline-left: 0.75rem;
     --nav-underline-width: calc(100% - 1.5rem);
-    --nav-transition-duration: 0.2s;
+    --nav-transition-duration: var(--motion-base);
     --nav-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
     --nav-loading-gradient: linear-gradient(
       100deg,
@@ -207,7 +207,7 @@ const pathname = Astro.url.pathname
     margin: 0;
     flex-shrink: 0;
     position: relative;
-    z-index: 10;
+    z-index: var(--z-sticky);
   }
 
   #menu-toggle:hover {
@@ -419,7 +419,7 @@ const pathname = Astro.url.pathname
       width: 0;
       height: var(--nav-underline-height);
       background: var(--brand-accent);
-      transition: width 0.3s var(--nav-transition-easing);
+      transition: width var(--motion-slow) var(--nav-transition-easing);
     }
 
     .nav-link:hover {

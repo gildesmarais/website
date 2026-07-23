@@ -1,7 +1,7 @@
 {
   "extends": ["stylelint-config-standard"],
   "customSyntax": "postcss-html",
-  "defaultSeverity": "warning",
+  "defaultSeverity": "error",
   "rules": {
     "color-no-hex": true,
     "declaration-property-value-disallowed-list": {
