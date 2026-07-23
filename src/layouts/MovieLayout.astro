@@ -12,10 +12,3 @@ const { title: pageTitle, description, language, robots } = Astro.props
   import { initPosterLoader } from "../utils/posterLoader"
   initPosterLoader()
 </script>
-
-<style>
-  html {
-    /* when navigating from modal, prevent slow/smoother scrolling */
-    scroll-behavior: unset;
-  }
-</style>

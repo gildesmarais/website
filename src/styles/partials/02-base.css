@@ -13,6 +13,10 @@ html {
   scrollbar-width: thin;
 }
 
+html:active-view-transition {
+  scroll-behavior: auto;
+}
+
 @supports not (scrollbar-color: auto) {
   html::-webkit-scrollbar {
     width: 8px;
