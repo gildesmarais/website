@@ -14,7 +14,6 @@
     },
     "no-descending-specificity": null,
     "import-notation": null,
-    "media-feature-range-notation": null,
     "value-keyword-case": null,
     "declaration-empty-line-before": null,
     "rule-empty-line-before": null,

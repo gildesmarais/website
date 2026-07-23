@@ -64,31 +64,31 @@ html:active-view-transition {
   }
 }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
   :root {
     --ui-font-size: 106.25%;
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   :root {
     --ui-font-size: 112.5%;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   :root {
     --ui-font-size: 118.75%;
   }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   :root {
     --ui-font-size: 125%;
   }
 }
 
-@media (min-width: 1536px) {
+@media (width >= 1536px) {
   :root {
     --ui-font-size: 131.25%;
   }
