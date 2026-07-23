@@ -10,7 +10,7 @@ export function isVisibleBlogPost({ data }: BlogEntryLike) {
 }
 
 export function isVisibleShowcasePost({ data }: BlogEntryLike) {
-  return isVisibleBlogPost({ data }) && data.showcase
+  return isVisibleBlogPost({ data }) && data.showcaseOrder !== undefined
 }
 
 export function isVisibleEnglishBlogPost({ data }: BlogEntryLike) {

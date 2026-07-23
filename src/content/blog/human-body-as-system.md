@@ -2,7 +2,7 @@
 title: Human Body as System
 description: "A reflection on noticing the human body like a computer: learning its feedback loops, safe modes, and background jobs."
 date: 2025-10-13
-showcase: true
+showcaseOrder: 1
 draft: false
 tags: [reflection, systems, mindfulness]
 ---

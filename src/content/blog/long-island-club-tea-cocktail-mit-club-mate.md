@@ -2,7 +2,6 @@
 title: Long Island Club Tea ‒ Cocktail mit Club-Mate
 date: 2013-02-24
 description: Eine Abwandlung des IBA-Rezepts eines Cocktailklassikers.
-showcase: true
 language: de
 tags:
   - food
