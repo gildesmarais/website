@@ -411,7 +411,7 @@ const pathname = Astro.url.pathname
     }
 
     /* --- Desktop Underline Effect --- */
-    .nav-link:after {
+    .nav-link::after {
       content: "";
       position: absolute;
       left: var(--nav-underline-left);
@@ -428,7 +428,7 @@ const pathname = Astro.url.pathname
       transform: translateY(1px);
     }
 
-    .nav-link:hover:after {
+    .nav-link:hover::after {
       display: none;
     }
 
@@ -439,7 +439,7 @@ const pathname = Astro.url.pathname
       font-weight: 700;
     }
 
-    .nav-link[aria-current="page"]:after {
+    .nav-link[aria-current="page"]::after {
       width: var(--nav-underline-width);
     }
 
@@ -449,7 +449,7 @@ const pathname = Astro.url.pathname
       transform: translateY(1px);
     }
 
-    .nav-link[aria-current="page"]:hover:after {
+    .nav-link[aria-current="page"]:hover::after {
       display: none;
     }
 

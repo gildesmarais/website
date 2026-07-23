@@ -13,8 +13,6 @@
       ]
     },
     "no-descending-specificity": null,
-    "import-notation": null,
-    "value-keyword-case": null,
     "declaration-empty-line-before": null,
     "rule-empty-line-before": null,
     "custom-property-empty-line-before": null,
@@ -29,8 +27,6 @@
     "property-no-vendor-prefix": null,
     "property-no-deprecated": null,
     "declaration-block-no-redundant-longhand-properties": null,
-    "selector-not-notation": null,
-    "selector-pseudo-element-colon-notation": null,
     "declaration-property-value-keyword-no-deprecated": null,
     "property-no-unknown": [
       true,

@@ -176,7 +176,7 @@ main a {
     color var(--ui-motion) var(--ui-ease);
 }
 
-main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link):not(.toc-list a) {
+main a:hover:not(.movie-card-link, .modal-backdrop-link, .filter-link, .toc-list a) {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   text-decoration: none;
