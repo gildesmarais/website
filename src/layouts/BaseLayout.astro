@@ -246,8 +246,10 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
 
     <script>
       function adjustBottomPadding() {
+        const mainContent = document.getElementById("main-content")
+        if (!mainContent) return
         const longEnough = document.documentElement.scrollHeight > window.innerHeight
-        document.body.style.paddingBottom = longEnough ? "33vh" : "0"
+        mainContent.style.paddingBottom = longEnough ? "33vh" : "0"
       }
       adjustBottomPadding()
       window.addEventListener("resize", adjustBottomPadding)
