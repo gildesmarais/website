@@ -155,6 +155,16 @@ a {
   text-underline-offset: 0.1rem;
 }
 
+main a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.15em;
+  text-decoration-skip-ink: auto;
+  transition:
+    background var(--ui-motion) var(--ui-ease),
+    color var(--ui-motion) var(--ui-ease);
+}
+
 a:visited {
   color: var(--ui-primary);
 }
@@ -164,16 +174,6 @@ a:active,
 a:focus {
   color: var(--ui-primary-hover);
   text-decoration-color: var(--ui-primary-hover-underline);
-}
-
-main a {
-  text-decoration-line: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.15em;
-  text-decoration-skip-ink: auto;
-  transition:
-    background var(--ui-motion) var(--ui-ease),
-    color var(--ui-motion) var(--ui-ease);
 }
 
 main a:hover:not(.movie-card-link, .modal-backdrop-link, .filter-link, .toc-list a) {

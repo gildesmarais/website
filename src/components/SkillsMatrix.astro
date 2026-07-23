@@ -132,8 +132,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     gap: 0;
     grid-column: 2;
     min-height: 60px;
-    justify-items: stretch;
-    align-items: stretch;
+    place-items: stretch;
   }
 
   .skill-cell {
@@ -152,7 +151,6 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
       color var(--ui-motion) var(--ui-ease),
       transform var(--ui-motion) var(--ui-ease);
     box-sizing: border-box;
-    word-wrap: break-word;
     overflow-wrap: break-word;
     min-height: 60px;
     height: auto;

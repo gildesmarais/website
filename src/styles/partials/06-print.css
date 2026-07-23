@@ -45,7 +45,7 @@
   h4,
   h5,
   h6 {
-    page-break-after: avoid;
+    break-after: avoid-page;
   }
 
   body::before,

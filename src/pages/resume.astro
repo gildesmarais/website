@@ -191,7 +191,6 @@ const resumeHeadings = [
 </BaseLayout>
 
 <style>
-  #executive-summary ~ p,
   section > p,
   section > ul,
   section > ol {
@@ -200,12 +199,12 @@ const resumeHeadings = [
     hyphens: manual;
   }
 
-  #current + section > h3 {
-    margin-bottom: var(--space-xxs);
-  }
-
   p:has(time) {
     letter-spacing: -0.01em;
     color: var(--ui-muted-color);
+  }
+
+  #current + section > h3 {
+    margin-bottom: var(--space-xxs);
   }
 </style>

@@ -216,6 +216,18 @@ const pathname = Astro.url.pathname
     transform: translateY(1px);
   }
 
+  /* --- Hamburger Icons --- */
+  #menu-toggle .icon-menu,
+  #menu-toggle .icon-close {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+
+  #menu-toggle .icon-close {
+    display: none;
+  }
+
   #menu-toggle:hover .icon-menu,
   #menu-toggle:hover .icon-close {
     stroke: var(--ui-contrast-inverse);
@@ -228,18 +240,6 @@ const pathname = Astro.url.pathname
 
   #menu-toggle:active {
     transform: translateY(1px);
-  }
-
-  /* --- Hamburger Icons --- */
-  #menu-toggle .icon-menu,
-  #menu-toggle .icon-close {
-    width: 28px;
-    height: 28px;
-    display: block;
-  }
-
-  #menu-toggle .icon-close {
-    display: none;
   }
 
   #menu-toggle[aria-expanded="true"] .icon-close {
@@ -373,12 +373,11 @@ const pathname = Astro.url.pathname
 
     #main-nav-list {
       display: flex;
-      flex-direction: row;
+      flex-flow: row nowrap;
       align-items: center;
       justify-content: flex-end;
       width: auto;
       margin: 0;
-      flex-wrap: nowrap;
       white-space: nowrap;
     }
 

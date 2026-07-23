@@ -237,16 +237,14 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
     }
 
     .controls-group {
-      flex-direction: row;
+      flex-flow: row nowrap;
       align-items: center;
       gap: var(--space-xs);
       overflow-x: auto;
       scrollbar-width: none;
-      flex-wrap: nowrap;
       min-width: 0;
       padding-bottom: var(--space-xxs);
       margin-bottom: calc(var(--space-xxs) * -1);
-      -webkit-mask-image: linear-gradient(to right, black calc(100% - 1.5rem), transparent);
       mask-image: linear-gradient(to right, black calc(100% - 1.5rem), transparent);
     }
 
