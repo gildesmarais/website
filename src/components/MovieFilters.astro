@@ -97,7 +97,9 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
 
 <style>
   .movie-controls {
-    background: var(--ui-card-background-color);
+    background: var(--ui-glass-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: var(--ui-stroke) solid var(--ui-border-color);
     position: sticky;
     top: env(safe-area-inset-top, 0);

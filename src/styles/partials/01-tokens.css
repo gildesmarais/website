@@ -44,6 +44,9 @@
   --ui-muted-color: var(--brand-muted);
   --ui-muted-border-color: var(--brand-border);
 
+  --ui-glass-bg: hsla(0, 0%, 4%, 0.82);
+  --ui-glass-card-bg: rgba(17, 17, 17, 0.82);
+
   --ui-primary: var(--brand-accent);
   --ui-primary-color: var(--brand-accent);
   --ui-primary-background: var(--brand-accent-bg);

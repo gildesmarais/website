@@ -95,9 +95,11 @@ th {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--ui-background-color);
+  background-color: var(--ui-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0 var(--ui-spacing) 0 0.7rem;
-  border-bottom: 1px solid var(--ui-border-color);
+  border-bottom: var(--ui-stroke) solid var(--ui-border-color);
   margin-bottom: 0;
 }
 

@@ -187,7 +187,10 @@ const note = recommendationNotes.get(movie.const)
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition:
+      color var(--ui-motion) var(--ui-ease),
+      background var(--ui-motion) var(--ui-ease),
+      border-color var(--ui-motion) var(--ui-ease);
     flex-shrink: 0;
   }
 
@@ -233,7 +236,9 @@ const note = recommendationNotes.get(movie.const)
       position: sticky;
       top: 0;
       z-index: 1;
-      background: var(--ui-card-background-color);
+      background: var(--ui-glass-card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 0.75rem 1rem;
     }
 
