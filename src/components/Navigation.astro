@@ -195,7 +195,7 @@ const pathname = Astro.url.pathname
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border: 3px solid var(--brand-accent);
+    border: var(--ui-stroke) solid var(--brand-accent);
     background: transparent;
     color: var(--brand-accent);
     cursor: pointer;
@@ -218,7 +218,7 @@ const pathname = Astro.url.pathname
   }
 
   #menu-toggle:focus-visible {
-    outline: 2px solid var(--brand-accent);
+    outline: var(--ui-stroke) solid var(--brand-accent);
     outline-offset: 2px;
   }
 
@@ -284,7 +284,7 @@ const pathname = Astro.url.pathname
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;
-    border-left: 2px solid transparent;
+    border-left: var(--ui-stroke) solid transparent;
     background:
       linear-gradient(90deg, rgba(255, 136, 0, 0.16), rgba(255, 136, 0, 0)) left center / 0 100% no-repeat,
       transparent;

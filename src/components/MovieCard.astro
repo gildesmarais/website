@@ -51,7 +51,7 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
   .movie-card {
     position: relative;
     background: var(--ui-card-background-color);
-    border: 2px solid var(--ui-border-color);
+    border: var(--ui-stroke) solid var(--ui-border-color);
     border-radius: 0;
     transition: border-color 0.2s ease;
     display: flex;
@@ -145,10 +145,6 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
   }
 
   @media (max-width: 600px) {
-    .movie-card {
-      border-width: 1px;
-    }
-
     .movie-card-link {
       display: grid;
       grid-template-columns: minmax(82px, 28vw) 1fr;

@@ -98,7 +98,7 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
 <style>
   .movie-controls {
     background: var(--ui-card-background-color);
-    border: 1px solid var(--ui-border-color);
+    border: var(--ui-stroke) solid var(--ui-border-color);
     position: sticky;
     top: env(safe-area-inset-top, 0);
     z-index: 3;
@@ -221,7 +221,7 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
     height: 2.375rem;
     padding: 0.25rem 0.75rem;
     border-radius: 0;
-    border-width: 2px;
+    border-width: var(--ui-stroke);
     border-color: var(--brand-accent);
     background-color: var(--brand-surface);
     text-align: right;

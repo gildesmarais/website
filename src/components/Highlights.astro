@@ -44,7 +44,7 @@ const { highlights } = Astro.props
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    border: 3px solid var(--brand-accent);
+    border: var(--accent-size) solid var(--brand-accent);
     white-space: nowrap;
     flex-shrink: 0;
     margin: 0 0.25rem 0 0;
@@ -77,7 +77,7 @@ const { highlights } = Astro.props
     .highlights dt {
       padding: 0.16em 0.5em;
       margin-right: 0.5em;
-      border-width: 4px;
+      border-width: var(--accent-size);
     }
 
     .highlights dd {
