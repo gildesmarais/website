@@ -64,6 +64,20 @@
   --ui-border-radius: 1px;
   --ui-line-height: 1.5;
   --ui-font-size: 100%;
+
+  /* Type scale — component/UI sizes. Heading rules stay in 03-typography.css. */
+  --text-2xs: 0.7rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: var(--ui-line-height);
+  --leading-relaxed: 1.6;
 }
 
 [data-theme="dark"] {

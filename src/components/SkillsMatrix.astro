@@ -111,8 +111,8 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     text-transform: uppercase;
     letter-spacing: 0.02em;
     padding: 0 1em 0.75em 1em;
-    font-size: 0.8em;
-    line-height: 1;
+    font-size: var(--text-xs);
+    line-height: var(--leading-none);
     display: flex;
     align-items: center;
     border-right: 2px solid var(--brand-accent);
@@ -144,8 +144,8 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.85em;
-    line-height: 1.2;
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
     background: var(--ui-card-background-color);
     transition:
       background-color var(--ui-motion) var(--ui-ease),

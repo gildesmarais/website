@@ -128,24 +128,24 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
     gap: 0.1rem;
     min-width: max-content;
     font-family: var(--font-mono);
-    line-height: 1.15;
+    line-height: var(--leading-tight);
   }
 
   .recommendation-state-label {
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
 
   .recommendation-state-count {
     color: var(--ui-muted-color);
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
   }
 
   .recommendation-toggle {
     padding: 0.5rem;
     min-width: 2.5rem;
-    line-height: 1;
+    line-height: var(--leading-none);
     border-color: transparent;
     background: transparent;
     justify-content: center;
@@ -166,7 +166,7 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    font-size: 1.4rem;
+    font-size: var(--text-xl);
     font-weight: 700;
     transition:
       transform 0.2s ease,

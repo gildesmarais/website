@@ -54,7 +54,7 @@ if (filteredHeadings.length === 0) return null
 
   .toc-list {
     letter-spacing: -0.01rem;
-    line-height: 1.25;
+    line-height: var(--leading-tight);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@ if (filteredHeadings.length === 0) return null
 
   .toc-list li {
     padding: 0 0 var(--space-xxs) 0;
-    font-size: 0.9em;
+    font-size: var(--text-sm);
   }
 
   .toc-list a {
@@ -101,11 +101,11 @@ if (filteredHeadings.length === 0) return null
 
   @media (max-width: 768px) {
     .toc-title {
-      font-size: 0.85em;
+      font-size: var(--text-sm);
     }
 
     .toc-list a {
-      font-size: 0.95em;
+      font-size: var(--text-md);
     }
 
     .toc-depth-3 {

@@ -63,7 +63,7 @@ const { pronunciation, audioSrc } = Astro.props
     border: var(--ui-stroke) solid var(--ui-border-color);
     border-radius: 0;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     text-decoration: none;
     transition:
       background var(--ui-motion) var(--ui-ease),
@@ -89,7 +89,7 @@ const { pronunciation, audioSrc } = Astro.props
   }
 
   .button-text {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 400;
   }
 
@@ -113,10 +113,10 @@ const { pronunciation, audioSrc } = Astro.props
 
   .ipa-text {
     font-family: var(--font-sans);
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
     color: var(--ui-color);
     letter-spacing: 0.1em;
-    line-height: 1.4;
+    line-height: var(--leading-snug);
     padding: 0.5rem 0;
     border-bottom: var(--ui-stroke) solid var(--brand-accent);
     position: relative;

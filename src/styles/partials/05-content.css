@@ -78,7 +78,7 @@ th {
 
 .micro {
   opacity: 0.8;
-  font-size: 0.95em;
+  font-size: var(--text-sm);
   font-family: var(--font-mono);
 }
 
@@ -86,7 +86,7 @@ th {
   margin: 0 0 var(--space-xxs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   color: var(--ui-muted-color);
   font-family: var(--font-mono);
 }
@@ -108,8 +108,8 @@ th {
 }
 
 .lead {
-  font-size: 1.05rem;
-  line-height: 1.55;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
   max-width: var(--lead-width);
   color: var(--ui-muted-color);
 }
@@ -132,7 +132,7 @@ th {
   border: var(--ui-stroke) solid var(--brand-accent);
   border-radius: 0;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition:
     background var(--ui-motion) var(--ui-ease),

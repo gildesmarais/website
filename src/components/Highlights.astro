@@ -49,8 +49,8 @@ const { highlights } = Astro.props
     flex-shrink: 0;
     margin: 0 0.25rem 0 0;
     padding: 0.14em 0.46em;
-    font-size: 0.9rem;
-    line-height: 1;
+    font-size: var(--text-sm);
+    line-height: var(--leading-none);
     display: flex;
     align-items: center;
     transition:
@@ -72,9 +72,9 @@ const { highlights } = Astro.props
 
   .highlights dd {
     font-weight: 700;
-    line-height: 1.3;
+    line-height: var(--leading-snug);
     letter-spacing: -0.006em;
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     margin: 0;
     align-self: center;
   }
@@ -87,8 +87,8 @@ const { highlights } = Astro.props
     }
 
     .highlights dd {
-      font-size: 0.95rem;
-      line-height: 1.15;
+      font-size: var(--text-md);
+      line-height: var(--leading-tight);
     }
   }
 </style>
