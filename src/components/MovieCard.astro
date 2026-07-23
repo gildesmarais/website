@@ -8,9 +8,11 @@ export interface Props {
   genres: string
   directors: string
   isRecommendation: boolean
+  style?: string
 }
 
-const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecommendation } = Astro.props
+const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecommendation, style } =
+  Astro.props
 ---
 
 <article
@@ -23,6 +25,7 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
   data-year={year}
   data-title={title.toLowerCase()}
   data-runtime={runtimeMins}
+  style={style}
 >
   <a href={`/movies/${imdbId}`} class="movie-card-link">
     <div class="poster-container">

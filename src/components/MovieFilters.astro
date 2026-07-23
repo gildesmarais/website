@@ -6,20 +6,22 @@ export interface Props {
   isRecommendation: boolean
   sortBy: string
   sortDir: string
+  resultCount: number
 }
 
-const { searchQuery, isRecommendation, sortBy, sortDir } = Astro.props
+const { searchQuery, isRecommendation, sortBy, sortDir, resultCount } = Astro.props
 
 const current = {
   filters: {
     searchQuery: searchQuery || undefined,
-    isRecommendation: isRecommendation || undefined,
+    isRecommendation,
   },
   sortOptions: {
     sortBy: sortBy as MovieSortOptions["sortBy"],
     sortDir: sortDir as MovieSortOptions["sortDir"],
   },
 }
+const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
 ---
 
 <!-- Movie controls -->
@@ -37,6 +39,13 @@ const current = {
     >
       <span class="recommendation-icon" aria-hidden="true">★</span>
     </a>
+    <div class="recommendation-state">
+      <span id="recommendationStateLabel" class="recommendation-state-label">{recommendationLabel}</span>
+      <span id="movieResultCount" class="recommendation-state-count">{resultCount} films</span>
+      <span id="movieResultAnnouncement" class="sr-only" aria-live="polite" aria-atomic="true"
+        >{resultCount} films</span
+      >
+    </div>
 
     <!-- Sort buttons -->
     <div class="sort-group">
@@ -71,7 +80,7 @@ const current = {
 
   <!-- Search -->
   <form id="searchForm" class="search-form" action="/movies/" method="get">
-    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
+    {!isRecommendation && <input type="hidden" name="isRecommendation" value="false" />}
     {sortBy !== "default" && <input type="hidden" name="sort" value={sortBy} />}
     {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
     <input
@@ -109,6 +118,26 @@ const current = {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .recommendation-state {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: max-content;
+    font-family: var(--font-mono);
+    line-height: 1.15;
+  }
+
+  .recommendation-state-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .recommendation-state-count {
+    color: var(--ui-muted-color);
+    font-size: 0.8rem;
   }
 
   .recommendation-toggle {
@@ -234,6 +263,10 @@ const current = {
     }
 
     .recommendation-toggle {
+      flex-shrink: 0;
+    }
+
+    .recommendation-state {
       flex-shrink: 0;
     }
 
