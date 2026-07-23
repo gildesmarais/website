@@ -76,7 +76,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   }
 
   .skills-matrix > h2 {
-    margin-block-end: calc(var(--ui-spacing) * 0.5);
+    margin-block-end: var(--space-xs);
     letter-spacing: 0.015em;
   }
 
@@ -84,7 +84,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     display: flex;
     align-items: stretch;
     gap: 0;
-    margin: 2rem 0;
+    margin: var(--block-space) 0;
   }
 
   .matrix-content {
@@ -110,7 +110,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    padding: 0 1em 0.75em 1em;
+    padding: 0 var(--space-md) var(--space-sm) var(--space-md);
     font-size: var(--text-xs);
     line-height: var(--leading-none);
     display: flex;
@@ -137,7 +137,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   }
 
   .skill-cell {
-    padding: 0.75em 0.5em;
+    padding: var(--space-sm) var(--space-xs);
     border-right: 1px solid var(--brand-accent);
     border-bottom: 1px solid var(--brand-accent);
     display: flex;

@@ -35,7 +35,7 @@ const { highlights } = Astro.props
   .highlights {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0.5rem 0.5rem;
+    gap: var(--space-xs);
   }
 
   .highlights dt {
@@ -47,8 +47,8 @@ const { highlights } = Astro.props
     border: var(--accent-size) solid var(--brand-accent);
     white-space: nowrap;
     flex-shrink: 0;
-    margin: 0 0.25rem 0 0;
-    padding: 0.14em 0.46em;
+    margin: 0 var(--space-xxs) 0 0;
+    padding: var(--space-xxs) var(--space-xs);
     font-size: var(--text-sm);
     line-height: var(--leading-none);
     display: flex;
@@ -81,8 +81,8 @@ const { highlights } = Astro.props
 
   @media (min-width: 640px) {
     .highlights dt {
-      padding: 0.16em 0.5em;
-      margin-right: 0.5em;
+      padding: var(--space-xxs) var(--space-xs);
+      margin-right: var(--space-xs);
       border-width: var(--accent-size);
     }
 

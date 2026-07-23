@@ -57,8 +57,8 @@ const { title, slug, status, description, highlights, links } = Astro.props
 
 <style>
   .project-card {
-    padding: 1rem;
-    margin-inline: -1rem;
+    padding: var(--space-md);
+    margin-inline: calc(var(--space-md) * -1);
     background-color: transparent;
     transition:
       background-color var(--ui-motion) var(--ui-ease),
@@ -78,7 +78,7 @@ const { title, slug, status, description, highlights, links } = Astro.props
 
   .project-card:hover .accent {
     border-left-width: 8px;
-    padding-left: 1rem;
+    padding-left: var(--space-md);
   }
 
   .project-card header > h2 small {

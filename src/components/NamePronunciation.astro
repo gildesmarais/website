@@ -43,7 +43,7 @@ const { pronunciation, audioSrc } = Astro.props
 
 <style>
   .pronunciation-button-wrapper {
-    margin: 1rem 0;
+    margin: var(--space-md) 0;
     display: inline-block;
   }
 
@@ -57,7 +57,7 @@ const { pronunciation, audioSrc } = Astro.props
   /* Fallback link styling for non-JS users */
   .pronunciation-button-wrapper noscript a {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: var(--space-xs) var(--space-md);
     background: transparent;
     color: var(--ui-color);
     border: var(--ui-stroke) solid var(--ui-border-color);
@@ -95,7 +95,7 @@ const { pronunciation, audioSrc } = Astro.props
 
   /* IPA Display */
   .ipa-display {
-    margin-top: 1rem;
+    margin-top: var(--space-md);
     position: relative;
     opacity: 0;
     transform: translateY(-10px);
@@ -117,7 +117,7 @@ const { pronunciation, audioSrc } = Astro.props
     color: var(--ui-color);
     letter-spacing: 0.1em;
     line-height: var(--leading-snug);
-    padding: 0.5rem 0;
+    padding: var(--space-xs) 0;
     border-bottom: var(--ui-stroke) solid var(--brand-accent);
     position: relative;
     display: inline-block;

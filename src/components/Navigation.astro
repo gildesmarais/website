@@ -151,7 +151,7 @@ const pathname = Astro.url.pathname
 
   /* --- CSS Custom Properties --- */
   :root {
-    --nav-link-padding: 0.5rem 0.75rem;
+    --nav-link-padding: var(--space-xs) var(--space-sm);
     --nav-underline-height: 3px;
     --nav-underline-offset: 2px;
     --nav-underline-left: 0.75rem;
@@ -253,7 +253,7 @@ const pathname = Astro.url.pathname
   /* --- Mobile Menu List --- */
   #main-nav-list {
     list-style: none;
-    margin: 1rem 0 0 0;
+    margin: var(--space-md) 0 0 0;
     padding: 0;
     display: none;
     flex-direction: column;
@@ -271,7 +271,7 @@ const pathname = Astro.url.pathname
 
   /* --- Mobile Menu Items --- */
   .nav-item {
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--space-xxs);
     display: flex;
     align-items: center;
   }
@@ -282,7 +282,7 @@ const pathname = Astro.url.pathname
     align-items: center;
     width: 100%;
     min-height: 2.5rem;
-    padding: 0.75rem 1rem;
+    padding: var(--space-sm) var(--space-md);
     color: var(--ui-text-color);
     text-decoration: none;
     font-size: var(--text-md);

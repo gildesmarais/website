@@ -42,7 +42,7 @@ body > footer small {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   line-height: var(--leading-relaxed);
   opacity: 0.6;
 }

@@ -84,9 +84,9 @@ function fmt(d: Date) {
   .archive-toolbar {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-xs);
     flex-wrap: nowrap;
-    margin: 0.65rem 0 1.15rem;
+    margin: var(--space-sm) 0 var(--space-md);
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -104,7 +104,7 @@ function fmt(d: Date) {
     display: flex;
     align-items: center;
     justify-content: flex-start !important;
-    gap: 0.3rem;
+    gap: var(--space-xxs);
     margin: 0;
     padding: 0;
     border: 0;
@@ -125,7 +125,7 @@ function fmt(d: Date) {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 0.24rem 0.44rem;
+    padding: var(--space-xxs) var(--space-xs);
     border: var(--ui-stroke-thin) solid var(--ui-muted-border-color);
     color: var(--ui-muted-color);
     background: transparent;
@@ -158,7 +158,7 @@ function fmt(d: Date) {
   }
 
   section > ul > li {
-    margin-bottom: calc(var(--ui-spacing) * 0.5);
+    margin-bottom: var(--space-xs);
   }
 
   section > ul > li:last-child {
@@ -168,7 +168,7 @@ function fmt(d: Date) {
   @media (pointer: coarse) {
     .language-filters .filter-link {
       min-height: 44px;
-      padding: 0.5rem 1rem;
+      padding: var(--space-xs) var(--space-md);
     }
   }
 </style>

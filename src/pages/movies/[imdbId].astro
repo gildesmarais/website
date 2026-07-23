@@ -134,7 +134,7 @@ const note = recommendationNotes.get(movie.const)
     align-items: center;
     justify-content: center;
     z-index: var(--z-modal);
-    padding: 1rem;
+    padding: var(--space-md);
   }
 
   .modal-backdrop-link {
@@ -165,7 +165,7 @@ const note = recommendationNotes.get(movie.const)
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--ui-stroke) solid var(--ui-border-color);
-    padding: 1rem 1.5rem;
+    padding: var(--space-md) var(--space-lg);
   }
 
   .modal-header h2 {
@@ -229,7 +229,7 @@ const note = recommendationNotes.get(movie.const)
       background: var(--ui-muted-color);
       opacity: 0.4;
       border-radius: 2px;
-      margin: 0.5rem auto 0;
+      margin: var(--space-xs) auto 0;
     }
 
     .modal-header {
@@ -239,11 +239,11 @@ const note = recommendationNotes.get(movie.const)
       background: var(--ui-glass-card-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      padding: 0.75rem 1rem;
+      padding: var(--space-sm) var(--space-md);
     }
 
     .modal-body {
-      padding: 0 1rem 1rem;
+      padding: 0 var(--space-md) var(--space-md);
     }
   }
 </style>

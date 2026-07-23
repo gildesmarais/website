@@ -106,10 +106,10 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
   }
 
   .card-content {
-    padding: 0.5rem;
+    padding: var(--space-xs);
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--space-xxs);
   }
 
   .card-title {
@@ -154,8 +154,8 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
       display: grid;
       grid-template-columns: minmax(82px, 28vw) 1fr;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.6rem;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
       min-height: 48px;
     }
 
@@ -167,7 +167,7 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
 
     .card-content {
       padding: 0;
-      gap: 0.35rem;
+      gap: var(--space-xxs);
     }
 
     .card-title {
@@ -177,7 +177,7 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
 
     .card-rating {
       justify-content: flex-start;
-      margin-top: 0.25rem;
+      margin-top: var(--space-xxs);
     }
 
     .card-rating .your-rating {
