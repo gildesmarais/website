@@ -126,7 +126,7 @@ function fmt(d: Date) {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     padding: 0.24rem 0.44rem;
-    border: 1px solid var(--ui-muted-border-color);
+    border: var(--ui-stroke-thin) solid var(--ui-muted-border-color);
     color: var(--ui-muted-color);
     background: transparent;
   }
@@ -155,5 +155,20 @@ function fmt(d: Date) {
 
   section > ul {
     margin-top: 0;
+  }
+
+  section > ul > li {
+    margin-bottom: calc(var(--ui-spacing) * 0.5);
+  }
+
+  section > ul > li:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (pointer: coarse) {
+    .language-filters .filter-link {
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+    }
   }
 </style>
