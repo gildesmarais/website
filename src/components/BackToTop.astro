@@ -28,8 +28,8 @@
     transition:
       opacity 0.3s ease-out,
       transform 0.3s ease-out,
-      background 0.2s ease,
-      color 0.2s ease;
+      background var(--ui-motion) var(--ui-ease),
+      color var(--ui-motion) var(--ui-ease);
   }
 
   #back-to-top.visible {
@@ -42,7 +42,7 @@
   #back-to-top:hover {
     background: var(--brand-accent);
     color: #000;
-    transform: translateY(-2px);
+    transform: translateY(1px);
   }
 
   @media (prefers-reduced-motion: reduce) {

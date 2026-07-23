@@ -129,7 +129,11 @@ th {
   font-weight: 500;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background var(--ui-motion) var(--ui-ease),
+    color var(--ui-motion) var(--ui-ease),
+    border-color var(--ui-motion) var(--ui-ease),
+    transform var(--ui-motion) var(--ui-ease);
   text-decoration: none;
 }
 
@@ -137,6 +141,7 @@ th {
   background: var(--brand-accent);
   color: #000;
   border-color: var(--brand-accent);
+  transform: translateY(1px);
 }
 
 .minimal-btn.active,

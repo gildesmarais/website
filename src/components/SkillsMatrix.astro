@@ -148,7 +148,10 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     font-size: 0.85em;
     line-height: 1.2;
     background: var(--ui-card-background-color);
-    transition: background-color 0.2s ease;
+    transition:
+      background-color var(--ui-motion) var(--ui-ease),
+      color var(--ui-motion) var(--ui-ease),
+      transform var(--ui-motion) var(--ui-ease);
     box-sizing: border-box;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -160,11 +163,13 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   .skill-cell.empty,
   .skill-cell.empty:hover {
     background: var(--ui-card-background-color);
+    transform: none;
   }
 
   .skill-cell:hover {
     background: var(--brand-accent);
     color: var(--ui-card-background-color);
+    transform: translateY(1px);
   }
 
   /* Mobile adjustments */

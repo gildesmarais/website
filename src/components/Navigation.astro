@@ -199,7 +199,10 @@ const pathname = Astro.url.pathname
     background: transparent;
     color: var(--brand-accent);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition:
+      background var(--ui-motion) var(--ui-ease),
+      color var(--ui-motion) var(--ui-ease),
+      transform var(--ui-motion) var(--ui-ease);
     padding: 0;
     margin: 0;
     flex-shrink: 0;
@@ -210,6 +213,7 @@ const pathname = Astro.url.pathname
   #menu-toggle:hover {
     background: var(--brand-accent);
     color: #000;
+    transform: translateY(1px);
   }
 
   #menu-toggle:hover .icon-menu,
@@ -394,7 +398,10 @@ const pathname = Astro.url.pathname
       font-size: 1rem;
       font-weight: 500;
       position: relative;
-      transition: color var(--nav-transition-duration) ease;
+      transition:
+        color var(--ui-motion) var(--ui-ease),
+        background var(--ui-motion) var(--ui-ease),
+        transform var(--ui-motion) var(--ui-ease);
       white-space: nowrap;
       min-width: fit-content;
       border-left: 0;
@@ -418,6 +425,7 @@ const pathname = Astro.url.pathname
     .nav-link:hover {
       color: #000;
       background: var(--brand-accent);
+      transform: translateY(1px);
     }
 
     .nav-link:hover:after {
@@ -438,6 +446,7 @@ const pathname = Astro.url.pathname
     .nav-link[aria-current="page"]:hover {
       color: #000;
       background: var(--brand-accent);
+      transform: translateY(1px);
     }
 
     .nav-link[aria-current="page"]:hover:after {
