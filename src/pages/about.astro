@@ -22,6 +22,44 @@ const description =
     </p>
   </Hero>
 
+  <section aria-labelledby="how-things-connect" class="width">
+    <h2 id="how-things-connect" class="accent">How things connect</h2>
+    <p>
+      Over years of DJing and engineering, I've learned that good systems share the same foundation: clear
+      pacing, simple tools, and a focus on the people using them.
+    </p>
+    <dl class="interests">
+      <div>
+        <dt>Music</dt>
+        <dd>
+          Decades of electronic music and vinyl DJing. I still build tools for audio, like{" "}
+          <a href="https://gildesmarais.github.io/moodbar.rs/" target="_blank" rel={externalRel("external")}
+            >moodbar.rs</a
+          >
+          {" "}and write about <a href="/blog/managing-music">handling and organizing music</a>.
+        </dd>
+      </div>
+      <div>
+        <dt>Film</dt>
+        <dd>
+          I enjoy cinema and keep a list of <a href="/movies/">films I recommend</a>.
+        </dd>
+      </div>
+      <div>
+        <dt>Software</dt>
+        <dd>
+          I build open-source tools and web applications to solve everyday problems. You can explore them on
+          my{" "}
+          <a href="/projects">projects page</a>.
+        </dd>
+      </div>
+      <div>
+        <dt>Movement</dt>
+        <dd>Cycling, yoga, and walking help me stay healthy, patient, and focused on sustainable effort.</dd>
+      </div>
+    </dl>
+  </section>
+
   <section aria-labelledby="identity" class="width">
     <p class="section-kicker">Background</p>
     <h2 id="identity" class="accent">How it started</h2>
@@ -39,7 +77,7 @@ const description =
 
     <p>
       During vocational training, I bridged hardware and software: soldering circuits, programming
-      microcontrollers, and exploring signal processing with Assembler and Delphi.
+      microcontrollers, and exploring signal processing with assembly and Delphi.
     </p>
     <p>
       Serving in the German Air Force added structure and accountability: supporting IT operations for NATO
@@ -53,64 +91,39 @@ const description =
     <p>That balance between architecture and outcome defines how I lead, build, and deliver.</p>
 
     <p>
-      The curiosity that started with a Commodore 64 now drives how I design systems, teams, and decisions:
-      With an eye for clarity, longevity, and real-world impact.
+      The curiosity that started with a Commodore 64 still drives how I design systems, teams, and decisions
+      today: with an eye for clarity, longevity, and real-world impact.
     </p>
   </section>
 
   <section aria-labelledby="how-i-work" class="width">
     <h2 id="how-i-work" class="accent">How I work</h2>
     <p>
-      I start with <q>why</q> before <q>how</q>: understand incentives, constraints, and risk, then align
-      trade-offs so teams can move with confidence. My background across engineering and film keeps me focused
-      on communication, feedback loops, and outcomes that are both maintainable and genuinely useful.
+      I start with <q>why</q> before <q>how</q>: understanding incentives, constraints, and risk, then
+      aligning trade-offs so teams can move with confidence. My background across engineering and creative
+      work keeps me focused on clear communication, fast feedback loops, and maintainable software.
     </p>
     <ul>
       <li>
-        <strong>Efficiency:</strong> fix root causes, not symptoms.
+        <strong>Efficiency:</strong> Fix root causes, not symptoms.
       </li>
       <li>
-        <strong>Systems thinking:</strong> connect technical and organizational dependencies so decisions age well.
+        <strong>Systems thinking:</strong> Connect technical and organizational dependencies so decisions age well.
       </li>
       <li>
-        <strong>Ease of use:</strong> make outcomes simpler for teams and customers.
+        <strong>Ease of use:</strong> Make outcomes simpler for teams and customers.
       </li>
       <li>
-        <strong>Knowledge sharing:</strong> teach, document, and invite questions so teams level up together.
+        <strong>Knowledge sharing:</strong> Teach, document, and invite questions so teams level up together.
       </li>
       <li>
-        <strong>Delight in the details:</strong> keep experiences calm, reliable, and quietly excellent.
+        <strong>Delight in the details:</strong> Keep experiences calm, reliable, and quietly excellent.
       </li>
     </ul>
     <p>
       In practice, that means translating between business intent and implementation detail, and keeping
       delivery calm enough for useful progress to compound.
     </p>
-  </section>
-
-  <section aria-labelledby="beyond-work" class="width">
-    <h2 id="beyond-work" class="accent">Beyond work</h2>
-    <ul>
-      <li>
-        <strong>Music:</strong> electronic for decades; vinyl DJing sharpened rhythm, flow, and focus. I bridge
-        that world with code — see <a
-          href="https://gildesmarais.github.io/moodbar.rs/"
-          target="_blank"
-          rel={externalRel("external")}>moodbar.rs</a
-        > and my notes on <a href="/blog/managing-music">handling and organizing music</a>.
-      </li>
-      <li>
-        <strong>Film:</strong> long-time passion and part of my career; I <a href="/movies/"
-          >log and recommend</a
-        > what I watch.
-      </li>
-      <li>
-        <strong>Movement:</strong> cycling, yoga, and long walks to keep systems balanced.
-      </li>
-      <li>
-        <strong>Learning:</strong> cities, culture, aviation, food; how systems evolve and connect.
-      </li>
-    </ul>
   </section>
 
   <section aria-labelledby="contact" class="width">
@@ -166,5 +179,28 @@ const description =
     display: inline-block;
     margin-left: 0.2em;
     user-select: none;
+  }
+
+  .interests {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .interests div {
+    display: grid;
+    gap: var(--space-xxs);
+    padding-top: var(--space-sm);
+    border-top: var(--ui-stroke-thin) solid var(--ui-border-color);
+  }
+
+  .interests dt {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .interests dd {
+    margin: 0;
+    color: var(--ui-muted-color);
   }
 </style>
