@@ -47,3 +47,13 @@ const posts = (await getCollection("blog", isVisibleShowcasePost)).sort(
     </nav>
   </section>
 </BaseLayout>
+
+<style>
+  ul li {
+    margin-bottom: var(--ui-spacing);
+  }
+
+  ul li:last-child {
+    margin-bottom: 0;
+  }
+</style>

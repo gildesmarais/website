@@ -124,25 +124,19 @@ const note = recommendationNotes.get(movie.const)
 <style>
   .modal-backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(2px);
+    inset: 0;
+    background: var(--overlay-scrim);
+    backdrop-filter: blur(var(--blur-sm));
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    padding: 1rem;
+    z-index: var(--z-modal);
+    padding: var(--space-md);
   }
 
   .modal-backdrop-link {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 1;
   }
 
@@ -157,15 +151,15 @@ const note = recommendationNotes.get(movie.const)
 
   .modal-content {
     background: var(--ui-card-background-color);
-    border: 2px solid var(--ui-border-color);
+    border: var(--ui-stroke) solid var(--ui-border-color);
   }
 
   .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--ui-border-color);
-    padding: 1rem 1.5rem;
+    border-bottom: var(--ui-stroke) solid var(--ui-border-color);
+    padding: var(--space-md) var(--space-lg);
   }
 
   .modal-header h2 {
@@ -174,9 +168,9 @@ const note = recommendationNotes.get(movie.const)
 
   .modal-close {
     background: none;
-    border: 2px solid var(--ui-border-color);
-    font-size: 1.2rem;
-    font-weight: 900;
+    border: var(--ui-stroke) solid var(--ui-border-color);
+    font-size: var(--text-lg);
+    font-weight: 700;
     color: var(--ui-muted-color);
     cursor: pointer;
     padding: 0;
@@ -187,21 +181,24 @@ const note = recommendationNotes.get(movie.const)
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition:
+      color var(--ui-motion) var(--ui-ease),
+      background var(--ui-motion) var(--ui-ease),
+      border-color var(--ui-motion) var(--ui-ease);
     flex-shrink: 0;
   }
 
   .modal-close:hover {
-    color: #000;
+    color: var(--ui-contrast-inverse);
     background: var(--brand-accent);
     border-color: var(--brand-accent);
   }
 
-  @media (max-width: 767px) {
+  @media (width <= 767px) {
     .modal-backdrop {
       align-items: flex-end;
       padding: 0;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(var(--blur-md));
     }
 
     .modal-container {
@@ -222,23 +219,25 @@ const note = recommendationNotes.get(movie.const)
       content: "";
       display: block;
       width: 2.5rem;
-      height: 0.25rem;
+      height: var(--space-xxs);
       background: var(--ui-muted-color);
       opacity: 0.4;
       border-radius: 2px;
-      margin: 0.5rem auto 0;
+      margin: var(--space-xs) auto 0;
     }
 
     .modal-header {
       position: sticky;
       top: 0;
       z-index: 1;
-      background: var(--ui-card-background-color);
-      padding: 0.75rem 1rem;
+      background: var(--ui-glass-card-bg);
+      backdrop-filter: blur(var(--blur-lg));
+      -webkit-backdrop-filter: blur(var(--blur-lg));
+      padding: var(--space-sm) var(--space-md);
     }
 
     .modal-body {
-      padding: 0 1rem 1rem;
+      padding: 0 var(--space-md) var(--space-md);
     }
   }
 </style>

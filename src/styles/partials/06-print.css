@@ -26,7 +26,7 @@
     margin: 0;
     padding: 0;
     background: none;
-    color: #000;
+    color: var(--ui-contrast-inverse);
   }
 
   main {
@@ -45,6 +45,11 @@
   h4,
   h5,
   h6 {
-    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
   }
 }

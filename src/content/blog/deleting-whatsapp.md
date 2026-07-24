@@ -28,8 +28,8 @@ If you think the security story looks better, browse this [dedicated page on Wik
 
 However, it misses the latest hack. [Read about that in this Guardian article](https://www.theguardian.com/technology/2020/jan/21/amazon-boss-jeff-bezoss-phone-hacked-by-saudi-crown-prince). This is not science fiction.
 
-![Screenshot of account deletion](/src/assets/images/posts/2020-04-20-deleting-whatsapp-1.webp)
-![Screenshot of app deletion](/src/assets/images/posts/2020-04-20-deleting-whatsapp-2.webp)
+![Screenshot of account deletion](../../assets/images/posts/2020-04-20-deleting-whatsapp-1.webp)
+![Screenshot of app deletion](../../assets/images/posts/2020-04-20-deleting-whatsapp-2.webp)
 
 [^1]: They use Whatsapp only. I think [Signal](https://www.signal.org/) and [Riot](https://about.riot.im/) are good alternatives.
 

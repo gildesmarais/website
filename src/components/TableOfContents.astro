@@ -40,7 +40,7 @@ if (filteredHeadings.length === 0) return null
 
 <style>
   .toc {
-    margin: 5rem 0 2.5rem 0;
+    margin: var(--region-space) 0 var(--block-space) 0;
     padding: 0;
 
     /* Override Pico's nav defaults */
@@ -49,12 +49,12 @@ if (filteredHeadings.length === 0) return null
   }
 
   .toc-title {
-    padding-left: 0.6rem;
+    padding-left: var(--space-sm);
   }
 
   .toc-list {
     letter-spacing: -0.01rem;
-    line-height: 1.25;
+    line-height: var(--leading-tight);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -62,13 +62,13 @@ if (filteredHeadings.length === 0) return null
   }
 
   .toc-list li {
-    padding: 0 0 0.25em 0;
-    font-size: 0.9em;
+    padding: 0 0 var(--space-xxs) 0;
+    font-size: var(--text-sm);
   }
 
   .toc-list a {
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: color var(--ui-motion) var(--ui-ease);
   }
 
   .toc-list a:hover {
@@ -86,39 +86,46 @@ if (filteredHeadings.length === 0) return null
   .toc-depth-2 {
     margin-left: 0;
   }
+
   .toc-depth-3 {
-    margin-left: 1.5rem;
-  }
-  .toc-depth-4 {
-    margin-left: 3rem;
-  }
-  .toc-depth-5 {
-    margin-left: 4.5rem;
-  }
-  .toc-depth-6 {
-    margin-left: 6rem;
+    margin-left: var(--space-lg);
   }
 
-  @media (max-width: 768px) {
+  .toc-depth-4 {
+    margin-left: calc(var(--space-lg) * 2);
+  }
+
+  .toc-depth-5 {
+    margin-left: calc(var(--space-lg) * 3);
+  }
+
+  .toc-depth-6 {
+    margin-left: calc(var(--space-lg) * 4);
+  }
+
+  @media (width <= 768px) {
     .toc-title {
-      font-size: 0.85em;
+      font-size: var(--text-sm);
     }
 
     .toc-list a {
-      font-size: 0.95em;
+      font-size: var(--text-md);
     }
 
     .toc-depth-3 {
-      margin-left: 1rem;
+      margin-left: var(--space-md);
     }
+
     .toc-depth-4 {
-      margin-left: 2rem;
+      margin-left: calc(var(--space-md) * 2);
     }
+
     .toc-depth-5 {
-      margin-left: 3rem;
+      margin-left: calc(var(--space-md) * 3);
     }
+
     .toc-depth-6 {
-      margin-left: 4rem;
+      margin-left: calc(var(--space-md) * 4);
     }
   }
 </style>

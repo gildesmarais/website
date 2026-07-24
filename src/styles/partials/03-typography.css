@@ -84,9 +84,9 @@ textarea {
 ) {
   width: 100%;
   margin: 0;
-  border: 1px solid var(--ui-form-element-border-color);
+  border: var(--ui-stroke-thin) solid var(--ui-form-element-border-color);
   border-radius: var(--ui-border-radius);
-  padding: 0.5rem 0.75rem;
+  padding: var(--space-xs) var(--space-sm);
   background: var(--ui-form-element-background-color);
   color: var(--ui-form-element-color);
 }
@@ -98,19 +98,25 @@ textarea {
 :where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]) {
   display: inline-block;
   margin: 0;
-  border: 2px solid var(--brand-accent);
+  border: var(--ui-stroke) solid var(--brand-accent);
   border-radius: 0;
-  padding: 0.5rem 1rem;
+  padding: var(--space-xs) var(--space-md);
   background: transparent;
   color: var(--ui-color);
   cursor: pointer;
   text-decoration: none;
   line-height: 1.2;
+  transition:
+    background var(--ui-motion) var(--ui-ease),
+    color var(--ui-motion) var(--ui-ease),
+    border-color var(--ui-motion) var(--ui-ease),
+    transform var(--ui-motion) var(--ui-ease);
 }
 
 :where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
   background: var(--brand-accent);
-  color: #000;
+  color: var(--ui-contrast-inverse);
+  transform: translateY(1px);
 }
 
 .secondary {
@@ -132,21 +138,31 @@ hgroup > * {
 }
 
 hgroup > * + * {
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
 }
 
 hr {
-  margin: 3rem 0;
+  margin: var(--space-xl) 0;
 }
 
 abbr[title] {
-  border-bottom: 1px solid var(--brand-accent);
+  border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
 }
 
 a {
   color: var(--ui-primary);
   text-decoration-color: var(--ui-primary-underline);
   text-underline-offset: 0.1rem;
+}
+
+main a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.15em;
+  text-decoration-skip-ink: auto;
+  transition:
+    background var(--ui-motion) var(--ui-ease),
+    color var(--ui-motion) var(--ui-ease);
 }
 
 a:visited {
@@ -160,19 +176,9 @@ a:focus {
   text-decoration-color: var(--ui-primary-hover-underline);
 }
 
-main a {
-  text-decoration-line: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.15em;
-  text-decoration-skip-ink: auto;
-  transition:
-    background 0.15s ease,
-    color 0.15s ease;
-}
-
-main a:hover:not(.movie-card-link):not(.modal-backdrop-link):not(.filter-link):not(.toc-list a) {
+main a:hover:not(.movie-card-link, .modal-backdrop-link, .filter-link, .toc-list a) {
   background: var(--brand-accent);
-  color: #000;
+  color: var(--ui-contrast-inverse);
   text-decoration: none;
 }
 
@@ -208,5 +214,5 @@ a.secondary:focus {
 }
 
 :where(:target) {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: var(--scroll-offset);
 }

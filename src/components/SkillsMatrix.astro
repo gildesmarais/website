@@ -76,7 +76,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   }
 
   .skills-matrix > h2 {
-    margin-block-end: calc(var(--ui-spacing) * 0.5);
+    margin-block-end: var(--space-xs);
     letter-spacing: 0.015em;
   }
 
@@ -84,7 +84,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     display: flex;
     align-items: stretch;
     gap: 0;
-    margin: 2rem 0;
+    margin: var(--block-space) 0;
   }
 
   .matrix-content {
@@ -93,7 +93,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     grid-template-columns: 200px 1fr;
     grid-auto-rows: min-content;
     gap: 0;
-    border-top: 1px solid var(--brand-accent);
+    border-top: var(--ui-stroke-thin) solid var(--brand-accent);
   }
 
   .matrix-row {
@@ -106,51 +106,51 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
 
   .row-label {
     background: var(--brand-accent);
-    color: #000;
+    color: var(--ui-contrast-inverse);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    padding: 0 1em 0.75em 1em;
-    font-size: 0.8em;
-    line-height: 1;
+    padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+    font-size: var(--text-xs);
+    line-height: var(--leading-none);
     display: flex;
     align-items: center;
-    border-right: 2px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent);
+    border-right: var(--ui-stroke) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     grid-column: 1;
     min-height: 60px;
   }
 
   .row-label.empty-label {
-    border-right: 1px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent-bg);
+    border-right: var(--ui-stroke-thin) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent-bg);
   }
 
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0;
-    border-bottom: 1px solid var(--brand-accent);
     grid-column: 2;
     min-height: 60px;
-    justify-items: stretch;
-    align-items: stretch;
+    place-items: stretch;
   }
 
   .skill-cell {
-    padding: 0.75em 0.5em;
-    border-right: 1px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent);
+    padding: var(--space-sm) var(--space-xs);
+    border-right: var(--ui-stroke-thin) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.85em;
-    line-height: 1.2;
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
     background: var(--ui-card-background-color);
-    transition: background-color 0.2s ease;
+    transition:
+      background-color var(--ui-motion) var(--ui-ease),
+      color var(--ui-motion) var(--ui-ease),
+      transform var(--ui-motion) var(--ui-ease);
     box-sizing: border-box;
-    word-wrap: break-word;
     overflow-wrap: break-word;
     min-height: 60px;
     height: auto;
@@ -160,19 +160,21 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
   .skill-cell.empty,
   .skill-cell.empty:hover {
     background: var(--ui-card-background-color);
+    transform: none;
   }
 
   .skill-cell:hover {
     background: var(--brand-accent);
     color: var(--ui-card-background-color);
+    transform: translateY(1px);
   }
 
   /* Mobile adjustments */
-  @media (max-width: 760px) {
+  @media (width <= 760px) {
     .matrix-container {
       flex-direction: column;
       gap: 0;
-      border-left: 2px solid var(--brand-accent);
+      border-left: var(--ui-stroke) solid var(--brand-accent);
     }
 
     .matrix-content {
@@ -183,13 +185,13 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     .matrix-row {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid var(--brand-accent);
+      border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     }
 
     .row-label {
       min-width: auto;
-      border-bottom: 1px solid var(--brand-accent);
-      border-top: 1px solid var(--brand-accent);
+      border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
+      border-top: var(--ui-stroke-thin) solid var(--brand-accent);
     }
 
     .row-label.empty-label {
@@ -199,6 +201,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     .skills-grid {
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       border-bottom: none;
+      margin-bottom: -1px;
     }
 
     .skill-cell {
@@ -210,6 +213,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     .skill-cell.empty:hover {
       /* border-bottom: 1px solid transparent; */
       display: none;
+
       /* opacity: 0; */
     }
   }

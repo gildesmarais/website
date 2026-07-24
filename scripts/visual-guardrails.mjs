@@ -3,7 +3,7 @@ import fs from "node:fs"
 const cssPath = new URL("../src/styles/global.css", import.meta.url)
 const globalCss = fs.readFileSync(cssPath, "utf8")
 
-const importPaths = [...globalCss.matchAll(/@import\s+"([^"]+)";/g)].map((m) => m[1])
+const importPaths = [...globalCss.matchAll(/@import\s+(?:url\()?["']([^"']+)["']\)?;/g)].map((m) => m[1])
 if (importPaths.length !== 6) {
   console.error(`Expected 6 global CSS imports, found ${importPaths.length}`)
   process.exit(1)
@@ -22,9 +22,10 @@ const css = importPaths
 
 const requiredSnippets = [
   "--ui-font-size: 100%",
-  "@media (min-width: 576px)",
+  // Prefer modern range syntax; accept legacy min-width for older branches.
+  ["@media (width >= 576px)", "@media (min-width: 576px)"],
   "--ui-font-size: 106.25%",
-  "@media (min-width: 1536px)",
+  ["@media (width >= 1536px)", "@media (min-width: 1536px)"],
   "--ui-font-size: 131.25%",
   "a:visited",
   "color: var(--ui-primary)",
@@ -38,10 +39,18 @@ const requiredSnippets = [
   "font-size: 1.75rem",
 ]
 
-const missing = requiredSnippets.filter((snippet) => !css.includes(snippet))
+const missing = requiredSnippets.filter((snippet) => {
+  if (Array.isArray(snippet)) {
+    return !snippet.some((option) => css.includes(option))
+  }
+  return !css.includes(snippet)
+})
 if (missing.length > 0) {
   console.error("Visual guardrail check failed. Missing CSS primitives:")
-  missing.forEach((snippet) => console.error(`- ${snippet}`))
+  missing.forEach((snippet) => {
+    const label = Array.isArray(snippet) ? snippet.join(" | ") : snippet
+    console.error(`- ${label}`)
+  })
   process.exit(1)
 }
 

@@ -51,9 +51,12 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
   .movie-card {
     position: relative;
     background: var(--ui-card-background-color);
-    border: 2px solid var(--ui-border-color);
+    border: var(--ui-stroke) solid var(--ui-border-color);
     border-radius: 0;
-    transition: border-color 0.2s ease;
+    transition:
+      border-color var(--ui-motion) var(--ui-ease),
+      transform var(--ui-motion) var(--ui-ease),
+      box-shadow var(--ui-motion) var(--ui-ease);
     display: flex;
     flex-direction: column;
     height: auto;
@@ -63,6 +66,8 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
 
   .movie-card:hover {
     border-color: var(--brand-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 
   .movie-card-link {
@@ -88,30 +93,30 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
     top: 0;
     right: 0;
     background: var(--brand-accent);
-    color: #000;
+    color: var(--ui-contrast-inverse);
     width: 1.25rem;
     height: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
-    font-size: 0.75rem;
-    border: 1px solid var(--ui-background-color);
+    font-weight: 700;
+    font-size: var(--text-xs);
+    border: var(--ui-stroke-thin) solid var(--ui-background-color);
     z-index: 2;
   }
 
   .card-content {
-    padding: 0.5rem;
+    padding: var(--space-xs);
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--space-xxs);
   }
 
   .card-title {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: var(--leading-tight);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -127,34 +132,30 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
 
   .card-rating .your-rating {
     color: var(--brand-accent);
-    font-weight: 900;
-    font-size: 1.4rem;
+    font-weight: 700;
+    font-size: var(--text-xl);
     font-family: var(--font-mono);
     letter-spacing: -0.02em;
     text-shadow: 0 0 8px var(--brand-accent-focus);
   }
 
   .rating-number {
-    font-size: 1.4rem;
+    font-size: var(--text-xl);
   }
 
   .rating-scale {
-    font-size: 0.7rem;
+    font-size: var(--text-2xs);
     font-weight: 400;
     opacity: 0.6;
   }
 
-  @media (max-width: 600px) {
-    .movie-card {
-      border-width: 1px;
-    }
-
+  @media (width <= 600px) {
     .movie-card-link {
       display: grid;
       grid-template-columns: minmax(82px, 28vw) 1fr;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.6rem;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
       min-height: 48px;
     }
 
@@ -166,25 +167,25 @@ const { imdbId, title, year, yourRating, runtimeMins, genres, directors, isRecom
 
     .card-content {
       padding: 0;
-      gap: 0.35rem;
+      gap: var(--space-xxs);
     }
 
     .card-title {
-      font-size: 0.95rem;
-      line-height: 1.2;
+      font-size: var(--text-md);
+      line-height: var(--leading-tight);
     }
 
     .card-rating {
       justify-content: flex-start;
-      margin-top: 0.25rem;
+      margin-top: var(--space-xxs);
     }
 
     .card-rating .your-rating {
-      font-size: 1.2rem;
+      font-size: var(--text-lg);
     }
 
     .rating-number {
-      font-size: 1.2rem;
+      font-size: var(--text-lg);
     }
   }
 </style>

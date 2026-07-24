@@ -84,9 +84,9 @@ function fmt(d: Date) {
   .archive-toolbar {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-xs);
     flex-wrap: nowrap;
-    margin: 0.65rem 0 1.15rem;
+    margin: var(--space-sm) 0 var(--space-md);
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -104,7 +104,7 @@ function fmt(d: Date) {
     display: flex;
     align-items: center;
     justify-content: flex-start !important;
-    gap: 0.3rem;
+    gap: var(--space-xxs);
     margin: 0;
     padding: 0;
     border: 0;
@@ -120,13 +120,13 @@ function fmt(d: Date) {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    line-height: 1.2;
-    font-size: 0.82rem;
+    line-height: var(--leading-tight);
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 0.24rem 0.44rem;
-    border: 1px solid var(--ui-muted-border-color);
+    padding: var(--space-xxs) var(--space-xs);
+    border: var(--ui-stroke-thin) solid var(--ui-muted-border-color);
     color: var(--ui-muted-color);
     background: transparent;
   }
@@ -148,12 +148,27 @@ function fmt(d: Date) {
 
   .language-filters .filter-link.active,
   .language-filters .filter-link:active {
-    color: #000;
+    color: var(--ui-contrast-inverse);
     background: var(--brand-accent);
     border-color: var(--brand-accent);
   }
 
   section > ul {
     margin-top: 0;
+  }
+
+  section > ul > li {
+    margin-bottom: var(--space-xs);
+  }
+
+  section > ul > li:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (pointer: coarse) {
+    .language-filters .filter-link {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+    }
   }
 </style>

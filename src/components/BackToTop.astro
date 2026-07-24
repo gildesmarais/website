@@ -7,18 +7,18 @@
 <style is:global>
   #back-to-top {
     position: fixed;
-    bottom: max(2rem, env(safe-area-inset-bottom, 0px));
-    right: 2rem;
-    border: 3px solid var(--brand-accent);
+    bottom: max(var(--space-xl), env(safe-area-inset-bottom, 0px));
+    right: var(--space-xl);
+    border: var(--ui-stroke) solid var(--brand-accent);
     background: transparent;
     color: var(--brand-accent);
     border-radius: 0;
-    width: 3rem;
-    height: 3rem;
+    width: var(--size-control);
+    height: var(--size-control);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
     text-decoration: none;
 
     /* hidden by default */
@@ -26,10 +26,10 @@
     transform: translateY(100%);
     pointer-events: none;
     transition:
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out,
-      background 0.2s ease,
-      color 0.2s ease;
+      opacity var(--motion-slow) ease-out,
+      transform var(--motion-slow) ease-out,
+      background var(--ui-motion) var(--ui-ease),
+      color var(--ui-motion) var(--ui-ease);
   }
 
   #back-to-top.visible {
@@ -41,13 +41,13 @@
   /* Subtle hover effects */
   #back-to-top:hover {
     background: var(--brand-accent);
-    color: #000;
-    transform: translateY(-2px);
+    color: var(--ui-contrast-inverse);
+    transform: translateY(1px);
   }
 
   @media (prefers-reduced-motion: reduce) {
     #back-to-top {
-      transition: opacity 0.01ms;
+      transition: opacity var(--motion-instant);
     }
 
     #back-to-top,

@@ -5,8 +5,12 @@ type BlogEntryLike = Pick<BlogEntry, "data">
 
 const includeDrafts = import.meta.env.DEV
 
+export function isRenderableBlogPost({ data }: BlogEntryLike) {
+  return includeDrafts || !data.draft
+}
+
 export function isVisibleBlogPost({ data }: BlogEntryLike) {
-  return (includeDrafts || !data.draft) && data.listed !== false
+  return isRenderableBlogPost({ data }) && data.listed !== false
 }
 
 export function isVisibleShowcasePost({ data }: BlogEntryLike) {

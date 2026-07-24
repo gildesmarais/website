@@ -74,12 +74,12 @@ const highlights = [
   .movie-modal-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
+    gap: var(--space-lg);
   }
 
   .movie-modal-content :global(.highlights dt) {
     white-space: normal;
-    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .poster-section {
@@ -92,13 +92,13 @@ const highlights = [
   .poster-section :global(.movie-poster-container) {
     width: 100%;
     max-width: 300px;
-    border-width: 2px;
+    border-width: var(--ui-stroke);
   }
 
   .info-section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--space-lg);
     grid-column: 1;
     grid-row: 1;
   }
@@ -111,15 +111,15 @@ const highlights = [
 
   .movie-links {
     display: flex;
-    gap: 0.75rem;
+    gap: var(--space-sm);
     flex-wrap: wrap;
   }
 
-  @media (max-width: 767px) {
+  @media (width <= 767px) {
     .movie-modal-content {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--space-md);
     }
 
     .poster-section,
@@ -139,12 +139,12 @@ const highlights = [
     }
 
     .info-section {
-      gap: 1rem;
+      gap: var(--space-md);
     }
 
     .movie-links {
       flex-direction: column;
-      gap: 0.5rem;
+      gap: var(--space-xs);
     }
 
     .movie-links :global(.minimal-btn) {
