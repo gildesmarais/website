@@ -20,7 +20,7 @@
 - **Components vs. routes:** Astro/TSX components use PascalCase filenames (`MovieCard.astro`); routes and API handlers use kebab-case (`src/pages/blog`, `feed.xml.ts`).
 - **Imports:** Prefer relative aliases within `src` and keep side-effect imports (styles, fonts) near the file top.
 - **Inline prose + links:** Astro compresses HTML whitespace at build time (`compressHTML` defaults to `true`). When plain text and `<a>` (or `</a>`) sit on adjacent lines, the space between them is dropped — use `{" "}` or keep the space on the same line as the tag (e.g. `> spans` not `>\nspans`).
-- **Design System Compliance:** All style adjustments, transitions, border weights, or spacing offsets must adhere to and extend design system tokens (defined in `src/styles/partials/01-tokens.css`). Avoid introducing ad-hoc hex colors, hardcoded transition timings, or spacing offsets ("snowflakes"). If a visual styling property or layout spacer repeats, promote it to a design token.
+- **Design System Compliance:** All style adjustments, transitions, border weights, font sizes, or spacing offsets must adhere to and extend design system tokens (defined in `src/styles/partials/01-tokens.css`). Avoid introducing ad-hoc hex colors, hardcoded rem/px sizes, transition timings, or layout "snowflakes". Never leave un-tokenized literal dimensions in component or page CSS — integrate them into existing design tokens or promote repeated spacers into `01-tokens.css`.
 
 ## Testing Guidelines
 
