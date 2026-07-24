@@ -156,7 +156,7 @@ const pathname = Astro.url.pathname
     --nav-underline-offset: 2px;
     --nav-underline-left: var(--space-sm);
     --nav-underline-width: calc(100% - var(--space-lg));
-    --nav-transition-duration: var(--motion-base);
+    --nav-transition-duration: var(--ui-motion);
     --nav-transition-easing: var(--ui-ease);
     --nav-loading-gradient: linear-gradient(
       100deg,
@@ -283,7 +283,7 @@ const pathname = Astro.url.pathname
     width: 100%;
     min-height: 2.5rem;
     padding: var(--space-sm) var(--space-md);
-    color: var(--ui-text-color);
+    color: var(--ui-color);
     text-decoration: none;
     font-size: var(--text-md);
     font-weight: 400;
@@ -392,7 +392,7 @@ const pathname = Astro.url.pathname
     .nav-link {
       display: inline-block;
       padding: var(--nav-link-padding);
-      color: var(--ui-text-color);
+      color: var(--ui-color);
       text-decoration: none;
       font-size: var(--text-md);
       font-weight: 400;

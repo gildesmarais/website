@@ -93,7 +93,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     grid-template-columns: 200px 1fr;
     grid-auto-rows: min-content;
     gap: 0;
-    border-top: 1px solid var(--brand-accent);
+    border-top: var(--ui-stroke-thin) solid var(--brand-accent);
   }
 
   .matrix-row {
@@ -115,15 +115,15 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     line-height: var(--leading-none);
     display: flex;
     align-items: center;
-    border-right: 2px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent);
+    border-right: var(--ui-stroke) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     grid-column: 1;
     min-height: 60px;
   }
 
   .row-label.empty-label {
-    border-right: 1px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent-bg);
+    border-right: var(--ui-stroke-thin) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent-bg);
   }
 
   .skills-grid {
@@ -137,8 +137,8 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
 
   .skill-cell {
     padding: var(--space-sm) var(--space-xs);
-    border-right: 1px solid var(--brand-accent);
-    border-bottom: 1px solid var(--brand-accent);
+    border-right: var(--ui-stroke-thin) solid var(--brand-accent);
+    border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +174,7 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     .matrix-container {
       flex-direction: column;
       gap: 0;
-      border-left: 2px solid var(--brand-accent);
+      border-left: var(--ui-stroke) solid var(--brand-accent);
     }
 
     .matrix-content {
@@ -185,13 +185,13 @@ function organizeSkillsIntoRows(skills: string[]): string[][] {
     .matrix-row {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid var(--brand-accent);
+      border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     }
 
     .row-label {
       min-width: auto;
-      border-bottom: 1px solid var(--brand-accent);
-      border-top: 1px solid var(--brand-accent);
+      border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
+      border-top: var(--ui-stroke-thin) solid var(--brand-accent);
     }
 
     .row-label.empty-label {

@@ -8,7 +8,7 @@ section + section {
 
 h2,
 h3 {
-  margin-top: var(--heading-space-top);
+  margin-top: var(--space-lg);
   margin-bottom: var(--heading-space-bottom);
 }
 
@@ -187,7 +187,7 @@ th {
 [data-corners]::before {
   content: "";
   position: absolute;
-  width: 0.75rem;
+  width: var(--space-sm);
   height: 1.05rem;
   pointer-events: none;
   left: 0;

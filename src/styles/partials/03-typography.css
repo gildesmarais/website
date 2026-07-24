@@ -86,7 +86,7 @@ textarea {
   margin: 0;
   border: var(--ui-stroke-thin) solid var(--ui-form-element-border-color);
   border-radius: var(--ui-border-radius);
-  padding: 0.5rem 0.75rem;
+  padding: var(--space-xs) var(--space-sm);
   background: var(--ui-form-element-background-color);
   color: var(--ui-form-element-color);
 }
@@ -100,7 +100,7 @@ textarea {
   margin: 0;
   border: var(--ui-stroke) solid var(--brand-accent);
   border-radius: 0;
-  padding: 0.5rem 1rem;
+  padding: var(--space-xs) var(--space-md);
   background: transparent;
   color: var(--ui-color);
   cursor: pointer;
