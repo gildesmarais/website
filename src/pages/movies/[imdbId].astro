@@ -125,8 +125,8 @@ const note = recommendationNotes.get(movie.const)
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgb(0 0 0 / 80%);
-    backdrop-filter: blur(2px);
+    background: var(--overlay-scrim);
+    backdrop-filter: blur(var(--blur-sm));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,7 +198,7 @@ const note = recommendationNotes.get(movie.const)
     .modal-backdrop {
       align-items: flex-end;
       padding: 0;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(var(--blur-md));
     }
 
     .modal-container {
@@ -231,8 +231,8 @@ const note = recommendationNotes.get(movie.const)
       top: 0;
       z-index: 1;
       background: var(--ui-glass-card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(var(--blur-lg));
+      -webkit-backdrop-filter: blur(var(--blur-lg));
       padding: var(--space-sm) var(--space-md);
     }
 

@@ -96,8 +96,8 @@ th {
   top: 0;
   z-index: var(--z-sticky);
   background-color: var(--ui-glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
   padding: 0 var(--ui-spacing) 0 var(--ui-accent-padding);
   border-bottom: var(--ui-stroke) solid var(--ui-border-color);
   margin-bottom: 0;

@@ -7,14 +7,14 @@
 <style is:global>
   #back-to-top {
     position: fixed;
-    bottom: max(2rem, env(safe-area-inset-bottom, 0px));
-    right: 2rem;
+    bottom: max(var(--space-xl), env(safe-area-inset-bottom, 0px));
+    right: var(--space-xl);
     border: var(--ui-stroke) solid var(--brand-accent);
     background: transparent;
     color: var(--brand-accent);
     border-radius: 0;
-    width: 3rem;
-    height: 3rem;
+    width: var(--size-control);
+    height: var(--size-control);
     display: flex;
     align-items: center;
     justify-content: center;

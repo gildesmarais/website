@@ -98,8 +98,8 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
 <style>
   .movie-controls {
     background: var(--ui-glass-card-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(var(--blur-lg));
+    -webkit-backdrop-filter: blur(var(--blur-lg));
     border: var(--ui-stroke) solid var(--ui-border-color);
     position: sticky;
     top: env(safe-area-inset-top, 0);
@@ -164,21 +164,21 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: var(--space-xl);
+    height: var(--space-xl);
     font-size: var(--text-xl);
     font-weight: 700;
     transition:
-      transform var(--motion-base) ease,
-      opacity var(--motion-base) ease,
-      background-color var(--motion-base) ease,
-      color var(--motion-base) ease,
-      box-shadow var(--motion-base) ease,
-      border-color var(--motion-base) ease;
-    background: rgb(255 255 255 / 5%);
+      transform var(--motion-base) var(--ui-ease),
+      opacity var(--motion-base) var(--ui-ease),
+      background-color var(--motion-base) var(--ui-ease),
+      color var(--motion-base) var(--ui-ease),
+      box-shadow var(--motion-base) var(--ui-ease),
+      border-color var(--motion-base) var(--ui-ease);
+    background: var(--surface-wash);
     color: var(--brand-muted);
     border: var(--ui-stroke-thin) solid var(--ui-primary-border-soft);
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 30%);
+    box-shadow: inset 0 0 0 1px var(--inset-shade);
   }
 
   .recommendation-toggle:not(.active) .recommendation-icon {

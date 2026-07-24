@@ -154,10 +154,10 @@ const pathname = Astro.url.pathname
     --nav-link-padding: var(--space-xs) var(--space-sm);
     --nav-underline-height: 3px;
     --nav-underline-offset: 2px;
-    --nav-underline-left: 0.75rem;
-    --nav-underline-width: calc(100% - 1.5rem);
+    --nav-underline-left: var(--space-sm);
+    --nav-underline-width: calc(100% - var(--space-lg));
     --nav-transition-duration: var(--motion-base);
-    --nav-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --nav-transition-easing: var(--ui-ease);
     --nav-loading-gradient: linear-gradient(
       100deg,
       rgb(255 244 226 / 72%) 0%,
@@ -180,11 +180,11 @@ const pathname = Astro.url.pathname
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    height: 3rem;
+    height: var(--size-control);
   }
 
   .nav-header img {
-    height: 3rem;
+    height: var(--size-control);
     width: auto;
   }
 
@@ -193,8 +193,8 @@ const pathname = Astro.url.pathname
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: var(--size-control);
+    height: var(--size-control);
     border: var(--ui-stroke) solid var(--brand-accent);
     background: transparent;
     color: var(--brand-accent);
@@ -293,10 +293,10 @@ const pathname = Astro.url.pathname
       linear-gradient(90deg, var(--ui-primary-glow), transparent) left center / 0 100% no-repeat,
       transparent;
     transition:
-      color var(--nav-transition-duration) ease,
-      background-size var(--nav-transition-duration) ease,
-      background-color var(--nav-transition-duration) ease,
-      border-color var(--nav-transition-duration) ease;
+      color var(--nav-transition-duration) var(--nav-transition-easing),
+      background-size var(--nav-transition-duration) var(--nav-transition-easing),
+      background-color var(--nav-transition-duration) var(--nav-transition-easing),
+      border-color var(--nav-transition-duration) var(--nav-transition-easing);
   }
 
   .nav-link:hover {
@@ -346,7 +346,7 @@ const pathname = Astro.url.pathname
     background-clip: text, padding-box;
     -webkit-background-clip: text, padding-box;
     -webkit-text-fill-color: transparent;
-    animation: nav-link-loading 1s linear infinite;
+    animation: nav-link-loading var(--motion-loop) linear infinite;
     border-color: var(--accent-a80);
     background-color: var(--ui-primary-wash);
   }
@@ -464,7 +464,7 @@ const pathname = Astro.url.pathname
       background-position: 180% 50%;
       background-clip: text;
       -webkit-background-clip: text;
-      animation: nav-link-loading 1s linear infinite;
+      animation: nav-link-loading var(--motion-loop) linear infinite;
       border-color: transparent;
       background-color: transparent;
     }

@@ -47,7 +47,19 @@
   --motion-fast: 0.15s;
   --motion-base: var(--ui-motion);
   --motion-slow: 0.3s;
+  --motion-loop: 1s; /* repeating animations (shimmer, etc.) */
   --motion-instant: 0.01ms; /* prefers-reduced-motion near-instant */
+
+  /* Frost blur ladder — sticky chrome, modal, frosted surfaces */
+  --blur-sm: 2px;
+  --blur-md: 4px;
+  --blur-lg: 12px;
+
+  /* Overlays / washes / inset shades */
+  --overlay-scrim: rgb(0 0 0 / 80%);
+  --surface-wash: rgb(255 255 255 / 5%);
+  --inset-shade: rgb(0 0 0 / 30%);
+  --shade-a10: rgb(0 0 0 / 10%);
 
   /*
    * Canonical breakpoints (preferred scale):
@@ -64,6 +76,9 @@
   --space-lg: calc(var(--ui-spacing) * 1.5); /* 24px / 1.5rem - Section headers */
   --space-xl: calc(var(--ui-spacing) * 2); /* 32px / 2rem   - Section block margins */
   --space-xxl: calc(var(--ui-spacing) * 3); /* 48px / 3rem   - Large hero/footer separations */
+
+  /* Control geometry — equals --space-xxl numerically but is size, not spacing */
+  --size-control: 3rem; /* 48px tap/chrome square */
 
   /* Vertical rhythm — semantic flow spacing built on the --space scale.
      Use these for block flow so every page shares one rhythm. */
