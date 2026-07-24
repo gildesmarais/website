@@ -10,7 +10,7 @@ tags:
 Recently a weird problem started occurring for me when browsing the web with Safari or Chrome.[^1]
 These browsers refused to load some sites like stackoverflow.com or letsencrypt.org. Safari complained about the certificate not being standards compliant, while Chromium-based browsers showed a completely valid certificate chain.
 
-![Safari complaining about a not standards compliant cert](/src/assets/images/posts/2020-04-01-safari-ssl-cert-invalid.webp)
+![Safari complaining about a not standards compliant cert](../../assets/images/posts/2020-04-01-safari-ssl-cert-invalid.webp)
 
 I keep my macOS up to date, scanned it with _ClamAV_, etc., but there was nothing suspicious. So the problem lies somewhere else.
 There's a [thread on the Let's Encrypt community forum](https://community.letsencrypt.org/t/letsencrypt-org-frontpage-net-err-cert-invalid/116707) with someone having the same problem.
@@ -24,11 +24,11 @@ While the thread is more an investigation of causes, I just wanted my browsers t
 4. Select _Login_ in the upper left
 5. Select _Certificates_ in the bottom left
 6. Drag and drop the certificate into the right-hand side of the Keychain Access window.
-   ![Keychain access](/src/assets/images/posts/2020-04-01-keychain-access.webp)
+   ![Keychain access](../../assets/images/posts/2020-04-01-keychain-access.webp)
 7. Right click on the newly added <q>Let’s Encrypt Authority X3</q> and _Get Info_ (Select and <kbd>⌘</kbd>+<kbd>i</kbd> works fine here, too)
 8. Open the _Trust_ part of the certificate
 9. Select _Always trust_
-   ![Always trust](/src/assets/images/posts/2020-04-01-trusting-letsencrypt-x3.webp)
+   ![Always trust](../../assets/images/posts/2020-04-01-trusting-letsencrypt-x3.webp)
 10. Restart macOS.
 
 ## What's the problem?
