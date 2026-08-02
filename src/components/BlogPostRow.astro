@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content"
+
+interface Props {
+  post: CollectionEntry<"blog">
+  dateFormat: "iso" | "monthYear"
+  description?: boolean
+}
+
+const { post, dateFormat, description = false } = Astro.props
+const language = post.data.language ?? "en"
+const date = post.data.date
+
+function formatMonthYear(d: Date) {
+  return new Intl.DateTimeFormat("en", { month: "long", year: "2-digit" })
+    .format(d)
+    .replace(/(\d{2})$/, "'$1")
+}
+
+const dateLabel = dateFormat === "iso" ? date.toISOString().split("T")[0] : formatMonthYear(date)
+---
+
+<li data-language={language}>
+  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+  {language !== "en" && <sup>[{language.toUpperCase()}]</sup>}
+  {
+    date && (
+      <>
+        {" "}
+        <time datetime={date.toISOString()} class="micro">
+          {dateLabel}
+        </time>
+      </>
+    )
+  }
+  {
+    description && post.data.description && (
+      <>
+        <br />
+        <small>{post.data.description}</small>
+      </>
+    )
+  }
+</li>

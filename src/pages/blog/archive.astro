@@ -1,20 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
-import { getCollection } from "astro:content"
-import { isVisibleBlogPost } from "../../content/blog"
+import BlogPostRow from "../../components/BlogPostRow.astro"
+import { getArchivePosts } from "../../content/blog"
+
 const title = "Blog Archive"
 const description = "Chronological archive of all published blog posts."
-
-const posts = (await getCollection("blog", isVisibleBlogPost)).sort(
-  (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
-)
-
-function fmt(d: Date) {
-  return new Intl.DateTimeFormat("en", { month: "long", year: "2-digit" })
-    .format(d)
-    .replace(/(\d{2})$/, "'$1")
-}
+const posts = await getArchivePosts()
 ---
 
 <BaseLayout title={title} description={description}>
@@ -31,24 +23,7 @@ function fmt(d: Date) {
     </div>
 
     <ul>
-      {
-        posts.map((post) => (
-          <li data-language={post.data.language ?? "en"}>
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            {post.data.language && post.data.language != "en" && (
-              <sup>[{post.data.language.toUpperCase()}]</sup>
-            )}
-            {post.data.date && (
-              <>
-                {" "}
-                <time datetime={new Date(post.data.date).toISOString()} class="micro">
-                  {fmt(post.data.date)}
-                </time>
-              </>
-            )}
-          </li>
-        ))
-      }
+      {posts.map((post) => <BlogPostRow post={post} dateFormat="monthYear" />)}
     </ul>
 
     <footer>
