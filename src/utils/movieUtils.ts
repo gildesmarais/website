@@ -39,6 +39,24 @@ export type MovieCatalogEntry = Pick<
   | "_searchString"
 >
 
+export function buildSearchString(movie: Pick<Movie, "title" | "directors" | "genres">): string {
+  return `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
+}
+
+export function toCatalogEntry(movie: Movie): MovieCatalogEntry {
+  return {
+    const: movie.const,
+    title: movie.title,
+    year: movie.year,
+    your_rating: movie.your_rating,
+    imdb_rating: movie.imdb_rating,
+    runtime_mins: movie.runtime_mins,
+    genres: movie.genres,
+    directors: movie.directors,
+    _searchString: movie._searchString ?? buildSearchString(movie),
+  }
+}
+
 export function defaultSortDir(sortBy: MovieSortOptions["sortBy"]): MovieSortOptions["sortDir"] {
   return sortBy === "title" ? "asc" : "desc"
 }
@@ -78,15 +96,13 @@ export function recommendationChrome(isRecommendation: boolean): {
   }
 }
 
-export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
+export function filterMovies(movies: MovieCatalogEntry[], filters: MovieFilters): MovieCatalogEntry[] {
   let filtered = movies
 
   if (filters.searchQuery?.trim()) {
     const tokens = filters.searchQuery.trim().toLowerCase().split(/\s+/)
     filtered = filtered.filter((movie) => {
-      const searchBase =
-        movie._searchString ||
-        `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
+      const searchBase = movie._searchString || buildSearchString(movie)
       return tokens.every((token) => searchBase.includes(token))
     })
   }
@@ -94,7 +110,7 @@ export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   return filtered
 }
 
-export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movie[] {
+export function sortMovies(movies: MovieCatalogEntry[], sortOptions: MovieSortOptions): MovieCatalogEntry[] {
   if (sortOptions.sortBy === "default") {
     return sortOptions.sortDir === "asc" ? [...movies] : [...movies].reverse()
   }
@@ -140,11 +156,11 @@ export function sortMovies(movies: Movie[], sortOptions: MovieSortOptions): Movi
  * Assumes input movies are already pre-filtered for type (e.g., from movieCache).
  */
 export function processMovies(
-  movies: Movie[],
+  movies: MovieCatalogEntry[],
   recommendationsSet: Set<string>,
   filters: MovieFilters,
   sortOptions: MovieSortOptions,
-): Movie[] {
+): MovieCatalogEntry[] {
   let processed = movies
 
   if (filters.isRecommendation) {

@@ -6,7 +6,7 @@ import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/MovieCard.astro"
 import MovieFilters from "../../components/MovieFilters.astro"
 import MoviePoster from "../../components/MoviePoster.astro"
-import { processMovies, parseUrlParams } from "../../utils/movieUtils"
+import { processMovies, parseUrlParams, toCatalogEntry } from "../../utils/movieUtils"
 import { getMovieCache } from "../../utils/movieCache"
 import { externalRel } from "../../utils/linkRel"
 
@@ -28,29 +28,7 @@ const { filters, sortOptions } = parseUrlParams(url)
 const processedMovies = processMovies(movies, recommendationsSet, filters, sortOptions)
 const visibleMovieIds = new Set(processedMovies.map((movie) => movie.const))
 
-const catalog = movies.map(
-  ({
-    const: imdbId,
-    title,
-    year,
-    your_rating,
-    imdb_rating,
-    runtime_mins,
-    genres,
-    directors,
-    _searchString,
-  }) => ({
-    const: imdbId,
-    title,
-    year,
-    your_rating,
-    imdb_rating,
-    runtime_mins,
-    genres,
-    directors,
-    _searchString,
-  }),
-)
+const catalog = movies.map(toCatalogEntry)
 const recommendationIds = [...recommendationsSet]
 ---
 
@@ -83,9 +61,6 @@ const recommendationIds = [...recommendationsSet]
               title={movie.title}
               year={movie.year}
               yourRating={movie.your_rating}
-              runtimeMins={movie.runtime_mins}
-              genres={movie.genres}
-              directors={movie.directors}
               isRecommendation={isRecommendation}
               style={isVisible ? undefined : "display: none"}
             >

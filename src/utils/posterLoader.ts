@@ -1,15 +1,18 @@
+import { isPosterOk, type PosterResponse } from "./poster"
+
 const inFlight = new Map<string, Promise<void>>()
 
 async function fetchPoster(imdbId: string, img: HTMLImageElement): Promise<void> {
   try {
     const response = await fetch(`/api/movie/${imdbId}`)
-    const data = await response.json()
+    const data = (await response.json()) as PosterResponse
 
-    if (response.ok && data.poster && data.poster !== "N/A") {
+    if (response.ok && isPosterOk(data) && data.poster !== "N/A") {
       img.src = data.poster
       img.alt = `${data.title} Poster`
     } else {
-      console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${data.error || "Unknown error"}`)
+      const reason = !isPosterOk(data) ? data.error : "Unknown error"
+      console.warn(`No poster found for IMDb ID: ${imdbId}. Reason: ${reason}`)
       img.src = "/poster-missing.svg"
       img.alt = "No poster available"
     }

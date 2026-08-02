@@ -4,7 +4,6 @@ import {
   parseUrlParams,
   processMovies,
   recommendationChrome,
-  type Movie,
   type MovieCatalogEntry,
   type MovieSortOptions,
 } from "./movieUtils"
@@ -75,7 +74,7 @@ export function initMovieList(): void {
   }
 
   const updateList = () => {
-    const movies = processMovies(catalog as Movie[], recommendationsSet, state.filters, state.sortOptions)
+    const movies = processMovies(catalog, recommendationsSet, state.filters, state.sortOptions)
 
     const visibleIds = new Set(movies.map((m) => m.const))
     const allCards = Array.from(cardMap.values())
