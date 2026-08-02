@@ -12,7 +12,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "check:visual": "node scripts/visual-guardrails.mjs"
+    "check:visual": "node scripts/visual-guardrails.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.12",
@@ -30,6 +31,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   }
 }
