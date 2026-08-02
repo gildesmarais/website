@@ -1,5 +1,10 @@
 ---
-import { buildMoviesPageUrl, type MovieSortOptions } from "../utils/movieUtils"
+import {
+  buildMoviesPageUrl,
+  nextSortOptions,
+  recommendationChrome,
+  type MovieSortOptions,
+} from "../utils/movieUtils"
 
 export interface Props {
   searchQuery: string
@@ -21,7 +26,7 @@ const current = {
     sortDir: sortDir as MovieSortOptions["sortDir"],
   },
 }
-const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
+const { stateLabel, ariaLabel, title: recommendationTitle } = recommendationChrome(isRecommendation)
 ---
 
 <!-- Movie controls -->
@@ -34,13 +39,13 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
       id="recommendationToggle"
       class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
       aria-pressed={isRecommendation}
-      aria-label={isRecommendation ? "Show all movies" : "Show only recommended movies"}
-      title={isRecommendation ? "Show all movies" : "Show only recommended movies"}
+      aria-label={ariaLabel}
+      title={recommendationTitle}
     >
       <span class="recommendation-icon" aria-hidden="true">★</span>
     </a>
     <div class="recommendation-state">
-      <span id="recommendationStateLabel" class="recommendation-state-label">{recommendationLabel}</span>
+      <span id="recommendationStateLabel" class="recommendation-state-label">{stateLabel}</span>
       <span id="movieResultCount" class="recommendation-state-count">{resultCount} films</span>
       <span id="movieResultAnnouncement" class="sr-only" aria-live="polite" aria-atomic="true"
         >{resultCount} films</span
@@ -57,16 +62,11 @@ const recommendationLabel = isRecommendation ? "Recommended" : "All movies"
           { key: "runtimeMins", label: "Runtime" },
         ].map(({ key, label }) => {
           const isActive = sortBy === key
-          const nextDir = isActive && sortDir === "asc" ? "desc" : "asc"
-          const defaultDir = key === "title" ? "asc" : "desc"
-          const targetDir = isActive ? nextDir : defaultDir
+          const next = nextSortOptions(current.sortOptions, key as MovieSortOptions["sortBy"])
 
           return (
             <a
-              href={buildMoviesPageUrl(current, {
-                sortBy: key as MovieSortOptions["sortBy"],
-                sortDir: targetDir as MovieSortOptions["sortDir"],
-              })}
+              href={buildMoviesPageUrl(current, next)}
               class={`minimal-btn sort-btn ${isActive ? "active" : ""}`}
               data-sort={key}
             >

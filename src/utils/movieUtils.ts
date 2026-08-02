@@ -26,10 +26,6 @@ export interface MovieSortOptions {
   sortDir: "asc" | "desc"
 }
 
-export interface ProcessedMovies {
-  movies: Movie[]
-}
-
 export type MovieCatalogEntry = Pick<
   Movie,
   | "const"
@@ -42,6 +38,45 @@ export type MovieCatalogEntry = Pick<
   | "directors"
   | "_searchString"
 >
+
+export function defaultSortDir(sortBy: MovieSortOptions["sortBy"]): MovieSortOptions["sortDir"] {
+  return sortBy === "title" ? "asc" : "desc"
+}
+
+export function nextSortOptions(
+  current: MovieSortOptions,
+  clickedSortBy: MovieSortOptions["sortBy"],
+): MovieSortOptions {
+  if (current.sortBy === clickedSortBy) {
+    return {
+      sortBy: clickedSortBy,
+      sortDir: current.sortDir === "asc" ? "desc" : "asc",
+    }
+  }
+  return {
+    sortBy: clickedSortBy,
+    sortDir: defaultSortDir(clickedSortBy),
+  }
+}
+
+export function recommendationChrome(isRecommendation: boolean): {
+  stateLabel: string
+  ariaLabel: string
+  title: string
+} {
+  if (isRecommendation) {
+    return {
+      stateLabel: "Recommended",
+      ariaLabel: "Show all movies",
+      title: "Show all movies",
+    }
+  }
+  return {
+    stateLabel: "All movies",
+    ariaLabel: "Show only recommended movies",
+    title: "Show only recommended movies",
+  }
+}
 
 export function filterMovies(movies: Movie[], filters: MovieFilters): Movie[] {
   let filtered = movies
@@ -109,7 +144,7 @@ export function processMovies(
   recommendationsSet: Set<string>,
   filters: MovieFilters,
   sortOptions: MovieSortOptions,
-): ProcessedMovies {
+): Movie[] {
   let processed = movies
 
   if (filters.isRecommendation) {
@@ -117,11 +152,7 @@ export function processMovies(
   }
 
   const filtered = filterMovies(processed, filters)
-  const sorted = sortMovies(filtered, sortOptions)
-
-  return {
-    movies: sorted,
-  }
+  return sortMovies(filtered, sortOptions)
 }
 
 export function buildMoviesPageUrl(

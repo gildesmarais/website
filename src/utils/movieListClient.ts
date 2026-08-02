@@ -1,7 +1,9 @@
 import {
   buildMoviesPageUrl,
+  nextSortOptions,
   parseUrlParams,
   processMovies,
+  recommendationChrome,
   type Movie,
   type MovieCatalogEntry,
   type MovieSortOptions,
@@ -46,20 +48,18 @@ export function initMovieList(): void {
 
   const updateUI = () => {
     const { filters, sortOptions } = state
+    const chrome = recommendationChrome(filters.isRecommendation)
 
     if (filters.isRecommendation) {
       recToggle?.classList.add("active")
       recToggle?.setAttribute("aria-pressed", "true")
-      recToggle?.setAttribute("aria-label", "Show all movies")
-      if (recToggle) recToggle.title = "Show all movies"
-      if (recStateLabel) recStateLabel.textContent = "Recommended"
     } else {
       recToggle?.classList.remove("active")
       recToggle?.setAttribute("aria-pressed", "false")
-      recToggle?.setAttribute("aria-label", "Show only recommended movies")
-      if (recToggle) recToggle.title = "Show only recommended movies"
-      if (recStateLabel) recStateLabel.textContent = "All movies"
     }
+    recToggle?.setAttribute("aria-label", chrome.ariaLabel)
+    if (recToggle) recToggle.title = chrome.title
+    if (recStateLabel) recStateLabel.textContent = chrome.stateLabel
 
     sortBtns.forEach((btn) => {
       const sortKey = btn.dataset.sort
@@ -75,7 +75,7 @@ export function initMovieList(): void {
   }
 
   const updateList = () => {
-    const { movies } = processMovies(catalog as Movie[], recommendationsSet, state.filters, state.sortOptions)
+    const movies = processMovies(catalog as Movie[], recommendationsSet, state.filters, state.sortOptions)
 
     const visibleIds = new Set(movies.map((m) => m.const))
     const allCards = Array.from(cardMap.values())
@@ -131,22 +131,9 @@ export function initMovieList(): void {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
       const sort = btn.dataset.sort as MovieSortOptions["sortBy"]
-      if (state.sortOptions.sortBy === sort) {
-        state = {
-          ...state,
-          sortOptions: {
-            ...state.sortOptions,
-            sortDir: state.sortOptions.sortDir === "asc" ? "desc" : "asc",
-          },
-        }
-      } else {
-        state = {
-          ...state,
-          sortOptions: {
-            sortBy: sort,
-            sortDir: sort === "title" ? "asc" : "desc",
-          },
-        }
+      state = {
+        ...state,
+        sortOptions: nextSortOptions(state.sortOptions, sort),
       }
       updateList()
     })
