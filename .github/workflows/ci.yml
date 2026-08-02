@@ -15,6 +15,7 @@ jobs:
       - run: npm ci
       - run: make lint-prettier
       - run: make lint-css
+      - run: npm test
       - run: npm run build
       - run: npm run check:visual
       - run: npx astro check
