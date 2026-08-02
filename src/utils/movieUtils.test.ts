@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest"
 import {
   buildMoviesPageUrl,
+  buildSearchString,
   defaultSortDir,
   nextSortOptions,
   parseUrlParams,
   processMovies,
   recommendationChrome,
+  toCatalogEntry,
   type Movie,
 } from "./movieUtils"
 
@@ -15,7 +17,7 @@ function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title">): Movie 
     your_rating: 7,
     date_rated: "2020-01-01",
     url: "https://example.com",
-    title_type: "movie",
+    title_type: "Movie",
     imdb_rating: 7,
     runtime_mins: 100,
     genres: "Drama",
@@ -86,27 +88,91 @@ describe("parseUrlParams ↔ buildMoviesPageUrl", () => {
   })
 })
 
-describe("processMovies", () => {
-  it("filters by search and recommendation set", () => {
-    const movies = [
-      movie({
-        const: "tt1",
+describe("buildSearchString", () => {
+  it("joins title, directors, and genres lowercased", () => {
+    expect(
+      buildSearchString({
         title: "Inception",
         directors: "Christopher Nolan",
-        genres: "Sci-Fi",
+        genres: "Sci-Fi, Action",
       }),
+    ).toBe("inception christopher nolan sci-fi, action")
+  })
+
+  it("tolerates missing fields", () => {
+    expect(buildSearchString({ title: "Solo", directors: "", genres: "" })).toBe("solo  ")
+  })
+})
+
+describe("toCatalogEntry", () => {
+  it("projects catalog fields and preserves precomputed search string", () => {
+    const full = movie({
+      const: "tt1",
+      title: "Inception",
+      directors: "Christopher Nolan",
+      genres: "Sci-Fi",
+      original_title: "Inception",
+      date_rated: "2021-01-01",
+      url: "https://imdb.example/tt1",
+      num_votes: 2_000_000,
+      release_date: "2010-07-16",
+      _searchString: "precomputed haystack",
+    })
+
+    expect(toCatalogEntry(full)).toEqual({
+      const: "tt1",
+      title: "Inception",
+      year: 2000,
+      your_rating: 7,
+      imdb_rating: 7,
+      runtime_mins: 100,
+      genres: "Sci-Fi",
+      directors: "Christopher Nolan",
+      _searchString: "precomputed haystack",
+    })
+  })
+
+  it("builds search string when missing", () => {
+    const entry = toCatalogEntry(
       movie({
         const: "tt2",
         title: "Amélie",
         directors: "Jean-Pierre Jeunet",
         genres: "Comedy",
       }),
-      movie({
-        const: "tt3",
-        title: "Interstellar",
-        directors: "Christopher Nolan",
-        genres: "Sci-Fi",
-      }),
+    )
+
+    expect(entry._searchString).toBe(buildSearchString(entry))
+  })
+})
+
+describe("processMovies", () => {
+  it("filters by search and recommendation set on catalog entries", () => {
+    const movies = [
+      toCatalogEntry(
+        movie({
+          const: "tt1",
+          title: "Inception",
+          directors: "Christopher Nolan",
+          genres: "Sci-Fi",
+        }),
+      ),
+      toCatalogEntry(
+        movie({
+          const: "tt2",
+          title: "Amélie",
+          directors: "Jean-Pierre Jeunet",
+          genres: "Comedy",
+        }),
+      ),
+      toCatalogEntry(
+        movie({
+          const: "tt3",
+          title: "Interstellar",
+          directors: "Christopher Nolan",
+          genres: "Sci-Fi",
+        }),
+      ),
     ]
     const recommendations = new Set(["tt1", "tt2"])
 

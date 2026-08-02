@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro"
 import { OMDB_API_KEY } from "astro:env/server"
 import { subtle } from "crypto"
+import { isPosterOk, mapOmdbToPoster } from "../../../utils/poster"
 
 export const prerender = false
 
@@ -32,11 +33,12 @@ export const GET: APIRoute = async ({ params, request }) => {
   try {
     const response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=${API_KEY}`)
     const data = await response.json()
+    const mapped = mapOmdbToPoster(data)
 
-    if (data.Response === "True" && data.Poster && data.Poster !== "N/A") {
+    if (mapped && isPosterOk(mapped)) {
       const payload = JSON.stringify({
-        poster: data.Poster,
-        title: data.Title,
+        poster: mapped.poster,
+        title: mapped.title,
       })
       const etag = await generateETag(payload)
 
@@ -53,15 +55,14 @@ export const GET: APIRoute = async ({ params, request }) => {
           ETag: etag,
         },
       })
-    } else {
-      console.warn(
-        `OMDb API: No poster found for IMDb ID: ${imdbId}. Reason: ${data.Error || "Unknown error"}`,
-      )
-      return new Response(JSON.stringify({ error: data.Error || "No poster found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      })
     }
+
+    const reason = mapped && !isPosterOk(mapped) ? mapped.error : "Unknown error"
+    console.warn(`OMDb API: No poster found for IMDb ID: ${imdbId}. Reason: ${reason}`)
+    return new Response(JSON.stringify({ error: reason === "Unknown error" ? "No poster found" : reason }), {
+      status: 404,
+      headers: { "Content-Type": "application/json" },
+    })
   } catch (error) {
     console.error(`Error fetching from OMDb API for IMDb ID: ${imdbId}`, error)
     return new Response(JSON.stringify({ error: "Failed to fetch movie data" }), {
