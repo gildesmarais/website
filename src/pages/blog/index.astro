@@ -1,45 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
-import { getCollection } from "astro:content"
-import { isVisibleShowcasePost } from "../../content/blog"
+import BlogPostRow from "../../components/BlogPostRow.astro"
+import { getShowcasePosts, showcaseLead } from "../../content/blog"
+
+const posts = await getShowcasePosts()
+const leadCount = showcaseLead(posts.length)
 const title = "Blog"
-const description = "Five hand-picked posts. Subscribe via RSS feed."
-const posts = (await getCollection("blog", isVisibleShowcasePost)).sort(
-  (a, b) => a.data.showcaseOrder! - b.data.showcaseOrder!,
-)
+const description = `${leadCount} hand-picked posts. Subscribe via RSS feed.`
 ---
 
 <BaseLayout title={title} description={description}>
   <Hero title={title}>
     <p class="lead">
-      Five hand-picked posts. See the <a href="/blog/archive/">archive</a> for all, or<br />
+      {leadCount}{" "}hand-picked posts. See the{" "}
+      <a href="/blog/archive/">archive</a> for all, or<br />
       <a href="/feed.xml">subscribe to the RSS feed</a> (English posts only).
     </p>
   </Hero>
 
   <section>
     <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            {post.data.language && post.data.language != "en" && (
-              <sup>[{post.data.language.toUpperCase()}]</sup>
-            )}
-            {post.data.date && (
-              <>
-                {" "}
-                <time datetime={post.data.date.toISOString()} class="micro">
-                  {post.data.date.toISOString().split("T")[0]}
-                </time>
-              </>
-            )}
-            <br />
-            {post.data.description && <small>{post.data.description}</small>}
-          </li>
-        ))
-      }
+      {posts.map((post) => <BlogPostRow post={post} dateFormat="iso" description />)}
     </ul>
 
     <nav>
