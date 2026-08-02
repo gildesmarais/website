@@ -25,7 +25,7 @@ const description = "Personal movie ratings and recommendations. Explore films w
 const url = new URL(Astro.request.url)
 const { filters, sortOptions } = parseUrlParams(url)
 
-const { movies: processedMovies } = processMovies(movies, recommendationsSet, filters, sortOptions)
+const processedMovies = processMovies(movies, recommendationsSet, filters, sortOptions)
 const visibleMovieIds = new Set(processedMovies.map((movie) => movie.const))
 
 const catalog = movies.map(
