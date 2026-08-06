@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets"
 import logo from "../assets/images/logo-borderless.svg"
+import { site } from "../data/site"
 import { isActivePath } from "../utils/navigation"
 
-const { siteName = "Gil Desmarais" } = Astro.props
+const { siteName = site.name } = Astro.props
 const pathname = Astro.url.pathname
 ---
 

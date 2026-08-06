@@ -2,6 +2,7 @@
 import BackToTop from "../components/BackToTop.astro"
 import Navigation from "../components/Navigation.astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
+import { site } from "../data/site"
 import { isActivePath } from "../utils/navigation"
 import "../styles/global.css"
 import "@fontsource/ibm-plex-sans/400.css"
@@ -22,17 +23,17 @@ export interface Props {
   imageAlt?: string
   twitterSite?: string // e.g. "@gildesmarais"
   // Optional JSON-LD Person fields
-  personName?: string // e.g. "Gil Desmarais"
+  personName?: string
   personUrl?: string // homepage url
 }
 
 const {
-  siteName = "Gil Desmarais",
+  siteName = site.name,
   canonical,
   image,
   imageAlt = "",
   twitterSite,
-  personName = "Gil Desmarais",
+  personName = site.name,
   personUrl = (Astro.site ?? new URL("/", Astro.url)).toString(),
   title = "Welcome",
   description = "",
@@ -101,9 +102,9 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8800" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color={site.accentColor} />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#1d1f21" />
+    <meta name="theme-color" content={site.themeColor} />
 
     <!-- Feed -->
     <link type="application/atom+xml" rel="alternate" href="/feed.xml" title={siteName} />
@@ -175,11 +176,9 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       <section class="container">
         <small class="secondary">
           <span>
-            &copy; 2026 Gil Desmarais. All content is licensed under a <a
-              href="https://creativecommons.org/licenses/by-nd/4.0/"
-              target="_blank"
-              rel="noopener"
-              class="secondary">Creative Commons Attribution-NoDerivatives 4.0 International License</a
+            &copy; {site.copyrightYear} {site.name}. All content is licensed under a{" "}
+            <a href={site.licenseUrl} target="_blank" rel="noopener" class="secondary"
+              >{site.licenseName}</a
             >.
           </span>
           <a

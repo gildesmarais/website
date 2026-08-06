@@ -1,15 +1,16 @@
 import rss from "@astrojs/rss"
 import { getFeedPosts } from "../content/blog"
+import { copyrightNotice, site } from "../data/site"
 import type { APIContext } from "astro"
 
 export async function GET(context: APIContext) {
   const posts = await getFeedPosts()
   return rss({
     stylesheet: "/rss-styles.xsl",
-    title: "Gil Desmarais's Blog",
-    description: "The latest posts from Gil Desmarais's blog.",
+    title: `${site.name}'s Blog`,
+    description: `The latest posts from ${site.name}'s blog.`,
     site: context.site!,
-    customData: `<copyright>© 2026 Gil Desmarais. All content is licensed under CC BY-ND 4.0.</copyright>`,
+    customData: `<copyright>${copyrightNotice()}</copyright>`,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
