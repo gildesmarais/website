@@ -18,7 +18,6 @@ export {
   type MovieSortOptions,
   type SortBy,
   type SortDir,
-  SORT_BY,
 } from "./query"
 
 export { mapOmdbToPoster, isPosterOk, type PosterResponse, type PosterOk, type PosterErr } from "./poster"
