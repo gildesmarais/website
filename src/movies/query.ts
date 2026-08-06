@@ -1,3 +1,4 @@
+/** Full movie row from movies.json (JSON field `const` = IMDb id). */
 export interface Movie {
   const: string
   title: string
@@ -13,7 +14,7 @@ export interface Movie {
   num_votes: number
   release_date: string
   directors: string
-  _searchString?: string // Pre-computed for performance
+  _searchString?: string
 }
 
 export interface MovieFilters {
@@ -21,9 +22,15 @@ export interface MovieFilters {
   isRecommendation: boolean
 }
 
-export interface MovieSortOptions {
-  sortBy: "default" | "title" | "year" | "yourRating" | "imdbRating" | "runtimeMins"
-  sortDir: "asc" | "desc"
+export const SORT_BY = ["default", "title", "year", "yourRating", "imdbRating", "runtimeMins"] as const
+export type SortBy = (typeof SORT_BY)[number]
+
+export const SORT_DIR = ["asc", "desc"] as const
+export type SortDir = (typeof SORT_DIR)[number]
+
+export type MovieSortOptions = {
+  sortBy: SortBy
+  sortDir: SortDir
 }
 
 export type MovieCatalogEntry = Pick<
@@ -38,6 +45,17 @@ export type MovieCatalogEntry = Pick<
   | "directors"
   | "_searchString"
 >
+
+const SORT_BY_SET: ReadonlySet<string> = new Set(SORT_BY)
+const SORT_DIR_SET: ReadonlySet<string> = new Set(SORT_DIR)
+
+function isSortBy(value: string): value is SortBy {
+  return SORT_BY_SET.has(value)
+}
+
+function isSortDir(value: string): value is SortDir {
+  return SORT_DIR_SET.has(value)
+}
 
 export function buildSearchString(movie: Pick<Movie, "title" | "directors" | "genres">): string {
   return `${movie.title || ""} ${movie.directors || ""} ${movie.genres || ""}`.toLowerCase()
@@ -57,14 +75,11 @@ export function toCatalogEntry(movie: Movie): MovieCatalogEntry {
   }
 }
 
-export function defaultSortDir(sortBy: MovieSortOptions["sortBy"]): MovieSortOptions["sortDir"] {
+export function defaultSortDir(sortBy: SortBy): SortDir {
   return sortBy === "title" ? "asc" : "desc"
 }
 
-export function nextSortOptions(
-  current: MovieSortOptions,
-  clickedSortBy: MovieSortOptions["sortBy"],
-): MovieSortOptions {
+export function nextSortOptions(current: MovieSortOptions, clickedSortBy: SortBy): MovieSortOptions {
   if (current.sortBy === clickedSortBy) {
     return {
       sortBy: clickedSortBy,
@@ -115,45 +130,39 @@ export function sortMovies(movies: MovieCatalogEntry[], sortOptions: MovieSortOp
     return sortOptions.sortDir === "asc" ? [...movies] : [...movies].reverse()
   }
 
+  const sortBy = sortOptions.sortBy
+  const { sortDir } = sortOptions
+
   return [...movies].sort((a, b) => {
-    let aVal: string | number
-    let bVal: string | number
-
-    switch (sortOptions.sortBy) {
-      case "title":
-        aVal = (a.title || "").toLowerCase()
-        bVal = (b.title || "").toLowerCase()
-        break
-      case "year":
-        aVal = a.year || 0
-        bVal = b.year || 0
-        break
-      case "yourRating":
-        aVal = a.your_rating || 0
-        bVal = b.your_rating || 0
-        break
-      case "imdbRating":
-        aVal = a.imdb_rating || 0
-        bVal = b.imdb_rating || 0
-        break
-      case "runtimeMins":
-        aVal = a.runtime_mins || 0
-        bVal = b.runtime_mins || 0
-        break
-      default:
-        aVal = (a.title || "").toLowerCase()
-        bVal = (b.title || "").toLowerCase()
-    }
-
-    if (aVal < bVal) return sortOptions.sortDir === "asc" ? -1 : 1
-    if (aVal > bVal) return sortOptions.sortDir === "asc" ? 1 : -1
+    const aVal = comparableSortValue(a, sortBy)
+    const bVal = comparableSortValue(b, sortBy)
+    if (aVal < bVal) return sortDir === "asc" ? -1 : 1
+    if (aVal > bVal) return sortDir === "asc" ? 1 : -1
     return 0
   })
 }
 
+function comparableSortValue(
+  movie: MovieCatalogEntry,
+  sortBy: Exclude<SortBy, "default">,
+): string | number {
+  switch (sortBy) {
+    case "title":
+      return (movie.title || "").toLowerCase()
+    case "year":
+      return movie.year || 0
+    case "yourRating":
+      return movie.your_rating || 0
+    case "imdbRating":
+      return movie.imdb_rating || 0
+    case "runtimeMins":
+      return movie.runtime_mins || 0
+  }
+}
+
 /**
- * Processes movies by applying filters and sorting.
- * Assumes input movies are already pre-filtered for type (e.g., from movieCache).
+ * Applies recommendation filter, search, and sort.
+ * Assumes input is already type-filtered (e.g. from catalog cache).
  */
 export function processMovies(
   movies: MovieCatalogEntry[],
@@ -204,14 +213,17 @@ export function buildMoviesPageUrl(
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
   const searchQuery = url.searchParams.get("q") || ""
   const isRecommendation = url.searchParams.get("isRecommendation") !== "false"
-  const sortBy = (url.searchParams.get("sort") || "default") as MovieSortOptions["sortBy"]
-  const sortDir = (url.searchParams.get("dir") || "asc") as MovieSortOptions["sortDir"]
+  const sortParam = url.searchParams.get("sort") || "default"
+  const dirParam = url.searchParams.get("dir") || "asc"
 
   return {
     filters: {
       searchQuery: searchQuery || undefined,
       isRecommendation,
     },
-    sortOptions: { sortBy, sortDir },
+    sortOptions: {
+      sortBy: isSortBy(sortParam) ? sortParam : "default",
+      sortDir: isSortDir(dirParam) ? dirParam : "asc",
+    },
   }
 }

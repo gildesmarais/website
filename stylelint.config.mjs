@@ -48,7 +48,7 @@ export default {
     {
       files: [
         "src/styles/partials/05-content.css",
-        "src/components/MovieFilters.astro",
+        "src/components/movies/MovieFilters.astro",
         "src/pages/movies/*.astro",
       ],
       rules: {

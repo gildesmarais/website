@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
-import { buildMovieCache } from "./movieCache"
-import { buildSearchString, type Movie } from "./movieUtils"
+import { buildMovieCache } from "./catalog"
+import { buildSearchString, type Movie } from "./query"
 
 function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title" | "title_type">): Movie {
   return {

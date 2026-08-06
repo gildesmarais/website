@@ -3,14 +3,15 @@ import {
   buildMoviesPageUrl,
   nextSortOptions,
   recommendationChrome,
-  type MovieSortOptions,
-} from "../utils/movieUtils"
+  type SortBy,
+  type SortDir,
+} from "../../movies"
 
 export interface Props {
   searchQuery: string
   isRecommendation: boolean
-  sortBy: string
-  sortDir: string
+  sortBy: SortBy
+  sortDir: SortDir
   resultCount: number
 }
 
@@ -21,12 +22,16 @@ const current = {
     searchQuery: searchQuery || undefined,
     isRecommendation,
   },
-  sortOptions: {
-    sortBy: sortBy as MovieSortOptions["sortBy"],
-    sortDir: sortDir as MovieSortOptions["sortDir"],
-  },
+  sortOptions: { sortBy, sortDir },
 }
 const { stateLabel, ariaLabel, title: recommendationTitle } = recommendationChrome(isRecommendation)
+
+const sortKeys = [
+  { key: "yourRating" as const, label: "My Rating" },
+  { key: "title" as const, label: "Title" },
+  { key: "year" as const, label: "Year" },
+  { key: "runtimeMins" as const, label: "Runtime" },
+]
 ---
 
 <!-- Movie controls -->
@@ -55,14 +60,9 @@ const { stateLabel, ariaLabel, title: recommendationTitle } = recommendationChro
     <!-- Sort buttons -->
     <div class="sort-group">
       {
-        [
-          { key: "yourRating", label: "My Rating" },
-          { key: "title", label: "Title" },
-          { key: "year", label: "Year" },
-          { key: "runtimeMins", label: "Runtime" },
-        ].map(({ key, label }) => {
+        sortKeys.map(({ key, label }) => {
           const isActive = sortBy === key
-          const next = nextSortOptions(current.sortOptions, key as MovieSortOptions["sortBy"])
+          const next = nextSortOptions(current.sortOptions, key)
 
           return (
             <a

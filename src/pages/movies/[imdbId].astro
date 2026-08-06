@@ -1,9 +1,9 @@
 ---
 export const prerender = true
 
-import MovieLayout from "../../layouts/MovieLayout.astro"
-import MovieModalContent from "../../components/MovieModalContent.astro"
-import { getMovieCache } from "../../utils/movieCache"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import MovieModalContent from "../../components/movies/MovieModalContent.astro"
+import { getMovieCache } from "../../movies"
 
 export async function getStaticPaths() {
   const { movies } = getMovieCache()
@@ -33,10 +33,11 @@ const isRecommendation = recommendationsSet.has(movie.const)
 const note = recommendationNotes.get(movie.const)
 ---
 
-<MovieLayout
+<BaseLayout
   title={`${movie.title} (${movie.year})`}
   description={`Movie details for ${movie.title}`}
   robots="noindex"
+  bootPosterLoader
 >
   <div class="modal-backdrop">
     <a href="/movies/" class="modal-backdrop-link" aria-label="Close modal"></a>
@@ -64,7 +65,7 @@ const note = recommendationNotes.get(movie.const)
       </article>
     </div>
   </div>
-</MovieLayout>
+</BaseLayout>
 
 <script is:inline>
   const closeModal = () => {

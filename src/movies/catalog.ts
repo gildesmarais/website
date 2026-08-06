@@ -1,6 +1,6 @@
 import moviesData from "../data/movies.json"
 import recommendationsData from "../data/recommendations.json"
-import { buildSearchString, type Movie } from "./movieUtils"
+import { buildSearchString, type Movie } from "./query"
 
 export interface MovieCache {
   movies: Movie[]

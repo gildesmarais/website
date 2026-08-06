@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro"
 import { OMDB_API_KEY } from "astro:env/server"
 import { subtle } from "crypto"
-import { isPosterOk, mapOmdbToPoster } from "../../../utils/poster"
+import { isPosterOk, mapOmdbToPoster } from "../../../movies"
 
 export const prerender = false
 

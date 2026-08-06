@@ -5,8 +5,8 @@ import {
   processMovies,
   recommendationChrome,
   type MovieCatalogEntry,
-  type MovieSortOptions,
-} from "./movieUtils"
+  type SortBy,
+} from "./query"
 
 interface MovieCatalogData {
   catalog: MovieCatalogEntry[]
@@ -129,7 +129,7 @@ export function initMovieList(): void {
   sortBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
-      const sort = btn.dataset.sort as MovieSortOptions["sortBy"]
+      const sort = btn.dataset.sort as SortBy
       state = {
         ...state,
         sortOptions: nextSortOptions(state.sortOptions, sort),

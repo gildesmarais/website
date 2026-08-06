@@ -1,13 +1,12 @@
 ---
 export const prerender = false
 
-import MovieLayout from "../../layouts/MovieLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
-import MovieCard from "../../components/MovieCard.astro"
-import MovieFilters from "../../components/MovieFilters.astro"
-import MoviePoster from "../../components/MoviePoster.astro"
-import { processMovies, parseUrlParams, toCatalogEntry } from "../../utils/movieUtils"
-import { getMovieCache } from "../../utils/movieCache"
+import MovieCard from "../../components/movies/MovieCard.astro"
+import MovieFilters from "../../components/movies/MovieFilters.astro"
+import MoviePoster from "../../components/movies/MoviePoster.astro"
+import { getMovieCache, parseUrlParams, processMovies, toCatalogEntry } from "../../movies"
 import { externalRel } from "../../utils/linkRel"
 
 // Get centralized movie data
@@ -32,7 +31,7 @@ const catalog = movies.map(toCatalogEntry)
 const recommendationIds = [...recommendationsSet]
 ---
 
-<MovieLayout title={title} description={description}>
+<BaseLayout title={title} description={description} bootPosterLoader>
   <script
     is:inline
     type="application/json"
@@ -76,10 +75,10 @@ const recommendationIds = [...recommendationsSet]
       >OMDb API for providing the movie posters</a
     > used in this page. 🧡
   </aside>
-</MovieLayout>
+</BaseLayout>
 
 <script>
-  import { initMovieList } from "../../utils/movieListClient"
+  import { initMovieList } from "../../movies"
   initMovieList()
 </script>
 

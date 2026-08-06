@@ -9,7 +9,7 @@ import {
   recommendationChrome,
   toCatalogEntry,
   type Movie,
-} from "./movieUtils"
+} from "./query"
 
 function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title">): Movie {
   return {

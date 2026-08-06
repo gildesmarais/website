@@ -25,6 +25,8 @@ export interface Props {
   // Optional JSON-LD Person fields
   personName?: string
   personUrl?: string // homepage url
+  /** Opt-in: boot client poster fetch helpers on movie pages. */
+  bootPosterLoader?: boolean
 }
 
 const {
@@ -39,6 +41,7 @@ const {
   description = "",
   language,
   robots = "index, follow",
+  bootPosterLoader = false,
 } = Astro.props as Props
 
 const pageTitle = title ? `${title} — ${siteName}` : siteName
@@ -238,5 +241,14 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       adjustBottomPadding()
       window.addEventListener("resize", adjustBottomPadding)
     </script>
+
+    {
+      bootPosterLoader && (
+        <script>
+          import { initPosterLoader } from "../movies"
+          initPosterLoader()
+        </script>
+      )
+    }
   </body>
 </html>
