@@ -4,22 +4,19 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import ProjectCard from "../components/ProjectCard.astro"
-import TableOfContents, { slugify } from "../components/TableOfContents.astro"
+import TableOfContents from "../components/TableOfContents.astro"
+import { githubProfileUrl } from "../data/socials"
+import { projectSlug, projects } from "../data/projects"
 import { externalRel } from "../utils/linkRel"
 
 const title = "Projects"
 const description =
   "Selective open-source experiments that remove friction for me and, hopefully, for you too."
 
-const projectHeadings = [
-  { depth: 2, text: "html2rss" },
-  { depth: 2, text: "moodbar.rs" },
-  { depth: 2, text: ".dotfiles & Scripts" },
-  { depth: 2, text: "jekyll-loading-lazy" },
-].map(({ depth, text }) => ({
-  depth,
-  text,
-  slug: slugify(text),
+const projectHeadings = projects.map((project) => ({
+  depth: 2 as const,
+  text: project.title,
+  slug: projectSlug(project),
 }))
 ---
 
@@ -30,7 +27,7 @@ const projectHeadings = [
   >
     <p>
       I prefer purposeful tools with small footprints. Everything here is open source; more lives on <a
-        href="https://github.com/gildesmarais/"
+        href={githubProfileUrl}
         target="_blank"
         rel={externalRel("external nofollow")}>GitHub</a
       >.
@@ -40,137 +37,23 @@ const projectHeadings = [
 
   <TableOfContents headings={projectHeadings} />
 
-  <ProjectCard
-    title="html2rss"
-    slug={slugify("html2rss")}
-    status="maintained"
-    description="The html2rss open-source organization — a production-ready toolkit that turns arbitrary HTML into clean, structured RSS 2.0 feeds."
-    highlights={[
-      { term: "Discovery", definition: "Extracts article lists declaratively; minimal brittle selectors." },
-      { term: "Dynamic sites", definition: "Optional headless rendering for SPA and JS-heavy pages." },
-      { term: "Normalization", definition: "Consistent titles, authors, dates, and images across sources." },
-      { term: "Ops", definition: "Error handling, monitoring hooks, and rolling releases for stability." },
-      { term: "Delivery", definition: "Lightweight HTTP service with caching and health checks." },
-      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker; portable and easy to self-host." },
-    ]}
-    links={[
-      { text: "Project website", url: "https://html2rss.github.io/", external: true },
-      { text: "GitHub Organization", url: "https://github.com/html2rss", external: true },
-      { text: "RubyGems", url: "https://rubygems.org/gems/html2rss/", external: true },
-      { text: "Docker Hub", url: "https://hub.docker.com/r/html2rss/web", external: true },
-      { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
-    ]}
-  >
-    <p>
-      html2rss restores open web syndication by converting any website (static or dynamic) into a reliable
-      feed. It uses declarative extractors in YAML, supports optional headless rendering, and outputs
-      standards-compliant XML ready for any reader or aggregator. Built for maintainers who prefer simplicity
-      over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that
-      never had it (or quietly killed it).
-    </p>
-    <p>
-      The{" "}
-      <a href="https://github.com/html2rss" target="_blank" rel={externalRel("external")}
-        >html2rss organization</a
-      >{" "}
-      spans the Ruby gem, web app, config library, docs site, and scrape API bridge.
-    </p>
-  </ProjectCard>
-
-  <hr />
-
-  <ProjectCard
-    title="moodbar.rs"
-    slug={slugify("moodbar.rs")}
-    status="maintained"
-    description="Cross-platform Rust toolkit — CLI, native iOS/Android, WASM."
-    highlights={[
-      { term: "Rust core", definition: "Pure-Rust stack powered by Symphonia + RustFFT." },
-      { term: "WASM", definition: "Browser-ready WebAssembly bindings with a live demo." },
-      { term: "Native", definition: "iOS and Android bindings alongside CLI releases." },
-      { term: "Platforms", definition: "Linux and macOS are first-class release targets." },
-      { term: "Legacy output", definition: "Supports legacy-compatible raw moodbar byte generation." },
-      {
-        term: "Batch workflows",
-        definition: "Batch generation pipeline for processing whole music folders.",
-      },
-    ]}
-    links={[
-      {
-        text: "Project site + demo",
-        url: "https://gildesmarais.github.io/moodbar.rs/",
-        external: true,
-      },
-      { text: "GitHub Repository", url: "https://github.com/gildesmarais/moodbar.rs", external: true },
-      { text: "crates.io", url: "https://crates.io/crates/moodbar", external: true },
-    ]}
-  >
-    <p>
-      moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer
-      tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose
-      tracks with more confidence.
-    </p>
-  </ProjectCard>
-
-  <hr />
-
-  <ProjectCard
-    title=".dotfiles & Scripts"
-    slug={slugify(".dotfiles & Scripts")}
-    status="evergreen"
-    description="My personal macOS & CLI setup. A living repository of the tools I use daily."
-    links={[{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }]}
-    highlights={[
-      {
-        term: "Guided setup",
-        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
-      },
-      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
-      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
-      { term: "AI skills", definition: "Developer environment skills synced across machines." },
-    ]}
-  >
-    <p>
-      A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes.
-      It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS
-      defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for
-      audio workflows.
-      <br />
-      Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes
-      a Zsh setup for a consistent shell experience across machines.
-    </p>
-  </ProjectCard>
-
-  <hr />
-
-  <ProjectCard
-    title="jekyll-loading-lazy"
-    slug={slugify("jekyll-loading-lazy")}
-    status="legacy"
-    description="Drop-in lazy loading for Jekyll (img/iframe). Zero JS. Instant performance wins."
-    highlights={[
-      { term: "Automatic", definition: "Injects loading attributes into images/iframes at build time." },
-      { term: "Low-touch", definition: "Works without editing content files or templates." },
-      {
-        term: "No JS",
-        definition: "Native lazy-load via the loading attribute; removes third-party scripts.",
-      },
-      { term: "Adoption", definition: "59k+ RubyGems downloads; more than 420 GitHub repos depend on it." },
-    ]}
-    links={[
-      { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
-      {
-        text: "GitHub Repository",
-        url: "https://github.com/gildesmarais/jekyll-loading-lazy",
-        external: true,
-      },
-      { text: "Introduction blog post", url: "/blog/loading-images-lazily-with-jekyll/" },
-    ]}
-  >
-    <p>
-      Static sites deserve to be fast without extra chores. This plugin adds the native
-      <code>loading="lazy"</code> attribute to images and iframes during the build, no template changes needed.
-      Maintainers get Core Web Vitals improvements and one less script to ship.
-    </p>
-  </ProjectCard>
+  {
+    projects.map((project, index) => (
+      <>
+        {index > 0 && <hr />}
+        <ProjectCard
+          title={project.title}
+          slug={projectSlug(project)}
+          status={project.status}
+          description={project.description}
+          highlights={project.highlights ? [...project.highlights] : undefined}
+          links={project.links ? [...project.links] : undefined}
+        >
+          {project.bodyHtml.map((html) => (
+            <p set:html={html} />
+          ))}
+        </ProjectCard>
+      </>
+    ))
+  }
 </BaseLayout>

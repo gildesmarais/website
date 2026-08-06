@@ -1,4 +1,13 @@
-export const socials = [
+export type SocialCategory = "professional" | "personal"
+
+export type Social = {
+  name: string
+  url: string
+  rel: string
+  category: SocialCategory
+}
+
+const socialList = [
   {
     name: "GitHub",
     url: "https://github.com/gildesmarais/",
@@ -17,9 +26,13 @@ export const socials = [
     rel: "me",
     category: "personal",
   },
-].sort((a, b) => a.name.localeCompare(b.name))
+] as const satisfies readonly Social[]
 
-// Helper functions for filtering
+export const socials: readonly Social[] = [...socialList].sort((a, b) => a.name.localeCompare(b.name))
+
 export const professionalSocials = socials.filter((s) => s.category === "professional")
 export const personalSocials = socials.filter((s) => s.category === "personal")
 export const allSocials = socials
+
+/** Canonical GitHub profile URL from the socials catalog. */
+export const githubProfileUrl = socials.find((s) => s.name === "GitHub")!.url

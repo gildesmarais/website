@@ -1,11 +1,12 @@
 ---
 import Highlights from "./Highlights.astro"
+import type { ProjectStatus } from "../data/projects"
 import { externalRel } from "../utils/linkRel"
 
 export interface Props {
   title: string
   slug: string
-  status: string
+  status: ProjectStatus
   description: string
   highlights?: Array<{ term: string; definition: string }>
   links?: Array<{ text: string; url: string; external?: boolean }>
