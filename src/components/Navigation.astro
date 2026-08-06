@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets"
 import logo from "../assets/images/logo-borderless.svg"
+import { site } from "../data/site"
 import { isActivePath } from "../utils/navigation"
 
-const { siteName = "Gil Desmarais" } = Astro.props
+const { siteName = site.name } = Astro.props
 const pathname = Astro.url.pathname
 ---
 
@@ -158,13 +159,17 @@ const pathname = Astro.url.pathname
     --nav-underline-width: calc(100% - var(--space-lg));
     --nav-transition-duration: var(--ui-motion);
     --nav-transition-easing: var(--ui-ease);
+    --nav-shimmer-a: rgb(255 244 226 / 72%);
+    --nav-shimmer-b: rgb(255 186 92 / 88%);
+    --nav-shimmer-c: rgb(255 246 233 / 100%);
+    --nav-shimmer-d: rgb(255 230 193 / 76%);
     --nav-loading-gradient: linear-gradient(
       100deg,
-      rgb(255 244 226 / 72%) 0%,
-      rgb(255 186 92 / 88%) 22%,
-      rgb(255 246 233 / 100%) 50%,
+      var(--nav-shimmer-a) 0%,
+      var(--nav-shimmer-b) 22%,
+      var(--nav-shimmer-c) 50%,
       var(--accent-a95) 78%,
-      rgb(255 230 193 / 76%) 100%
+      var(--nav-shimmer-d) 100%
     );
   }
 
@@ -281,7 +286,7 @@ const pathname = Astro.url.pathname
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 2.5rem;
+    min-height: var(--size-control-sm);
     padding: var(--space-sm) var(--space-md);
     color: var(--ui-color);
     text-decoration: none;

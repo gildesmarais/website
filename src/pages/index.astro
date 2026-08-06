@@ -4,33 +4,15 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
+import { homepageOpenSource } from "../data/projects"
+import { githubProfileUrl } from "../data/socials"
+import { site } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
-const title = "Gil Desmarais — Engineering Team Lead"
+const title = `${site.name} — Engineering Team Lead`
 const description = "Turning complexity into clarity so teams move faster with less risk."
 
 const pageTitle = "Engineering Team Lead"
-
-const openSourceHighlights = [
-  {
-    term: "html2rss",
-    href: "https://github.com/html2rss",
-    external: true,
-    definition: "Open-source org — syndication ecosystem (gem, web app, configs, tooling)",
-  },
-  {
-    term: "moodbar.rs",
-    href: "https://gildesmarais.github.io/moodbar.rs/",
-    external: true,
-    definition: "Rust audio toolkit — CLI, native, WASM; live demo",
-  },
-  {
-    term: "dotfiles",
-    href: "https://github.com/gildesmarais/dotfiles",
-    external: true,
-    definition: "macOS/CLI infrastructure — syncable, actively maintained",
-  },
-]
 ---
 
 <BaseLayout title={pageTitle} description={description}>
@@ -53,7 +35,7 @@ const openSourceHighlights = [
     </p>
     <p>
       <strong>Code?</strong>{" "}<a href="/projects">Projects</a> · <a
-        href="https://github.com/gildesmarais"
+        href={githubProfileUrl}
         target="_blank"
         rel={externalRel("external me")}>GitHub</a
       > · <a href="/blog">Blog</a>
@@ -62,7 +44,7 @@ const openSourceHighlights = [
 
   <section class="width" aria-labelledby="open-source-title">
     <h2 id="open-source-title" class="accent">Open source</h2>
-    <Highlights highlights={openSourceHighlights} />
+    <Highlights highlights={[...homepageOpenSource]} />
   </section>
 </BaseLayout>
 

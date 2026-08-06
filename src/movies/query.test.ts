@@ -7,9 +7,10 @@ import {
   parseUrlParams,
   processMovies,
   recommendationChrome,
+  sortMovies,
   toCatalogEntry,
   type Movie,
-} from "./movieUtils"
+} from "./query"
 
 function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title">): Movie {
   return {
@@ -85,6 +86,22 @@ describe("parseUrlParams ↔ buildMoviesPageUrl", () => {
     const parsed = parseUrlParams(new URL(href, "https://example.com"))
 
     expect(parsed).toEqual(current)
+  })
+
+  it("falls back to default sort and asc dir for unknown params", () => {
+    const parsed = parseUrlParams(new URL("https://example.com/movies/?sort=not-a-key&dir=sideways&q=x"))
+
+    expect(parsed).toEqual({
+      filters: { searchQuery: "x", isRecommendation: true },
+      sortOptions: { sortBy: "default", sortDir: "asc" },
+    })
+  })
+
+  it("defaults recommendation on and omits empty search", () => {
+    expect(parseUrlParams(new URL("https://example.com/movies/"))).toEqual({
+      filters: { searchQuery: undefined, isRecommendation: true },
+      sortOptions: { sortBy: "default", sortDir: "asc" },
+    })
   })
 })
 
@@ -184,5 +201,32 @@ describe("processMovies", () => {
     )
 
     expect(result.map((m) => m.const)).toEqual(["tt1"])
+  })
+})
+
+describe("sortMovies", () => {
+  const movies = [
+    toCatalogEntry(movie({ const: "tt1", title: "Zodiac", year: 2007, your_rating: 8 })),
+    toCatalogEntry(movie({ const: "tt2", title: "Amélie", year: 2001, your_rating: 9 })),
+    toCatalogEntry(movie({ const: "tt3", title: "Heat", year: 1995, your_rating: 8 })),
+  ]
+
+  it("reverses catalog order when default sort is desc", () => {
+    expect(sortMovies(movies, { sortBy: "default", sortDir: "desc" }).map((m) => m.const)).toEqual([
+      "tt3",
+      "tt2",
+      "tt1",
+    ])
+  })
+
+  it("sorts by title ascending and year descending", () => {
+    expect(sortMovies(movies, { sortBy: "title", sortDir: "asc" }).map((m) => m.title)).toEqual([
+      "Amélie",
+      "Heat",
+      "Zodiac",
+    ])
+    expect(sortMovies(movies, { sortBy: "year", sortDir: "desc" }).map((m) => m.year)).toEqual([
+      2007, 2001, 1995,
+    ])
   })
 })

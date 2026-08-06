@@ -1,7 +1,7 @@
 ---
-import Highlights from "./Highlights.astro"
+import Highlights from "../Highlights.astro"
 import MoviePoster from "./MoviePoster.astro"
-import { externalRel } from "../utils/linkRel"
+import { externalRel } from "../../utils/linkRel"
 
 export interface Props {
   imdbId: string
@@ -69,87 +69,3 @@ const highlights = [
     </div>
   </div>
 </div>
-
-<style>
-  .movie-modal-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-lg);
-  }
-
-  .movie-modal-content :global(.highlights dt) {
-    white-space: normal;
-    overflow-wrap: break-word;
-  }
-
-  .poster-section {
-    display: flex;
-    justify-content: center;
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .poster-section :global(.movie-poster-container) {
-    width: 100%;
-    max-width: 300px;
-    border-width: var(--ui-stroke);
-  }
-
-  .info-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .note {
-    margin: 0;
-    font-style: italic;
-    color: var(--ui-muted-color);
-  }
-
-  .movie-links {
-    display: flex;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-  }
-
-  @media (width <= 767px) {
-    .movie-modal-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .poster-section,
-    .info-section {
-      grid-column: auto;
-      grid-row: auto;
-    }
-
-    .poster-section {
-      justify-content: center;
-      width: 100%;
-    }
-
-    .poster-section :global(.movie-poster-container) {
-      width: min(240px, 70vw);
-      max-width: none;
-    }
-
-    .info-section {
-      gap: var(--space-md);
-    }
-
-    .movie-links {
-      flex-direction: column;
-      gap: var(--space-xs);
-    }
-
-    .movie-links :global(.minimal-btn) {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-</style>

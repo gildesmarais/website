@@ -1,0 +1,96 @@
+---
+import {
+  buildMoviesPageUrl,
+  nextSortOptions,
+  recommendationChrome,
+  type SortBy,
+  type SortDir,
+} from "../../movies"
+
+export interface Props {
+  searchQuery: string
+  isRecommendation: boolean
+  sortBy: SortBy
+  sortDir: SortDir
+  resultCount: number
+}
+
+const { searchQuery, isRecommendation, sortBy, sortDir, resultCount } = Astro.props
+
+const current = {
+  filters: {
+    searchQuery: searchQuery || undefined,
+    isRecommendation,
+  },
+  sortOptions: { sortBy, sortDir },
+}
+const { stateLabel, ariaLabel, title: recommendationTitle } = recommendationChrome(isRecommendation)
+
+const sortKeys = [
+  { key: "yourRating" as const, label: "My Rating" },
+  { key: "title" as const, label: "Title" },
+  { key: "year" as const, label: "Year" },
+  { key: "runtimeMins" as const, label: "Runtime" },
+]
+---
+
+<!-- Movie controls -->
+<div class="movie-controls">
+  <!-- Filter and sort controls -->
+  <div class="controls-group">
+    <!-- Recommendation toggle -->
+    <a
+      href={buildMoviesPageUrl(current, { isRecommendation: !isRecommendation })}
+      id="recommendationToggle"
+      class={`minimal-btn recommendation-toggle ${isRecommendation ? "active" : ""}`}
+      aria-pressed={isRecommendation}
+      aria-label={ariaLabel}
+      title={recommendationTitle}
+    >
+      <span class="recommendation-icon" aria-hidden="true">★</span>
+    </a>
+    <div class="recommendation-state">
+      <span id="recommendationStateLabel" class="recommendation-state-label">{stateLabel}</span>
+      <span id="movieResultCount" class="recommendation-state-count">{resultCount} films</span>
+      <span id="movieResultAnnouncement" class="sr-only" aria-live="polite" aria-atomic="true"
+        >{resultCount} films</span
+      >
+    </div>
+
+    <!-- Sort buttons -->
+    <div class="sort-group">
+      {
+        sortKeys.map(({ key, label }) => {
+          const isActive = sortBy === key
+          const next = nextSortOptions(current.sortOptions, key)
+
+          return (
+            <a
+              href={buildMoviesPageUrl(current, next)}
+              class={`minimal-btn sort-btn ${isActive ? "active" : ""}`}
+              data-sort={key}
+            >
+              {label} <span class="sort-icon">{isActive ? (sortDir === "asc" ? "▲" : "▼") : ""}</span>
+            </a>
+          )
+        })
+      }
+    </div>
+  </div>
+
+  <!-- Search -->
+  <form id="searchForm" class="search-form" action="/movies/" method="get">
+    {!isRecommendation && <input type="hidden" name="isRecommendation" value="false" />}
+    {sortBy !== "default" && <input type="hidden" name="sort" value={sortBy} />}
+    {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
+    <input
+      id="movieFilter"
+      name="q"
+      type="search"
+      placeholder="Filter…"
+      value={searchQuery}
+      class="movie-search-input"
+    />
+    <noscript><button type="submit" class="sr-only">Search</button></noscript>
+  </form>
+</div>

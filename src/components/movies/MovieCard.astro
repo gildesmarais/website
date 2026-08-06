@@ -1,0 +1,33 @@
+---
+export interface Props {
+  imdbId: string
+  title: string
+  year: number
+  yourRating: number
+  isRecommendation: boolean
+  style?: string
+}
+
+const { imdbId, title, year, yourRating, isRecommendation, style } = Astro.props
+---
+
+<article class="movie-card" data-imdb-id={imdbId} style={style}>
+  <a href={`/movies/${imdbId}`} class="movie-card-link">
+    <div class="poster-container">
+      <slot name="poster" />
+      {isRecommendation && <div class="recommendation-badge">★</div>}
+    </div>
+
+    <div class="card-content">
+      <h2 class="card-title">
+        {title} ({year})
+      </h2>
+      <div class="card-rating">
+        <span class="your-rating">
+          <span class="rating-number">{yourRating}</span>
+          <span class="rating-scale">/10</span>
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

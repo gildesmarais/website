@@ -1,6 +1,9 @@
-import type { Category } from "../components/SkillsMatrix.astro"
+export type Category = {
+  label: string
+  skills: readonly string[]
+}
 
-export const skills: Category[] = [
+export const skills = [
   {
     label: "Leadership & Process",
     skills: [
@@ -74,4 +77,4 @@ export const skills: Category[] = [
       "UptimeRobot",
     ],
   },
-]
+] as const satisfies readonly Category[]

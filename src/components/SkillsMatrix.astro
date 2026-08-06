@@ -1,12 +1,9 @@
 ---
-export interface Category {
-  label: string
-  skills: string[]
-}
+import type { Category } from "../data/skills"
 
 export interface Props {
   title?: string
-  categories: Category[]
+  categories: readonly Category[]
 }
 
 const { title, categories } = Astro.props
@@ -15,7 +12,7 @@ const { title, categories } = Astro.props
 const maxSkillsPerRow = 6
 
 // Function to split skills into rows and pad each row to maintain grid
-function organizeSkillsIntoRows(skills: string[]): string[][] {
+function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
   const rows: string[][] = []
   let currentRow: string[] = []
 

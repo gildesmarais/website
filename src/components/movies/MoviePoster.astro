@@ -1,0 +1,19 @@
+---
+interface Props {
+  imdbId: string
+}
+
+const { imdbId } = Astro.props
+---
+
+<div class="movie-poster-container">
+  <img
+    data-poster-imdb={imdbId}
+    src="/poster-loading.svg"
+    aria-hidden
+    alt="Loading Movie Poster for {imdbId}"
+    class="movie-poster"
+    loading="lazy"
+    style={`view-transition-name: movie-poster-${imdbId}`}
+  />
+</div>

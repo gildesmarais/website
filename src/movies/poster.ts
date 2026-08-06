@@ -9,6 +9,11 @@ export type OmdbPosterPayload = {
   Error?: string
 }
 
+/** IMDb title ids (`tt` + digits) as stored in movies.json `const`. */
+export function isImdbId(value: string): boolean {
+  return /^tt\d+$/.test(value)
+}
+
 /**
  * Maps an OMDb JSON payload to a typed poster response.
  * Returns null when the payload is unusable (missing/empty fields).
