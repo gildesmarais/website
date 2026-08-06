@@ -17,22 +17,3 @@ const { imdbId } = Astro.props
     style={`view-transition-name: movie-poster-${imdbId}`}
   />
 </div>
-
-<style>
-  .movie-poster-container {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--ui-background-color);
-    border: var(--ui-stroke-thin) solid var(--ui-border-color);
-    overflow: hidden;
-  }
-
-  .movie-poster {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>

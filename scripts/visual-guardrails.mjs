@@ -4,8 +4,8 @@ const cssPath = new URL("../src/styles/global.css", import.meta.url)
 const globalCss = fs.readFileSync(cssPath, "utf8")
 
 const importPaths = [...globalCss.matchAll(/@import\s+(?:url\()?["']([^"']+)["']\)?;/g)].map((m) => m[1])
-if (importPaths.length !== 6) {
-  console.error(`Expected 6 global CSS imports, found ${importPaths.length}`)
+if (importPaths.length !== 7) {
+  console.error(`Expected 7 global CSS imports, found ${importPaths.length}`)
   process.exit(1)
 }
 

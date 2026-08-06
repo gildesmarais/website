@@ -60,6 +60,7 @@
    * Canonical breakpoints (preferred scale):
    *   576 / 768 / 1024 / 1280 / 1536
    * Legacy outliers kept as-is (do not snap): 640, 641, 1200.
+   * Movie domain uses 576 / 768 (+ legacy 1200 grid step, 380 micro).
    * No postcss-custom-media — media queries stay literal.
    */
 
@@ -74,6 +75,15 @@
 
   /* Control geometry — equals --space-xxl numerically but is size, not spacing */
   --size-control: 3rem; /* 48px tap/chrome square */
+  --size-tap-min: 2.75rem; /* 44px — minimum WCAG-ish tap target */
+  --size-control-sm: 2.5rem; /* 40px — compact controls */
+  --size-input-sm: 2.375rem; /* search / compact form controls */
+  --size-badge: 1.25rem; /* corner badges (e.g. recommendation star) */
+
+  /* Accent glow accents used by chrome (nav shimmer, ratings, toggles) */
+  --glow-sm: 0 0 8px var(--brand-accent-focus);
+  --glow-md: 0 0 10px var(--brand-accent-focus);
+  --lift-sm: 4px; /* hover lift distance (use with translateY(calc(-1 * var(--lift-sm)))) */
 
   /* Vertical rhythm — semantic flow spacing built on the --space scale.
      Use these for block flow so every page shares one rhythm. */
