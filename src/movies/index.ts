@@ -20,7 +20,14 @@ export {
   type SortDir,
 } from "./query"
 
-export { mapOmdbToPoster, isPosterOk, type PosterResponse, type PosterOk, type PosterErr } from "./poster"
+export {
+  mapOmdbToPoster,
+  isPosterOk,
+  isImdbId,
+  type PosterResponse,
+  type PosterOk,
+  type PosterErr,
+} from "./poster"
 
 export { initPosterLoader } from "./posterLoader"
 export { initMovieList } from "./listClient"

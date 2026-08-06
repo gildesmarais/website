@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro"
 import { OMDB_API_KEY } from "astro:env/server"
 import { subtle } from "crypto"
-import { isPosterOk, mapOmdbToPoster } from "../../../movies"
+import { isImdbId, isPosterOk, mapOmdbToPoster } from "../../../movies"
 
 export const prerender = false
 
@@ -22,6 +22,13 @@ export const GET: APIRoute = async ({ params, request }) => {
     })
   }
 
+  if (!isImdbId(imdbId)) {
+    return new Response(JSON.stringify({ error: "Invalid IMDb ID" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
   if (!API_KEY) {
     console.error("OMDB_API_KEY is not set in environment variables.")
     return new Response(JSON.stringify({ error: "Server configuration error: API key missing" }), {
@@ -31,7 +38,10 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
 
   try {
-    const response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=${API_KEY}`)
+    const omdbUrl = new URL("https://www.omdbapi.com/")
+    omdbUrl.searchParams.set("i", imdbId)
+    omdbUrl.searchParams.set("apikey", API_KEY)
+    const response = await fetch(omdbUrl)
     const data = await response.json()
     const mapped = mapOmdbToPoster(data)
 

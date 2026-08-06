@@ -1,5 +1,15 @@
 import { describe, expect, it } from "vitest"
-import { isPosterOk, mapOmdbToPoster } from "./poster"
+import { isImdbId, isPosterOk, mapOmdbToPoster } from "./poster"
+
+describe("isImdbId", () => {
+  it("accepts tt + digits only", () => {
+    expect(isImdbId("tt0111161")).toBe(true)
+    expect(isImdbId("tt1")).toBe(true)
+    expect(isImdbId("tt0111161&plot=full")).toBe(false)
+    expect(isImdbId("TT0111161")).toBe(false)
+    expect(isImdbId("")).toBe(false)
+  })
+})
 
 describe("mapOmdbToPoster", () => {
   it("maps a successful OMDb poster payload", () => {
