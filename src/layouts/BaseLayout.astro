@@ -179,10 +179,9 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       <section class="container">
         <small class="secondary">
           <span>
-            &copy; {site.copyrightYear} {site.name}. All content is licensed under a{" "}
-            <a href={site.licenseUrl} target="_blank" rel="noopener" class="secondary"
-              >{site.licenseName}</a
-            >.
+            &copy; {site.copyrightYear}{" "}
+            {site.name}. All content is licensed under a{" "}
+            <a href={site.licenseUrl} target="_blank" rel="noopener" class="secondary">{site.licenseName}</a>.
           </span>
           <a
             href="/imprint"
@@ -242,13 +241,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       window.addEventListener("resize", adjustBottomPadding)
     </script>
 
-    {
-      bootPosterLoader && (
-        <script>
-          import { initPosterLoader } from "../movies"
-          initPosterLoader()
-        </script>
-      )
-    }
+    {bootPosterLoader && <script>import {initPosterLoader} from "../movies"; initPosterLoader();</script>}
   </body>
 </html>

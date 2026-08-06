@@ -142,10 +142,7 @@ export function sortMovies(movies: MovieCatalogEntry[], sortOptions: MovieSortOp
   })
 }
 
-function comparableSortValue(
-  movie: MovieCatalogEntry,
-  sortBy: Exclude<SortBy, "default">,
-): string | number {
+function comparableSortValue(movie: MovieCatalogEntry, sortBy: Exclude<SortBy, "default">): string | number {
   switch (sortBy) {
     case "title":
       return (movie.title || "").toLowerCase()
