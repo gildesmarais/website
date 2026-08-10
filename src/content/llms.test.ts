@@ -33,6 +33,9 @@ describe("llms content generation", () => {
     const text = await generateLlmsTxt({ siteUrl: "https://gil.desmarais.de" })
 
     expect(text).toContain("# Gil Desmarais")
+    expect(text).toContain(
+      "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
+    )
     expect(text).toContain("## Core Pages")
     expect(text).toContain("- [Home](https://gil.desmarais.de/)")
     expect(text).toContain("- [Resume](https://gil.desmarais.de/resume)")
@@ -50,6 +53,10 @@ describe("llms content generation", () => {
     const text = await generateLlmsFullTxt({ siteUrl: "https://gil.desmarais.de" })
 
     expect(text).toContain("# Gil Desmarais — Full Site Content")
+    expect(text).toContain("## License")
+    expect(text).toContain(
+      "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
+    )
     expect(text).toContain("# Article: Second Post Title")
     expect(text).toContain("URL: https://gil.desmarais.de/blog/second-post")
     expect(text).toContain("Date: 2025-02-01")
