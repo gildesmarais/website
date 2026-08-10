@@ -29,6 +29,7 @@
 ## Testing Guidelines
 
 - **Automated tests:** Vitest via `npm test`. Colocate `*.test.ts` next to the module under test (e.g. under `src/movies/`, `src/utils/`).
+- **Mandatory gate:** Always run `make check` (runs `npm run build`, `scripts/visual-guardrails.mjs`, and `astro check`) before committing code or opening a pull request to catch TypeScript diagnostic errors.
 - **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), and movie filters after data or layout changes. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
 - **Manual smoke:** `npm run dev` for interactive checks; `npm run preview` against a production build when layout or CSS changes.
 
