@@ -74,7 +74,7 @@ export async function generateLlmsFullTxt(options: LlmsOptions = {}): Promise<st
       `Date: ${dateStr}`,
       ...(post.data.description ? [`Description: ${post.data.description}`] : []),
       "",
-      post.body.trim(),
+      (post.body ?? "").trim(),
       "",
       "---",
       "",
