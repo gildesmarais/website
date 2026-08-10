@@ -19,6 +19,7 @@ export default defineConfig({
   prefetch: true,
   redirects: {
     "/sitemap.xml": "/sitemap-index.xml",
+    "/.well-known/llms.txt": "/llms.txt",
     "/posts/watching-movies-alphabetically/": "/blog/watching-movies-alphabetically",
     "/posts/watching-movies-alphabetically-round-2/": "/blog/watching-movies-alphabetically",
     "/posts/watching-movies-alphabetically-round-4/": "/blog/watching-movies-alphabetically",
