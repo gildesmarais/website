@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gil.desmarais.de/sitemap-index.xml
