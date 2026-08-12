@@ -94,16 +94,27 @@ describe("parseUrlParams ↔ buildMoviesPageUrl", () => {
     const parsed = parseUrlParams(new URL("https://example.com/movies/?sort=not-a-key&dir=sideways&q=x"))
 
     expect(parsed).toEqual({
-      filters: { searchQuery: "x", isRecommendation: true },
+      filters: { searchQuery: "x", isRecommendation: false },
       sortOptions: { sortBy: "default", sortDir: "asc" },
     })
   })
 
-  it("defaults recommendation on and omits empty search", () => {
+  it("defaults to all movies (latest catalog order) with recommendations off", () => {
     expect(parseUrlParams(new URL("https://example.com/movies/"))).toEqual({
-      filters: { searchQuery: undefined, isRecommendation: true },
+      filters: { searchQuery: undefined, isRecommendation: false },
       sortOptions: { sortBy: "default", sortDir: "asc" },
     })
+  })
+
+  it("round-trips recommendation filter on via explicit query param", () => {
+    const current = {
+      filters: { searchQuery: undefined, isRecommendation: true },
+      sortOptions: { sortBy: "default" as const, sortDir: "asc" as const },
+    }
+
+    const href = buildMoviesPageUrl(current, {})
+    expect(href).toBe("/movies/?isRecommendation=true")
+    expect(parseUrlParams(new URL(href, "https://example.com"))).toEqual(current)
   })
 })
 
