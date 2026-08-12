@@ -35,7 +35,7 @@ const description =
         <p class="movies-empty">No recommendations yet.</p>
       ) : (
         <div class="recommendations-list">
-          <div class="recommendations-list-band recommendations-list-band--featured">
+          <div class="recommendations-list-band recommendations-list-band-featured">
             {featured.map(({ movie, note }, index) => (
               <RecommendationRow
                 imdbId={movie.const}
@@ -53,7 +53,7 @@ const description =
 
           {rest.length > 0 && (
             <div
-              class="recommendations-list-band recommendations-list-band--compact"
+              class="recommendations-list-band recommendations-list-band-compact"
               aria-labelledby="also-recommended"
             >
               <h2 class="recommendations-list-heading accent" id="also-recommended">

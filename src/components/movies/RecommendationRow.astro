@@ -13,7 +13,7 @@ const { imdbId, title, year, yourRating, rank, variant, note } = Astro.props
 const rankLabel = String(rank).padStart(2, "0")
 ---
 
-<article class={`recommendation-row recommendation-row--${variant}`} data-imdb-id={imdbId}>
+<article class={`recommendation-row recommendation-row-${variant}`} data-imdb-id={imdbId}>
   <a href={`/movies/${imdbId}`} class="recommendation-row-link">
     <div class="recommendation-row-poster">
       <slot name="poster" />
@@ -24,8 +24,8 @@ const rankLabel = String(rank).padStart(2, "0")
         <span class="recommendation-row-rank" aria-label={`Rank ${rank}`}>#{rankLabel}</span>
         <h2 class="recommendation-row-title">{title} ({year})</h2>
         <span class="recommendation-row-rating">
-          <span class="rating-number">{yourRating}</span>
-          <span class="rating-scale">/10</span>
+          <span class="recommendation-row-rating-value">{yourRating}</span>
+          <span class="recommendation-row-rating-scale">/10</span>
         </span>
       </header>
       {note && <p class="recommendation-row-note">{note}</p>}
