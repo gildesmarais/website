@@ -12,12 +12,16 @@ export {
   buildMoviesPageUrl,
   nextSortOptions,
   recommendationChrome,
+  listRecommendedMovies,
   type Movie,
   type MovieCatalogEntry,
   type MovieFilters,
   type MovieSortOptions,
   type SortBy,
   type SortDir,
+  type RecommendedMovie,
+  type RecommendedMoviesSource,
+  type ListRecommendedMoviesOptions,
 } from "./query"
 
 export {
