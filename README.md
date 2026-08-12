@@ -1,37 +1,69 @@
-## Getting started
+# gil.desmarais.de
+
+Personal website for [Gil Desmarais](https://gil.desmarais.de): portfolio, résumé, engineering blog, and movie ratings catalog.
+
+Built with [Astro](https://docs.astro.build/) (static output), deployed on Vercel.
+
+## Prerequisites
+
+- **Node.js** `>=22.12.0 <23` (see `package.json` `engines` and `.tool-versions`)
+- **npm** (lockfile-based installs via `npm ci`)
+
+Optional, for movie-catalog operator work only:
+
+- **Ruby** (runs `bin/migrate-ratings`)
+- **OMDb API key** in `.env` (see `.env.example`) for server-side poster lookups
+
+## Quick start
 
 ```sh
+npm ci
 make serve
-make fix
-make build
 ```
 
-## Deployment
+Open [http://localhost:4321](http://localhost:4321). Hot reload is on.
 
-Vercel. Login via email: `g*@*s.de`
+Useful Makefile targets:
 
-https://vercel.com/gils-projects-950b2ab6/website
+| Target       | What it does                                        |
+| ------------ | --------------------------------------------------- |
+| `make serve` | Dev server (`astro dev`)                            |
+| `make build` | Production build → `dist/`                          |
+| `make check` | Build + visual guardrails + `astro check` (default) |
+| `make test`  | Vitest unit tests                                   |
+| `make ready` | Lint + test + check (pre-PR / CI-shaped gate)       |
+| `make fix`   | Prettier + stylelint autofix                        |
 
-## Resources
+Preview a production build with `npm run preview` after `make build`.
 
-- site generator: https://docs.astro.build/
-- css: https://picocss.com/docs
+## What’s in the repo
 
-## TODOs:
+| Area                                    | Location                                           |
+| --------------------------------------- | -------------------------------------------------- |
+| Pages & routes                          | `src/pages/`                                       |
+| Layouts & UI                            | `src/layouts/`, `src/components/`                  |
+| Blog & other Markdown                   | `src/content/`                                     |
+| Site identity, projects, skills, movies | `src/data/`                                        |
+| Movie catalog / query logic             | `src/movies/`                                      |
+| Design tokens & styles                  | `src/styles/` (tokens in `partials/01-tokens.css`) |
+| Operator CLIs                           | `bin/`                                             |
+| Build / CI helpers                      | `scripts/`                                         |
 
-- [ ] migrate remaining contents
-- [ ] do an iteration on the content (see conversations, notes, this will be crucial)
-- [ ] improve/update resume (open PRs!)
-- [x] hide old or "short blog posts" and by default only valuable ones (keep them for SEO, maybe not link)
-- [x] create an about page which allows people to connect " with my structured/rational thinking
-- [ ] resume: add print button (javascript onclick print) and make resume look good in pdf (css!), hide some bullet points when printed, custom print-message to recruiters?
-- [x] configurable robots/noindex per page
+Committed `src/data/movies.json` is the runtime movie catalog. Regenerating it from an IMDb `ratings.csv` export is documented in [MAINTENANCE.md](MAINTENANCE.md).
 
-- [x] Cut (from home): movie ratings, tag cloud vibe, hobby list (move to About).
+## Contributing locally
 
-- [x] migrate the ratings data (all, not just a subset)
-- [x] implement https://gil.desmarais.de/ratings/recommendations/
-- [ ] check redirects work as intended
-- [ ] setup vercel deployment (hybrid, set api key via env secret)
-- [x] setup vercel speed insights: https://vercel.com/gils-projects-950b2ab6/website/speed-insights && `npm i @vercel/speed-insights`
-- [ ] SEO: each page title+description.
+Agent and contributor conventions live in [AGENTS.md](AGENTS.md). Before opening a PR:
+
+```sh
+make lintfix && make ready
+```
+
+CI on `master` and pull requests runs lint, tests, build, visual guardrails, and `astro check` (see `.github/workflows/ci.yml`).
+
+## License
+
+Dual-licensed — details in [LICENSE.md](LICENSE.md):
+
+- **Source code** (templates, scripts, styles, config): MIT
+- **Written content, data, and media** (`src/content/`, `src/data/`, associated assets): [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
