@@ -1,6 +1,7 @@
 import { getCollection } from "astro:content"
-import { isVisibleBlogPost, byDateDesc } from "./blog"
+import { isVisibleBlogPost, byDateDesc, getShowcasePosts } from "./blog"
 import { site, corePages } from "../data/site"
+import { getMovieCache, listRecommendedMovies } from "../movies"
 
 export interface LlmsOptions {
   siteUrl?: string | URL
@@ -13,9 +14,14 @@ function resolveBaseUrl(siteUrl?: string | URL): string {
   return "https://gil.desmarais.de"
 }
 
+function formatRecommendedTitle(movie: { title: string; year: number }): string {
+  return `${movie.title} (${movie.year})`
+}
+
 export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string> {
   const baseUrl = resolveBaseUrl(options.siteUrl)
-  const posts = (await getCollection("blog", isVisibleBlogPost)).sort(byDateDesc)
+  const showcase = await getShowcasePosts()
+  const topRecommended = listRecommendedMovies(getMovieCache(), { limit: 10 })
 
   const lines: string[] = [
     `# ${site.name}`,
@@ -32,9 +38,9 @@ export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string
     lines.push(`- [${page.title}](${baseUrl}${page.path}): ${page.description}`)
   }
 
-  lines.push("", "## Articles & Blog Posts", "")
+  lines.push("", "## Showcase Posts", "")
 
-  for (const post of posts) {
+  for (const post of showcase) {
     const postUrl = `${baseUrl}/blog/${post.id}`
     const desc = post.data.description ? `: ${post.data.description}` : ""
     lines.push(`- [${post.data.title}](${postUrl})${desc}`)
@@ -42,42 +48,25 @@ export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string
 
   lines.push(
     "",
-    "## Optional",
+    "## Recommended Films",
     "",
-    `- [Small Content Markdown](${baseUrl}/llms-small.txt): A curated low-token version for IDE assistants and for smaller context windows.`,
-    `- [Full Content Markdown](${baseUrl}/llms-full.txt): Complete text of all articles and pages in a single file.`,
+    `Full ranked list with notes: [${baseUrl}/movies/recommendations](${baseUrl}/movies/recommendations)`,
+    "",
+    "Top 10 by personal rating (then IMDb rating, then title):",
     "",
   )
 
-  return lines.join("\n")
-}
-
-export async function generateLlmsSmallTxt(options: LlmsOptions = {}): Promise<string> {
-  const baseUrl = resolveBaseUrl(options.siteUrl)
-  const posts = (await getCollection("blog", isVisibleBlogPost)).sort(byDateDesc)
-
-  const lines: string[] = [
-    `# ${site.name}`,
-    "",
-    `> ${site.name} — A curated low-token version for IDE assistants and for smaller context windows.`,
-    "",
-    `All written content (blog posts, articles) on this site is licensed under the **${site.licenseName} (${site.licenseShort})**.`,
-    "",
-    "## Core Pages",
-    "",
-  ]
-
-  for (const page of corePages) {
-    lines.push(`- [${page.title}](${baseUrl}${page.path}): ${page.description}`)
+  for (const { movie } of topRecommended) {
+    lines.push(`- ${formatRecommendedTitle(movie)}`)
   }
 
-  lines.push("", "## Articles & Blog Posts", "")
-
-  for (const post of posts) {
-    const postUrl = `${baseUrl}/blog/${post.id}`
-    const desc = post.data.description ? `: ${post.data.description}` : ""
-    lines.push(`- [${post.data.title}](${postUrl})${desc}`)
-  }
+  lines.push(
+    "",
+    "## Optional",
+    "",
+    `- [Full Content Markdown](${baseUrl}/llms-full.txt): Complete text of articles, core page excerpts, and top recommended films with notes.`,
+    "",
+  )
 
   return lines.join("\n")
 }
@@ -85,6 +74,7 @@ export async function generateLlmsSmallTxt(options: LlmsOptions = {}): Promise<s
 export async function generateLlmsFullTxt(options: LlmsOptions = {}): Promise<string> {
   const baseUrl = resolveBaseUrl(options.siteUrl)
   const posts = (await getCollection("blog", isVisibleBlogPost)).sort(byDateDesc)
+  const topRecommended = listRecommendedMovies(getMovieCache(), { limit: 10 })
 
   const lines: string[] = [
     `# ${site.name} — Full Site Content`,
@@ -98,7 +88,26 @@ export async function generateLlmsFullTxt(options: LlmsOptions = {}): Promise<st
     "",
     "---",
     "",
+    "## Core Pages",
+    "",
   ]
+
+  for (const page of corePages) {
+    lines.push(`# ${page.title}`, `URL: ${baseUrl}${page.path}`, "", page.excerpt.trim(), "", "---", "")
+  }
+
+  lines.push("## Recommended Films (Top 10)", "", `Full ranked list: ${baseUrl}/movies/recommendations`, "")
+
+  for (const { movie, note } of topRecommended) {
+    lines.push(`### ${formatRecommendedTitle(movie)}`)
+    if (note) {
+      lines.push("", note.trim(), "")
+    } else {
+      lines.push("")
+    }
+  }
+
+  lines.push("---", "")
 
   for (const post of posts) {
     const postUrl = `${baseUrl}/blog/${post.id}`

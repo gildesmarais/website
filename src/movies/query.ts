@@ -177,6 +177,47 @@ export function processMovies(
   return sortMovies(filtered, sortOptions)
 }
 
+/** Cache shape needed for taste-ranked recommendations (avoids catalog↔query cycle). */
+export type RecommendedMoviesSource = {
+  movies: Movie[]
+  recommendationsSet: Set<string>
+  recommendationNotes: Map<string, string>
+}
+
+export type RecommendedMovie = {
+  movie: Movie
+  note?: string
+}
+
+export type ListRecommendedMoviesOptions = {
+  limit?: number
+}
+
+/**
+ * Recommended ∩ catalog, ranked by your_rating desc → imdb_rating desc → title.
+ * Skips recommendation ids missing from the catalog. Optionally slices the top N.
+ */
+export function listRecommendedMovies(
+  cache: RecommendedMoviesSource,
+  options: ListRecommendedMoviesOptions = {},
+): RecommendedMovie[] {
+  const ranked = cache.movies
+    .filter((movie) => cache.recommendationsSet.has(movie.const))
+    .sort((a, b) => {
+      if (a.your_rating !== b.your_rating) return b.your_rating - a.your_rating
+      if (a.imdb_rating !== b.imdb_rating) return b.imdb_rating - a.imdb_rating
+      return (a.title || "").localeCompare(b.title || "", undefined, { sensitivity: "base" })
+    })
+    .map((movie) => {
+      const note = cache.recommendationNotes.get(movie.const)
+      return note === undefined ? { movie } : { movie, note }
+    })
+
+  const { limit } = options
+  if (limit === undefined) return ranked
+  return ranked.slice(0, Math.max(0, limit))
+}
+
 export function buildMoviesPageUrl(
   current: { filters: MovieFilters; sortOptions: MovieSortOptions },
   updates: Partial<MovieFilters & MovieSortOptions>,

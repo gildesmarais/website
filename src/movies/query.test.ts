@@ -3,6 +3,7 @@ import {
   buildMoviesPageUrl,
   buildSearchString,
   defaultSortDir,
+  listRecommendedMovies,
   nextSortOptions,
   parseUrlParams,
   processMovies,
@@ -10,6 +11,7 @@ import {
   sortMovies,
   toCatalogEntry,
   type Movie,
+  type RecommendedMoviesSource,
 } from "./query"
 
 function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title">): Movie {
@@ -228,5 +230,65 @@ describe("sortMovies", () => {
     expect(sortMovies(movies, { sortBy: "year", sortDir: "desc" }).map((m) => m.year)).toEqual([
       2007, 2001, 1995,
     ])
+  })
+})
+
+describe("listRecommendedMovies", () => {
+  function cache(
+    partial: Partial<RecommendedMoviesSource> & Pick<RecommendedMoviesSource, "movies">,
+  ): RecommendedMoviesSource {
+    return {
+      recommendationsSet: new Set(partial.movies.map((m) => m.const)),
+      recommendationNotes: new Map(),
+      ...partial,
+    }
+  }
+
+  it("ranks by your_rating desc, then imdb_rating desc, then title", () => {
+    const source = cache({
+      movies: [
+        movie({ const: "tt-a", title: "Beta", your_rating: 8, imdb_rating: 7.5 }),
+        movie({ const: "tt-b", title: "Alpha", your_rating: 9, imdb_rating: 7 }),
+        movie({ const: "tt-c", title: "Gamma", your_rating: 8, imdb_rating: 8 }),
+        movie({ const: "tt-d", title: "Delta", your_rating: 8, imdb_rating: 7.5 }),
+      ],
+      recommendationsSet: new Set(["tt-a", "tt-b", "tt-c", "tt-d"]),
+    })
+
+    expect(listRecommendedMovies(source).map((entry) => entry.movie.const)).toEqual([
+      "tt-b",
+      "tt-c",
+      "tt-a",
+      "tt-d",
+    ])
+  })
+
+  it("skips recommendation ids missing from the catalog and pairs notes", () => {
+    const source = cache({
+      movies: [movie({ const: "tt1", title: "Inception", your_rating: 9 })],
+      recommendationsSet: new Set(["tt1", "tt-missing"]),
+      recommendationNotes: new Map([["tt1", "Worth a rewatch"]]),
+    })
+
+    const result = listRecommendedMovies(source)
+    expect(result).toHaveLength(1)
+    expect(result[0]).toEqual({
+      movie: expect.objectContaining({ const: "tt1" }),
+      note: "Worth a rewatch",
+    })
+  })
+
+  it("respects limit and omits note when absent", () => {
+    const source = cache({
+      movies: [
+        movie({ const: "tt1", title: "A", your_rating: 10 }),
+        movie({ const: "tt2", title: "B", your_rating: 9 }),
+        movie({ const: "tt3", title: "C", your_rating: 8 }),
+      ],
+    })
+
+    const result = listRecommendedMovies(source, { limit: 2 })
+    expect(result.map((entry) => entry.movie.const)).toEqual(["tt1", "tt2"])
+    expect(result[0].note).toBeUndefined()
   })
 })
