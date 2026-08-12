@@ -86,7 +86,7 @@ describe("llms content generation", () => {
     )
     expect(text).not.toContain("Archive Only")
     expect(text).toContain("## Recommended Films")
-    expect(text).not.toContain("/movies/recommendations")
+    expect(text).toContain("https://gil.desmarais.de/movies/recommendations")
     expect(text).toContain("- Inception (2010)")
     expect(text).toContain("- Heat (1995)")
     expect(text).not.toContain("Mind-bending")
