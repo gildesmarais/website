@@ -1,0 +1,5 @@
+# LLM / agent summary: https://gil.desmarais.de/llms.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://gil.desmarais.de/sitemap-index.xml
