@@ -69,21 +69,29 @@ const note = recommendationNotes.get(movie.const)
 
 <script is:inline>
   const closeModal = () => {
-    let fromMovies = false
+    let moviesReturnHref = "/movies/"
+    let fromMoviesList = false
     try {
       const ref = document.referrer
       if (ref) {
         const refUrl = new URL(ref)
-        fromMovies =
-          refUrl.origin === window.location.origin &&
-          (refUrl.pathname === "/movies/" || refUrl.pathname === "/movies")
+        if (refUrl.origin === window.location.origin) {
+          const path = refUrl.pathname.replace(/\/$/, "") || "/"
+          if (path === "/movies") {
+            fromMoviesList = true
+            moviesReturnHref = "/movies/"
+          } else if (path === "/movies/recommendations") {
+            fromMoviesList = true
+            moviesReturnHref = "/movies/recommendations"
+          }
+        }
       }
     } catch {}
 
-    if (fromMovies && window.history.length > 1) {
+    if (fromMoviesList && window.history.length > 1) {
       window.history.back()
     } else {
-      window.location.href = "/movies/"
+      window.location.href = moviesReturnHref
     }
   }
 

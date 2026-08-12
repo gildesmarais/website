@@ -3,12 +3,17 @@ export const prerender = true
 
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
-import MovieCard from "../../components/movies/MovieCard.astro"
+import RecommendationRow from "../../components/movies/RecommendationRow.astro"
 import MoviePoster from "../../components/movies/MoviePoster.astro"
 import { getMovieCache, listRecommendedMovies } from "../../movies"
 
+/** Top band size for the ranked taste list (poster + note). */
+const FEATURED_COUNT = 10
+
 const cache = getMovieCache()
 const recommended = listRecommendedMovies(cache)
+const featured = recommended.slice(0, FEATURED_COUNT)
+const rest = recommended.slice(FEATURED_COUNT)
 
 const title = "Recommendations"
 const description =
@@ -25,25 +30,50 @@ const description =
       </p>
     </Hero>
 
-    <div class="recommendations-grid">
-      {
-        recommended.length === 0 ? (
-          <p class="movies-empty">No recommendations yet.</p>
-        ) : (
-          recommended.map(({ movie, note }) => (
-            <MovieCard
-              imdbId={movie.const}
-              title={movie.title}
-              year={movie.year}
-              yourRating={movie.your_rating}
-              isRecommendation={true}
-              note={note}
+    {
+      recommended.length === 0 ? (
+        <p class="movies-empty">No recommendations yet.</p>
+      ) : (
+        <div class="recommendations-list">
+          <div class="recommendations-list-band recommendations-list-band--featured">
+            {featured.map(({ movie, note }, index) => (
+              <RecommendationRow
+                imdbId={movie.const}
+                title={movie.title}
+                year={movie.year}
+                yourRating={movie.your_rating}
+                rank={index + 1}
+                variant="featured"
+                note={note}
+              >
+                <MoviePoster slot="poster" imdbId={movie.const} />
+              </RecommendationRow>
+            ))}
+          </div>
+
+          {rest.length > 0 && (
+            <div
+              class="recommendations-list-band recommendations-list-band--compact"
+              aria-labelledby="also-recommended"
             >
-              <MoviePoster slot="poster" imdbId={movie.const} />
-            </MovieCard>
-          ))
-        )
-      }
-    </div>
+              <h2 class="recommendations-list-heading accent" id="also-recommended">
+                Also recommended
+              </h2>
+              {rest.map(({ movie, note }, index) => (
+                <RecommendationRow
+                  imdbId={movie.const}
+                  title={movie.title}
+                  year={movie.year}
+                  yourRating={movie.your_rating}
+                  rank={FEATURED_COUNT + index + 1}
+                  variant="compact"
+                  note={note}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )
+    }
   </section>
 </BaseLayout>
