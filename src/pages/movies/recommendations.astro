@@ -7,7 +7,7 @@ import RecommendationRow from "../../components/movies/RecommendationRow.astro"
 import MoviePoster from "../../components/movies/MoviePoster.astro"
 import { getMovieCache, listRecommendedMovies } from "../../movies"
 
-/** Top band size for the ranked taste list (poster + note). */
+/** Top band size for the ranked taste list (larger poster + note). */
 const FEATURED_COUNT = 10
 
 const cache = getMovieCache()
@@ -68,7 +68,9 @@ const description =
                   rank={FEATURED_COUNT + index + 1}
                   variant="compact"
                   note={note}
-                />
+                >
+                  <MoviePoster slot="poster" imdbId={movie.const} />
+                </RecommendationRow>
               ))}
             </div>
           )}

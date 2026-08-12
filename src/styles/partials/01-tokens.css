@@ -79,8 +79,11 @@
   --size-control-sm: 2.5rem; /* 40px — compact controls */
   --size-input-sm: 2.375rem; /* search / compact form controls */
   --size-badge: 1.25rem; /* corner badges (e.g. recommendation star) */
+  --size-poster-rec-sm: 5rem; /* compact recommendation row poster (80px) */
   --size-poster-rec: 7.5rem; /* featured recommendation row poster (120px) */
   --size-poster-rec-lg: 10rem; /* featured poster ≥768px (160px) */
+  --size-poster-inline-min: 5.125rem; /* 82px — mobile inline poster track */
+  --poster-inline-max: 28vw; /* fluid cap for mobile inline posters */
 
   /* Accent glow accents used by chrome (nav shimmer, ratings, toggles) */
   --glow-sm: 0 0 8px var(--brand-accent-focus);
