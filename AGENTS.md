@@ -14,9 +14,10 @@
 - **Local dev server:** `npm run dev` (alias `make serve`) launches Astro with hot reload at `http://localhost:4321`.
 - **Production build:** `npm run build` (alias `make build`) outputs the static site to `dist/`.
 - **Preview build output:** `npm run preview` serves the built site for smoke-testing before deploy.
-- **Quick gate:** `make check` runs build, visual guardrails, and `astro check`.
-- **Unit tests:** `npm test` runs Vitest (`vitest run`).
-- **Format codebase:** `make fix` runs `npm exec prettier -- . --write` across Astro, TypeScript, and Markdown files.
+- **Quick gate:** `make check` (Makefile default) runs build, visual guardrails, and `astro check`.
+- **Pre-PR gate:** `make ready` runs `lint` + `test` + `check` (CI-equivalent verify). Typical prep: `make lintfix && make ready`.
+- **Unit tests:** `make test` / `npm test` runs Vitest (`vitest run`).
+- **Format codebase:** `make fix` / `make lintfix` runs Prettier `--write` and stylelint `--fix`.
 
 ## Coding Style & Naming Conventions
 
@@ -29,8 +30,8 @@
 ## Testing Guidelines
 
 - **Automated tests:** Vitest via `npm test`. Colocate `*.test.ts` next to the module under test (e.g. under `src/movies/`, `src/utils/`).
-- **Mandatory gate:** Always run `make check` (runs `npm run build`, `scripts/visual-guardrails.mjs`, and `astro check`) before committing code or opening a pull request to catch TypeScript diagnostic errors.
-- **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), movie filters, and llms surfaces (`/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` → `/llms.txt`) after data or layout changes. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
+- **Mandatory gates:** Run `make check` before committing. Run `make ready` (or `make lintfix && make ready`) before opening a pull request.
+- **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), movie filters, `/movies/recommendations`, and llms surfaces (`/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` → `/llms.txt`) after data or layout changes. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
 - **Manual smoke:** `npm run dev` for interactive checks; `npm run preview` against a production build when layout or CSS changes.
 
 ## Commit & Pull Request Guidelines

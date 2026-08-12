@@ -240,7 +240,7 @@ export function buildMoviesPageUrl(
 
   const params = new URLSearchParams()
   if (filters.searchQuery) params.set("q", filters.searchQuery)
-  if (!filters.isRecommendation) params.set("isRecommendation", "false")
+  if (filters.isRecommendation) params.set("isRecommendation", "true")
   if (sortOptions.sortBy !== "default") params.set("sort", sortOptions.sortBy)
   if (sortOptions.sortDir !== "asc") params.set("dir", sortOptions.sortDir)
 
@@ -250,7 +250,7 @@ export function buildMoviesPageUrl(
 
 export function parseUrlParams(url: URL): { filters: MovieFilters; sortOptions: MovieSortOptions } {
   const searchQuery = url.searchParams.get("q") || ""
-  const isRecommendation = url.searchParams.get("isRecommendation") !== "false"
+  const isRecommendation = url.searchParams.get("isRecommendation") === "true"
   const sortParam = url.searchParams.get("sort") || "default"
   const dirParam = url.searchParams.get("dir") || "asc"
 

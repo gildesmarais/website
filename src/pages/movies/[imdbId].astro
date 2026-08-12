@@ -67,35 +67,20 @@ const note = recommendationNotes.get(movie.const)
   </div>
 </BaseLayout>
 
-<script is:inline>
-  const closeModal = () => {
-    let fromMovies = false
-    try {
-      const ref = document.referrer
-      if (ref) {
-        const refUrl = new URL(ref)
-        fromMovies =
-          refUrl.origin === window.location.origin &&
-          (refUrl.pathname === "/movies/" || refUrl.pathname === "/movies")
-      }
-    } catch {}
+<script>
+  import { resolveMoviesModalReturn } from "../../movies/modalReturn"
 
-    if (fromMovies && window.history.length > 1) {
+  const closeModal = () => {
+    const { fromList, href } = resolveMoviesModalReturn(document.referrer, window.location.origin)
+
+    if (fromList && window.history.length > 1) {
       window.history.back()
     } else {
-      window.location.href = "/movies/"
+      window.location.href = href
     }
   }
 
-  // Wait for DOM to be ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initModal)
-  } else {
-    initModal()
-  }
-
   function initModal() {
-    // Close button
     const closeButton = document.querySelector(".modal-close")
     if (closeButton) {
       closeButton.addEventListener("click", (e) => {
@@ -104,7 +89,6 @@ const note = recommendationNotes.get(movie.const)
       })
     }
 
-    // Backdrop click
     const backdropLink = document.querySelector(".modal-backdrop-link")
     if (backdropLink) {
       backdropLink.addEventListener("click", (e) => {
@@ -113,11 +97,16 @@ const note = recommendationNotes.get(movie.const)
       })
     }
 
-    // ESC key - global listener
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeModal()
       }
     })
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModal)
+  } else {
+    initModal()
   }
 </script>

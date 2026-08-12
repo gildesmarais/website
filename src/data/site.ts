@@ -56,7 +56,7 @@ export const corePages: readonly CorePage[] = [
     path: "/movies",
     description: "Alphabetical movie watching project & ratings catalog.",
     excerpt:
-      "Personal movie ratings and recommendations. The interactive catalog filters and sorts watched films; curated top recommendations also appear on the llms.txt surfaces with notes when present.",
+      "Personal movie ratings and recommendations. The interactive catalog filters and sorts watched films; a separate ranked recommendations page lists every film Gil recommends, with short notes when present.",
   },
   {
     title: "Blog",

@@ -35,3 +35,4 @@ export {
 
 export { initPosterLoader } from "./posterLoader"
 export { initMovieList } from "./listClient"
+export { resolveMoviesModalReturn, type MoviesModalReturn } from "./modalReturn"

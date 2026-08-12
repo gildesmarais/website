@@ -80,7 +80,7 @@ const sortKeys = [
 
   <!-- Search -->
   <form id="searchForm" class="search-form" action="/movies/" method="get">
-    {!isRecommendation && <input type="hidden" name="isRecommendation" value="false" />}
+    {isRecommendation && <input type="hidden" name="isRecommendation" value="true" />}
     {sortBy !== "default" && <input type="hidden" name="sort" value={sortBy} />}
     {sortDir !== "asc" && <input type="hidden" name="dir" value={sortDir} />}
     <input

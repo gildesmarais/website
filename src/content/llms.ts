@@ -46,7 +46,15 @@ export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string
     lines.push(`- [${post.data.title}](${postUrl})${desc}`)
   }
 
-  lines.push("", "## Recommended Films", "", "Top 10 by personal rating (then IMDb rating, then title):", "")
+  lines.push(
+    "",
+    "## Recommended Films",
+    "",
+    `Full ranked list with notes: [${baseUrl}/movies/recommendations](${baseUrl}/movies/recommendations)`,
+    "",
+    "Top 10 by personal rating (then IMDb rating, then title):",
+    "",
+  )
 
   for (const { movie } of topRecommended) {
     lines.push(`- ${formatRecommendedTitle(movie)}`)
@@ -88,7 +96,7 @@ export async function generateLlmsFullTxt(options: LlmsOptions = {}): Promise<st
     lines.push(`# ${page.title}`, `URL: ${baseUrl}${page.path}`, "", page.excerpt.trim(), "", "---", "")
   }
 
-  lines.push("## Recommended Films (Top 10)", "")
+  lines.push("## Recommended Films (Top 10)", "", `Full ranked list: ${baseUrl}/movies/recommendations`, "")
 
   for (const { movie, note } of topRecommended) {
     lines.push(`### ${formatRecommendedTitle(movie)}`)

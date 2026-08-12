@@ -40,7 +40,13 @@ const recommendationIds = [...recommendationsSet]
   />
 
   <section>
-    <Hero title={title} description={description} />
+    <Hero title={title} description={description}>
+      <p>
+        Prefer the short list? See{" "}
+        <a href="/movies/recommendations">ranked recommendations</a>
+        {" "}with notes.
+      </p>
+    </Hero>
 
     <MovieFilters
       searchQuery={filters.searchQuery || ""}

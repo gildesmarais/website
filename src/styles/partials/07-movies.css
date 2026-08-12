@@ -42,6 +42,258 @@
   }
 }
 
+/* --- Ranked recommendations list --- */
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.recommendations-list-band {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.recommendations-list-band + .recommendations-list-band {
+  margin-top: var(--block-space);
+}
+
+.recommendations-list-heading {
+  margin: 0 0 var(--space-md);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.recommendation-row {
+  background: var(--ui-card-background-color);
+  border: var(--ui-stroke) solid var(--ui-border-color);
+  transition:
+    border-color var(--ui-motion) var(--ui-ease),
+    background-color var(--ui-motion) var(--ui-ease);
+}
+
+.recommendation-row:hover {
+  border-color: var(--ui-primary-border-soft);
+  background: var(--ui-primary-wash);
+}
+
+.recommendation-row:focus-within {
+  border-color: var(--brand-accent);
+  box-shadow: var(--ring-focus);
+}
+
+.recommendation-row-link {
+  display: grid;
+  grid-template-columns: var(--size-poster-rec) 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.recommendation-row-compact .recommendation-row-link {
+  grid-template-columns: var(--size-poster-rec-sm) 1fr;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.recommendation-row-poster {
+  width: 100%;
+}
+
+.recommendation-row-poster :where(.movie-poster-container) {
+  border-width: var(--ui-stroke);
+}
+
+.recommendation-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.recommendation-row-compact .recommendation-row-body {
+  gap: var(--space-xs);
+}
+
+.recommendation-row-meta {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-xs) var(--space-sm);
+  align-items: baseline;
+}
+
+.recommendation-row-rank {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--brand-accent);
+  letter-spacing: -0.02em;
+}
+
+.recommendation-row-compact .recommendation-row-rank {
+  font-size: var(--text-md);
+}
+
+.recommendation-row-title {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.015em;
+}
+
+.recommendation-row-compact .recommendation-row-title {
+  font-size: var(--text-sm);
+}
+
+.recommendation-row-rating {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--brand-accent);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.recommendation-row-rating-value {
+  font-size: var(--text-xl);
+}
+
+.recommendation-row-compact .recommendation-row-rating-value {
+  font-size: var(--text-lg);
+}
+
+.recommendation-row-rating-scale {
+  font-size: var(--text-2xs);
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.recommendation-row-note {
+  margin: 0;
+  max-width: var(--lead-width);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ui-muted-color);
+  white-space: pre-line;
+}
+
+@media (width >= 768px) {
+  .recommendation-row-featured .recommendation-row-link {
+    grid-template-columns: var(--size-poster-rec-lg) 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .recommendation-row-featured .recommendation-row-title {
+    font-size: var(--text-lg);
+  }
+
+  .recommendation-row-featured .recommendation-row-note {
+    font-size: var(--text-md);
+  }
+}
+
+@media (width <= 576px) {
+  .recommendation-row-link {
+    grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .recommendation-row-compact .recommendation-row-link {
+    grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
+    padding: var(--space-sm);
+  }
+
+  .recommendation-row-meta {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "rank rating"
+      "title title";
+  }
+
+  .recommendation-row-rank {
+    grid-area: rank;
+  }
+
+  .recommendation-row-title {
+    grid-area: title;
+  }
+
+  .recommendation-row-rating {
+    grid-area: rating;
+    justify-self: end;
+  }
+
+  .recommendation-row-rating-value {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .recommendations-list-band-featured .recommendation-row {
+    animation: recommendation-row-enter var(--motion-slow) var(--ui-ease) both;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(2) {
+    animation-delay: 40ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(3) {
+    animation-delay: 80ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(4) {
+    animation-delay: 120ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(5) {
+    animation-delay: 160ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(6) {
+    animation-delay: 200ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(7) {
+    animation-delay: 240ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(8) {
+    animation-delay: 280ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(9) {
+    animation-delay: 320ms;
+  }
+
+  .recommendations-list-band-featured .recommendation-row:nth-child(10) {
+    animation-delay: 360ms;
+  }
+}
+
+@keyframes recommendation-row-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--lift-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* --- Card --- */
 
 .movie-card {
@@ -148,7 +400,7 @@
 @media (width <= 576px) {
   .movie-card-link {
     display: grid;
-    grid-template-columns: minmax(82px, 28vw) 1fr;
+    grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
     align-items: center;
     gap: var(--space-sm);
     padding: var(--space-sm);
@@ -156,7 +408,7 @@
   }
 
   .movie-card .poster-container {
-    max-width: 120px;
+    max-width: var(--size-poster-rec);
     margin: 0;
     align-self: start;
   }
