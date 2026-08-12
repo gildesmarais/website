@@ -1,0 +1,49 @@
+---
+export const prerender = true
+
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Hero from "../../components/Hero.astro"
+import MovieCard from "../../components/movies/MovieCard.astro"
+import MoviePoster from "../../components/movies/MoviePoster.astro"
+import { getMovieCache, listRecommendedMovies } from "../../movies"
+
+const cache = getMovieCache()
+const recommended = listRecommendedMovies(cache)
+
+const title = "Recommendations"
+const description =
+  "Films worth watching, ranked by my ratings — with short notes when I have something to say."
+---
+
+<BaseLayout title={title} description={description} bootPosterLoader>
+  <section>
+    <Hero title={title} description={description}>
+      <p>
+        Ordered by my rating, then IMDb rating, then title. Browse the{" "}
+        <a href="/movies/">full catalog</a>
+        {" "}when you want filters and search.
+      </p>
+    </Hero>
+
+    <div class="recommendations-grid">
+      {
+        recommended.length === 0 ? (
+          <p class="movies-empty">No recommendations yet.</p>
+        ) : (
+          recommended.map(({ movie, note }) => (
+            <MovieCard
+              imdbId={movie.const}
+              title={movie.title}
+              year={movie.year}
+              yourRating={movie.your_rating}
+              isRecommendation={true}
+              note={note}
+            >
+              <MoviePoster slot="poster" imdbId={movie.const} />
+            </MovieCard>
+          ))
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

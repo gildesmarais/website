@@ -5,10 +5,11 @@ export interface Props {
   year: number
   yourRating: number
   isRecommendation: boolean
+  note?: string
   style?: string
 }
 
-const { imdbId, title, year, yourRating, isRecommendation, style } = Astro.props
+const { imdbId, title, year, yourRating, isRecommendation, note, style } = Astro.props
 ---
 
 <article class="movie-card" data-imdb-id={imdbId} style={style}>
@@ -28,6 +29,7 @@ const { imdbId, title, year, yourRating, isRecommendation, style } = Astro.props
           <span class="rating-scale">/10</span>
         </span>
       </div>
+      {note && <p class="card-note">{note}</p>}
     </div>
   </a>
 </article>
