@@ -176,7 +176,13 @@ a:focus {
   text-decoration-color: var(--ui-primary-hover-underline);
 }
 
-main a:hover:not(.movie-card-link, .modal-backdrop-link, .filter-link, .toc-list a) {
+main a:hover:not(
+  .movie-card-link,
+  .recommendation-row-link,
+  .modal-backdrop-link,
+  .filter-link,
+  .toc-list a
+) {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   text-decoration: none;

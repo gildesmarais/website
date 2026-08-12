@@ -67,43 +67,20 @@ const note = recommendationNotes.get(movie.const)
   </div>
 </BaseLayout>
 
-<script is:inline>
-  const closeModal = () => {
-    let moviesReturnHref = "/movies/"
-    let fromMoviesList = false
-    try {
-      const ref = document.referrer
-      if (ref) {
-        const refUrl = new URL(ref)
-        if (refUrl.origin === window.location.origin) {
-          const path = refUrl.pathname.replace(/\/$/, "") || "/"
-          if (path === "/movies") {
-            fromMoviesList = true
-            moviesReturnHref = "/movies/"
-          } else if (path === "/movies/recommendations") {
-            fromMoviesList = true
-            moviesReturnHref = "/movies/recommendations"
-          }
-        }
-      }
-    } catch {}
+<script>
+  import { resolveMoviesModalReturn } from "../../movies/modalReturn"
 
-    if (fromMoviesList && window.history.length > 1) {
+  const closeModal = () => {
+    const { fromList, href } = resolveMoviesModalReturn(document.referrer, window.location.origin)
+
+    if (fromList && window.history.length > 1) {
       window.history.back()
     } else {
-      window.location.href = moviesReturnHref
+      window.location.href = href
     }
   }
 
-  // Wait for DOM to be ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initModal)
-  } else {
-    initModal()
-  }
-
   function initModal() {
-    // Close button
     const closeButton = document.querySelector(".modal-close")
     if (closeButton) {
       closeButton.addEventListener("click", (e) => {
@@ -112,7 +89,6 @@ const note = recommendationNotes.get(movie.const)
       })
     }
 
-    // Backdrop click
     const backdropLink = document.querySelector(".modal-backdrop-link")
     if (backdropLink) {
       backdropLink.addEventListener("click", (e) => {
@@ -121,11 +97,16 @@ const note = recommendationNotes.get(movie.const)
       })
     }
 
-    // ESC key - global listener
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeModal()
       }
     })
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModal)
+  } else {
+    initModal()
   }
 </script>
