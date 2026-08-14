@@ -12,8 +12,8 @@ const title = "Résumé"
 const robots = "index, noarchive, follow"
 
 const description = `
-  Engineering leader and full-stack product partner in Berlin translating between business goals and hands-on delivery.
-  I align teams on the next confident step and ship change without drama.
+  Hands-on software and full-stack engineer in Berlin; Engineering Team Lead (hands-on).
+  Strong on CI efficiency, systems reliability, compliance (ISO 27001/C5), and low-overhead delivery.
   `
 
 // Define headings for the TOC
@@ -33,7 +33,7 @@ const resumeHeadings = [
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Engineering Team Lead and full-stack product builder translating intent into calm, incremental delivery."
+    description="Hands-on software and full-stack engineer designing and shipping core systems with a focus on calm, incremental delivery."
   />
 
   <Highlights
@@ -41,12 +41,12 @@ const resumeHeadings = [
       { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
       {
         term: "Focus",
-        definition: "Product Platforms · Full-Stack Delivery · Reliability · Security",
+        definition: "Systems Architecture · Full-Stack Delivery · High-Performance (Rust) · Compliance",
       },
       { term: "Languages", definition: "German (native) · English (fluent)" },
       {
         term: "Open To",
-        definition: "Engineering leadership with hands-on product mandates",
+        definition: "Staff-level software or full-stack engineering roles with a hands-on mandate",
       },
     ]}
   />
@@ -59,12 +59,14 @@ const resumeHeadings = [
     <h2 id="executive-summary" class="accent section-heading-sticky">Executive Summary</h2>
     <p>
       I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
-      risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental.
+      risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental. My engineering
+      decisions are data over knowledge-driven: I rely on empirical profiling, telemetry, and metrics to
+      target bottlenecks rather than legacy assumptions or static documentation.
     </p>
     <p>
-      While I lead platform modernization today, I stay close to product discovery and end-to-end feature
-      delivery: pairing with engineers, shipping UI changes, and validating outcomes in production. That
-      continuity keeps strategy and execution connected without losing the craft of shipping software.
+      While I lead systems modernisation and compliance (ISO 27001 / C5) today, I stay close to the stack.
+      That hands-on execution keeps systems strategy connected to daily delivery without losing the craft of
+      shipping software.
     </p>
   </section>
 
@@ -73,7 +75,7 @@ const resumeHeadings = [
     <h2 id="current" class="accent section-heading-sticky">Current Work</h2>
 
     <section aria-labelledby="etl">
-      <h3 id="etl">Engineering Team Lead — Platform</h3>
+      <h3 id="etl">Engineering Team Lead (hands-on) — Platform</h3>
       <p>
         <time datetime="2022-10">Oct 2022</time>
         <span aria-hidden="true">–</span>
@@ -83,8 +85,8 @@ const resumeHeadings = [
       <p>Translate business intent into platform roadmaps for identity, reliability, and compliance.</p>
       <ul>
         <li>
-          <strong>Scaled platforms:</strong> identity, access, and video systems. Reduced customer complaints by
-          more than 80%, resulting in increased revenue per patient.
+          <strong>Scaled platforms:</strong> identity, access, and video systems. Large drop in platform-related
+          customer complaints (~80% by internal tracking).
         </li>
         <li>
           <strong>Full-stack delivery:</strong> hands-on work with product squads on UI, API, and data changes so
@@ -95,6 +97,14 @@ const resumeHeadings = [
           steady.
         </li>
         <li>
+          <strong>Monolith restoration:</strong> tech-debt payoff on the core application that unlocked further
+          core systems delivery.
+        </li>
+        <li>
+          <strong>Compliance:</strong> represented Software Development in an initial ISO 27001 certification audit;
+          designed SDLC policies and SOPs; contributed to ISO 27001 and C5 readiness.
+        </li>
+        <li>
           <strong>People:</strong> mentor three direct reports; grow skills in performance, observability, and pragmatic
           design.
         </li>
@@ -103,6 +113,10 @@ const resumeHeadings = [
           risk appetite.
         </li>
       </ul>
+      <p>
+        For open-source toolkits, including Rust audio DSP (moodbar.rs) and Ruby syndication tools (html2rss),
+        see my <a href="/projects">Projects</a> page.
+      </p>
       <p class="lead">Joined as Senior Software Engineer; promoted to Team Lead in July 2024.</p>
     </section>
 
@@ -148,11 +162,11 @@ const resumeHeadings = [
   <section aria-labelledby="capabilities">
     <h2 id="capabilities" class="accent section-heading-sticky">Capabilities</h2>
     <ol>
-      <li>Team mentoring & technical coaching</li>
-      <li>Stakeholder alignment & roadmap facilitation</li>
-      <li>Full-stack development</li>
-      <li>Security & compliance readiness (ISO 27001, GDPR)</li>
-      <li>Observability, CI/CD, performance tuning</li>
+      <li>Full-stack software engineering (Rust, Ruby)</li>
+      <li>Security & compliance (ISO 27001, C5, GDPR)</li>
+      <li>Telemetry, performance tuning & CI/CD</li>
+      <li>Audio DSP & MIR</li>
+      <li>Stakeholder alignment & technical coaching</li>
     </ol>
   </section>
 
