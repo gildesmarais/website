@@ -49,7 +49,7 @@ export const corePages: readonly CorePage[] = [
     path: "/resume",
     description: "Professional experience, engineering stack, and background.",
     excerpt:
-      "Engineering leader and full-stack product partner in Berlin. Translates business goals into calm, incremental delivery: executive summary, current and earlier work, capabilities, skills matrix, education, and service history.",
+      "Hands-on software and full-stack engineer in Berlin; Engineering Team Lead (hands-on). Strong on CI efficiency, systems reliability, compliance (ISO 27001/C5), and low-overhead delivery.",
   },
   {
     title: "Movies",
@@ -70,7 +70,7 @@ export const corePages: readonly CorePage[] = [
     path: "/contact",
     description: "Methods to get in touch and connect.",
     excerpt:
-      "Reach Gil for focused engineering leadership and platform support. Prefer crisp async notes: the problem, who’s involved, and the decision on the table. Professional socials and email are listed on the page.",
+      "Reach Gil for hands-on software and full-stack engineering (Staff-level). Prefer crisp async notes: the problem, who’s involved, and the decision on the table. Professional socials and email are listed on the page.",
   },
 ] as const
 

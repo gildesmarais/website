@@ -21,7 +21,6 @@ export const skills = [
   {
     label: "Infrastructure & DevOps",
     skills: [
-      "AWS",
       "Docker",
       "Terraform",
       "CI/CD (GitHub Actions)",
