@@ -11,7 +11,7 @@ This document serves as the **admission gate** for all future feature proposals,
 The site serves two balanced purposes with clear priority:
 
 1. **Primary Purpose (60% weight) — The Calm Personal Hub & Digital Garden:**
-   An artisanal, durable, low-maintenance digital home for Gil Desmarais. A quiet place for systems thinking essays, curated film recommendations, electronic music/DJ tools, and personal open-source projects. Zero tracking, zero popups, static-first, built for longevity.
+   An artisanal, durable, low-maintenance digital home for Gil Desmarais. A quiet place for systems thinking essays, curated film recommendations, electronic music/DJ tools, and personal open-source projects. No cookies, no cross-site tracking; one vetted cookieless page counter (GoatCounter). Zero popups, static-first, built for longevity.
 
 2. **Secondary Purpose (40% weight) — Builder Showcase:**
    Proof that one engineer with agents ships production outcomes fast, with low organisational overhead.
@@ -23,9 +23,10 @@ The site serves two balanced purposes with clear priority:
 Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`, and `src/data/skills.ts`.
 
 - Demonstrate the stance. Do not declare that traditional engineering is obsolete.
-- One soft first-person line on the homepage. Everywhere else, evidence carries it: the html2rss MCP server, the dotfiles `agents/skills` pipeline, and published Rust, Swift, and WASM.
+- The hero lead is the one first-person line on `/`; the subtitle carries evidence: the html2rss MCP server, the dotfiles `agents/skills` pipeline, and published Rust, Swift, and WASM.
 - No employer-specific AI claims. No AI tool names. No negative self-statement ("not an expert").
-- The current job title stays factual: "Engineering Team Lead — Platform". Do not use "lead", "roadmap", "translate", or "guide teams" as self-description. Do not use "Staff-level" or "incremental delivery".
+- The current job title stays factual: "Engineering Team Lead — Platform". Do not use "lead", "leading", "roadmap", "translate", or "guide teams" as self-description. Do not use "Staff-level" or "incremental delivery".
+- "Calm" only when paired with speed.
 - Business value stays attached to a shipped outcome (complaints and revenue per patient).
 
 ---
@@ -38,9 +39,10 @@ Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`
 - **Context:** Reading on desktop or mobile; arrived via search, social share, or word of mouth.
 - **Needs:** Authentic thoughts, high-signal curation, fast reading experience without intrusive chrome.
 - **Golden Paths:**
-  1. _Film Discovery:_ Navigates to `/movies/recommendations` → scans top-ranked recommendations with personal notes → clicks external IMDb link.
+  1. _Film Discovery:_ Follows the homepage cue to `/movies/recommendations` → scans top-ranked recommendations with personal notes → opens the IMDb link on the list (detail page optional).
   2. _Systems Reading:_ Lands on a blog post (or `/blog`) → reads distraction-free content with table of contents → checks related posts or projects.
   3. _Tool Exploration:_ Visits `/projects` → reads concise descriptions of purposeful tools (`html2rss`, `moodbar.rs`, dotfiles) → jumps to GitHub or live demo.
+  4. _Music Tool:_ Follows the homepage cue or opens `/projects` → opens the moodbar.rs card → launches the live demo.
 - **UX & Interaction Budget:**
   - Zero cookie/consent banners or analytics popups.
   - Sub-second page transitions via Astro prefetching.
@@ -53,10 +55,10 @@ Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`
 - **Needs:** Clear executive summary, proven impact metrics, tech stack clarity, an immediate, low-friction contact route, and evidence of agent-driven delivery, not claims.
 - **Golden Paths:**
   1. _Candidate Qualification:_ Lands on `/` → reads core thesis ("I build and run systems that move business numbers. Agents are part of how I ship.") → clicks to `/resume` → scans Executive Summary, Current Work, Capabilities, and Skills Matrix.
-  2. _Direct Engagement:_ Navigates to `/contact` → reviews clear inbound boundaries ("What to expect") → opens contact modal → sends an async note via email.
+  2. _Direct Engagement:_ Navigates to `/contact` → reads on-page "What to expect" → "Email Gil" opens the mail client.
 - **UX & Interaction Budget:**
   - Time-to-signal: Candidate qualifications and impact legible within 30 seconds.
-  - Inbound contact reachable in ≤ 2 clicks from any page.
+  - Mail client opens in ≤2 clicks from any page, including mobile and the 404 page. Email requires JavaScript (address obfuscation); socials are the no-JS route.
   - Scannable visual hierarchy with sticky section headers and mobile-friendly table of contents.
 
 ### Persona 3: The Open-Source Collaborator & Developer
@@ -64,12 +66,18 @@ Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`
 - **Who:** Developers using or contributing to Gil's open-source projects (`html2rss`, `moodbar.rs`, etc.).
 - **Context:** Arrives from GitHub, RubyGems, crates.io, or package registries.
 - **Needs:** Accurate links, supply-chain transparency, clear project statuses, and machine-readable data.
+- **Statuses:**
+  - **maintained** — accepting issues/PRs; releases ongoing.
+  - **evergreen** — feature-complete; fixes on request.
+  - **legacy** — kept for reference; no new work.
 - **Golden Paths:**
-  1. _Project Verification:_ Lands on `/projects` → checks project status badge (`maintained` / `evergreen` / `legacy`) → reads architectural highlights → links out to GitHub repo or docs.
-  2. _Syndication / LLM Discovery:_ Pulls `/feed.xml` into a feed reader or accesses `/llms.txt` for AI-assisted ingestion.
+  1. _Project Verification:_ Lands on `/projects` → checks project status (`maintained` / `evergreen` / `legacy`) → reads architectural highlights and the project's actual publish mechanism → links out to GitHub repo or docs.
+  2. _Syndication / LLM Discovery:_ Pulls `/feed.xml` (RSS 2.0) into a feed reader, or accesses `/llms.txt`, `/.well-known/llms.txt`, `/sitemap-index.xml`, or `robots.txt` for machine discovery.
 - **UX & Interaction Budget:**
-  - High fidelity: links to upstream package registries and GitHub repos are verified.
-  - Machine-readable endpoints (`/feed.xml`, `/llms.txt`, `/llms-full.txt`, `/sitemap-index.xml`) always stay valid and unblocked.
+  - Supply-chain bar: each project states its actual publish mechanism; no blanket claims.
+  - Links verified by CI on every PR (internal) and a weekly scheduled job (external).
+  - Sitemap lists indexable pages only. RSS 2.0 is the canonical feed format.
+  - Machine-readable endpoints (`/feed.xml`, `/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt`, `/sitemap-index.xml`, `robots.txt`) always stay valid and unblocked.
 
 ---
 
@@ -84,7 +92,7 @@ Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`
 4. **Taste Over Volume:**
    The site values curation over completeness. The movie section highlights _recommendations with notes_ over an unopinionated dump; the blog showcases _hand-picked highlights_ over an endless chronological wall.
 5. **No Slop & Zero Friction:**
-   No tracking cookies, no third-party ad scripts, no intrusive analytics widgets. Clean CSS tokens, fast fonts, native browser semantics.
+   No cookies, no cross-site tracking; one vetted cookieless page counter (GoatCounter). No third-party ad scripts. Clean CSS tokens, fast fonts, native browser semantics.
 
 ---
 
@@ -96,8 +104,8 @@ Proposals matching these patterns are **Rejected** at the product gate:
 - ❌ **Heavy Client-Side Frameworks / SPAs:** No introducing client-side SPA routing libraries or runtime state managers where Astro components and vanilla TS suffice.
 - ❌ **Movie Catalog Expansion:** The movie catalog is **feature-complete**. Reject proposals for user watchlists, Letterboxd auto-sync, social sharing buttons, or complex facet sliders.
 - ❌ **Intrusive Marketing & Growth Hacks:** No newsletter popups, exit-intent modals, or aggressive subscription banners.
-- ❌ **Secondary Settings Surfaces:** No themes switchers (system dark mode is automatic), font size pickers, or expert algorithm controls on public surfaces.
-- ❌ **Unvetted Tracking:** No third-party behavioral analytics or session recording tools.
+- ❌ **Secondary Settings Surfaces:** No theme switchers (dark-only by design; no theme switcher), font size pickers, or expert algorithm controls on public surfaces.
+- ❌ **Unvetted Tracking:** No third-party behavioral analytics or session recording tools. GoatCounter (cookieless page counter) is the only vetted exception.
 
 ---
 
