@@ -33,46 +33,36 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     </p>
   </aside>
 
-  <section aria-labelledby="contact-methods">
-    <div class="contact-cta">
-      <button type="button" class="minimal-btn" data-action="open-email-modal">Email Gil</button>
+  <section aria-labelledby="what-to-expect">
+    <h2 id="what-to-expect" class="accent">What to expect</h2>
+    <p>
+      Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.
+    </p>
+    <p class="micro">Details are only used to respond. No lists, no marketing.</p>
+    <details class="micro" open>
+      <summary>Do not expect an answer for:</summary>
+      <ul>
+        <li>
+          Pure people-management roles with no hands-on mandate, or roles outside software/platform
+          engineering
+        </li>
+        <li>Requests without scope, budget, or decision context</li>
+        <li>Unpaid consulting or <q>pick your brain</q> chats</li>
+        <li>Mass marketing or promotional outreach</li>
+      </ul>
+    </details>
+
+    <div class="contact-actions" data-email={emailEncoded} data-mailto={mailtoEncoded}>
+      <button type="button" class="minimal-btn" data-action="launch-email">Email Gil</button>
+      <button type="button" class="secondary" data-action="copy-email">Copy address</button>
+      <p id="email-feedback" class="micro" role="status" aria-live="polite"></p>
     </div>
 
-    <dialog
-      id="email-modal"
-      data-email={emailEncoded}
-      data-mailto={mailtoEncoded}
-      aria-labelledby="email-modal-title"
-      closedby="any"
-    >
-      <form method="dialog">
-        <header>
-          <h3 id="email-modal-title" class="accent">Email is the priority lane</h3>
-        </header>
-        <p>
-          Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.
-        </p>
-        <p class="micro">Details are only used to respond. No lists, no marketing.</p>
-        <details class="micro" open>
-          <summary>Do not expect an answer for:</summary>
-          <ul>
-            <li>
-              Pure people-management roles with no hands-on mandate, or roles outside software/platform
-              engineering
-            </li>
-            <li>Requests without scope, budget, or decision context</li>
-            <li>Unpaid consulting or <q>pick your brain</q> chats</li>
-            <li>Mass marketing or promotional outreach</li>
-          </ul>
-        </details>
-        <div class="modal-actions">
-          <button type="button" class="secondary" data-action="close-email-modal">Keep browsing</button>
-          <button type="button" class="secondary" data-action="copy-email">Copy address</button>
-          <button type="button" class="minimal-btn" data-action="launch-email">Open mail app</button>
-        </div>
-        <p id="email-modal-feedback" class="micro" role="status" aria-live="polite"></p>
-      </form>
-    </dialog>
+    <noscript>
+      <p class="micro">
+        Email needs JavaScript to keep the address from scrapers. Use the socials below.
+      </p>
+    </noscript>
   </section>
 
   <section aria-labelledby="social-platforms">
@@ -103,64 +93,15 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
       }
     }
 
-    const modal = document.querySelector<HTMLDialogElement>("#email-modal")
-    if (!modal) return
+    const actions = document.querySelector<HTMLElement>(".contact-actions")
+    if (!actions) return
 
-    const openButtons = document.querySelectorAll<HTMLButtonElement>('[data-action="open-email-modal"]')
-    const closeButton = modal.querySelector<HTMLButtonElement>('[data-action="close-email-modal"]')
-    const copyButton = modal.querySelector<HTMLButtonElement>('[data-action="copy-email"]')
-    const launchButton = modal.querySelector<HTMLButtonElement>('[data-action="launch-email"]')
-    const feedback = modal.querySelector<HTMLElement>("#email-modal-feedback")
+    const copyButton = actions.querySelector<HTMLButtonElement>('[data-action="copy-email"]')
+    const launchButton = actions.querySelector<HTMLButtonElement>('[data-action="launch-email"]')
+    const feedback = actions.querySelector<HTMLElement>("#email-feedback")
 
-    const email = decode(modal.dataset.email)
-    const mailto = decode(modal.dataset.mailto)
-
-    const closeModal = () => {
-      if (modal.open) {
-        modal.close()
-      }
-    }
-
-    // Fallback for browsers without closedby support (Safari)
-    if (modal && !("closedBy" in HTMLDialogElement.prototype)) {
-      modal.addEventListener("click", (event) => {
-        if (event.target !== modal) return
-        const rect = modal.getBoundingClientRect()
-        const isDialogContent =
-          rect.top <= event.clientY &&
-          event.clientY <= rect.top + rect.height &&
-          rect.left <= event.clientX &&
-          event.clientX <= rect.left + rect.width
-        if (!isDialogContent) {
-          closeModal()
-        }
-      })
-    }
-
-    const openModal = () => {
-      if (!modal.showModal) {
-        if (mailto) {
-          window.location.href = mailto
-        }
-        return
-      }
-
-      modal.showModal()
-      if (feedback) {
-        feedback.textContent = ""
-      }
-    }
-
-    openButtons.forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        event.preventDefault()
-        openModal()
-      })
-    })
-
-    closeButton?.addEventListener("click", () => {
-      closeModal()
-    })
+    const email = decode(actions.dataset.email)
+    const mailto = decode(actions.dataset.mailto)
 
     launchButton?.addEventListener("click", () => {
       if (!mailto) return
@@ -168,7 +109,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
       if (feedback) {
         feedback.textContent = "Opening your email app…"
       }
-      closeModal()
     })
 
     copyButton?.addEventListener("click", async () => {
@@ -192,11 +132,6 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
         }
       }
     })
-
-    modal.addEventListener("cancel", (event) => {
-      event.preventDefault()
-      closeModal()
-    })
   })()
 </script>
 
@@ -212,92 +147,22 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     border: var(--ui-stroke) solid var(--ui-primary);
   }
 
-  .contact-cta {
+  .contact-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-xs);
     margin-block: var(--space-md) var(--space-lg);
   }
 
-  dialog {
-    border: var(--ui-stroke) solid var(--ui-primary);
-    padding: var(--ui-spacing);
-    border-radius: 0;
-    max-width: min(28rem, 90vw);
-    background: var(--ui-background-color);
-    opacity: 0;
-    transform: scale(0.95);
-    transition:
-      opacity var(--ui-motion) var(--ui-ease),
-      transform var(--ui-motion) var(--ui-ease),
-      display var(--ui-motion) allow-discrete,
-      overlay var(--ui-motion) allow-discrete;
-  }
-
-  dialog[open] {
-    opacity: 1;
-    transform: scale(1);
-
-    @starting-style {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-  }
-
-  dialog form {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  dialog header {
-    margin-bottom: var(--space-xxs);
-  }
-
-  dialog::backdrop {
-    background-color: rgb(0 0 0 / 0%);
-    transition:
-      display var(--ui-motion) allow-discrete,
-      overlay var(--ui-motion) allow-discrete,
-      background-color var(--ui-motion) var(--ui-ease);
-  }
-
-  dialog[open]::backdrop {
-    background-color: color-mix(in srgb, var(--ui-primary) 18%, transparent);
-
-    @starting-style {
-      background-color: rgb(0 0 0 / 0%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    dialog {
-      transform: none;
-      transition-duration: var(--motion-instant);
-    }
-
-    @starting-style {
-      dialog[open] {
-        transform: none;
-      }
-    }
-  }
-
-  .modal-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-block: var(--space-xs);
-  }
-
-  .modal-actions .secondary {
+  .contact-actions .secondary {
     background: transparent;
     border: var(--ui-stroke-thin) solid var(--ui-muted-border-color);
   }
 
-  #email-modal-feedback {
+  #email-feedback {
+    flex-basis: 100%;
     min-height: 1.25em;
+    margin: 0;
   }
 </style>
