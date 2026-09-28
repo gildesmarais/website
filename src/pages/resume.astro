@@ -8,6 +8,7 @@ import Highlights from "../components/Highlights.astro"
 import { skills } from "../data/skills"
 import { corePage } from "../data/site"
 import TableOfContents from "../components/TableOfContents.astro"
+import { externalRel } from "../utils/linkRel"
 
 const title = "Résumé"
 const robots = "index, noarchive, follow"
@@ -36,6 +37,11 @@ const resumeHeadings = [
 
   <Highlights
     highlights={[
+      {
+        term: "Impact",
+        definition:
+          "Scaled identity, access, and video platforms: ~80% fewer platform-related customer complaints (internal tracking); revenue per patient rose in the same period.",
+      },
       { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
       {
         term: "Focus",
@@ -73,7 +79,7 @@ const resumeHeadings = [
   </section>
 
   <!-- Work -->
-  <section aria-labelledby="work">
+  <section aria-labelledby="current">
     <h2 id="current" class="accent section-heading-sticky">Current Work</h2>
 
     <section aria-labelledby="etl">
@@ -112,46 +118,58 @@ const resumeHeadings = [
         </li>
       </ul>
       <p>
-        Outside work I ship the html2rss toolkit (Ruby, with an MCP server that exposes it to agents) and
-        moodbar.rs (Rust audio DSP; CLI, iOS/Android, WASM). See my <a href="/projects">Projects</a> page.
+        Outside work I ship the html2rss toolkit (Ruby, with an{" "}
+        <a
+          href="https://github.com/html2rss/html2rss/blob/master/lib/html2rss/mcp/README.md"
+          target="_blank"
+          rel={externalRel("external")}>MCP server</a
+        >
+        {" "}that exposes it to agents) and{" "}
+        <a href="https://crates.io/crates/moodbar" target="_blank" rel={externalRel("external")}
+          >moodbar.rs</a
+        >
+        {" "}(Rust audio DSP; CLI, iOS/Android,{" "}
+        <a href="https://www.npmjs.com/package/@moodbar/wasm" target="_blank" rel={externalRel("external")}
+          >WASM</a
+        >). See my <a href="/projects">Projects</a> page.
       </p>
       <p class="lead">Joined as Senior Software Engineer; promoted to Team Lead in July 2024.</p>
     </section>
+  </section>
 
-    <section aria-labelledby="earlier">
-      <h3 id="earlier" class="accent">Earlier Work</h3>
-      <p>
-        Before leading platform teams, I spent a decade building and modernizing full-stack systems across
-        publishing, civic, and energy domains.
-      </p>
-      <ul>
-        <li>
-          <strong>Ruby Developer</strong> (05–07/2022, Remote)
-          <br />
-          Left during probation after company stack pivot.
-        </li>
-        <li>
-          <strong>Full‑Stack Developer</strong> (2017–2022, Berlin)
-          <br />
-          City portal relaunch; ~50k‑POI search; SERP #1s; CRM migration, ops dashboards.
-        </li>
-        <li>
-          <strong>Backend Developer</strong> (2015–2017, Berlin)
-          <br />
-          Editorial workflow; &gt;$200k creator payouts; high‑traffic templates.
-        </li>
-        <li>
-          <strong>Rails Developer</strong> (2015, Berlin)
-          <br />
-          Farm MVP; mobile‑ready APIs.
-        </li>
-        <li>
-          <strong>Developer</strong> (2011–2015, Oldenburg)
-          <br />
-          Energy dashboards; Handball Bundesliga portal; introduced CI & git flows.
-        </li>
-      </ul>
-    </section>
+  <section aria-labelledby="earlier">
+    <h2 id="earlier" class="accent section-heading-sticky">Earlier Work</h2>
+    <p>
+      Before this role, I spent a decade building and modernizing full-stack systems across publishing, civic,
+      and energy domains.
+    </p>
+    <ul>
+      <li>
+        <strong>Ruby Developer</strong> (05–07/2022, Remote)
+        <br />
+        Left during probation after company stack pivot.
+      </li>
+      <li>
+        <strong>Full‑Stack Developer</strong> (2017–2022, Berlin)
+        <br />
+        City portal relaunch; ~50k‑POI search; SERP #1s; CRM migration, ops dashboards.
+      </li>
+      <li>
+        <strong>Backend Developer</strong> (2015–2017, Berlin)
+        <br />
+        Editorial workflow; &gt;$200k creator payouts; high‑traffic templates.
+      </li>
+      <li>
+        <strong>Rails Developer</strong> (2015, Berlin)
+        <br />
+        Farm MVP; mobile‑ready APIs.
+      </li>
+      <li>
+        <strong>Developer</strong> (2011–2015, Oldenburg)
+        <br />
+        Energy dashboards; Handball Bundesliga portal; introduced CI & git flows.
+      </li>
+    </ul>
   </section>
 
   <hr />
