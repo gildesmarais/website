@@ -1,12 +1,10 @@
 ---
-export const prerender = false
-
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Hero from "../../components/Hero.astro"
 import MovieCard from "../../components/movies/MovieCard.astro"
 import MovieFilters from "../../components/movies/MovieFilters.astro"
 import MoviePoster from "../../components/movies/MoviePoster.astro"
-import { getMovieCache, parseUrlParams, processMovies, toCatalogEntry } from "../../movies"
+import { getMovieCache, toCatalogEntry } from "../../movies"
 import { externalRel } from "../../utils/linkRel"
 
 // Get centralized movie data
@@ -19,13 +17,6 @@ if (!Array.isArray(movies) || movies.length === 0) {
 
 const title = "Movie Ratings"
 const description = "Personal movie ratings and recommendations. Explore films worth watching."
-
-// Parse URL parameters for Server-Side Rendering (No-JS support)
-const url = new URL(Astro.request.url)
-const { filters, sortOptions } = parseUrlParams(url)
-
-const processedMovies = processMovies(movies, recommendationsSet, filters, sortOptions)
-const visibleMovieIds = new Set(processedMovies.map((movie) => movie.const))
 
 const catalog = movies.map(toCatalogEntry)
 const recommendationIds = [...recommendationsSet]
@@ -49,17 +40,16 @@ const recommendationIds = [...recommendationsSet]
     </Hero>
 
     <MovieFilters
-      searchQuery={filters.searchQuery || ""}
-      isRecommendation={filters.isRecommendation}
-      sortBy={sortOptions.sortBy}
-      sortDir={sortOptions.sortDir}
-      resultCount={processedMovies.length}
+      searchQuery=""
+      isRecommendation={false}
+      sortBy="default"
+      sortDir="asc"
+      resultCount={movies.length}
     />
     <div class="recommendations-grid">
       {
         movies.map((movie) => {
           const isRecommendation = recommendationsSet.has(movie.const)
-          const isVisible = visibleMovieIds.has(movie.const)
           return (
             <MovieCard
               imdbId={movie.const}
@@ -67,7 +57,6 @@ const recommendationIds = [...recommendationsSet]
               year={movie.year}
               yourRating={movie.your_rating}
               isRecommendation={isRecommendation}
-              style={isVisible ? undefined : "display: none"}
             >
               <MoviePoster slot="poster" imdbId={movie.const} />
             </MovieCard>
