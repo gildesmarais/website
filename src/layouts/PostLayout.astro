@@ -6,7 +6,13 @@ type KeepReadingPost = {
   title: string
 }
 
-const { title, date, description, language, keepReading = [] } = Astro.props as {
+const {
+  title,
+  date,
+  description,
+  language,
+  keepReading = [],
+} = Astro.props as {
   title: string
   date?: Date
   description: string

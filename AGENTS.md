@@ -6,7 +6,7 @@
 - **Movie domain:** Catalog/query/poster logic lives in `src/movies/`; movie UI under `src/components/movies/`. Pages import the public surface from `src/movies` (not deep utils paths).
 - **Content layers:** Markdown-driven sections stay in `src/content`; media and fonts belong in `src/assets` and `public` for static delivery. Poster placeholders live in `public/poster-*.svg` — keep palette aligned with `01-tokens.css`, no Arial, prefer geometry over `<text>` for img-loaded SVGs.
 - **Data sources:** Site identity, projects, skills, and movie metadata live in `src/data`. Committed `src/data/movies.json` is the **runtime source of truth** for the movie catalog. `ratings.csv` (repo root, untracked) is the **operator input** — regenerate JSON via `bin/migrate-ratings` when ratings change.
-  - Page meta descriptions for `/`, `/about`, `/resume`, `/contact`, and `/projects`, and llms excerpts, come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog` keeps a dynamic meta description and `/movies` keeps its own.
+  - Page meta descriptions for `/`, `/about`, `/resume`, `/contact`, and `/projects`, and llms excerpts, come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog`, `/movies`, and `/imprint` keep their own meta descriptions.
 - **Tooling split:** `bin/` holds operator CLIs (e.g. `bin/migrate-ratings`). `scripts/` holds build/CI helpers (e.g. `scripts/visual-guardrails.mjs`).
 - **Product doctrine:** Canonical personas, golden paths, admission criteria, and the hiring-surface narrative live in `docs/personas.md`. Features must clear the admission criteria. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy the hiring-surface narrative.
 
@@ -33,7 +33,7 @@
 
 - **Automated tests:** Vitest via `npm test`. Colocate `*.test.ts` next to the module under test (e.g. under `src/movies/`, `src/utils/`).
 - **Mandatory gates:** Run `make check` before committing. Run `make ready` (or `make lintfix && make ready`) before opening a pull request.
-- **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), movie filters, `/movies/recommendations`, and llms surfaces (`/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` → `/llms.txt`) after data or layout changes. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
+- **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), movie filters, `/movies/recommendations`, llms surfaces (`/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` → `/llms.txt`), and `/404` after data or layout changes. Run `npm run check:dist` (wired into `make check`) for machine-endpoint and hiring-narrative guards; external links in `src/data/*.ts` are covered by the weekly scheduled Links workflow. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
 - **Manual smoke:** `npm run dev` for interactive checks; `npm run preview` against a production build when layout or CSS changes.
 
 ## Commit & Pull Request Guidelines
@@ -46,4 +46,3 @@
 
 - **Movie data refresh:** Place the latest `ratings.csv` at the repo root, run `bin/migrate-ratings`, then review `src/data/recommendations.json` manually. Commit the regenerated `movies.json` — that file is what the site reads at build/runtime.
 - **Cache awareness:** Restart `npm run dev` after regeneration so the server-side cache picks up new data.
-- **Post-deploy ping:** Production deployments should rerun the Makefile’s `post-deploy` target to notify search engines about updated sitemaps.

@@ -101,7 +101,9 @@ describe("llms content generation", () => {
     expect(text).toContain("## Projects")
     expect(text).toContain("### html2rss")
     expect(text).toContain("Status: maintained")
-    expect(text).toContain("Supply chain: RubyGems trusted publishing; Docker images with provenance and SBOM.")
+    expect(text).toContain(
+      "Supply chain: RubyGems trusted publishing; Docker images with provenance and SBOM.",
+    )
     expect(text).toContain("### moodbar.rs")
     expect(text).toContain("- [@moodbar/wasm](https://www.npmjs.com/package/@moodbar/wasm)")
     expect(text).toContain("## Showcase Posts")

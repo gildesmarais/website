@@ -100,10 +100,8 @@ if (filteredHeadings.length === 0) return null
     }
 
     .toc-list {
-      flex-direction: row;
-      flex-wrap: wrap;
-      column-gap: var(--space-md);
-      row-gap: 0;
+      flex-flow: row wrap;
+      gap: 0 var(--space-md);
       align-items: stretch;
     }
 
