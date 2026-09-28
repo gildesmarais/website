@@ -1,6 +1,18 @@
 ---
 import BaseLayout from "./BaseLayout.astro"
-const { title, date, description, language } = Astro.props
+
+type KeepReadingPost = {
+  id: string
+  title: string
+}
+
+const { title, date, description, language, keepReading = [] } = Astro.props as {
+  title: string
+  date?: Date
+  description: string
+  language?: string
+  keepReading?: KeepReadingPost[]
+}
 ---
 
 <BaseLayout title={title} description={description} language={language}>
@@ -29,6 +41,25 @@ const { title, date, description, language } = Astro.props
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />
+      <nav class="keep-reading" aria-label="Keep reading">
+        {
+          keepReading.length > 0 && (
+            <>
+              <p class="keep-reading-title section-kicker accent">Keep reading</p>
+              <ul>
+                {keepReading.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.id}`}>{post.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+        <p class="keep-reading-projects">
+          <a href="/projects">Projects</a>
+        </p>
+      </nav>
     </div>
   </article>
 </BaseLayout>
@@ -82,5 +113,29 @@ const { title, date, description, language } = Astro.props
     background-color: var(--ui-background-color-tertiary);
     border-radius: var(--ui-border-radius);
     padding: 0.2rem 0.4rem;
+  }
+
+  .keep-reading {
+    margin-top: var(--region-space);
+    padding-top: var(--block-space);
+    border-top: var(--ui-stroke-thin) solid var(--ui-border-color);
+  }
+
+  .keep-reading-title {
+    margin-bottom: var(--space-sm);
+  }
+
+  .keep-reading ul {
+    margin: 0 0 var(--space-md);
+    padding: 0;
+    list-style: none;
+  }
+
+  .keep-reading li + li {
+    margin-top: var(--space-xxs);
+  }
+
+  .keep-reading-projects {
+    margin: 0;
   }
 </style>
