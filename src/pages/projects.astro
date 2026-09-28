@@ -7,11 +7,10 @@ import ProjectCard from "../components/ProjectCard.astro"
 import TableOfContents from "../components/TableOfContents.astro"
 import { githubProfileUrl } from "../data/socials"
 import { projectSlug, projects } from "../data/projects"
+import { corePage } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
 const title = "Projects"
-const description =
-  "Selective open-source experiments that remove friction for me and, hopefully, for you too."
 
 const projectHeadings = projects.map((project) => ({
   depth: 2 as const,
@@ -20,7 +19,7 @@ const projectHeadings = projects.map((project) => ({
 }))
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={corePage("/projects").description}>
   <Hero
     title={title}
     description="Pragmatic tools I built for myself. If they make your life easier too, even better."

@@ -4,11 +4,11 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import { professionalSocials } from "../data/socials"
+import { corePage } from "../data/site"
 import legal from "../data/legal.json"
 import { externalRel } from "../utils/linkRel"
 
 const title = "Contact"
-const description = "Reach Gil Desmarais for hands-on software and full-stack engineering (Staff-level)."
 const robots = "noindex, noarchive, follow"
 const email = legal.email
 const mailtoSubject = "Let's connect"
@@ -19,7 +19,7 @@ const emailEncoded = Buffer.from(email).toString("base64")
 const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 ---
 
-<BaseLayout title={title} description={description} robots={robots}>
+<BaseLayout title={title} description={corePage("/contact").description} robots={robots}>
   <Hero
     title={title}
     description="Fastest replies come from crisp, async notes. Share the problem, who’s involved, and the decision on the table."
@@ -28,8 +28,8 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
   <aside id="devtools" class="accent" aria-label="Developer note">
     <strong>Hey, fellow builder.</strong>
     <p>
-      If you unearthed this via DevTools: 👋 I care about reliable platforms and tidy interfaces. Tell me what
-      you’re shipping and where it hurts — maybe we can untangle it together.
+      If you unearthed this via DevTools: 👋 I care about reliable platforms and tidy interfaces, and I build
+      with agents. Tell me what you’re shipping and where it hurts — maybe we can untangle it together.
     </p>
   </aside>
 
