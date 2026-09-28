@@ -43,7 +43,7 @@ export const corePages = [
     path: "/projects",
     description: "Key open-source software, side projects, and tools.",
     excerpt:
-      "Selective open-source experiments built to remove friction. Prefer purposeful tools with small footprints; everything listed is open source, with more on GitHub. Releases use trusted publishing — supply-chain security is part of how work ships.",
+      "Selective open-source experiments built to remove friction. Prefer purposeful tools with small footprints; everything listed is open source, with more on GitHub. Each project states its actual publish mechanism — no blanket supply-chain claims.",
   },
   {
     title: "Resume",
