@@ -13,9 +13,16 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - run: sudo apt-get update && sudo apt-get install -y libxml2-utils
       - run: make lint-prettier
       - run: make lint-css
       - run: npm test
       - run: npm run build
       - run: npm run check:visual
+      - run: npm run check:dist
+      - name: Validate XML well-formedness
+        run: |
+          xmllint --noout dist/client/feed.xml
+          xmllint --noout dist/client/sitemap-index.xml
+          xmllint --noout dist/client/sitemap-0.xml
       - run: npx astro check

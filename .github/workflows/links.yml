@@ -1,0 +1,23 @@
+name: Links
+
+on:
+  schedule:
+    # Weekly Monday 06:15 UTC — external link check only (keeps PR CI free of third-party flakes).
+    - cron: "15 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check external links in src/data
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,204,206,301,302
+            --header "Accept: text/html"
+            "src/data/*.ts"
+          fail: true

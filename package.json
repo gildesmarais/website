@@ -13,6 +13,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "check:visual": "node scripts/visual-guardrails.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
     "test": "vitest run"
   },
   "dependencies": {
