@@ -13,10 +13,20 @@ export default defineConfig({
     },
   },
   site: "https://gil.desmarais.de",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const { pathname } = new URL(page)
+        if (pathname.startsWith("/movies/tt")) return false
+        if (pathname === "/contact" || pathname === "/contact/") return false
+        if (pathname === "/imprint" || pathname === "/imprint/") return false
+        return true
+      },
+    }),
+  ],
   output: "static",
   adapter: vercel(),
-  prefetch: true,
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   redirects: {
     "/sitemap.xml": "/sitemap-index.xml",
     "/.well-known/llms.txt": "/llms.txt",

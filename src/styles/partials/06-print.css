@@ -14,7 +14,7 @@
   .no-print,
   header#top,
   footer,
-  [aria-label="Table of Contents"] {
+  [aria-label="Table of contents"] {
     display: none !important;
   }
 
