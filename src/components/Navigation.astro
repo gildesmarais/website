@@ -14,46 +14,62 @@ const pathname = Astro.url.pathname
       <Image src={logo} alt="" loading="eager" />
     </a>
 
-    <button
-      id="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="main-nav-list"
-      aria-label="Toggle navigation menu"
-    >
-      <svg
-        class="icon-menu"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="var(--brand-accent)"
-        stroke-width="3"
-        stroke-linecap="square"
-        stroke-linejoin="miter"
-        aria-hidden="true"
+    <div class="nav-header-actions">
+      <a
+        href="/contact"
+        class="nav-header-contact"
+        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}>Contact</a
       >
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-      <svg
-        class="icon-close"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="var(--brand-accent)"
-        stroke-width="3"
-        stroke-linecap="square"
-        stroke-linejoin="miter"
-        aria-hidden="true"
+
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav-list"
+        aria-label="Toggle navigation menu"
       >
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-      </svg>
-    </button>
+        <svg
+          class="icon-menu"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--brand-accent)"
+          stroke-width="3"
+          stroke-linecap="square"
+          stroke-linejoin="miter"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg
+          class="icon-close"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--brand-accent)"
+          stroke-width="3"
+          stroke-linecap="square"
+          stroke-linejoin="miter"
+          aria-hidden="true"
+        >
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </div>
+
+  <noscript>
+    <style>
+      #main-nav-list {
+        display: flex;
+      }
+    </style>
+  </noscript>
 
   <ul id="main-nav-list">
     <li class="nav-item">
@@ -191,6 +207,40 @@ const pathname = Astro.url.pathname
   .nav-header img {
     height: var(--size-control);
     width: auto;
+  }
+
+  .nav-header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .nav-header-contact {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--size-control);
+    padding: 0 var(--space-sm);
+    color: var(--ui-color);
+    text-decoration: none;
+    font-size: var(--text-md);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    border: var(--ui-stroke) solid transparent;
+  }
+
+  .nav-header-contact:hover,
+  .nav-header-contact:focus-visible {
+    color: var(--ui-primary-hover);
+  }
+
+  .nav-header-contact[aria-current="page"] {
+    color: var(--ui-active-nav-color);
+    font-weight: 700;
+  }
+
+  .nav-header-contact:focus-visible {
+    outline: var(--ui-stroke) solid var(--brand-accent);
+    outline-offset: 2px;
   }
 
   /* --- Hamburger Menu Button --- */
@@ -370,6 +420,10 @@ const pathname = Astro.url.pathname
 
     .nav-header {
       justify-content: flex-start;
+    }
+
+    .nav-header-contact {
+      display: none;
     }
 
     #menu-toggle {
