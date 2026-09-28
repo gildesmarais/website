@@ -47,6 +47,11 @@ export const projects = [
       { term: "Ops", definition: "Error handling, monitoring hooks, and rolling releases for stability." },
       { term: "Delivery", definition: "Lightweight HTTP service with caching and health checks." },
       { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker; portable and easy to self-host." },
+      {
+        term: "MCP",
+        definition:
+          "Ships an MCP server exposing scrape, inspect, and capture as agent tools, resources, and prompts.",
+      },
     ],
     links: [
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
@@ -54,6 +59,11 @@ export const projects = [
       { text: "RubyGems", url: "https://rubygems.org/gems/html2rss/", external: true },
       { text: "Docker Hub", url: "https://hub.docker.com/r/html2rss/web", external: true },
       { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
+      {
+        text: "MCP module guide",
+        url: "https://github.com/html2rss/html2rss/blob/master/lib/html2rss/mcp/README.md",
+        external: true,
+      },
     ],
     bodyHtml: [
       "html2rss restores open web syndication by converting any website (static or dynamic) into a reliable feed. It uses declarative extractors in YAML, supports optional headless rendering, and outputs standards-compliant XML ready for any reader or aggregator. Built for maintainers who prefer simplicity over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that never had it (or quietly killed it).",
@@ -92,7 +102,7 @@ export const projects = [
       { text: "crates.io", url: "https://crates.io/crates/moodbar", external: true },
     ],
     bodyHtml: [
-      "moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence.",
+      "moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence. It is also the first Rust and Swift I shipped to public registries — proof that systems judgement, not language tenure, is the scarce input.",
     ],
     homepage: {
       term: "moodbar.rs",
@@ -105,7 +115,8 @@ export const projects = [
     id: "dotfiles",
     title: ".dotfiles & Scripts",
     status: "evergreen",
-    description: "My personal macOS & CLI setup. A living repository of the tools I use daily.",
+    description:
+      "My personal macOS & CLI setup, including the agents/skills I ship with. A living repository of the tools I use daily.",
     links: [{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }],
     highlights: [
       {
@@ -114,7 +125,11 @@ export const projects = [
       },
       { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
       { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
-      { term: "AI skills", definition: "Developer environment skills synced across machines." },
+      {
+        term: "Agentic SDLC",
+        definition:
+          "22 agent skills: triage, product gate, dev, review, PR, release, harvest; plus Ruby, Rails, Rust, Swift, and TypeScript packs.",
+      },
     ],
     bodyHtml: [
       "A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes. It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for audio workflows.<br />Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes a Zsh setup for a consistent shell experience across machines.",

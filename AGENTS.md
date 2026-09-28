@@ -6,7 +6,9 @@
 - **Movie domain:** Catalog/query/poster logic lives in `src/movies/`; movie UI under `src/components/movies/`. Pages import the public surface from `src/movies` (not deep utils paths).
 - **Content layers:** Markdown-driven sections stay in `src/content`; media and fonts belong in `src/assets` and `public` for static delivery. Poster placeholders live in `public/poster-*.svg` — keep palette aligned with `01-tokens.css`, no Arial, prefer geometry over `<text>` for img-loaded SVGs.
 - **Data sources:** Site identity, projects, skills, and movie metadata live in `src/data`. Committed `src/data/movies.json` is the **runtime source of truth** for the movie catalog. `ratings.csv` (repo root, untracked) is the **operator input** — regenerate JSON via `bin/migrate-ratings` when ratings change.
+  - Page meta descriptions for `/`, `/about`, `/resume`, `/contact`, and `/projects`, and llms excerpts, come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog` keeps a dynamic meta description and `/movies` keeps its own.
 - **Tooling split:** `bin/` holds operator CLIs (e.g. `bin/migrate-ratings`). `scripts/` holds build/CI helpers (e.g. `scripts/visual-guardrails.mjs`).
+- **Product doctrine:** Canonical personas, golden paths, admission criteria, and the hiring-surface narrative live in `docs/personas.md`. Features must clear the admission criteria. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy the hiring-surface narrative.
 
 ## Build, Test & Development Commands
 

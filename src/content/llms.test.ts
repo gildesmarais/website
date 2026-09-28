@@ -74,7 +74,9 @@ describe("llms content generation", () => {
       "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
     )
     expect(text).toContain("## Core Pages")
-    expect(text).toContain("- [Home](https://gil.desmarais.de/): Main entry point and site overview.")
+    expect(text).toContain(
+      "- [Home](https://gil.desmarais.de/): I build and run systems that move business numbers. Agents are part of how I ship.",
+    )
     expect(text).toContain("- [Blog](https://gil.desmarais.de/blog)")
     expect(text).toContain("- [Resume](https://gil.desmarais.de/resume)")
     expect(text).toContain("## Showcase Posts")
@@ -106,6 +108,9 @@ describe("llms content generation", () => {
     expect(text).toContain("# About")
     expect(text).toContain("URL: https://gil.desmarais.de/about")
     expect(text).toContain("Background and how curiosity")
+    expect(text).toContain("with agents as part of the workflow")
+    expect(text).toContain("direct ownership of outcomes")
+    expect(text).toContain("treats agents as part of the toolchain")
     expect(text).toContain("## Recommended Films (Top 10)")
     expect(text).toContain("### Inception (2010)")
     expect(text).toContain("Mind-bending.")

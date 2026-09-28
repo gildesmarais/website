@@ -6,21 +6,22 @@ import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
 import { homepageOpenSource } from "../data/projects"
 import { githubProfileUrl } from "../data/socials"
-import { site } from "../data/site"
+import { corePage, site } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
-const title = `${site.name} — Engineering Team Lead`
-const description = "Turning complexity into clarity so teams move faster with less risk."
+const title = site.name
+const description = corePage("/").description
 
-const pageTitle = "Engineering Team Lead"
+const pageTitle = "Software Engineer"
 ---
 
 <BaseLayout title={pageTitle} description={description}>
   <Hero title={title} description={description}>
     <p class="hero-subtitle">
-      I make ambiguous systems legible and guide teams through change. When strategy collides with technical
-      limits, I translate both sides. When priorities compete, I anchor decisions in business outcomes and
-      disciplined execution.
+      I design, build, and operate production systems end-to-end, and I keep the organisational overhead low
+      so the code keeps shipping. Language is a detail: with fifteen years of systems judgement and an
+      agent-driven workflow I've released production Rust, Swift, and WASM alongside the Ruby and TypeScript I
+      grew up on.
     </p>
     <p class="hero-cue">
       Music, film, software, movement—different systems, same curiosity. More in <a href="/about">About</a>.

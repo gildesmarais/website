@@ -6,15 +6,13 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
 import { skills } from "../data/skills"
+import { corePage } from "../data/site"
 import TableOfContents from "../components/TableOfContents.astro"
 
 const title = "Résumé"
 const robots = "index, noarchive, follow"
 
-const description = `
-  Hands-on software and full-stack engineer in Berlin; Engineering Team Lead (hands-on).
-  Strong on CI efficiency, systems reliability, compliance (ISO 27001/C5), and low-overhead delivery.
-  `
+const description = corePage("/resume").description
 
 // Define headings for the TOC
 const resumeHeadings = [
@@ -33,7 +31,7 @@ const resumeHeadings = [
 <BaseLayout title={title} description={description} robots={robots}>
   <Hero
     title={title}
-    description="Hands-on software and full-stack engineer designing and shipping core systems with a focus on calm, incremental delivery."
+    description="Software engineer who designs, ships, and operates core systems — fast, without drama, and with agents in the loop."
   />
 
   <Highlights
@@ -41,12 +39,13 @@ const resumeHeadings = [
       { term: "Location", definition: "Berlin (hybrid, 99% remote)" },
       {
         term: "Focus",
-        definition: "Systems Architecture · Full-Stack Delivery · High-Performance (Rust) · Compliance",
+        definition:
+          "Systems Architecture · End-to-End Delivery · Agent-Driven Engineering · Reliability & Compliance",
       },
       { term: "Languages", definition: "German (native) · English (fluent)" },
       {
         term: "Open To",
-        definition: "Staff-level software or full-stack engineering roles with a hands-on mandate",
+        definition: "Senior/Staff IC roles with direct ownership of outcomes. Not pure people management.",
       },
     ]}
   />
@@ -59,14 +58,17 @@ const resumeHeadings = [
     <h2 id="executive-summary" class="accent section-heading-sticky">Executive Summary</h2>
     <p>
       I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
-      risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery incremental. My engineering
-      decisions are data over knowledge-driven: I rely on empirical profiling, telemetry, and metrics to
-      target bottlenecks rather than legacy assumptions or static documentation.
+      risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery flowing. Engineering
+      decisions follow profiling, telemetry, and metrics over assumptions or static documentation.
     </p>
     <p>
-      While I lead systems modernisation and compliance (ISO 27001 / C5) today, I stay close to the stack.
-      That hands-on execution keeps systems strategy connected to daily delivery without losing the craft of
-      shipping software.
+      I build with agents under written doctrine — skills, rules, and admission gates I maintain{" "}
+      <a
+        href="https://github.com/gildesmarais/dotfiles/tree/main/agents/skills"
+        target="_blank"
+        rel="noopener noreferrer">in the open</a
+      >. That is how I ship production Rust, Swift, and WASM next to the Ruby and TypeScript I've written for
+      fifteen years. Systems judgement is the scarce input; the language is not.
     </p>
   </section>
 
@@ -75,18 +77,18 @@ const resumeHeadings = [
     <h2 id="current" class="accent section-heading-sticky">Current Work</h2>
 
     <section aria-labelledby="etl">
-      <h3 id="etl">Engineering Team Lead (hands-on) — Platform</h3>
+      <h3 id="etl">Engineering Team Lead — Platform</h3>
       <p>
         <time datetime="2022-10">Oct 2022</time>
         <span aria-hidden="true">–</span>
         <time>Present</time>{" "}
         · Berlin (remote‑first)
       </p>
-      <p>Translate business intent into platform roadmaps for identity, reliability, and compliance.</p>
+      <p>Own and ship the identity, reliability, and compliance platforms end-to-end.</p>
       <ul>
         <li>
-          <strong>Scaled platforms:</strong> identity, access, and video systems. Large drop in platform-related
-          customer complaints (~80% by internal tracking).
+          <strong>Scaled platforms:</strong> identity, access, and video systems. ~80% fewer platform-related customer
+          complaints by internal tracking; revenue per patient rose in the same period.
         </li>
         <li>
           <strong>Full-stack delivery:</strong> hands-on work with product squads on UI, API, and data changes so
@@ -105,17 +107,13 @@ const resumeHeadings = [
           designed SDLC policies and SOPs; contributed to ISO 27001 and C5 readiness.
         </li>
         <li>
-          <strong>People:</strong> mentor three direct reports; grow skills in performance, observability, and pragmatic
-          design.
-        </li>
-        <li>
-          <strong>Alignment:</strong> partnered with Security, Product, and Ops to shape platform roadmap and shared
-          risk appetite.
+          <strong>Team:</strong> mentor three engineers in performance, observability, and pragmatic design; partner
+          with Security, Product, and Ops on platform priorities and shared risk appetite.
         </li>
       </ul>
       <p>
-        For open-source toolkits, including Rust audio DSP (moodbar.rs) and Ruby syndication tools (html2rss),
-        see my <a href="/projects">Projects</a> page.
+        Outside work I ship the html2rss toolkit (Ruby, with an MCP server that exposes it to agents) and
+        moodbar.rs (Rust audio DSP; CLI, iOS/Android, WASM). See my <a href="/projects">Projects</a> page.
       </p>
       <p class="lead">Joined as Senior Software Engineer; promoted to Team Lead in July 2024.</p>
     </section>
@@ -162,11 +160,11 @@ const resumeHeadings = [
   <section aria-labelledby="capabilities">
     <h2 id="capabilities" class="accent section-heading-sticky">Capabilities</h2>
     <ol>
-      <li>Full-stack software engineering (Rust, Ruby)</li>
+      <li>End-to-end systems delivery (Ruby, TypeScript; Rust, Swift, WASM in open source)</li>
+      <li>Agent-driven engineering: skills, rules, doctrine, MCP tooling</li>
       <li>Security & compliance (ISO 27001, C5, GDPR)</li>
       <li>Telemetry, performance tuning & CI/CD</li>
       <li>Audio DSP & MIR</li>
-      <li>Stakeholder alignment & technical coaching</li>
     </ol>
   </section>
 
