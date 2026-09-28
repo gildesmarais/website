@@ -18,9 +18,7 @@ let movieCache: MovieCache | null = null
  * Injectable for tests; runtime uses getMovieCache() with JSON imports.
  */
 export function buildMovieCache(movies: Movie[], recommendations: MovieRecommendation[]): MovieCache {
-  const recommendationsSet = new Set(
-    recommendations.map((r) => r.const).filter((c): c is string => !!c),
-  )
+  const recommendationsSet = new Set(recommendations.map((r) => r.const).filter((c): c is string => !!c))
 
   // Catalog stays Movie-first; recommended ids bypass the type filter so picks always resolve.
   const processedMovies = movies

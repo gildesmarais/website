@@ -43,12 +43,7 @@ const titleId = `movie-title-${movie.const}`
   <div class="modal-backdrop">
     <a href="/movies/" class="modal-backdrop-link" aria-label="Close modal"></a>
     <div class="modal-container">
-      <article
-        class="modal-content"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-      >
+      <article class="modal-content" role="dialog" aria-modal="true" aria-labelledby={titleId}>
         <header class="modal-header">
           <h1 id={titleId}>{movie.title} ({movie.year})</h1>
           <button class="modal-close" aria-label="Close modal">×</button>
@@ -90,9 +85,7 @@ const titleId = `movie-title-${movie.const}`
     const navOpen = document.getElementById("main-nav-list")?.classList.contains("is-open")
     if (navOpen) return true
 
-    return [...document.querySelectorAll('[aria-modal="true"], dialog[open]')].some(
-      (el) => el !== thisDialog,
-    )
+    return [...document.querySelectorAll('[aria-modal="true"], dialog[open]')].some((el) => el !== thisDialog)
   }
 
   function initModal() {
