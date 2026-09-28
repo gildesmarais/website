@@ -4,7 +4,7 @@ export const prerender = true
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
-import { homepageOpenSource } from "../data/projects"
+import { homepageOpenSource, projects } from "../data/projects"
 import { githubProfileUrl } from "../data/socials"
 import { corePage, site } from "../data/site"
 import { externalRel } from "../utils/linkRel"
@@ -13,6 +13,7 @@ const title = site.name
 const description = corePage("/").description
 
 const pageTitle = "Software Engineer"
+const moodbarDemoUrl = projects.find((project) => project.id === "moodbar-rs")?.homepage?.href
 ---
 
 <BaseLayout title={pageTitle} description={description}>
@@ -26,7 +27,7 @@ const pageTitle = "Software Engineer"
     </p>
   </Hero>
 
-  <section id="next" class="width" aria-labelledby="next-title">
+  <section id="next" class="width">
     <p>
       <strong>Hiring?</strong>{" "}<a href="/resume">Résumé</a> · <a href="/contact">Contact</a> · <a
         href="/about">About</a
@@ -37,7 +38,12 @@ const pageTitle = "Software Engineer"
         href={githubProfileUrl}
         target="_blank"
         rel={externalRel("external me")}>GitHub</a
-      > · <a href="/blog">Blog</a>
+      >
+    </p>
+    <p>
+      <strong>Curious?</strong>{" "}<a href="/blog">Blog</a> · <a href="/movies/recommendations"
+        >Film picks</a
+      > · <a href={moodbarDemoUrl} target="_blank" rel={externalRel()}>moodbar demo</a>
     </p>
   </section>
 
