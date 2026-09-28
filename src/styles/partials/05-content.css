@@ -24,7 +24,10 @@ ul,
 ol {
   margin-top: var(--flow-space);
   margin-bottom: var(--flow-space);
-  padding-left: 1ch;
+
+  /* Inside keeps "- " / decimal markers on the content rail (outside paints into the margin). */
+  padding-inline-start: 0;
+  list-style-position: inside;
 }
 
 ul ::marker,
@@ -45,6 +48,7 @@ ul:has(strong) > li > strong {
   color: var(--ui-color);
 }
 
+/* Footnotes use decimal markers; inherit inside positioning from the list rules above. */
 .footnotes ol li {
   list-style-type: decimal;
 }
