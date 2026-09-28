@@ -1,7 +1,6 @@
 ---
 import BackToTop from "../components/BackToTop.astro"
 import Navigation from "../components/Navigation.astro"
-import SpeedInsights from "@vercel/speed-insights/astro"
 import { site } from "../data/site"
 import { isActivePath } from "../utils/navigation"
 import "../styles/global.css"
@@ -135,7 +134,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
   </head>
   <body>
     {showScrollProgress && <div id="scroll-progress" aria-hidden="true" />}
-    <SpeedInsights />
 
     <!-- InlineJS: mark that JS is available -->
     <script is:inline>
@@ -198,7 +196,11 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       import.meta.env.PROD && (
         <>
           <noscript>
-            <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
+            <img
+              src={`https://gil.goatcounter.com/count?p=${encodeURIComponent(path)}`}
+              alt=""
+              loading="eager"
+            />
           </noscript>
           <script
             is:inline
