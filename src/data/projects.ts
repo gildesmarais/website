@@ -11,6 +11,8 @@ export type ProjectLink = {
 export type ProjectHighlight = {
   term: string
   definition: string
+  href?: string
+  external?: boolean
 }
 
 export type HomepageHighlight = {
@@ -52,6 +54,10 @@ export const projects = [
         definition:
           "Ships an MCP server exposing scrape, inspect, and capture as agent tools, resources, and prompts.",
       },
+      {
+        term: "Supply chain",
+        definition: "RubyGems trusted publishing; Docker images with provenance and SBOM.",
+      },
     ],
     links: [
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
@@ -73,7 +79,7 @@ export const projects = [
       term: "html2rss",
       href: "https://github.com/html2rss",
       external: true,
-      definition: "Open-source org — syndication ecosystem (gem, web app, configs, tooling)",
+      definition: "Open-source org — syndication ecosystem with an MCP server (gem, web app, configs, tooling)",
     },
   },
   {
@@ -91,6 +97,10 @@ export const projects = [
         term: "Batch workflows",
         definition: "Batch generation pipeline for processing whole music folders.",
       },
+      {
+        term: "Supply chain",
+        definition: "npm provenance; attested GitHub release builds; crates.io via API token.",
+      },
     ],
     links: [
       {
@@ -100,9 +110,11 @@ export const projects = [
       },
       { text: "GitHub Repository", url: "https://github.com/gildesmarais/moodbar.rs", external: true },
       { text: "crates.io", url: "https://crates.io/crates/moodbar", external: true },
+      { text: "@moodbar/wasm", url: "https://www.npmjs.com/package/@moodbar/wasm", external: true },
+      { text: "@moodbar/native", url: "https://www.npmjs.com/package/@moodbar/native", external: true },
     ],
     bodyHtml: [
-      "moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence. It is also the first Rust and Swift I shipped to public registries — proof that systems judgement, not language tenure, is the scarce input.",
+      'moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence. Rust ships on crates.io; WASM and native packages ship on npm — including <a href="https://github.com/gildesmarais/moodbar.rs/blob/v0.7.1/packages/moodbar-native/ios/MoodbarNativeModule.swift" target="_blank" rel="noopener noreferrer">released Swift iOS bindings</a>.',
     ],
     homepage: {
       term: "moodbar.rs",
@@ -128,7 +140,7 @@ export const projects = [
       {
         term: "Agentic SDLC",
         definition:
-          "22 agent skills: triage, product gate, dev, review, PR, release, harvest; plus Ruby, Rails, Rust, Swift, and TypeScript packs.",
+          "22 agent skills, including Ruby, Rails, Rust, Swift, and TypeScript packs.",
       },
     ],
     bodyHtml: [
@@ -138,7 +150,7 @@ export const projects = [
       term: "dotfiles",
       href: "https://github.com/gildesmarais/dotfiles",
       external: true,
-      definition: "macOS/CLI infrastructure — syncable, actively maintained",
+      definition: "macOS/CLI infrastructure — agent skills and syncable workstation setup",
     },
   },
   {
@@ -153,7 +165,16 @@ export const projects = [
         term: "No JS",
         definition: "Native lazy-load via the loading attribute; removes third-party scripts.",
       },
-      { term: "Adoption", definition: "59k+ RubyGems downloads; more than 420 GitHub repos depend on it." },
+      {
+        term: "Adoption",
+        definition: "68,972 RubyGems downloads.",
+        href: "https://rubygems.org/gems/jekyll-loading-lazy",
+        external: true,
+      },
+      {
+        term: "Supply chain",
+        definition: "Published to RubyGems via API token.",
+      },
     ],
     links: [
       { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
