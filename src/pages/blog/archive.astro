@@ -108,12 +108,12 @@ const posts = await getArchivePosts()
 
   .language-filters .filter-link::before {
     content: "[";
-    margin-right: 0.08rem;
+    margin-right: var(--space-hair);
   }
 
   .language-filters .filter-link::after {
     content: "]";
-    margin-left: 0.08rem;
+    margin-left: var(--space-hair);
   }
 
   .language-filters .filter-link:hover {
@@ -142,7 +142,7 @@ const posts = await getArchivePosts()
 
   @media (pointer: coarse) {
     .language-filters .filter-link {
-      min-height: 44px;
+      min-height: var(--size-tap-min);
       padding: var(--space-xs) var(--space-md);
     }
   }

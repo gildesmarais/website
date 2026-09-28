@@ -112,9 +112,20 @@
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
   --leading-none: 1;
+  --leading-post: 1.16; /* post article headings */
   --leading-tight: 1.2;
   --leading-snug: 1.35;
   --leading-relaxed: 1.6;
+
+  /* Reader-path geometry promoted from B10 literals */
+  --text-post-title: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+  --code-inline-pad: 0.2rem 0.4rem;
+  --space-hair: 0.08rem; /* archive filter bracket micro-gaps */
+  --size-poster-detail: 18.75rem; /* 300px — modal/detail poster */
+  --size-poster-detail-sm: 15rem; /* 240px — mobile modal poster */
+  --poster-detail-max: 70vw; /* fluid cap for mobile modal poster */
+  --size-modal-max: 50rem; /* 800px — movie detail modal */
+  --main-bottom-pad: 33vh; /* scroll-length bottom padding on main */
 }
 
 [data-theme="dark"] {
