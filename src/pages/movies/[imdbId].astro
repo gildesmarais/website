@@ -31,6 +31,7 @@ if (!movie) {
 
 const isRecommendation = recommendationsSet.has(movie.const)
 const note = recommendationNotes.get(movie.const)
+const titleId = `movie-title-${movie.const}`
 ---
 
 <BaseLayout
@@ -42,9 +43,14 @@ const note = recommendationNotes.get(movie.const)
   <div class="modal-backdrop">
     <a href="/movies/" class="modal-backdrop-link" aria-label="Close modal"></a>
     <div class="modal-container">
-      <article class="modal-content">
+      <article
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+      >
         <header class="modal-header">
-          <h2>{movie.title} ({movie.year})</h2>
+          <h1 id={titleId}>{movie.title} ({movie.year})</h1>
           <button class="modal-close" aria-label="Close modal">×</button>
         </header>
 
@@ -80,13 +86,24 @@ const note = recommendationNotes.get(movie.const)
     }
   }
 
+  function isOtherOverlayOpen(thisDialog: Element | null): boolean {
+    const navOpen = document.getElementById("main-nav-list")?.classList.contains("is-open")
+    if (navOpen) return true
+
+    return [...document.querySelectorAll('[aria-modal="true"], dialog[open]')].some(
+      (el) => el !== thisDialog,
+    )
+  }
+
   function initModal() {
-    const closeButton = document.querySelector(".modal-close")
+    const thisDialog = document.querySelector(".modal-content[role='dialog']")
+    const closeButton = document.querySelector<HTMLButtonElement>(".modal-close")
     if (closeButton) {
       closeButton.addEventListener("click", (e) => {
         e.preventDefault()
         closeModal()
       })
+      closeButton.focus()
     }
 
     const backdropLink = document.querySelector(".modal-backdrop-link")
@@ -98,9 +115,9 @@ const note = recommendationNotes.get(movie.const)
     }
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeModal()
-      }
+      if (e.key !== "Escape") return
+      if (isOtherOverlayOpen(thisDialog)) return
+      closeModal()
     })
   }
 
@@ -110,3 +127,10 @@ const note = recommendationNotes.get(movie.const)
     initModal()
   }
 </script>
+
+<style>
+  /* Phase 09a switches the title to h1; shared movies CSS still targets h2 until Phase 10. */
+  .modal-header h1 {
+    margin: 0;
+  }
+</style>

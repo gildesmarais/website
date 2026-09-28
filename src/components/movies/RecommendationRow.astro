@@ -1,4 +1,6 @@
 ---
+import { externalRel } from "../../utils/linkRel"
+
 export interface Props {
   imdbId: string
   title: string
@@ -11,24 +13,62 @@ export interface Props {
 
 const { imdbId, title, year, yourRating, rank, variant, note } = Astro.props
 const rankLabel = String(rank).padStart(2, "0")
+const TitleTag = variant === "compact" ? "h3" : "h2"
+const detailHref = `/movies/${imdbId}`
+const imdbHref = `https://www.imdb.com/title/${imdbId}/`
 ---
 
 <article class={`recommendation-row recommendation-row-${variant}`} data-imdb-id={imdbId}>
-  <a href={`/movies/${imdbId}`} class="recommendation-row-link">
+  <div class="recommendation-row-link">
     <div class="recommendation-row-poster">
-      <slot name="poster" />
+      <a href={detailHref} class="recommendation-row-detail-link" tabindex="-1" aria-hidden="true">
+        <slot name="poster" />
+      </a>
     </div>
 
     <div class="recommendation-row-body">
       <header class="recommendation-row-meta">
         <span class="recommendation-row-rank" aria-label={`Rank ${rank}`}>#{rankLabel}</span>
-        <h2 class="recommendation-row-title">{title} ({year})</h2>
+        <TitleTag class="recommendation-row-title">
+          <a href={detailHref}>{title} ({year})</a>
+        </TitleTag>
         <span class="recommendation-row-rating">
           <span class="recommendation-row-rating-value">{yourRating}</span>
           <span class="recommendation-row-rating-scale">/10</span>
         </span>
       </header>
       {note && <p class="recommendation-row-note">{note}</p>}
+      <a href={imdbHref} target="_blank" rel={externalRel()} class="recommendation-row-imdb">IMDb</a>
     </div>
-  </a>
+  </div>
 </article>
+
+<style>
+  .recommendation-row-detail-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .recommendation-row-title a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--brand-accent) 55%, transparent);
+    text-underline-offset: 0.12em;
+  }
+
+  .recommendation-row-title a:hover,
+  .recommendation-row-title a:focus-visible {
+    text-decoration-color: var(--brand-accent);
+  }
+
+  .recommendation-row-imdb {
+    align-self: start;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .recommendation-row-compact .recommendation-row-imdb {
+    font-size: var(--text-2xs);
+  }
+</style>
