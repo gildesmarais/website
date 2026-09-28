@@ -23,6 +23,9 @@ export function initMovieList(): void {
   const grid = document.querySelector(".recommendations-grid") as HTMLElement | null
   if (!grid) return
 
+  const controls = document.querySelector(".movie-controls") as HTMLElement | null
+  if (controls) controls.hidden = false
+
   const { catalog, recommendations } = readCatalog()
   const recommendationsSet = new Set(recommendations)
   const cardMap = new Map<string, HTMLElement>()
