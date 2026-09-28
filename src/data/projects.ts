@@ -79,7 +79,8 @@ export const projects = [
       term: "html2rss",
       href: "https://github.com/html2rss",
       external: true,
-      definition: "Open-source org — syndication ecosystem with an MCP server (gem, web app, configs, tooling)",
+      definition:
+        "Open-source org — syndication ecosystem with an MCP server (gem, web app, configs, tooling)",
     },
   },
   {
@@ -139,8 +140,7 @@ export const projects = [
       { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
       {
         term: "Agentic SDLC",
-        definition:
-          "22 agent skills, including Ruby, Rails, Rust, Swift, and TypeScript packs.",
+        definition: "22 agent skills, including Ruby, Rails, Rust, Swift, and TypeScript packs.",
       },
     ],
     bodyHtml: [
