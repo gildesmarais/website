@@ -5,75 +5,49 @@ export type Category = {
 
 export const skills = [
   {
-    label: "Leadership & Process",
+    label: "Agent-Driven Engineering",
     skills: [
-      "System Architecture",
-      "Mentoring / Team Lead",
-      "API Design (OpenAPI)",
-      "Business Process Analysis & Optimization",
-      "Requirements Gathering",
-      "Process Modeling",
-      "Technical & Business Documentation",
-      "Legacy System Modernization",
-      "SEO",
+      "Agent skills & rules authoring",
+      "MCP server design",
+      "Agentic SDLC (triage → review → release)",
+      "Prompt & spec compilation",
+      "AI-assisted code review",
     ],
   },
   {
-    label: "Infrastructure & DevOps",
+    label: "Systems & Architecture",
+    skills: [
+      "System Architecture",
+      "API Design (OpenAPI)",
+      "Legacy System Modernization",
+      "Business Process Analysis & Optimization",
+      "Observability Strategy",
+    ],
+  },
+  {
+    label: "Languages & Runtimes",
+    skills: ["Ruby on Rails", "TypeScript", "Rust", "Swift (bindings)", "WebAssembly", "PostgreSQL"],
+  },
+  {
+    label: "Infrastructure & Delivery",
     skills: [
       "Docker",
       "Terraform",
       "CI/CD (GitHub Actions)",
-      "Ansible",
-      "AWS Lambda",
-      "nginx",
-      "AWS Elemental MediaConvert",
-      "AWS Cognito",
-      "ffmpeg",
+      "AWS (Lambda, Cognito, MediaConvert)",
+      "Cloudflare Workers",
+      "Datadog & Sentry",
     ],
   },
   {
     label: "Security & Compliance",
     skills: [
       "Security Reviews",
-      "Security Auditing",
-      "ISO/IEC 27001 (requirements, collaboration with Security / QA)",
-      "GDPR Compliance",
       "Risk Assessment",
-    ],
-  },
-  {
-    label: "Backend & Languages",
-    skills: ["Ruby on Rails", "Ruby", "TypeScript", "GraphQL", "Sidekiq"],
-  },
-  {
-    label: "Databases & Storage",
-    skills: ["PostgreSQL", "Redis", "S3", "PostGIS"],
-  },
-  {
-    label: "Frontend & UI",
-    skills: ["React", "Vue.js", "Angular", "Astro.js", "Progressive Enhancement", "Accessibility (a11y)"],
-  },
-  {
-    label: "Testing & Quality",
-    skills: [
-      "Test-Driven Development (TDD)",
-      "RSpec",
-      "Jest",
-      "Cypress",
-      "Selenium & Capybara",
-      "Performance Optimization",
-    ],
-  },
-  {
-    label: "Monitoring & Observability",
-    skills: [
-      "Datadog",
-      "Sentry.io",
-      "Observability Strategy",
-      "CDN & Edge Optimization",
-      "Cloudflare Workers",
-      "UptimeRobot",
+      "ISO/IEC 27001",
+      "C5",
+      "GDPR Compliance",
+      "Trusted Publishing (supply chain)",
     ],
   },
 ] as const satisfies readonly Category[]
