@@ -18,7 +18,7 @@ if (filteredHeadings.length === 0) return null
 ---
 
 <nav class="toc" aria-label="Table of contents">
-  <h3 class="toc-title section-kicker accent">{title}</h3>
+  <p class="toc-title section-kicker accent">{title}</p>
   <ul class="toc-list">
     {
       filteredHeadings.map((heading) => (
@@ -54,11 +54,14 @@ if (filteredHeadings.length === 0) return null
   }
 
   .toc-list li {
-    padding: 0 0 var(--space-xxs) 0;
+    padding: 0;
     font-size: var(--text-sm);
   }
 
   .toc-list a {
+    display: block;
+    min-height: var(--size-tap-min);
+    padding-block: var(--space-xxs);
     text-decoration: none;
     transition: color var(--ui-motion) var(--ui-ease);
   }
@@ -68,10 +71,6 @@ if (filteredHeadings.length === 0) return null
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.15em;
-  }
-
-  .toc-list a:focus {
-    outline: none;
   }
 
   /* Indent based on heading depth */
@@ -100,24 +99,27 @@ if (filteredHeadings.length === 0) return null
       font-size: var(--text-sm);
     }
 
+    .toc-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: var(--space-md);
+      row-gap: 0;
+      align-items: stretch;
+    }
+
     .toc-list a {
       font-size: var(--text-md);
+      display: flex;
+      align-items: center;
+      min-height: var(--size-tap-min);
     }
 
-    .toc-depth-3 {
-      margin-left: var(--space-md);
-    }
-
-    .toc-depth-4 {
-      margin-left: calc(var(--space-md) * 2);
-    }
-
-    .toc-depth-5 {
-      margin-left: calc(var(--space-md) * 3);
-    }
-
+    .toc-depth-2,
+    .toc-depth-3,
+    .toc-depth-4,
+    .toc-depth-5,
     .toc-depth-6 {
-      margin-left: calc(var(--space-md) * 4);
+      margin-left: 0;
     }
   }
 </style>
