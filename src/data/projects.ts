@@ -41,18 +41,37 @@ export const projects = [
     title: "html2rss",
     status: "maintained",
     description:
-      "The html2rss open-source organization — a production-ready toolkit that turns arbitrary HTML into clean, structured RSS 2.0 feeds.",
+      "Open-source org — turns any website into RSS 2.0 or JSON Feed. Ruby gem, self-hosted web app, and an MCP server for agents.",
     highlights: [
-      { term: "Discovery", definition: "Extracts article lists declaratively; minimal brittle selectors." },
-      { term: "Dynamic sites", definition: "Optional headless rendering for SPA and JS-heavy pages." },
-      { term: "Normalization", definition: "Consistent titles, authors, dates, and images across sources." },
-      { term: "Ops", definition: "Error handling, monitoring hooks, and rolling releases for stability." },
-      { term: "Delivery", definition: "Lightweight HTTP service with caching and health checks." },
-      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker; portable and easy to self-host." },
+      {
+        term: "Extraction",
+        definition: "Feeds from sites that never offered one, without writing selectors.",
+      },
+      {
+        term: "Dynamic sites",
+        definition: "JavaScript-heavy pages work too; a browser starts only when needed.",
+      },
+      {
+        term: "Discovery",
+        definition: "Finds the right listing page when the homepage says too little.",
+      },
       {
         term: "MCP",
-        definition:
-          "Ships an MCP server exposing scrape, inspect, and capture as agent tools, resources, and prompts.",
+        definition: "Agents build and ship feeds with the same tools people use.",
+        href: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
+        external: true,
+      },
+      {
+        term: "Safety",
+        definition: "Safe to self-host: it stays out of your private network by default.",
+      },
+      {
+        term: "Approach",
+        definition: "Root causes over workarounds, loud failures, performance measured before tuned.",
+      },
+      {
+        term: "Self-hosted",
+        definition: "Ruby gem plus a Docker web app that runs on your own hardware.",
       },
       {
         term: "Adoption",
@@ -79,15 +98,14 @@ export const projects = [
       },
     ],
     bodyHtml: [
-      "html2rss restores open web syndication by converting any website (static or dynamic) into a reliable feed. It uses declarative extractors in YAML, supports optional headless rendering, and outputs standards-compliant XML ready for any reader or aggregator. Built for maintainers who prefer simplicity over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that never had it (or quietly killed it).",
-      'The <a href="https://github.com/html2rss" target="_blank" rel="noopener noreferrer">html2rss organization</a> spans the Ruby gem, web app, config library, docs site, and scrape API bridge.',
+      "html2rss brings RSS back to sites that never had it (or quietly killed it). It reads what a page already says about itself before guessing, and starts a browser only when a page needs one. YAML selectors stay available when you know the markup.",
+      'The <a href="https://github.com/html2rss" target="_blank" rel="noopener noreferrer">html2rss organization</a> spans the Ruby gem, a self-hostable web app (paste a URL, get a feed), 220 ready-made site feeds, the docs site, and a headless scrape API.',
     ],
     homepage: {
       term: "html2rss",
       href: "https://github.com/html2rss",
       external: true,
-      definition:
-        "Open-source org — syndication ecosystem with an MCP server (gem, web app, configs, tooling)",
+      definition: "Open-source org — any site to RSS or JSON Feed; self-hosted, MCP server",
     },
   },
   {
