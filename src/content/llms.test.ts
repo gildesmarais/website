@@ -1,11 +1,20 @@
 import { describe, expect, it, vi } from "vitest"
-import { generateLlmsTxt, generateLlmsFullTxt } from "./llms"
+import { projects } from "../data/projects"
+import { corePage } from "../data/site"
+import { generateLlmsTxt, generateLlmsFullTxt, rewriteMarkdownLinks } from "./llms"
+
+function supplyChainLine(id: string): string {
+  const project = projects.find((entry) => entry.id === id)
+  const highlight = project?.highlights?.find((entry) => entry.term === "Supply chain")
+  if (!highlight) throw new Error(`missing Supply chain highlight for ${id}`)
+  return `Supply chain: ${highlight.definition}`
+}
 
 vi.mock("astro:content", () => {
   const posts = [
     {
       id: "first-post",
-      body: "First post content body text.",
+      body: "First post content body text.\n\n![setup photo](../../assets/images/posts/setup.webp)\n\nSee the [follow-up](/blog/second-post) and [contact](/contact).",
       data: {
         title: "First Post Title",
         description: "First post summary description.",
@@ -65,8 +74,27 @@ vi.mock("../movies", () => ({
   ]),
 }))
 
+describe("rewriteMarkdownLinks", () => {
+  const base = "https://gil.desmarais.de"
+
+  it("replaces relative asset images with alt text only", () => {
+    expect(rewriteMarkdownLinks("![minimum working setup](../../assets/images/posts/setup.webp)", base)).toBe(
+      "minimum working setup",
+    )
+  })
+
+  it("rewrites root-relative links to absolute canonical URLs", () => {
+    expect(rewriteMarkdownLinks("[Let me know!](/contact)", base)).toBe(
+      "[Let me know!](https://gil.desmarais.de/contact/)",
+    )
+    expect(rewriteMarkdownLinks("[part two](/blog/how-i-work-part-2-the-command-line)", base)).toBe(
+      "[part two](https://gil.desmarais.de/blog/how-i-work-part-2-the-command-line/)",
+    )
+  })
+})
+
 describe("llms content generation", () => {
-  it("generates curated llms.txt with showcase, reccs, and full link only", async () => {
+  it("generates curated llms.txt with projects, showcase, reccs, and full link only", async () => {
     const text = await generateLlmsTxt({ siteUrl: "https://gil.desmarais.de" })
 
     expect(text).toContain("# Gil Desmarais")
@@ -74,19 +102,26 @@ describe("llms content generation", () => {
       "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
     )
     expect(text).toContain("## Core Pages")
-    expect(text).toContain("- [Home](https://gil.desmarais.de/): Main entry point and site overview.")
-    expect(text).toContain("- [Blog](https://gil.desmarais.de/blog)")
-    expect(text).toContain("- [Resume](https://gil.desmarais.de/resume)")
+    const home = corePage("/")
+    expect(text).toContain(`- [${home.title}](https://gil.desmarais.de/): ${home.description}`)
+    expect(text).toContain("- [Blog](https://gil.desmarais.de/blog/)")
+    expect(text).toContain("- [Resume](https://gil.desmarais.de/resume/)")
+    expect(text).toContain("## Projects")
+    expect(text).toContain("### html2rss")
+    expect(text).toContain("Status: maintained")
+    expect(text).toContain(supplyChainLine("html2rss"))
+    expect(text).toContain("### moodbar.rs")
+    expect(text).toContain("- [@moodbar/wasm](https://www.npmjs.com/package/@moodbar/wasm)")
     expect(text).toContain("## Showcase Posts")
     expect(text).toContain(
-      "- [Second Post Title](https://gil.desmarais.de/blog/second-post): Second post summary description.",
+      "- [Second Post Title](https://gil.desmarais.de/blog/second-post/): Second post summary description.",
     )
     expect(text).toContain(
-      "- [First Post Title](https://gil.desmarais.de/blog/first-post): First post summary description.",
+      "- [First Post Title](https://gil.desmarais.de/blog/first-post/): First post summary description.",
     )
     expect(text).not.toContain("Archive Only")
     expect(text).toContain("## Recommended Films")
-    expect(text).toContain("https://gil.desmarais.de/movies/recommendations")
+    expect(text).toContain("https://gil.desmarais.de/movies/recommendations/")
     expect(text).toContain("- Inception (2010)")
     expect(text).toContain("- Heat (1995)")
     expect(text).not.toContain("Mind-bending")
@@ -94,7 +129,7 @@ describe("llms content generation", () => {
     expect(text).not.toContain("llms-small.txt")
   })
 
-  it("generates llms-full.txt with excerpts, notes, and article bodies", async () => {
+  it("generates llms-full.txt with ### entries, rewritten links, and project data", async () => {
     const text = await generateLlmsFullTxt({ siteUrl: "https://gil.desmarais.de" })
 
     expect(text).toContain("# Gil Desmarais — Full Site Content")
@@ -103,17 +138,29 @@ describe("llms content generation", () => {
       "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
     )
     expect(text).toContain("## Core Pages")
-    expect(text).toContain("# About")
-    expect(text).toContain("URL: https://gil.desmarais.de/about")
-    expect(text).toContain("Background and how curiosity")
+    expect(text).toContain("### About")
+    expect(text).not.toMatch(/^# About$/m)
+    expect(text).toContain("URL: https://gil.desmarais.de/about/")
+    expect(text).toContain(corePage("/about").excerpt)
+    expect(text).toContain("## Projects")
+    expect(text).toContain("### html2rss")
+    expect(text).toContain("Status: maintained")
+    expect(text).toContain(supplyChainLine("jekyll-loading-lazy"))
     expect(text).toContain("## Recommended Films (Top 10)")
     expect(text).toContain("### Inception (2010)")
     expect(text).toContain("Mind-bending.")
     expect(text).toContain("### Heat (1995)")
-    expect(text).toContain("# Article: Second Post Title")
-    expect(text).toContain("URL: https://gil.desmarais.de/blog/second-post")
+    expect(text).toContain("### Article: Second Post Title")
+    expect(text).not.toMatch(/^# Article:/m)
+    expect(text).toContain("URL: https://gil.desmarais.de/blog/second-post/")
     expect(text).toContain("Date: 2025-02-01")
     expect(text).toContain("Second post content body text.")
     expect(text).toContain("Archive-only body.")
+    expect(text).toContain("setup photo")
+    expect(text).not.toContain("../../assets/")
+    expect(text).toContain("[follow-up](https://gil.desmarais.de/blog/second-post/)")
+    expect(text).toContain("[contact](https://gil.desmarais.de/contact/)")
+    expect(text).not.toMatch(/\]\(\//)
+    expect(text).not.toMatch(/\]\(\.\.\//)
   })
 })

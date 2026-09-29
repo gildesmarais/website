@@ -4,21 +4,20 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import NamePronunciation from "../components/NamePronunciation.astro"
 import { allSocials } from "../data/socials"
+import { corePage } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
 const title = "About"
-const description =
-  "Hi, I'm Gil — curious human, engineer by trade, into music, movement, and thoughtful systems."
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={corePage("/about").description}>
   <Hero
     title={`<abbr title="northern German for 'Hi'">Moin</abbr>, I'm Gil Desmarais`}
-    description="How curiosity, systems thinking, and experience shaped the way I build and lead."
+    description="How curiosity, systems thinking, and experience shaped the way I build."
   >
     <p>
-      I help teams turn complexity into clear, reliable delivery by combining systems thinking, hands-on
-      engineering, and pragmatic leadership.
+      I turn complexity into clear, reliable delivery by combining systems thinking, hands-on engineering, and
+      pragmatic judgement.
     </p>
   </Hero>
 
@@ -86,13 +85,13 @@ const description =
     </p>
 
     <p>
-      Studying Business Computer Science gave me the dual lenses I rely on today: translating technical
-      reality into business value, and turning business constraints into pragmatic engineering decisions.
+      Studying Business Computer Science gave me the dual lenses I rely on today: turning technical reality
+      into business value, and turning business constraints into pragmatic engineering decisions.
     </p>
-    <p>That balance between architecture and outcome defines how I lead, build, and deliver.</p>
+    <p>That balance between architecture and outcome defines how I build and deliver.</p>
 
     <p>
-      The curiosity that started with a Commodore 64 still drives how I design systems, teams, and decisions
+      The curiosity that started with a Commodore&nbsp;64 still drives how I design systems and decisions
       today: with an eye for clarity, longevity, and real-world impact.
     </p>
   </section>
@@ -118,12 +117,20 @@ const description =
         <strong>Knowledge sharing:</strong> Teach, document, and invite questions so teams level up together.
       </li>
       <li>
-        <strong>Delight in the details:</strong> Keep experiences calm, reliable, and quietly excellent.
+        <strong>Delight in the details:</strong> Keep experiences fast, calm, and reliable.
+      </li>
+      <li>
+        <strong>Leverage:</strong> I work with agents under written doctrine — skills, rules, and admission gates
+        I maintain <a
+          href="https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
+          target="_blank"
+          rel={externalRel("external")}>in the open</a
+        >.
       </li>
     </ul>
     <p>
-      In practice, that means translating between business intent and implementation detail, and keeping
-      delivery calm enough for useful progress to compound.
+      In practice, that means turning business intent into shipped systems, and keeping delivery fast and calm
+      enough for useful progress to compound.
     </p>
   </section>
 

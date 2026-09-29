@@ -1,0 +1,17 @@
+---
+export const prerender = true
+
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.astro"
+
+const title = "Page not found"
+---
+
+<BaseLayout title={title} description="That page is not here. Head home, browse the blog, or get in touch.">
+  <Hero title={title} description="That URL does not match anything on this site." />
+
+  <p>
+    Try the <a href="/">homepage</a>, the <a href="/blog">blog</a>, or{" "}
+    <a href="/contact">contact</a>.
+  </p>
+</BaseLayout>

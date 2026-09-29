@@ -18,7 +18,7 @@ if (filteredHeadings.length === 0) return null
 ---
 
 <nav class="toc" aria-label="Table of contents">
-  <h3 class="toc-title section-kicker accent">{title}</h3>
+  <p class="toc-title section-kicker accent">{title}</p>
   <ul class="toc-list">
     {
       filteredHeadings.map((heading) => (
@@ -40,25 +40,32 @@ if (filteredHeadings.length === 0) return null
     justify-content: unset !important;
   }
 
-  .toc-title {
-    padding-left: var(--space-sm);
-  }
-
+  /* Match .accent title text (bar width + pad): marker + link as one inline unit. */
   .toc-list {
     letter-spacing: -0.01rem;
     line-height: var(--leading-tight);
     margin: 0;
+    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
+    list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: var(--space-xxs);
   }
 
   .toc-list li {
-    padding: 0 0 var(--space-xxs) 0;
+    padding: 0;
     font-size: var(--text-sm);
+    list-style: none;
+  }
+
+  .toc-list li::before {
+    content: "- ";
+    color: var(--brand-accent);
   }
 
   .toc-list a {
+    display: inline;
     text-decoration: none;
     transition: color var(--ui-motion) var(--ui-ease);
   }
@@ -66,33 +73,43 @@ if (filteredHeadings.length === 0) return null
   .toc-list a:hover {
     color: var(--brand-accent);
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: var(--ui-stroke);
     text-underline-offset: 0.15em;
-  }
-
-  .toc-list a:focus {
-    outline: none;
   }
 
   /* Indent based on heading depth */
   .toc-depth-2 {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   .toc-depth-3 {
-    margin-left: var(--space-lg);
+    margin-inline-start: var(--space-lg);
   }
 
   .toc-depth-4 {
-    margin-left: calc(var(--space-lg) * 2);
+    margin-inline-start: calc(var(--space-lg) * 2);
   }
 
   .toc-depth-5 {
-    margin-left: calc(var(--space-lg) * 3);
+    margin-inline-start: calc(var(--space-lg) * 3);
   }
 
   .toc-depth-6 {
-    margin-left: calc(var(--space-lg) * 4);
+    margin-inline-start: calc(var(--space-lg) * 4);
+  }
+
+  /* Tap targets only where needed — always-on min-height over-spaced the list. */
+  @media (pointer: coarse) {
+    .toc-list {
+      gap: 0;
+    }
+
+    .toc-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--size-tap-min);
+      padding-block: var(--space-xxs);
+    }
   }
 
   @media (width <= 768px) {
@@ -100,24 +117,28 @@ if (filteredHeadings.length === 0) return null
       font-size: var(--text-sm);
     }
 
+    .toc-list {
+      flex-direction: column;
+    }
+
     .toc-list a {
       font-size: var(--text-md);
     }
 
     .toc-depth-3 {
-      margin-left: var(--space-md);
+      margin-inline-start: var(--space-md);
     }
 
     .toc-depth-4 {
-      margin-left: calc(var(--space-md) * 2);
+      margin-inline-start: calc(var(--space-md) * 2);
     }
 
     .toc-depth-5 {
-      margin-left: calc(var(--space-md) * 3);
+      margin-inline-start: calc(var(--space-md) * 3);
     }
 
     .toc-depth-6 {
-      margin-left: calc(var(--space-md) * 4);
+      margin-inline-start: calc(var(--space-md) * 4);
     }
   }
 </style>

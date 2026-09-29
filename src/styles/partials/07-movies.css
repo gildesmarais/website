@@ -678,7 +678,7 @@
 
 .movie-modal-content .poster-section .movie-poster-container {
   width: 100%;
-  max-width: 300px;
+  max-width: var(--size-poster-detail);
   border-width: var(--ui-stroke);
 }
 
@@ -721,7 +721,7 @@
   }
 
   .movie-modal-content .poster-section .movie-poster-container {
-    width: min(240px, 70vw);
+    width: min(var(--size-poster-detail-sm), var(--poster-detail-max));
     max-width: none;
   }
 
@@ -762,7 +762,7 @@
 
 .modal-container {
   position: relative;
-  max-width: 800px;
+  max-width: var(--size-modal-max);
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;

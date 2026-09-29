@@ -10,10 +10,18 @@ const { imdbId } = Astro.props
   <img
     data-poster-imdb={imdbId}
     src="/poster-loading.svg"
-    aria-hidden
-    alt="Loading Movie Poster for {imdbId}"
+    aria-hidden="true"
+    alt=""
     class="movie-poster"
     loading="lazy"
     style={`view-transition-name: movie-poster-${imdbId}`}
   />
+  <noscript>
+    <style>
+      .movie-poster-container > img[data-poster-imdb] {
+        display: none;
+      }
+    </style>
+    <img src="/poster-missing.svg" alt="" aria-hidden="true" class="movie-poster" />
+  </noscript>
 </div>

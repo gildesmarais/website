@@ -7,7 +7,6 @@ import legal from "../data/legal.json"
 const language = "de"
 const title = "Imprint & Privacy"
 const description = "Imprint and legal information."
-const robots = "noindex, noarchive, follow"
 
 function rot18(str: string): string {
   return str.replace(/[a-zA-Z0-9]/g, (c) => {
@@ -24,7 +23,7 @@ function rot18(str: string): string {
 }
 ---
 
-<BaseLayout language={language} title={title} description={description} robots={robots}>
+<BaseLayout language={language} title={title} description={description}>
   <div class="width">
     <h1>{title}</h1>
 
@@ -85,13 +84,17 @@ function rot18(str: string): string {
     <p lang="de">
       Durch den Besuch meiner Website werden Informationen über den Zugriff in Logfiles auf dem Server
       gespeichert. Diese Informationen sind für die Bereitstellung dieser Website erforderlich. Es werden
-      keine weiteren Informationen gespeichert und keine Cookies gesetzt.
+      keine Cookies gesetzt und kein Cross-Site-Tracking eingesetzt. Für aggregierte, cookieless
+      Seitenaufruf-Statistiken nutze ich GoatCounter. Auf <a href="/movies">/movies</a> werden Filmplakat-Bilder
+      vom Bild-Host von OMDb geladen.
     </p>
 
     <h2 lang="en">Privacy</h2>
     <p lang="en">
-      By visiting my site, information about the access is stored in log files on the server. These
-      information are required to deliver this website. No other information is stored and no cookies set.
+      By visiting my site, information about the access is stored in log files on the server. These are
+      required to deliver this website. No cookies are set and no cross-site tracking is used. For aggregate,
+      cookieless page-view statistics I use GoatCounter. On <a href="/movies">/movies</a>, poster images load
+      from OMDb's image host.
     </p>
     <script is:inline>
       ;(() => {

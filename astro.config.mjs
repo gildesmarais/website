@@ -1,6 +1,7 @@
 import { defineConfig, envField } from "astro/config"
 import sitemap from "@astrojs/sitemap"
 import vercel from "@astrojs/vercel"
+import { isIndexable } from "./src/seo.ts"
 
 export default defineConfig({
   env: {
@@ -13,10 +14,14 @@ export default defineConfig({
     },
   },
   site: "https://gil.desmarais.de",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => isIndexable(new URL(page).pathname),
+    }),
+  ],
   output: "static",
   adapter: vercel(),
-  prefetch: true,
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   redirects: {
     "/sitemap.xml": "/sitemap-index.xml",
     "/.well-known/llms.txt": "/llms.txt",

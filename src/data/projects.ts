@@ -11,6 +11,8 @@ export type ProjectLink = {
 export type ProjectHighlight = {
   term: string
   definition: string
+  href?: string
+  external?: boolean
 }
 
 export type HomepageHighlight = {
@@ -39,14 +41,49 @@ export const projects = [
     title: "html2rss",
     status: "maintained",
     description:
-      "The html2rss open-source organization — a production-ready toolkit that turns arbitrary HTML into clean, structured RSS 2.0 feeds.",
+      "Open-source org — turns any website into RSS 2.0 or JSON Feed. Ruby gem, self-hosted web app, and an MCP server for agents.",
     highlights: [
-      { term: "Discovery", definition: "Extracts article lists declaratively; minimal brittle selectors." },
-      { term: "Dynamic sites", definition: "Optional headless rendering for SPA and JS-heavy pages." },
-      { term: "Normalization", definition: "Consistent titles, authors, dates, and images across sources." },
-      { term: "Ops", definition: "Error handling, monitoring hooks, and rolling releases for stability." },
-      { term: "Delivery", definition: "Lightweight HTTP service with caching and health checks." },
-      { term: "Stack", definition: "Ruby + Roda, RSpec/VCR, Docker; portable and easy to self-host." },
+      {
+        term: "Extraction",
+        definition: "Feeds from sites that never offered one, without writing selectors.",
+      },
+      {
+        term: "Dynamic sites",
+        definition: "JavaScript-heavy pages work too; a browser starts only when needed.",
+      },
+      {
+        term: "Discovery",
+        definition: "Finds the right listing page when the homepage says too little.",
+      },
+      {
+        term: "MCP",
+        definition: "Agents build and ship feeds with the same tools people use.",
+        href: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
+        external: true,
+      },
+      {
+        term: "Safety",
+        definition: "Safe to self-host: it stays out of your private network by default.",
+      },
+      {
+        term: "Approach",
+        definition: "Root causes over workarounds, loud failures, performance measured before tuned.",
+      },
+      {
+        term: "Self-hosted",
+        definition: "Ruby gem plus a Docker web app that runs on your own hardware.",
+      },
+      {
+        term: "Adoption",
+        definition: "58k+ RubyGems downloads · 16k+ Docker Hub pulls",
+        href: "https://rubygems.org/gems/html2rss/",
+        external: true,
+      },
+      {
+        term: "Supply chain",
+        definition:
+          "Every release traceable to its source: RubyGems trusted publishing, Docker images with provenance and SBOM.",
+      },
     ],
     links: [
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
@@ -54,16 +91,21 @@ export const projects = [
       { text: "RubyGems", url: "https://rubygems.org/gems/html2rss/", external: true },
       { text: "Docker Hub", url: "https://hub.docker.com/r/html2rss/web", external: true },
       { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
+      {
+        text: "MCP module guide",
+        url: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
+        external: true,
+      },
     ],
     bodyHtml: [
-      "html2rss restores open web syndication by converting any website (static or dynamic) into a reliable feed. It uses declarative extractors in YAML, supports optional headless rendering, and outputs standards-compliant XML ready for any reader or aggregator. Built for maintainers who prefer simplicity over scraping frameworks, it runs well in cron jobs or containers and brings RSS back to sites that never had it (or quietly killed it).",
-      'The <a href="https://github.com/html2rss" target="_blank" rel="noopener noreferrer">html2rss organization</a> spans the Ruby gem, web app, config library, docs site, and scrape API bridge.',
+      "html2rss brings RSS back to sites that never had it (or quietly killed it). It reads what a page already says about itself before guessing, and starts a browser only when a page needs one. YAML selectors stay available when you know the markup.",
+      'The <a href="https://github.com/html2rss" target="_blank" rel="noopener noreferrer">html2rss organization</a> spans the Ruby gem, a self-hostable web app (paste a URL, get a feed), 220 ready-made site feeds, the docs site, and a headless scrape API.',
     ],
     homepage: {
       term: "html2rss",
       href: "https://github.com/html2rss",
       external: true,
-      definition: "Open-source org — syndication ecosystem (gem, web app, configs, tooling)",
+      definition: "Open-source org — any site to RSS or JSON Feed; self-hosted, MCP server",
     },
   },
   {
@@ -81,6 +123,11 @@ export const projects = [
         term: "Batch workflows",
         definition: "Batch generation pipeline for processing whole music folders.",
       },
+      {
+        term: "Supply chain",
+        definition:
+          "Every artifact traceable to its source commit: npm provenance, attested GitHub release builds; crates.io via API token.",
+      },
     ],
     links: [
       {
@@ -90,9 +137,11 @@ export const projects = [
       },
       { text: "GitHub Repository", url: "https://github.com/gildesmarais/moodbar.rs", external: true },
       { text: "crates.io", url: "https://crates.io/crates/moodbar", external: true },
+      { text: "@moodbar/wasm", url: "https://www.npmjs.com/package/@moodbar/wasm", external: true },
+      { text: "@moodbar/native", url: "https://www.npmjs.com/package/@moodbar/native", external: true },
     ],
     bodyHtml: [
-      "moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence.",
+      'moodbar.rs turns audio into visual fingerprints by combining signal processing with practical developer tooling. It is built for DJs and audio broadcasters who need to scan large libraries quickly and choose tracks with more confidence. Rust ships on crates.io; WASM and native packages ship on npm — including <a href="https://github.com/gildesmarais/moodbar.rs/blob/v0.7.1/packages/moodbar-native/ios/MoodbarNativeModule.swift" target="_blank" rel="noopener noreferrer">released Swift iOS bindings</a>.',
     ],
     homepage: {
       term: "moodbar.rs",
@@ -103,27 +152,31 @@ export const projects = [
   },
   {
     id: "dotfiles",
-    title: ".dotfiles & Scripts",
+    title: ".dotfiles",
     status: "evergreen",
-    description: "My personal macOS & CLI setup. A living repository of the tools I use daily.",
+    description: "My macOS and CLI config in ~/.dotfiles, linked with rcup.",
     links: [{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }],
     highlights: [
       {
-        term: "Guided setup",
-        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
+        term: "Workstation",
+        definition: "Same Brewfile, zsh, and editor config on each Mac.",
       },
-      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
-      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
-      { term: "AI skills", definition: "Developer environment skills synced across machines." },
+      {
+        term: "Agent skills",
+        definition: "Planning, review, and delivery. Install with npx skills, or rcup.",
+      },
+      {
+        term: "Guided defaults",
+        definition:
+          "macos-defaults-apply prompts, then applies macOS defaults. Touch ID sudo and Apple Watch unlock stay manual.",
+      },
     ],
-    bodyHtml: [
-      "A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes. It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for audio workflows.<br />Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes a Zsh setup for a consistent shell experience across machines.",
-    ],
+    bodyHtml: ["brew bundle installs the Brewfile."],
     homepage: {
       term: "dotfiles",
       href: "https://github.com/gildesmarais/dotfiles",
       external: true,
-      definition: "macOS/CLI infrastructure — syncable, actively maintained",
+      definition: "macOS/CLI infrastructure — agent skills and syncable workstation setup",
     },
   },
   {
@@ -138,7 +191,16 @@ export const projects = [
         term: "No JS",
         definition: "Native lazy-load via the loading attribute; removes third-party scripts.",
       },
-      { term: "Adoption", definition: "59k+ RubyGems downloads; more than 420 GitHub repos depend on it." },
+      {
+        term: "Adoption",
+        definition: "69k+ RubyGems downloads.",
+        href: "https://rubygems.org/gems/jekyll-loading-lazy",
+        external: true,
+      },
+      {
+        term: "Supply chain",
+        definition: "Published via API token; no provenance attestation.",
+      },
     ],
     links: [
       { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },

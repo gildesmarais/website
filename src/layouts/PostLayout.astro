@@ -1,6 +1,24 @@
 ---
 import BaseLayout from "./BaseLayout.astro"
-const { title, date, description, language } = Astro.props
+
+type KeepReadingPost = {
+  id: string
+  title: string
+}
+
+const {
+  title,
+  date,
+  description,
+  language,
+  keepReading = [],
+} = Astro.props as {
+  title: string
+  date?: Date
+  description: string
+  language?: string
+  keepReading?: KeepReadingPost[]
+}
 ---
 
 <BaseLayout title={title} description={description} language={language}>
@@ -29,6 +47,25 @@ const { title, date, description, language } = Astro.props
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />
+      <nav class="keep-reading" aria-label="Keep reading">
+        {
+          keepReading.length > 0 && (
+            <>
+              <p class="keep-reading-title section-kicker accent">Keep reading</p>
+              <ul>
+                {keepReading.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.id}`}>{post.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+        <p class="keep-reading-projects">
+          <a href="/projects">Projects</a>
+        </p>
+      </nav>
     </div>
   </article>
 </BaseLayout>
@@ -52,7 +89,7 @@ const { title, date, description, language } = Astro.props
     hyphens: manual;
     margin-top: var(--region-space);
     margin-bottom: var(--heading-space-bottom);
-    line-height: 1.16;
+    line-height: var(--leading-post);
   }
 
   article h2,
@@ -67,7 +104,7 @@ const { title, date, description, language } = Astro.props
 
   article h1 {
     margin-top: 0;
-    font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+    font-size: var(--text-post-title);
   }
 
   article header time {
@@ -81,6 +118,42 @@ const { title, date, description, language } = Astro.props
   :not(pre) > code {
     background-color: var(--ui-background-color-tertiary);
     border-radius: var(--ui-border-radius);
-    padding: 0.2rem 0.4rem;
+    padding: var(--code-inline-pad);
+  }
+
+  .keep-reading {
+    margin-top: var(--region-space);
+    padding-top: var(--block-space);
+    border-top: var(--ui-stroke-thin) solid var(--ui-border-color);
+  }
+
+  .keep-reading-title {
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Same rail as the accent kicker: marker + link as one inline unit. */
+  .keep-reading ul {
+    margin: 0 0 var(--space-md);
+    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
+    list-style: none;
+  }
+
+  .keep-reading li {
+    list-style: none;
+  }
+
+  .keep-reading li::before {
+    content: "- ";
+    color: var(--brand-accent);
+  }
+
+  .keep-reading li + li {
+    margin-top: var(--space-xxs);
+  }
+
+  /* Align with list text (and kicker), not with a separate marker column. */
+  .keep-reading-projects {
+    margin: 0;
+    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
   }
 </style>

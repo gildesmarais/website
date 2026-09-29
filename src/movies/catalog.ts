@@ -18,8 +18,11 @@ let movieCache: MovieCache | null = null
  * Injectable for tests; runtime uses getMovieCache() with JSON imports.
  */
 export function buildMovieCache(movies: Movie[], recommendations: MovieRecommendation[]): MovieCache {
+  const recommendationsSet = new Set(recommendations.map((r) => r.const).filter((c): c is string => !!c))
+
+  // Catalog stays Movie-first; recommended ids bypass the type filter so picks always resolve.
   const processedMovies = movies
-    .filter((movie) => movie.title_type === "Movie")
+    .filter((movie) => movie.title_type === "Movie" || recommendationsSet.has(movie.const))
     .map((movie) => ({
       ...movie,
       _searchString: buildSearchString(movie),
@@ -28,7 +31,7 @@ export function buildMovieCache(movies: Movie[], recommendations: MovieRecommend
   return {
     movies: processedMovies,
     moviesMap: new Map(processedMovies.map((m) => [m.const, m])),
-    recommendationsSet: new Set(recommendations.map((r) => r.const).filter((c): c is string => !!c)),
+    recommendationsSet,
     recommendationNotes: new Map(
       recommendations.filter((r) => r.const && r.note).map((r) => [r.const as string, r.note as string]),
     ),
