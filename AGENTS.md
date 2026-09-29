@@ -6,7 +6,7 @@ Non-inferable invariants. Directory layout, Prettier, and commit etiquette are v
 
 - `src/data/movies.json` is the runtime movie catalog. `ratings.csv` (repo root, untracked) is operator input; regenerate with `bin/migrate-ratings`, then review `src/data/recommendations.json`. Restart `npm run dev` after regeneration so the server cache reloads.
 - Page meta descriptions and llms excerpts for `/`, `/about`, `/resume`, `/contact`, and `/projects` come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog`, `/movies`, and `/imprint` keep their own meta descriptions.
-- Personas, golden paths, admission criteria, and the hiring-surface narrative live in `docs/personas.md`. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy that narrative.
+- Personas, golden paths, click budgets, mental models, and the doctrine ledger live in `.agents/product.md`. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy that file.
 - `src/seo.ts` is the only noindex list (`isIndexable` / `defaultRobots`). Sitemap filtering and the BaseLayout robots default both call it. Résumé keeps an explicit robots prop.
 - Pages import the movie catalog from `src/movies`, not from deep utils paths.
 
