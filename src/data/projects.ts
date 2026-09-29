@@ -152,27 +152,26 @@ export const projects = [
   },
   {
     id: "dotfiles",
-    title: ".dotfiles & Scripts",
+    title: ".dotfiles",
     status: "evergreen",
-    description:
-      "My personal macOS & CLI setup, including the agents/skills I ship with. A living repository of the tools I use daily.",
+    description: "My macOS and CLI config in ~/.dotfiles, linked with rcup.",
     links: [{ text: "GitHub Repo", url: "https://github.com/gildesmarais/dotfiles", external: true }],
     highlights: [
       {
-        term: "Guided setup",
-        definition: "Applying opinionated macOS defaults with prompts for manual tweaks.",
+        term: "Workstation",
+        definition: "Same Brewfile, zsh, and editor config on each Mac.",
       },
-      { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
-      { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
       {
-        term: "Agent workflow",
+        term: "Agent skills",
+        definition: "Planning, review, and delivery. Install with npx skills, or rcup.",
+      },
+      {
+        term: "Guided defaults",
         definition:
-          "Agent skills that encode engineering judgement — planning, review, delivery gates — with deliberately thin language packs on top.",
+          "macos-defaults-apply prompts, then applies macOS defaults. Touch ID sudo and Apple Watch unlock stay manual.",
       },
     ],
-    bodyHtml: [
-      "A production-grade macOS and CLI toolkit that rebuilds a familiar workstation from scratch in minutes. It automates Homebrew setup, dotfile linking, and editor preparation, while offering a guided macOS defaults wizard and practical scripts. From a local fuzzy-searchable wiki to a media normaliser for audio workflows.<br />Beyond automation, it documents the unscriptable bits, i.e. Touch ID sudo or Apple Watch unlock, and includes a Zsh setup for a consistent shell experience across machines.",
-    ],
+    bodyHtml: ["brew bundle installs the Brewfile."],
     homepage: {
       term: "dotfiles",
       href: "https://github.com/gildesmarais/dotfiles",
