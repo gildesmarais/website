@@ -1,48 +1,27 @@
-# Repository Guidelines
+# Repository guidelines
 
-## Project Structure & Module Organization
+Non-inferable invariants. Directory layout, Prettier, and commit etiquette are visible in the tree.
 
-- **Astro app:** Core pages live in `src/pages` (e.g., `index.astro`, route folders), layouts in `src/layouts`, reusable UI in `src/components`, and global styles in `src/styles`.
-- **Movie domain:** Catalog/query/poster logic lives in `src/movies/`; movie UI under `src/components/movies/`. Pages import the public surface from `src/movies` (not deep utils paths).
-- **Content layers:** Markdown-driven sections stay in `src/content`; media and fonts belong in `src/assets` and `public` for static delivery. Poster placeholders live in `public/poster-*.svg` — keep palette aligned with `01-tokens.css`, no Arial, prefer geometry over `<text>` for img-loaded SVGs.
-- **Data sources:** Site identity, projects, skills, and movie metadata live in `src/data`. Committed `src/data/movies.json` is the **runtime source of truth** for the movie catalog. `ratings.csv` (repo root, untracked) is the **operator input** — regenerate JSON via `bin/migrate-ratings` when ratings change.
-  - Page meta descriptions for `/`, `/about`, `/resume`, `/contact`, and `/projects`, and llms excerpts, come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog`, `/movies`, and `/imprint` keep their own meta descriptions.
-- **Tooling split:** `bin/` holds operator CLIs (e.g. `bin/migrate-ratings`). `scripts/` holds build/CI helpers (e.g. `scripts/visual-guardrails.mjs`).
-- **Product doctrine:** Canonical personas, golden paths, admission criteria, and the hiring-surface narrative live in `docs/personas.md`. Features must clear the admission criteria. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy the hiring-surface narrative.
+## Sources of truth
 
-## Build, Test & Development Commands
+- `src/data/movies.json` is the runtime movie catalog. `ratings.csv` (repo root, untracked) is operator input; regenerate with `bin/migrate-ratings`, then review `src/data/recommendations.json`. Restart `npm run dev` after regeneration so the server cache reloads.
+- Page meta descriptions and llms excerpts for `/`, `/about`, `/resume`, `/contact`, and `/projects` come from `corePages` in `src/data/site.ts` via `corePage(path)`. `/blog`, `/movies`, and `/imprint` keep their own meta descriptions.
+- Personas, golden paths, admission criteria, and the hiring-surface narrative live in `docs/personas.md`. Copy on `/`, `/resume`, `/contact`, `/about`, and `/projects` must satisfy that narrative.
+- `src/seo.ts` is the only noindex list (`isIndexable` / `defaultRobots`). Sitemap filtering and the BaseLayout robots default both call it. Résumé keeps an explicit robots prop.
+- Pages import the movie catalog from `src/movies`, not from deep utils paths.
 
-- **Install dependencies:** `npm ci` (or `make ci-install`) ensures lockfile-consistent installs.
-- **Local dev server:** `npm run dev` (alias `make serve`) launches Astro with hot reload at `http://localhost:4321`.
-- **Production build:** `npm run build` (alias `make build`) outputs the static site to `dist/`.
-- **Preview build output:** `npm run preview` serves the built site for smoke-testing before deploy.
-- **Quick gate:** `make check` (Makefile default) runs build, visual guardrails, and `astro check`.
-- **Pre-PR gate:** `make ready` runs `lint` + `test` + `check` (CI-equivalent verify). Typical prep: `make lintfix && make ready`.
-- **Unit tests:** `make test` / `npm test` runs Vitest (`vitest run`).
-- **Format codebase:** `make fix` / `make lintfix` runs Prettier `--write` and stylelint `--fix`.
+## Gates
 
-## Coding Style & Naming Conventions
+- `make check` before committing: production build, visual guardrails, `check:dist`, `lint-xml`, and `astro check`.
+- `lint-xml` runs `xmllint --noout` on `dist/client/feed.xml`, `sitemap-index.xml`, and `sitemap-0.xml`. CI calls `make lint-xml` after the dist checks.
+- `make lintfix && make ready` before a pull request. `make ready` runs lint, Vitest, and `make check`.
 
-- **Formatting:** Prettier + `prettier-plugin-astro` enforce two-space indentation, semicolonless JavaScript, and consistent attribute ordering. Always run `make fix` before review.
-- **Components vs. routes:** Astro/TSX components use PascalCase filenames (`MovieCard.astro`); routes and API handlers use kebab-case (`src/pages/blog`, `feed.xml.ts`).
-- **Imports:** Prefer relative aliases within `src` and keep side-effect imports (styles, fonts) near the file top.
-- **Inline prose + links:** Astro compresses HTML whitespace at build time (`compressHTML` defaults to `true`). When plain text and `<a>` (or `</a>`) sit on adjacent lines, the space between them is dropped — use `{" "}` or keep the space on the same line as the tag (e.g. `> spans` not `>\nspans`).
-- **Design System Compliance:** All style adjustments, transitions, border weights, font sizes, or spacing offsets must adhere to and extend design system tokens (defined in `src/styles/partials/01-tokens.css`). Avoid introducing ad-hoc hex colors, hardcoded rem/px sizes, transition timings, or layout "snowflakes". Never leave un-tokenized literal dimensions in component or page CSS — integrate them into existing design tokens or promote repeated spacers into `01-tokens.css`.
+## Traps
 
-## Testing Guidelines
+- Astro `compressHTML` drops whitespace between plain text and `<a>` or `</a>` on adjacent lines. Keep the space on the same line as the tag, or use `{" "}`.
+- CSS uses design tokens in `src/styles/partials/01-tokens.css` only. No ad-hoc hex, rem/px, or timing literals in component or page CSS.
+- Poster placeholders (`public/poster-*.svg`) stay on that palette, use no Arial, and prefer geometry over `<text>` (img-loaded SVGs).
 
-- **Automated tests:** Vitest via `npm test`. Colocate `*.test.ts` next to the module under test (e.g. under `src/movies/`, `src/utils/`).
-- **Mandatory gates:** Run `make check` before committing. Run `make ready` (or `make lintfix && make ready`) before opening a pull request.
-- **Regression focus:** Verify navigation, RSS feed (`/feed.xml`), movie filters, `/movies/recommendations`, llms surfaces (`/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` → `/llms.txt`), and `/404` after data or layout changes. Run `npm run check:dist` (wired into `make check`) for machine-endpoint and hiring-narrative guards; external links in `src/data/*.ts` are covered by the weekly scheduled Links workflow. Prefer extending unit tests for query/sort/poster helpers over manual-only checks.
-- **Manual smoke:** `npm run dev` for interactive checks; `npm run preview` against a production build when layout or CSS changes.
+## Tooling
 
-## Commit & Pull Request Guidelines
-
-- **Commit messages:** Follow the existing concise convention (`feat:`, `fix:`, `refactor:`) with imperative verbs and focused scope.
-- **Branch hygiene:** Keep commits small, rebased, and scoped to a single feature or fix; remove debug artifacts before pushing.
-- **Pull requests:** Provide a clear summary, link related issues, list manual validation steps, and attach before/after screenshots for UI-impacting updates.
-
-## Data & Deployment Notes
-
-- **Movie data refresh:** Place the latest `ratings.csv` at the repo root, run `bin/migrate-ratings`, then review `src/data/recommendations.json` manually. Commit the regenerated `movies.json` — that file is what the site reads at build/runtime.
-- **Cache awareness:** Restart `npm run dev` after regeneration so the server-side cache picks up new data.
+- `bin/` is operator CLIs. `scripts/` is build and CI helpers.
