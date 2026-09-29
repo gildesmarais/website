@@ -9,7 +9,6 @@ import legal from "../data/legal.json"
 import { externalRel } from "../utils/linkRel"
 
 const title = "Contact"
-const robots = "noindex, noarchive, follow"
 const email = legal.email
 const mailtoSubject = "Let's connect"
 const mailtoBody = `Hi Gil,
@@ -19,7 +18,7 @@ const emailEncoded = Buffer.from(email).toString("base64")
 const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 ---
 
-<BaseLayout title={title} description={corePage("/contact").description} robots={robots}>
+<BaseLayout title={title} description={corePage("/contact").description}>
   <Hero
     title={title}
     description="Fastest replies come from crisp, async notes. Share the problem, who’s involved, and the decision on the table."

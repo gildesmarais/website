@@ -7,7 +7,6 @@ import legal from "../data/legal.json"
 const language = "de"
 const title = "Imprint & Privacy"
 const description = "Imprint and legal information."
-const robots = "noindex, noarchive, follow"
 
 function rot18(str: string): string {
   return str.replace(/[a-zA-Z0-9]/g, (c) => {
@@ -24,7 +23,7 @@ function rot18(str: string): string {
 }
 ---
 
-<BaseLayout language={language} title={title} description={description} robots={robots}>
+<BaseLayout language={language} title={title} description={description}>
   <div class="width">
     <h1>{title}</h1>
 
