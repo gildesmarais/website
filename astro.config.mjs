@@ -1,6 +1,7 @@
 import { defineConfig, envField } from "astro/config"
 import sitemap from "@astrojs/sitemap"
 import vercel from "@astrojs/vercel"
+import { isIndexable } from "./src/seo.ts"
 
 export default defineConfig({
   env: {
@@ -15,13 +16,7 @@ export default defineConfig({
   site: "https://gil.desmarais.de",
   integrations: [
     sitemap({
-      filter: (page) => {
-        const { pathname } = new URL(page)
-        if (pathname.startsWith("/movies/tt")) return false
-        if (pathname === "/contact" || pathname === "/contact/") return false
-        if (pathname === "/imprint" || pathname === "/imprint/") return false
-        return true
-      },
+      filter: (page) => isIndexable(new URL(page).pathname),
     }),
   ],
   output: "static",
