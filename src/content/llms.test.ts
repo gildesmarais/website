@@ -1,5 +1,14 @@
 import { describe, expect, it, vi } from "vitest"
+import { projects } from "../data/projects"
+import { corePage } from "../data/site"
 import { generateLlmsTxt, generateLlmsFullTxt, rewriteMarkdownLinks } from "./llms"
+
+function supplyChainLine(id: string): string {
+  const project = projects.find((entry) => entry.id === id)
+  const highlight = project?.highlights?.find((entry) => entry.term === "Supply chain")
+  if (!highlight) throw new Error(`missing Supply chain highlight for ${id}`)
+  return `Supply chain: ${highlight.definition}`
+}
 
 vi.mock("astro:content", () => {
   const posts = [
@@ -93,17 +102,14 @@ describe("llms content generation", () => {
       "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
     )
     expect(text).toContain("## Core Pages")
-    expect(text).toContain(
-      "- [Home](https://gil.desmarais.de/): I build and run systems that move business numbers. Agents are part of how I ship.",
-    )
+    const home = corePage("/")
+    expect(text).toContain(`- [${home.title}](https://gil.desmarais.de/): ${home.description}`)
     expect(text).toContain("- [Blog](https://gil.desmarais.de/blog/)")
     expect(text).toContain("- [Resume](https://gil.desmarais.de/resume/)")
     expect(text).toContain("## Projects")
     expect(text).toContain("### html2rss")
     expect(text).toContain("Status: maintained")
-    expect(text).toContain(
-      "Supply chain: RubyGems trusted publishing; Docker images with provenance and SBOM.",
-    )
+    expect(text).toContain(supplyChainLine("html2rss"))
     expect(text).toContain("### moodbar.rs")
     expect(text).toContain("- [@moodbar/wasm](https://www.npmjs.com/package/@moodbar/wasm)")
     expect(text).toContain("## Showcase Posts")
@@ -135,14 +141,11 @@ describe("llms content generation", () => {
     expect(text).toContain("### About")
     expect(text).not.toMatch(/^# About$/m)
     expect(text).toContain("URL: https://gil.desmarais.de/about/")
-    expect(text).toContain("Background and how curiosity")
-    expect(text).toContain("with agents as part of the workflow")
-    expect(text).toContain("direct ownership of outcomes")
-    expect(text).toContain("treats agents as part of the toolchain")
+    expect(text).toContain(corePage("/about").excerpt)
     expect(text).toContain("## Projects")
     expect(text).toContain("### html2rss")
     expect(text).toContain("Status: maintained")
-    expect(text).toContain("Supply chain: Published to RubyGems via API token.")
+    expect(text).toContain(supplyChainLine("jekyll-loading-lazy"))
     expect(text).toContain("## Recommended Films (Top 10)")
     expect(text).toContain("### Inception (2010)")
     expect(text).toContain("Mind-bending.")
