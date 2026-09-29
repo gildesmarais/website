@@ -75,7 +75,7 @@ Applies to `/`, `/resume`, `/contact`, `/about`, `/projects`, `src/data/site.ts`
   2. _Syndication / LLM Discovery:_ Pulls `/feed.xml` (RSS 2.0) into a feed reader, or accesses `/llms.txt`, `/.well-known/llms.txt`, `/sitemap-index.xml`, or `robots.txt` for machine discovery.
 - **UX & Interaction Budget:**
   - Supply-chain bar: each project states its actual publish mechanism; no blanket claims.
-  - Links verified by CI on every PR (internal) and a weekly scheduled job (external).
+  - Internal links are exercised by the PR build.
   - Sitemap lists indexable pages only. RSS 2.0 is the canonical feed format.
   - Machine-readable endpoints (`/feed.xml`, `/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt`, `/sitemap-index.xml`, `robots.txt`) always stay valid and unblocked.
 

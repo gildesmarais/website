@@ -37,10 +37,16 @@ serve:
 build:
 	npm run build
 
-# Quick local gate: build + visual/dist guardrails + astro check.
+lint-xml:
+	xmllint --noout dist/client/feed.xml
+	xmllint --noout dist/client/sitemap-index.xml
+	xmllint --noout dist/client/sitemap-0.xml
+
+# Quick local gate: build + visual/dist guardrails + XML well-formedness + astro check.
 check: build
 	npm run check:visual
 	npm run check:dist
+	$(MAKE) lint-xml
 	npm run check
 
 # Pre-PR gate: matches CI lint/test/build/check surfaces.

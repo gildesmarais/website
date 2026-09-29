@@ -2,6 +2,7 @@
 import BackToTop from "../components/BackToTop.astro"
 import Navigation from "../components/Navigation.astro"
 import { site } from "../data/site"
+import { defaultRobots } from "../seo"
 import { professionalSocials } from "../data/socials"
 import { isActivePath } from "../utils/navigation"
 import "../styles/global.css"
@@ -40,7 +41,7 @@ const {
   title = "Welcome",
   description = "",
   language,
-  robots = "index, follow",
+  robots = defaultRobots(Astro.url.pathname),
   bootPosterLoader = false,
 } = Astro.props as Props
 
