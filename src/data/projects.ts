@@ -55,8 +55,15 @@ export const projects = [
           "Ships an MCP server exposing scrape, inspect, and capture as agent tools, resources, and prompts.",
       },
       {
+        term: "Adoption",
+        definition: "58k+ RubyGems downloads · 16k+ Docker Hub pulls",
+        href: "https://rubygems.org/gems/html2rss/",
+        external: true,
+      },
+      {
         term: "Supply chain",
-        definition: "RubyGems trusted publishing; Docker images with provenance and SBOM.",
+        definition:
+          "Every release traceable to its source: RubyGems trusted publishing, Docker images with provenance and SBOM.",
       },
     ],
     links: [
@@ -67,7 +74,7 @@ export const projects = [
       { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
       {
         text: "MCP module guide",
-        url: "https://github.com/html2rss/html2rss/blob/master/lib/html2rss/mcp/README.md",
+        url: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
         external: true,
       },
     ],
@@ -100,7 +107,8 @@ export const projects = [
       },
       {
         term: "Supply chain",
-        definition: "npm provenance; attested GitHub release builds; crates.io via API token.",
+        definition:
+          "Every artifact traceable to its source commit: npm provenance, attested GitHub release builds; crates.io via API token.",
       },
     ],
     links: [
@@ -139,8 +147,9 @@ export const projects = [
       { term: "Curated package", definition: "Bundle ensuring shell aliases and tools just work." },
       { term: "Reusable", definition: "Zsh and editor configs so every new environment feels like home." },
       {
-        term: "Agentic SDLC",
-        definition: "22 agent skills, including Ruby, Rails, Rust, Swift, and TypeScript packs.",
+        term: "Agent workflow",
+        definition:
+          "Agent skills that encode engineering judgement — planning, review, delivery gates — with deliberately thin language packs on top.",
       },
     ],
     bodyHtml: [
@@ -167,13 +176,13 @@ export const projects = [
       },
       {
         term: "Adoption",
-        definition: "68,972 RubyGems downloads.",
+        definition: "69k+ RubyGems downloads.",
         href: "https://rubygems.org/gems/jekyll-loading-lazy",
         external: true,
       },
       {
         term: "Supply chain",
-        definition: "Published to RubyGems via API token.",
+        definition: "Published via API token; no provenance attestation.",
       },
     ],
     links: [
