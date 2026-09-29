@@ -118,21 +118,27 @@ if (filteredHeadings.length === 0) return null
     }
 
     .toc-list {
-      flex-flow: row wrap;
-      gap: var(--space-xxs) var(--space-md);
-      align-items: stretch;
+      flex-direction: column;
     }
 
     .toc-list a {
       font-size: var(--text-md);
     }
 
-    .toc-depth-2,
-    .toc-depth-3,
-    .toc-depth-4,
-    .toc-depth-5,
+    .toc-depth-3 {
+      margin-inline-start: var(--space-md);
+    }
+
+    .toc-depth-4 {
+      margin-inline-start: calc(var(--space-md) * 2);
+    }
+
+    .toc-depth-5 {
+      margin-inline-start: calc(var(--space-md) * 3);
+    }
+
     .toc-depth-6 {
-      margin-inline-start: 0;
+      margin-inline-start: calc(var(--space-md) * 4);
     }
   }
 </style>
