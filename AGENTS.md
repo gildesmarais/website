@@ -19,7 +19,7 @@ Non-inferable invariants. Directory layout, Prettier, and commit etiquette are v
 ## Traps
 
 - Astro `compressHTML` drops whitespace between plain text and `<a>` or `</a>` on adjacent lines. Keep the space on the same line as the tag, or use `{" "}`.
-- CSS uses design tokens in `src/styles/partials/01-tokens.css` only. No ad-hoc hex, rem/px, or timing literals in component or page CSS.
+- CSS uses design tokens in `src/styles/partials/01-tokens.css` only. Stylelint enforces that: no ad-hoc hex, rem/px, timing, `letter-spacing`, or `rgb()`/`hsl()` literals in component or page CSS. Canonical breakpoints are 576/768/1024/1280/1536 (max-width queries use `<`). Movie-grid exceptions: 1200 and 380.
 - Poster placeholders (`public/poster-*.svg`) stay on that palette, use no Arial, and prefer geometry over `<text>` (img-loaded SVGs).
 
 ## Tooling
