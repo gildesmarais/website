@@ -25,7 +25,7 @@ const { pronunciation, audioSrc } = Astro.props
   <!-- Progressive enhancement: fallback for non-JS users -->
   <noscript>
     <small>
-      <a href={audioSrc} download>Download pronunciation audio</a>
+      <a href={audioSrc} download class="minimal-btn">Download pronunciation audio</a>
     </small>
   </noscript>
 
@@ -52,30 +52,6 @@ const { pronunciation, audioSrc } = Astro.props
     background: var(--brand-accent);
     border-color: var(--brand-accent);
     color: var(--ui-contrast-inverse);
-  }
-
-  /* Fallback link styling for non-JS users */
-  .pronunciation-button-wrapper noscript a {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: transparent;
-    color: var(--ui-color);
-    border: var(--ui-stroke) solid var(--ui-border-color);
-    border-radius: 0;
-    font-weight: 400;
-    font-size: var(--text-sm);
-    text-decoration: none;
-    transition:
-      background var(--ui-motion) var(--ui-ease),
-      color var(--ui-motion) var(--ui-ease),
-      border-color var(--ui-motion) var(--ui-ease),
-      transform var(--ui-motion) var(--ui-ease);
-  }
-
-  .pronunciation-button-wrapper noscript a:hover {
-    border-color: var(--brand-accent);
-    color: var(--brand-accent);
-    transform: translateY(var(--press-shift));
   }
 
   .play-icon {

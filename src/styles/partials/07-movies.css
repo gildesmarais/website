@@ -16,7 +16,7 @@
   letter-spacing: var(--tracking-wide);
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .recommendations-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-sm);
@@ -199,7 +199,7 @@
   }
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .recommendation-row-link {
     grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
     gap: var(--space-sm);
@@ -358,7 +358,7 @@
   opacity: 0.6;
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .movie-card-link {
     display: grid;
     grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;

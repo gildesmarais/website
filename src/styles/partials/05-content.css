@@ -48,6 +48,20 @@ ul:has(strong) > li > strong {
   color: var(--ui-color);
 }
 
+.rail-list,
+.rail-list li {
+  list-style: none;
+}
+
+.rail-list {
+  padding-inline-start: var(--accent-rail);
+}
+
+.rail-list li::before {
+  content: "- ";
+  color: var(--brand-accent);
+}
+
 /* Footnotes use decimal markers; inherit inside positioning from the list rules above. */
 .footnotes ol li {
   list-style-type: decimal;
@@ -126,27 +140,7 @@ th {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-md);
-  background: transparent;
-  color: var(--ui-color);
-  border: var(--ui-stroke) solid var(--brand-accent);
-  border-radius: 0;
-  font-weight: 400;
   font-size: var(--text-sm);
-  cursor: pointer;
-  transition:
-    background var(--ui-motion) var(--ui-ease),
-    color var(--ui-motion) var(--ui-ease),
-    border-color var(--ui-motion) var(--ui-ease),
-    transform var(--ui-motion) var(--ui-ease);
-  text-decoration: none;
-}
-
-.minimal-btn:hover {
-  background: var(--brand-accent);
-  color: var(--ui-contrast-inverse);
-  border-color: var(--brand-accent);
-  transform: translateY(var(--press-shift));
 }
 
 .minimal-btn.active,

@@ -33,6 +33,7 @@
   --ui-stroke-thin: 1px;
   --ui-border-radius: 1px;
   --accent-size: 4px;
+  --accent-rail: calc(var(--accent-size) + var(--ui-accent-padding));
   --ring-width: 3px;
   --ring-offset: 3px;
   --underline-thick: 3px;
@@ -70,8 +71,8 @@
   /*
    * Canonical breakpoints (preferred scale):
    *   576 / 768 / 1024 / 1280 / 1536
-   * Legacy outliers kept as-is (do not snap): 640, 641, 1200.
-   * Movie domain uses 576 / 768 (+ legacy 1200 grid step, 380 micro).
+   * Max-width queries use `<` so they never overlap a matching `>=` at the boundary.
+   * Movie-grid exceptions: 1200 and 380.
    * No postcss-custom-media — media queries stay literal.
    */
 

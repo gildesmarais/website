@@ -52,7 +52,7 @@ const {
           keepReading.length > 0 && (
             <>
               <p class="keep-reading-title section-kicker accent">Keep reading</p>
-              <ul>
+              <ul class="rail-list">
                 {keepReading.map((post) => (
                   <li>
                     <a href={`/blog/${post.id}`}>{post.title}</a>
@@ -129,20 +129,8 @@ const {
     margin-bottom: var(--space-sm);
   }
 
-  /* Same rail as the accent kicker: marker + link as one inline unit. */
   .keep-reading ul {
     margin: 0 0 var(--space-md);
-    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
-    list-style: none;
-  }
-
-  .keep-reading li {
-    list-style: none;
-  }
-
-  .keep-reading li::before {
-    content: "- ";
-    color: var(--brand-accent);
   }
 
   .keep-reading li + li {
@@ -152,6 +140,6 @@ const {
   /* Align with list text (and kicker), not with a separate marker column. */
   .keep-reading-projects {
     margin: 0;
-    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
+    padding-inline-start: var(--accent-rail);
   }
 </style>
