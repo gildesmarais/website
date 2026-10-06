@@ -212,7 +212,3 @@ a.secondary:focus {
 :where(details > summary) {
   cursor: pointer;
 }
-
-:where(:target) {
-  scroll-margin-top: var(--scroll-offset);
-}

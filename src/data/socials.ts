@@ -31,7 +31,6 @@ const socialList = [
 export const socials: readonly Social[] = [...socialList].sort((a, b) => a.name.localeCompare(b.name))
 
 export const professionalSocials = socials.filter((s) => s.category === "professional")
-export const personalSocials = socials.filter((s) => s.category === "personal")
 export const allSocials = socials
 
 /** Canonical GitHub profile URL from the socials catalog. */
