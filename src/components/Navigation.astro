@@ -204,25 +204,11 @@ const pathname = Astro.url.pathname
     justify-content: center;
     width: var(--size-control);
     height: var(--size-control);
-    border: var(--ui-stroke) solid var(--brand-accent);
-    background: transparent;
     color: var(--brand-accent);
-    cursor: pointer;
-    transition:
-      background var(--ui-motion) var(--ui-ease),
-      color var(--ui-motion) var(--ui-ease),
-      transform var(--ui-motion) var(--ui-ease);
     padding: 0;
-    margin: 0;
     flex-shrink: 0;
     position: relative;
     z-index: var(--z-sticky);
-  }
-
-  #menu-toggle:hover {
-    background: var(--brand-accent);
-    color: var(--ui-contrast-inverse);
-    transform: translateY(var(--press-shift));
   }
 
   /* --- Hamburger Icons --- */
@@ -240,15 +226,6 @@ const pathname = Astro.url.pathname
   #menu-toggle:hover .icon-menu,
   #menu-toggle:hover .icon-close {
     stroke: var(--ui-contrast-inverse);
-  }
-
-  #menu-toggle:focus-visible {
-    outline: var(--ui-stroke) solid var(--brand-accent);
-    outline-offset: var(--ui-stroke);
-  }
-
-  #menu-toggle:active {
-    transform: translateY(var(--press-shift));
   }
 
   #menu-toggle[aria-expanded="true"] .icon-close {
@@ -360,7 +337,7 @@ const pathname = Astro.url.pathname
     background-color: var(--ui-primary-wash);
   }
 
-  @media (width >= 641px) {
+  @media (width >= 768px) {
     /* --- Desktop Layout --- */
     #main-nav {
       flex-direction: row;

@@ -19,7 +19,7 @@ if (filteredHeadings.length === 0) return null
 
 <nav class="toc" aria-label="Table of contents">
   <p class="toc-title section-kicker accent">{title}</p>
-  <ul class="toc-list">
+  <ul class="toc-list rail-list">
     {
       filteredHeadings.map((heading) => (
         <li class={`toc-item toc-depth-${heading.depth}`}>
@@ -41,8 +41,6 @@ if (filteredHeadings.length === 0) return null
     letter-spacing: var(--tracking-snug);
     line-height: var(--leading-tight);
     margin: 0;
-    padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
-    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -52,12 +50,6 @@ if (filteredHeadings.length === 0) return null
   .toc-list li {
     padding: 0;
     font-size: var(--text-sm);
-    list-style: none;
-  }
-
-  .toc-list li::before {
-    content: "- ";
-    color: var(--brand-accent);
   }
 
   .toc-list a {
@@ -108,7 +100,7 @@ if (filteredHeadings.length === 0) return null
     }
   }
 
-  @media (width <= 768px) {
+  @media (width < 768px) {
     .toc-title {
       font-size: var(--text-sm);
     }

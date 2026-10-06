@@ -95,7 +95,7 @@ textarea {
   color: var(--ui-form-element-placeholder-color);
 }
 
-:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]) {
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"], .minimal-btn) {
   display: inline-block;
   margin: 0;
   border: var(--ui-stroke) solid var(--brand-accent);
@@ -113,7 +113,7 @@ textarea {
     transform var(--ui-motion) var(--ui-ease);
 }
 
-:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"], .minimal-btn):hover {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   transform: translateY(var(--press-shift));

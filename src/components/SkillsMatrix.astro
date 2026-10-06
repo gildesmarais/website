@@ -160,7 +160,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
   }
 
   /* Mobile adjustments */
-  @media (width <= 760px) {
+  @media (width < 768px) {
     .matrix-container {
       flex-direction: column;
       border-left: var(--ui-stroke) solid var(--brand-accent);
