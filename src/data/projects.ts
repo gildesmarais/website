@@ -217,8 +217,6 @@ export const projects = [
   },
 ] as const satisfies readonly Project[]
 
-export type ProjectEntry = (typeof projects)[number]
-
 export function projectSlug(project: Pick<Project, "title">): string {
   return slugify(project.title)
 }

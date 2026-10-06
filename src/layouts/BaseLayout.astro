@@ -217,7 +217,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
 
     <script is:inline>
       ;(() => {
-        // Gate to production only; remove this line if you also want it in dev
         if (!("console" in window) || !console.log) return
 
         const contactUrl = `${location.origin}/contact#devtools`
@@ -227,7 +226,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
         const strong = `${base} font-weight:700; text-transform:uppercase;`
         const sub = "font-family: Ubuntu Mono, monospace; font-size: 0.9rem; line-height:1.6; color:#f80;"
 
-        // Optional: comment out if you don't want to wipe prior logs
         console.clear()
 
         console.log("%cHEY. YOU OPENED DEVTOOLS.", strong)
