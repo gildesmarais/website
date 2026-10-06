@@ -14,6 +14,11 @@ export default {
       ],
     },
     "no-descending-specificity": true,
+    "unit-disallowed-list": [["px", "rem", "ms", "s"], { ignoreMediaFeatureNames: { px: ["width"] } }],
+    "declaration-property-value-allowed-list": {
+      "letter-spacing": ["/^var\\(--tracking-/"],
+    },
+    "function-disallowed-list": ["rgb", "rgba", "hsl", "hsla"],
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -38,6 +43,9 @@ export default {
       rules: {
         "color-no-hex": null,
         "declaration-property-value-disallowed-list": null,
+        "unit-disallowed-list": null,
+        "declaration-property-value-allowed-list": null,
+        "function-disallowed-list": null,
       },
     },
     {

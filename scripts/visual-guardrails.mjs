@@ -32,11 +32,14 @@ const requiredSnippets = [
   "a:hover",
   "color: var(--ui-primary-hover)",
   "main a",
-  "text-decoration-thickness: 3px",
+  "--underline-thick: 3px",
+  "text-decoration-thickness: var(--underline-thick)",
   "h1 {",
-  "font-size: 2rem",
+  "--text-3xl: 2rem",
+  "font-size: var(--text-3xl)",
   "h2 {",
-  "font-size: 1.75rem",
+  "--text-2xl: 1.75rem",
+  "font-size: var(--text-2xl)",
 ]
 
 const missing = requiredSnippets.filter((snippet) => {
