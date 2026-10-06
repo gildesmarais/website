@@ -7,7 +7,7 @@ h6 {
   color: var(--ui-color);
   font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-snug);
   text-wrap: balance;
 }
 
@@ -29,25 +29,25 @@ h2 {
 
 h3 {
   color: var(--ui-h3-color);
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   line-height: 1.175;
 }
 
 h4 {
   color: var(--ui-h4-color);
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   line-height: 1.2;
 }
 
 h5 {
   color: var(--ui-h5-color);
-  font-size: 1.125rem;
+  font-size: var(--text-h5);
   line-height: 1.225;
 }
 
 h6 {
   color: var(--ui-h6-color);
-  font-size: 1rem;
+  font-size: var(--text-md);
   line-height: 1.25;
 }
 
@@ -116,7 +116,7 @@ textarea {
 :where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
-  transform: translateY(1px);
+  transform: translateY(var(--press-shift));
 }
 
 .secondary {
@@ -152,13 +152,13 @@ abbr[title] {
 a {
   color: var(--ui-primary);
   text-decoration-color: var(--ui-primary-underline);
-  text-underline-offset: 0.1rem;
+  text-underline-offset: var(--underline-offset);
 }
 
 main a {
   text-decoration-line: underline;
   text-decoration-thickness: 3px;
-  text-underline-offset: 0.15em;
+  text-underline-offset: var(--underline-offset);
   text-decoration-skip-ink: auto;
   transition:
     background var(--ui-motion) var(--ui-ease),
@@ -200,12 +200,12 @@ a.secondary:focus {
 }
 
 :where(a, button, summary, [tabindex]):focus-visible {
-  outline: 3px solid var(--brand-accent);
-  outline-offset: 3px;
+  outline: var(--ring-width) solid var(--brand-accent);
+  outline-offset: var(--ring-offset);
 }
 
 :where(input, textarea, select):focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: var(--ring-width) solid var(--brand-accent);
   outline-offset: 0;
 }
 

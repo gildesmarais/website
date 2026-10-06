@@ -74,7 +74,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
 
   .skills-matrix > h2 {
     margin-block-end: var(--space-xs);
-    letter-spacing: 0.015em;
+    letter-spacing: var(--tracking-wide);
   }
 
   .matrix-container {
@@ -86,7 +86,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
   .matrix-content {
     flex: 1;
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: var(--size-matrix-label) 1fr;
     grid-auto-rows: min-content;
     border-top: var(--ui-stroke-thin) solid var(--brand-accent);
   }
@@ -100,7 +100,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
     color: var(--ui-contrast-inverse);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--tracking-wide);
     padding: 0 var(--space-md) var(--space-sm) var(--space-md);
     font-size: var(--text-xs);
     line-height: var(--leading-none);
@@ -109,7 +109,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
     border-right: var(--ui-stroke) solid var(--brand-accent);
     border-bottom: var(--ui-stroke-thin) solid var(--brand-accent);
     grid-column: 1;
-    min-height: 60px;
+    min-height: var(--size-matrix-row);
   }
 
   .row-label.empty-label {
@@ -119,9 +119,9 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--size-matrix-cell), 1fr));
     grid-column: 2;
-    min-height: 60px;
+    min-height: var(--size-matrix-row);
     place-items: stretch;
   }
 
@@ -142,7 +142,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
       transform var(--ui-motion) var(--ui-ease);
     box-sizing: border-box;
     overflow-wrap: break-word;
-    min-height: 60px;
+    min-height: var(--size-matrix-row);
     height: auto;
     cursor: default;
   }
@@ -156,7 +156,7 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
   .skill-cell:hover {
     background: var(--brand-accent);
     color: var(--ui-card-background-color);
-    transform: translateY(1px);
+    transform: translateY(var(--press-shift));
   }
 
   /* Mobile adjustments */
@@ -187,14 +187,14 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
     }
 
     .skills-grid {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(var(--size-matrix-cell-sm), 1fr));
       border-bottom: none;
-      margin-bottom: -1px;
+      margin-bottom: calc(-1 * var(--ui-stroke-thin));
     }
 
     .skill-cell {
       height: auto;
-      min-height: 40px;
+      min-height: var(--size-control-sm);
     }
 
     .skill-cell.empty,

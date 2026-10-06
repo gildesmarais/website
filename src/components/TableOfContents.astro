@@ -38,7 +38,7 @@ if (filteredHeadings.length === 0) return null
 
   /* Match .accent title text (bar width + pad): marker + link as one inline unit. */
   .toc-list {
-    letter-spacing: -0.01rem;
+    letter-spacing: var(--tracking-snug);
     line-height: var(--leading-tight);
     margin: 0;
     padding-inline-start: calc(var(--accent-size) + var(--ui-accent-padding));
@@ -70,7 +70,7 @@ if (filteredHeadings.length === 0) return null
     color: var(--brand-accent);
     text-decoration: underline;
     text-decoration-thickness: var(--ui-stroke);
-    text-underline-offset: 0.15em;
+    text-underline-offset: var(--underline-offset);
   }
 
   /* Indent based on heading depth */

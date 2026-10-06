@@ -18,7 +18,11 @@ const detailHref = `/movies/${imdbId}`
 const imdbHref = `https://www.imdb.com/title/${imdbId}/`
 ---
 
-<article class={`recommendation-row recommendation-row-${variant}`} data-imdb-id={imdbId}>
+<article
+  class={`recommendation-row recommendation-row-${variant}`}
+  data-imdb-id={imdbId}
+  style={`--stagger: calc(${rank - 1} * var(--stagger-step))`}
+>
   <div class="recommendation-row-link">
     <div class="recommendation-row-poster">
       <a href={detailHref} class="recommendation-row-detail-link" tabindex="-1" aria-hidden="true">
@@ -54,7 +58,7 @@ const imdbHref = `https://www.imdb.com/title/${imdbId}/`
     color: inherit;
     text-decoration: underline;
     text-decoration-color: color-mix(in srgb, var(--brand-accent) 55%, transparent);
-    text-underline-offset: 0.12em;
+    text-underline-offset: var(--underline-offset);
   }
 
   .recommendation-row-title a:hover,
