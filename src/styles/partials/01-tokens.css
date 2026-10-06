@@ -22,12 +22,23 @@
 
   /* Loading shimmer peak — snapping .95→.80 washed out the nav gradient. */
   --accent-a95: hsl(32deg 100% 50% / 95%);
+  --accent-shimmer-a: rgb(255 244 226 / 72%);
+  --accent-shimmer-b: rgb(255 186 92 / 88%);
+  --accent-shimmer-c: rgb(255 246 233 / 100%);
+  --accent-shimmer-d: rgb(255 230 193 / 76%);
   --ui-primary-wash: var(--accent-a08);
   --ui-primary-glow: var(--accent-a20);
   --ui-primary-border-soft: var(--accent-a45);
   --ui-stroke: 2px;
   --ui-stroke-thin: 1px;
+  --ui-border-radius: 1px;
   --accent-size: 4px;
+  --ring-width: 3px;
+  --ring-offset: 3px;
+  --underline-thick: 3px;
+  --underline-offset: 0.15em;
+  --press-shift: 1px;
+  --ring-pressed: 0 0 0 var(--ui-stroke-thin) var(--brand-accent-hover), 0 0 0 5px var(--brand-accent-focus);
   --ui-accent-padding: 0.7rem;
   --ui-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ui-motion: 0.2s;
@@ -89,6 +100,25 @@
   --glow-sm: 0 0 8px var(--brand-accent-focus);
   --glow-md: 0 0 10px var(--brand-accent-focus);
   --lift-sm: 4px; /* hover lift distance (use with translateY(calc(-1 * var(--lift-sm)))) */
+  --lift-md: 8px;
+  --stagger-step: 40ms;
+  --size-scrollbar: 8px;
+  --size-grain-tile: 180px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 28px;
+  --size-corner: 1.05rem;
+  --size-movie-min: 200px;
+  --size-movie-md: 220px;
+  --size-movie-lg: 240px;
+  --size-matrix-label: 200px;
+  --size-matrix-cell: 140px;
+  --size-matrix-cell-sm: 120px;
+  --size-matrix-row: 60px;
+  --container-sm: 510px;
+  --container-md: 700px;
+  --container-lg: 950px;
+  --container-xl: 1200px;
+  --container-2xl: 1450px;
 
   /* Vertical rhythm — semantic flow spacing built on the --space scale.
      Use these for block flow so every page shares one rhythm. */
@@ -100,7 +130,6 @@
     var(--space-xxl) + var(--space-md)
   ); /* 4rem - :target offset clearing sticky header */
 
-  --ui-border-radius: 1px;
   --ui-line-height: 1.5;
   --ui-font-size: 100%;
 
@@ -109,8 +138,17 @@
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
+  --text-h5: 1.125rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2rem;
+  --tracking-display: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.06em;
+  --tracking-spaced: 0.1em;
   --leading-none: 1;
   --leading-post: 1.16; /* post article headings */
   --leading-tight: 1.2;
@@ -118,7 +156,8 @@
   --leading-relaxed: 1.6;
 
   /* Reader-path geometry promoted from B10 literals */
-  --text-post-title: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+  --text-display-sm: clamp(1.3rem, 6vw + 0.3rem, 2rem);
+  --text-display: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
   --code-inline-pad: 0.2rem 0.4rem;
   --space-hair: 0.08rem; /* archive filter bracket micro-gaps */
   --size-poster-detail: 18.75rem; /* 300px — modal/detail poster */

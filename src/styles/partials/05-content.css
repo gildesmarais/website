@@ -89,7 +89,7 @@ th {
 .section-kicker {
   margin: 0 0 var(--space-xxs);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-caps);
   font-size: var(--text-xs);
   color: var(--ui-muted-color);
   font-family: var(--font-mono);
@@ -146,7 +146,7 @@ th {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   border-color: var(--brand-accent);
-  transform: translateY(1px);
+  transform: translateY(var(--press-shift));
 }
 
 .minimal-btn.active,
@@ -154,10 +154,8 @@ th {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   border-color: transparent;
-  box-shadow:
-    0 0 0 1px var(--brand-accent-hover),
-    0 0 0 5px var(--brand-accent-focus);
-  transform: translateY(1px);
+  box-shadow: var(--ring-pressed);
+  transform: translateY(var(--press-shift));
 }
 
 .minimal-btn.active {
@@ -166,7 +164,7 @@ th {
 
 @media (pointer: coarse) {
   .minimal-btn {
-    min-height: 44px;
+    min-height: var(--size-tap-min);
     padding: var(--space-sm) var(--space-md);
   }
 }
@@ -187,7 +185,7 @@ th {
   content: "";
   position: absolute;
   width: var(--space-sm);
-  height: 1.05rem;
+  height: var(--size-corner);
   pointer-events: none;
   left: 0;
   top: 0;
@@ -200,7 +198,7 @@ th {
     @keyframes entry-reveal {
       from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(var(--lift-sm));
       }
 
       to {

@@ -75,12 +75,12 @@ const { pronunciation, audioSrc } = Astro.props
   .pronunciation-button-wrapper noscript a:hover {
     border-color: var(--brand-accent);
     color: var(--brand-accent);
-    transform: translateY(1px);
+    transform: translateY(var(--press-shift));
   }
 
   .play-icon {
-    width: 16px;
-    height: 16px;
+    width: var(--size-icon-sm);
+    height: var(--size-icon-sm);
     transition: transform var(--ui-motion) var(--ui-ease);
   }
 
@@ -98,7 +98,7 @@ const { pronunciation, audioSrc } = Astro.props
     margin-top: var(--space-md);
     position: relative;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(calc(-1 * var(--lift-md)));
     transition:
       opacity var(--ui-motion) var(--ui-ease),
       transform var(--ui-motion) var(--ui-ease);
@@ -115,7 +115,7 @@ const { pronunciation, audioSrc } = Astro.props
     font-family: var(--font-sans);
     font-size: var(--text-lg);
     color: var(--ui-color);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-spaced);
     line-height: var(--leading-snug);
     padding: var(--space-xs) 0;
     border-bottom: var(--ui-stroke) solid var(--brand-accent);

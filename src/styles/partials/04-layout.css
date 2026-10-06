@@ -8,7 +8,7 @@
 
 @media (width >= 576px) {
   .container {
-    max-width: 510px;
+    max-width: var(--container-sm);
     padding-right: 0;
     padding-left: 0;
   }
@@ -16,25 +16,25 @@
 
 @media (width >= 768px) {
   .container {
-    max-width: 700px;
+    max-width: var(--container-md);
   }
 }
 
 @media (width >= 1024px) {
   .container {
-    max-width: 950px;
+    max-width: var(--container-lg);
   }
 }
 
 @media (width >= 1280px) {
   .container {
-    max-width: 1200px;
+    max-width: var(--container-xl);
   }
 }
 
 @media (width >= 1536px) {
   .container {
-    max-width: 1450px;
+    max-width: var(--container-2xl);
   }
 }
 

@@ -43,7 +43,7 @@ const { highlights } = Astro.props
     color: var(--ui-contrast-inverse);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
+    letter-spacing: var(--tracking-wide);
     border: var(--accent-size) solid var(--brand-accent);
     white-space: nowrap;
     flex-shrink: 0;
@@ -73,7 +73,7 @@ const { highlights } = Astro.props
   .highlights dd {
     font-weight: 700;
     line-height: var(--leading-snug);
-    letter-spacing: -0.006em;
+    letter-spacing: var(--tracking-snug);
     font-size: var(--text-sm);
     margin: 0;
     align-self: center;
