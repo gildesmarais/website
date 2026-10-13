@@ -55,14 +55,6 @@ const pathname = Astro.url.pathname
     </button>
   </div>
 
-  <noscript>
-    <style>
-      #main-nav-list {
-        display: flex;
-      }
-    </style>
-  </noscript>
-
   <ul id="main-nav-list">
     <li class="nav-item">
       <a href="/about" class="nav-link" aria-current={isActivePath(pathname, "/about") ? "page" : undefined}
@@ -249,6 +241,14 @@ const pathname = Astro.url.pathname
 
   #main-nav-list.is-open {
     display: flex;
+  }
+
+  :global(html:not(.js)) #main-nav-list {
+    display: flex;
+  }
+
+  :global(html:not(.js)) #menu-toggle {
+    display: none;
   }
 
   /* ==========================================================================
