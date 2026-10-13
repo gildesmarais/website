@@ -209,6 +209,12 @@ if (homeHtml) {
     if (hasCapitalI || hasOtherFirstPerson) {
       fail(".hero-subtitle on / contains a first-person pronoun")
     }
+    if (!heroText.includes("html2rss")) {
+      fail(".hero-subtitle on / must mention html2rss")
+    }
+    if (!heroText.includes("dotfiles")) {
+      fail(".hero-subtitle on / must mention dotfiles")
+    }
   }
 }
 
