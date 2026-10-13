@@ -131,6 +131,14 @@ if (!fs.existsSync(path.join(distClient, "404.html"))) {
   fail("404.html does not exist in dist/client")
 }
 
+const imprintHtml = read("imprint/index.html")
+if (imprintHtml) {
+  const imprintText = stripToText(imprintHtml)
+  if (imprintText.includes("mix-blend-mode")) {
+    fail("imprint page body text contains mix-blend-mode (CSS leaked outside <style>)")
+  }
+}
+
 // --- Narrative checks ---
 
 const bannedPatterns = [
