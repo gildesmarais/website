@@ -5,6 +5,7 @@ import {
   processMovies,
   recommendationChrome,
   type MovieCatalogEntry,
+  type MovieSortOptions,
   type SortBy,
 } from "./query"
 
@@ -43,10 +44,14 @@ export function initMovieList(): void {
   const resultAnnouncement = document.getElementById("movieResultAnnouncement") as HTMLElement | null
   const sortBtns = document.querySelectorAll<HTMLAnchorElement>(".sort-btn")
   let announceCountTimeout: number | undefined
+  /** Last applied sort; null until the first paint so the initial URL sort reorders once. */
+  let appliedSortKey: string | null = null
 
   let state = parseUrlParams(new URL(window.location.href))
 
   if (searchInput) searchInput.value = state.filters.searchQuery || ""
+
+  const sortKeyOf = (sortOptions: MovieSortOptions) => `${sortOptions.sortBy}:${sortOptions.sortDir}`
 
   const updateUI = () => {
     const { filters, sortOptions } = state
@@ -78,6 +83,8 @@ export function initMovieList(): void {
 
   const updateList = () => {
     const movies = processMovies(catalog, recommendationsSet, state.filters, state.sortOptions)
+    const sortKey = sortKeyOf(state.sortOptions)
+    const needsReorder = sortKey !== appliedSortKey
 
     const visibleIds = new Set(movies.map((m) => m.const))
     const allCards = Array.from(cardMap.values())
@@ -87,10 +94,22 @@ export function initMovieList(): void {
         const id = card.dataset.imdbId
         card.style.display = id && visibleIds.has(id) ? "" : "none"
       })
-      movies.forEach((movie) => {
-        const card = cardMap.get(movie.const)
-        if (card) grid.appendChild(card)
-      })
+
+      // Search / recommendation toggles only need display. Reorder the full
+      // catalog under the current sort so a later clear-filter stays correct.
+      if (needsReorder) {
+        const ordered = processMovies(
+          catalog,
+          recommendationsSet,
+          { searchQuery: undefined, isRecommendation: false },
+          state.sortOptions,
+        )
+        for (const movie of ordered) {
+          const card = cardMap.get(movie.const)
+          if (card) grid.appendChild(card)
+        }
+        appliedSortKey = sortKey
+      }
 
       let emptyEl = grid.querySelector(".movies-empty")
       if (movies.length === 0) {
