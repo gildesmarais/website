@@ -20,10 +20,10 @@ Secondary: proof that one engineer with agents ships production outcomes, with l
 Hiring surface: `/`, `/resume`, `/contact`, `/about`, `/projects`, plus `corePages` in `src/data/site.ts` and `src/data/skills.ts`. `scripts/check-dist.mjs` enforces the bans on those pages and on `llms.txt` / `llms-full.txt`.
 
 - Show the stance. Do not declare traditional engineering obsolete.
-- Homepage: one first-person line in the hero lead. The subtitle is evidence only (no first person): html2rss MCP, dotfiles agent skills, published Rust, Swift, and WASM.
+- Homepage: one first-person line in the hero lead. The subtitle is evidence only (no first person).
 - No employer-specific AI claims, no AI tool names, no "not an expert".
-- Title stays "Engineering Team Lead — Platform". Do not self-describe with "lead", "leading", "roadmap", "translate", or "guide teams". No "Staff-level" or "incremental delivery".
-- "Calm" only with speed. Business value only beside a shipped outcome (complaints and revenue per patient).
+- Title stays "Engineering Team Lead — Platform". Do not self-describe with "lead", "leading", "roadmap", "translate", or "guide teams". No "Staff-level", "(hands-on)", or "incremental delivery".
+- "Calm" only with speed.
 
 ## Personas
 

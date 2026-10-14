@@ -100,8 +100,9 @@ describe("llms content generation", () => {
     expect(text).toContain(
       "Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)",
     )
-    expect(text).toContain("## Core Pages")
     const home = corePage("/")
+    expect(text).toContain(`> ${home.description}`)
+    expect(text).toContain("## Core Pages")
     expect(text).toContain(`- [${home.title}](https://gil.desmarais.de/): ${home.description}`)
     expect(text).toContain("- [Blog](https://gil.desmarais.de/blog/)")
     expect(text).toContain("- [Resume](https://gil.desmarais.de/resume/)")

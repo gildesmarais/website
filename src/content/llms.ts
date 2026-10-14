@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content"
 import { isVisibleBlogPost, byDateDesc, getShowcasePosts } from "./blog"
-import { site, corePages } from "../data/site"
+import { site, corePages, corePage } from "../data/site"
 import { projects } from "../data/projects"
 import { getMovieCache, listRecommendedMovies } from "../movies"
 
@@ -119,7 +119,7 @@ export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string
   const lines: string[] = [
     `# ${site.name}`,
     "",
-    `> ${site.name} — ${site.description}`,
+    `> ${corePage("/").description}`,
     "",
     `All written content (blog posts, articles) on this site is licensed under the **${site.licenseName} (${site.licenseShort})**.`,
     "",

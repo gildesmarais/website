@@ -1,17 +1,17 @@
 /** Site identity — single source for name, theme chrome, and copyright copy. */
 export const site = {
   name: "Gil Desmarais",
-  shortName: "Desmarais",
-  description:
-    "software engineer who builds and runs systems end-to-end, with agents in the loop; open-source tools, engineering notes, and a movie catalog.",
   themeColor: "#1d1f21",
-  backgroundColor: "#1d1f21",
   accentColor: "#ff8800",
   copyrightYear: 2026,
   licenseShort: "CC BY-ND 4.0",
   licenseUrl: "https://creativecommons.org/licenses/by-nd/4.0/",
   licenseName: "Creative Commons Attribution-NoDerivatives 4.0 International License",
 } as const
+
+/** Shared skills/doctrine URL on hiring surfaces. */
+export const skillsDoctrineUrl =
+  "https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
 
 export type Site = typeof site
 
@@ -36,7 +36,7 @@ export const corePages = [
     path: "/about",
     description: "Background, systems thinking, and how Gil builds.",
     excerpt:
-      "Background and how curiosity, systems thinking, and experience shape how Gil builds. Interests span music and vinyl DJing, film recommendations, open-source tools, and movement. The page covers early web tinkering through vocational training, Air Force IT work, and Business Computer Science — ending in a way of building that balances architecture with outcomes and treats agents as part of the toolchain.",
+      "Background and how curiosity, systems thinking, and experience shape how Gil builds. Interests span music and vinyl DJing, film recommendations, open-source tools, and movement. The page covers early web tinkering through vocational training, Air Force IT work, and Business Computer Science. Under How I work, agents sit in the toolchain via written doctrine — skills, rules, and admission gates maintained in the open.",
   },
   {
     title: "Projects",

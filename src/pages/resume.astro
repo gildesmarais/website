@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Highlights from "../components/Highlights.astro"
 import { skills } from "../data/skills"
-import { corePage } from "../data/site"
+import { corePage, skillsDoctrineUrl } from "../data/site"
 import TableOfContents from "../components/TableOfContents.astro"
 import { externalRel } from "../utils/linkRel"
 
@@ -63,16 +63,13 @@ const resumeHeadings = [
   <section aria-labelledby="executive-summary">
     <h2 id="executive-summary" class="accent section-heading-sticky">Executive Summary</h2>
     <p>
-      I specialise in creating systemic clarity so teams can move fast without surprises. My work surfaces
+      I specialise in creating systemic clarity so delivery stays fast without surprises. My work surfaces
       risk early, aligns stakeholders on pragmatic trade-offs, and keeps delivery flowing. Engineering
       decisions follow profiling, telemetry, and metrics over assumptions or static documentation.
     </p>
     <p>
       I build with agents under written doctrine — skills, rules, and admission gates I maintain{" "}
-      <a
-        href="https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
-        target="_blank"
-        rel="noopener noreferrer">in the open</a
+      <a href={skillsDoctrineUrl} target="_blank" rel={externalRel("external")}>in the open</a
       >. That is how I ship production Rust, Swift, and WASM next to the Ruby and TypeScript that are my daily
       tools. Systems judgement is the scarce input; the language is not.
     </p>
@@ -132,7 +129,7 @@ const resumeHeadings = [
           >WASM</a
         >). See my <a href="/projects">Projects</a> page.
       </p>
-      <p class="lead">Joined as Senior Software Engineer; promoted to Team Lead in July 2024.</p>
+      <p class="lead">Joined as Senior Software Engineer; promoted into this role in July 2024.</p>
     </section>
   </section>
 
