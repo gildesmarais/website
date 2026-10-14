@@ -6,11 +6,7 @@ export type Category = {
 export const skills = [
   {
     label: "Agent-Driven Engineering",
-    skills: [
-      "Agent skills & rules authoring",
-      "MCP server design",
-      "Planning, review, and delivery",
-    ],
+    skills: ["Agent skills & rules authoring", "MCP server design", "Planning, review, and delivery"],
   },
   {
     label: "Systems & Architecture",

@@ -48,11 +48,7 @@ const sortKeys = [
           const isActive = sortBy === key
 
           return (
-            <button
-              type="button"
-              class={`minimal-btn sort-btn ${isActive ? "active" : ""}`}
-              data-sort={key}
-            >
+            <button type="button" class={`minimal-btn sort-btn ${isActive ? "active" : ""}`} data-sort={key}>
               {label} <span class="sort-icon">{isActive ? (sortDir === "asc" ? "▲" : "▼") : ""}</span>
             </button>
           )

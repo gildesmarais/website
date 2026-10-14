@@ -1,9 +1,5 @@
 import { describe, expect, it } from "vitest"
-import {
-  projects,
-  projectStatusGlossary,
-  type ProjectStatus,
-} from "./projects"
+import { projects, projectStatusGlossary, type ProjectStatus } from "./projects"
 
 const REGISTRY_HOSTS = new Set(["rubygems.org", "npmjs.com", "crates.io", "hub.docker.com"])
 
@@ -49,9 +45,7 @@ describe("projects catalog", () => {
       for (const highlight of project.highlights ?? []) {
         if (!highlight.href) continue
         if (highlight.href.startsWith("/") && !highlight.href.startsWith("//")) continue
-        expect(new URL(highlight.href).protocol, `${project.id} highlight ${highlight.term}`).toBe(
-          "https:",
-        )
+        expect(new URL(highlight.href).protocol, `${project.id} highlight ${highlight.term}`).toBe("https:")
       }
     }
   })
@@ -61,9 +55,7 @@ describe("projects catalog", () => {
       const hasRegistryLink = (project.links ?? []).some((link) => isRegistryUrl(link.url))
       if (!hasRegistryLink) continue
 
-      expect(project.supplyChain?.trim().length ?? 0, `${project.id} missing supplyChain`).toBeGreaterThan(
-        0,
-      )
+      expect(project.supplyChain?.trim().length ?? 0, `${project.id} missing supplyChain`).toBeGreaterThan(0)
     }
   })
 
