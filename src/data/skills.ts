@@ -9,9 +9,7 @@ export const skills = [
     skills: [
       "Agent skills & rules authoring",
       "MCP server design",
-      "Agentic SDLC (triage → review → release)",
-      "Prompt & spec compilation",
-      "AI-assisted code review",
+      "Planning, review, and delivery",
     ],
   },
   {
@@ -20,8 +18,8 @@ export const skills = [
       "System Architecture",
       "API Design (OpenAPI)",
       "Legacy System Modernization",
-      "Business Process Analysis & Optimization",
       "Observability Strategy",
+      "Audio DSP & MIR",
     ],
   },
   {
@@ -41,13 +39,6 @@ export const skills = [
   },
   {
     label: "Security & Compliance",
-    skills: [
-      "Security Reviews",
-      "Risk Assessment",
-      "ISO/IEC 27001",
-      "C5",
-      "GDPR Compliance",
-      "Trusted Publishing (supply chain)",
-    ],
+    skills: ["Security Reviews", "Risk Assessment", "ISO/IEC 27001", "C5", "GDPR Compliance"],
   },
 ] as const satisfies readonly Category[]

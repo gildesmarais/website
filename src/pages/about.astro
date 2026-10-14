@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import NamePronunciation from "../components/NamePronunciation.astro"
 import { allSocials } from "../data/socials"
-import { corePage } from "../data/site"
+import { corePage, skillsDoctrineUrl } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
 const title = "About"
@@ -85,8 +85,8 @@ const title = "About"
     </p>
 
     <p>
-      Studying Business Computer Science gave me the dual lenses I rely on today: turning technical reality
-      into business value, and turning business constraints into pragmatic engineering decisions.
+      Studying Business Computer Science gave me the dual lenses I rely on today: bridging technical reality
+      and business constraints into pragmatic engineering decisions.
     </p>
     <p>That balance between architecture and outcome defines how I build and deliver.</p>
 
@@ -100,7 +100,7 @@ const title = "About"
     <h2 id="how-i-work" class="accent">How I work</h2>
     <p>
       I start with <q>why</q> before <q>how</q>: understanding incentives, constraints, and risk, then
-      aligning trade-offs so teams can move with confidence. My background across engineering and creative
+      aligning trade-offs so delivery stays clear under pressure. My background across engineering and creative
       work keeps me focused on clear communication, fast feedback loops, and maintainable software.
     </p>
     <ul>
@@ -111,10 +111,10 @@ const title = "About"
         <strong>Systems thinking:</strong> Connect technical and organizational dependencies so decisions age well.
       </li>
       <li>
-        <strong>Ease of use:</strong> Make outcomes simpler for teams and customers.
+        <strong>Ease of use:</strong> Make outcomes simpler for the people who depend on them.
       </li>
       <li>
-        <strong>Knowledge sharing:</strong> Teach, document, and invite questions so teams level up together.
+        <strong>Knowledge sharing:</strong> Teach, document, and invite questions so the next change is cheaper.
       </li>
       <li>
         <strong>Delight in the details:</strong> Keep experiences fast, calm, and reliable.
@@ -122,7 +122,7 @@ const title = "About"
       <li>
         <strong>Leverage:</strong> I work with agents under written doctrine — skills, rules, and admission gates
         I maintain <a
-          href="https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
+          href={skillsDoctrineUrl}
           target="_blank"
           rel={externalRel("external")}>in the open</a
         >.
