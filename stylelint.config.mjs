@@ -14,7 +14,10 @@ export default {
       ],
     },
     "no-descending-specificity": true,
-    "unit-disallowed-list": [["px", "rem", "ms", "s"], { ignoreMediaFeatureNames: { px: ["width"] } }],
+    "unit-disallowed-list": [
+      ["px", "rem", "ms", "s", "em", "vh", "dvh", "in"],
+      { ignoreMediaFeatureNames: { px: ["width"] } },
+    ],
     "declaration-property-value-allowed-list": {
       "letter-spacing": ["/^var\\(--tracking-/"],
     },
@@ -29,12 +32,6 @@ export default {
     "property-no-deprecated": true,
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-property-value-keyword-no-deprecated": true,
-    "property-no-unknown": [
-      true,
-      {
-        ignoreProperties: ["open"],
-      },
-    ],
   },
   overrides: [
     {

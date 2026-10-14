@@ -18,37 +18,37 @@ p {
 h1 {
   color: var(--ui-h1-color);
   font-size: var(--text-3xl);
-  line-height: 1.125;
+  line-height: var(--leading-h1);
 }
 
 h2 {
   color: var(--ui-h2-color);
   font-size: var(--text-2xl);
-  line-height: 1.15;
+  line-height: var(--leading-h2);
 }
 
 h3 {
   color: var(--ui-h3-color);
   font-size: var(--text-xl);
-  line-height: 1.175;
+  line-height: var(--leading-h3);
 }
 
 h4 {
   color: var(--ui-h4-color);
   font-size: var(--text-lg);
-  line-height: 1.2;
+  line-height: var(--leading-h4);
 }
 
 h5 {
   color: var(--ui-h5-color);
   font-size: var(--text-h5);
-  line-height: 1.225;
+  line-height: var(--leading-h5);
 }
 
 h6 {
   color: var(--ui-h6-color);
   font-size: var(--text-md);
-  line-height: 1.25;
+  line-height: var(--leading-h6);
 }
 
 code,
@@ -105,7 +105,7 @@ textarea {
   color: var(--ui-color);
   cursor: pointer;
   text-decoration: none;
-  line-height: 1.2;
+  line-height: var(--leading-tight);
   transition:
     background var(--ui-motion) var(--ui-ease),
     color var(--ui-motion) var(--ui-ease),
@@ -125,7 +125,7 @@ textarea {
 }
 
 small {
-  font-size: 0.875em;
+  font-size: var(--text-small-em);
 }
 
 hgroup {

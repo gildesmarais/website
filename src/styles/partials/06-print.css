@@ -3,10 +3,6 @@
     break-inside: avoid;
   }
 
-  details {
-    open: true;
-  }
-
   a[href^="http"]::after {
     content: " (" attr(href) ")";
   }
@@ -18,7 +14,7 @@
   }
 
   @page {
-    margin: 0.5in;
+    margin: var(--print-page-margin);
   }
 
   body {
