@@ -1,13 +1,13 @@
 /* Movie domain — list grid, filters, cards, posters, detail modal */
 
-html[data-movies-pending] .recommendations-grid {
-  visibility: hidden;
-}
-
 .recommendations-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--size-movie-min), 1fr));
   gap: var(--space-sm);
+}
+
+html[data-movies-pending] .recommendations-grid {
+  visibility: hidden;
 }
 
 .movies-empty {
