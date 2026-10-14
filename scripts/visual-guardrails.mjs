@@ -22,11 +22,10 @@ const css = importPaths
 
 const requiredSnippets = [
   "--ui-font-size: 100%",
-  // Prefer modern range syntax; accept legacy min-width for older branches.
-  ["@media (width >= 576px)", "@media (min-width: 576px)"],
-  "--ui-font-size: 106.25%",
-  ["@media (width >= 1536px)", "@media (min-width: 1536px)"],
-  "--ui-font-size: 131.25%",
+  "@media (width >= 576px)",
+  "--font-size-root-sm: 106.25%",
+  "@media (width >= 1536px)",
+  "--font-size-root-2xl: 131.25%",
   "a:visited",
   "color: var(--ui-primary)",
   "a:hover",

@@ -68,31 +68,31 @@ html:active-view-transition {
 
 @media (width >= 576px) {
   :root {
-    --ui-font-size: 106.25%;
+    --ui-font-size: var(--font-size-root-sm);
   }
 }
 
 @media (width >= 768px) {
   :root {
-    --ui-font-size: 112.5%;
+    --ui-font-size: var(--font-size-root-md);
   }
 }
 
 @media (width >= 1024px) {
   :root {
-    --ui-font-size: 118.75%;
+    --ui-font-size: var(--font-size-root-lg);
   }
 }
 
 @media (width >= 1280px) {
   :root {
-    --ui-font-size: 125%;
+    --ui-font-size: var(--font-size-root-xl);
   }
 }
 
 @media (width >= 1536px) {
   :root {
-    --ui-font-size: 131.25%;
+    --ui-font-size: var(--font-size-root-2xl);
   }
 }
 

@@ -134,6 +134,13 @@
   --ui-line-height: 1.5;
   --ui-font-size: 100%;
 
+  /* Root font-size ladder — percent of browser default; applied in 02-base.css. */
+  --font-size-root-sm: 106.25%;
+  --font-size-root-md: 112.5%;
+  --font-size-root-lg: 118.75%;
+  --font-size-root-xl: 125%;
+  --font-size-root-2xl: 131.25%;
+
   /* Type scale — component/UI sizes. Heading rules stay in 03-typography.css. */
   --text-2xs: 0.7rem;
   --text-xs: 0.75rem;
@@ -144,6 +151,9 @@
   --text-xl: 1.5rem;
   --text-2xl: 1.75rem;
   --text-3xl: 2rem;
+  --text-small-em: 0.875em; /* <small> relative to parent */
+  --space-glyph: 0.2em; /* inline glyph nudge (e.g. rotated smiley) */
+  --size-line-min: 1.25em; /* reserve one line of parent type (feedback slots) */
   --tracking-display: -0.03em;
   --tracking-tight: -0.02em;
   --tracking-snug: -0.01em;
@@ -151,6 +161,13 @@
   --tracking-caps: 0.06em;
   --tracking-spaced: 0.1em;
   --leading-none: 1;
+  --leading-hero: 1.05;
+  --leading-h1: 1.125;
+  --leading-h2: 1.15;
+  --leading-h3: 1.175;
+  --leading-h4: 1.2;
+  --leading-h5: 1.225;
+  --leading-h6: 1.25;
   --leading-post: 1.16; /* post article headings */
   --leading-tight: 1.2;
   --leading-snug: 1.35;
@@ -165,7 +182,19 @@
   --size-poster-detail-sm: 15rem; /* 240px — mobile modal poster */
   --poster-detail-max: 70vw; /* fluid cap for mobile modal poster */
   --size-modal-max: 50rem; /* 800px — movie detail modal */
+  --modal-max-height: 90vh;
+  --modal-max-height-mobile: 92dvh;
   --main-bottom-pad: 33vh; /* scroll-length bottom padding on main */
+  --print-page-margin: 0.5in;
+
+  /* Imprint human-only noise texture stops (px rungs stay in tokens). */
+  --noise-stop-a: 2px;
+  --noise-stop-b: 4px;
+  --noise-blur: 0.3px;
+  --noise-shadow-soft: 0.5px;
+  --noise-shadow: 1px;
+  --noise-shadow-spread: 2px;
+  --muted-a50: rgb(154 160 170 / 50%); /* secondary / recommendation underline alpha */
 }
 
 [data-theme="dark"] {
@@ -185,7 +214,7 @@
   --ui-primary-hover: var(--brand-accent-hover);
   --ui-primary-hover-underline: var(--ui-primary-hover);
   --ui-secondary: #9aa0aa;
-  --ui-secondary-underline: rgb(154 160 170 / 50%);
+  --ui-secondary-underline: var(--muted-a50);
   --ui-secondary-hover: #b7bbc3;
   --ui-secondary-hover-underline: var(--ui-secondary-hover);
   --ui-contrast-inverse: #000;
