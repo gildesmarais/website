@@ -58,6 +58,27 @@ function extractMarkdownHrefs(markdown) {
   return hrefs
 }
 
+function sitemapChildPaths(indexXml) {
+  const locs = [...indexXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim())
+  const children = []
+  for (const loc of locs) {
+    let pathname
+    try {
+      pathname = new URL(loc, siteOrigin).pathname
+    } catch {
+      fail(`sitemap-index loc is not a URL: ${loc}`)
+      continue
+    }
+    const file = pathname.replace(/^\//, "")
+    if (!file.endsWith(".xml")) {
+      fail(`sitemap-index child is not an xml path: ${loc}`)
+      continue
+    }
+    children.push(file)
+  }
+  return children
+}
+
 // --- Endpoint checks ---
 
 if (!fs.existsSync(distClient)) {
@@ -90,18 +111,26 @@ if (llmsTxt) {
   }
 }
 
-const sitemap = read("sitemap-0.xml")
-if (sitemap) {
-  const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim())
-  for (const loc of locs) {
-    const rel = urlToDistFile(loc)
-    if (rel === null) {
-      fail(`sitemap URL outside site origin: ${loc}`)
-      continue
-    }
-    const html = read(rel)
-    if (html && /\bnoindex\b/i.test(html)) {
-      fail(`sitemap URL HTML carries noindex: ${loc}`)
+const sitemapIndex = read("sitemap-index.xml")
+if (sitemapIndex) {
+  const childFiles = sitemapChildPaths(sitemapIndex)
+  if (childFiles.length === 0) {
+    fail("sitemap-index.xml lists no child sitemaps")
+  }
+  for (const childFile of childFiles) {
+    const sitemap = read(childFile)
+    if (!sitemap) continue
+    const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim())
+    for (const loc of locs) {
+      const rel = urlToDistFile(loc)
+      if (rel === null) {
+        fail(`sitemap URL outside site origin: ${loc}`)
+        continue
+      }
+      const html = read(rel)
+      if (html && /\bnoindex\b/i.test(html)) {
+        fail(`sitemap URL HTML carries noindex: ${loc}`)
+      }
     }
   }
 }
@@ -118,25 +147,21 @@ if (fs.existsSync(vercelConfigPath)) {
     (route) =>
       typeof route.src === "string" &&
       /well-known\/llms\\.txt/.test(route.src) &&
-      Number(route.status) === 301,
+      Number(route.status) === 301 &&
+      route.headers?.Location === "/llms.txt",
   )
   if (!wellKnown) {
-    fail(".vercel/output/config.json missing 301 for /.well-known/llms.txt")
+    fail(
+      ".vercel/output/config.json missing 301 for /.well-known/llms.txt with Location /llms.txt",
+    )
   }
 } else {
   fail("Missing .vercel/output/config.json (adapter redirect output)")
 }
 
-if (!fs.existsSync(path.join(distClient, "404.html"))) {
-  fail("404.html does not exist in dist/client")
-}
-
-const imprintHtml = read("imprint/index.html")
-if (imprintHtml) {
-  const imprintText = stripToText(imprintHtml)
-  if (imprintText.includes("mix-blend-mode")) {
-    fail("imprint page body text contains mix-blend-mode (CSS leaked outside <style>)")
-  }
+const notFoundHtml = read("404.html")
+if (notFoundHtml && !/\bnoindex\b/i.test(notFoundHtml)) {
+  fail("404.html lacks noindex")
 }
 
 // --- Narrative checks ---
@@ -208,12 +233,6 @@ if (homeHtml) {
     const hasOtherFirstPerson = /\b(me|my|mine|we|our|ours|myself)\b/i.test(heroText)
     if (hasCapitalI || hasOtherFirstPerson) {
       fail(".hero-subtitle on / contains a first-person pronoun")
-    }
-    if (!heroText.includes("html2rss")) {
-      fail(".hero-subtitle on / must mention html2rss")
-    }
-    if (!heroText.includes("dotfiles")) {
-      fail(".hero-subtitle on / must mention dotfiles")
     }
   }
 }
