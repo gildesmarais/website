@@ -6,19 +6,17 @@ type KeepReadingPost = {
   title: string
 }
 
-const {
-  title,
-  date,
-  description,
-  language,
-  keepReading = [],
-} = Astro.props as {
+interface Props {
   title: string
   date?: Date
   description: string
   language?: string
   keepReading?: KeepReadingPost[]
 }
+
+const { title, date, description, language, keepReading = [] } = Astro.props
+
+const footerLabel = keepReading.length > 0 ? "Keep reading and projects" : "Projects"
 ---
 
 <BaseLayout title={title} description={description} language={language}>
@@ -47,7 +45,7 @@ const {
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />
-      <nav class="keep-reading" aria-label="Keep reading">
+      <nav class="keep-reading" aria-label={footerLabel}>
         {
           keepReading.length > 0 && (
             <>
