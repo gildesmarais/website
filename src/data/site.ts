@@ -10,8 +10,7 @@ export const site = {
 } as const
 
 /** Shared skills/doctrine URL on hiring surfaces. */
-export const skillsDoctrineUrl =
-  "https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
+export const skillsDoctrineUrl = "https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
 
 export type Site = typeof site
 

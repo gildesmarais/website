@@ -151,9 +151,7 @@ if (fs.existsSync(vercelConfigPath)) {
       route.headers?.Location === "/llms.txt",
   )
   if (!wellKnown) {
-    fail(
-      ".vercel/output/config.json missing 301 for /.well-known/llms.txt with Location /llms.txt",
-    )
+    fail(".vercel/output/config.json missing 301 for /.well-known/llms.txt with Location /llms.txt")
   }
 } else {
   fail("Missing .vercel/output/config.json (adapter redirect output)")
