@@ -23,6 +23,9 @@ const recommendationIds = [...recommendationsSet]
 ---
 
 <BaseLayout title={title} description={description} bootPosterLoader>
+  <script is:inline>
+    if (location.search) document.documentElement.dataset.moviesPending = ""
+  </script>
   <script
     is:inline
     type="application/json"

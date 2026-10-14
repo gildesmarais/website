@@ -68,7 +68,7 @@ const titleId = `movie-title-${movie.const}`
 </BaseLayout>
 
 <script>
-  import { resolveMoviesModalReturn } from "../../movies/modalReturn"
+  import { resolveMoviesModalReturn } from "../../movies"
 
   const closeModal = () => {
     const { fromList, href } = resolveMoviesModalReturn(document.referrer, window.location.origin)
@@ -80,15 +80,11 @@ const titleId = `movie-title-${movie.const}`
     }
   }
 
-  function isOtherOverlayOpen(thisDialog: Element | null): boolean {
-    const navOpen = document.getElementById("main-nav-list")?.classList.contains("is-open")
-    if (navOpen) return true
-
-    return [...document.querySelectorAll('[aria-modal="true"], dialog[open]')].some((el) => el !== thisDialog)
+  function isOtherOverlayOpen(): boolean {
+    return document.getElementById("main-nav-list")?.classList.contains("is-open") ?? false
   }
 
   function initModal() {
-    const thisDialog = document.querySelector(".modal-content[role='dialog']")
     const closeButton = document.querySelector<HTMLButtonElement>(".modal-close")
     if (closeButton) {
       closeButton.addEventListener("click", (e) => {
@@ -108,7 +104,7 @@ const titleId = `movie-title-${movie.const}`
 
     document.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return
-      if (isOtherOverlayOpen(thisDialog)) return
+      if (isOtherOverlayOpen()) return
       closeModal()
     })
   }
@@ -119,10 +115,3 @@ const titleId = `movie-title-${movie.const}`
     initModal()
   }
 </script>
-
-<style>
-  /* Phase 09a switches the title to h1; shared movies CSS still targets h2 until Phase 10. */
-  .modal-header h1 {
-    margin: 0;
-  }
-</style>
