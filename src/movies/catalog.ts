@@ -14,7 +14,8 @@ export type MovieRecommendation = { const?: string; note?: string | null }
 let movieCache: MovieCache | null = null
 
 /**
- * Pure cache builder: Movie-only filter, search haystack, maps/sets.
+ * Pure cache builder: prefer title_type Movie, keep recommended ids even when
+ * they are not Movies, build the search haystack, and populate maps/sets.
  * Injectable for tests; runtime uses getMovieCache() with JSON imports.
  */
 export function buildMovieCache(movies: Movie[], recommendations: MovieRecommendation[]): MovieCache {

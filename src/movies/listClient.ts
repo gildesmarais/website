@@ -25,7 +25,6 @@ export function initMovieList(): void {
   if (!grid) return
 
   const controls = document.querySelector(".movie-controls") as HTMLElement | null
-  if (controls) controls.hidden = false
 
   const { catalog, recommendations } = readCatalog()
   const recommendationsSet = new Set(recommendations)
@@ -37,15 +36,15 @@ export function initMovieList(): void {
   }
 
   const searchInput = document.getElementById("movieFilter") as HTMLInputElement | null
-  const searchForm = document.getElementById("searchForm") as HTMLFormElement | null
-  const recToggle = document.getElementById("recommendationToggle") as HTMLAnchorElement | null
+  const recToggle = document.getElementById("recommendationToggle") as HTMLButtonElement | null
   const recStateLabel = document.getElementById("recommendationStateLabel") as HTMLElement | null
   const resultCount = document.getElementById("movieResultCount") as HTMLElement | null
   const resultAnnouncement = document.getElementById("movieResultAnnouncement") as HTMLElement | null
-  const sortBtns = document.querySelectorAll<HTMLAnchorElement>(".sort-btn")
+  const sortBtns = document.querySelectorAll<HTMLButtonElement>(".sort-btn")
   let announceCountTimeout: number | undefined
   /** Last applied sort; null until the first paint so the initial URL sort reorders once. */
   let appliedSortKey: string | null = null
+  let firstPassDone = false
 
   let state = parseUrlParams(new URL(window.location.href))
 
@@ -84,7 +83,9 @@ export function initMovieList(): void {
   const updateList = () => {
     const movies = processMovies(catalog, recommendationsSet, state.filters, state.sortOptions)
     const sortKey = sortKeyOf(state.sortOptions)
-    const needsReorder = sortKey !== appliedSortKey
+    // Static HTML is already default:asc; skip the first reorder when the URL matches.
+    const skipInitialDefault = appliedSortKey === null && sortKey === "default:asc"
+    const needsReorder = !skipInitialDefault && sortKey !== appliedSortKey
 
     const visibleIds = new Set(movies.map((m) => m.const))
     const allCards = Array.from(cardMap.values())
@@ -109,6 +110,8 @@ export function initMovieList(): void {
           if (card) grid.appendChild(card)
         }
         appliedSortKey = sortKey
+      } else if (skipInitialDefault) {
+        appliedSortKey = sortKey
       }
 
       let emptyEl = grid.querySelector(".movies-empty")
@@ -132,14 +135,19 @@ export function initMovieList(): void {
           if (resultAnnouncement) resultAnnouncement.textContent = `${movies.length} films`
         }, 250)
       }
+
+      if (!firstPassDone) {
+        firstPassDone = true
+        if (controls) controls.hidden = false
+        delete document.documentElement.dataset.moviesPending
+      }
     })
 
     window.history.replaceState({}, "", buildMoviesPageUrl(state, {}))
     updateUI()
   }
 
-  recToggle?.addEventListener("click", (e) => {
-    e.preventDefault()
+  recToggle?.addEventListener("click", () => {
     const isRec = !state.filters.isRecommendation
     state = {
       ...state,
@@ -149,8 +157,7 @@ export function initMovieList(): void {
   })
 
   sortBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault()
+    btn.addEventListener("click", () => {
       const sort = btn.dataset.sort as SortBy
       state = {
         ...state,
@@ -158,10 +165,6 @@ export function initMovieList(): void {
       }
       updateList()
     })
-  })
-
-  searchForm?.addEventListener("submit", (e) => {
-    e.preventDefault()
   })
 
   searchInput?.addEventListener("input", (e) => {
