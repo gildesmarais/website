@@ -5,9 +5,8 @@ import { generateLlmsTxt, generateLlmsFullTxt, rewriteMarkdownLinks } from "./ll
 
 function supplyChainLine(id: string): string {
   const project = projects.find((entry) => entry.id === id)
-  const highlight = project?.highlights?.find((entry) => entry.term === "Supply chain")
-  if (!highlight) throw new Error(`missing Supply chain highlight for ${id}`)
-  return `Supply chain: ${highlight.definition}`
+  if (!project?.supplyChain) throw new Error(`missing supplyChain for ${id}`)
+  return `Supply chain: ${project.supplyChain}`
 }
 
 vi.mock("astro:content", () => {
@@ -145,6 +144,13 @@ describe("llms content generation", () => {
     expect(text).toContain("## Projects")
     expect(text).toContain("### html2rss")
     expect(text).toContain("Status: maintained")
+    const html2rss = projects.find((p) => p.id === "html2rss")
+    expect(html2rss).toBeDefined()
+    expect(text).toContain(html2rss!.bodyHtml[0].replace(/<[^>]+>/g, "").trim())
+    for (const highlight of html2rss!.highlights ?? []) {
+      expect(text).toContain(highlight.term)
+      expect(text).toContain(highlight.definition)
+    }
     expect(text).toContain(supplyChainLine("jekyll-loading-lazy"))
     expect(text).toContain("## Recommended Films (Top 10)")
     expect(text).toContain("### Inception (2010)")

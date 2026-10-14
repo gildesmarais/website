@@ -2,7 +2,7 @@
 import { externalRel } from "../utils/linkRel"
 
 export interface Props {
-  highlights: Array<{ term: string; definition: string; href?: string; external?: boolean }>
+  highlights: readonly { term: string; definition: string; href?: string; external?: boolean }[]
 }
 
 const { highlights } = Astro.props

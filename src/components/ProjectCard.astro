@@ -1,6 +1,6 @@
 ---
 import Highlights from "./Highlights.astro"
-import type { ProjectStatus } from "../data/projects"
+import type { ProjectHighlight, ProjectLink, ProjectStatus } from "../data/projects"
 import { externalRel } from "../utils/linkRel"
 
 export interface Props {
@@ -8,8 +8,8 @@ export interface Props {
   slug: string
   status: ProjectStatus
   description: string
-  highlights?: Array<{ term: string; definition: string; href?: string; external?: boolean }>
-  links?: Array<{ text: string; url: string; external?: boolean }>
+  highlights?: readonly ProjectHighlight[]
+  links?: readonly ProjectLink[]
 }
 
 const { title, slug, status, description, highlights, links } = Astro.props
