@@ -46,7 +46,7 @@ export type Project = {
 
 const HTML2RSS_MCP_URL = "https://html2rss.github.io/ruby-gem/reference/mcp-server/"
 
-export const projects = [
+export const projects: readonly Project[] = [
   {
     id: "html2rss",
     title: "html2rss",
@@ -217,7 +217,7 @@ export const projects = [
       'Static sites deserve to be fast without extra chores. This plugin adds the native <code>loading="lazy"</code> attribute to images and iframes during the build, no template changes needed. Maintainers get Core Web Vitals improvements and one less script to ship.',
     ],
   },
-] as const satisfies readonly Project[]
+]
 
 export function projectSlug(project: Pick<Project, "title">): string {
   return slugify(project.title)
