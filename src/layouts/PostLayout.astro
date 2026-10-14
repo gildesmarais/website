@@ -9,7 +9,7 @@ type KeepReadingPost = {
 interface Props {
   title: string
   date?: Date
-  description: string
+  description?: string
   language?: string
   keepReading?: KeepReadingPost[]
 }
@@ -19,7 +19,7 @@ const { title, date, description, language, keepReading = [] } = Astro.props
 const footerLabel = keepReading.length > 0 ? "Keep reading and projects" : "Projects"
 ---
 
-<BaseLayout title={title} description={description} language={language}>
+<BaseLayout title={title} description={description ?? ""} language={language}>
   <article data-corners>
     <div class="width">
       <header>
