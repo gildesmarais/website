@@ -2,6 +2,13 @@ import { slugify } from "../utils/slugify"
 
 export type ProjectStatus = "maintained" | "evergreen" | "legacy"
 
+/** Public status glossary — one map, rendered once on /projects and used by tests. */
+export const projectStatusGlossary: Record<ProjectStatus, string> = {
+  maintained: "accepting issues/PRs, releases ongoing",
+  evergreen: "feature-complete, fixes on request",
+  legacy: "kept for reference, no new work",
+}
+
 export type ProjectLink = {
   text: string
   url: string
@@ -29,19 +36,22 @@ export type Project = {
   description: string
   highlights?: readonly ProjectHighlight[]
   links?: readonly ProjectLink[]
+  /** How the project is published and verified — not a highlight term. */
+  supplyChain?: string
   /** Trusted static HTML paragraphs for the projects page body. */
   bodyHtml: readonly string[]
   /** When set, included in the homepage open-source strip. */
   homepage?: HomepageHighlight
 }
 
+const HTML2RSS_MCP_URL = "https://html2rss.github.io/ruby-gem/reference/mcp-server/"
+
 export const projects = [
   {
     id: "html2rss",
     title: "html2rss",
     status: "maintained",
-    description:
-      "Open-source org — turns any website into RSS 2.0 or JSON Feed. Ruby gem, self-hosted web app, and an MCP server for agents.",
+    description: "Open-source org — turns any website into RSS 2.0 or JSON Feed.",
     highlights: [
       {
         term: "Extraction",
@@ -58,7 +68,7 @@ export const projects = [
       {
         term: "MCP",
         definition: "Agents build and ship feeds with the same tools people use.",
-        href: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
+        href: HTML2RSS_MCP_URL,
         external: true,
       },
       {
@@ -74,28 +84,26 @@ export const projects = [
         definition: "Ruby gem plus a Docker web app that runs on your own hardware.",
       },
       {
-        term: "Adoption",
-        definition: "58k+ RubyGems downloads · 16k+ Docker Hub pulls",
+        term: "RubyGems",
+        definition: "58k+ downloads",
         href: "https://rubygems.org/gems/html2rss/",
         external: true,
       },
       {
-        term: "Supply chain",
-        definition:
-          "Every release traceable to its source: RubyGems trusted publishing, Docker images with provenance and SBOM.",
+        term: "Docker Hub",
+        definition: "16k+ pulls",
+        href: "https://hub.docker.com/r/html2rss/web",
+        external: true,
       },
     ],
+    supplyChain:
+      "Every release traceable to its source: RubyGems trusted publishing, Docker images with provenance and SBOM.",
     links: [
       { text: "Project website", url: "https://html2rss.github.io/", external: true },
       { text: "GitHub Organization", url: "https://github.com/html2rss", external: true },
       { text: "RubyGems", url: "https://rubygems.org/gems/html2rss/", external: true },
       { text: "Docker Hub", url: "https://hub.docker.com/r/html2rss/web", external: true },
       { text: "Kanban Board", url: "https://github.com/orgs/html2rss/projects/3/views/1", external: true },
-      {
-        text: "MCP module guide",
-        url: "https://html2rss.github.io/ruby-gem/reference/mcp-server/",
-        external: true,
-      },
     ],
     bodyHtml: [
       "html2rss brings RSS back to sites that never had it (or quietly killed it). It reads what a page already says about itself before guessing, and starts a browser only when a page needs one. YAML selectors stay available when you know the markup.",
@@ -112,7 +120,7 @@ export const projects = [
     id: "moodbar-rs",
     title: "moodbar.rs",
     status: "maintained",
-    description: "Cross-platform Rust toolkit — CLI, native iOS/Android, WASM.",
+    description: "Cross-platform Rust toolkit for audio moodbars.",
     highlights: [
       { term: "Rust core", definition: "Pure-Rust stack powered by Symphonia + RustFFT." },
       { term: "WASM", definition: "Browser-ready WebAssembly bindings with a live demo." },
@@ -123,12 +131,9 @@ export const projects = [
         term: "Batch workflows",
         definition: "Batch generation pipeline for processing whole music folders.",
       },
-      {
-        term: "Supply chain",
-        definition:
-          "Every artifact traceable to its source commit: npm provenance, attested GitHub release builds; crates.io via API token.",
-      },
     ],
+    supplyChain:
+      "Every artifact traceable to its source commit: npm provenance, attested GitHub release builds; crates.io via API token.",
     links: [
       {
         text: "Project site + demo",
@@ -183,7 +188,7 @@ export const projects = [
     id: "jekyll-loading-lazy",
     title: "jekyll-loading-lazy",
     status: "legacy",
-    description: "Drop-in lazy loading for Jekyll (img/iframe). Zero JS. Instant performance wins.",
+    description: "Drop-in lazy loading for Jekyll (img/iframe). Instant performance wins.",
     highlights: [
       { term: "Automatic", definition: "Injects loading attributes into images/iframes at build time." },
       { term: "Low-touch", definition: "Works without editing content files or templates." },
@@ -197,11 +202,8 @@ export const projects = [
         href: "https://rubygems.org/gems/jekyll-loading-lazy",
         external: true,
       },
-      {
-        term: "Supply chain",
-        definition: "Published via API token; no provenance attestation.",
-      },
     ],
+    supplyChain: "Published via API token; no provenance attestation.",
     links: [
       { text: "RubyGems", url: "https://rubygems.org/gems/jekyll-loading-lazy", external: true },
       {

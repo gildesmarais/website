@@ -46,7 +46,16 @@ export function rewriteMarkdownLinks(body: string, baseUrl: string): string {
   return text
 }
 
-function appendProjectsSection(lines: string[], baseUrl: string): void {
+function projectLinkHref(baseUrl: string, url: string): string {
+  // Single leading slash is a site path; protocol-relative // stays absolute.
+  if (url.startsWith("/") && !url.startsWith("//")) {
+    return absoluteUrl(baseUrl, url)
+  }
+  return url
+}
+
+/** Short project index for llms.txt. */
+function appendProjectsIndex(lines: string[], baseUrl: string): void {
   lines.push("", "## Projects", "")
 
   for (const project of projects) {
@@ -54,15 +63,50 @@ function appendProjectsSection(lines: string[], baseUrl: string): void {
 
     if (project.links?.length) {
       for (const link of project.links) {
-        const href = link.url.startsWith("/") ? absoluteUrl(baseUrl, link.url) : link.url
-        lines.push(`- [${link.text}](${href})`)
+        lines.push(`- [${link.text}](${projectLinkHref(baseUrl, link.url)})`)
       }
       lines.push("")
     }
 
-    const supplyChain = project.highlights?.find((h) => h.term === "Supply chain")
-    if (supplyChain) {
-      lines.push(`Supply chain: ${supplyChain.definition}`, "")
+    if (project.supplyChain) {
+      lines.push(`Supply chain: ${project.supplyChain}`, "")
+    }
+  }
+}
+
+/** Full project projection for llms-full.txt. */
+function appendProjectsFull(lines: string[], baseUrl: string): void {
+  lines.push("", "## Projects", "")
+
+  for (const project of projects) {
+    lines.push(`### ${project.title}`, "", `Status: ${project.status}`, "", project.description, "")
+
+    for (const paragraph of project.bodyHtml) {
+      const plain = paragraph.replace(/<[^>]+>/g, "").trim()
+      if (plain) lines.push(plain, "")
+    }
+
+    if (project.highlights?.length) {
+      for (const highlight of project.highlights) {
+        if (highlight.href) {
+          const href = projectLinkHref(baseUrl, highlight.href)
+          lines.push(`- **${highlight.term}**: ${highlight.definition} ([link](${href}))`)
+        } else {
+          lines.push(`- **${highlight.term}**: ${highlight.definition}`)
+        }
+      }
+      lines.push("")
+    }
+
+    if (project.links?.length) {
+      for (const link of project.links) {
+        lines.push(`- [${link.text}](${projectLinkHref(baseUrl, link.url)})`)
+      }
+      lines.push("")
+    }
+
+    if (project.supplyChain) {
+      lines.push(`Supply chain: ${project.supplyChain}`, "")
     }
   }
 }
@@ -87,7 +131,7 @@ export async function generateLlmsTxt(options: LlmsOptions = {}): Promise<string
     lines.push(`- [${page.title}](${absoluteUrl(baseUrl, page.path)}): ${page.description}`)
   }
 
-  appendProjectsSection(lines, baseUrl)
+  appendProjectsIndex(lines, baseUrl)
 
   lines.push("", "## Showcase Posts", "")
 
@@ -155,7 +199,7 @@ export async function generateLlmsFullTxt(options: LlmsOptions = {}): Promise<st
     )
   }
 
-  appendProjectsSection(lines, baseUrl)
+  appendProjectsFull(lines, baseUrl)
   lines.push("---", "")
 
   lines.push(
