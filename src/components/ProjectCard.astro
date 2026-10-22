@@ -18,42 +18,38 @@ const { title, slug, status, description, highlights, links } = Astro.props
 <article class="project-card">
   <header>
     <h2 class="accent" id={slug}>
-      {title}{" "}<small aria-label="project status">— {status}</small>
+      {title} <small aria-label="project status">— {status}</small>
     </h2>
     <p class="lead">{description}</p>
   </header>
 
   <slot />
 
-  {
-    highlights && (
-      <>
-        <h3 class="section-kicker">Highlights</h3>
-        <Highlights highlights={highlights} />
-      </>
-    )
-  }
+  {highlights && (
+    <>
+      <h3 class="section-kicker">Highlights</h3>
+      <Highlights highlights={highlights} />
+    </>
+  )}
 
-  {
-    links && (
-      <>
-        <h3 class="section-kicker">Links</h3>
-        <ul>
-          {links.map(({ text, url, external }) => (
-            <li>
-              <a
-                href={url}
-                target={external ? "_blank" : undefined}
-                rel={external ? externalRel("external nofollow") : undefined}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }
+  {links && (
+    <>
+      <h3 class="section-kicker">Links</h3>
+      <ul>
+        {links.map(({ text, url, external }) => (
+          <li>
+            <a
+              href={url}
+              target={external ? "_blank" : undefined}
+              rel={external ? externalRel("external nofollow") : undefined}
+            >
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
 </article>
 
 <style>

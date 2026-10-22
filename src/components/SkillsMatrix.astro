@@ -46,22 +46,20 @@ function organizeSkillsIntoRows(skills: readonly string[]): string[][] {
 
   <div class="matrix-container">
     <div class="matrix-content">
-      {
-        categories.map(({ label, skills }) => {
-          const skillRows = organizeSkillsIntoRows(skills)
-          return skillRows.map((rowSkills, rowIndex) => (
-            <div class="matrix-row">
-              {rowIndex === 0 && <div class="row-label">{label}</div>}
-              {rowIndex > 0 && <div class="row-label empty-label" />}
-              <div class="skills-grid">
-                {rowSkills.map((skill) => (
-                  <div class={`skill-cell ${!skill ? "empty" : ""}`}>{skill}</div>
-                ))}
-              </div>
+      {categories.map(({ label, skills }) => {
+        const skillRows = organizeSkillsIntoRows(skills)
+        return skillRows.map((rowSkills, rowIndex) => (
+          <div class="matrix-row">
+            {rowIndex === 0 && <div class="row-label">{label}</div>}
+            {rowIndex > 0 && <div class="row-label empty-label" />}
+            <div class="skills-grid">
+              {rowSkills.map((skill) => (
+                <div class={`skill-cell ${!skill ? "empty" : ""}`}>{skill}</div>
+              ))}
             </div>
-          ))
-        })
-      }
+          </div>
+        ))
+      })}
     </div>
   </div>
 </section>

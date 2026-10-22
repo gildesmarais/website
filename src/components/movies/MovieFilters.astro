@@ -47,34 +47,38 @@ const sortKeys = [
       aria-label={ariaLabel}
       title={recommendationTitle}
     >
-      <span class="recommendation-icon" aria-hidden="true">★</span>
+      <span class="recommendation-icon" aria-hidden="true">
+        ★
+      </span>
     </a>
     <div class="recommendation-state">
-      <span id="recommendationStateLabel" class="recommendation-state-label">{stateLabel}</span>
-      <span id="movieResultCount" class="recommendation-state-count">{resultCount} films</span>
-      <span id="movieResultAnnouncement" class="sr-only" aria-live="polite" aria-atomic="true"
-        >{resultCount} films</span
-      >
+      <span id="recommendationStateLabel" class="recommendation-state-label">
+        {stateLabel}
+      </span>
+      <span id="movieResultCount" class="recommendation-state-count">
+        {resultCount} films
+      </span>
+      <span id="movieResultAnnouncement" class="sr-only" aria-live="polite" aria-atomic="true">
+        {resultCount} films
+      </span>
     </div>
 
     <!-- Sort buttons -->
     <div class="sort-group">
-      {
-        sortKeys.map(({ key, label }) => {
-          const isActive = sortBy === key
-          const next = nextSortOptions(current.sortOptions, key)
+      {sortKeys.map(({ key, label }) => {
+        const isActive = sortBy === key
+        const next = nextSortOptions(current.sortOptions, key)
 
-          return (
-            <a
-              href={buildMoviesPageUrl(current, next)}
-              class={`minimal-btn sort-btn ${isActive ? "active" : ""}`}
-              data-sort={key}
-            >
-              {label} <span class="sort-icon">{isActive ? (sortDir === "asc" ? "▲" : "▼") : ""}</span>
-            </a>
-          )
-        })
-      }
+        return (
+          <a
+            href={buildMoviesPageUrl(current, next)}
+            class={`minimal-btn sort-btn ${isActive ? "active" : ""}`}
+            data-sort={key}
+          >
+            {label} <span class="sort-icon">{isActive ? (sortDir === "asc" ? "▲" : "▼") : ""}</span>
+          </a>
+        )
+      })}
     </div>
   </div>
 
@@ -91,6 +95,10 @@ const sortKeys = [
       value={searchQuery}
       class="movie-search-input"
     />
-    <noscript><button type="submit" class="sr-only">Search</button></noscript>
+    <noscript>
+      <button type="submit" class="sr-only">
+        Search
+      </button>
+    </noscript>
   </form>
 </div>

@@ -9,23 +9,19 @@ const { title, date, description, language } = Astro.props
       <header>
         <hgroup>
           <h1>{title}</h1>
-          {
-            date && (
-              <p>
-                <time datetime={new Date(date).toISOString()}>
-                  {new Date(date).toISOString().split("T")[0]}
-                </time>
-              </p>
-            )
-          }
-        </hgroup>
-        {
-          language && language !== "en" && (
-            <p class="micro" lang={language}>
-              Dieser Artikel ist auf Deutsch verfasst.
+          {date && (
+            <p>
+              <time datetime={new Date(date).toISOString()}>
+                {new Date(date).toISOString().split("T")[0]}
+              </time>
             </p>
-          )
-        }
+          )}
+        </hgroup>
+        {language && language !== "en" && (
+          <p class="micro" lang={language}>
+            Dieser Artikel ist auf Deutsch verfasst.
+          </p>
+        )}
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />

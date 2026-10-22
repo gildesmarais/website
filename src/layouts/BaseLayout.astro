@@ -141,7 +141,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
     <script is:inline>
       document.documentElement.classList.add("js")
     </script>
-
     <script is:inline>
       ;(() => {
         const progress = document.querySelector("#scroll-progress")
@@ -165,7 +164,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
         }
       })()
     </script>
-
     <header id="top" class="container">
       <Navigation />
     </header>
@@ -180,35 +178,37 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       <section class="container">
         <small class="secondary">
           <span>
-            &copy; {site.copyrightYear}{" "}
-            {site.name}. All content is licensed under a{" "}
-            <a href={site.licenseUrl} target="_blank" rel="noopener" class="secondary">{site.licenseName}</a>.
+            &copy; {site.copyrightYear} {site.name}. All content is licensed under a{" "}
+            <a href={site.licenseUrl} target="_blank" rel="noopener" class="secondary">
+              {site.licenseName}
+            </a>
+            .
           </span>
           <a
             href="/imprint"
             aria-current={isActivePath(path, "/imprint") ? "page" : undefined}
             class="secondary"
-            lang="de">Imprint & Privacy</a
+            lang="de"
           >
+            Imprint & Privacy
+          </a>
         </small>
       </section>
     </footer>
 
-    {
-      import.meta.env.PROD && (
-        <>
-          <noscript>
-            <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
-          </noscript>
-          <script
-            is:inline
-            data-goatcounter="https://gil.goatcounter.com/count"
-            async
-            src="//gc.zgo.at/count.js"
-          />
-        </>
-      )
-    }
+    {import.meta.env.PROD && (
+      <>
+        <noscript>
+          <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
+        </noscript>
+        <script
+          is:inline
+          data-goatcounter="https://gil.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        />
+      </>
+    )}
 
     <script is:inline>
       ;(() => {
@@ -230,7 +230,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
         console.log("%c→ Contact: %s", strong, contactUrl)
       })()
     </script>
-
     <script>
       function adjustBottomPadding() {
         const mainContent = document.getElementById("main-content")
@@ -241,7 +240,9 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
       adjustBottomPadding()
       window.addEventListener("resize", adjustBottomPadding)
     </script>
-
-    {bootPosterLoader && <script>import {initPosterLoader} from "../movies"; initPosterLoader();</script>}
+    {bootPosterLoader && <script>
+      import { initPosterLoader } from "../movies"
+      initPosterLoader()
+    </script>}
   </body>
 </html>

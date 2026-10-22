@@ -13,19 +13,23 @@ const description = `${leadCount} hand-picked posts. Subscribe via RSS feed.`
 <BaseLayout title={title} description={description}>
   <Hero title={title}>
     <p class="lead">
-      {leadCount}{" "}hand-picked posts. See the{" "}
-      <a href="/blog/archive/">archive</a> for all, or<br />
+      {leadCount} hand-picked posts. See the <a href="/blog/archive/">archive</a> for all, or
+      <br />
       <a href="/feed.xml">subscribe to the RSS feed</a> (English posts only).
     </p>
   </Hero>
 
   <section>
     <ul>
-      {posts.map((post) => <BlogPostRow post={post} dateFormat="iso" description />)}
+      {posts.map((post) => (
+        <BlogPostRow post={post} dateFormat="iso" description />
+      ))}
     </ul>
 
     <nav>
-      <a href="/blog/archive/" class="minimal-btn">Archive ⇾</a>
+      <a href="/blog/archive/" class="minimal-btn">
+        Archive ⇾
+      </a>
     </nav>
   </section>
 </BaseLayout>

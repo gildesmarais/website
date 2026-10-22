@@ -28,57 +28,50 @@ function rot18(str: string): string {
   <div class="width">
     <h1>{title}</h1>
 
-    <p><strong>Betreiber</strong>: {legal.operatorName}</p>
-    {
-      legal.legalForm && (
-        <p>
-          <strong>Rechtsform</strong>: {legal.legalForm}
-        </p>
-      )
-    }
+    <p>
+      <strong>Betreiber</strong>: {legal.operatorName}
+    </p>
+    {legal.legalForm && (
+      <p>
+        <strong>Rechtsform</strong>: {legal.legalForm}
+      </p>
+    )}
     <p>
       <strong>Adresse</strong>:<br />
-
-      <span class="human-only" data-rot18={rot18(legal.operatorName)}></span><br />
-      <span class="human-only" data-rot18={rot18(legal.street)}></span><br />
-      <span class="human-only" data-rot18={rot18(legal.zip_city)}></span><br />
+      <span class="human-only" data-rot18={rot18(legal.operatorName)}></span>
+      <br />
+      <span class="human-only" data-rot18={rot18(legal.street)}></span>
+      <br />
+      <span class="human-only" data-rot18={rot18(legal.zip_city)}></span>
+      <br />
       <span class="human-only" data-rot18={rot18(legal.country)}></span>
     </p>
     <p>
       <strong>Kontakt</strong>:<br />
-
       <span class="human-only" data-rot18={rot18(legal.email)}></span>, <br />
       Telefon: <span class="human-only" data-rot18={rot18(legal.phone)}></span>
     </p>
-    {
-      legal.managingDirector && (
-        <p>
-          <strong>Geschäftsführer / vertretungsberechtigt</strong>: {legal.managingDirector}
-        </p>
-      )
-    }
-    {
-      legal.registerCourt && legal.registerNumber && (
-        <p>
-          <strong>Registergericht / Registernr.</strong>: {legal.registerCourt}, {legal.registerNumber}
-        </p>
-      )
-    }
-    {
-      legal.vatID && (
-        <p>
-          <strong>USt-ID</strong>: {legal.vatID}
-        </p>
-      )
-    }
-    {
-      legal.responsibleForContent && (
-        <p>
-          <strong>Verantwortlich für journalistisch-redaktionelle Inhalte</strong>:{" "}
-          {legal.responsibleForContent}
-        </p>
-      )
-    }
+    {legal.managingDirector && (
+      <p>
+        <strong>Geschäftsführer / vertretungsberechtigt</strong>: {legal.managingDirector}
+      </p>
+    )}
+    {legal.registerCourt && legal.registerNumber && (
+      <p>
+        <strong>Registergericht / Registernr.</strong>: {legal.registerCourt}, {legal.registerNumber}
+      </p>
+    )}
+    {legal.vatID && (
+      <p>
+        <strong>USt-ID</strong>: {legal.vatID}
+      </p>
+    )}
+    {legal.responsibleForContent && (
+      <p>
+        <strong>Verantwortlich für journalistisch-redaktionelle Inhalte</strong>:{" "}
+        {legal.responsibleForContent}
+      </p>
+    )}
 
     <h2 lang="de">Datenschutz</h2>
 

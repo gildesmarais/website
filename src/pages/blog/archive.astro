@@ -16,18 +16,30 @@ const posts = await getArchivePosts()
     <div class="archive-toolbar">
       <p class="section-kicker toolbar-label">Language:</p>
       <nav class="language-filters" aria-label="Filter posts by language">
-        <a href="/blog/archive/" class="filter-link active" data-language-filter="all">All</a>
-        <a href="/blog/archive/?lang=en" class="filter-link" data-language-filter="en">EN</a>
-        <a href="/blog/archive/?lang=de" class="filter-link" data-language-filter="de">DE</a>
+        <a href="/blog/archive/" class="filter-link active" data-language-filter="all">
+          All
+        </a>
+        <a href="/blog/archive/?lang=en" class="filter-link" data-language-filter="en">
+          EN
+        </a>
+        <a href="/blog/archive/?lang=de" class="filter-link" data-language-filter="de">
+          DE
+        </a>
       </nav>
     </div>
 
     <ul>
-      {posts.map((post) => <BlogPostRow post={post} dateFormat="monthYear" />)}
+      {posts.map((post) => (
+        <BlogPostRow post={post} dateFormat="monthYear" />
+      ))}
     </ul>
 
     <footer>
-      <p><a href="/blog" class="minimal-btn">⇽ Back to Blog</a></p>
+      <p>
+        <a href="/blog" class="minimal-btn">
+          ⇽ Back to Blog
+        </a>
+      </p>
     </footer>
   </section>
 

@@ -23,7 +23,9 @@ const description =
   </Hero>
 
   <section aria-labelledby="how-things-connect" class="width">
-    <h2 id="how-things-connect" class="accent">How things connect</h2>
+    <h2 id="how-things-connect" class="accent">
+      How things connect
+    </h2>
     <p>
       Over years of DJing and engineering, I've learned that good systems share the same foundation: clear
       pacing, simple tools, and a focus on the people using them.
@@ -33,25 +35,23 @@ const description =
         <dt>Music</dt>
         <dd>
           Decades of electronic music and vinyl DJing. I still build tools for audio, like{" "}
-          <a href="https://gildesmarais.github.io/moodbar.rs/" target="_blank" rel={externalRel("external")}
-            >moodbar.rs</a
-          >
-          {" "}and write about <a href="/blog/managing-music">handling and organizing music</a>.
+          <a href="https://gildesmarais.github.io/moodbar.rs/" target="_blank" rel={externalRel("external")}>
+            moodbar.rs
+          </a>{" "}
+          and write about <a href="/blog/managing-music">handling and organizing music</a>.
         </dd>
       </div>
       <div>
         <dt>Film</dt>
         <dd>
-          I enjoy cinema and keep a list of{" "}
-          <a href="/movies/recommendations">films I recommend</a>.
+          I enjoy cinema and keep a list of <a href="/movies/recommendations">films I recommend</a>.
         </dd>
       </div>
       <div>
         <dt>Software</dt>
         <dd>
           I build open-source tools and web applications to solve everyday problems. You can explore them on
-          my{" "}
-          <a href="/projects">projects page</a>.
+          my <a href="/projects">projects page</a>.
         </dd>
       </div>
       <div>
@@ -63,17 +63,22 @@ const description =
 
   <section aria-labelledby="identity" class="width">
     <p class="section-kicker">Background</p>
-    <h2 id="identity" class="accent">How it started</h2>
+    <h2 id="identity" class="accent">
+      How it started
+    </h2>
     <p>
       I came online through a 28.8k modem and built my first website in Notepad, following a magazine tutorial
-      about <code>&lt;frames&gt;</code><span class="smiley">:D</span>. Curiosity was the constant from day
-      one.
+      about <code>&lt;frames&gt;</code>
+      <span class="smiley">:D</span>. Curiosity was the constant from day one.
     </p>
 
     <p>
       I explored JavaScript, Perl, PHP, and MySQL early, then Linux and systems internals. Writing automation
       for IRC and bootstrapping Gentoo on my only computer taught me to understand systems end-to-end, not
-      just frameworks.<sup><a href="#foot-1">1</a></sup>
+      just frameworks.
+      <sup>
+        <a href="#foot-1">1</a>
+      </sup>
     </p>
 
     <p>
@@ -98,7 +103,9 @@ const description =
   </section>
 
   <section aria-labelledby="how-i-work" class="width">
-    <h2 id="how-i-work" class="accent">How I work</h2>
+    <h2 id="how-i-work" class="accent">
+      How I work
+    </h2>
     <p>
       I start with <q>why</q> before <q>how</q>: understanding incentives, constraints, and risk, then
       aligning trade-offs so teams can move with confidence. My background across engineering and creative
@@ -109,7 +116,8 @@ const description =
         <strong>Efficiency:</strong> Fix root causes, not symptoms.
       </li>
       <li>
-        <strong>Systems thinking:</strong> Connect technical and organizational dependencies so decisions age well.
+        <strong>Systems thinking:</strong> Connect technical and organizational dependencies so decisions age
+        well.
       </li>
       <li>
         <strong>Ease of use:</strong> Make outcomes simpler for teams and customers.
@@ -128,19 +136,19 @@ const description =
   </section>
 
   <section aria-labelledby="contact" class="width">
-    <h2 id="contact" class="accent">Say hi</h2>
+    <h2 id="contact" class="accent">
+      Say hi
+    </h2>
 
     <p>When I'm not working on systems, you might find me exploring these spaces:</p>
     <ul>
-      {
-        allSocials.map((l) => (
-          <li>
-            <a href={l.url} target="_blank" rel={externalRel(l.rel)}>
-              {l.name}
-            </a>
-          </li>
-        ))
-      }
+      {allSocials.map((l) => (
+        <li>
+          <a href={l.url} target="_blank" rel={externalRel(l.rel)}>
+            {l.name}
+          </a>
+        </li>
+      ))}
     </ul>
 
     <p>
@@ -148,25 +156,30 @@ const description =
     </p>
 
     <p>
-      <NamePronunciation pronunciation="/ʒɪl dɛsmɐʁɛ/" audioSrc="/index.flac" /><br />
+      <NamePronunciation pronunciation="/ʒɪl dɛsmɐʁɛ/" audioSrc="/index.flac" />
+      <br />
       And yes, I'll still respond if your first guess is <q>Jill</q>. <span class="smiley">:-)</span>
     </p>
     <p>
-      <span class="micro">For timeline, roles, and technologies, see my <a href="/resume">Résumé</a>.</span>
+      <span class="micro">
+        For timeline, roles, and technologies, see my <a href="/resume">Résumé</a>.
+      </span>
     </p>
   </section>
 
   <hr />
 
   <section>
-    <h2 class="sr-only accent" id="footnote-label">Footnotes</h2>
+    <h2 class="sr-only accent" id="footnote-label">
+      Footnotes
+    </h2>
     <ul class="micro">
       <li>
         <a id="foot-1">[1]</a>: Staying connected became a bit of a mission too. By 2008 I even rigged my
-        Nokia E51 as a UMTS modem over Bluetooth so I could stay{" "}
-        <em>online</em> on the move while most people around me in Germany were still dialing in at home; <a
-          href="/blog/nokia-e51-als-umts-modem-via-bluetooth-unter-ubuntu/">here's the write-up</a
-        > for a little early-internet wink.
+        Nokia E51 as a UMTS modem over Bluetooth so I could stay <em>online</em> on the move while most people
+        around me in Germany were still dialing in at home;{" "}
+        <a href="/blog/nokia-e51-als-umts-modem-via-bluetooth-unter-ubuntu/">here's the write-up</a> for a
+        little early-internet wink.
       </li>
     </ul>
   </section>

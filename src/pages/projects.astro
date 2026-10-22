@@ -26,34 +26,32 @@ const projectHeadings = projects.map((project) => ({
     description="Pragmatic tools I built for myself. If they make your life easier too, even better."
   >
     <p>
-      I prefer purposeful tools with small footprints. Everything here is open source; more lives on <a
-        href={githubProfileUrl}
-        target="_blank"
-        rel={externalRel("external nofollow")}>GitHub</a
-      >.
+      I prefer purposeful tools with small footprints. Everything here is open source; more lives on{" "}
+      <a href={githubProfileUrl} target="_blank" rel={externalRel("external nofollow")}>
+        GitHub
+      </a>
+      .
     </p>
     <p>Open-source releases use trusted publishing — supply-chain security is part of how I ship.</p>
   </Hero>
 
   <TableOfContents headings={projectHeadings} />
 
-  {
-    projects.map((project, index) => (
-      <>
-        {index > 0 && <hr />}
-        <ProjectCard
-          title={project.title}
-          slug={projectSlug(project)}
-          status={project.status}
-          description={project.description}
-          highlights={project.highlights ? [...project.highlights] : undefined}
-          links={project.links ? [...project.links] : undefined}
-        >
-          {project.bodyHtml.map((html) => (
-            <p set:html={html} />
-          ))}
-        </ProjectCard>
-      </>
-    ))
-  }
+  {projects.map((project, index) => (
+    <>
+      {index > 0 && <hr />}
+      <ProjectCard
+        title={project.title}
+        slug={projectSlug(project)}
+        status={project.status}
+        description={project.description}
+        highlights={project.highlights ? [...project.highlights] : undefined}
+        links={project.links ? [...project.links] : undefined}
+      >
+        {project.bodyHtml.map((html) => (
+          <p set:html={html} />
+        ))}
+      </ProjectCard>
+    </>
+  ))}
 </BaseLayout>
