@@ -90,12 +90,10 @@ const posts = await getArchivePosts()
   nav.language-filters {
     display: flex;
     align-items: center;
-    justify-content: flex-start !important;
     gap: var(--space-xxs);
     margin: 0;
     padding: 0;
     border: 0;
-    width: auto !important;
     max-width: none;
     overflow: visible;
     white-space: nowrap;
@@ -111,7 +109,7 @@ const posts = await getArchivePosts()
     font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-caps);
     padding: var(--space-xxs) var(--space-xs);
     border: var(--ui-stroke-thin) solid var(--ui-muted-border-color);
     color: var(--ui-muted-color);
@@ -120,12 +118,12 @@ const posts = await getArchivePosts()
 
   .language-filters .filter-link::before {
     content: "[";
-    margin-right: 0.08rem;
+    margin-right: var(--space-hair);
   }
 
   .language-filters .filter-link::after {
     content: "]";
-    margin-left: 0.08rem;
+    margin-left: var(--space-hair);
   }
 
   .language-filters .filter-link:hover {
@@ -154,7 +152,7 @@ const posts = await getArchivePosts()
 
   @media (pointer: coarse) {
     .language-filters .filter-link {
-      min-height: 44px;
+      min-height: var(--size-tap-min);
       padding: var(--space-xs) var(--space-md);
     }
   }

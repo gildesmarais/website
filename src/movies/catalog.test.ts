@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest"
+import moviesData from "../data/movies.json"
+import recommendationsData from "../data/recommendations.json"
 import { buildMovieCache } from "./catalog"
 import { buildSearchString, type Movie } from "./query"
 
@@ -19,19 +21,20 @@ function movie(partial: Partial<Movie> & Pick<Movie, "const" | "title" | "title_
 }
 
 describe("buildMovieCache", () => {
-  it("keeps only title_type Movie rows", () => {
+  it("keeps Movie rows and recommended non-Movie rows", () => {
     const cache = buildMovieCache(
       [
         movie({ const: "tt1", title: "Feature", title_type: "Movie" }),
         movie({ const: "tt2", title: "Series", title_type: "TV Series" }),
-        movie({ const: "tt3", title: "Short", title_type: "Short" }),
+        movie({ const: "tt3", title: "TV Feature", title_type: "TV Movie" }),
       ],
-      [],
+      [{ const: "tt3" }],
     )
 
-    expect(cache.movies.map((m) => m.const)).toEqual(["tt1"])
+    expect(cache.movies.map((m) => m.const)).toEqual(["tt1", "tt3"])
     expect(cache.moviesMap.has("tt1")).toBe(true)
     expect(cache.moviesMap.has("tt2")).toBe(false)
+    expect(cache.moviesMap.has("tt3")).toBe(true)
   })
 
   it("builds searchString via buildSearchString helper", () => {
@@ -56,5 +59,14 @@ describe("buildMovieCache", () => {
     expect([...cache.recommendationsSet]).toEqual(["tt1", "tt-missing"])
     expect(cache.recommendationNotes.get("tt1")).toBe("Worth a rewatch")
     expect(cache.recommendationNotes.has("tt-missing")).toBe(false)
+  })
+
+  it("resolves every recommendations.json id against the catalog", () => {
+    const cache = buildMovieCache(moviesData as Movie[], recommendationsData)
+
+    for (const rec of recommendationsData) {
+      if (!rec.const) continue
+      expect(cache.moviesMap.has(rec.const), `unresolved recommendation id: ${rec.const}`).toBe(true)
+    }
   })
 })

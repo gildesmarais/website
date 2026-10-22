@@ -6,21 +6,25 @@ import Hero from "../components/Hero.astro"
 import ProjectCard from "../components/ProjectCard.astro"
 import TableOfContents from "../components/TableOfContents.astro"
 import { githubProfileUrl } from "../data/socials"
-import { projectSlug, projects } from "../data/projects"
+import { projectSlug, projectStatusGlossary, projects, type ProjectStatus } from "../data/projects"
+import { corePage } from "../data/site"
 import { externalRel } from "../utils/linkRel"
 
 const title = "Projects"
-const description =
-  "Selective open-source experiments that remove friction for me and, hopefully, for you too."
 
 const projectHeadings = projects.map((project) => ({
   depth: 2 as const,
   text: project.title,
   slug: projectSlug(project),
 }))
+
+const statusEntries = (Object.keys(projectStatusGlossary) as ProjectStatus[]).map((status) => ({
+  status,
+  gloss: projectStatusGlossary[status],
+}))
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={corePage("/projects").description}>
   <Hero
     title={title}
     description="Pragmatic tools I built for myself. If they make your life easier too, even better."
@@ -32,7 +36,16 @@ const projectHeadings = projects.map((project) => ({
       </a>
       .
     </p>
-    <p>Open-source releases use trusted publishing — supply-chain security is part of how I ship.</p>
+    <p>
+      Status:{" "}
+      {statusEntries.map(({ status, gloss }, index) => (
+        <>
+          {index > 0 && "; "}
+          <strong>{status}</strong> — {gloss}
+        </>
+      ))}
+      .
+    </p>
   </Hero>
 
   <TableOfContents headings={projectHeadings} />
@@ -45,8 +58,8 @@ const projectHeadings = projects.map((project) => ({
         slug={projectSlug(project)}
         status={project.status}
         description={project.description}
-        highlights={project.highlights ? [...project.highlights] : undefined}
-        links={project.links ? [...project.links] : undefined}
+        highlights={project.highlights}
+        links={project.links}
       >
         {project.bodyHtml.map((html) => (
           <p set:html={html} />

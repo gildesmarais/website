@@ -18,8 +18,8 @@ if (filteredHeadings.length === 0) return null
 ---
 
 <nav class="toc" aria-label="Table of contents">
-  <h3 class="toc-title section-kicker accent">{title}</h3>
-  <ul class="toc-list">
+  <p class="toc-title section-kicker accent">{title}</p>
+  <ul class="toc-list rail-list">
     {filteredHeadings.map((heading) => (
       <li class={`toc-item toc-depth-${heading.depth}`}>
         <a href={`#${heading.slug}`}>{heading.text}</a>
@@ -32,31 +32,26 @@ if (filteredHeadings.length === 0) return null
   .toc {
     margin: var(--region-space) 0 var(--block-space) 0;
     padding: 0;
-
-    /* Override Pico's nav defaults */
-    display: block !important;
-    justify-content: unset !important;
   }
 
-  .toc-title {
-    padding-left: var(--space-sm);
-  }
-
+  /* Match .accent title text (bar width + pad): marker + link as one inline unit. */
   .toc-list {
-    letter-spacing: -0.01rem;
+    letter-spacing: var(--tracking-snug);
     line-height: var(--leading-tight);
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: var(--space-xxs);
   }
 
   .toc-list li {
-    padding: 0 0 var(--space-xxs) 0;
+    padding: 0;
     font-size: var(--text-sm);
   }
 
   .toc-list a {
+    display: inline;
     text-decoration: none;
     transition: color var(--ui-motion) var(--ui-ease);
   }
@@ -64,36 +59,46 @@ if (filteredHeadings.length === 0) return null
   .toc-list a:hover {
     color: var(--brand-accent);
     text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.15em;
-  }
-
-  .toc-list a:focus {
-    outline: none;
+    text-decoration-thickness: var(--ui-stroke);
+    text-underline-offset: var(--underline-offset);
   }
 
   /* Indent based on heading depth */
   .toc-depth-2 {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   .toc-depth-3 {
-    margin-left: var(--space-lg);
+    margin-inline-start: var(--space-lg);
   }
 
   .toc-depth-4 {
-    margin-left: calc(var(--space-lg) * 2);
+    margin-inline-start: calc(var(--space-lg) * 2);
   }
 
   .toc-depth-5 {
-    margin-left: calc(var(--space-lg) * 3);
+    margin-inline-start: calc(var(--space-lg) * 3);
   }
 
   .toc-depth-6 {
-    margin-left: calc(var(--space-lg) * 4);
+    margin-inline-start: calc(var(--space-lg) * 4);
   }
 
-  @media (width <= 768px) {
+  /* Tap targets only where needed — always-on min-height over-spaced the list. */
+  @media (pointer: coarse) {
+    .toc-list {
+      gap: 0;
+    }
+
+    .toc-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--size-tap-min);
+      padding-block: var(--space-xxs);
+    }
+  }
+
+  @media (width < 768px) {
     .toc-title {
       font-size: var(--text-sm);
     }
@@ -103,19 +108,19 @@ if (filteredHeadings.length === 0) return null
     }
 
     .toc-depth-3 {
-      margin-left: var(--space-md);
+      margin-inline-start: var(--space-md);
     }
 
     .toc-depth-4 {
-      margin-left: calc(var(--space-md) * 2);
+      margin-inline-start: calc(var(--space-md) * 2);
     }
 
     .toc-depth-5 {
-      margin-left: calc(var(--space-md) * 3);
+      margin-inline-start: calc(var(--space-md) * 3);
     }
 
     .toc-depth-6 {
-      margin-left: calc(var(--space-md) * 4);
+      margin-inline-start: calc(var(--space-md) * 4);
     }
   }
 </style>

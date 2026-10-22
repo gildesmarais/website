@@ -7,7 +7,7 @@ h6 {
   color: var(--ui-color);
   font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-snug);
   text-wrap: balance;
 }
 
@@ -17,38 +17,38 @@ p {
 
 h1 {
   color: var(--ui-h1-color);
-  font-size: 2rem;
-  line-height: 1.125;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-h1);
 }
 
 h2 {
   color: var(--ui-h2-color);
-  font-size: 1.75rem;
-  line-height: 1.15;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-h2);
 }
 
 h3 {
   color: var(--ui-h3-color);
-  font-size: 1.5rem;
-  line-height: 1.175;
+  font-size: var(--text-xl);
+  line-height: var(--leading-h3);
 }
 
 h4 {
   color: var(--ui-h4-color);
-  font-size: 1.25rem;
-  line-height: 1.2;
+  font-size: var(--text-lg);
+  line-height: var(--leading-h4);
 }
 
 h5 {
   color: var(--ui-h5-color);
-  font-size: 1.125rem;
-  line-height: 1.225;
+  font-size: var(--text-h5);
+  line-height: var(--leading-h5);
 }
 
 h6 {
   color: var(--ui-h6-color);
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: var(--text-md);
+  line-height: var(--leading-h6);
 }
 
 code,
@@ -95,7 +95,7 @@ textarea {
   color: var(--ui-form-element-placeholder-color);
 }
 
-:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]) {
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"], .minimal-btn) {
   display: inline-block;
   margin: 0;
   border: var(--ui-stroke) solid var(--brand-accent);
@@ -105,7 +105,7 @@ textarea {
   color: var(--ui-color);
   cursor: pointer;
   text-decoration: none;
-  line-height: 1.2;
+  line-height: var(--leading-tight);
   transition:
     background var(--ui-motion) var(--ui-ease),
     color var(--ui-motion) var(--ui-ease),
@@ -113,10 +113,10 @@ textarea {
     transform var(--ui-motion) var(--ui-ease);
 }
 
-:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"]):hover {
+:where(button, [role="button"], [type="submit"], [type="button"], [type="reset"], .minimal-btn):hover {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
-  transform: translateY(1px);
+  transform: translateY(var(--press-shift));
 }
 
 .secondary {
@@ -125,7 +125,7 @@ textarea {
 }
 
 small {
-  font-size: 0.875em;
+  font-size: var(--text-small-em);
 }
 
 hgroup {
@@ -152,13 +152,13 @@ abbr[title] {
 a {
   color: var(--ui-primary);
   text-decoration-color: var(--ui-primary-underline);
-  text-underline-offset: 0.1rem;
+  text-underline-offset: var(--underline-offset);
 }
 
 main a {
   text-decoration-line: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.15em;
+  text-decoration-thickness: var(--underline-thick);
+  text-underline-offset: var(--underline-offset);
   text-decoration-skip-ink: auto;
   transition:
     background var(--ui-motion) var(--ui-ease),
@@ -176,8 +176,7 @@ a:focus {
   text-decoration-color: var(--ui-primary-hover-underline);
 }
 
-main
-  a:hover:not(.movie-card-link, .recommendation-row-link, .modal-backdrop-link, .filter-link, .toc-list a) {
+main a:hover:not(.movie-card-link, .recommendation-row a, .modal-backdrop-link, .filter-link, .toc-list a) {
   background: var(--brand-accent);
   color: var(--ui-contrast-inverse);
   text-decoration: none;
@@ -201,19 +200,15 @@ a.secondary:focus {
 }
 
 :where(a, button, summary, [tabindex]):focus-visible {
-  outline: 3px solid var(--brand-accent);
-  outline-offset: 3px;
+  outline: var(--ring-width) solid var(--brand-accent);
+  outline-offset: var(--ring-offset);
 }
 
 :where(input, textarea, select):focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: var(--ring-width) solid var(--brand-accent);
   outline-offset: 0;
 }
 
 :where(details > summary) {
   cursor: pointer;
-}
-
-:where(:target) {
-  scroll-margin-top: var(--scroll-offset);
 }

@@ -2,8 +2,12 @@
 
 .recommendations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--size-movie-min), 1fr));
   gap: var(--space-sm);
+}
+
+html[data-movies-pending] .recommendations-grid {
+  visibility: hidden;
 }
 
 .movies-empty {
@@ -13,10 +17,10 @@
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--ui-muted-color);
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-wide);
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .recommendations-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-sm);
@@ -25,14 +29,14 @@
 
 @media (width >= 768px) {
   .recommendations-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--size-movie-md), 1fr));
     gap: var(--space-sm);
   }
 }
 
 @media (width >= 1200px) {
   .recommendations-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--size-movie-lg), 1fr));
   }
 }
 
@@ -64,7 +68,7 @@
   margin: 0 0 var(--space-md);
   font-size: var(--text-lg);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
 }
 
 .recommendation-row {
@@ -133,7 +137,7 @@
   font-weight: 700;
   font-size: var(--text-lg);
   color: var(--brand-accent);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
 }
 
 .recommendation-row-compact .recommendation-row-rank {
@@ -145,7 +149,7 @@
   font-size: var(--text-md);
   font-weight: 700;
   line-height: var(--leading-tight);
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tracking-tight);
 }
 
 .recommendation-row-compact .recommendation-row-title {
@@ -156,7 +160,7 @@
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--brand-accent);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
   white-space: nowrap;
 }
 
@@ -199,7 +203,7 @@
   }
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .recommendation-row-link {
     grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
     gap: var(--space-sm);
@@ -239,46 +243,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .recommendations-list-band-featured .recommendation-row {
     animation: recommendation-row-enter var(--motion-slow) var(--ui-ease) both;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(1) {
-    animation-delay: 0ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(2) {
-    animation-delay: 40ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(3) {
-    animation-delay: 80ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(4) {
-    animation-delay: 120ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(5) {
-    animation-delay: 160ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(6) {
-    animation-delay: 200ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(7) {
-    animation-delay: 240ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(8) {
-    animation-delay: 280ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(9) {
-    animation-delay: 320ms;
-  }
-
-  .recommendations-list-band-featured .recommendation-row:nth-child(10) {
-    animation-delay: 360ms;
+    animation-delay: var(--stagger);
   }
 }
 
@@ -383,7 +348,7 @@
   font-weight: 700;
   font-size: var(--text-xl);
   font-family: var(--font-mono);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
   text-shadow: var(--glow-sm);
 }
 
@@ -397,7 +362,7 @@
   opacity: 0.6;
 }
 
-@media (width <= 576px) {
+@media (width < 576px) {
   .movie-card-link {
     display: grid;
     grid-template-columns: minmax(var(--size-poster-inline-min), var(--poster-inline-max)) 1fr;
@@ -493,7 +458,7 @@
 .movie-controls .recommendation-state-label {
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-caps);
 }
 
 .movie-controls .recommendation-state-count {
@@ -537,7 +502,7 @@
   background: var(--surface-wash);
   color: var(--brand-muted);
   border: var(--ui-stroke-thin) solid var(--ui-primary-border-soft);
-  box-shadow: inset 0 0 0 1px var(--inset-shade);
+  box-shadow: inset 0 0 0 var(--ui-stroke-thin) var(--inset-shade);
 }
 
 .movie-controls .recommendation-toggle:not(.active) .recommendation-icon {
@@ -563,7 +528,7 @@
   color: var(--ui-contrast-inverse);
   border-color: var(--brand-accent);
   box-shadow:
-    0 0 0 1px var(--brand-accent-hover),
+    0 0 0 var(--ui-stroke-thin) var(--brand-accent-hover),
     var(--glow-md);
 }
 
@@ -604,7 +569,7 @@
     min-width: 0;
     padding-bottom: var(--space-xxs);
     margin-bottom: calc(var(--space-xxs) * -1);
-    mask-image: linear-gradient(to right, black calc(100% - 1.5rem), transparent);
+    mask-image: linear-gradient(to right, black calc(100% - var(--space-lg)), transparent);
   }
 
   .movie-controls .controls-group::-webkit-scrollbar {
@@ -678,7 +643,7 @@
 
 .movie-modal-content .poster-section .movie-poster-container {
   width: 100%;
-  max-width: 300px;
+  max-width: var(--size-poster-detail);
   border-width: var(--ui-stroke);
 }
 
@@ -721,7 +686,7 @@
   }
 
   .movie-modal-content .poster-section .movie-poster-container {
-    width: min(240px, 70vw);
+    width: min(var(--size-poster-detail-sm), var(--poster-detail-max));
     max-width: none;
   }
 
@@ -762,9 +727,9 @@
 
 .modal-container {
   position: relative;
-  max-width: 800px;
+  max-width: var(--size-modal-max);
   width: 100%;
-  max-height: 90vh;
+  max-height: var(--modal-max-height);
   overflow-y: auto;
   z-index: 2;
 }
@@ -782,7 +747,7 @@
   padding: var(--space-md) var(--space-lg);
 }
 
-.modal-header h2 {
+.modal-header h1 {
   margin: 0;
 }
 
@@ -822,7 +787,7 @@
   }
 
   .modal-container {
-    max-height: 92dvh;
+    max-height: var(--modal-max-height-mobile);
     border-radius: 0;
   }
 
@@ -842,7 +807,7 @@
     height: var(--space-xxs);
     background: var(--ui-muted-color);
     opacity: 0.4;
-    border-radius: 2px;
+    border-radius: var(--ui-border-radius);
     margin: var(--space-xs) auto 0;
   }
 

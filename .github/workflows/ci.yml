@@ -13,9 +13,12 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - run: sudo apt-get update && sudo apt-get install -y libxml2-utils
       - run: make lint-prettier
       - run: make lint-css
       - run: npm test
       - run: npm run build
       - run: npm run check:visual
+      - run: npm run check:dist
+      - run: make lint-xml
       - run: npx astro check

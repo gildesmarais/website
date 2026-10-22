@@ -14,6 +14,14 @@ export default {
       ],
     },
     "no-descending-specificity": true,
+    "unit-disallowed-list": [
+      ["px", "rem", "ms", "s", "em", "vh", "dvh", "in"],
+      { ignoreMediaFeatureNames: { px: ["width"] } },
+    ],
+    "declaration-property-value-allowed-list": {
+      "letter-spacing": ["/^var\\(--tracking-/"],
+    },
+    "function-disallowed-list": ["rgb", "rgba", "hsl", "hsla"],
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -24,12 +32,6 @@ export default {
     "property-no-deprecated": true,
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-property-value-keyword-no-deprecated": true,
-    "property-no-unknown": [
-      true,
-      {
-        ignoreProperties: ["open"],
-      },
-    ],
   },
   overrides: [
     {
@@ -38,6 +40,9 @@ export default {
       rules: {
         "color-no-hex": null,
         "declaration-property-value-disallowed-list": null,
+        "unit-disallowed-list": null,
+        "declaration-property-value-allowed-list": null,
+        "function-disallowed-list": null,
       },
     },
     {

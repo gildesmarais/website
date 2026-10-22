@@ -14,45 +14,55 @@ const pathname = Astro.url.pathname
       <Image src={logo} alt="" loading="eager" />
     </a>
 
-    <button
-      id="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="main-nav-list"
-      aria-label="Toggle navigation menu"
-    >
-      <svg
-        class="icon-menu"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="var(--brand-accent)"
-        stroke-width="3"
-        stroke-linecap="square"
-        stroke-linejoin="miter"
-        aria-hidden="true"
+    <div class="nav-header-actions">
+      <a
+        href="/contact"
+        class="nav-header-contact"
+        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}
       >
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-      <svg
-        class="icon-close"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="var(--brand-accent)"
-        stroke-width="3"
-        stroke-linecap="square"
-        stroke-linejoin="miter"
-        aria-hidden="true"
+        Contact
+      </a>
+
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav-list"
+        aria-label="Toggle navigation menu"
       >
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-      </svg>
-    </button>
+        <svg
+          class="icon-menu"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--brand-accent)"
+          stroke-width="3"
+          stroke-linecap="square"
+          stroke-linejoin="miter"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg
+          class="icon-close"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--brand-accent)"
+          stroke-width="3"
+          stroke-linecap="square"
+          stroke-linejoin="miter"
+          aria-hidden="true"
+        >
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <ul id="main-nav-list">
@@ -161,23 +171,19 @@ const pathname = Astro.url.pathname
   /* --- CSS Custom Properties --- */
   :root {
     --nav-link-padding: var(--space-xs) var(--space-sm);
-    --nav-underline-height: 3px;
-    --nav-underline-offset: 2px;
+    --nav-underline-height: var(--underline-thick);
+    --nav-underline-offset: var(--ui-stroke);
     --nav-underline-left: var(--space-sm);
     --nav-underline-width: calc(100% - var(--space-lg));
     --nav-transition-duration: var(--ui-motion);
     --nav-transition-easing: var(--ui-ease);
-    --nav-shimmer-a: rgb(255 244 226 / 72%);
-    --nav-shimmer-b: rgb(255 186 92 / 88%);
-    --nav-shimmer-c: rgb(255 246 233 / 100%);
-    --nav-shimmer-d: rgb(255 230 193 / 76%);
     --nav-loading-gradient: linear-gradient(
       100deg,
-      var(--nav-shimmer-a) 0%,
-      var(--nav-shimmer-b) 22%,
-      var(--nav-shimmer-c) 50%,
+      var(--accent-shimmer-a) 0%,
+      var(--accent-shimmer-b) 22%,
+      var(--accent-shimmer-c) 50%,
       var(--accent-a95) 78%,
-      var(--nav-shimmer-d) 100%
+      var(--accent-shimmer-d) 100%
     );
   }
 
@@ -201,6 +207,40 @@ const pathname = Astro.url.pathname
     width: auto;
   }
 
+  .nav-header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .nav-header-contact {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--size-control);
+    padding: 0 var(--space-sm);
+    color: var(--ui-color);
+    text-decoration: none;
+    font-size: var(--text-md);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    border: var(--ui-stroke) solid transparent;
+  }
+
+  .nav-header-contact:hover,
+  .nav-header-contact:focus-visible {
+    color: var(--ui-primary-hover);
+  }
+
+  .nav-header-contact[aria-current="page"] {
+    color: var(--ui-active-nav-color);
+    font-weight: 700;
+  }
+
+  .nav-header-contact:focus-visible {
+    outline: var(--ui-stroke) solid var(--brand-accent);
+    outline-offset: var(--ring-offset);
+  }
+
   /* --- Hamburger Menu Button --- */
   #menu-toggle {
     display: flex;
@@ -208,32 +248,18 @@ const pathname = Astro.url.pathname
     justify-content: center;
     width: var(--size-control);
     height: var(--size-control);
-    border: var(--ui-stroke) solid var(--brand-accent);
-    background: transparent;
     color: var(--brand-accent);
-    cursor: pointer;
-    transition:
-      background var(--ui-motion) var(--ui-ease),
-      color var(--ui-motion) var(--ui-ease),
-      transform var(--ui-motion) var(--ui-ease);
     padding: 0;
-    margin: 0;
     flex-shrink: 0;
     position: relative;
     z-index: var(--z-sticky);
   }
 
-  #menu-toggle:hover {
-    background: var(--brand-accent);
-    color: var(--ui-contrast-inverse);
-    transform: translateY(1px);
-  }
-
   /* --- Hamburger Icons --- */
   #menu-toggle .icon-menu,
   #menu-toggle .icon-close {
-    width: 28px;
-    height: 28px;
+    width: var(--size-icon-md);
+    height: var(--size-icon-md);
     display: block;
   }
 
@@ -244,15 +270,6 @@ const pathname = Astro.url.pathname
   #menu-toggle:hover .icon-menu,
   #menu-toggle:hover .icon-close {
     stroke: var(--ui-contrast-inverse);
-  }
-
-  #menu-toggle:focus-visible {
-    outline: var(--ui-stroke) solid var(--brand-accent);
-    outline-offset: 2px;
-  }
-
-  #menu-toggle:active {
-    transform: translateY(1px);
   }
 
   #menu-toggle[aria-expanded="true"] .icon-close {
@@ -276,6 +293,14 @@ const pathname = Astro.url.pathname
 
   #main-nav-list.is-open {
     display: flex;
+  }
+
+  :global(html:not(.js)) #main-nav-list {
+    display: flex;
+  }
+
+  :global(html:not(.js)) #menu-toggle {
+    display: none;
   }
 
   /* ==========================================================================
@@ -334,7 +359,7 @@ const pathname = Astro.url.pathname
   .nav-link[aria-current="page"] {
     color: var(--ui-active-nav-color);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-snug);
     border-color: var(--brand-accent);
     background-size:
       100% 100%,
@@ -364,11 +389,7 @@ const pathname = Astro.url.pathname
     background-color: var(--ui-primary-wash);
   }
 
-  /* ==========================================================================
-     DESKTOP STYLES (min-width: 641px)
-     ========================================================================== */
-
-  @media (width >= 641px) {
+  @media (width >= 768px) {
     /* --- Desktop Layout --- */
     #main-nav {
       flex-direction: row;
@@ -378,6 +399,10 @@ const pathname = Astro.url.pathname
 
     .nav-header {
       justify-content: flex-start;
+    }
+
+    .nav-header-contact {
+      display: none;
     }
 
     #menu-toggle {
@@ -437,7 +462,7 @@ const pathname = Astro.url.pathname
     .nav-link:hover {
       color: var(--ui-contrast-inverse);
       background: var(--brand-accent);
-      transform: translateY(1px);
+      transform: translateY(var(--press-shift));
     }
 
     .nav-link:hover::after {
@@ -458,7 +483,7 @@ const pathname = Astro.url.pathname
     .nav-link[aria-current="page"]:hover {
       color: var(--ui-contrast-inverse);
       background: var(--brand-accent);
-      transform: translateY(1px);
+      transform: translateY(var(--press-shift));
     }
 
     .nav-link[aria-current="page"]:hover::after {

@@ -21,8 +21,8 @@ html:active-view-transition {
 
 @supports not (scrollbar-color: auto) {
   html::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: var(--size-scrollbar);
+    height: var(--size-scrollbar);
   }
 
   html::-webkit-scrollbar-thumb {
@@ -68,31 +68,31 @@ html:active-view-transition {
 
 @media (width >= 576px) {
   :root {
-    --ui-font-size: 106.25%;
+    --ui-font-size: var(--font-size-root-sm);
   }
 }
 
 @media (width >= 768px) {
   :root {
-    --ui-font-size: 112.5%;
+    --ui-font-size: var(--font-size-root-md);
   }
 }
 
 @media (width >= 1024px) {
   :root {
-    --ui-font-size: 118.75%;
+    --ui-font-size: var(--font-size-root-lg);
   }
 }
 
 @media (width >= 1280px) {
   :root {
-    --ui-font-size: 125%;
+    --ui-font-size: var(--font-size-root-xl);
   }
 }
 
 @media (width >= 1536px) {
   :root {
-    --ui-font-size: 131.25%;
+    --ui-font-size: var(--font-size-root-2xl);
   }
 }
 
@@ -120,7 +120,7 @@ body::before {
   opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 180px 180px;
+  background-size: var(--size-grain-tile) var(--size-grain-tile);
 }
 
 body::after {
@@ -150,10 +150,10 @@ video {
 
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: var(--ui-stroke-thin);
+  height: var(--ui-stroke-thin);
   padding: 0;
-  margin: -1px;
+  margin: calc(-1 * var(--ui-stroke-thin));
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;

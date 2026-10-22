@@ -37,14 +37,17 @@ serve:
 build:
 	npm run build
 
-# Quick local gate: build + visual guardrails + astro check.
+lint-xml:
+	xmllint --noout dist/client/feed.xml
+	xmllint --noout dist/client/sitemap-index.xml
+	xmllint --noout dist/client/sitemap-0.xml
+
+# Quick local gate: build + visual/dist guardrails + XML well-formedness + astro check.
 check: build
 	npm run check:visual
+	npm run check:dist
+	$(MAKE) lint-xml
 	npm run check
 
 # Pre-PR gate: matches CI lint/test/build/check surfaces.
 ready: lint test check
-
-post-deploy:
-	curl -fsS http://www.google.com/webmasters/sitemaps/ping?sitemap=https://gil.desmarais.de/sitemap.xml;
-	curl -fsS http://www.bing.com/webmaster/ping.aspx?siteMap=https://gil.desmarais.de/sitemap.xml;

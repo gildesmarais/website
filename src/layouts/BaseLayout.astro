@@ -1,8 +1,9 @@
 ---
 import BackToTop from "../components/BackToTop.astro"
 import Navigation from "../components/Navigation.astro"
-import SpeedInsights from "@vercel/speed-insights/astro"
 import { site } from "../data/site"
+import { defaultRobots } from "../seo"
+import { professionalSocials } from "../data/socials"
 import { isActivePath } from "../utils/navigation"
 import "../styles/global.css"
 import "@fontsource/ibm-plex-sans/400.css"
@@ -40,7 +41,7 @@ const {
   title = "Welcome",
   description = "",
   language,
-  robots = "index, follow",
+  robots = defaultRobots(Astro.url.pathname),
   bootPosterLoader = false,
 } = Astro.props as Props
 
@@ -65,6 +66,7 @@ const personLd = JSON.stringify({
   "@type": "Person",
   name: personName,
   url: personUrl,
+  sameAs: professionalSocials.map((s) => s.url),
 })
 
 const path = Astro.url.pathname
@@ -110,7 +112,7 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
     <meta name="theme-color" content={site.themeColor} />
 
     <!-- Feed & LLM Summary -->
-    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title={siteName} />
+    <link type="application/rss+xml" rel="alternate" href="/feed.xml" title={siteName} />
     <link type="text/markdown" rel="describedby" href="/llms.txt" title={`${siteName} LLM Summary`} />
 
     <!-- Open Graph (only when image is provided) -->
@@ -135,7 +137,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
   </head>
   <body>
     {showScrollProgress && <div id="scroll-progress" aria-hidden="true" />}
-    <SpeedInsights />
 
     <!-- InlineJS: mark that JS is available -->
     <script is:inline>
@@ -199,20 +200,23 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
     {import.meta.env.PROD && (
       <>
         <noscript>
-          <img src="https://gil.goatcounter.com/count?p=/" loading="eager" />
+          <img
+            src={`https://gil.goatcounter.com/count?p=${encodeURIComponent(path)}`}
+            alt=""
+            loading="eager"
+          />
         </noscript>
         <script
           is:inline
           data-goatcounter="https://gil.goatcounter.com/count"
           async
-          src="//gc.zgo.at/count.js"
+          src="https://gc.zgo.at/count.js"
         />
       </>
     )}
 
     <script is:inline>
       ;(() => {
-        // Gate to production only; remove this line if you also want it in dev
         if (!("console" in window) || !console.log) return
 
         const contactUrl = `${location.origin}/contact#devtools`
@@ -222,7 +226,6 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
         const strong = `${base} font-weight:700; text-transform:uppercase;`
         const sub = "font-family: Ubuntu Mono, monospace; font-size: 0.9rem; line-height:1.6; color:#f80;"
 
-        // Optional: comment out if you don't want to wipe prior logs
         console.clear()
 
         console.log("%cHEY. YOU OPENED DEVTOOLS.", strong)
@@ -235,7 +238,7 @@ const showScrollProgress = path === "/resume" || path === "/resume/" || path.sta
         const mainContent = document.getElementById("main-content")
         if (!mainContent) return
         const longEnough = document.documentElement.scrollHeight > window.innerHeight
-        mainContent.style.paddingBottom = longEnough ? "33vh" : "0"
+        mainContent.style.paddingBottom = longEnough ? "var(--main-bottom-pad)" : "0"
       }
       adjustBottomPadding()
       window.addEventListener("resize", adjustBottomPadding)

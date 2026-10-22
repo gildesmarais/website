@@ -5,76 +5,36 @@ export type Category = {
 
 export const skills = [
   {
-    label: "Leadership & Process",
+    label: "Agent-Driven Engineering",
+    skills: ["Agent skills & rules authoring", "MCP server design", "Planning, review, and delivery"],
+  },
+  {
+    label: "Systems & Architecture",
     skills: [
       "System Architecture",
-      "Mentoring / Team Lead",
       "API Design (OpenAPI)",
-      "Business Process Analysis & Optimization",
-      "Requirements Gathering",
-      "Process Modeling",
-      "Technical & Business Documentation",
       "Legacy System Modernization",
-      "SEO",
+      "Observability Strategy",
+      "Audio DSP & MIR",
     ],
   },
   {
-    label: "Infrastructure & DevOps",
+    label: "Languages & Runtimes",
+    skills: ["Ruby on Rails", "TypeScript", "Rust", "Swift (bindings)", "WebAssembly", "PostgreSQL"],
+  },
+  {
+    label: "Infrastructure & Delivery",
     skills: [
-      "AWS",
       "Docker",
       "Terraform",
       "CI/CD (GitHub Actions)",
-      "Ansible",
-      "AWS Lambda",
-      "nginx",
-      "AWS Elemental MediaConvert",
-      "AWS Cognito",
-      "ffmpeg",
+      "AWS (Lambda, Cognito, MediaConvert)",
+      "Cloudflare Workers",
+      "Datadog & Sentry",
     ],
   },
   {
     label: "Security & Compliance",
-    skills: [
-      "Security Reviews",
-      "Security Auditing",
-      "ISO/IEC 27001 (requirements, collaboration with Security / QA)",
-      "GDPR Compliance",
-      "Risk Assessment",
-    ],
-  },
-  {
-    label: "Backend & Languages",
-    skills: ["Ruby on Rails", "Ruby", "TypeScript", "GraphQL", "Sidekiq"],
-  },
-  {
-    label: "Databases & Storage",
-    skills: ["PostgreSQL", "Redis", "S3", "PostGIS"],
-  },
-  {
-    label: "Frontend & UI",
-    skills: ["React", "Vue.js", "Angular", "Astro.js", "Progressive Enhancement", "Accessibility (a11y)"],
-  },
-  {
-    label: "Testing & Quality",
-    skills: [
-      "Test-Driven Development (TDD)",
-      "RSpec",
-      "Jest",
-      "Cypress",
-      "Selenium & Capybara",
-      "Performance Optimization",
-    ],
-  },
-  {
-    label: "Monitoring & Observability",
-    skills: [
-      "Datadog",
-      "Sentry.io",
-      "Observability Strategy",
-      "CDN & Edge Optimization",
-      "Cloudflare Workers",
-      "UptimeRobot",
-    ],
+    skills: ["Security Reviews", "Risk Assessment", "ISO/IEC 27001", "C5", "GDPR Compliance"],
   },
 ] as const satisfies readonly Category[]

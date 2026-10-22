@@ -22,12 +22,24 @@
 
   /* Loading shimmer peak — snapping .95→.80 washed out the nav gradient. */
   --accent-a95: hsl(32deg 100% 50% / 95%);
+  --accent-shimmer-a: rgb(255 244 226 / 72%);
+  --accent-shimmer-b: rgb(255 186 92 / 88%);
+  --accent-shimmer-c: rgb(255 246 233 / 100%);
+  --accent-shimmer-d: rgb(255 230 193 / 76%);
   --ui-primary-wash: var(--accent-a08);
   --ui-primary-glow: var(--accent-a20);
   --ui-primary-border-soft: var(--accent-a45);
   --ui-stroke: 2px;
   --ui-stroke-thin: 1px;
+  --ui-border-radius: 1px;
   --accent-size: 4px;
+  --accent-rail: calc(var(--accent-size) + var(--ui-accent-padding));
+  --ring-width: 3px;
+  --ring-offset: 3px;
+  --underline-thick: 3px;
+  --underline-offset: 0.15em;
+  --press-shift: 1px;
+  --ring-pressed: 0 0 0 var(--ui-stroke-thin) var(--brand-accent-hover), 0 0 0 5px var(--brand-accent-focus);
   --ui-accent-padding: 0.7rem;
   --ui-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ui-motion: 0.2s;
@@ -59,8 +71,8 @@
   /*
    * Canonical breakpoints (preferred scale):
    *   576 / 768 / 1024 / 1280 / 1536
-   * Legacy outliers kept as-is (do not snap): 640, 641, 1200.
-   * Movie domain uses 576 / 768 (+ legacy 1200 grid step, 380 micro).
+   * Max-width queries use `<` so they never overlap a matching `>=` at the boundary.
+   * Movie-grid exceptions: 1200 and 380.
    * No postcss-custom-media — media queries stay literal.
    */
 
@@ -89,6 +101,25 @@
   --glow-sm: 0 0 8px var(--brand-accent-focus);
   --glow-md: 0 0 10px var(--brand-accent-focus);
   --lift-sm: 4px; /* hover lift distance (use with translateY(calc(-1 * var(--lift-sm)))) */
+  --lift-md: 8px;
+  --stagger-step: 40ms;
+  --size-scrollbar: 8px;
+  --size-grain-tile: 180px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 28px;
+  --size-corner: 1.05rem;
+  --size-movie-min: 200px;
+  --size-movie-md: 220px;
+  --size-movie-lg: 240px;
+  --size-matrix-label: 200px;
+  --size-matrix-cell: 140px;
+  --size-matrix-cell-sm: 120px;
+  --size-matrix-row: 60px;
+  --container-sm: 510px;
+  --container-md: 700px;
+  --container-lg: 950px;
+  --container-xl: 1200px;
+  --container-2xl: 1450px;
 
   /* Vertical rhythm — semantic flow spacing built on the --space scale.
      Use these for block flow so every page shares one rhythm. */
@@ -100,21 +131,70 @@
     var(--space-xxl) + var(--space-md)
   ); /* 4rem - :target offset clearing sticky header */
 
-  --ui-border-radius: 1px;
   --ui-line-height: 1.5;
   --ui-font-size: 100%;
+
+  /* Root font-size ladder — percent of browser default; applied in 02-base.css. */
+  --font-size-root-sm: 106.25%;
+  --font-size-root-md: 112.5%;
+  --font-size-root-lg: 118.75%;
+  --font-size-root-xl: 125%;
+  --font-size-root-2xl: 131.25%;
 
   /* Type scale — component/UI sizes. Heading rules stay in 03-typography.css. */
   --text-2xs: 0.7rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
+  --text-h5: 1.125rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2rem;
+  --text-small-em: 0.875em; /* <small> relative to parent */
+  --space-glyph: 0.2em; /* inline glyph nudge (e.g. rotated smiley) */
+  --size-line-min: 1.25em; /* reserve one line of parent type (feedback slots) */
+  --tracking-display: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.06em;
+  --tracking-spaced: 0.1em;
   --leading-none: 1;
+  --leading-hero: 1.05;
+  --leading-h1: 1.125;
+  --leading-h2: 1.15;
+  --leading-h3: 1.175;
+  --leading-h4: 1.2;
+  --leading-h5: 1.225;
+  --leading-h6: 1.25;
+  --leading-post: 1.16; /* post article headings */
   --leading-tight: 1.2;
   --leading-snug: 1.35;
   --leading-relaxed: 1.6;
+
+  /* Reader-path geometry promoted from B10 literals */
+  --text-display-sm: clamp(1.3rem, 6vw + 0.3rem, 2rem);
+  --text-display: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+  --code-inline-pad: 0.2rem 0.4rem;
+  --space-hair: 0.08rem; /* archive filter bracket micro-gaps */
+  --size-poster-detail: 18.75rem; /* 300px — modal/detail poster */
+  --size-poster-detail-sm: 15rem; /* 240px — mobile modal poster */
+  --poster-detail-max: 70vw; /* fluid cap for mobile modal poster */
+  --size-modal-max: 50rem; /* 800px — movie detail modal */
+  --modal-max-height: 90vh;
+  --modal-max-height-mobile: 92dvh;
+  --main-bottom-pad: 33vh; /* scroll-length bottom padding on main */
+  --print-page-margin: 0.5in;
+
+  /* Imprint human-only noise texture stops (px rungs stay in tokens). */
+  --noise-stop-a: 2px;
+  --noise-stop-b: 4px;
+  --noise-blur: 0.3px;
+  --noise-shadow-soft: 0.5px;
+  --noise-shadow: 1px;
+  --noise-shadow-spread: 2px;
+  --muted-a50: rgb(154 160 170 / 50%); /* secondary / recommendation underline alpha */
 }
 
 [data-theme="dark"] {
@@ -134,7 +214,7 @@
   --ui-primary-hover: var(--brand-accent-hover);
   --ui-primary-hover-underline: var(--ui-primary-hover);
   --ui-secondary: #9aa0aa;
-  --ui-secondary-underline: rgb(154 160 170 / 50%);
+  --ui-secondary-underline: var(--muted-a50);
   --ui-secondary-hover: #b7bbc3;
   --ui-secondary-hover-underline: var(--ui-secondary-hover);
   --ui-contrast-inverse: #000;

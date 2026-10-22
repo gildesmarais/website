@@ -1,10 +1,7 @@
 /** Site identity — single source for name, theme chrome, and copyright copy. */
 export const site = {
   name: "Gil Desmarais",
-  shortName: "Desmarais",
-  description: "software engineer, open-source projects, engineering blog, and movie catalog.",
   themeColor: "#1d1f21",
-  backgroundColor: "#1d1f21",
   accentColor: "#ff8800",
   copyrightYear: 2026,
   licenseShort: "CC BY-ND 4.0",
@@ -12,44 +9,48 @@ export const site = {
   licenseName: "Creative Commons Attribution-NoDerivatives 4.0 International License",
 } as const
 
+/** Shared skills/doctrine URL on hiring surfaces. */
+export const skillsDoctrineUrl = "https://github.com/gildesmarais/dotfiles/tree/master/agents/skills#skills"
+
 export type Site = typeof site
 
 export interface CorePage {
   title: string
   path: string
   description: string
-  /** Plain-text blurb for llms-full and similar extracts. Keep aligned with the live page. */
+  /** Plain-text blurb for llms-full and similar extracts. */
   excerpt: string
 }
 
-export const corePages: readonly CorePage[] = [
+export const corePages = [
   {
     title: "Home",
     path: "/",
-    description: "Main entry point and site overview.",
+    description: "I build and run systems that move business numbers. Agents are part of how I ship.",
     excerpt:
-      "Gil Desmarais is an Engineering Team Lead who turns ambiguous systems into clear delivery. The homepage introduces that stance — translating between strategy and technical limits — and points to résumé, contact, projects, and the blog.",
+      "Gil Desmarais is a software engineer who builds and runs systems that move business numbers, with agents as part of how he ships. The homepage states that stance and points to résumé, contact, projects, and the blog.",
   },
   {
     title: "About",
     path: "/about",
-    description: "Background, philosophy, personal systems, and connection options.",
+    description: "Background, systems thinking, and how Gil builds.",
     excerpt:
-      "Background and how curiosity, systems thinking, and experience shape how Gil builds and leads. Interests span music and vinyl DJing, film recommendations, open-source tools, and movement. The page covers early web tinkering through vocational training, Air Force IT work, and Business Computer Science — ending in leadership that balances architecture with outcomes.",
+      "Background and how curiosity, systems thinking, and experience shape how Gil builds. Interests span music and vinyl DJing, film recommendations, open-source tools, and movement. The page covers early web tinkering through vocational training, Air Force IT work, and Business Computer Science. Under How I work, agents sit in the toolchain via written doctrine — skills, rules, and admission gates maintained in the open.",
   },
   {
     title: "Projects",
     path: "/projects",
     description: "Key open-source software, side projects, and tools.",
     excerpt:
-      "Selective open-source experiments built to remove friction. Prefer purposeful tools with small footprints; everything listed is open source, with more on GitHub. Releases use trusted publishing — supply-chain security is part of how work ships.",
+      "Pragmatic tools built for personal use that may help others. Prefer purposeful tools with small footprints; everything listed is open source, with more on GitHub.",
   },
   {
     title: "Resume",
     path: "/resume",
-    description: "Professional experience, engineering stack, and background.",
+    description:
+      "Software engineer in Berlin who designs, ships, and operates core systems end-to-end. Evidence over assumption; agents in the loop; ISO 27001/C5 compliance delivered alongside product work.",
     excerpt:
-      "Engineering leader and full-stack product partner in Berlin. Translates business goals into calm, incremental delivery: executive summary, current and earlier work, capabilities, skills matrix, education, and service history.",
+      "Software engineer in Berlin who designs, ships, and operates core systems end-to-end, with agents as part of the workflow. Executive summary, current and earlier work, capabilities, skills matrix, education, and service history.",
   },
   {
     title: "Movies",
@@ -68,11 +69,20 @@ export const corePages: readonly CorePage[] = [
   {
     title: "Contact",
     path: "/contact",
-    description: "Methods to get in touch and connect.",
+    description: "Reach Gil Desmarais for hands-on software engineering with direct ownership of outcomes.",
     excerpt:
-      "Reach Gil for focused engineering leadership and platform support. Prefer crisp async notes: the problem, who’s involved, and the decision on the table. Professional socials and email are listed on the page.",
+      "Reach Gil for hands-on software engineering with direct ownership of outcomes. Prefer crisp async notes: the problem, who's involved, and the decision on the table. Professional socials and email are listed on the page.",
   },
-] as const
+] as const satisfies readonly CorePage[]
+
+type CorePageEntry = (typeof corePages)[number]
+
+export function corePage(path: CorePageEntry["path"]): CorePageEntry {
+  for (const entry of corePages) {
+    if (entry.path === path) return entry
+  }
+  throw new Error(`Unknown core page path: ${path}`)
+}
 
 /** Plain-text copyright for feeds and non-HTML surfaces. */
 export function copyrightNotice(): string {

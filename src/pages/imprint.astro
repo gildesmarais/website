@@ -7,7 +7,6 @@ import legal from "../data/legal.json"
 const language = "de"
 const title = "Imprint & Privacy"
 const description = "Imprint and legal information."
-const robots = "noindex, noarchive, follow"
 
 function rot18(str: string): string {
   return str.replace(/[a-zA-Z0-9]/g, (c) => {
@@ -24,7 +23,7 @@ function rot18(str: string): string {
 }
 ---
 
-<BaseLayout language={language} title={title} description={description} robots={robots}>
+<BaseLayout language={language} title={title} description={description}>
   <div class="width">
     <h1>{title}</h1>
 
@@ -78,13 +77,21 @@ function rot18(str: string): string {
     <p lang="de">
       Durch den Besuch meiner Website werden Informationen über den Zugriff in Logfiles auf dem Server
       gespeichert. Diese Informationen sind für die Bereitstellung dieser Website erforderlich. Es werden
-      keine weiteren Informationen gespeichert und keine Cookies gesetzt.
+      keine Cookies gesetzt und kein Cross-Site-Tracking eingesetzt. Für aggregierte, cookieless
+      Seitenaufruf-Statistiken nutze ich GoatCounter. Filmplakat-Bilder sind die OMDb-<code>Poster</code>-URL
+      und werden vom Browser von <code>m.media-amazon.com</code> geladen — auf <a href="/movies">/movies</a>,{" "}
+      <a href="/movies/recommendations">/movies/recommendations</a> und den Film-Detailseiten, und nur wenn
+      JavaScript läuft. Die OMDb-Anfrage selbst erfolgt serverseitig.
     </p>
 
     <h2 lang="en">Privacy</h2>
     <p lang="en">
-      By visiting my site, information about the access is stored in log files on the server. These
-      information are required to deliver this website. No other information is stored and no cookies set.
+      By visiting my site, information about the access is stored in log files on the server. These are
+      required to deliver this website. No cookies are set and no cross-site tracking is used. For aggregate,
+      cookieless page-view statistics I use GoatCounter. Poster images are the OMDb <code>Poster</code> URL,
+      loaded by the browser from <code>m.media-amazon.com</code> on <a href="/movies">/movies</a>,{" "}
+      <a href="/movies/recommendations">/movies/recommendations</a>, and movie detail pages, only when
+      JavaScript runs. The OMDb request itself is server-side.
     </p>
     <script is:inline>
       ;(() => {
@@ -117,22 +124,25 @@ function rot18(str: string): string {
   .human-only {
     user-select: none;
     pointer-events: none;
-    letter-spacing: 0.05em; /* A bit more letter spacing */
+    letter-spacing: var(--tracking-caps);
     display: inline-block;
-
-    /* Complex visual noise */
     text-shadow:
-      0 0 1px currentcolor,
-      0 0 0.5px currentcolor,
-      1px 1px 2px var(--inset-shade); /* Stronger shadow */
-
+      0 0 var(--noise-shadow) currentcolor,
+      0 0 var(--noise-shadow-soft) currentcolor,
+      var(--noise-shadow) var(--noise-shadow) var(--noise-shadow-spread) var(--inset-shade);
     background:
-      repeating-linear-gradient(45deg, transparent 0 2px, var(--shade-a10) 2px 4px),
-      repeating-linear-gradient(-45deg, transparent 0 2px, var(--shade-a10) 2px 4px);
-    filter: blur(0.3px) contrast(1.2); /* Slightly more blur and contrast */
+      repeating-linear-gradient(
+        45deg,
+        transparent 0 var(--noise-stop-a),
+        var(--shade-a10) var(--noise-stop-a) var(--noise-stop-b)
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0 var(--noise-stop-a),
+        var(--shade-a10) var(--noise-stop-a) var(--noise-stop-b)
+      );
+    filter: blur(var(--noise-blur)) contrast(1.2);
     mix-blend-mode: difference;
-
-    /* Additional fine-tuning */
     font-variant-ligatures: none;
   }
 </style>

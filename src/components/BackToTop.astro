@@ -8,7 +8,7 @@
 <style is:global>
   #back-to-top {
     position: fixed;
-    bottom: max(var(--space-xl), env(safe-area-inset-bottom, 0px));
+    bottom: max(var(--space-xl), env(safe-area-inset-bottom, var(--space-xl)));
     right: var(--space-xl);
     border: var(--ui-stroke) solid var(--brand-accent);
     background: transparent;
@@ -43,7 +43,7 @@
   #back-to-top:hover {
     background: var(--brand-accent);
     color: var(--ui-contrast-inverse);
-    transform: translateY(1px);
+    transform: translateY(var(--press-shift));
   }
 
   @media (prefers-reduced-motion: reduce) {

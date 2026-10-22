@@ -24,22 +24,21 @@ const { title, description, children } = Astro.props
   .hero h1 {
     display: inline-block;
     font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-size: clamp(1.3rem, 6vw + 0.3rem, 2rem);
+    line-height: var(--leading-hero);
+    letter-spacing: var(--tracking-display);
+    font-size: var(--text-display-sm);
     background: var(--ui-background-color);
     text-wrap: balance;
     margin-bottom: var(--space-lg);
   }
 
-  /* --- Desktop and larger (min-width: 640px) ------------------------------ */
-  @media (width >= 640px) {
+  @media (width >= 576px) {
     .hero {
       margin-bottom: var(--region-space);
     }
 
     .hero h1 {
-      font-size: clamp(1.7rem, 4.6vw + 0.2rem, 3.4rem);
+      font-size: var(--text-display);
     }
   }
 </style>
