@@ -32,9 +32,13 @@ const imdbHref = `https://www.imdb.com/title/${imdbId}/`
 
     <div class="recommendation-row-body">
       <header class="recommendation-row-meta">
-        <span class="recommendation-row-rank" aria-label={`Rank ${rank}`}>#{rankLabel}</span>
+        <span class="recommendation-row-rank" aria-label={`Rank ${rank}`}>
+          #{rankLabel}
+        </span>
         <TitleTag class="recommendation-row-title">
-          <a href={detailHref}>{title} ({year})</a>
+          <a href={detailHref}>
+            {title} ({year})
+          </a>
         </TitleTag>
         <span class="recommendation-row-rating">
           <span class="recommendation-row-rating-value">{yourRating}</span>
@@ -42,7 +46,9 @@ const imdbHref = `https://www.imdb.com/title/${imdbId}/`
         </span>
       </header>
       {note && <p class="recommendation-row-note">{note}</p>}
-      <a href={imdbHref} target="_blank" rel={externalRel()} class="recommendation-row-imdb">IMDb</a>
+      <a href={imdbHref} target="_blank" rel={externalRel()} class="recommendation-row-imdb">
+        IMDb
+      </a>
     </div>
   </div>
 </article>

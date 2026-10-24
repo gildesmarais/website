@@ -23,22 +23,18 @@ const dateLabel = dateFormat === "iso" ? date.toISOString().split("T")[0] : form
 <li data-language={language}>
   <a href={`/blog/${post.id}`}>{post.data.title}</a>
   {language !== "en" && <sup>[{language.toUpperCase()}]</sup>}
-  {
-    date && (
-      <>
-        {" "}
-        <time datetime={date.toISOString()} class="micro">
-          {dateLabel}
-        </time>
-      </>
-    )
-  }
-  {
-    description && post.data.description && (
-      <>
-        <br />
-        <small>{post.data.description}</small>
-      </>
-    )
-  }
+  {date && (
+    <>
+      {" "}
+      <time datetime={date.toISOString()} class="micro">
+        {dateLabel}
+      </time>
+    </>
+  )}
+  {description && post.data.description && (
+    <>
+      <br />
+      <small>{post.data.description}</small>
+    </>
+  )}
 </li>

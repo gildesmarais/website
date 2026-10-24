@@ -9,26 +9,24 @@ const { highlights } = Astro.props
 ---
 
 <dl class="highlights">
-  {
-    highlights.map(({ term, definition, href, external }) => (
-      <>
-        <dt>
-          {href ? (
-            <a
-              href={href}
-              target={external ? "_blank" : undefined}
-              rel={external ? externalRel("external") : undefined}
-            >
-              {term}
-            </a>
-          ) : (
-            term
-          )}
-        </dt>
-        <dd>{definition}</dd>
-      </>
-    ))
-  }
+  {highlights.map(({ term, definition, href, external }) => (
+    <>
+      <dt>
+        {href ? (
+          <a
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? externalRel("external") : undefined}
+          >
+            {term}
+          </a>
+        ) : (
+          term
+        )}
+      </dt>
+      <dd>{definition}</dd>
+    </>
+  ))}
 </dl>
 
 <style is:global>

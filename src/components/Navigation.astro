@@ -18,8 +18,10 @@ const pathname = Astro.url.pathname
       <a
         href="/contact"
         class="nav-header-contact"
-        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}>Contact</a
+        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}
       >
+        Contact
+      </a>
 
       <button
         id="menu-toggle"
@@ -65,33 +67,41 @@ const pathname = Astro.url.pathname
 
   <ul id="main-nav-list">
     <li class="nav-item">
-      <a href="/about" class="nav-link" aria-current={isActivePath(pathname, "/about") ? "page" : undefined}
-        >About</a
-      >
+      <a href="/about" class="nav-link" aria-current={isActivePath(pathname, "/about") ? "page" : undefined}>
+        About
+      </a>
     </li>
     <li class="nav-item">
-      <a href="/resume" class="nav-link" aria-current={isActivePath(pathname, "/resume") ? "page" : undefined}
-        >Résumé</a
+      <a
+        href="/resume"
+        class="nav-link"
+        aria-current={isActivePath(pathname, "/resume") ? "page" : undefined}
       >
+        Résumé
+      </a>
     </li>
     <li class="nav-item">
-      <a href="/blog" class="nav-link" aria-current={isActivePath(pathname, "/blog") ? "page" : undefined}
-        >Blog</a
-      >
+      <a href="/blog" class="nav-link" aria-current={isActivePath(pathname, "/blog") ? "page" : undefined}>
+        Blog
+      </a>
     </li>
     <li class="nav-item">
       <a
         href="/projects"
         class="nav-link"
-        aria-current={isActivePath(pathname, "/projects") ? "page" : undefined}>Projects</a
+        aria-current={isActivePath(pathname, "/projects") ? "page" : undefined}
       >
+        Projects
+      </a>
     </li>
     <li class="nav-item">
       <a
         href="/contact"
         class="nav-link"
-        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}>Contact</a
+        aria-current={isActivePath(pathname, "/contact") ? "page" : undefined}
       >
+        Contact
+      </a>
     </li>
   </ul>
 </nav>

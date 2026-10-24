@@ -25,13 +25,17 @@ const { pronunciation, audioSrc } = Astro.props
   <!-- Progressive enhancement: fallback for non-JS users -->
   <noscript>
     <small>
-      <a href={audioSrc} download class="minimal-btn">Download pronunciation audio</a>
+      <a href={audioSrc} download class="minimal-btn">
+        Download pronunciation audio
+      </a>
     </small>
   </noscript>
 
   <!-- IPA Display with Bouncing Ball -->
   <div class="ipa-display" id="ipa-display" aria-hidden="true">
-    <div class="ipa-text" id="ipa-text">{pronunciation}</div>
+    <div class="ipa-text" id="ipa-text">
+      {pronunciation}
+    </div>
     <div class="bouncing-ball" id="bouncing-ball"></div>
   </div>
 </div>

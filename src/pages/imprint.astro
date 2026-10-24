@@ -27,57 +27,50 @@ function rot18(str: string): string {
   <div class="width">
     <h1>{title}</h1>
 
-    <p><strong>Betreiber</strong>: {legal.operatorName}</p>
-    {
-      legal.legalForm && (
-        <p>
-          <strong>Rechtsform</strong>: {legal.legalForm}
-        </p>
-      )
-    }
+    <p>
+      <strong>Betreiber</strong>: {legal.operatorName}
+    </p>
+    {legal.legalForm && (
+      <p>
+        <strong>Rechtsform</strong>: {legal.legalForm}
+      </p>
+    )}
     <p>
       <strong>Adresse</strong>:<br />
-
-      <span class="human-only" data-rot18={rot18(legal.operatorName)}></span><br />
-      <span class="human-only" data-rot18={rot18(legal.street)}></span><br />
-      <span class="human-only" data-rot18={rot18(legal.zip_city)}></span><br />
+      <span class="human-only" data-rot18={rot18(legal.operatorName)}></span>
+      <br />
+      <span class="human-only" data-rot18={rot18(legal.street)}></span>
+      <br />
+      <span class="human-only" data-rot18={rot18(legal.zip_city)}></span>
+      <br />
       <span class="human-only" data-rot18={rot18(legal.country)}></span>
     </p>
     <p>
       <strong>Kontakt</strong>:<br />
-
       <span class="human-only" data-rot18={rot18(legal.email)}></span>, <br />
       Telefon: <span class="human-only" data-rot18={rot18(legal.phone)}></span>
     </p>
-    {
-      legal.managingDirector && (
-        <p>
-          <strong>Geschäftsführer / vertretungsberechtigt</strong>: {legal.managingDirector}
-        </p>
-      )
-    }
-    {
-      legal.registerCourt && legal.registerNumber && (
-        <p>
-          <strong>Registergericht / Registernr.</strong>: {legal.registerCourt}, {legal.registerNumber}
-        </p>
-      )
-    }
-    {
-      legal.vatID && (
-        <p>
-          <strong>USt-ID</strong>: {legal.vatID}
-        </p>
-      )
-    }
-    {
-      legal.responsibleForContent && (
-        <p>
-          <strong>Verantwortlich für journalistisch-redaktionelle Inhalte</strong>:{" "}
-          {legal.responsibleForContent}
-        </p>
-      )
-    }
+    {legal.managingDirector && (
+      <p>
+        <strong>Geschäftsführer / vertretungsberechtigt</strong>: {legal.managingDirector}
+      </p>
+    )}
+    {legal.registerCourt && legal.registerNumber && (
+      <p>
+        <strong>Registergericht / Registernr.</strong>: {legal.registerCourt}, {legal.registerNumber}
+      </p>
+    )}
+    {legal.vatID && (
+      <p>
+        <strong>USt-ID</strong>: {legal.vatID}
+      </p>
+    )}
+    {legal.responsibleForContent && (
+      <p>
+        <strong>Verantwortlich für journalistisch-redaktionelle Inhalte</strong>:{" "}
+        {legal.responsibleForContent}
+      </p>
+    )}
 
     <h2 lang="de">Datenschutz</h2>
 
@@ -86,17 +79,17 @@ function rot18(str: string): string {
       gespeichert. Diese Informationen sind für die Bereitstellung dieser Website erforderlich. Es werden
       keine Cookies gesetzt und kein Cross-Site-Tracking eingesetzt. Für aggregierte, cookieless
       Seitenaufruf-Statistiken nutze ich GoatCounter. Filmplakat-Bilder sind die OMDb-<code>Poster</code>-URL
-      und werden vom Browser von <code>m.media-amazon.com</code> geladen — auf{" "}
-      <a href="/movies">/movies</a>, <a href="/movies/recommendations">/movies/recommendations</a> und den Film-Detailseiten,
-      und nur wenn JavaScript läuft. Die OMDb-Anfrage selbst erfolgt serverseitig.
+      und werden vom Browser von <code>m.media-amazon.com</code> geladen — auf <a href="/movies">/movies</a>,{" "}
+      <a href="/movies/recommendations">/movies/recommendations</a> und den Film-Detailseiten, und nur wenn
+      JavaScript läuft. Die OMDb-Anfrage selbst erfolgt serverseitig.
     </p>
 
     <h2 lang="en">Privacy</h2>
     <p lang="en">
       By visiting my site, information about the access is stored in log files on the server. These are
       required to deliver this website. No cookies are set and no cross-site tracking is used. For aggregate,
-      cookieless page-view statistics I use GoatCounter. Poster images are the OMDb <code>Poster</code> URL, loaded
-      by the browser from <code>m.media-amazon.com</code> on <a href="/movies">/movies</a>,{" "}
+      cookieless page-view statistics I use GoatCounter. Poster images are the OMDb <code>Poster</code> URL,
+      loaded by the browser from <code>m.media-amazon.com</code> on <a href="/movies">/movies</a>,{" "}
       <a href="/movies/recommendations">/movies/recommendations</a>, and movie detail pages, only when
       JavaScript runs. The OMDb request itself is server-side.
     </p>

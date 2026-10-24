@@ -25,41 +25,35 @@ const footerLabel = keepReading.length > 0 ? "Keep reading and projects" : "Proj
       <header>
         <hgroup>
           <h1>{title}</h1>
-          {
-            date && (
-              <p>
-                <time datetime={new Date(date).toISOString()}>
-                  {new Date(date).toISOString().split("T")[0]}
-                </time>
-              </p>
-            )
-          }
-        </hgroup>
-        {
-          language && language !== "en" && (
-            <p class="micro" lang={language}>
-              Dieser Artikel ist auf Deutsch verfasst.
+          {date && (
+            <p>
+              <time datetime={new Date(date).toISOString()}>
+                {new Date(date).toISOString().split("T")[0]}
+              </time>
             </p>
-          )
-        }
+          )}
+        </hgroup>
+        {language && language !== "en" && (
+          <p class="micro" lang={language}>
+            Dieser Artikel ist auf Deutsch verfasst.
+          </p>
+        )}
         {description && <p class="lead">{description}</p>}
       </header>
       <slot />
       <nav class="keep-reading" aria-label={footerLabel}>
-        {
-          keepReading.length > 0 && (
-            <>
-              <p class="keep-reading-title section-kicker accent">Keep reading</p>
-              <ul class="rail-list">
-                {keepReading.map((post) => (
-                  <li>
-                    <a href={`/blog/${post.id}`}>{post.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )
-        }
+        {keepReading.length > 0 && (
+          <>
+            <p class="keep-reading-title section-kicker accent">Keep reading</p>
+            <ul class="rail-list">
+              {keepReading.map((post) => (
+                <li>
+                  <a href={`/blog/${post.id}`}>{post.title}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         <p class="keep-reading-projects">
           <a href="/projects">Projects</a>
         </p>

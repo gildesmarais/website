@@ -44,8 +44,12 @@ const titleId = `movie-title-${movie.const}`
     <div class="modal-container">
       <article class="modal-content" role="dialog" aria-labelledby={titleId}>
         <header class="modal-header">
-          <h1 id={titleId}>{movie.title} ({movie.year})</h1>
-          <button class="modal-close" aria-label="Close modal">×</button>
+          <h1 id={titleId}>
+            {movie.title} ({movie.year})
+          </h1>
+          <button class="modal-close" aria-label="Close modal">
+            ×
+          </button>
         </header>
 
         <div class="modal-body">

@@ -32,13 +32,10 @@ const recommendationIds = [...recommendationsSet]
     id="movie-catalog"
     set:html={JSON.stringify({ catalog, recommendations: recommendationIds })}
   />
-
   <section>
     <Hero title={title} description={description}>
       <p>
-        Prefer the short list? See{" "}
-        <a href="/movies/recommendations">ranked recommendations</a>
-        {" "}with notes.
+        Prefer the short list? See <a href="/movies/recommendations">ranked recommendations</a> with notes.
       </p>
     </Hero>
 
@@ -50,28 +47,28 @@ const recommendationIds = [...recommendationsSet]
       resultCount={movies.length}
     />
     <div class="recommendations-grid">
-      {
-        movies.map((movie) => {
-          const isRecommendation = recommendationsSet.has(movie.const)
-          return (
-            <MovieCard
-              imdbId={movie.const}
-              title={movie.title}
-              year={movie.year}
-              yourRating={movie.your_rating}
-              isRecommendation={isRecommendation}
-            >
-              <MoviePoster slot="poster" imdbId={movie.const} />
-            </MovieCard>
-          )
-        })
-      }
+      {movies.map((movie) => {
+        const isRecommendation = recommendationsSet.has(movie.const)
+        return (
+          <MovieCard
+            imdbId={movie.const}
+            title={movie.title}
+            year={movie.year}
+            yourRating={movie.your_rating}
+            isRecommendation={isRecommendation}
+          >
+            <MoviePoster slot="poster" imdbId={movie.const} />
+          </MovieCard>
+        )
+      })}
     </div>
   </section>
   <aside class="micro">
-    Thank you to the <a href="https://www.omdbapi.com/" target="_blank" rel={externalRel()}
-      >OMDb API for providing the movie posters</a
-    > used in this page. 🧡
+    Thank you to the{" "}
+    <a href="https://www.omdbapi.com/" target="_blank" rel={externalRel()}>
+      OMDb API for providing the movie posters
+    </a>{" "}
+    used in this page. 🧡
   </aside>
 </BaseLayout>
 

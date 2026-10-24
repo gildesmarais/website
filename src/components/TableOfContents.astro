@@ -20,13 +20,11 @@ if (filteredHeadings.length === 0) return null
 <nav class="toc" aria-label="Table of contents">
   <p class="toc-title section-kicker accent">{title}</p>
   <ul class="toc-list rail-list">
-    {
-      filteredHeadings.map((heading) => (
-        <li class={`toc-item toc-depth-${heading.depth}`}>
-          <a href={`#${heading.slug}`}>{heading.text}</a>
-        </li>
-      ))
-    }
+    {filteredHeadings.map((heading) => (
+      <li class={`toc-item toc-depth-${heading.depth}`}>
+        <a href={`#${heading.slug}`}>{heading.text}</a>
+      </li>
+    ))}
   </ul>
 </nav>
 
