@@ -33,5 +33,10 @@
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp@>=4.0.0 <6.3.0": "^6.3.0"
+    }
   }
 }
