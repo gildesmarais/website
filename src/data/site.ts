@@ -48,9 +48,9 @@ export const corePages = [
     title: "Resume",
     path: "/resume",
     description:
-      "Software engineer in Berlin who designs, ships, and operates core systems end-to-end. Evidence over assumption; agents in the loop; ISO 27001/C5 compliance delivered alongside product work.",
+      "Builder and software engineer in Berlin who designs, ships, and operates core systems end-to-end. Evidence over assumption; agents in the loop; ISO 27001/C5 compliance delivered alongside product work.",
     excerpt:
-      "Software engineer in Berlin who designs, ships, and operates core systems end-to-end, with agents as part of the workflow. Executive summary, current and earlier work, capabilities, skills matrix, education, and service history.",
+      "Builder and software engineer in Berlin who designs, ships, and operates core systems end-to-end, with agents as part of the workflow. Executive summary, current and earlier work, capabilities, skills matrix, education, and service history.",
   },
   {
     title: "Movies",
