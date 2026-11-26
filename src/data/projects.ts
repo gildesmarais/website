@@ -80,18 +80,24 @@ export const projects: readonly Project[] = [
         definition: "Root causes over workarounds, loud failures, performance measured before tuned.",
       },
       {
+        term: "Redesign",
+        definition: "RFC to merge: about 6× faster, half the allocations.",
+        href: "https://github.com/html2rss/html2rss/pull/435",
+        external: true,
+      },
+      {
         term: "Self-hosted",
         definition: "Ruby gem plus a Docker web app that runs on your own hardware.",
       },
       {
         term: "RubyGems",
-        definition: "58k+ downloads",
+        definition: "65k+ downloads",
         href: "https://rubygems.org/gems/html2rss/",
         external: true,
       },
       {
         term: "Docker Hub",
-        definition: "16k+ pulls",
+        definition: "29k+ pulls",
         href: "https://hub.docker.com/r/html2rss/web",
         external: true,
       },
@@ -108,6 +114,7 @@ export const projects: readonly Project[] = [
     bodyHtml: [
       "html2rss brings RSS back to sites that never had it (or quietly killed it). It reads what a page already says about itself before guessing, and starts a browser only when a page needs one. YAML selectors stay available when you know the markup.",
       'The <a href="https://github.com/html2rss" target="_blank" rel="noopener noreferrer">html2rss organization</a> spans the Ruby gem, a self-hostable web app (paste a URL, get a feed), 220 ready-made site feeds, the docs site, and a headless scrape API.',
+      'In 2026 I redesigned its auto-sourcing in the open. An <a href="https://github.com/orgs/html2rss/discussions/1195" target="_blank" rel="noopener noreferrer">RFC</a> set out the problem, a three-tier pipeline, and guardrails. The <a href="https://github.com/html2rss/html2rss/pull/435" target="_blank" rel="noopener noreferrer">merged rewrite</a> ran about 6× faster with half the allocations on the benchmark harness, and traded some recall for precision on purpose.',
     ],
     homepage: {
       term: "html2rss",
@@ -153,6 +160,32 @@ export const projects: readonly Project[] = [
       href: "https://gildesmarais.github.io/moodbar.rs/",
       external: true,
       definition: "Rust audio toolkit — CLI, native, WASM; live demo",
+    },
+  },
+  {
+    id: "omnifocus-mcp",
+    title: "omnifocus-mcp",
+    status: "maintained",
+    description: "MCP server that lets AI assistants read and edit OmniFocus.",
+    highlights: [
+      { term: "Single binary", definition: "One Go binary speaking MCP over stdio." },
+      {
+        term: "Local",
+        definition: "Runs Omni Automation inside OmniFocus; no account, sync server, or API key.",
+      },
+      { term: "Safety", definition: "Drop and delete are separate tools, so clients can gate them by name." },
+    ],
+    links: [
+      { text: "GitHub Repository", url: "https://github.com/gildesmarais/omnifocus-mcp", external: true },
+    ],
+    bodyHtml: [
+      "Agents can list, search, add, and edit tasks in batches, and manage projects, tags, and folders. Install with <code>go install github.com/gildesmarais/omnifocus-mcp@latest</code>.",
+    ],
+    homepage: {
+      term: "omnifocus-mcp",
+      href: "https://github.com/gildesmarais/omnifocus-mcp",
+      external: true,
+      definition: "Go MCP server — agents read and edit OmniFocus, locally",
     },
   },
   {
