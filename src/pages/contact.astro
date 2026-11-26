@@ -21,7 +21,7 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
 <BaseLayout title={title} description={corePage("/contact").description}>
   <Hero
     title={title}
-    description="Fastest replies come from crisp, async notes. Share the problem, who’s involved, and the decision on the table."
+    description="A short note works best: what you’re building, who’s involved, and where I could help."
   />
 
   <aside id="devtools" class="accent" aria-label="Developer note">
@@ -36,19 +36,12 @@ const mailtoEncoded = Buffer.from(mailtoTemplate).toString("base64")
     <h2 id="what-to-expect" class="accent">
       What to expect
     </h2>
-    <p>Keep it short: context, decision, timing. Serious outreach gets a reply within two business days.</p>
-    <p class="micro">Details are only used to respond. No lists, no marketing.</p>
-    <details class="micro" open>
-      <summary>Do not expect an answer for:</summary>
-      <ul>
-        <li>Pure people-management roles with no hands-on mandate, or roles outside software</li>
-        <li>Requests without scope, budget, or decision context</li>
-        <li>
-          Unpaid consulting or <q>pick your brain</q> chats
-        </li>
-        <li>Mass marketing or promotional outreach</li>
-      </ul>
-    </details>
+    <p>
+      I reply to every personal message within two business days. Recruiters and founders are welcome: a role
+      description or a rough idea is enough to start.
+    </p>
+    <p>I’m happiest in hands-on roles where I own the outcome, rather than in pure people management.</p>
+    <p class="micro">I use your details only to reply. No lists, no marketing.</p>
 
     <div class="contact-actions" data-email={emailEncoded} data-mailto={mailtoEncoded}>
       <button type="button" class="minimal-btn" data-action="launch-email">
