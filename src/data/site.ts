@@ -71,7 +71,7 @@ export const corePages = [
     path: "/contact",
     description: "Reach Gil Desmarais for hands-on software engineering with direct ownership of outcomes.",
     excerpt:
-      "Reach Gil for hands-on software engineering with direct ownership of outcomes. Prefer crisp async notes: the problem, who's involved, and the decision on the table. Professional socials and email are listed on the page.",
+      "Reach Gil for hands-on software engineering with direct ownership of outcomes. A short note works best: what they're building, who's involved, and where Gil could help. Replies within two business days. Professional socials and email are listed on the page.",
   },
 ] as const satisfies readonly CorePage[]
 
